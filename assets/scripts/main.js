@@ -66,7 +66,9 @@ var Procedure = function Procedure(el, data) {
             return d.total;
         })]).nice();
 
-        colourMap = d3.scaleOrdinal(d3.schemeCategory20).range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]).domain(data.columns.slice(3));
+        // colourMap = d3.scaleOrdinal(d3.schemeCategory20)
+        //     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"])
+        //     .domain(data.columns.slice(3));
     };
 
     var renderYAxis = function renderYAxis() {
@@ -87,9 +89,9 @@ var Procedure = function Procedure(el, data) {
 
         console.log('nieuw');
 
-        layers.bars.selectAll(".category").data(stack.keys(data.columns.slice(3))(data)).enter().append("g").attr("class", "category").attr("fill", function (d) {
-            return colourMap(d.key);
-        }).selectAll('rect').data(function (d) {
+        layers.bars.selectAll(".category").data(stack.keys(data.columns.slice(3))(data)).enter().append("g").attr("class", "category")
+        // .attr("fill", function(d) { return colourMap(d.key); })
+        .selectAll('rect').data(function (d) {
             return d;
         }).enter().append('rect').attr('y', function (d) {
             return yScale(d.data.name);
