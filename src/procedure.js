@@ -95,7 +95,7 @@ var Procedure = function Procedure(el,data) {
 
         layers.axis.append("g")
             .attr('class', 'status-axis')
-            .attr("transform", "translate(" + (-barWidth / 2) + "," + (height - config.margin.bottom) + ")")
+            .attr("transform", "translate(" + (-barWidth / 2 + 10) + "," + (height - config.margin.bottom) + ")")
             .call(statusAxis);
     }
 
