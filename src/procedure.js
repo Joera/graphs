@@ -148,7 +148,7 @@ var Procedure = function Procedure(el,data) {
                 {x0:100,x1:600,y0:200,y1:200}],
         ];
 
-        let areaFunc = d3.svg.area()
+        let areaFunc = d3.area()
             .interpolate('step')
             .x0(function(d){return xScale(d.x0);})
             .x1(function(d){return xScale(d.x1);})
