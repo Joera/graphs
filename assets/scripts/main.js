@@ -115,9 +115,9 @@ var Procedure = function Procedure(el, data) {
 
 
         var bar = category.selectAll(".bar").data(function (d) {
-            console.log(d);return d;
+            return d;
         }).enter().append('rect').attr('y', function (d) {
-
+            console.log(d);
             return yScale(d.value);
         }).attr('x', function (d, i) {
             return xScale(d.key);
