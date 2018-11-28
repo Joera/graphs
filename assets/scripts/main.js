@@ -45,7 +45,7 @@ var Procedure = function Procedure(el, data) {
         // .attr('width', (this.width + config.margin.left + config.margin.right + config.padding.left + config.padding.right))
         .attr('width', containerWidth + config.margin.left + config.margin.right + config.padding.left + config.padding.right).attr('height', height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
-        stack = d3.stack();
+        stack = d3.layout.stack().offset("zero");
     };
 
     var renderLayers = function renderLayers() {
@@ -89,16 +89,18 @@ var Procedure = function Procedure(el, data) {
 
         console.log('nieuw');
 
-        layers.bars.selectAll(".category").data(stack.keys(data.columns.slice(3))(data)).enter().append("g").attr("class", "category")
-        // .attr("fill", function(d) { return colourMap(d.key); })
-        .selectAll('rect').data(function (d) {
-            return d;
-        }).enter().append('rect').attr('y', function (d) {
-            return yScale(d.data.name);
+        var stackedData = data.map(function (d) {
+            return d.map(function (p, i) {
+                return { x: i, y: p, y0: 0 };
+            });
+        });
+
+        layers.bars.selectAll(".bar").selectAll('rect').data(data).enter().append('rect').attr('y', function (d) {
+            return yScale(d.total);
         }).attr('x', function (d, i) {
-            return xScale(d.data.name);
+            return xScale(d.name);
         }).attr('width', barWidth).attr('height', function (d) {
-            return yScale(0) - yScale(d.data.name);
+            return yScale(0) - yScale(d.total);
         }).attr('class', 'bar');
     };
 
@@ -112,7 +114,7 @@ var Procedure = function Procedure(el, data) {
             areaData.push([data[i], data[i + 1]]);
         }
 
-        var area = d3.area().x0(function (d, i) {
+        var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
             if (i < 1) {
                 return xScale(d.name) + barWidth;
             } else {

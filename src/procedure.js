@@ -52,7 +52,8 @@ var Procedure = function Procedure(el,data) {
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
 
-        stack = d3.stack();
+        stack = d3.layout.stack()
+            .offset("zero")
     }
 
     let renderLayers = function renderLayers() {
@@ -110,24 +111,22 @@ var Procedure = function Procedure(el,data) {
 
         console.log('nieuw');
 
-        layers.bars.selectAll(".category")
-            .data(stack.keys(data.columns.slice(3))(data))
-            .enter().append("g")
-            .attr("class", "category")
-            // .attr("fill", function(d) { return colourMap(d.key); })
+        let stackedData = data.map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
+
+        layers.bars.selectAll(".bar")
             .selectAll('rect')
-            .data( (d) => { return d})
+            .data(data)
             .enter()
             .append('rect')
             .attr('y', (d) => {
-                return yScale(d.data.name);
+                return yScale(d.total);
             })
             .attr('x', (d,i) => {
-                return xScale(d.data.name);
+                return xScale(d.name);
             })
             .attr('width', barWidth)
             .attr('height', (d) => {
-                return yScale(0) - yScale(d.data.name);
+                return yScale(0) - yScale(d.total);
             })
             .attr('class', 'bar');
 
@@ -146,6 +145,7 @@ var Procedure = function Procedure(el,data) {
         }
 
         let area = d3.area()
+            .curve(d3.curveCardinal)
             .x0((d,i) => { if (i < 1) { return xScale(d.name) + barWidth } else { return xScale(d.name);}})
             .x1((d,i) => { if (i < 1) { return xScale(d.name) + barWidth } else { return xScale(d.name); }})
             .y0(yScale(0))
