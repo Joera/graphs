@@ -27,10 +27,12 @@ var Graph = function Graph(el,data) {
     let dataset = data;
     let config = {};
 
-    const procedure = Procedure(element,dataset); // hier kun je data uitsplitsen
+    const procedure = Procedure(element,dataset.procedure); // hier kun je data uitsplitsen
 
     procedure.createSVG();
+    procedure.setScale();
     procedure.yAxis();
+
 
     return {
         procedure : procedure

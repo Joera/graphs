@@ -11,7 +11,6 @@ var Procedure = function Procedure(el, data) {
     var dataset = data;
 
     var containerWidth = d3.select(element).node().getBoundingClientRect().width;
-    var height = 400;
 
     var config = {
 
@@ -30,6 +29,9 @@ var Procedure = function Procedure(el, data) {
         }
     };
 
+    var height = 400;
+    var width = containerWidth - config.margin.left - config.margin.right - config.padding.left - config.padding.right;
+
     var createSVG = function createSVG() {
 
         svg = d3.select(element).append('svg')
@@ -37,11 +39,28 @@ var Procedure = function Procedure(el, data) {
         .attr('width', containerWidth + config.margin.left + config.margin.right + config.padding.left + config.padding.right).attr('height', height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
     };
 
+    var setScale = function setScale() {
+
+        console.log(data);
+
+        var xScale = d3.scaleLinear().range([config.padding.left, width]).domain([0, data.length]);
+        //
+        // // y scale
+        // this.yScale = d3.scaleBand()
+        //     .rangeRound([0, this.height])
+        //     .domain(this.dataset.map(d => {
+        //         return parseInt(d.position);
+        //     }).filter((value, index, self) => {
+        //         return self.indexOf(value) === index;
+        //     }).sort());
+    };
+
     var yAxis = function yAxis() {};
 
     return {
 
         createSVG: createSVG,
+        setScale: setScale,
         yAxis: yAxis
 
     };
@@ -72,9 +91,10 @@ var Graph = function Graph(el, data) {
     var dataset = data;
     var config = {};
 
-    var procedure = Procedure(element, dataset); // hier kun je data uitsplitsen
+    var procedure = Procedure(element, dataset.procedure); // hier kun je data uitsplitsen
 
     procedure.createSVG();
+    procedure.setScale();
     procedure.yAxis();
 
     return {

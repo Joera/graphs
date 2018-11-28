@@ -11,7 +11,7 @@ var Procedure = function Procedure(el,data) {
     let dataset = data;
 
     let containerWidth = d3.select(element).node().getBoundingClientRect().width;
-    let height = 400;
+
 
     let config = {
 
@@ -28,7 +28,10 @@ var Procedure = function Procedure(el,data) {
             left : 0,
             right : 0
         }
-    }
+    };
+
+    let height = 400;
+    let width = containerWidth - config.margin.left - config.margin.right - config.padding.left - config.padding.right;
 
 
     let createSVG = function createSVG() {
@@ -42,6 +45,25 @@ var Procedure = function Procedure(el,data) {
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
 
+
+    }
+
+    let setScale = function setScale() {
+
+        console.log(data);
+
+        let xScale = d3.scaleLinear()
+            .range([config.padding.left, width])
+            .domain([0, data.length]);
+        //
+        // // y scale
+        // this.yScale = d3.scaleBand()
+        //     .rangeRound([0, this.height])
+        //     .domain(this.dataset.map(d => {
+        //         return parseInt(d.position);
+        //     }).filter((value, index, self) => {
+        //         return self.indexOf(value) === index;
+        //     }).sort());
 
     }
 
@@ -62,6 +84,7 @@ var Procedure = function Procedure(el,data) {
     return {
 
         createSVG :  createSVG,
+        setScale : setScale,
         yAxis : yAxis
 
     }
