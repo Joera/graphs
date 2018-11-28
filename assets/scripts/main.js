@@ -123,7 +123,7 @@ var Procedure = function Procedure(el, data) {
             return yScale(d.y1);
         });
 
-        svg.selectAll('path').data(test).enter().append("path").attr("d", areaFunc).attr("fill", "steelblue").attr('class', 'flow');
+        layer.bars.selectAll('path').data(test).enter().append("path").attr("d", areaFunc).attr("fill", "steelblue").attr('class', 'flow');
     };
 
     return {
