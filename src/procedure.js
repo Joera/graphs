@@ -139,6 +139,8 @@ var Procedure = function Procedure(el,data) {
 
 
             layers.bars
+                .data([data[i]])
+                .enter()
                 .append("path")
                 .attr("d", area)
                 .attr("fill", "steelblue")
