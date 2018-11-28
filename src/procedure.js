@@ -52,8 +52,8 @@ var Procedure = function Procedure(el,data) {
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
 
-        stack = d3.layout.stack()
-            .offset("zero")
+        // stack = d3.layout.stack()
+        //     .offset("zero")
     }
 
     let renderLayers = function renderLayers() {

@@ -45,7 +45,8 @@ var Procedure = function Procedure(el, data) {
         // .attr('width', (this.width + config.margin.left + config.margin.right + config.padding.left + config.padding.right))
         .attr('width', containerWidth + config.margin.left + config.margin.right + config.padding.left + config.padding.right).attr('height', height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
-        stack = d3.layout.stack().offset("zero");
+        // stack = d3.layout.stack()
+        //     .offset("zero")
     };
 
     var renderLayers = function renderLayers() {
