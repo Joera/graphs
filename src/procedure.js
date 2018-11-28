@@ -137,10 +137,13 @@ var Procedure = function Procedure(el,data) {
                 .y1(yScale(data[i + 1].total));
 
 
-            layers.bars
+            layers.bars.selectAll('.flow')
+                .data(data[i])
+                .enter()
                 .append("path")
                 .attr("fill", "steelblue")
-                .attr("d", area);
+                .attr("d", area)
+                .attr('class', 'flow');
 
         }
 
