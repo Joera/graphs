@@ -20,7 +20,7 @@ var Procedure = function Procedure(el, data) {
     var config = {
 
         margin: {
-            top: 0,
+            top: 60,
             bottom: 60,
             left: 60,
             right: 0
@@ -74,7 +74,7 @@ var Procedure = function Procedure(el, data) {
 
         var statusAxis = d3.axisBottom(xScale);
 
-        layers.axis.append("g").attr('class', 'status-axis').attr("transform", "translate(0," + height + ")").call(statusAxis);
+        layers.axis.append("g").attr('class', 'status-axis').attr("transform", "translate(0," + height - config.margin.bottom + ")").call(statusAxis);
     };
 
     var renderBars = function renderBars() {

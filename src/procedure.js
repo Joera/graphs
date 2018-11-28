@@ -21,7 +21,7 @@ var Procedure = function Procedure(el,data) {
     let config = {
 
         margin : {
-            top : 0,
+            top : 60,
             bottom : 60,
             left : 60,
             right : 0
@@ -92,7 +92,7 @@ var Procedure = function Procedure(el,data) {
 
         layers.axis.append("g")
             .attr('class', 'status-axis')
-            .attr("transform", "translate(0," + height - config.margin-bottom + ")")
+            .attr("transform", "translate(0," + height - config.margin.bottom + ")")
             .call(statusAxis);
     }
 
