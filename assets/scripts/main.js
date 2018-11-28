@@ -27,7 +27,6 @@ var Graph = function Graph(data) {
     var config = {};
 
     var render = function render() {
-
         console.log(dataset);
     };
 

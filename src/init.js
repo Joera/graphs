@@ -28,18 +28,11 @@ var Graph = function Graph(data) {
 
     let config = {};
 
-
-
     let render = function render() {
-
-        console.log(dataset)
-
-
+        console.log(dataset);
     }
 
-
     render();
-
 
     return {
         render : render
