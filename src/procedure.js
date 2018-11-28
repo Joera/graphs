@@ -158,7 +158,7 @@ var Procedure = function Procedure(el,data) {
         let category = layers.bars.selectAll(".category")
             .data(stackedData)
             .enter().append("g")
-            .attr("class",function(d, i) { console.log(d); return d[0].cat + ' category' ; });
+            .attr("class",function(d, i) { console.log(d); return d[i].cat + ' category' ; });
            // .style("fill", function(d, i) { return color(i); });
 
 
