@@ -67,7 +67,7 @@ var Procedure = function Procedure(el, data) {
 
         var totalAxis = d3.axisLeft(yScale);
 
-        layers.axis.append("g").attr('class', 'total-axis').attr("transform", "translate(0,30)").call(totalAxis);
+        layers.axis.append("g").attr('class', 'total-axis').attr("transform", "translate(0,0)").call(totalAxis);
     };
 
     var renderXAxis = function renderYAxis() {

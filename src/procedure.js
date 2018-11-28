@@ -82,7 +82,7 @@ var Procedure = function Procedure(el,data) {
 
         layers.axis.append("g")
             .attr('class', 'total-axis')
-            .attr("transform", "translate(0,30)")
+            .attr("transform", "translate(0,0)")
             .call(totalAxis);
     }
 
