@@ -126,7 +126,7 @@ var Procedure = function Procedure(el,data) {
         let areaElement;
         let areas = [];
 
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length - 1; i++) {
 
             console.log(data[i])
 
