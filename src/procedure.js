@@ -21,7 +21,7 @@ var Procedure = function Procedure(el,data) {
         margin : {
             top : 0,
             bottom : 0,
-            left : 30,
+            left : 60,
             right : 0
         },
 
@@ -69,7 +69,7 @@ var Procedure = function Procedure(el,data) {
         // // y scale
         yScale = d3.scaleLinear()
             .range([0, height])
-            .domain([0, d3.max(data.map( (d) => { return d.total; }))]);
+            .domain([d3.max(data.map( (d) => { return d.total; })),0]);
 
     }
 
