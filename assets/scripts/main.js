@@ -92,7 +92,8 @@ var Procedure = function Procedure(el, data) {
 
         var areaData = [];
 
-        for (var i = 0; i < data.length - 1; i++) {
+        for (var i = 0; i < 1; i++) {
+            // data.length - 
 
             areaData.push([data[i], data[i + 1]]);
         }
