@@ -155,7 +155,7 @@ var Procedure = function Procedure(el,data) {
             .y0(function(d){return yScale(d.y0);})
             .y1(function(d){return yScale(d.y1);});
 
-        svg.selectAll('path')
+        layer.bars.selectAll('path')
             .data(test)
             .enter()
             .append("path")
