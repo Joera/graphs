@@ -58,9 +58,9 @@ var Procedure = function Procedure(el, data) {
         }));
         //
         // // y scale
-        yScale = d3.scaleLinear().range([0, height]).domain([d3.max(data.map(function (d) {
+        yScale = d3.scaleLinear().range([height - config.margin.bottom, config.margin.top]).domain([0, d3.max(data, function (d) {
             return d.total;
-        })), 0]);
+        })]).nice();
     };
 
     var renderYAxis = function renderYAxis() {

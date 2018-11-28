@@ -71,8 +71,8 @@ var Procedure = function Procedure(el,data) {
         //
         // // y scale
         yScale = d3.scaleLinear()
-            .range([0, height])
-            .domain([d3.max(data.map( (d) => { return d.total; })),0]);
+            .range([height - config.margin.bottom, config.margin.top])
+            .domain([0,d3.max(data, d => d.total)]).nice();
 
     }
 
