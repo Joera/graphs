@@ -90,24 +90,22 @@ var Procedure = function Procedure(el, data) {
 
     var renderFlows = function renderFlows() {
 
-        var area = void 0;
-        var areaElement = void 0;
-        var areas = [];
+        var areaData = [];
 
         for (var i = 0; i < data.length - 1; i++) {
 
-            console.log(data[i]);
-
-            area = d3.area().x0(function (d) {
-                return xScale(d.name) + barWidth / 2;
-            }).x1(function (d) {
-                xScale(d.name) - barWidth / 2;
-            }).y0(yScale(0)).y1(function (d) {
-                return yScale(d.total);
-            });
-
-            layers.bars.selectAll('.flow').data(data).enter().append("path").attr("d", area).attr("fill", "steelblue").attr('class', 'flow');
+            areaData.push([data[i], data[i + 1]]);
         }
+
+        var area = d3.area().x0(function (d) {
+            return xScale(d.name) + barWidth / 2;
+        }).x1(function (d) {
+            xScale(d.name) - barWidth / 2;
+        }).y0(yScale(0)).y1(function (d) {
+            return yScale(d.total);
+        });
+
+        layers.bars.selectAll('.flow').data(areaData).enter().append("path").attr("d", area).attr("fill", "steelblue").attr('class', 'flow');
     };
 
     return {
