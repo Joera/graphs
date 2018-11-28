@@ -21,7 +21,6 @@ var Graph = function Graph(data) {
 
     var formatDates = locale.format("%B %Y");
 
-    var element = element;
     var dataset = data;
 
     var config = {};
