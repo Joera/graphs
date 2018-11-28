@@ -111,7 +111,9 @@ var Procedure = function Procedure(el,data) {
 
         console.log('nieuw');
 
-        let stack = d3.stack().keys([0,1,2,3]);
+        let stack = d3.stack();
+
+            stack.keys([0,1,2,3]);
 
             stack.values(function(d) { return d; });
 
