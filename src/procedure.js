@@ -144,7 +144,7 @@ var Procedure = function Procedure(el,data) {
             .enter()
             .append("path")
             .attr("d", area)
-            .attr("fill", "steelblue")
+            .attr("fill", "#ccc")
             .attr('class', 'flow');
 
 
