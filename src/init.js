@@ -23,7 +23,7 @@ var Graph = function Graph(data) {
 
     let formatDates = locale.format("%B %Y");
 
-    let element = element;
+
     let dataset = data;
 
     let config = {};
