@@ -97,7 +97,19 @@ var Procedure = function Procedure(el, data) {
 
             // console.log(d);
 
-            return [d['cvw_met_historie'], d['cvw_zonder_historie'], d['nieuw_met_historie'], d['nieuw_zonder_historie']];
+            return [{
+                'cat': d.name,
+                'val': d['cvw_met_historie']
+            }, {
+                'cat': d.name,
+                'val': d['cvw_zonder_historie']
+            }, {
+                'cat': d.name,
+                'val': d['nieuw_met_historie']
+            }, {
+                'cat': d.name,
+                'val': d['nieuw_zonder_historie']
+            }];
 
             // console.log(d);
             // return d.map(function(p, i) {
@@ -120,11 +132,11 @@ var Procedure = function Procedure(el, data) {
             return d;
         }).enter().append('rect').attr('y', function (d) {
             console.log(d);
-            return yScale(d);
+            return yScale(d.val);
         }).attr('x', function (d, i) {
-            return xScale(i);
+            return xScale(d.name);
         }).attr('width', barWidth).attr('height', function (d) {
-            return yScale(0) - yScale(d);
+            return yScale(0) - yScale(d.val);
         }).attr('class', 'bar');
     };
 
