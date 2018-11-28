@@ -124,10 +124,10 @@ var Procedure = function Procedure(el, data) {
             // });
         });
 
-        console.log(stackedData);
+        // console.log(stackedData);
 
         var category = layers.bars.selectAll(".category").data(stackedData).enter().append("g").attr("class", function (d, i) {
-            return d.cat + ' category';
+            console.log(d);return d.cat + ' category';
         });
         // .style("fill", function(d, i) { return color(i); });
 
