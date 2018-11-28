@@ -90,9 +90,7 @@ var Procedure = function Procedure(el,data) {
     let renderBars = function renderBars() {
 
         let bar = layers.bars.selectAll('.bar')
-            .data((d) => {
-                return [d];
-            })
+            .data(data)
             .enter()
             .append('rect')
             .attr('x', (d) => {
