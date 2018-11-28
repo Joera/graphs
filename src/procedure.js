@@ -139,7 +139,7 @@ var Procedure = function Procedure(el,data) {
 
 
             layers.bars
-                .data([data[i]])
+                .data(['hi'])
                 .enter()
                 .append("path")
                 .attr("d", area)
