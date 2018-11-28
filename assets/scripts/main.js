@@ -93,7 +93,16 @@ var Procedure = function Procedure(el, data) {
             return d[key].y;
         });
 
-        var stackedData = data; // .map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
+        var stackedData = data.map(function (d) {
+            return d.map(function (p, i) {
+                return {
+                    'key': d.name,
+                    'value': p
+                };
+            });
+        });
+
+        console.log(stackedData);
 
         var category = layers.bars.selectAll(".category").data(stackedData).enter().append("g").attr("class", function (d, i) {
             return d.id + ' category';
@@ -101,12 +110,14 @@ var Procedure = function Procedure(el, data) {
         // .style("fill", function(d, i) { return color(i); });
 
 
-        layers.bars.selectAll(".bar").data(data).enter().append('rect').attr('y', function (d) {
-            return yScale(d.total);
+        var bar = category.selectAll(".bar").data(function (d) {
+            return d;
+        }).enter().append('rect').attr('y', function (d) {
+            return yScale(d.value);
         }).attr('x', function (d, i) {
-            return xScale(d.name);
+            return xScale(d.key);
         }).attr('width', barWidth).attr('height', function (d) {
-            return yScale(0) - yScale(d.total);
+            return yScale(0) - yScale(d.value);
         }).attr('class', 'bar');
     };
 

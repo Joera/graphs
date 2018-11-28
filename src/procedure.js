@@ -116,9 +116,18 @@ var Procedure = function Procedure(el,data) {
             return d[key].y;
         });
 
-            let stackedData = data; // .map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
+            let stackedData = data.map(function(d) {
+                return d.map(function(p, i) {
+                    return {
+                        'key': d.name,
+                        'value': p
+                    };
+                });
+            });
 
-        var category = layers.bars.selectAll(".category")
+            console.log(stackedData);
+
+        let category = layers.bars.selectAll(".category")
             .data(stackedData)
             .enter().append("g")
             .attr("class",function(d, i) { return d.id + ' category' ; });
@@ -127,19 +136,19 @@ var Procedure = function Procedure(el,data) {
 
 
 
-        layers.bars.selectAll(".bar")
-            .data(data)
+        let bar = category.selectAll(".bar")
+            .data(function(d) { return d; })
             .enter()
             .append('rect')
             .attr('y', (d) => {
-                return yScale(d.total);
+                return yScale(d.value);
             })
             .attr('x', (d,i) => {
-                return xScale(d.name);
+                return xScale(d.key);
             })
             .attr('width', barWidth)
             .attr('height', (d) => {
-                return yScale(0) - yScale(d.total);
+                return yScale(0) - yScale(d.value);
             })
             .attr('class', 'bar');
 
