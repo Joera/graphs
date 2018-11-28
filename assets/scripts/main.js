@@ -100,7 +100,7 @@ var Procedure = function Procedure(el, data) {
         var area = d3.area().x0(function (d) {
             return xScale(d.name) + barWidth / 2;
         }).x1(function (d) {
-            xScale(d.name) - barWidth / 2;
+            return xScale(d.name) - barWidth / 2;
         }).y0(yScale(0)).y1(function (d) {
             return yScale(d.total);
         });
