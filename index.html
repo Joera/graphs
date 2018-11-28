@@ -1,1 +1,33 @@
-blabla
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="./assets/css/main.css">
+
+<style>
+
+
+</style>
+
+
+<script src="./assets/scripts/d3.min.js"></script>
+<script src="./assets/scripts/graph.js"></script>
+<script>
+    d3.json('./dataset.json', function(data) {
+//        console.log(data);
+        var graph = new Graph('.chart-container', data);
+    });
+
+</script>
+
+
+<body>
+    <div style="width: 1200px;">
+        <div class="chart-container"></div>
+    </div>
+</body>
+
+
+<script>
+
+
+</html>

@@ -1,0 +1,57 @@
+{
+      "name": "week 47",
+      "week_id": "",
+      "date": "",
+      "procedure": [
+
+        {
+          "name": "Binnengekomen",
+          "id": "binnengekomen",
+          "total": 19000,
+          "cvw_met_historie": 10000,
+          "cvw_zonder_historie": 3000,
+          "nieuw_met_historie": 1000,
+          "nieuw_zonder_historie": 5000,
+        },
+        {
+          "name": "Opname uitgevoerd",
+          "id": "opname_uitgevoerd",
+          "total": 5000,
+          "cvw_met_historie": 1000,
+          "cvw_zonder_historie": 2000,
+          "nieuw_met_historie": 1000,
+          "nieuw_zonder_historie": 1000
+        },
+        {
+          "name": "Rapport bij bewoner",
+          "id": "rapport_bij_bewoner",
+          "total": 1000,
+          "cvw_met_historie": 500,
+          "cvw_zonder_historie": 450,
+          "nieuw_met_historie": 0,
+          "nieuw_zonder_historie": 50
+        },
+        {
+          "name": "Voorbereiden besluit",
+          "id": "voorbereiden_besluit",
+          "total": 100,
+          "cvw_met_historie": 100,
+          "cvw_zonder_historie": 0,
+          "nieuw_met_historie": 0,
+          "nieuw_zonder_historie": 0
+        },
+        {
+          "name": "Besluit genomen",
+          "id": "besluit_genomen",
+          "total": 100,
+          "cvw_met_historie": 100,
+          "cvw_zonder_historie": 0,
+          "nieuw_met_historie": 0,
+          "nieuw_zonder_historie": 0
+        }
+      ],
+      "uitgekeerde bedragen" : {
+        "totaal" : 5000000,
+        "gemiddeld_bedrag" : 460
+      }
+}
