@@ -74,7 +74,7 @@ var Procedure = function Procedure(el, data) {
 
         var statusAxis = d3.axisBottom(xScale);
 
-        layers.axis.append("g").attr('class', 'status-axis').attr("transform", "translate(" + (-barWidth / 2 + 10) + "," + (height - config.margin.bottom) + ")").call(statusAxis);
+        layers.axis.append("g").attr('class', 'status-axis').attr("transform", "translate(" + (-barWidth / 2 - 10) + "," + (height - config.margin.bottom) + ")").call(statusAxis);
     };
 
     var renderBars = function renderBars() {
@@ -98,7 +98,7 @@ var Procedure = function Procedure(el, data) {
 
             area = d3.area().x0(xScale(data[i].name + barWidth / 2)).x1(xScale(data[i + 1].name - barWidth / 2)).y0(yScale(0)).y1(yScale(d.total));
 
-            areaElement = layers.bars.selectAll('.flow').data(data[i]).enter().append("path").attr("fill", "steelblue").attr("d", area);
+            layers.bars.append("path").attr("fill", "steelblue").attr("d", area);
         }
     };
 
