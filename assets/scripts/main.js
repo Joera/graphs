@@ -92,7 +92,7 @@ var Procedure = function Procedure(el, data) {
 
         //   let stackedData = data.map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
 
-        layers.bars.selectAll(".bar").selectAll('rect').data(data).enter().append('rect').attr('y', function (d) {
+        layers.bars.selectAll(".bar").data(data).enter().append('rect').attr('y', function (d) {
             return yScale(d.total);
         }).attr('x', function (d, i) {
             return xScale(d.name);
