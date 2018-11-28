@@ -137,7 +137,7 @@ var Procedure = function Procedure(el,data) {
                 .y1(yScale(data[i + 1].total));
 
 
-            layer.bars.selectAll('path')
+            layers.bars.selectAll('path')
                 .data([data[i]])
                 .enter()
                 .append("path")
@@ -146,7 +146,7 @@ var Procedure = function Procedure(el,data) {
                 .attr('class', 'flow');
 
         }
-        
+
 
     }
 
