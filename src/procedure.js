@@ -150,10 +150,10 @@ var Procedure = function Procedure(el,data) {
 
         let areaFunc = d3.svg.area()
             .interpolate('step')
-            .x0(function(d){return d.x0;})
-            .x1(function(d){return d.x1;})
-            .y0(function(d){return d.y0;})
-            .y1(function(d){return d.y1;});
+            .x0(function(d){return xScale(d.x0);})
+            .x1(function(d){return xScale(d.x1);})
+            .y0(function(d){return yScale(d.y0);})
+            .y1(function(d){return yScale(d.y1);});
 
         layers.bars.selectAll('.flow')
             .data(test)
