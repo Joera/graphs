@@ -98,16 +98,19 @@ var Procedure = function Procedure(el, data) {
             console.log(d);
 
             return [{
-                'cat': d.name,
+                'cat': 'cvw_met_historie',
                 'status': d.name,
                 'val': d['cvw_met_historie']
             }, {
+                'cat': 'cvw_zonder_historie',
                 'status': d.name,
                 'val': d['cvw_zonder_historie']
             }, {
+                'cat': 'nieuw_met_historie',
                 'status': d.name,
                 'val': d['nieuw_met_historie']
             }, {
+                'cat': 'nieuw_zonder_historie',
                 'status': d.name,
                 'val': d['nieuw_zonder_historie']
             }];
@@ -124,7 +127,7 @@ var Procedure = function Procedure(el, data) {
         console.log(stackedData);
 
         var category = layers.bars.selectAll(".category").data(stackedData).enter().append("g").attr("class", function (d, i) {
-            return d.id + ' category';
+            return d.cat + ' category';
         });
         // .style("fill", function(d, i) { return color(i); });
 
