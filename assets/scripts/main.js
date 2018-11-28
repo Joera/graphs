@@ -26,12 +26,12 @@ var Graph = function Graph(data) {
 
     var config = {};
 
-    render();
-
     var render = function render() {
 
         console.log(dataset);
     };
+
+    render();
 
     return {
         render: render
