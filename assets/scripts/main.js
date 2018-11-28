@@ -96,6 +96,8 @@ var Procedure = function Procedure(el, data) {
 
         for (var i = 0; i < data.length; i++) {
 
+            console.log(data[i]);
+
             area = d3.area().x0(xScale(data[i].name + barWidth / 2)).x1(xScale(data[i + 1].name - barWidth / 2)).y0(yScale(0)).y1(yScale(d.total));
 
             layers.bars.append("path").attr("fill", "steelblue").attr("d", area);
