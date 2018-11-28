@@ -139,7 +139,7 @@ var Procedure = function Procedure(el,data) {
 
 
             layers.bars.selectAll('.flow')
-                .data(['hi'])
+                .data(data)
                 .enter()
                 .append("path")
                 .attr("d", area)
