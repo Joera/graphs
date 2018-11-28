@@ -12,6 +12,8 @@ var Procedure = function Procedure(el, data) {
     var layers = {};
     var xScale = void 0;
     var yScale = void 0;
+    var stack = void 0;
+    var colourMap = void 0;
 
     var containerWidth = d3.select(element).node().getBoundingClientRect().width;
 
@@ -42,6 +44,8 @@ var Procedure = function Procedure(el, data) {
         svg = d3.select(element).append('svg')
         // .attr('width', (this.width + config.margin.left + config.margin.right + config.padding.left + config.padding.right))
         .attr('width', containerWidth + config.margin.left + config.margin.right + config.padding.left + config.padding.right).attr('height', height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
+
+        stack = d3.stack();
     };
 
     var renderLayers = function renderLayers() {
@@ -61,6 +65,8 @@ var Procedure = function Procedure(el, data) {
         yScale = d3.scaleLinear().range([height - config.margin.bottom, config.margin.top]).domain([0, d3.max(data, function (d) {
             return d.total;
         })]).nice();
+
+        colourMap = d3.scaleOrdinal(d3.schemeCategory20).range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]).domain(data.columns.slice(3));
     };
 
     var renderYAxis = function renderYAxis() {
@@ -79,12 +85,16 @@ var Procedure = function Procedure(el, data) {
 
     var renderBars = function renderBars() {
 
-        var bar = layers.bars.selectAll('.bar').data(data).enter().append('rect').attr('y', function (d) {
-            return yScale(d.total);
+        layers.bars.selectAll(".category").data(stack.keys(data.columns.slice(3))(data)).enter().append("g").attr("class", "category").attr("fill", function (d) {
+            return colourMap(d.key);
+        }).selectAll('rect').data(function (d) {
+            return d;
+        }).enter().append('rect').attr('y', function (d) {
+            return yScale(d.data.name);
         }).attr('x', function (d, i) {
-            return xScale(d.name);
+            return xScale(d.data.name);
         }).attr('width', barWidth).attr('height', function (d) {
-            return yScale(0) - yScale(d.total);
+            return yScale(0) - yScale(d.data.name);
         }).attr('class', 'bar');
     };
 
