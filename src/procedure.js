@@ -52,18 +52,14 @@ var Procedure = function Procedure(el,data) {
 
         console.log(data);
 
-        let xScale = d3.scaleLinear()
-            .range([config.padding.left, width])
+        let xScale = d3.scaleBand()
+            .rangeRound([config.padding.left, width])
             .domain([0, data.length]);
         //
         // // y scale
-        // this.yScale = d3.scaleBand()
-        //     .rangeRound([0, this.height])
-        //     .domain(this.dataset.map(d => {
-        //         return parseInt(d.position);
-        //     }).filter((value, index, self) => {
-        //         return self.indexOf(value) === index;
-        //     }).sort());
+        let yScale = d3.scaleLinear()
+            .range([0, height])
+            .domain([0, d3.max(data.map( (d) => { return d.total; }))]);
 
     }
 
