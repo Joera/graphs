@@ -94,12 +94,14 @@ var Procedure = function Procedure(el, data) {
         });
 
         var stackedData = data.map(function (d) {
-            return d.map(function (p, i) {
-                return {
-                    'key': d.name,
-                    'value': p
-                };
-            });
+
+            console.log(d);
+            // return d.map(function(p, i) {
+            //     return {
+            //         'key': d.name,
+            //         'value': p
+            //     };
+            // });
         });
 
         console.log(stackedData);
