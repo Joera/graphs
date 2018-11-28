@@ -153,12 +153,12 @@ var Procedure = function Procedure(el,data) {
                 // });
             });
 
-            console.log(stackedData);
+            // console.log(stackedData);
 
         let category = layers.bars.selectAll(".category")
             .data(stackedData)
             .enter().append("g")
-            .attr("class",function(d, i) { return d.cat + ' category' ; });
+            .attr("class",function(d, i) { console.log(d); return d.cat + ' category' ; });
            // .style("fill", function(d, i) { return color(i); });
 
 
