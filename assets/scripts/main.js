@@ -98,9 +98,13 @@ var Procedure = function Procedure(el, data) {
             areaData.push([data[i], data[i + 1]]);
         }
 
-        var area = d3.area().x0(function (d) {
-            return xScale(d.name);
-        }).x1(function (d) {
+        var area = d3.area().x0(function (d, i) {
+            if (i < 1) {
+                return xScale(d.name) + barWidth;
+            } else {
+                return xScale(d.name);
+            }
+        }).x1(function (d, i) {
             return xScale(d.name);
         }).y0(yScale(0)).y1(function (d) {
             return yScale(d.total);

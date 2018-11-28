@@ -133,8 +133,8 @@ var Procedure = function Procedure(el,data) {
         }
 
         let area = d3.area()
-            .x0((d) => { return xScale(d.name) })
-            .x1((d) => { return xScale(d.name) })
+            .x0((d,i) => { if (i < 1) {return xScale(d.name) + barWidth } else { return xScale(d.name);}})
+            .x1((d,i) => { return xScale(d.name) })
             .y0(yScale(0))
             .y1((d) => { return yScale(d.total); });
 
