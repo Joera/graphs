@@ -138,7 +138,7 @@ var Procedure = function Procedure(el,data) {
 
 
             layers.bars.selectAll('.flow')
-                .data(data[i])
+                .data(data)
                 .enter()
                 .append("path")
                 .attr("fill", "steelblue")
