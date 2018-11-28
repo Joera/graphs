@@ -97,7 +97,7 @@ var Procedure = function Procedure(el,data) {
                 return yScale(d.total);
             })
             .attr('x', (d,i) => {
-                return xScale(i) + config.margin.top +config.padding.top;
+                return xScale(i) + config.margin.top + config.padding.top;
             })
             .attr('width', barWidth)
             .attr('height', (d) => {
