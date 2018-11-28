@@ -28,7 +28,7 @@ var Graph = function Graph(data) {
 
     let config = {};
 
-    render();
+
 
     let render = function render() {
 
@@ -36,6 +36,9 @@ var Graph = function Graph(data) {
 
 
     }
+
+
+    render();
 
 
     return {
