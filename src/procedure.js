@@ -126,7 +126,7 @@ var Procedure = function Procedure(el,data) {
         let areaElement;
         let areas = [];
 
-        for (let i = 0; i < data.length; i++;) {
+        for (let i = 0; i < data.length; i++) {
 
             area = d3.area()
                 .x0(xScale(data[i].name + (barWidth / 2)))
