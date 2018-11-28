@@ -112,13 +112,13 @@ var Procedure = function Procedure(el, data) {
         var test = [[{ x0: 20, x1: 60, y0: 0, y1: 0 }, { x0: 20, x1: 60, y0: 20, y1: 20 }], [{ x0: 100, x1: 600, y0: 20, y1: 20 }, { x0: 100, x1: 600, y0: 200, y1: 200 }]];
 
         var areaFunc = d3.svg.area().interpolate('step').x0(function (d) {
-            return d.x0;
+            return xScale(d.x0);
         }).x1(function (d) {
-            return d.x1;
+            return xScale(d.x1);
         }).y0(function (d) {
-            return d.y0;
+            return yScale(d.y0);
         }).y1(function (d) {
-            return d.y1;
+            return yScale(d.y1);
         });
 
         layers.bars.selectAll('.flow').data(test).enter().append("path").attr("d", areaFunc).attr("fill", "steelblue").attr('class', 'flow');
