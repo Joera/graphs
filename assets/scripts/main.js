@@ -93,15 +93,15 @@ var Procedure = function Procedure(el, data) {
         var areaData = [];
 
         for (var i = 0; i < 1; i++) {
-            // data.length - 
+            // data.length -
 
             areaData.push([data[i], data[i + 1]]);
         }
 
         var area = d3.area().x0(function (d) {
-            return xScale(d.name) + barWidth / 2;
+            return xScale(d.name) + barWidth;
         }).x1(function (d) {
-            return xScale(d.name) - barWidth / 2;
+            return xScale(d.name) + barWidth;
         }).y0(yScale(0)).y1(function (d) {
             return yScale(d.total);
         });

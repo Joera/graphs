@@ -126,15 +126,15 @@ var Procedure = function Procedure(el,data) {
         let areaData = []
 
 
-        for (let i = 0; i < 1; i++) {  // data.length - 
+        for (let i = 0; i < 1; i++) {  // data.length -
 
             areaData.push([data[i],data[i + 1]]);
 
         }
 
         let area = d3.area()
-            .x0((d) => { return xScale(d.name) + (barWidth / 2); })
-            .x1((d) => { return xScale(d.name) - (barWidth / 2); })
+            .x0((d) => { return xScale(d.name) + (barWidth); })
+            .x1((d) => { return xScale(d.name) + (barWidth); })
             .y0(yScale(0))
             .y1((d) => { return yScale(d.total); });
 
