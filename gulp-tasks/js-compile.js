@@ -15,6 +15,7 @@ module.exports = function() {
     gulp.task('js-compile', function() {
 
         var graph = gulp.src([
+            './src/procedure.js',
             './src/init.js'
             ])
             .pipe(concat('main.js'))

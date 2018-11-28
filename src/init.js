@@ -23,20 +23,17 @@ var Graph = function Graph(el,data) {
 
     let formatDates = locale.format("%B %Y");
 
-
     let element = el;
     let dataset = data;
-
     let config = {};
 
-    let render = function render() {
-        console.log(dataset);
-    }
+    const procedure = Procedure(element,dataset); // hier kun je data uitsplitsen
 
-    render();
+    procedure.createSVG();
+    procedure.yAxis();
 
     return {
-        render : render
+        procedure : procedure
     }
 
 }
