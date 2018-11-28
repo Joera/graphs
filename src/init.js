@@ -4,7 +4,7 @@
 /**
  *
  */
-var Graph = function Graph(data) {
+var Graph = function Graph(el,data) {
 
     const locale = d3.timeFormatLocale({
         "dateTime": "%a %e %B %Y %T",
@@ -24,6 +24,7 @@ var Graph = function Graph(data) {
     let formatDates = locale.format("%B %Y");
 
 
+    let element = el;
     let dataset = data;
 
     let config = {};

@@ -13,7 +13,6 @@
 <script src="./assets/scripts/main.js"></script>
 <script>
     d3.json('./dataset.json', function(data) {
-       console.log(data);
         var graph = new Graph('.chart-container', data);
     });
 
