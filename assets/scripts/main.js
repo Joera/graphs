@@ -95,7 +95,9 @@ var Procedure = function Procedure(el, data) {
 
         var stackedData = data.map(function (d) {
 
-            console.log(d);
+            return d;
+
+            // console.log(d);
             // return d.map(function(p, i) {
             //     return {
             //         'key': d.name,
@@ -104,7 +106,7 @@ var Procedure = function Procedure(el, data) {
             // });
         });
 
-        console.log(stackedData);
+        // console.log(stackedData);
 
         var category = layers.bars.selectAll(".category").data(stackedData).enter().append("g").attr("class", function (d, i) {
             return d.id + ' category';
@@ -113,8 +115,9 @@ var Procedure = function Procedure(el, data) {
 
 
         var bar = category.selectAll(".bar").data(function (d) {
-            return d;
+            console.log(d);return d;
         }).enter().append('rect').attr('y', function (d) {
+
             return yScale(d.value);
         }).attr('x', function (d, i) {
             return xScale(d.key);
