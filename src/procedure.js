@@ -134,7 +134,7 @@ var Procedure = function Procedure(el,data) {
 
         let area = d3.area()
             .x0((d) => { return xScale(d.name) + (barWidth); })
-            .x1((d) => { return xScale(d.name); })
+            .x1((d) => { return xScale(d.name) + (barWidth); })
             .y0(yScale(0))
             .y1((d) => { return yScale(d.total); });
 
@@ -143,7 +143,7 @@ var Procedure = function Procedure(el,data) {
             .data(areaData)
             .enter()
             .append("path")
-            .attr("d", area)
+            .attr("d", function(d,i) { return area(); } )
             .attr("fill", "steelblue")
             .attr('class', 'flow');
 
