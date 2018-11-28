@@ -109,17 +109,12 @@ var Procedure = function Procedure(el,data) {
 
     let renderBars = function renderBars() {
 
-        console.log('nieuw');
-
         let stack = d3.stack().keys([0,1,2,3]);
         stack.value(function (d, key) {
             return d[key].y;
         });
 
             let stackedData = data.map(function(d) {
-
-
-                console.log(d);
 
                 return [
                     {
@@ -143,14 +138,6 @@ var Procedure = function Procedure(el,data) {
                         'val' : d['nieuw_zonder_historie']
                     }
                 ];
-
-                // console.log(d);
-                // return d.map(function(p, i) {
-                //     return {
-                //         'key': d.name,
-                //         'value': p
-                //     };
-                // });
             });
 
             // console.log(stackedData);
@@ -158,7 +145,7 @@ var Procedure = function Procedure(el,data) {
         let category = layers.bars.selectAll(".category")
             .data(stackedData)
             .enter().append("g")
-            .attr("class",function(d, i) { console.log(d); return d[i].cat + ' category' ; });
+            .attr("class",function(d, i) { console.log(d[i]); return d[i].cat + ' category' ; });
            // .style("fill", function(d, i) { return color(i); });
 
 
