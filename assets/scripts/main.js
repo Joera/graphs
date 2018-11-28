@@ -9,6 +9,9 @@ var Procedure = function Procedure(el, data) {
     var svg = null;
     var element = el;
     var dataset = data;
+    var layers = {};
+    var xScale = void 0;
+    var yScale = void 0;
 
     var containerWidth = d3.select(element).node().getBoundingClientRect().width;
 
@@ -32,36 +35,46 @@ var Procedure = function Procedure(el, data) {
     var height = 400;
     var width = containerWidth - config.margin.left - config.margin.right - config.padding.left - config.padding.right;
 
-    var createSVG = function createSVG() {
+    var renderSVG = function createSVG() {
 
         svg = d3.select(element).append('svg')
         // .attr('width', (this.width + config.margin.left + config.margin.right + config.padding.left + config.padding.right))
         .attr('width', containerWidth + config.margin.left + config.margin.right + config.padding.left + config.padding.right).attr('height', height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
     };
 
-    var setScale = function setScale() {
+    var renderLayers = function renderLayers() {
 
-        console.log(data);
+        layers.axis = svg.append('g').attr('class', 'axis');
 
-        var xScale = d3.scaleLinear().range([config.padding.left, width]).domain([0, data.length]);
-        //
-        // // y scale
-        // this.yScale = d3.scaleBand()
-        //     .rangeRound([0, this.height])
-        //     .domain(this.dataset.map(d => {
-        //         return parseInt(d.position);
-        //     }).filter((value, index, self) => {
-        //         return self.indexOf(value) === index;
-        //     }).sort());
+        console.log('kwashier');
     };
 
-    var yAxis = function yAxis() {};
+    var setScale = function setScale() {
+
+        xScale = d3.scaleBand().rangeRound([config.padding.left, width]).domain([0, data.length]);
+        //
+        // // y scale
+        yScale = d3.scaleLinear().range([0, height]).domain([0, d3.max(data.map(function (d) {
+            return d.total;
+        }))]);
+    };
+
+    var renderYAxis = function renderYAxis() {
+
+        var totalAxis = d3.axisLeft(yScale);
+
+        layers.axis.append("g").attr('class', 'total-axis').attr("transform", "translate(0,30)").call(totalAxis);
+    };
+
+    var bars = function bars() {};
 
     return {
 
-        createSVG: createSVG,
+        renderSVG: renderSVG,
+        renderLayers: renderLayers,
         setScale: setScale,
-        yAxis: yAxis
+        renderYAxis: renderYAxis,
+        bars: bars
 
     };
 };
@@ -93,9 +106,10 @@ var Graph = function Graph(el, data) {
 
     var procedure = Procedure(element, dataset.procedure); // hier kun je data uitsplitsen
 
-    procedure.createSVG();
+    procedure.renderSVG();
+    procedure.renderLayers();
     procedure.setScale();
-    procedure.yAxis();
+    procedure.renderYAxis();
 
     return {
         procedure: procedure

@@ -9,6 +9,9 @@ var Procedure = function Procedure(el,data) {
     let svg = null;
     let element = el;
     let dataset = data;
+    let layers = {};
+    let xScale;
+    let yScale;
 
     let containerWidth = d3.select(element).node().getBoundingClientRect().width;
 
@@ -34,7 +37,7 @@ var Procedure = function Procedure(el,data) {
     let width = containerWidth - config.margin.left - config.margin.right - config.padding.left - config.padding.right;
 
 
-    let createSVG = function createSVG() {
+    let renderSVG = function createSVG() {
 
         svg = d3.select(element)
             .append('svg')
@@ -48,24 +51,40 @@ var Procedure = function Procedure(el,data) {
 
     }
 
+    let renderLayers = function renderLayers() {
+
+        layers.axis = svg.append('g')
+            .attr('class', 'axis');
+
+        console.log('kwashier');
+
+    }
+
     let setScale = function setScale() {
 
-        console.log(data);
-
-        let xScale = d3.scaleBand()
+        xScale = d3.scaleBand()
             .rangeRound([config.padding.left, width])
             .domain([0, data.length]);
         //
         // // y scale
-        let yScale = d3.scaleLinear()
+        yScale = d3.scaleLinear()
             .range([0, height])
             .domain([0, d3.max(data.map( (d) => { return d.total; }))]);
 
     }
 
-    let yAxis = function yAxis() {
+    let renderYAxis = function renderYAxis() {
+
+        let totalAxis = d3.axisLeft(yScale);
+
+        layers.axis.append("g")
+            .attr('class', 'total-axis')
+            .attr("transform", "translate(0,30)")
+            .call(totalAxis);
+    }
 
 
+    let bars = function bars() {
 
     }
 
@@ -79,9 +98,11 @@ var Procedure = function Procedure(el,data) {
 
     return {
 
-        createSVG :  createSVG,
+        renderSVG :  renderSVG,
+        renderLayers : renderLayers,
         setScale : setScale,
-        yAxis : yAxis
+        renderYAxis : renderYAxis,
+        bars :  bars
 
     }
 }
