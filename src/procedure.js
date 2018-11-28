@@ -86,6 +86,16 @@ var Procedure = function Procedure(el,data) {
             .call(totalAxis);
     }
 
+    let renderXAxis = function renderYAxis() {
+
+        let statusAxis = d3.axisBottom(xScale);
+
+        layers.axis.append("g")
+            .attr('class', 'status-axis')
+            .call(statusAxis);
+    }
+
+
 
     let renderBars = function renderBars() {
 
@@ -121,6 +131,7 @@ var Procedure = function Procedure(el,data) {
         renderSVG :  renderSVG,
         renderLayers : renderLayers,
         setScale : setScale,
+        renderXAxis : renderXAxis,
         renderYAxis : renderYAxis,
         renderBars :  renderBars
 

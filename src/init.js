@@ -32,7 +32,9 @@ var Graph = function Graph(el,data) {
     procedure.renderSVG();
     procedure.renderLayers();
     procedure.setScale();
+    procedure.renderXAxis();
     procedure.renderYAxis();
+
     procedure.renderBars();
 
 
