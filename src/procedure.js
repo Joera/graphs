@@ -93,10 +93,10 @@ var Procedure = function Procedure(el,data) {
             .data(data)
             .enter()
             .append('rect')
-            .attr('x', (d) => {
+            .attr('y', (d) => {
                 return yScale(d.total);
             })
-            .attr('y', (d,i) => {
+            .attr('x', (d,i) => {
                 return xScale(i) + config.margin.top +config.padding.top;
             })
             .attr('width', barWidth)

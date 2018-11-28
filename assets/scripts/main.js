@@ -70,9 +70,9 @@ var Procedure = function Procedure(el, data) {
 
     var renderBars = function renderBars() {
 
-        var bar = layers.bars.selectAll('.bar').data(data).enter().append('rect').attr('x', function (d) {
+        var bar = layers.bars.selectAll('.bar').data(data).enter().append('rect').attr('y', function (d) {
             return yScale(d.total);
-        }).attr('y', function (d, i) {
+        }).attr('x', function (d, i) {
             return xScale(i) + config.margin.top + config.padding.top;
         }).attr('width', barWidth).attr('height', function (d) {
             return yScale(d.total);
