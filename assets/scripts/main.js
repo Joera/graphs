@@ -97,7 +97,7 @@ var Procedure = function Procedure(el, data) {
 
             console.log(d);
 
-            return [];
+            return [d['cvw_met_historie'], d['cvw_zonder_historie'], d['nieuw_met_historie'], d['nieuw_zonder_historie']];
 
             // console.log(d);
             // return d.map(function(p, i) {
