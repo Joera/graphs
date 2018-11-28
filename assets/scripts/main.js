@@ -99,16 +99,14 @@ var Procedure = function Procedure(el, data) {
         }
 
         var area = d3.area().x0(function (d) {
-            return xScale(d.name) + barWidth;
+            return xScale(d.name);
         }).x1(function (d) {
-            return xScale(d.name) + barWidth;
+            return xScale(d.name);
         }).y0(yScale(0)).y1(function (d) {
             return yScale(d.total);
         });
 
-        layers.bars.selectAll('.flow').data(areaData).enter().append("path").attr("d", function (d, i) {
-            return area();
-        }).attr("fill", "steelblue").attr('class', 'flow');
+        layers.bars.selectAll('.flow').data(areaData).enter().append("path").attr("d", area).attr("fill", "steelblue").attr('class', 'flow');
     };
 
     return {
