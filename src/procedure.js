@@ -94,6 +94,7 @@ var Procedure = function Procedure(el,data) {
             .enter()
             .append('rect')
             .attr('y', (d) => {
+                console.log(d);
                 return yScale(d.total);
             })
             .attr('x', (d,i) => {

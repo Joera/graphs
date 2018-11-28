@@ -71,6 +71,7 @@ var Procedure = function Procedure(el, data) {
     var renderBars = function renderBars() {
 
         var bar = layers.bars.selectAll('.bar').data(data).enter().append('rect').attr('y', function (d) {
+            console.log(d);
             return yScale(d.total);
         }).attr('x', function (d, i) {
             return xScale(i) + config.margin.top + config.padding.top;
