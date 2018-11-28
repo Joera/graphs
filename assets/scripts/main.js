@@ -88,12 +88,9 @@ var Procedure = function Procedure(el, data) {
 
         console.log('nieuw');
 
-        var stack = d3.stack();
-
-        stack.keys([0, 1, 2, 3]);
-
-        stack.values(function (d) {
-            return d;
+        var stack = d3.stack().keys([0, 1, 2, 3]);
+        stack.value(function (d, key) {
+            return d[key].y;
         });
 
         var stackedData = data; // .map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });

@@ -111,11 +111,10 @@ var Procedure = function Procedure(el,data) {
 
         console.log('nieuw');
 
-        let stack = d3.stack();
-
-            stack.keys([0,1,2,3]);
-
-            stack.values(function(d) { return d; });
+        let stack = d3.stack().keys([0,1,2,3]);
+        stack.value(function (d, key) {
+            return d[key].y;
+        });
 
             let stackedData = data; // .map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
 
