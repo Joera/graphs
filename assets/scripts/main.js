@@ -95,7 +95,7 @@ var Procedure = function Procedure(el, data) {
 
         var stackedData = data.map(function (d) {
 
-            console.log(d);
+            // console.log(d);
 
             return [d['cvw_met_historie'], d['cvw_zonder_historie'], d['nieuw_met_historie'], d['nieuw_zonder_historie']];
 
@@ -119,12 +119,12 @@ var Procedure = function Procedure(el, data) {
         var bar = category.selectAll(".bar").data(function (d) {
             return d;
         }).enter().append('rect').attr('y', function (d) {
-            // console.log(d);
-            return yScale(d.value);
+            console.log(d);
+            return yScale(d);
         }).attr('x', function (d, i) {
-            return xScale(d.key);
+            return xScale(i);
         }).attr('width', barWidth).attr('height', function (d) {
-            return yScale(0) - yScale(d.value);
+            return yScale(0) - yScale(d);
         }).attr('class', 'bar');
     };
 

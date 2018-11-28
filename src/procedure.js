@@ -119,7 +119,7 @@ var Procedure = function Procedure(el,data) {
             let stackedData = data.map(function(d) {
 
 
-                console.log(d);
+                // console.log(d);
 
                 return [
                     d['cvw_met_historie'],
@@ -153,15 +153,15 @@ var Procedure = function Procedure(el,data) {
             .enter()
             .append('rect')
             .attr('y', (d) => {
-                // console.log(d);
-                return yScale(d.value);
+                console.log(d);
+                return yScale(d);
             })
             .attr('x', (d,i) => {
-                return xScale(d.key);
+                return xScale(i);
             })
             .attr('width', barWidth)
             .attr('height', (d) => {
-                return yScale(0) - yScale(d.value);
+                return yScale(0) - yScale(d);
             })
             .attr('class', 'bar');
 
