@@ -108,6 +108,8 @@ var Procedure = function Procedure(el,data) {
 
     let renderBars = function renderBars() {
 
+        console.log('nieuw');
+
         layers.bars.selectAll(".category")
             .data(stack.keys(data.columns.slice(3))(data))
             .enter().append("g")

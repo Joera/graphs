@@ -85,6 +85,8 @@ var Procedure = function Procedure(el, data) {
 
     var renderBars = function renderBars() {
 
+        console.log('nieuw');
+
         layers.bars.selectAll(".category").data(stack.keys(data.columns.slice(3))(data)).enter().append("g").attr("class", "category").attr("fill", function (d) {
             return colourMap(d.key);
         }).selectAll('rect').data(function (d) {
