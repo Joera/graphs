@@ -74,7 +74,7 @@ var Procedure = function Procedure(el, data) {
 
         var statusAxis = d3.axisBottom(xScale);
 
-        layers.axis.append("g").attr('class', 'status-axis').attr("transform", "translate(" + -barWidth / 2 + "," + (height - config.margin.bottom) + ")").call(statusAxis);
+        layers.axis.append("g").attr('class', 'status-axis').attr("transform", "translate(" + (-barWidth / 2 + 10) + "," + (height - config.margin.bottom) + ")").call(statusAxis);
     };
 
     var renderBars = function renderBars() {
