@@ -86,16 +86,12 @@ var Procedure = function Procedure(el, data) {
 
     var renderBars = function renderBars() {
 
-        console.log('nieuw');
-
         var stack = d3.stack().keys([0, 1, 2, 3]);
         stack.value(function (d, key) {
             return d[key].y;
         });
 
         var stackedData = data.map(function (d) {
-
-            console.log(d);
 
             return [{
                 'cat': 'cvw_met_historie',
@@ -114,20 +110,12 @@ var Procedure = function Procedure(el, data) {
                 'status': d.name,
                 'val': d['nieuw_zonder_historie']
             }];
-
-            // console.log(d);
-            // return d.map(function(p, i) {
-            //     return {
-            //         'key': d.name,
-            //         'value': p
-            //     };
-            // });
         });
 
         // console.log(stackedData);
 
         var category = layers.bars.selectAll(".category").data(stackedData).enter().append("g").attr("class", function (d, i) {
-            console.log(d);return d[i].cat + ' category';
+            console.log(d[i]);return d[i].cat + ' category';
         });
         // .style("fill", function(d, i) { return color(i); });
 
