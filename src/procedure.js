@@ -15,6 +15,8 @@ var Procedure = function Procedure(el,data) {
 
     let containerWidth = d3.select(element).node().getBoundingClientRect().width;
 
+    let barWidth = 80;
+
 
     let config = {
 
@@ -56,7 +58,8 @@ var Procedure = function Procedure(el,data) {
         layers.axis = svg.append('g')
             .attr('class', 'axis');
 
-        console.log('kwashier');
+        layers.bars = svg.append('g')
+            .attr('class', 'bars');
 
     }
 
@@ -84,7 +87,26 @@ var Procedure = function Procedure(el,data) {
     }
 
 
-    let bars = function bars() {
+    let renderBars = function renderBars() {
+
+        let bar = layers.bars.selectAll('.bar')
+            .data((d) => {
+                return [d];
+            })
+            .enter()
+            .append('rect')
+            .attr('x', (d) => {
+                return yScale(d.total);
+            })
+            .attr('y', (d,i) => {
+                return xScale(i) + config.margin.top +config.padding.top;
+            })
+            .attr('width', barWidth)
+            .attr('height', (d) => {
+                return yScale(d.total);
+            })
+            .attr('class', 'bar');
+
 
     }
 
@@ -102,7 +124,7 @@ var Procedure = function Procedure(el,data) {
         renderLayers : renderLayers,
         setScale : setScale,
         renderYAxis : renderYAxis,
-        bars :  bars
+        renderBars :  renderBars
 
     }
 }
