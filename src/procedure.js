@@ -145,11 +145,11 @@ var Procedure = function Procedure(el,data) {
         let category = layers.bars.selectAll(".category")
             .data(stackedData)
             .enter().append("g")
-            .attr("class",function(d, i) { console.log(d[i]); return d[i].cat + ' category' ; });
+            .attr("class",function(d, i) { if (d[i]) { return d[i].cat + ' category' ; }});
            // .style("fill", function(d, i) { return color(i); });
 
 
-
+    
 
         let bar = category.selectAll(".bar")
             .data(function(d) {  return d; })

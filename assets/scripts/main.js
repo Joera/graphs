@@ -115,7 +115,9 @@ var Procedure = function Procedure(el, data) {
         // console.log(stackedData);
 
         var category = layers.bars.selectAll(".category").data(stackedData).enter().append("g").attr("class", function (d, i) {
-            console.log(d[i]);return d[i].cat + ' category';
+            if (d[i]) {
+                return d[i].cat + ' category';
+            }
         });
         // .style("fill", function(d, i) { return color(i); });
 
