@@ -138,7 +138,7 @@ var Procedure = function Procedure(el,data) {
 
 
 
-
+            areas.push(area);
         }
 
         layers.bars.selectAll('.flow')
@@ -146,7 +146,7 @@ var Procedure = function Procedure(el,data) {
             .enter()
             .append("path")
             .attr("fill", "steelblue")
-            .attr("d", area)
+            .attr("d", (d,i) => { return area[i]} )
             .attr('class', 'flow');
 
 
