@@ -98,7 +98,7 @@ var Procedure = function Procedure(el,data) {
             .attr("transform", "translate(" + (-barWidth / 2 + 10) + "," + (height - config.margin.bottom) + ")")
             .call(statusAxis);
     }
-    
+
 
     let renderBars = function renderBars() {
 
@@ -118,6 +118,35 @@ var Procedure = function Procedure(el,data) {
             })
             .attr('class', 'bar');
 
+    }
+
+    let renderFlows = function renderFlows() {
+
+        let area;
+        let areaElement;
+        let areas = [];
+
+        for (let i = 0; i < data.length; i++;) {
+
+            area = d3.area()
+                .x0(xScale(data[i].name + (barWidth / 2)))
+                .x1(xScale(data[i + 1].name - (barWidth / 2)))
+                .y0(yScale(0))
+                .y1(yScale(d.total));
+
+
+            areaElement = layers.bars.selectAll('.flow')
+                .data(data[i])
+                .enter()
+                .append("path")
+                .attr("fill", "steelblue")
+                .attr("d", area);
+
+        }
+
+
+
+
 
     }
 
@@ -136,7 +165,8 @@ var Procedure = function Procedure(el,data) {
         setScale : setScale,
         renderXAxis : renderXAxis,
         renderYAxis : renderYAxis,
-        renderBars :  renderBars
+        renderBars :  renderBars,
+        renderFlows : renderFlows
 
     }
 }

@@ -36,6 +36,7 @@ var Graph = function Graph(el,data) {
     procedure.renderYAxis();
 
     procedure.renderBars();
+    procedure.renderFlows();
 
 
     return {
