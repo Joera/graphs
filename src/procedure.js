@@ -12,7 +12,6 @@ var Procedure = function Procedure(el,data) {
     let layers = {};
     let xScale;
     let yScale;
-    let stack;
     let colourMap;
 
     let containerWidth = d3.select(element).node().getBoundingClientRect().width;
@@ -52,7 +51,8 @@ var Procedure = function Procedure(el,data) {
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
 
-        // stack = d3.layout.stack()
+
+
         //     .offset("zero")
     }
 
@@ -111,10 +111,13 @@ var Procedure = function Procedure(el,data) {
 
         console.log('nieuw');
 
-     //   let stackedData = data.map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
+        let stack = d3.stack()
+            .values(function(d) { return d; });
+
+            let stackedData = data; // .map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
 
         layers.bars.selectAll(".bar")
-            .data(data)
+            .data(stackedData)
             .enter()
             .append('rect')
             .attr('y', (d) => {
