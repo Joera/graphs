@@ -92,8 +92,8 @@ var Procedure = function Procedure(el, data) {
 
         var areaData = [];
 
-        for (var i = 0; i < 1; i++) {
-            // data.length -
+        for (var i = 0; i < data.length - 1; i++) {
+            //  -
 
             areaData.push([data[i], data[i + 1]]);
         }
@@ -105,7 +105,11 @@ var Procedure = function Procedure(el, data) {
                 return xScale(d.name);
             }
         }).x1(function (d, i) {
-            return xScale(d.name);
+            if (i < 1) {
+                return xScale(d.name) + barWidth;
+            } else {
+                return xScale(d.name);
+            }
         }).y0(yScale(0)).y1(function (d) {
             return yScale(d.total);
         });
