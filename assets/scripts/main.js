@@ -12,7 +12,6 @@ var Procedure = function Procedure(el, data) {
     var layers = {};
     var xScale = void 0;
     var yScale = void 0;
-    var stack = void 0;
     var colourMap = void 0;
 
     var containerWidth = d3.select(element).node().getBoundingClientRect().width;
@@ -45,7 +44,6 @@ var Procedure = function Procedure(el, data) {
         // .attr('width', (this.width + config.margin.left + config.margin.right + config.padding.left + config.padding.right))
         .attr('width', containerWidth + config.margin.left + config.margin.right + config.padding.left + config.padding.right).attr('height', height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
-        // stack = d3.layout.stack()
         //     .offset("zero")
     };
 
@@ -90,9 +88,13 @@ var Procedure = function Procedure(el, data) {
 
         console.log('nieuw');
 
-        //   let stackedData = data.map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
+        var stack = d3.stack().values(function (d) {
+            return d;
+        });
 
-        layers.bars.selectAll(".bar").data(data).enter().append('rect').attr('y', function (d) {
+        var stackedData = data; // .map(function(d) { return d.map(function(p, i) { return {x:i, y:p, y0:0}; }); });
+
+        layers.bars.selectAll(".bar").data(stackedData).enter().append('rect').attr('y', function (d) {
             return yScale(d.total);
         }).attr('x', function (d, i) {
             return xScale(d.name);
