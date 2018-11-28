@@ -127,8 +127,6 @@ var Procedure = function Procedure(el,data) {
         let areas = [];
 
 
-        console.log(data.length);
-
         for (let i = 0; i < data.length - 1; i++) {
 
             console.log(data[i]);
@@ -140,9 +138,7 @@ var Procedure = function Procedure(el,data) {
                 .y1(yScale(data[i + 1].total));
 
 
-            layers.bars.selectAll('path')
-                .data([data[i]])
-                .enter()
+            layers.bars
                 .append("path")
                 .attr("d", area)
                 .attr("fill", "steelblue")
