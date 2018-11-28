@@ -128,7 +128,7 @@ var Procedure = function Procedure(el, data) {
             console.log(d);
             return yScale(d.val);
         }).attr('x', function (d, i) {
-            return xScale(d.status);
+            return xScale(d.cat);
         }).attr('width', barWidth).attr('height', function (d) {
             return yScale(0) - yScale(d.val);
         }).attr('class', 'bar');

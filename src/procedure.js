@@ -149,7 +149,7 @@ var Procedure = function Procedure(el,data) {
            // .style("fill", function(d, i) { return color(i); });
 
 
-    
+
 
         let bar = category.selectAll(".bar")
             .data(function(d) {  return d; })
@@ -160,7 +160,7 @@ var Procedure = function Procedure(el,data) {
                 return yScale(d.val);
             })
             .attr('x', (d,i) => {
-                return xScale(d.status);
+                return xScale(d.cat);
             })
             .attr('width', barWidth)
             .attr('height', (d) => {
