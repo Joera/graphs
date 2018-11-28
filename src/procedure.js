@@ -79,7 +79,7 @@ var Procedure = function Procedure(el,data) {
             .range([height - config.margin.bottom, config.margin.top])
             .domain([0,d3.max(data, d => d.total)]).nice();
 
-        colourMap = d3.scaleOrdinal(d3.schemeCategory20);
+        colourMap = d3.scaleOrdinal(d3.schemeCategory20)
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"])
             .domain(data.columns.slice(3));
 
