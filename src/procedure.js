@@ -12,6 +12,8 @@ var Procedure = function Procedure(el,data) {
     let layers = {};
     let xScale;
     let yScale;
+    let stack;
+    let colourMap;
 
     let containerWidth = d3.select(element).node().getBoundingClientRect().width;
 
@@ -50,7 +52,7 @@ var Procedure = function Procedure(el,data) {
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
 
 
-
+        stack = d3.stack();
     }
 
     let renderLayers = function renderLayers() {
@@ -77,6 +79,10 @@ var Procedure = function Procedure(el,data) {
             .range([height - config.margin.bottom, config.margin.top])
             .domain([0,d3.max(data, d => d.total)]).nice();
 
+        colourMap = d3.scaleOrdinal(d3.schemeCategory20);
+            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"])
+            .domain(data.columns.slice(3));
+
     }
 
     let renderYAxis = function renderYAxis() {
@@ -102,19 +108,24 @@ var Procedure = function Procedure(el,data) {
 
     let renderBars = function renderBars() {
 
-        let bar = layers.bars.selectAll('.bar')
-            .data(data)
+        layers.bars.selectAll(".category")
+            .data(stack.keys(data.columns.slice(3))(data))
+            .enter().append("g")
+            .attr("class", "category")
+            .attr("fill", function(d) { return colourMap(d.key); })
+            .selectAll('rect')
+            .data( (d) => { return d})
             .enter()
             .append('rect')
             .attr('y', (d) => {
-                return yScale(d.total);
+                return yScale(d.data.name);
             })
             .attr('x', (d,i) => {
-                return xScale(d.name);
+                return xScale(d.data.name);
             })
             .attr('width', barWidth)
             .attr('height', (d) => {
-                return yScale(0) - yScale(d.total);
+                return yScale(0) - yScale(d.data.name);
             })
             .attr('class', 'bar');
 
