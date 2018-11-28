@@ -67,7 +67,10 @@ var Procedure = function Procedure(el,data) {
 
         xScale = d3.scaleBand()
             .range([config.margin.left, width - config.margin.right])
-            .domain(data.map(d => d.name));
+            .domain(data.map(d => d.name))
+            .paddingInner([0.1])
+            .paddingOuter([0.3])
+            .align([0.5]);
         //
         // // y scale
         yScale = d3.scaleLinear()
