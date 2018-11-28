@@ -94,36 +94,14 @@ var Procedure = function Procedure(el, data) {
         var areaElement = void 0;
         var areas = [];
 
-        // for (let i = 0; i < data.length - 1; i++) {
-        //
-        //     console.log(data[i])
-        //
-        //     area = d3.area()
-        //         .x0(xScale(data[i].name + (barWidth / 2)))
-        //         .x1(xScale(data[i + 1].name - (barWidth / 2)))
-        //         .y0(yScale(0))
-        //         .y1(yScale(data[i + 1].total));
-        //
-        //
-        //
-        //     areas.push(area);
-        // }
+        for (var i = 0; i < data.length - 1; i++) {
 
-        var test = [[{ x0: 20, x1: 60, y0: 0, y1: 0 }, { x0: 20, x1: 60, y0: 20, y1: 20 }], [{ x0: 100, x1: 600, y0: 20, y1: 20 }, { x0: 100, x1: 600, y0: 200, y1: 200 }]];
+            console.log(data[i]);
 
-        var areaFunc = d3.area()
-        // .interpolate('step')
-        .x0(function (d) {
-            return xScale(d.x0);
-        }).x1(function (d) {
-            return xScale(d.x1);
-        }).y0(function (d) {
-            return yScale(d.y0);
-        }).y1(function (d) {
-            return yScale(d.y1);
-        });
+            area = d3.area().x0(xScale(data[i].name) + barWidth / 2).x1(xScale(data[i + 1].name) - barWidth / 2).y0(yScale(0)).y1(yScale(data[i + 1].total));
 
-        layer.bars.selectAll('path').data(test).enter().append("path").attr("d", areaFunc).attr("fill", "steelblue").attr('class', 'flow');
+            layer.bars.selectAll('path').data([data[i]]).enter().append("path").attr("d", area).attr("fill", "steelblue").attr('class', 'flow');
+        }
     };
 
     return {
