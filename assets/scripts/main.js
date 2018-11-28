@@ -111,7 +111,9 @@ var Procedure = function Procedure(el, data) {
 
         var test = [[{ x0: 20, x1: 60, y0: 0, y1: 0 }, { x0: 20, x1: 60, y0: 20, y1: 20 }], [{ x0: 100, x1: 600, y0: 20, y1: 20 }, { x0: 100, x1: 600, y0: 200, y1: 200 }]];
 
-        var areaFunc = d3.area().interpolate('step').x0(function (d) {
+        var areaFunc = d3.area()
+        // .interpolate('step')
+        .x0(function (d) {
             return xScale(d.x0);
         }).x1(function (d) {
             return xScale(d.x1);

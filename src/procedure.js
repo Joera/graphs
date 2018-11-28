@@ -149,7 +149,7 @@ var Procedure = function Procedure(el,data) {
         ];
 
         let areaFunc = d3.area()
-            .interpolate('step')
+           // .interpolate('step')
             .x0(function(d){return xScale(d.x0);})
             .x1(function(d){return xScale(d.x1);})
             .y0(function(d){return yScale(d.y0);})
