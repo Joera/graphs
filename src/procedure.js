@@ -95,7 +95,7 @@ var Procedure = function Procedure(el,data) {
 
         layers.axis.append("g")
             .attr('class', 'status-axis')
-            .attr("transform", "translate(" + (-barWidth / 2 + 10) + "," + (height - config.margin.bottom) + ")")
+            .attr("transform", "translate(" + (-barWidth / 2 - 10) + "," + (height - config.margin.bottom) + ")")
             .call(statusAxis);
     }
 
@@ -135,9 +135,7 @@ var Procedure = function Procedure(el,data) {
                 .y1(yScale(d.total));
 
 
-            areaElement = layers.bars.selectAll('.flow')
-                .data(data[i])
-                .enter()
+            layers.bars
                 .append("path")
                 .attr("fill", "steelblue")
                 .attr("d", area);
