@@ -21,7 +21,7 @@ var Procedure = function Procedure(el,data) {
         margin : {
             top : 0,
             bottom : 0,
-            left : 0,
+            left : 10,
             right : 0
         },
 
