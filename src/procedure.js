@@ -141,11 +141,11 @@ var Procedure = function Procedure(el,data) {
 
 
         let bar = category.selectAll(".bar")
-            .data(function(d) { console.log(d); return d; })
+            .data(function(d) {  return d; })
             .enter()
             .append('rect')
             .attr('y', (d) => {
-
+                console.log(d);
                 return yScale(d.value);
             })
             .attr('x', (d,i) => {
