@@ -70,6 +70,13 @@ var Procedure = function Procedure(el, data) {
         layers.axis.append("g").attr('class', 'total-axis').attr("transform", "translate(0,30)").call(totalAxis);
     };
 
+    var renderXAxis = function renderYAxis() {
+
+        var statusAxis = d3.axisBottom(xScale);
+
+        layers.axis.append("g").attr('class', 'status-axis').call(statusAxis);
+    };
+
     var renderBars = function renderBars() {
 
         var bar = layers.bars.selectAll('.bar').data(data).enter().append('rect').attr('y', function (d) {
@@ -86,6 +93,7 @@ var Procedure = function Procedure(el, data) {
         renderSVG: renderSVG,
         renderLayers: renderLayers,
         setScale: setScale,
+        renderXAxis: renderXAxis,
         renderYAxis: renderYAxis,
         renderBars: renderBars
 
@@ -122,7 +130,9 @@ var Graph = function Graph(el, data) {
     procedure.renderSVG();
     procedure.renderLayers();
     procedure.setScale();
+    procedure.renderXAxis();
     procedure.renderYAxis();
+
     procedure.renderBars();
 
     return {
