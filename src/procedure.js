@@ -98,8 +98,7 @@ var Procedure = function Procedure(el,data) {
             .attr("transform", "translate(" + (-barWidth / 2 + 10) + "," + (height - config.margin.bottom) + ")")
             .call(statusAxis);
     }
-
-
+    
 
     let renderBars = function renderBars() {
 
