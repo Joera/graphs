@@ -105,12 +105,12 @@ var ChartSVG = function ChartSVG(element, config, dimensions, svg) {
 
     var render = function render() {
 
-        svg.body = d3.select(element, config).append('svg').attr('height', dimensions.height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
+        svg.body = d3.select(element, config).append('svg').append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
     };
 
     var redraw = function redraw(dimensions) {
         console.log(dimensions);
-        svg.body.attr('width', dimensions.containerWidth);
+        svg.body.attr('height', dimensions.height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).attr('width', dimensions.containerWidth);
     };
 
     var layers = function layers() {
@@ -363,8 +363,8 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.bottom = 30;
         config.padding.bottom = 30;
         config.padding.left = 60;
-        config.xParameter = 'status';
-        config.yParameter = 'value';
+        config.xParameter = 'status'; // name of first column with values of bands on x axis
+        config.yParameter = 'value'; // is being set in type function
 
         // get dimensions from parent element
         var chartDimensions = ChartDimensions(element, config);
