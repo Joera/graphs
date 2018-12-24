@@ -39,7 +39,7 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.bottom = 30;
         config.padding.bottom = 30;
         config.padding.left = 60;
-        config.xParameter = 'name';
+        config.xParameter = 'status';
         config.yParameter = 'value';
 
         // get dimensions from parent element
