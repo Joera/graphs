@@ -24,7 +24,7 @@ var TCMGCharts = function TCMGCharts(data) {
         .style("opacity", 0);
 
     let formatDates = locale.format("%B %Y");
-    
+
     let dataset = data;
 
 
@@ -57,11 +57,12 @@ var TCMGCharts = function TCMGCharts(data) {
         // chartAxis.drawXAxis();
         // chartAxis.drawYAxis();
 
-        console.log(data);
+
         // manipulate the data into stacked series
         var stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(k => k !== 'Country'));
+            .keys(Object.keys(data[0]).filter(k => k !== 'status'));
         var series = stack(data);
+        console.log(series);
         // point of data injection when using an api
 
 
