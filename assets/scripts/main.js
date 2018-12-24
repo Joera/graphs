@@ -282,10 +282,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
             // for every status
             for (var j = 0; j < data.columns.slice(1).length - 1; j++) {
                 //  -
-
                 var currentPlusNext = [stackedData[i][j], stackedData[i][j + 1]];
-                console.log(currentPlusNext);
-
                 areaData.push(currentPlusNext);
             }
         }
@@ -299,6 +296,8 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         svg.bar = svg.series.selectAll("rect").data(function (d) {
             return d;
         }).enter().append("rect");
+
+        console.log(areaData);
 
         svg.connection = svg.series.selectAll('.flow').data(areaData).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
