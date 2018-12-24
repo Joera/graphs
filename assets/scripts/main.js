@@ -277,11 +277,11 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // format data for areaflow
         var areaData = [];
         // for every provenance
-        stackedData.forEach(function (stack) {
+        [stackedData[0]].forEach(function (stack) {
             //  -
             // for every status
-            for (var j = 0; j < data.columns.slice(1).length - 1; j++) {
-                //  -
+            for (var j = 0; j < 1; j++) {
+                //  -  data.columns.slice(1).length - 1
                 var currentPlusNext = [stack[j], stack[j + 1]];
                 areaData.push(currentPlusNext);
             }
@@ -297,9 +297,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
             return d;
         }).enter().append("rect");
 
-        console.log(areaData[0][0]);
+        console.log(areaData);
 
-        svg.connection = svg.series.selectAll('.flow').data([[areaData[0][0]]]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
+        svg.connection = svg.series.selectAll('.flow').data([areaData]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
 
     var redraw = function redraw(dimensions, scales) {
