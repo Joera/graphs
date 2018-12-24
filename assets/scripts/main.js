@@ -1,178 +1,279 @@
 'use strict';
 
-/**
- *
- */
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Procedure = function Procedure(el, data) {
+var ChartObjects = function ChartObjects() {
 
-    var svg = null;
-    var element = el;
-    var dataset = data;
-    var layers = {};
-    var xScale = void 0;
-    var yScale = void 0;
-    var colourMap = void 0;
+    var config = function config() {
 
-    var containerWidth = d3.select(element).node().getBoundingClientRect().width;
-
-    var barWidth = 80;
-
-    var config = {
-
-        margin: {
-            top: 60,
-            bottom: 60,
-            left: 60,
-            right: 0
-        },
-
-        padding: {
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0
-        }
-    };
-
-    var height = 400;
-    var width = containerWidth - config.margin.left - config.margin.right - config.padding.left - config.padding.right;
-
-    var renderSVG = function createSVG() {
-
-        svg = d3.select(element).append('svg')
-        // .attr('width', (this.width + config.margin.left + config.margin.right + config.padding.left + config.padding.right))
-        .attr('width', containerWidth + config.margin.left + config.margin.right + config.padding.left + config.padding.right).attr('height', height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
-
-        //     .offset("zero")
-    };
-
-    var renderLayers = function renderLayers() {
-
-        layers.axis = svg.append('g').attr('class', 'axis');
-
-        layers.bars = svg.append('g').attr('class', 'bars');
-    };
-
-    var setScale = function setScale() {
-
-        xScale = d3.scaleBand().range([config.margin.left, width - config.margin.right]).domain(data.map(function (d) {
-            return d.name;
-        })).paddingInner([0.1]).paddingOuter([0.3]).align([0.5]);
-        //
-        // // y scale
-        yScale = d3.scaleLinear().range([height - config.margin.bottom, config.margin.top]).domain([0, d3.max(data, function (d) {
-            return d.total;
-        })]).nice();
-
-        // colourMap = d3.scaleOrdinal(d3.schemeCategory20)
-        //     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"])
-        //     .domain(data.columns.slice(3));
-    };
-
-    var renderYAxis = function renderYAxis() {
-
-        var totalAxis = d3.axisLeft(yScale);
-
-        layers.axis.append("g").attr('class', 'total-axis').attr("transform", "translate(0,0)").call(totalAxis);
-    };
-
-    var renderXAxis = function renderYAxis() {
-
-        var statusAxis = d3.axisBottom(xScale);
-
-        layers.axis.append("g").attr('class', 'status-axis').attr("transform", "translate(" + (-barWidth / 2 - 10) + "," + (height - config.margin.bottom) + ")").call(statusAxis);
-    };
-
-    var renderBars = function renderBars() {
-
-        var stack = d3.stack().keys([0, 1, 2, 3]);
-        stack.value(function (d, key) {
-            return d[key].y;
-        });
-
-        var stackedData = data.map(function (d) {
-
-            return [{
-                'cat': 'cvw_met_historie',
-                'status': d.name,
-                'val': d['cvw_met_historie']
-            }, {
-                'cat': 'cvw_zonder_historie',
-                'status': d.name,
-                'val': d['cvw_zonder_historie']
-            }, {
-                'cat': 'nieuw_met_historie',
-                'status': d.name,
-                'val': d['nieuw_met_historie']
-            }, {
-                'cat': 'nieuw_zonder_historie',
-                'status': d.name,
-                'val': d['nieuw_zonder_historie']
-            }];
-        });
-
-        // console.log(stackedData);
-
-        var category = layers.bars.selectAll(".category").data(stackedData).enter().append("g").attr("class", function (d, i) {
-            if (d[i]) {
-                return d[i].cat + ' category';
+        return {
+            margin: { // space around chart
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0
+            },
+            padding: { // room for axis
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0
             }
-        });
-        // .style("fill", function(d, i) { return color(i); });
-
-
-        var bar = category.selectAll(".bar").data(function (d) {
-            return d;
-        }).enter().append('rect').attr('y', function (d) {
-            console.log(d);
-            return yScale(d.val);
-        }).attr('x', function (d, i) {
-            return xScale(d.cat);
-        }).attr('width', barWidth).attr('height', function (d) {
-            return yScale(0) - yScale(d.val);
-        }).attr('class', 'bar');
+        };
     };
 
-    var renderFlows = function renderFlows() {
+    var dimensions = function dimensions() {
 
-        var areaData = [];
+        return {
+            containerWidth: 0, // width of element minus config.margin
+            width: 0, // containerWidth minus config.padding
+            containerHeight: 0, // height of element minus config.margin
+            height: 0 // containerHeight minus config.padding
 
-        for (var i = 0; i < data.length - 1; i++) {
-            //  -
+        };
+    };
 
-            areaData.push([data[i], data[i + 1]]);
-        }
+    var svg = function svg() {
 
-        var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
-            if (i < 1) {
-                return xScale(d.name) + barWidth;
-            } else {
-                return xScale(d.name);
-            }
-        }).x1(function (d, i) {
-            if (i < 1) {
-                return xScale(d.name) + barWidth;
-            } else {
-                return xScale(d.name);
-            }
-        }).y0(yScale(0)).y1(function (d) {
-            return yScale(d.total);
-        });
+        return {
+            body: null,
+            layers: {},
+            yAxis: null,
+            xAxis: null,
+            area: null,
+            line: null,
+            bar: null
+        };
+    };
 
-        layers.bars.selectAll('.flow').data(areaData).enter().append("path").attr("d", area).attr("fill", "#ccc").attr('class', 'flow');
+    var scales = function scales() {
+
+        return {
+            xTime: null,
+            yLinear: null
+        };
+    };
+
+    var axes = function axis() {
+
+        return {
+            xTime: null,
+            yLinear: null
+        };
+    };
+
+    var functions = function functions() {
+
+        return {
+            area: null,
+            line: null
+        };
+    };
+
+    return {
+        config: config,
+        dimensions: dimensions,
+        svg: svg,
+        scales: scales,
+        axes: axes,
+        functions: functions
+
+    };
+};
+
+var ChartDimensions = function ChartDimensions(element, config) {
+
+    var get = function get(dimensions) {
+
+        dimensions.containerWidth = d3.select(element).node().getBoundingClientRect().width - config.margin.left - config.margin.right;
+        dimensions.containerHeight = d3.select(element).node().getBoundingClientRect().height - config.margin.top - config.margin.bottom;
+        dimensions.height = dimensions.containerHeight - config.padding.top - config.padding.bottom;
+        dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
+
+        return dimensions;
     };
 
     return {
 
-        renderSVG: renderSVG,
-        renderLayers: renderLayers,
-        setScale: setScale,
-        renderXAxis: renderXAxis,
-        renderYAxis: renderYAxis,
-        renderBars: renderBars,
-        renderFlows: renderFlows
+        get: get
+    };
+};
+var ChartSVG = function ChartSVG(element, config, dimensions, svg) {
 
+    var render = function render() {
+
+        svg.body = d3.select(element, config).append('svg').attr('height', dimensions.height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom).append('g').attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
+    };
+
+    var redraw = function redraw(dimensions) {
+        svg.body.attr('width', dimensions.containerWidth);
+    };
+
+    var layers = function layers() {
+
+        svg.layers.data = svg.body.append('g').attr('class', 'data');
+        svg.layers.axes = svg.body.append('g').attr('class', 'axes');
+    };
+
+    render();
+    layers();
+
+    return _defineProperty({
+        redraw: redraw }, 'redraw', redraw);
+};
+
+var ChartScales = function ChartScales(config, dimensions, scales) {
+
+    var set = function set(data) {
+
+        var endDate = moment();
+
+        scales.xTime = d3.scaleTime().domain([d3.min(data, function (d) {
+            return new Date(d.date);
+        }), endDate]);
+
+        scales.yLinear = d3.scaleLinear().range([dimensions.height, config.margin.top + config.padding.top]).domain([0, d3.max(data, function (d) {
+            return d[config.yParameter];
+        })]).nice();
+
+        scales.xBand = d3.scaleBand()
+        // what is domain when working with a stack?
+        .domain(data.map(function (d) {
+            return d[config.xParameter];
+        })).paddingInner([0.1]).paddingOuter([0.3]).align([0.5]);
+
+        return scales;
+    };
+
+    var reset = function reset(dimensions, newScales) {
+
+        newScales.xTime.range([config.margin.left + config.padding.left, dimensions.width]);
+
+        newScales.xBand
+        // or does this
+        .range([config.margin.left + config.padding.left, dimensions.width]);
+
+        return newScales;
+    };
+
+    return {
+        set: set,
+        reset: reset
+    };
+};
+
+var ChartAxis = function ChartAxis(config, svg) {
+
+    var drawXAxis = function drawXAxis() {
+
+        svg.xAxis = svg.layers.axes.append("g").attr('class', 'time-axis');
+    };
+
+    var redrawXAxis = function redrawXAxis(dimensions, scales, axes) {
+
+        axes.xTime = d3.axisBottom(scales.xTime);
+
+        axes.xTime.ticks(d3.timeMonth.every(1)).tickFormat(d3.timeFormat("%b"));
+
+        svg.xAxis.attr("transform", "translate(" + 0 + "," + dimensions.height + ")").call(axes.xTime);
+    };
+
+    var drawYAxis = function drawYAxis() {
+
+        svg.yAxis = svg.layers.axes.append("g").attr('class', 'total-axis');
+    };
+
+    var redrawYAxis = function redrawYAxis(scales, axes) {
+
+        axes.yLinear = d3.axisRight(scales.yLinear);
+
+        axes.yLinear.ticks(2);
+
+        svg.yAxis.call(axes.yLinear);
+    };
+
+    return {
+        drawXAxis: drawXAxis,
+        redrawXAxis: redrawXAxis,
+        drawYAxis: drawYAxis,
+        redrawYAxis: redrawYAxis
+    };
+};
+
+var ChartLine = function ChartLine(config, svg) {
+
+    var draw = function draw(data) {
+
+        svg.line = svg.layers.data.append("path").data([data]).attr("class", "line");
+    };
+
+    var redraw = function redraw(scales, functions) {
+
+        functions.line = d3.line().x(function (d) {
+            return scales.xTime(new Date(d.date));
+        }).y(function (d) {
+            return scales.yLinear(d[config.yParameter]);
+        });
+
+        svg.line.attr("d", functions.line);
+    };
+
+    return {
+        draw: draw,
+        redraw: redraw
+    };
+};
+
+var ChartBar = function ChartBar(config, svg) {
+
+    var draw = function draw(data) {
+
+        svg.bar = svg.layers.data.selectAll(".bar").data(data).enter().append("rect").attr("class", "bar");
+    };
+
+    var redraw = function redraw(dimensions, scales, data) {
+
+        var barWidth = (dimensions.width - config.padding.left - config.padding.right) / data.length - 2;
+
+        svg.bar.attr("x", function (d) {
+            return scales.xTime(new Date(d.date));
+        }).attr("y", function (d) {
+            return scales.yLinear(d.value);
+        }).attr("height", function (d) {
+            return dimensions.height - scales.yLinear(d.value);
+        }).attr("width", barWidth);
+    };
+
+    return {
+        draw: draw,
+        redraw: redraw
+    };
+};
+
+var ChartArea = function ChartArea(config, svg) {
+
+    var draw = function draw(data) {
+
+        svg.area = svg.layers.data.selectAll('.flow').data([data]).enter().append("path").attr("fill", "#f6f5f2").attr('class', 'flow');
+    };
+
+    var redraw = function redraw(scales, functions) {
+
+        functions.area = d3.area().x0(function (d, i) {
+            return scales.xTime(new Date(d.date));
+        }).x1(function (d, i) {
+            return scales.xTime(new Date(d.date));
+        }).y0(scales.yLinear(0)).y1(function (d) {
+            return scales.yLinear(d[config.yParameter]);
+        });
+
+        svg.area.attr("d", functions.area);
+    };
+
+    return {
+
+        draw: draw,
+        redraw: redraw
     };
 };
 'use strict';
@@ -180,7 +281,9 @@ var Procedure = function Procedure(el, data) {
 /**
  *
  */
-var Graph = function Graph(el, data) {
+var TCMGCharts = function TCMGCharts(el, data) {
+
+    // init multiple charts from this file
 
     var locale = d3.timeFormatLocale({
         "dateTime": "%a %e %B %Y %T",
@@ -199,20 +302,57 @@ var Graph = function Graph(el, data) {
 
     var element = el;
     var dataset = data;
-    var config = {};
 
-    var procedure = Procedure(element, dataset.procedure); // hier kun je data uitsplitsen
+    var Procedure = function Procedure(el) {
 
-    procedure.renderSVG();
-    procedure.renderLayers();
-    procedure.setScale();
-    procedure.renderXAxis();
-    procedure.renderYAxis();
+        var element = el;
 
-    procedure.renderBars();
-    procedure.renderFlows();
+        var chartObjects = ChartObjects();
+        var config = chartObjects.config();
+        var dimensions = chartObjects.dimensions();
+        var svg = chartObjects.svg();
+        var scales = chartObjects.scales();
+        var axes = chartObjects.axes();
+        var functions = chartObjects.functions();
+
+        config.margin.top = 60;
+        config.margin.bottom = 30;
+        config.padding.bottom = 30;
+        config.padding.left = 60;
+        config.xParameter = 'name';
+
+        // get dimensions from parent element
+        var chartDimensions = ChartDimensions(element, config);
+        dimensions = chartDimensions.get(dimensions);
+
+        // create svg elements without data
+        var chartSVG = ChartSVG(element, config, dimensions, svg);
+        // const chartScales = ChartScales(config,dimensions,scales);
+        // const chartAxis = ChartAxis(config,svg);
+        // chartAxis.drawXAxis();
+        // chartAxis.drawYAxis();
+
+        console.log(data);
+        // manipulate the data into stacked series
+        var stack = d3.stack().keys(Object.keys(data[0]).filter(function (k) {
+            return k !== 'Country';
+        }));
+        var series = stack(data);
+        // point of data injection when using an api
+
+    };
+
+    // procedure.renderSVG();
+    // procedure.renderLayers();
+    // procedure.setScale();
+    // procedure.renderXAxis();
+    // procedure.renderYAxis();
+    //
+    // procedure.renderBars();
+    // procedure.renderFlows();
+
 
     return {
-        procedure: procedure
+        procedure: Procedure
     };
 };
