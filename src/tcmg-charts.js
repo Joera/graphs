@@ -54,7 +54,7 @@ var TCMGCharts = function TCMGCharts(data) {
         const chartSVG = ChartSVG(element,config,dimensions,svg);
         const chartScales = ChartScales(config,dimensions,scales);
         const chartAxis = ChartAxis(config,svg);
-        const chartStackedBars = ChartStackedBars(config,svg);
+        const chartStackedBars = ChartStackedBars(config,svg,functions);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
