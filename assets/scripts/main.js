@@ -294,7 +294,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                     areaData.push(pathObject);
                 }
             }
-
+            console.log(areaData);
             return areaData;
         };
 
@@ -324,7 +324,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
         .x0(function (d, i) {
             if (i < 1) {
-                console.log(d);return scales.xBand(d.x0) + barWidth;
+                return scales.xBand(d.x0) + barWidth;
             } else {
                 return scales.xBand(d.x0);
             }
@@ -336,7 +336,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                 return scales.xBand(d.x1);
             }
         }).y0(function (d) {
-            return scales.yLinearReverse(d.y0);
+            console.log(d);return scales.yLinearReverse(d.y0);
         }).y1(function (d) {
             return scales.yLinearReverse(d.y1);
         });
