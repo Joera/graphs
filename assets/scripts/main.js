@@ -289,9 +289,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
     var redraw = function redraw(dimensions, scales) {
 
         svg.bar.attr("y", function (d) {
-            return scales.yLinear(d[1]);
+            return scales.yLinearReverse(d[1]);
         }).attr("height", function (d) {
-            return scales.yLinear(d[1]) - scales.yLinear(d[0]);
+            return scales.yLinearReverse(d[0]) - scales.yLinearReverse(d[1]);
         }).attr("x", function (d) {
             return scales.xBand(d.data[config.xParameter]);
         }).attr("width", scales.xBand.bandwidth());
