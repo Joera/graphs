@@ -29,10 +29,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect");
-
-        console.log(areaData);
-
-
+        
 
         svg.connection = svg.series.selectAll('.flow')
             // je moet per serie .. de data reformatten
