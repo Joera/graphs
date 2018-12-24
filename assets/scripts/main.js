@@ -281,8 +281,8 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
             if (index < stackedData.length - 1) {
 
-                for (var j = 0; j < 1; j++) {
-                    //  -  data.columns.slice(1).length - 1
+                for (var j = 0; j < data.columns.slice(1).length; j++) {
+                    //  -   - 1
                     var pathObject = {};
 
                     pathObject.x0 = stackedData[index][j].data.status; // key = provenance ... moet status zijn
