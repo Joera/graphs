@@ -5,14 +5,15 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
 
         svg.body = d3.select(element,config)
             .append('svg')
-            .attr('height', (dimensions.height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom))
             .append('g')
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
     }
 
     let redraw = function redraw(dimensions) {
         console.log(dimensions);
-        svg.body.attr('width', (dimensions.containerWidth))
+        svg.body
+            .attr('height', (dimensions.height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom))
+            .attr('width', (dimensions.containerWidth));
     }
 
     let layers = function layers() {
