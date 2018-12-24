@@ -19,11 +19,12 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 for (let j = 0; j < 1; j++) {  //  -  data.columns.slice(1).length - 1
                     let pathObject = {};
-                    console.log(stackedData[index][j]);
-                    pathObject.x0 = stackedData[index].key; // key = provenance ... moet status zijn
-                    pathObject.x1 = stackedData[index + 1].key;
-                    pathObject.y0 = stackedData[index][j][0]
-                    pathObject.y1 = stackedData[index + 1][j][0]
+                  
+                    pathObject.x0 = stackedData[index][j].data.status; // key = provenance ... moet status zijn
+                    pathObject.x1 = stackedData[index + 1][j].data.status;
+                    pathObject.y0 = stackedData[index][j][0];
+                    pathObject.y1 = stackedData[index + 1][j][0];
+                    pathObject.class = stackedData[index].key;
 
                     areaData.push(pathObject);
                 }
