@@ -166,7 +166,7 @@ var ChartAxis = function ChartAxis(config, svg) {
 
     var drawXAxis = function drawXAxis() {
 
-        svg.xAxis = svg.layers.axes.append("g").attr('class', 'time-axis');
+        svg.xAxis = svg.layers.axes.append("g").attr('class', 'x-axis');
     };
 
     var redrawXAxis = function redrawXAxis(dimensions, scales, axes) {
@@ -180,7 +180,7 @@ var ChartAxis = function ChartAxis(config, svg) {
 
     var drawYAxis = function drawYAxis() {
 
-        svg.yAxis = svg.layers.axes.append("g").attr('class', 'total-axis');
+        svg.yAxis = svg.layers.axes.append("g").attr('class', 'y-axis');
     };
 
     var redrawYAxis = function redrawYAxis(scales, axes) {
@@ -326,11 +326,10 @@ var TCMGCharts = function TCMGCharts(data) {
 
         // create svg elements without data
         var chartSVG = ChartSVG(element, config, dimensions, svg);
-        // const chartScales = ChartScales(config,dimensions,scales);
-        // const chartAxis = ChartAxis(config,svg);
-        // chartAxis.drawXAxis();
-        // chartAxis.drawYAxis();
-
+        var chartScales = ChartScales(config, dimensions, scales);
+        var chartAxis = ChartAxis(config, svg);
+        chartAxis.drawXAxis();
+        chartAxis.drawYAxis();
 
         // manipulate the data into stacked series
         var stack = d3.stack().keys(Object.keys(data[0]).filter(function (k) {
