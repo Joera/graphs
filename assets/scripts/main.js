@@ -304,20 +304,20 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
     var redraw = function redraw(dimensions, scales) {
 
-        var barWidth = 0;
+        var barWidth = 200;
 
         var area = d3.area()
         // .curve(d3.curveCardinal)
         .x0(function (d, i) {
             if (i < 1) {
-                console.log(d[0].data.status);return scales.xBand(d[0].data.status) + barWidth;
+                return scales.xBand(d[0].data.status) + barWidth;
             } else {
                 return scales.xBand(d[0].data.status);
             }
         }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
-                console.log(d[1].data.status);return scales.xBand(d[1].data.status) + barWidth;
+                return scales.xBand(d[1].data.status) + barWidth;
             } else {
                 return scales.xBand(d[1].data.status);
             }
