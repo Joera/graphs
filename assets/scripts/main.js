@@ -273,15 +273,17 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // manipulate the data into stacked series
         functions.stack = d3.stack();
 
+        var stackedData = functions.stack.keys(data.columns.slice(1))(data);
+
         // format data for areaflow
         var areaData = [];
-        for (var i = 0; i < data.length - 1; i++) {
+        for (var i = 0; i < stackedData.length - 1; i++) {
             //  -
-            areaData.push([data[i], data[i + 1]]);
+            areaData.push([stackedData[i], stackedData[i + 1]]);
         }
 
         // series corresponds to provenance - the columns in the csv table//
-        svg.series = svg.layers.data.selectAll(".serie").data(functions.stack.keys(data.columns.slice(1))(data)).enter().append("g").attr("class", function (d) {
+        svg.series = svg.layers.data.selectAll(".serie").data(stackedData).enter().append("g").attr("class", function (d) {
             return "serie " + d.key;
         });
         // .attr("fill", function(d) { return z(d.key); })
