@@ -281,7 +281,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         }
 
         // series corresponds to provenance - the columns in the csv table//
-        svg.series = svg.layers.data.selectAll(".serie").data(functions.stack.keys(data.columns.slice(1))).enter().append("g").attr("class", function (d) {
+        svg.series = svg.layers.data.selectAll(".serie").data(functions.stack.keys(data.columns.slice(1))(data)).enter().append("g").attr("class", function (d) {
             return "serie " + d.key;
         });
         // .attr("fill", function(d) { return z(d.key); })
@@ -299,7 +299,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
             if (i < 1) {
-                console.log(d[0]);return scales.xBand(d[0]) + barWidth;
+                console.log(d);return scales.xBand(d[0]) + barWidth;
             } else {
                 return scales.xBand(d[0]);
             }
