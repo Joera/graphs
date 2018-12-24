@@ -331,12 +331,13 @@ var TCMGCharts = function TCMGCharts(data) {
         // chartAxis.drawXAxis();
         // chartAxis.drawYAxis();
 
-        console.log(data);
+
         // manipulate the data into stacked series
         var stack = d3.stack().keys(Object.keys(data[0]).filter(function (k) {
-            return k !== 'Country';
+            return k !== 'status';
         }));
         var series = stack(data);
+        console.log(series);
         // point of data injection when using an api
 
     };
