@@ -273,9 +273,11 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // manipulate the data into stacked series
         functions.stack = d3.stack();
 
-        // var series = stack(data);
-        // console.log(series);
-
+        // format data for areaflow
+        for (var i = 0, _areaData = []; i < data.length - 1; i++) {
+            //  -
+            _areaData.push([data[i], data[i + 1]]);
+        }
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie").data(functions.stack.keys(data.columns.slice(1))(data)).enter().append("g").attr("class", function (d) {
@@ -286,9 +288,29 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         svg.bar = svg.series.selectAll("rect").data(function (d) {
             return d;
         }).enter().append("rect");
+
+        svg.connection = svg.series.selectAll('.flow').data(areaData).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
 
     var redraw = function redraw(dimensions, scales) {
+
+        var barWidth = 100;
+
+        var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
+            if (i < 1) {
+                return scales.xBand(d.name) + barWidth;
+            } else {
+                return scales.xBand(d.name);
+            }
+        }).x1(function (d, i) {
+            if (i < 1) {
+                return scales.xBand(d.name) + barWidth;
+            } else {
+                return scales.xBand(d.name);
+            }
+        }).y0(scales.yLinear(0)).y1(function (d) {
+            return scales.yLinear(d.total);
+        });
 
         svg.bar.attr("y", function (d) {
             return scales.yLinear(d[1]);
@@ -297,6 +319,8 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         }).attr("x", function (d) {
             return scales.xBand(d.data[config.xParameter]);
         }).attr("width", scales.xBand.bandwidth());
+
+        svg.connection.attr("d", area);
     };
 
     return {
