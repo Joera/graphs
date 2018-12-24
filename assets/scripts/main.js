@@ -277,16 +277,19 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // format data for areaflow
         var format = function format(stack, index) {
 
-            var areaData = [];
-            for (var j = 0; j < 1; j++) {
-                //  -  data.columns.slice(1).length - 1
-                var pathObject = {};
-                pathObject.x0 = stackedData[index].key;
-                pathObject.x1 = stackedData[index + 1].key;
-                pathObject.y0 = stackedData[index][1];
-                pathObject.y1 = stackedData[index + 1][1];
+            if (index < stackedData.length - 1) {
 
-                areaData.push(pathObject);
+                var _areaData = [];
+                for (var j = 0; j < 1; j++) {
+                    //  -  data.columns.slice(1).length - 1
+                    var pathObject = {};
+                    pathObject.x0 = stackedData[index].key;
+                    pathObject.x1 = stackedData[index + 1].key;
+                    pathObject.y0 = stackedData[index][1];
+                    pathObject.y1 = stackedData[index + 1][1];
+
+                    _areaData.push(pathObject);
+                }
             }
             return areaData;
         };
