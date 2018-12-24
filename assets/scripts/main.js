@@ -322,9 +322,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                 return scales.xBand(d[1].data.status);
             }
         }).y0(function (d) {
-            console.log(d[0][1]);return scales.yLinear(d[0][1]);
+            console.log(d[0][1]);return scales.yLinearReverse(d[0][1]);
         }).y1(function (d) {
-            return scales.yLinear(d[1][1]);
+            return scales.yLinearReverse(d[1][1]);
         });
 
         svg.bar.attr("y", function (d) {
