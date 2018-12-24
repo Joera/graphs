@@ -288,8 +288,8 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                     var pathObject = {};
                     pathObject.x0 = stackedData[index].key;
                     pathObject.x1 = stackedData[index + 1].key;
-                    pathObject.y0 = stackedData[index][1];
-                    pathObject.y1 = stackedData[index + 1][1];
+                    pathObject.y0 = stackedData[index][j][0];
+                    pathObject.y1 = stackedData[index + 1][j][0];
 
                     areaData.push(pathObject);
                 }
