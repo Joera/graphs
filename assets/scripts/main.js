@@ -128,7 +128,7 @@ var ChartScales = function ChartScales(config, dimensions, scales) {
 
     var set = function set(data) {
 
-        var endDate = moment();
+        var endDate = new Date();
 
         scales.xTime = d3.scaleTime().domain([d3.min(data, function (d) {
             return new Date(d.date);
