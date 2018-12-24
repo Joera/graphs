@@ -308,16 +308,16 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
             if (i < 1) {
-                console.log(d[0]);return scales.xBand(d[0][1]) + barWidth;
+                console.log(d[0].data.status);return scales.xBand(d[0][1]) + barWidth;
             } else {
-                return scales.xBand(d[0][1]);
+                return scales.xBand(d[0].data.status);
             }
         }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d[1][1]) + barWidth;
+                return scales.xBand(d[1].data.status) + barWidth;
             } else {
-                return scales.xBand(d[1][1]);
+                return scales.xBand(d[1].data.status);
             }
         }).y0(function (d) {
             scales.yLinear(d[0][0]);
