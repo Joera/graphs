@@ -3,7 +3,7 @@ let ChartAxis = function ChartAxis(config,svg) {
     let drawXAxis = function drawXAxis() {
 
         svg.xAxis = svg.layers.axes.append("g")
-            .attr('class', 'time-axis');
+            .attr('class', 'x-axis');
 
     }
 
@@ -23,7 +23,7 @@ let ChartAxis = function ChartAxis(config,svg) {
     let drawYAxis = function drawYAxis() {
 
         svg.yAxis = svg.layers.axes.append("g")
-            .attr('class', 'total-axis')
+            .attr('class', 'y-axis')
 
     }
 

@@ -52,10 +52,10 @@ var TCMGCharts = function TCMGCharts(data) {
 
         // create svg elements without data
         const chartSVG = ChartSVG(element,config,dimensions,svg);
-        // const chartScales = ChartScales(config,dimensions,scales);
-        // const chartAxis = ChartAxis(config,svg);
-        // chartAxis.drawXAxis();
-        // chartAxis.drawYAxis();
+        const chartScales = ChartScales(config,dimensions,scales);
+        const chartAxis = ChartAxis(config,svg);
+        chartAxis.drawXAxis();
+        chartAxis.drawYAxis();
 
 
         // manipulate the data into stacked series
