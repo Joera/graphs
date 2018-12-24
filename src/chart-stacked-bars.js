@@ -15,6 +15,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
             // per serie
 
+            console.log(data.columns.slice(1));
             console.log(stackedData[i]);
 
             // areaData.push([stackedData[i],stackedData[i + 1]]);
