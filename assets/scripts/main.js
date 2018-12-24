@@ -279,9 +279,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
             var areaData = [];
 
-            console.log(stackedData.length - 1);
-
             if (index < stackedData.length - 1) {
+
+                console.log(index);
 
                 for (var j = 0; j < 1; j++) {
                     //  -  data.columns.slice(1).length - 1
