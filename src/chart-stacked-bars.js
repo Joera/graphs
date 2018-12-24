@@ -31,10 +31,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .data(function(d) { return d; })
             .enter().append("rect");
 
-        console.log(areaData[0]);
+        console.log(areaData[0][0]);
 
         svg.connection = svg.series.selectAll('.flow')
-            .data([[areaData[0]]])
+            .data([[areaData[0][0]]])
             .enter()
             .append("path")
             .attr("fill", "#ccc")
