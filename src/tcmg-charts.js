@@ -54,18 +54,25 @@ var TCMGCharts = function TCMGCharts(data) {
         const chartSVG = ChartSVG(element,config,dimensions,svg);
         const chartScales = ChartScales(config,dimensions,scales);
         const chartAxis = ChartAxis(config,svg);
+        const chartStackedBars = ChartStackedBars(config,svg);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
-
-        // manipulate the data into stacked series
-        var stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(k => k !== 'status'));
-        var series = stack(data);
-        console.log(series);
         // point of data injection when using an api
 
+        function redraw() {
 
+            chartStackedBars.redraw(dimensions,scales);
+        }
+
+        // with data we can init scales
+        scales = chartScales.set(data);
+        // width data we can draw items
+        chartStackedBars.draw(data,functions);
+        // further drawing happens in function that can be repeated.
+        redraw();
+        // for example on window resize
+        window.addEventListener("resize", redraw,false);
 
     }
 

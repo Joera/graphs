@@ -11,6 +11,11 @@ let ChartBar = function ChartBar(config,svg) {
 
     let redraw = function redraw(dimensions,scales,data) {
 
+        let stack = d3.stack()
+            .keys(stackKey)
+            .order(d3.stackOrderNone)
+            .offset(d3.stackOffsetNone);
+
         let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
 
         svg.bar

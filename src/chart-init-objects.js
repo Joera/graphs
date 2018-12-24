@@ -39,7 +39,8 @@ let ChartObjects = function ChartObjects() {
             xAxis : null,
             area : null,
             line : null,
-            bar : null
+            bar : null,
+            series : null // stacked-bars
         }
     }
 
@@ -65,7 +66,8 @@ let ChartObjects = function ChartObjects() {
 
         return {
             area: null,
-            line: null
+            line: null,
+            stack: null,
         }
 
     }
