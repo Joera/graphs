@@ -45,7 +45,7 @@ var TCMGCharts = function TCMGCharts(el,data) {
         config.margin.bottom = 30;
         config.padding.bottom = 30;
         config.padding.left = 60;
-        // config.yParameter = 'totalGrants';
+        config.xParameter = 'name';
 
         // get dimensions from parent element
         const chartDimensions = ChartDimensions(element,config);
@@ -58,6 +58,11 @@ var TCMGCharts = function TCMGCharts(el,data) {
         // chartAxis.drawXAxis();
         // chartAxis.drawYAxis();
 
+        console.log(data);
+        // manipulate the data into stacked series
+        // var stack = d3.stack()
+        //     .keys(Object.keys(data[0]).filter(k => k !== 'Country'));
+        // var series = stack(data);
         // point of data injection when using an api
 
 

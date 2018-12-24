@@ -12,7 +12,7 @@
 <script src="./assets/scripts/d3.min.js"></script>
 <script src="./assets/scripts/main.js"></script>
 <script>
-    d3.json('./dataset.json', function(data) {
+    d3.csv('./dummy_data_procedure.csv', function(data) {
         var tcmgCharts = new TCMGCharts(data);
         tcmgCharts.procedure('.chart-container');
     });
