@@ -275,15 +275,18 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         var stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
         // format data for areaflow
-        var format = function format(stack) {
-
-            console.log(stack);
+        var format = function format(stack, index) {
 
             var areaData = [];
             for (var j = 0; j < 1; j++) {
                 //  -  data.columns.slice(1).length - 1
-                var currentPlusNext = [stack[j], stack[j + 1]];
-                areaData.push(currentPlusNext);
+                var pathObject = {};
+                pathObject.x0 = stackedData[index].key;
+                pathObject.x1 = stackedData[index + 1].key;
+                pathObject.y0 = stackedData[index][1];
+                pathObject.y1 = stackedData[index + 1][1];
+
+                areaData.push(pathObject);
             }
             return areaData;
         };
@@ -300,8 +303,8 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         svg.connection = svg.series.selectAll('.flow')
         // je moet per serie .. de data reformatten
-        .data(function (d) {
-            return format(d);
+        .data(function (d, i) {
+            return format(d, i);
         }).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
 
@@ -314,21 +317,21 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
         .x0(function (d, i) {
             if (i < 1) {
-                console.log(d);return scales.xBand(d[0].data.status) + barWidth;
+                console.log(d);return scales.xBand(d.x0) + barWidth;
             } else {
-                return scales.xBand(d[0].data.status);
+                return scales.xBand(d.x0);
             }
         }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d[1].data.status) + barWidth;
+                return scales.xBand(d.x1) + barWidth;
             } else {
-                return scales.xBand(d[1].data.status);
+                return scales.xBand(d.x1);
             }
         }).y0(function (d) {
-            return scales.yLinearReverse(d[0][1]);
+            return scales.yLinearReverse(d.y0);
         }).y1(function (d) {
-            return scales.yLinearReverse(d[1][1]);
+            return scales.yLinearReverse(d.y1);
         });
 
         svg.bar.attr("y", function (d) {
