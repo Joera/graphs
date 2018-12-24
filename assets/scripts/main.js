@@ -315,7 +315,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d[1].data.status) + barWidth;
+                console.log(d[1].data.status);return scales.xBand(d[1].data.status) + barWidth;
             } else {
                 return scales.xBand(d[1].data.status);
             }
