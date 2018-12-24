@@ -56,6 +56,7 @@ var TCMGCharts = function TCMGCharts() {
 
         // function to parse csv
         function type(d, i, columns) {
+            let t;
             for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
             d.value = t;
             return d;
