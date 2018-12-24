@@ -138,6 +138,10 @@ var ChartScales = function ChartScales(config, dimensions, scales) {
             return d[config.yParameter];
         })]).nice();
 
+        scales.yLinearReverse = d3.scaleLinear().range([dimensions.height, config.margin.top + config.padding.top]).domain([d3.max(data, function (d) {
+            return d[config.yParameter];
+        }), 0]).nice();
+
         scales.xBand = d3.scaleBand()
         // what is domain when working with a stack?
         .domain(data.map(function (d) {
@@ -277,9 +281,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
     var redraw = function redraw(dimensions, scales) {
 
         svg.bar.attr("y", function (d) {
-            return scales.yLinear(d[1]);
+            return scales.yLinearReverse(d[1]);
         }).attr("height", function (d) {
-            return scales.yLinear(d[0]) - scales.yLinear(d[1]);
+            return scales.yLinearReverse(d[0]) - scales.yLinearReverse(d[1]);
         }).attr("x", function (d) {
             return scales.xBand(d.data[config.xParameter]);
         }).attr("width", scales.xBand.bandwidth());
