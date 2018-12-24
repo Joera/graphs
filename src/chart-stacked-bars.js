@@ -13,7 +13,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
             let areaData = [];
 
-            if(index < (stackedData.length - 1) ) {
+            if(index < (stackedData.length) ) {
 
                 for (let j = 0; j < data.columns.slice(1).length; j++) {  //  -   - 1
                     let pathObject = {};
