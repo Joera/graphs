@@ -57,6 +57,7 @@ let ChartObjects = function ChartObjects() {
 
         return {
             xTime : null,
+            xBand : null,
             yLinear : null,
         }
 

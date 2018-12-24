@@ -59,6 +59,7 @@ var ChartObjects = function ChartObjects() {
 
         return {
             xTime: null,
+            xBand: null,
             yLinear: null
         };
     };
@@ -178,11 +179,13 @@ var ChartAxis = function ChartAxis(config, svg) {
 
     var redrawXAxis = function redrawXAxis(dimensions, scales, axes) {
 
-        axes.xTime = d3.axisBottom(scales.xTime);
+        axes.xBand = d3.axisBottom(scales.xBand);
 
-        axes.xTime.ticks(d3.timeMonth.every(1)).tickFormat(d3.timeFormat("%b"));
+        axes.xBand;
+        // .ticks(d3.timeMonth.every(1))
+        // .tickFormat(d3.timeFormat("%b"));
 
-        svg.xAxis.attr("transform", "translate(" + 0 + "," + dimensions.height + ")").call(axes.xTime);
+        svg.xAxis.attr("transform", "translate(" + 0 + "," + dimensions.height + ")").call(axes.xBand);
     };
 
     var drawYAxis = function drawYAxis() {
