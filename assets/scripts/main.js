@@ -266,22 +266,23 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
 
         // series corresponds to provenance - the columns in the csv table//
-        svg.series = svg.layers.data.selectAll(".serie").data(functions.stack.keys(data.columns.slice(1))(data)).enter().append("g").attr("class", "serie")
+        svg.series = svg.layers.data.selectAll(".serie").data(functions.stack.keys(data.columns.slice(1))(data)).enter().append("g").attr("class", "serie");
         // .attr("fill", function(d) { return z(d.key); })
-        .selectAll("rect").data(function (d) {
+
+        svg.bar = svg.series.selectAll("rect").data(function (d) {
             return d;
-        }).enter().append("rect").attr("x", function (d) {
-            return x(d.data[config.xParameter]);
-        }).attr("y", function (d) {
-            return y(d[1]);
-        }).attr("height", function (d) {
-            return y(d[0]) - y(d[1]);
-        });
+        }).enter().append("rect");
     };
 
     var redraw = function redraw(dimensions, scales) {
 
-        svg.series.attr("width", scales.xBand.bandwidth());
+        svg.bar.attr("y", function (d) {
+            return scales.yLinear(d[1]);
+        }).attr("height", function (d) {
+            return scales.yLinear(d[0]) - scales.yLinear(d[1]);
+        }).attr("x", function (d) {
+            return scales.xBand(d.data[config.xParameter]);
+        }).attr("width", scales.xBand.bandwidth());
     };
 
     return {
