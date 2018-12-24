@@ -11,9 +11,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         // format data for areaflow
         let format = function(stack,index) {
 
+            let areaData = [];
+
             if(index < stackedData.length - 1 ) {
 
-                let areaData = [];
+
                 for (let j = 0; j < 1; j++) {  //  -  data.columns.slice(1).length - 1
                     let pathObject = {};
                     pathObject.x0 = stackedData[index].key;
