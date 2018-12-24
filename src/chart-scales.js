@@ -18,8 +18,8 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
         scales.xBand = d3.scaleBand()
             // what is domain when working with a stack?
             .domain(data.map(d => d[config.xParameter]))
-            .paddingInner([0.6])
-            .paddingOuter([0.6])
+            .paddingInner([0.5])
+            .paddingOuter([0.5])
             .align([0.5]);
 
         return scales;
