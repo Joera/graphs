@@ -178,7 +178,7 @@ var ChartAxis = function ChartAxis(config, svg) {
 
     var drawXAxis = function drawXAxis() {
 
-        svg.xAxis = svg.layers.axes.append("g").attr('class', 'x-axis').attr("transform", "translate(" + config.padding.left + ",0)");
+        svg.xAxis = svg.layers.axes.append("g").attr('class', 'x-axis');
     };
 
     var redrawXAxis = function redrawXAxis(dimensions, scales, axes) {
@@ -194,7 +194,7 @@ var ChartAxis = function ChartAxis(config, svg) {
 
     var drawYAxis = function drawYAxis() {
 
-        svg.yAxis = svg.layers.axes.append("g").attr('class', 'y-axis');
+        svg.yAxis = svg.layers.axes.append("g").attr('class', 'y-axis').attr("transform", "translate(" + config.padding.left + ",0)");
     };
 
     var redrawYAxis = function redrawYAxis(scales, axes) {
