@@ -1,10 +1,6 @@
-status;cvw_met_historie;cvw_zonder_historie;nieuw_met_historie;nieuw_zonder_historie
-binnengekomen;10000;"1000
-";100;10000
-opname_uitgevoerd;"1000
-";500;0;"500
-"
-rapport_bij_bewoner;"500
-";450;0;50
-voorbereiden_besluit;100;50;0;0
-besluit_genomen;100;50;0;0
+status,cvw_met_historie,cvw_zonder_historie,nieuw_met_historie,nieuw_zonder_historie
+binnengekomen,10000,1000,100,10000
+opname_uitgevoerd,1000,500,0,500
+rapport_bij_bewoner,500,450,0,50
+voorbereiden_besluit,100,50,0,0
+besluit_genomen,100,50,0,0
