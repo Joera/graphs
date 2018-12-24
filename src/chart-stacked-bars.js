@@ -27,8 +27,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
     let redraw = function redraw(dimensions,scales) {
 
         svg.bar
-            .attr("y", function(d) { console.log(d[1]); return scales.yLinear(d[1]); })
-            // .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
+            .attr("y", function(d) { return scales.yLinear(d[1]); })
+            .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
             .attr("x", function(d) { return scales.xBand(d.data[config.xParameter]); })
             .attr("width", scales.xBand.bandwidth());
 

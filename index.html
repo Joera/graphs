@@ -12,11 +12,8 @@
 <script src="./assets/scripts/d3.min.js"></script>
 <script src="./assets/scripts/main.js"></script>
 <script>
-    d3.csv('./dummy_data_procedure.csv', function(data) {
-        var tcmgCharts = new TCMGCharts(data);
+        var tcmgCharts = new TCMGCharts();
         tcmgCharts.procedure('.chart-container');
-    });
-
 </script>
 
 

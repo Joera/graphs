@@ -4,7 +4,7 @@
 /**
  *
  */
-var TCMGCharts = function TCMGCharts(data) {
+var TCMGCharts = function TCMGCharts() {
 
     // init multiple charts from this file
 
@@ -25,9 +25,6 @@ var TCMGCharts = function TCMGCharts(data) {
 
     let formatDates = locale.format("%B %Y");
 
-    let dataset = data;
-
-
     var Procedure  = function Procedure(el) {
 
         let element = el;
@@ -45,6 +42,7 @@ var TCMGCharts = function TCMGCharts(data) {
         config.padding.bottom = 30;
         config.padding.left = 60;
         config.xParameter = 'name';
+        config.yParameter = 'value';
 
         // get dimensions from parent element
         const chartDimensions = ChartDimensions(element,config);
@@ -60,19 +58,29 @@ var TCMGCharts = function TCMGCharts(data) {
 
         // point of data injection when using an api
 
-        function redraw() {
-
-            chartStackedBars.redraw(dimensions,scales);
+        function type(d, i, columns) {
+            for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+            d.value = t;
+            return d;
         }
 
-        // with data we can init scales
-        scales = chartScales.set(data);
-        // width data we can draw items
-        chartStackedBars.draw(data,functions);
-        // further drawing happens in function that can be repeated.
-        redraw();
-        // for example on window resize
-        window.addEventListener("resize", redraw,false);
+        d3.csv("./dummy_data_procedure.csv", type, function(error, data) {
+            if (error) throw error;
+
+            function redraw() {
+
+                chartStackedBars.redraw(dimensions, scales);
+            }
+
+            // with data we can init scales
+            scales = chartScales.set(data);
+            // width data we can draw items
+            chartStackedBars.draw(data, functions);
+            // further drawing happens in function that can be repeated.
+            redraw();
+            // for example on window resize
+            window.addEventListener("resize", redraw, false);
+        });
 
     }
 
