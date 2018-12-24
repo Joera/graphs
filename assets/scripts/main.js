@@ -199,7 +199,7 @@ var ChartAxis = function ChartAxis(config, svg) {
 
     var redrawYAxis = function redrawYAxis(scales, axes) {
 
-        axes.yLinear = d3.axisRight(scales.yLinear);
+        axes.yLinear = d3.axisLeft(scales.yLinear);
 
         axes.yLinear.ticks(2);
 
