@@ -6,7 +6,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         functions.stack = d3.stack();
 
         // format data for areaflow
-        for (let i = 0, areaData = []; i < data.length - 1; i++) {  //  -
+        let areaData = [];
+        for (let i = 0; i < data.length - 1; i++) {  //  -
             areaData.push([data[i],data[i + 1]]);
         }
 

@@ -274,9 +274,10 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         functions.stack = d3.stack();
 
         // format data for areaflow
-        for (var i = 0, _areaData = []; i < data.length - 1; i++) {
+        var areaData = [];
+        for (var i = 0; i < data.length - 1; i++) {
             //  -
-            _areaData.push([data[i], data[i + 1]]);
+            areaData.push([data[i], data[i + 1]]);
         }
 
         // series corresponds to provenance - the columns in the csv table//
