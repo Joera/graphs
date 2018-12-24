@@ -299,7 +299,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         console.log(areaData);
 
-        svg.connection = svg.series.selectAll('.flow').data(areaData).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
+        svg.connection = svg.series.selectAll('.flow').data([areaData]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
 
     var redraw = function redraw(dimensions, scales) {
@@ -308,16 +308,16 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
             if (i < 1) {
-                console.log(d);return scales.xBand(d[0][1]) + barWidth;
+                console.log(d);return scales.xBand(d.data.status) + barWidth;
             } else {
-                return scales.xBand(d[0].data.status);
+                return scales.xBand(d.data.status);
             }
         }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d[1].data.status) + barWidth;
+                return scales.xBand(d.data.status) + barWidth;
             } else {
-                return scales.xBand(d[1].data.status);
+                return scales.xBand(d.data.status);
             }
         }).y0(function (d) {
             scales.yLinear(d[0][0]);
