@@ -14,7 +14,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         for (let i = 0; i < stackedData.length - 1; i++) {  //  -
             // for every status
             for (let j = 0; j < data.columns.slice(1).length - 1; j++) {  //  -
-                areaData.push([stackedData[i][j],stackedData[i][j + 1]]);
+
+                let currentPlusNext = [stackedData[i][j],stackedData[i][j + 1]];
+                console.log(currentPlusNext);
+
+                areaData.push(currentPlusNext);
             }
         }
 

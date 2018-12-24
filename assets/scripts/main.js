@@ -282,7 +282,11 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
             // for every status
             for (var j = 0; j < data.columns.slice(1).length - 1; j++) {
                 //  -
-                areaData.push([stackedData[i][j], stackedData[i][j + 1]]);
+
+                var currentPlusNext = [stackedData[i][j], stackedData[i][j + 1]];
+                console.log(currentPlusNext);
+
+                areaData.push(currentPlusNext);
             }
         }
 
