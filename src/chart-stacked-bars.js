@@ -11,6 +11,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         // format data for areaflow
         let format = function(stack) {
 
+            console.log(stack);
+
             let areaData = [];
             for (let j = 0; j < 1 ; j++) {  //  -  data.columns.slice(1).length - 1
                 let currentPlusNext = [stack[j],stack[j + 1]];
@@ -29,7 +31,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect");
-        
+
 
         svg.connection = svg.series.selectAll('.flow')
             // je moet per serie .. de data reformatten
@@ -49,7 +51,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
             .x0((d,i) => { if (i < 1) { console.log(d);  return  scales.xBand(d[0].data.status) + barWidth } else { return scales.xBand(d[0].data.status);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) {  return scales.xBand(d[1].data.status) + barWidth } else { return scales.xBand(d[1].data.status); }})
-            .y0((d) => { console.log(d[0][1]); return scales.yLinearReverse(d[0][1]); })
+            .y0((d) => { return scales.yLinearReverse(d[0][1]); })
             .y1((d) => { return scales.yLinearReverse(d[1][1]); });
 
         svg.bar

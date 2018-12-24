@@ -277,6 +277,8 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // format data for areaflow
         var format = function format(stack) {
 
+            console.log(stack);
+
             var areaData = [];
             for (var j = 0; j < 1; j++) {
                 //  -  data.columns.slice(1).length - 1
@@ -324,7 +326,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                 return scales.xBand(d[1].data.status);
             }
         }).y0(function (d) {
-            console.log(d[0][1]);return scales.yLinearReverse(d[0][1]);
+            return scales.yLinearReverse(d[0][1]);
         }).y1(function (d) {
             return scales.yLinearReverse(d[1][1]);
         });
