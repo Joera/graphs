@@ -60,9 +60,9 @@ var TCMGCharts = function TCMGCharts(el,data) {
 
         console.log(data);
         // manipulate the data into stacked series
-        // var stack = d3.stack()
-        //     .keys(Object.keys(data[0]).filter(k => k !== 'Country'));
-        // var series = stack(data);
+        var stack = d3.stack()
+            .keys(Object.keys(data[0]).filter(k => k !== 'Country'));
+        var series = stack(data);
         // point of data injection when using an api
 
 
