@@ -14,7 +14,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.series = svg.layers.data.selectAll(".serie")
             .data(functions.stack.keys(data.columns.slice(1))(data))
             .enter().append("g")
-            .attr("class", (d) => { console.log(d); return "serie " });
+            .attr("class", (d) => { return "serie " + d.key });
             // .attr("fill", function(d) { return z(d.key); })
 
         svg.bar = svg.series.selectAll("rect")

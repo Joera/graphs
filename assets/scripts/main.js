@@ -279,7 +279,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie").data(functions.stack.keys(data.columns.slice(1))(data)).enter().append("g").attr("class", function (d) {
-            console.log(d);return "serie ";
+            return "serie " + d.key;
         });
         // .attr("fill", function(d) { return z(d.key); })
 
