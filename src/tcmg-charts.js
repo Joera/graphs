@@ -4,7 +4,7 @@
 /**
  *
  */
-var TCMGCharts = function TCMGCharts(el,data) {
+var TCMGCharts = function TCMGCharts(data) {
 
     // init multiple charts from this file
 
@@ -24,8 +24,7 @@ var TCMGCharts = function TCMGCharts(el,data) {
         .style("opacity", 0);
 
     let formatDates = locale.format("%B %Y");
-
-    let element = el;
+    
     let dataset = data;
 
 
