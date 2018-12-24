@@ -341,9 +341,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var formatDates = locale.format("%B %Y");
 
-    var Procedure = function Procedure(el) {
-
-        var element = el;
+    var Procedure = function Procedure(element) {
 
         var chartObjects = ChartObjects();
         var config = chartObjects.config();
@@ -372,20 +370,29 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
-        // point of data injection when using an api
-
+        // function to parse csv
         function type(d, i, columns) {
             for (i = 1, t = 0; i < columns.length; ++i) {
                 t += d[columns[i]] = +d[columns[i]];
             }d.value = t;
             return d;
         }
-
+        // point of data injection when using an api
         d3.csv("./dummy_data_procedure.csv", type, function (error, data) {
             if (error) throw error;
 
-            function redraw() {
+            console.log(data);
 
+            function redraw() {
+                // on redraw chart gets new dimensions
+                dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
+                // new dimensions mean new scales
+                scales = chartScales.reset(dimensions, scales);
+                // new scales mean new axis
+                chartAxis.redrawXAxis(dimensions, scales, axes);
+                chartAxis.redrawYAxis(scales, axes);
+                // redraw data
                 chartStackedBars.redraw(dimensions, scales);
             }
 
