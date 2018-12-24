@@ -49,11 +49,6 @@ var Procedure = function Procedure(el,data) {
             .attr('height', (height + config.margin.top + config.margin.bottom + config.padding.top + config.padding.bottom))
             .append('g')
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')');
-
-
-
-
-        //     .offset("zero")
     }
 
     let renderLayers = function renderLayers() {
@@ -142,13 +137,17 @@ var Procedure = function Procedure(el,data) {
 
             // console.log(stackedData);
 
+        // stacked data ... maakt laag van dezelfde herkomst
+
+        // we geven alle statussen van een herkomst dezelfde kleur
+
+        // on hover een andere kleur
+
         let category = layers.bars.selectAll(".category")
             .data(stackedData)
             .enter().append("g")
             .attr("class",function(d, i) { if (d[i]) { return d[i].cat + ' category' ; }});
            // .style("fill", function(d, i) { return color(i); });
-
-
 
 
         let bar = category.selectAll(".bar")
@@ -160,7 +159,7 @@ var Procedure = function Procedure(el,data) {
                 return yScale(d.val);
             })
             .attr('x', (d,i) => {
-                return xScale(d.cat);
+                return xScale(d.name);
             })
             .attr('width', barWidth)
             .attr('height', (d) => {
@@ -172,14 +171,10 @@ var Procedure = function Procedure(el,data) {
 
     let renderFlows = function renderFlows() {
 
-
         let areaData = []
 
-
         for (let i = 0; i < data.length - 1; i++) {  //  -
-
             areaData.push([data[i],data[i + 1]]);
-
         }
 
         let area = d3.area()
@@ -197,17 +192,7 @@ var Procedure = function Procedure(el,data) {
             .attr("d", area)
             .attr("fill", "#ccc")
             .attr('class', 'flow');
-
-
     }
-
-
-
-
-
-
-
-
 
     return {
 

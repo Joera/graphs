@@ -15,7 +15,14 @@ module.exports = function() {
     gulp.task('js-compile', function() {
 
         var graph = gulp.src([
-            './src/procedure.js',
+            './src/chart-init-objects.js',
+            './src/chart-dimensions.js',
+            './src/chart-svg.js',
+            './src/chart-scales.js',
+            './src/chart-axis.js',
+            './src/chart-line.js',
+            './src/chart-bar.js',
+            './src/chart-area.js',
             './src/init.js'
             ])
             .pipe(concat('main.js'))
