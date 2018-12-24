@@ -16,19 +16,21 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .enter().append("g")
             .attr("class", "serie")
             // .attr("fill", function(d) { return z(d.key); })
-            .selectAll("rect")
+
+        svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
-            .enter().append("rect")
-            .attr("x", function(d) { return x(d.data[config.xParameter]); })
-            .attr("y", function(d) { return y(d[1]); })
-            .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+            .enter().append("rect");
 
 
     }
 
     let redraw = function redraw(dimensions,scales) {
 
-        svg.series.attr("width", scales.xBand.bandwidth());
+        svg.bar
+            .attr("y", function(d) { return scales.yLinear(d[1]); })
+            .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
+            .attr("x", function(d) { return scales.xBand(d.data[config.xParameter]); })
+            .attr("width", scales.xBand.bandwidth());
 
     }
 
