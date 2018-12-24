@@ -47,7 +47,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         let area = d3.area()
             .curve(d3.curveCardinal)
-            .x0((d,i) => { if (i < 1) { console.log(d); return scales.xBand(d[0][1]) + barWidth } else { return scales.xBand(d[0][1]);}})  // console.log(d);
+            .x0((d,i) => { if (i < 1) { console.log(d[0][1]); return scales.xBand(d[0][1]) + barWidth } else { return scales.xBand(d[0][1]);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) { return scales.xBand(d[1][1]) + barWidth } else { return scales.xBand(d[1][1]); }})
             .y0((d) => { scales.yLinear(d[0][0]) })
             .y1((d) => { return scales.yLinear(d[1][0]); });
