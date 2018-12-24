@@ -275,17 +275,16 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         var stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
         // format data for areaflow
-        var areaData = [];
-        // for every provenance
-        [stackedData[0]].forEach(function (stack) {
-            //  -
-            // for every status
+        var format = function format(stack) {
+
+            var areaData = [];
             for (var j = 0; j < 1; j++) {
                 //  -  data.columns.slice(1).length - 1
                 var currentPlusNext = [stack[j], stack[j + 1]];
                 areaData.push(currentPlusNext);
             }
-        });
+            return areaData;
+        };
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie").data(stackedData).enter().append("g").attr("class", function (d) {
@@ -299,7 +298,11 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         console.log(areaData);
 
-        svg.connection = svg.series.selectAll('.flow').data(areaData[0]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
+        svg.connection = svg.series.selectAll('.flow')
+        // je moet per serie .. de data reformatten
+        .data(function (d) {
+            return format(d);
+        }).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
 
     var redraw = function redraw(dimensions, scales) {

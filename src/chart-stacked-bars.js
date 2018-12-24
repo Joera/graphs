@@ -9,16 +9,15 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
 
         // format data for areaflow
-        let areaData = [];
-        // for every provenance
-        [stackedData[0]].forEach( (stack) => { //  -
-            // for every status
+        let format = function(stack) {
+
+            let areaData = [];
             for (let j = 0; j < 1 ; j++) {  //  -  data.columns.slice(1).length - 1
                 let currentPlusNext = [stack[j],stack[j + 1]];
                 areaData.push(currentPlusNext);
             }
-        });
-
+            return areaData;
+        }
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie")
@@ -33,8 +32,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         console.log(areaData);
 
+
+
         svg.connection = svg.series.selectAll('.flow')
-            .data(areaData[0])
+            // je moet per serie .. de data reformatten
+            .data(function(d) { return format(d); })
             .enter()
             .append("path")
             .attr("fill", "#ccc")
