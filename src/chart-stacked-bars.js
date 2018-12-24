@@ -15,11 +15,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
             if(index < (stackedData.length - 1) ) {
 
-
-
-                for (let j = 0; j < 1; j++) {  //  -  data.columns.slice(1).length - 1
+                for (let j = 0; j < data.columns.slice(1).length; j++) {  //  -   - 1
                     let pathObject = {};
-                  
+
                     pathObject.x0 = stackedData[index][j].data.status; // key = provenance ... moet status zijn
                     pathObject.x1 = stackedData[index + 1][j].data.status;
                     pathObject.y0 = stackedData[index][j][0];
