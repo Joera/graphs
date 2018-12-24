@@ -297,9 +297,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
             return d;
         }).enter().append("rect");
 
-        console.log(areaData[0]);
+        console.log(areaData[0][0]);
 
-        svg.connection = svg.series.selectAll('.flow').data([[areaData[0]]]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
+        svg.connection = svg.series.selectAll('.flow').data([[areaData[0][0]]]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
 
     var redraw = function redraw(dimensions, scales) {
