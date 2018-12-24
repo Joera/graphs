@@ -111,7 +111,6 @@ var ChartSVG = function ChartSVG(element, config, dimensions, svg) {
     };
 
     var redraw = function redraw(dimensions) {
-        console.log(dimensions);
         svg.body.attr('height', dimensions.containerHeight).attr('width', dimensions.containerWidth);
 
         svg.main.attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')').attr('width', dimensions.containerWidth - config.margin.left - config.margin.right).attr('height', dimensions.containerHeight - config.margin.top - config.margin.bottom);
@@ -275,12 +274,17 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         var stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
-        console.log(stackedData);
         // format data for areaflow
         var areaData = [];
+        // for every serie
         for (var i = 0; i < stackedData.length - 1; i++) {
             //  -
-            areaData.push([stackedData[i], stackedData[i + 1]]);
+
+            // per serie
+
+            console.log(stackedData[i]);
+
+            // areaData.push([stackedData[i],stackedData[i + 1]]);
         }
 
         // series corresponds to provenance - the columns in the csv table//
@@ -306,7 +310,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
             } else {
                 return scales.xBand(d[0]);
             }
-        }) // console.log(d); 
+        }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
                 return scales.xBand(d[0]) + barWidth;
