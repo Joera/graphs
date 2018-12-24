@@ -281,7 +281,7 @@ var ChartArea = function ChartArea(config, svg) {
 /**
  *
  */
-var TCMGCharts = function TCMGCharts(el, data) {
+var TCMGCharts = function TCMGCharts(data) {
 
     // init multiple charts from this file
 
@@ -300,7 +300,6 @@ var TCMGCharts = function TCMGCharts(el, data) {
 
     var formatDates = locale.format("%B %Y");
 
-    var element = el;
     var dataset = data;
 
     var Procedure = function Procedure(el) {
