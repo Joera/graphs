@@ -11,6 +11,7 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
     }
 
     let redraw = function redraw(dimensions) {
+        console.log(dimensions;)
         svg.body.attr('width', (dimensions.containerWidth))
     }
 
