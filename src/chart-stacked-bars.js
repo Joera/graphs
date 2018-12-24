@@ -8,6 +8,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // var series = stack(data);
             // console.log(series);
 
+
+
+        // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie")
             .data(functions.stack.keys(data.columns.slice(1))(data))
             .enter().append("g")
