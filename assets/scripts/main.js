@@ -281,7 +281,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
     var redraw = function redraw(dimensions, scales) {
 
-        svg.series.attr("width", x.bandwidth());
+        svg.series.attr("width", scales.xBand.bandwidth());
     };
 
     return {
