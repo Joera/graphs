@@ -34,7 +34,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         console.log(areaData);
 
         svg.connection = svg.series.selectAll('.flow')
-            .data([areaData])
+            .data([[areaData[0]]])
             .enter()
             .append("path")
             .attr("fill", "#ccc")
@@ -46,7 +46,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let barWidth = 0;
 
         let area = d3.area()
-            .curve(d3.curveCardinal)
+            // .curve(d3.curveCardinal)
             .x0((d,i) => { if (i < 1) { console.log(d[0].data.status); return scales.xBand(d[0].data.status) + barWidth } else { return scales.xBand(d[0].data.status);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) { console.log(d[1].data.status); return scales.xBand(d[1].data.status) + barWidth } else { return scales.xBand(d[1].data.status); }})
             .y0((d) => { console.log(d[0][1]); return scales.yLinear(d[0][1]); })

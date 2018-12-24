@@ -299,14 +299,16 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         console.log(areaData);
 
-        svg.connection = svg.series.selectAll('.flow').data([areaData]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
+        svg.connection = svg.series.selectAll('.flow').data([[areaData[0]]]).enter().append("path").attr("fill", "#ccc").attr('class', 'flow');
     };
 
     var redraw = function redraw(dimensions, scales) {
 
         var barWidth = 0;
 
-        var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
+        var area = d3.area()
+        // .curve(d3.curveCardinal)
+        .x0(function (d, i) {
             if (i < 1) {
                 console.log(d[0].data.status);return scales.xBand(d[0].data.status) + barWidth;
             } else {
