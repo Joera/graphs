@@ -299,7 +299,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
             if (i < 1) {
-                console.log(scales.xBand(d[0]));return scales.xBand(d[0]) + barWidth;
+                console.log(d[0]);return scales.xBand(d[0]) + barWidth;
             } else {
                 return scales.xBand(d[0]);
             }
