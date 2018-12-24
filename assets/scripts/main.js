@@ -178,7 +178,7 @@ var ChartAxis = function ChartAxis(config, svg) {
 
     var drawXAxis = function drawXAxis() {
 
-        svg.xAxis = svg.layers.axes.append("g").attr('class', 'x-axis');
+        svg.xAxis = svg.layers.axes.append("g").attr('class', 'x-axis').attr("transform", "translate(" + config.padding.left + ",0)");
     };
 
     var redrawXAxis = function redrawXAxis(dimensions, scales, axes) {

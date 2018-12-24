@@ -3,7 +3,8 @@ let ChartAxis = function ChartAxis(config,svg) {
     let drawXAxis = function drawXAxis() {
 
         svg.xAxis = svg.layers.axes.append("g")
-            .attr('class', 'x-axis');
+            .attr('class', 'x-axis')
+            .attr("transform", "translate(" + config.padding.left + ",0)")
 
     }
 
