@@ -275,6 +275,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         var stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
+        console.log(stackedData);
         // format data for areaflow
         var areaData = [];
         for (var i = 0; i < stackedData.length - 1; i++) {
