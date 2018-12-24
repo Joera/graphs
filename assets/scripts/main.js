@@ -279,13 +279,10 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // for every provenance
         for (var i = 0; i < stackedData.length - 1; i++) {
             //  -
-
             // for every status
             for (var j = 0; j < data.columns.slice(1).length - 1; j++) {
                 //  -
-
-                console.log(stackedData[i][j]);
-                // areaData.push([stackedData[i],stackedData[i + 1]]);
+                areaData.push([stackedData[i][j], stackedData[i][j + 1]]);
             }
         }
 
@@ -304,23 +301,23 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
     var redraw = function redraw(dimensions, scales) {
 
-        var barWidth = 100;
+        var barWidth = 0;
 
         var area = d3.area().curve(d3.curveCardinal).x0(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d[0]) + barWidth;
+                return scales.xBand(d[0][1]) + barWidth;
             } else {
-                return scales.xBand(d[0]);
+                return scales.xBand(d[0][1]);
             }
         }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d[0]) + barWidth;
+                return scales.xBand(d[1][1]) + barWidth;
             } else {
-                return scales.xBand(d[0]);
+                return scales.xBand(d[1][1]);
             }
-        }).y0(scales.yLinear(0)).y1(function (d) {
-            return scales.yLinear(d[1]);
+        }).y0(scales.yLinear(d[0][0])).y1(function (d) {
+            return scales.yLinear(d[1][0]);
         });
 
         svg.bar.attr("y", function (d) {

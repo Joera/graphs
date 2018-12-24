@@ -12,12 +12,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let areaData = [];
         // for every provenance
         for (let i = 0; i < stackedData.length - 1; i++) {  //  -
-
             // for every status
             for (let j = 0; j < data.columns.slice(1).length - 1; j++) {  //  -
-
-                console.log(stackedData[i][j]);
-                // areaData.push([stackedData[i],stackedData[i + 1]]);
+                areaData.push([stackedData[i][j],stackedData[i][j + 1]]);
             }
         }
 
@@ -43,14 +40,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     let redraw = function redraw(dimensions,scales) {
 
-        let barWidth = 100;
+        let barWidth = 0;
 
         let area = d3.area()
             .curve(d3.curveCardinal)
-            .x0((d,i) => { if (i < 1) { return scales.xBand(d[0]) + barWidth } else { return scales.xBand(d[0]);}})  // console.log(d);
-            .x1((d,i) => { if (i < 1) { return scales.xBand(d[0]) + barWidth } else { return scales.xBand(d[0]); }})
-            .y0(scales.yLinear(0))
-            .y1((d) => { return scales.yLinear(d[1]); });
+            .x0((d,i) => { if (i < 1) { return scales.xBand(d[0][1]) + barWidth } else { return scales.xBand(d[0][1]);}})  // console.log(d);
+            .x1((d,i) => { if (i < 1) { return scales.xBand(d[1][1]) + barWidth } else { return scales.xBand(d[1][1]); }})
+            .y0(scales.yLinear(d[0][0]))
+            .y1((d) => { return scales.yLinear(d[1][0]); });
 
         svg.bar
             .attr("y", function(d) { return scales.yLinear(d[1]); })
