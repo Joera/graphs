@@ -316,7 +316,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
             } else {
                 return scales.xBand(d[1][1]);
             }
-        }).y0(scales.yLinear(d[0][0])).y1(function (d) {
+        }).y0(function (d) {
+            scales.yLinear(d[0][0]);
+        }).y1(function (d) {
             return scales.yLinear(d[1][0]);
         });
 
