@@ -295,7 +295,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                 }
             }
             console.log(areaData);
-            return areaData;
+            return [areaData];
         };
 
         // series corresponds to provenance - the columns in the csv table//
