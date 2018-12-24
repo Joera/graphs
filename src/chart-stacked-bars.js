@@ -10,15 +10,15 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         // format data for areaflow
         let areaData = [];
-        // for every serie
+        // for every provenance
         for (let i = 0; i < stackedData.length - 1; i++) {  //  -
 
-            // per serie
+            // for every status
+            for (let j = 0; j < data.columns.slice(1).length - 1; j++) {  //  -
 
-            console.log(data.columns.slice(1));
-            console.log(stackedData[i]);
-
-            // areaData.push([stackedData[i],stackedData[i + 1]]);
+                console.log(stackedData[i][j]);
+                // areaData.push([stackedData[i],stackedData[i + 1]]);
+            }
         }
 
 

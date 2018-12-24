@@ -276,16 +276,17 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
         // format data for areaflow
         var areaData = [];
-        // for every serie
+        // for every provenance
         for (var i = 0; i < stackedData.length - 1; i++) {
             //  -
 
-            // per serie
+            // for every status
+            for (var j = 0; j < data.columns.slice(1).length - 1; j++) {
+                //  -
 
-            console.log(data.columns.slice(1));
-            console.log(stackedData[i]);
-
-            // areaData.push([stackedData[i],stackedData[i + 1]]);
+                console.log(stackedData[i][j]);
+                // areaData.push([stackedData[i],stackedData[i + 1]]);
+            }
         }
 
         // series corresponds to provenance - the columns in the csv table//
