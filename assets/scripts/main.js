@@ -277,15 +277,15 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // format data for areaflow
         var areaData = [];
         // for every provenance
-        for (var i = 0; i < stackedData.length - 1; i++) {
+        stackedData.forEach(function (stack) {
             //  -
             // for every status
             for (var j = 0; j < data.columns.slice(1).length - 1; j++) {
                 //  -
-                var currentPlusNext = [stackedData[i][j], stackedData[i][j + 1]];
+                var currentPlusNext = [stack[j], stack[j + 1]];
                 areaData.push(currentPlusNext);
             }
-        }
+        });
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie").data(stackedData).enter().append("g").attr("class", function (d) {

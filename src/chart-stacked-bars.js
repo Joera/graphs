@@ -11,13 +11,13 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         // format data for areaflow
         let areaData = [];
         // for every provenance
-        for (let i = 0; i < stackedData.length - 1; i++) {  //  -
+        stackedData.forEach( (stack) => { //  -
             // for every status
             for (let j = 0; j < data.columns.slice(1).length - 1; j++) {  //  -
-                let currentPlusNext = [stackedData[i][j],stackedData[i][j + 1]];
+                let currentPlusNext = [stack[j],stack[j + 1]];
                 areaData.push(currentPlusNext);
             }
-        }
+        });
 
 
         // series corresponds to provenance - the columns in the csv table//
