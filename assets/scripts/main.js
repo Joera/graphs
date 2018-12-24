@@ -366,7 +366,7 @@ var TCMGCharts = function TCMGCharts(data) {
         var chartSVG = ChartSVG(element, config, dimensions, svg);
         var chartScales = ChartScales(config, dimensions, scales);
         var chartAxis = ChartAxis(config, svg);
-        var chartStackedBars = ChartStackedBars(config, svg);
+        var chartStackedBars = ChartStackedBars(config, svg, functions);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
