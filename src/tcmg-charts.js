@@ -58,7 +58,7 @@ var TCMGCharts = function TCMGCharts(el,data) {
         // chartAxis.drawXAxis();
         // chartAxis.drawYAxis();
 
-        // point of data injection when using an api 
+        // point of data injection when using an api
 
 
 

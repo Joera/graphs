@@ -23,7 +23,7 @@ module.exports = function() {
             './src/chart-line.js',
             './src/chart-bar.js',
             './src/chart-area.js',
-            './src/init.js'
+            './src/tcmg-charts.js'
             ])
             .pipe(concat('main.js'))
             .pipe(babel({
