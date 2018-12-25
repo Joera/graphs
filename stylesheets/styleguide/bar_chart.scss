@@ -25,6 +25,7 @@
   rect {
     fill: #ccc;
   }
+  path {display: none; }
 
 
   &.cvw_met_historie {
@@ -38,6 +39,7 @@
 
     rect, path {
       fill: $blue;
+      display: block;
     }
   }
 }
