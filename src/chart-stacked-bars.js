@@ -38,7 +38,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     pathObject.x = stackedData[index][j].data.status;
                     pathObject.y = stackedData[index][j][1];
                     // if(index > 0) {
-                        pathObject.base = calcBase(index,j);
+                        pathObject.base = 10000; // calcBase(index,j);
                     // } else {
                     //     pathObject.base = calcBase(index, j);
                     // }
@@ -50,7 +50,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     nextPathObject.x = stackedData[index][j+1].data.status;
                     nextPathObject.y = stackedData[index][j+1][1];
-                    nextPathObject.base = calcBase(index,j);
+                    nextPathObject.base = 1000; //calcBase(index,j);
                     nextPathObject.class = stackedData[index].key;
                     pathCombo.push(nextPathObject);
 
