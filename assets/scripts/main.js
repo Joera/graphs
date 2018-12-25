@@ -330,21 +330,21 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
         // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
         .x0(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d.x0) + barWidth;
+                return scales.xBand(d.x) + barWidth;
             } else {
-                return scales.xBand(d.x0);
+                return scales.xBand(d.x);
             }
         }) // console.log(d);
         .x1(function (d, i) {
             if (i < 1) {
-                return scales.xBand(d.x1) + barWidth;
+                return scales.xBand(d.x) + barWidth;
             } else {
-                return scales.xBand(d.x1);
+                return scales.xBand(d.x);
             }
         }).y0(function (d) {
-            console.log(d);return scales.yLinearReverse(d.y0);
+            console.log(d);return scales.yLinearReverse(d.y);
         }).y1(function (d) {
-            return scales.yLinearReverse(d.y1);
+            return scales.yLinearReverse(d.y);
         });
 
         svg.bar.attr("y", function (d) {

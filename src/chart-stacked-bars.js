@@ -63,10 +63,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let area = d3.area()
             // .curve(d3.curveCardinal)
             // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
-            .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x0) + barWidth } else { return scales.xBand(d.x0);}})  // console.log(d);
-            .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x1) + barWidth } else { return scales.xBand(d.x1); }})
-            .y0((d) => { console.log(d); return scales.yLinearReverse(d.y0); })
-            .y1((d) => { return scales.yLinearReverse(d.y1); });
+            .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + barWidth } else { return scales.xBand(d.x);}})  // console.log(d);
+            .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + barWidth } else { return scales.xBand(d.x); }})
+            .y0((d) => { console.log(d); return scales.yLinearReverse(d.y); })
+            .y1((d) => { return scales.yLinearReverse(d.y); });
 
         svg.bar
             .attr("y", function(d) { return scales.yLinear(d[1]); })
