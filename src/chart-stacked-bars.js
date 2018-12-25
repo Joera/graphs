@@ -7,7 +7,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
-        let calcBase(status,index) {
+        let calcBase = function(status,index) {
             // get out of status loop
             let base = 0;
             // this loops through provenances
