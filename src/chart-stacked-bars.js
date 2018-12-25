@@ -38,7 +38,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     pathObject.x = stackedData[index][j].data.status;
                     pathObject.y = stackedData[index][j][1];
                     // if(index > 0) {
-                        pathObject.base = 10000; // calcBase(index,j);
+                        pathObject.base = calcBase(index,j);
                     // } else {
                     //     pathObject.base = calcBase(index, j);
                     // }
