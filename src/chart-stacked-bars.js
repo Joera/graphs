@@ -7,17 +7,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
-        let calcBase = function(status,index) {
+        let calcBase = function(index,status) {
             // get out of status loop
             let base = 0;
             // this loops through provenances
             for (let i = 0; i < index + 1; i++) {
-
                 console.log(stackedData[i]);
-
                 base = base + stackedData[i][status][1];
             }
-
             return base;
         }
 
@@ -33,11 +30,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 for (let j = 0; j < 1; j++) {  //  -   data.columns.slice(1).length - 1
                     let pathCombo = [], pathObject = {}, nextPathObject = {};
 
-                    let base = calcBase(j,index);
-
                     pathObject.x = stackedData[index][j].data.status;
                     pathObject.y = stackedData[index][j][1];
-                    pathObject.base = base;
+                    pathObject.base = calcBase(index,j);
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
 
@@ -46,7 +41,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     nextPathObject.x = stackedData[index][j+1].data.status;
                     nextPathObject.y = stackedData[index][j+1][1];
-                    nextPathObject.base = base;
+                    nextPathObject.base = calcBase(index,j + 1);
                     nextPathObject.class = stackedData[index].key;
                     pathCombo.push(nextPathObject);
 
