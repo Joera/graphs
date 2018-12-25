@@ -77,11 +77,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let barWidth = 0;
 
         let area = d3.area()
-            // .curve(d3.curveCardinal)
-            // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
+            .curve(d3.curveCardinal)
             .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
-            .y0((d) => { console.log(d); return scales.yLinear(d.base); })
+            .y0((d,i) => { if(i == 2) { console.log(d); } return scales.yLinear(d.base); })
             .y1((d) => { return scales.yLinear(d.y); });
 
         svg.bar
