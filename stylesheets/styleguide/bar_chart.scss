@@ -29,14 +29,14 @@
 
   &.cvw_met_historie {
 
-    rect {
+    rect, path {
       fill: $green;
     }
   }
 
   &.cvw_zonder_historie {
 
-    rect {
+    rect, path {
       fill: $blue;
     }
   }

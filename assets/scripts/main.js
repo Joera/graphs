@@ -288,12 +288,12 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                         nextPathObject = {};
 
                     pathObject.x = stackedData[index][j].data.status;
-                    pathObject.y = stackedData[index][j][0];
+                    pathObject.y = stackedData[index][j][1];
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
 
                     nextPathObject.x = stackedData[index][j + 1].data.status;
-                    nextPathObject.y = stackedData[index][j + 1][0];
+                    nextPathObject.y = stackedData[index][j + 1][1];
                     nextPathObject.class = stackedData[index].key;
                     pathCombo.push(nextPathObject);
 
@@ -342,7 +342,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                 return scales.xBand(d.x);
             }
         }).y0(function (d) {
-            console.log(d);return scales.yLinearReverse(d.y);
+            console.log(d);return scales.yLinear(d.y);
         }).y1(function (d) {
             return scales.yLinearReverse(d.y);
         });

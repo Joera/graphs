@@ -19,12 +19,12 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     let pathCombo = [], pathObject = {}, nextPathObject = {};
 
                     pathObject.x = stackedData[index][j].data.status;
-                    pathObject.y = stackedData[index][j][0];
+                    pathObject.y = stackedData[index][j][1];
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
 
                     nextPathObject.x = stackedData[index][j+1].data.status;
-                    nextPathObject.y = stackedData[index][j+1][0];
+                    nextPathObject.y = stackedData[index][j+1][1];
                     nextPathObject.class = stackedData[index].key;
                     pathCombo.push(nextPathObject);
 
@@ -65,7 +65,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
             .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + barWidth } else { return scales.xBand(d.x);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + barWidth } else { return scales.xBand(d.x); }})
-            .y0((d) => { console.log(d); return scales.yLinearReverse(d.y); })
+            .y0((d) => { console.log(d); return scales.yLinear(d.y); })
             .y1((d) => { return scales.yLinearReverse(d.y); });
 
         svg.bar
