@@ -13,9 +13,12 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
             let areaData = [];
 
+            console.log(stack);
+            console.log(stackedData[index]);
+
             if(index < (stackedData.length - 1) ) {
 
-                for (let j = 0; j < data.columns.slice(1).length; j++) {  //  -   - 1
+                for (let j = 0; j < 1; j++) {  //  -   data.columns.slice(1).length - 1
                     let pathObject = {};
 
                     pathObject.x0 = stackedData[index][j].data.status; // key = provenance ... moet status zijn
@@ -28,7 +31,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 }
             }
             console.log(areaData);
-            return [areaData];
+            return areaData;
         }
 
         // series corresponds to provenance - the columns in the csv table//
