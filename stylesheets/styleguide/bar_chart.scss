@@ -28,13 +28,6 @@
   path {  opacity : .4 }
 
 
-  &.cvw_met_historie {
-
-    rect, path {
-      fill: $green;
-    }
-  }
-
   &.cvw_zonder_historie {
 
     rect, path {
@@ -42,10 +35,25 @@
     }
   }
 
+  &.cvw_met_historie {
+
+    rect, path {
+      fill: $green;
+    }
+  }
+
   &.nieuw_zonder_historie {
 
     rect, path {
       fill: $blue;
+      display: block;
+    }
+  }
+
+  &.nieuw_met_historie {
+
+    rect, path {
+      fill: darkblue;
       display: block;
     }
   }
