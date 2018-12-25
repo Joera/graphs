@@ -24,14 +24,17 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
 
+                    base = base + stackedData[index][j][1];
+
                     nextPathObject.x = stackedData[index][j+1].data.status;
                     nextPathObject.y = stackedData[index][j+1][1];
+                    pathObject.base = base;
                     nextPathObject.class = stackedData[index].key;
                     pathCombo.push(nextPathObject);
 
                     areaData.push(pathCombo);
 
-                    base = base + stackedData[index][j][1];
+
                 }
             }
             console.log(areaData);
