@@ -15,7 +15,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 console.log(stackedData[i]);
 
-                base = base + stackedData[i];
+                base = base + stackedData[i][status][1];
 
             }
 
