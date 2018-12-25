@@ -35,6 +35,13 @@
     }
   }
 
+  &.cvw_zonder_historie {
+
+    rect, path {
+      fill: orange;
+    }
+  }
+
   &.nieuw_zonder_historie {
 
     rect, path {
