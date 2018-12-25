@@ -11,11 +11,16 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // get out of status loop
             let base = 0;
             // this loops through provenances
-            for (let i = 0; i < index + 1; i++) {
-                console.log(stackedData[i]);
-                base = base + stackedData[i][status][1];
+
+            if(j < 0) {
+                return 0;
+            } else {
+                for (let i = 0; i < index + 1; i++) {
+                    console.log(stackedData[i]);
+                    base = base + stackedData[i][status][1];
+                }
+                return base;
             }
-            return base;
         }
 
         // format data for areaflow
@@ -32,9 +37,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     pathObject.x = stackedData[index][j].data.status;
                     pathObject.y = stackedData[index][j][1];
-
-                        pathObject.base = calcBase(index, j) + 1000;
-
+                    // if(index > 0) {
+                        pathObject.base = calcBase(index,(j - 1));
+                    // } else {
+                    //     pathObject.base = calcBase(index, j);
+                    // }
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
 
