@@ -27,6 +27,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     pathCombo.push(pathObject);
 
                     base = base + stackedData[index][j][1];
+                    console.log(base);
 
                     nextPathObject.x = stackedData[index][j+1].data.status;
                     nextPathObject.y = stackedData[index][j+1][1];
