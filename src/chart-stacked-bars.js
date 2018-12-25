@@ -32,7 +32,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     pathObject.x = stackedData[index][j].data.status;
                     pathObject.y = stackedData[index][j][1];
-                    pathObject.base = calcBase(index,j) - 2 * stackedData[index][j][1];
+                    pathObject.base = calcBase(index,j) + stackedData[index][j][1];
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
 
