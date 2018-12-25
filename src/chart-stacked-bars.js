@@ -12,7 +12,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             let base = 0;
                 // this loops through provenances width max of (current index) s
                 for (let i = 0; i < index; i++) {
-                    base = base + stackedData[i][status][1];
+                    base = stackedData[i][status][1];
                 }
                 return base;
             // }
