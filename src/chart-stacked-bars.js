@@ -16,10 +16,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             if(index < (stackedData.length - 1) ) {
 
                 for (let j = 0; j < 1; j++) {  //  -   data.columns.slice(1).length - 1
-                    let pathCombo = [], pathObject = {}, nextPathObject = {};
+                    let pathCombo = [], pathObject = {}, nextPathObject = {}, base = 0;
 
                     pathObject.x = stackedData[index][j].data.status;
                     pathObject.y = stackedData[index][j][1];
+                    pathObject.base = base;
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
 
@@ -29,6 +30,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     pathCombo.push(nextPathObject);
 
                     areaData.push(pathCombo);
+
+                    base = base + stackedData[index][j][1];
                 }
             }
             console.log(areaData);
@@ -65,7 +68,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // console.log(scales.xBand(d[0].data.status)); console.log(scales.xBand(d[1].data.status));
             .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
-            .y0((d) => { console.log(d); return scales.yLinear(0); })
+            .y0((d) => { console.log(d); return scales.yLinear(d.base); })
             .y1((d) => { return scales.yLinear(d.y); });
 
         svg.bar
