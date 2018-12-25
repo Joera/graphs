@@ -47,7 +47,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 }
             }
-            // console.log(areaData);
+
+            if(index == 2) {
+                console.log(areaData);
+            }
             return  areaData;
         }
 
@@ -80,7 +83,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .curve(d3.curveCardinal)
             .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
-            .y0((d,i) => { if(i == 2) { console.log(d); } return scales.yLinear(d.base); })
+            .y0((d,i) => { console.log(d);  return scales.yLinear(d.base); })
             .y1((d) => { return scales.yLinear(d.y); });
 
         svg.bar
