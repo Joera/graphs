@@ -10,11 +10,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let calcBase = function(index,status) {
             // get out of status loop
             let base = 0;
-
-            // if(status < 0) {
-            //     return 0;
-            // } else {
-                // this loops through provenances
+                // this loops through provenances width max of (current index) s
                 for (let i = 0; i < index; i++) {
                     base = base + stackedData[i][status][1];
                 }
@@ -36,16 +32,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     pathObject.x = stackedData[index][j].data.status;
                     pathObject.y = stackedData[index][j][1];
-                    // if(index > 0) {
-                        pathObject.base = calcBase(index,j);
-                    // } else {
-                    //     pathObject.base = calcBase(index, j);
-                    // }
+                    pathObject.base = calcBase(index,j);
                     pathObject.class = stackedData[index].key;
                     pathCombo.push(pathObject);
-
-                    // base = base + stackedData[index][j+1][1];
-                  //   console.log(base);
 
                     nextPathObject.x = stackedData[index][j+1].data.status;
                     nextPathObject.y = stackedData[index][j+1][1];
