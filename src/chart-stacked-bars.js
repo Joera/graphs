@@ -43,12 +43,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     pathCombo.push(nextPathObject);
 
                     areaData.push(pathCombo);
-
-
                 }
             }
 
-            if(index == 0) {
+            if(index == 1) {
                 console.log(areaData);
             }
             return  areaData;
