@@ -12,7 +12,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             let base = 0;
             // this loops through provenances
 
-            if(j < 0) {
+            if(status < 0) {
                 return 0;
             } else {
                 for (let i = 0; i < index + 1; i++) {
