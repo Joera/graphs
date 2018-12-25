@@ -279,8 +279,6 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
             var areaData = [];
 
-            console.log(stackedData[index]);
-
             if (index < stackedData.length - 1) {
 
                 for (var j = 0; j < 1; j++) {
@@ -296,7 +294,7 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                     areaData.push(pathObject);
                 }
             }
-            console.log(areaData);
+            // console.log(areaData);
             return areaData;
         };
 
