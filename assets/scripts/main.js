@@ -279,7 +279,6 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
             var areaData = [];
 
-            console.log(stack);
             console.log(stackedData[index]);
 
             if (index < stackedData.length - 1) {
@@ -289,9 +288,9 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
                     var pathObject = {};
 
                     pathObject.x0 = stackedData[index][j].data.status; // key = provenance ... moet status zijn
-                    pathObject.x1 = stackedData[index + 1][j].data.status;
+                    pathObject.x1 = stackedData[index][j + 1].data.status;
                     pathObject.y0 = stackedData[index][j][0];
-                    pathObject.y1 = stackedData[index + 1][j][0];
+                    pathObject.y1 = stackedData[index][j + 1][0];
                     pathObject.class = stackedData[index].key;
 
                     areaData.push(pathObject);
