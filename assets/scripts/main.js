@@ -283,19 +283,25 @@ var ChartStackedBars = function ChartStackedBars(config, svg, functions) {
 
                 for (var j = 0; j < 1; j++) {
                     //  -   data.columns.slice(1).length - 1
-                    var pathObject = {};
+                    var pathCombo = [],
+                        pathObject = {},
+                        nextPathObject = {};
 
-                    pathObject.x0 = stackedData[index][j].data.status; // key = provenance ... moet status zijn
-                    pathObject.x1 = stackedData[index][j + 1].data.status;
-                    pathObject.y0 = stackedData[index][j][0];
-                    pathObject.y1 = stackedData[index][j + 1][0];
+                    pathObject.x = stackedData[index][j].data.status;
+                    pathObject.y = stackedData[index][j][0];
                     pathObject.class = stackedData[index].key;
+                    pathCombo.push(pathObject);
 
-                    areaData.push(pathObject);
+                    nextPathObject.x = stackedData[index][j + 1].data.status;
+                    nextPathObject.y = stackedData[index][j + 1][0];
+                    nextPathObject.class = stackedData[index].key;
+                    pathCombo.push(nextPathObject);
+
+                    areaData.push(pathCombo);
                 }
             }
             // console.log(areaData);
-            return [areaData];
+            return areaData;
         };
 
         // series corresponds to provenance - the columns in the csv table//
