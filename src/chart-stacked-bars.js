@@ -46,7 +46,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 }
             }
 
-            if(index == 1) {
+            if(index == 2) {
                 console.log(areaData);
             }
             return  areaData;
