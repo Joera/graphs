@@ -11,12 +11,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // get out of status loop
             let base = 0;
             // this loops through provenances
-            for (let i = 0; i < stackedData.length -1; i++) {
+            for (let i = 0; i < index; i++) {
 
                 console.log(stackedData[i]);
 
                 base = base + stackedData[i][status][1];
-
             }
 
             return base;
