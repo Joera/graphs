@@ -29,7 +29,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 console.log(data);
 
                 // this loops through status
-                for (let j = 0; j < 4; j++) {  //  -
+                for (let j = 0; j < 3; j++) {  //  -
                     let pathCombo = [], pathObject = {}, nextPathObject = {};
 
                     pathObject.x = stackedData[index][j].data.status;
