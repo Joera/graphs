@@ -19,7 +19,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             // what is domain when working with a stack?
             .domain(data.map(d => d[config.xParameter]))
             .paddingInner([0.5])
-            .paddingOuter([0.25])
+            .paddingOuter([0.05])
             .align([0.5]);
 
         return scales;
