@@ -26,10 +26,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
             if(index < (stackedData.length - 1) ) {
 
-                console.log(data.rows.slice(1));
+                console.log(data);
 
                 // this loops through status
-                for (let j = 0; j < data.columns.slice(1).length; j++) {  //  -
+                for (let j = 0; j < 4; j++) {  //  -
                     let pathCombo = [], pathObject = {}, nextPathObject = {};
 
                     pathObject.x = stackedData[index][j].data.status;
