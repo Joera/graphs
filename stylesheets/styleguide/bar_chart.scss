@@ -45,7 +45,7 @@
   &.nieuw_zonder_historie {
 
     rect, path {
-      fill: $blue;
+      fill: darkblue;
       display: block;
     }
   }
@@ -53,7 +53,8 @@
   &.nieuw_met_historie {
 
     rect, path {
-      fill: darkblue;
+
+      fill: $blue;
       display: block;
     }
 
