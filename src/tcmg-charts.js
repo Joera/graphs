@@ -65,8 +65,8 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_procedure.csv", type, function(error, data) {
             if (error) throw error;
 
-            console.log(data);
-            data = data.shift();
+ 
+           data.shift();
             console.log(data);
 
             function redraw() {
