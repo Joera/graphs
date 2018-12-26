@@ -1,5 +1,5 @@
-status,cvw_zonder_historie,cvw_met_historie,nieuw_zonder_historie,
-Wacht op opname,50,8400,100,9450
-Wacht op rapport,500,1000,0,500
-Wacht op reactie bewoner,450,500,0,50
-Wacht op besluit,50,100,0,0
+status,cvw_met_historie,cvw_zonder_historie,nieuw_met_historie,nieuw_zonder_historie
+Wacht op opname,8400,50,9450,100
+Wacht op rapport,1000,500,500,0
+Wacht op reactie bewoner,500,450,50,0
+Wacht op besluit,100,50,0,0
