@@ -38,7 +38,7 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.top = 60;
         config.margin.bottom = 30;
         config.padding.bottom = 30;
-        config.padding.left = 60;
+        config.padding.left = 260;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
 
