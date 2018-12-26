@@ -66,6 +66,7 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
             console.log(data);
+            data = data.slice(0,1);
 
             function redraw() {
                 // on redraw chart gets new dimensions
