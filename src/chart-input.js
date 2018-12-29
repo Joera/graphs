@@ -68,9 +68,15 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("class", (d) => { return "input " + d.key });
             // .attr("fill", function(d) { return z(d.key); })
 
-        svg.inputBars = svg.input.selectAll("rect")
+        svg.inputGroup = svg.input.selectAll("g")
             .data(function(d) { return d; })
-            .enter().append("rect");
+            .enter()
+            .append("g");
+
+        svg.inputRects = svg.inputGroup.input.selectAll("rect")
+            .data(function(d) { return d; })
+            .enter()
+            .append("rect");
 
         // svg.connection = svg.input.selectAll('.flow')
         //     // je moet per serie .. de data reformatten
@@ -92,15 +98,17 @@ let ChartInput = function ChartInput(config,svg,functions) {
         //     .y0((d,i) => { return scales.yLinear(d.base); })
         //     .y1((d) => { return scales.yLinear(d.y); });
 
-        svg.inputBars
+        svg.inputGroup.attr("class", function(d,i) {
+            // console.log(d);
+            return d.data.provenance;
+        });
+
+        svg.inputRects
             .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
             .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
             .attr("x", 62)
             .attr("width", 120)
-            .attr("class", function(d,i) {
-                // console.log(d);
-                return d.data.provenance;
-            });
+
 
 
         // svg.connection
