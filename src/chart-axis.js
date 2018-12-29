@@ -38,7 +38,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
-    let drawInputYAxis = function drawInputYAxis() {
+    let drawInputYAxis = function drawInputYAxis(dimensions) {
 
         svg.yInputAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
