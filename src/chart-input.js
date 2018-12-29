@@ -70,13 +70,23 @@ let ChartInput = function ChartInput(config,svg,functions) {
         //     return d.data.provenance;
         // });
 
+        function highlight(d) {
+
+            svg.body
+                .attr('class', (d,i) => { return d.provenance; })
+        }
+
         svg.inputGroup
             .attr("transform", function(d) { return 'translate(64,0)'});
           //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         svg.inputRects
             .attr("x", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); return 10 * parseInt(s.substring(s.length - 1)); })
-            .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); if (s.length > 1) { return dimensions.height - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 7; }});
+            .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); if (s.length > 1) { return dimensions.height - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 7; }})
+            .onclick( (d,i) => {
+                highlight(d);
+            });
+        ;
 
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
         //     .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })

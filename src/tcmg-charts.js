@@ -132,6 +132,7 @@ var TCMGCharts = function TCMGCharts() {
 
     }
 
+
     // procedure.renderSVG();
     // procedure.renderLayers();
     // procedure.setScale();
