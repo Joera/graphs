@@ -31,26 +31,26 @@ svg  {
   }
   path {  opacity : .4 }
 
-  &.cvw_zonder_historie {
+  &.cvw.zonder.historie {
     rect, path {
       fill: $green;
     }
   }
 
-  &.cvw_met_historie {
+  &.cvw.met.historie {
     rect, path {
       fill: orange;
     }
   }
 
-  &.nieuw_zonder_historie {
+  &.nieuw.zonder.historie {
     rect, path {
       fill: $blue;
       display: block;
     }
   }
 
-  &.nieuw_met_historie {
+  &.nieuw.met.historie {
     rect, path {
       fill: darkblue;
       display: block;
