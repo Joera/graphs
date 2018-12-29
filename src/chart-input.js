@@ -63,7 +63,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear('0') + ')'});
+            .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear('200') + ')'});
           //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         // svg.inputRects
