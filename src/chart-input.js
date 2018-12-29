@@ -10,7 +10,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         svg.input = svg.layers.data.selectAll(".input")
             .data([{}])
             .enter().append("g")
-            .attr("class", (d) => { return "input" });
+            .attr("class", "inputs");
 
 
         svg.inputGroup = svg.input.selectAll("g")
@@ -21,10 +21,10 @@ let ChartInput = function ChartInput(config,svg,functions) {
                 return d.provenance;
             });
 
-        // svg.inputRects = svg.inputGroup.selectAll("rect")
-        //     .data(function(d) { return d; })
-        //     .enter()
-        //     .append("rect");
+        svg.inputRects = svg.inputGroup.selectAll("rect")
+            .data(function(d) { return [{}]; })
+            .enter()
+            .append("rect");
 
         // svg.connection = svg.input.selectAll('.flow')
         //     // je moet per serie .. de data reformatten
@@ -52,7 +52,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(62,' + scales.yInputLinear(d['cummulative'])+ ')"'});
+            .attr("transform", function(d) { return 'translate(62,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         // svg.inputRects
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
