@@ -25,8 +25,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .data(function(d) { return [{}]; })
             .enter()
             .append("rect")
-            .attr("width",10)
-            .attr("height",10)
+            .attr("width",8)
+            .attr("height",8)
 
         // svg.connection = svg.input.selectAll('.flow')
         //     // je moet per serie .. de data reformatten
