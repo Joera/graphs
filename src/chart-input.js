@@ -12,7 +12,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         stackedData.forEach( (s) => {
 
             cummulative = cummulative + s[1];
-            s[3] = cummulative;
+            s.cummulative = cummulative;
         });
 
         console.log(stackedData);
