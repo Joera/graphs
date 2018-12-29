@@ -71,6 +71,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         function unhighlight() {
+            console.log('wahat');
             svg.body.attr('class', null)
         }
 
