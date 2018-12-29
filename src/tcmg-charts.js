@@ -105,7 +105,7 @@ var TCMGCharts = function TCMGCharts() {
             //
             // }
 
-            console.log(data);
+            // console.log(data);
 
             function redrawInput() {
                 // on redraw chart gets new dimensions
