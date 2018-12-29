@@ -31,21 +31,23 @@
   &.cvw_zonder_historie {
 
     rect, path {
-      fill: orange;
+
+      fill: $green;
+
     }
   }
 
   &.cvw_met_historie {
 
     rect, path {
-      fill: $green;
+      fill: orange;
     }
   }
 
   &.nieuw_zonder_historie {
 
     rect, path {
-      fill: darkblue;
+      fill: $blue;
       display: block;
     }
   }
@@ -54,7 +56,8 @@
 
     rect, path {
 
-      fill: $blue;
+      fill: darkblue;
+
       display: block;
     }
 
