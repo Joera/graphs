@@ -107,7 +107,7 @@ var TCMGCharts = function TCMGCharts() {
               //  chartAxis.redrawXAxis(dimensions,scales,axes);
                 chartAxis.redrawInputYAxis(scales,axes);
                 // redraw data
-               // chartStackedBars.redraw(dimensions, scales);
+                chartInput.redraw(dimensions, scales);
             }
         //
             // with data we can init scales
