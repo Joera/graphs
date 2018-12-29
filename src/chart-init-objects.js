@@ -53,7 +53,8 @@ let ChartObjects = function ChartObjects() {
         return {
             xTime : null,
             yLinear: null,
-            yLinearInput: null
+            yLinearInput: null,
+            yInputLinearReverse: null
         }
 
     }
