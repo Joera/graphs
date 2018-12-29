@@ -18,6 +18,8 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('width',8)
             .attr('height',8)
             .attr('y', (d,i) => { return i * 16 + 10; })
+            .append("text")
+            .text((d,i) => { return '100x ' + d.provenance; }));
 
 
         ;
