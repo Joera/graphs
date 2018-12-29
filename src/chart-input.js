@@ -86,7 +86,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("y", function(d) { return scales.yInputLinear(d[1]); })
             .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
             .attr("x", 62)
-            .attr("width", 60)
+            .attr("width", 120)
             .attr("class", function(d,i) {
                 console.log(d);
                 return d.data.provenance;
