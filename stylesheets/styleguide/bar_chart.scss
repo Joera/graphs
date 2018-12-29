@@ -77,14 +77,14 @@ svg.cvw_met_historie {
   }
 }
 
-svg.nieuw_zonder_historie {
-   .serie.nieuw_zonder_historie {
+svg.nieuw.zonder.historie {
+   .serie.nieuw.zonder.historie {
      rect, path { fill: $blue; }
    }
  }
 
-svg.nieuw_met_historie {
-  .serie.nieuw_met_historie {
+svg.nieuw.met {
+  .serie.nieuw.met.historie {
     rect, path { fill: darkblue; }
   }
 }
