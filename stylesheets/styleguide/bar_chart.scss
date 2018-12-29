@@ -20,7 +20,7 @@
   height: 100%;
 }
 
-.serie, .input {
+.input {
 
   rect {
     fill: #ccc;
@@ -61,6 +61,13 @@
       display: block;
     }
 
+  }
+}
+
+svg.cvw_zonder_historie {
+
+  .serie.cvw_zonder_historie rect {
+    fill: $green;
   }
 }
 
