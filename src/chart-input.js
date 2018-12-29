@@ -11,7 +11,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         console.log(stackedData);
 
-        stackedData.forEach( (s) => {
+        stackedData[0].forEach( (s) => {
 
             // console.log(s);
 
