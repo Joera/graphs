@@ -46,7 +46,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("height",8)
             .attr("x", (d,i) => { let s = i.toString(); return 10 * parseInt(s.substring(s.length - 1)); })
             .attr("y", (d,i) => { let s = (i + parseInt(d.previous)).toString(); if (s.length > 1) { return 10 * parseInt(s.substring(0,s.length - 1)); } else { return 0; }})
-            .attr("class", function(d,i) => { return d.provenance; })
+            .attr("class", (d,i) => { return d.provenance; })
         ;
 
         // svg.connection = svg.input.selectAll('.flow')
