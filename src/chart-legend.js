@@ -2,8 +2,12 @@ let ChartLegend = function ChartLegend(config,svg) {
 
     let drawtotalsLegends = function drawtotalsLegends() {
 
-        svg.legendTotals = svg.layers.axes.append("g")
-            .attr('class', 'legend totals');
+        svg.legendTotals = svg.layers.legend
+            .attr('transform', 'translate(60,' + config.height + ')')
+            .append("text")
+            .text('Totaal dossiers')
+
+        ;
     }
 
     let redrawtotalsLegends = function redrawtotalsLegends(dimensions,scales,axes) {
