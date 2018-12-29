@@ -42,12 +42,12 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         svg.yInputAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
-            .attr("transform", "translate(" + (parseInt(config.margin.left) + 70) + ","  + (0) + ")");
+            .attr("transform", "translate(" + (parseInt(config.margin.left) + 0) + ","  + (0) + ")");
     }
 
     let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
 
-        axes.yInputLinear = d3.axisRight(scales.yInputLinear);
+        axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
 
         axes.yInputLinear
             .ticks(4);
