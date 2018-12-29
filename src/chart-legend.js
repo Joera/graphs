@@ -3,7 +3,7 @@ let ChartLegend = function ChartLegend(config,svg) {
     let drawInputLegend = function drawInputLegend(dimensions) {
 
         svg.legendTotals = svg.layers.legend
-            .attr('transform', 'translate(60,' + parseInt(dimensions.height) - 200 + ')')
+            .attr('transform', 'translate(60,' + (parseInt(dimensions.height) - 200) + ')')
             .append("text")
             .text('Totaal dossiers')
 
