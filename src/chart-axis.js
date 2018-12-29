@@ -26,7 +26,6 @@ let ChartAxis = function ChartAxis(config,svg) {
         svg.yAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
             .attr("transform", "translate(" + parseInt(config.margin.left) + parseInt(config.padding.left) + ",0)");
-
     }
 
     let redrawYAxis = function redrawYAxis(scales,axes) {
