@@ -17,9 +17,15 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('class', (d,i) => {  console.log(d); return d.provenance;  } )
             .attr('width',8)
             .attr('height',8)
-            .attr('y', (d,i) => { return i * 16 + 10; })
+            .attr('y', (d,i) => { return i * 16 + 10; });
+
+        svg.legendTotals.selectAll("text")
+            .data(data)
+            .enter()
             .append("text")
             .text((d,i) => { return '100x ' + d.provenance; })
+            .attr('x',16)
+            .attr('y', (d,i) => { return i * 16 + 10; })
 
 
         ;
