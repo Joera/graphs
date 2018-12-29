@@ -20,6 +20,7 @@ module.exports = function() {
             './src/chart-svg.js',
             './src/chart-scales.js',
             './src/chart-axis.js',
+            './src/chart-legend.js',
             './src/chart-line.js',
             './src/chart-bar.js',
             './src/chart-stacked-bars.js',

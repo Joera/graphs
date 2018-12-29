@@ -38,6 +38,7 @@ let ChartObjects = function ChartObjects() {
             yAxis : null,
             yInputAxis : null,
             xAxis : null,
+            legendTotals : null,
             area : null,
             line : null,
             bar : null,

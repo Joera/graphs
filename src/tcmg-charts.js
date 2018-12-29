@@ -54,9 +54,11 @@ var TCMGCharts = function TCMGCharts() {
         const chartAxis = ChartAxis(config,svg);
         const chartStackedBars = ChartStackedBars(config,svg,functions);
         const chartInput = ChartInput(config,svg,functions);
+        const chartLegend = ChartLegend(config,svg);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
         chartAxis.drawInputYAxis();
+        chartLegend.drawtotalsLegends();
 
         // function to parse csv
         function type(d, i, columns) {
