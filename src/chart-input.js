@@ -7,7 +7,14 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         let blocksArray = function(d) {
 
+            console.log(d);
+
             let arr = new Array(parseInt(d.total) / 100);
+
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = {};
+                arr[i].previous = d.previous;
+            }
 
             return arr;
         }
