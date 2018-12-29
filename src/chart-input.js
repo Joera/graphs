@@ -80,7 +80,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
         }
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(64,0)'});
+            .attr("transform", function(d) { return 'translate(64,0)'})
+            .on("mouseout", unhighlight);
           //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         svg.inputRects
@@ -88,8 +89,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); if (s.length > 1) { return dimensions.height - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 7; }})
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
-            })
-            .on("mouseout", unhighlight);
+            });
+           // .on("mouseout", unhighlight);
 
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
         //     .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
