@@ -74,8 +74,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
             console.log('trueer');
 
-            svg.body
-                .attr('class', (d,i) => { return d.provenance; })
+            // svg.body
+            //     .attr('class', (d,i) => { return d.provenance; })
         }
 
         svg.inputGroup
