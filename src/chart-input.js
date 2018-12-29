@@ -70,12 +70,12 @@ let ChartInput = function ChartInput(config,svg,functions) {
         //     return d.data.provenance;
         // });
 
+        function unhighlight() {
+            svg.body.attr('class', '')
+        }
+
         function highlight(provenance) {
-
-            console.log('trueer');
-
-            svg.body
-                .attr('class', provenance)
+            svg.body.attr('class', provenance)
         }
 
         svg.inputGroup
@@ -87,7 +87,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); if (s.length > 1) { return dimensions.height - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 7; }})
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
-            });
+            })
+            .on("mouseleave", unhighlight())
         ;
 
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
