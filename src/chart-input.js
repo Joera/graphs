@@ -84,7 +84,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         svg.inputBars
             .attr("y", function(d) { return scales.yInputLinear(d[1]); })
-            .attr("height", function(d) { return scales.yInputLinear(d[1]) - scales.yInputLinear(d[0]); })
+            .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
             .attr("x", 62)
             .attr("width", 60)
             .attr("class", function(d,i) {
