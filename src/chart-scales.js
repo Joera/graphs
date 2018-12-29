@@ -24,7 +24,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
 
         scales.yInputLinear = d3.scaleLinear()
             .range([dimensions.height, config.margin.top + config.padding.top])
-            .domain([0,d3.max(data, d => console.log(d); d[config.value])]).nice();
+            .domain([0,d3.max(data, d => d.value)]).nice();
 
         return scales;
     }
