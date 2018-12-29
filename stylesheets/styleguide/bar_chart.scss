@@ -65,14 +65,14 @@ svg {
   }
 }
 
-svg.cvw_zonder_historie {
-   .serie.cvw_zonder_historie {
+svg.cvw.zonder.historie {
+   .serie.cvw.zonder.historie {
      rect, path { fill: $green; }
    }
  }
 
-svg.cvw_met_historie {
-  .serie.cvw_met_historie {
+svg.cvw.met.historie {
+  .serie.cvw.met.historie {
     rect, path { fill: orange; }
   }
 }
