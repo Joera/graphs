@@ -100,6 +100,7 @@ var TCMGCharts = function TCMGCharts() {
 
             let cummulative = 0;
             for (let i = 0; i < data.length; i++) {
+                data[i]['previous'] = cummulative;
                 cummulative = cummulative + parseInt(data[i]['total']);
                 data[i]['cummulative'] = cummulative;
 

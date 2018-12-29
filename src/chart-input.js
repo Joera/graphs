@@ -5,6 +5,13 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // manipulate the data into stacked series
         // format data for areaflow
 
+        let blocksArray = function(d) {
+
+            let arr = new Array(parseInt(d.total) / 100);
+
+            return arr;
+        }
+
 
         // series corresponds to provenance - the columns in the csv table//
         svg.input = svg.layers.data.selectAll(".input")
@@ -22,7 +29,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             });
 
         svg.inputRects = svg.inputGroup.selectAll("rect")
-            .data(function(d) { return new Array(parseInt(d.total) / 100); })
+            .data(function(d) { return blocksArray(d); })
             .enter()
             .append("rect")
             .attr("width",8)
@@ -56,6 +63,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         svg.inputGroup
+            .attr("transform", function(d) { return 'translate(64,0)'});
             .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         // svg.inputRects
