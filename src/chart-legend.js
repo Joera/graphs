@@ -1,9 +1,9 @@
 let ChartLegend = function ChartLegend(config,svg) {
 
-    let drawtotalsLegends = function drawtotalsLegends() {
+    let drawInputLegend = function drawInputLegend(dimensions) {
 
         svg.legendTotals = svg.layers.legend
-            .attr('transform', 'translate(60,' + config.height + ')')
+            .attr('transform', 'translate(60,' + dimensions.height + ')')
             .append("text")
             .text('Totaal dossiers')
 
@@ -26,7 +26,7 @@ let ChartLegend = function ChartLegend(config,svg) {
 
 
     return {
-        drawtotalsLegends : drawtotalsLegends,
+        drawInputLegend : drawInputLegend,
         redrawtotalsLegends : redrawtotalsLegends
 
     }

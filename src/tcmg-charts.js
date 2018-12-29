@@ -58,7 +58,7 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
         chartAxis.drawInputYAxis();
-        chartLegend.drawtotalsLegends();
+        chartLegend.drawInputLegend(dimensions);
 
         // function to parse csv
         function type(d, i, columns) {
