@@ -5,6 +5,7 @@ let ChartLegend = function ChartLegend(config,svg) {
         svg.legendTotals = svg.layers.legend
             .attr('transform', 'translate(60,' + (parseInt(dimensions.height) - 130) + ')')
             .append("text")
+            .attr('class','header')
             .text('Totaal dossiers')
 
         ;
