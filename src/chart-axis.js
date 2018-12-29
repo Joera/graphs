@@ -47,6 +47,8 @@ let ChartAxis = function ChartAxis(config,svg) {
             .attr('class', 'y-axis')
             .attr("transform", "translate(0,0)");
 
+        console.log('yooyoyoy');
+
     }
 
     let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
