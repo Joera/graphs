@@ -66,8 +66,6 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_procedure.csv", type, function(error, data) {
             if (error) throw error;
 
-            console.log(data);
-
             function redraw() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
@@ -91,10 +89,12 @@ var TCMGCharts = function TCMGCharts() {
             window.addEventListener("resize", redraw, false);
         });
 
-        // d3.csv("./dummy_data_procedure.csv", type, function(error, data) {
-        //     if (error) throw error;
-        //
-        //     function redraw() {
+        d3.csv("./dummy_data_input.csv", type, function(error, data) {
+            if (error) throw error;
+
+            console.log(data);
+
+            function redraw() {
         //         // on redraw chart gets new dimensions
         //         dimensions = chartDimensions.get(dimensions);
         //         chartSVG.redraw(dimensions);
@@ -105,17 +105,17 @@ var TCMGCharts = function TCMGCharts() {
         //         chartAxis.redrawYAxis(scales,axes);
         //         // redraw data
         //         chartStackedBars.redraw(dimensions, scales);
-        //     }
+            }
         //
         //     // with data we can init scales
         //     scales = chartScales.set(data);
         //     // width data we can draw items
         //     chartStackedBars.draw(data, functions);
         //     // further drawing happens in function that can be repeated.
-        //     redraw();
-        //     // for example on window resize
-        //     window.addEventListener("resize", redraw, false);
-        // });
+            redraw();
+            // for example on window resize
+            window.addEventListener("resize", redraw, false);
+        });
 
     }
 
