@@ -52,44 +52,44 @@ let ChartInput = function ChartInput(config,svg,functions) {
         }
 
         // series corresponds to provenance - the columns in the csv table//
-        svg.series = svg.layers.data.selectAll(".serie")
+        svg.input = svg.layers.data.selectAll(".input")
             .data(stackedData)
             .enter().append("g")
-            .attr("class", (d) => { return "serie " + d.key });
+            .attr("class", (d) => { return "input " + d.key });
             // .attr("fill", function(d) { return z(d.key); })
 
-        svg.bar = svg.series.selectAll("rect")
+        svg.inputBars = svg.input.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect");
 
-        svg.connection = svg.series.selectAll('.flow')
-            // je moet per serie .. de data reformatten
-            .data(function(d,i) { return format(d,i); })
-            .enter()
-            .append("path")
-            .attr("fill", "#ccc")
-            .attr('class', 'flow');
+        // svg.connection = svg.input.selectAll('.flow')
+        //     // je moet per serie .. de data reformatten
+        //     .data(function(d,i) { return format(d,i); })
+        //     .enter()
+        //     .append("path")
+        //     .attr("fill", "#ccc")
+        //     .attr('class', 'flow');
     }
 
     let redraw = function redraw(dimensions,scales) {
 
         let barWidth = 0;
 
-        let area = d3.area()
-            .curve(d3.curveCardinal)
-            .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
-            .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
-            .y0((d,i) => { return scales.yLinear(d.base); })
-            .y1((d) => { return scales.yLinear(d.y); });
+        // let area = d3.area()
+        //     .curve(d3.curveCardinal)
+        //     .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
+        //     .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
+        //     .y0((d,i) => { return scales.yLinear(d.base); })
+        //     .y1((d) => { return scales.yLinear(d.y); });
 
-        svg.bar
+        svg.inputBars
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) { return scales.yLinearReverse(d[1]) - scales.yLinearReverse(d[0]); })
-            .attr("x", function(d) { return scales.xBand(d.data[config.xParameter]); })
-            .attr("width", scales.xBand.bandwidth());
+            .attr("x", 0)
+            .attr("width", 60);
 
-        svg.connection
-            .attr("d", area);
+        // svg.connection
+        //     .attr("d", area);
 
     }
 

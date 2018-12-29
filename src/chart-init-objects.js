@@ -41,7 +41,9 @@ let ChartObjects = function ChartObjects() {
             area : null,
             line : null,
             bar : null,
-            series : null // stacked-bars
+            series : null,
+            input : null,
+            inputBars : null// stacked-bars
         }
     }
 
