@@ -8,13 +8,13 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         // series corresponds to provenance - the columns in the csv table//
         svg.input = svg.layers.data.selectAll(".input")
-            .data(data)
+            .data([{}])
             .enter().append("g")
             .attr("class", (d) => { return "input" });
 
 
         svg.inputGroup = svg.input.selectAll("g")
-            .data(function(d) { return d; })
+            .data(data)
             .enter()
             .append("g")
             .attr("class", function(d,i) {
