@@ -23,12 +23,8 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             .align([0.5]);
 
         scales.yInputLinear = d3.scaleLinear()
-            .range([dimensions.height, config.margin.top + config.padding.top])
+            .range([dimensions.height, d3.max(data, d => d.cummulative) / 100 ])
             .domain([0,d3.max(data, d => d.cummulative)]).nice();
-
-        scales.yInputLinearReverse = d3.scaleLinear()
-            .range([dimensions.height, config.margin.top + config.padding.top])
-            .domain([d3.max(data, d => d.cummulative),0]).nice();
 
         return scales;
     }
