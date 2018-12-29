@@ -3,67 +3,12 @@ let ChartInput = function ChartInput(config,svg,functions) {
     let draw = function draw(data) {
 
         // manipulate the data into stacked series
-        functions.stack = d3.stack();
-
-        let stackedData = functions.stack.keys(data.columns.slice(1))(data);
-
-        let cummulative = 0;
-
-        stackedData[0].forEach( (s) => {
-
-            cummulative = cummulative + s[1];
-            s['cummulative'] = cummulative;
-        });
-
-        // console.log(stackedData);
-
-        let calcBase = function(index,status) {
-            // get out of status loop
-            let base = 0;
-                // this loops through provenances width max of (current index) s
-                for (let i = 0; i < index; i++) {
-                    base = stackedData[i][status][1];
-                }
-                return base;
-            // }
-        }
-
         // format data for areaflow
-        let format = function(stack,index) {
-            // this loops through provenances
 
-            let areaData = [];
-
-            if(index < (stackedData.length) ) {
-
-                // console.log(stackedData[index]);
-
-                // this loops through status
-                for (let j = 0; j < 3; j++) {  //  -
-                    let pathCombo = [], pathObject = {}, nextPathObject = {};
-
-                    pathObject.x = stackedData[index][j].data.status;
-                    pathObject.y = stackedData[index][j][1];
-                    pathObject.base = calcBase(index,j);
-                    pathObject.class = stackedData[index].key;
-                    pathCombo.push(pathObject);
-
-                    nextPathObject.x = stackedData[index][j+1].data.status;
-                    nextPathObject.y = stackedData[index][j+1][1];
-                    nextPathObject.base = calcBase(index,j+1);
-                    nextPathObject.class = stackedData[index].key;
-                    pathCombo.push(nextPathObject);
-
-                    areaData.push(pathCombo);
-                }
-            }
-
-            return  areaData;
-        }
 
         // series corresponds to provenance - the columns in the csv table//
         svg.input = svg.layers.data.selectAll(".input")
-            .data(stackedData)
+            .data(data)
             .enter().append("g")
             .attr("class", (d) => { return "input " + d.key });
             // .attr("fill", function(d) { return z(d.key); })

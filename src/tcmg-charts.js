@@ -96,6 +96,17 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_input.csv", type, function(error, data) {
             if (error) throw error;
 
+            console.log(data);
+
+            // let cummulative = 0;
+            // data.forEach( (s) => {
+            //
+            //     cummulative = cummulative + s[1];
+            //     s['cummulative'] = cummulative;
+            // });
+
+
+
             function redrawInput() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
