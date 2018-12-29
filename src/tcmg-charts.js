@@ -53,6 +53,7 @@ var TCMGCharts = function TCMGCharts() {
         const chartScales = ChartScales(config,dimensions,scales);
         const chartAxis = ChartAxis(config,svg);
         const chartStackedBars = ChartStackedBars(config,svg,functions);
+        const chartInput = ChartInput(config,svg,functions);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
         chartAxis.drawInputYAxis();
@@ -111,9 +112,8 @@ var TCMGCharts = function TCMGCharts() {
         //
             // with data we can init scales
             scales = chartScales.set(data);
-
             // width data we can draw items
-        //     chartStackedBars.draw(data, functions);
+            chartInput.draw(data, functions)
             // further drawing happens in function that can be repeated.
             redrawInput();
             // for example on window resize

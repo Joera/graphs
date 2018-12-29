@@ -4,15 +4,13 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         svg.xAxis = svg.layers.axes.append("g")
             .attr('class', 'x-axis');
-
-
     }
 
     let redrawXAxis = function redrawXAxis(dimensions,scales,axes) {
 
         axes.xBand = d3.axisBottom(scales.xBand);
 
-        axes.xBand
+        // axes.xBand
             // .ticks(d3.timeMonth.every(1))
             // .tickFormat(d3.timeFormat("%b"));
 
@@ -52,7 +50,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
 
         axes.yInputLinear
-            .ticks(2);
+            .ticks(4);
 
         svg.yInputAxis
             .call(axes.yInputLinear);

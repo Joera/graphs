@@ -1,4 +1,4 @@
-let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
+let ChartInput = function ChartInput(config,svg,functions) {
 
     let draw = function draw(data) {
 
