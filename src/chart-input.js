@@ -64,7 +64,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         svg.inputGroup
             .attr("transform", function(d) { return 'translate(64,0)'});
-            .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
+          //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         // svg.inputRects
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
