@@ -7,18 +7,18 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
 
         // series corresponds to provenance - the columns in the csv table//
-        // svg.input = svg.layers.data.selectAll(".input")
-        //     .data(data)
-        //     .enter().append("g")
-        //     .attr("class", (d) => { return "input " });
-            // .attr("fill", function(d) { return z(d.key); })
-
-        svg.inputGroup = svg.layers.data.selectAll("g")
+        svg.input = svg.layers.data.selectAll(".input")
             .data(data)
+            .enter().append("g")
+            .attr("class", (d) => { return "input" });
+
+
+        svg.inputGroup = svg.input.selectAll("g")
+            .data(function(d) { return d; })
             .enter()
             .append("g")
             .attr("class", function(d,i) {
-                return "input " + d.provenance;
+                return d.provenance;
             });
 
         // svg.inputRects = svg.inputGroup.selectAll("rect")
