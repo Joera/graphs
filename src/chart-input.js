@@ -43,7 +43,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("width",8)
             .attr("height",8)
             .attr("x", (d,i) => { let s = i.toString(); return 10 * parseInt(s.substring(s.length - 1)); })
-            .attr("y", (d,i) => { let s = (parseInt(i) + parseInt(d.previous)).toString(); if (s.length > 1) { return 10 * parseInt(s.substring(0,s.length - 1)); } else { return 0; }})
+            .attr("y", (d,i) => { let s = (parseInt(i) + (d.previous / 100)).toString(); if (s.length > 1) { return 10 * parseInt(s.substring(0,s.length - 1)); } else { return 0; }})
             .attr("class", (d,i) => { return d.provenance; })
         ;
 
