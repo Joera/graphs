@@ -19,7 +19,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             // .tickFormat(d3.timeFormat("%b"));
 
         svg.xAxis
-            .attr("transform", "translate(" + 0 + "," + dimensions.height + ")")
+            .attr("transform", "translate(" + 0 + "," + dimensions.height - 200 + ")")
             .call(axes.xBand);
     }
 
