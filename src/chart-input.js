@@ -85,8 +85,12 @@ let ChartInput = function ChartInput(config,svg,functions) {
         svg.inputBars
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) { return scales.yLinearReverse(d[1]) - scales.yLinearReverse(d[0]); })
-            .attr("x", 0)
-            .attr("width", 60);
+            .attr("x", 62)
+            .attr("width", 60)
+            .attr("class", function(d,i) {
+                console.log(d);
+            });
+
 
         // svg.connection
         //     .attr("d", area);
