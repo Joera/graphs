@@ -9,6 +9,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         let cummulative = 0;
 
+        console.log(stackedData);
+
         stackedData.forEach( (s) => {
 
             // console.log(s);

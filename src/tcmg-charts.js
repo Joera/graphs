@@ -96,8 +96,6 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_input.csv", type, function(error, data) {
             if (error) throw error;
 
-            console.log(data);
-
             function redrawInput() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
