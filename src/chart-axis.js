@@ -42,7 +42,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         svg.yInputAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
-            .attr("transform", "translate(" + (parseInt(config.margin.left) + 70) + ","  + (dimensions.height - 70) + ")");
+            .attr("transform", "translate(" + (parseInt(config.margin.left) + 70) + ","  + (dimensions.height - 320) + ")");
     }
 
     let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
