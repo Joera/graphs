@@ -9,7 +9,6 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('class','header')
             .text('Totaal dossiers');
 
-
         svg.legendTotals.selectAll("rect")
             .data(data)
             .enter()
