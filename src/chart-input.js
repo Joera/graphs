@@ -22,7 +22,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             });
 
         svg.inputRects = svg.inputGroup.selectAll("rect")
-            .data(function(d) { return new Array(4); })
+            .data(function(d) { return new Array(d.value / 10); })
             .enter()
             .append("rect")
             .attr("width",8)
