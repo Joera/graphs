@@ -98,12 +98,12 @@ var TCMGCharts = function TCMGCharts() {
 
             console.log(data);
 
-            // let cummulative = 0;
-            // for (let i = 0; i > data.length - 1; i++) {
-            //     cummulative = cummulative + data[i][1];
-            //     data[i]['cummulative'] = cummulative;
-            //
-            // }
+            let cummulative = 0;
+            for (let i = 0; i < data.length - 1; i++) {
+                cummulative = cummulative + data[i]['total'];
+                data[i]['cummulative'] = cummulative;
+
+            }
 
             // console.log(data);
 
