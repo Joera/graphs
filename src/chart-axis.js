@@ -47,7 +47,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
 
-        axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
+        axes.yInputLinear = d3.axisRight(scales.yInputLinear);
 
         axes.yInputLinear
             .ticks(4);
