@@ -76,7 +76,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
           //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         svg.inputRects
-            .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); console.log(s); if (s.length > 1) { return dimensions.height - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height }});
+            .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); console.log(s); if (s.length > 1) { return dimensions.height - 10 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 10; }});
 
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
         //     .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
