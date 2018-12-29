@@ -75,6 +75,7 @@ var TCMGCharts = function TCMGCharts() {
                 // new scales mean new axis
                 chartAxis.redrawXAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
+                chartAxis.redrawInputYAxis(scales,axes);
                 // redraw data
                 chartStackedBars.redraw(dimensions, scales);
             }
@@ -95,23 +96,23 @@ var TCMGCharts = function TCMGCharts() {
             console.log(data);
 
             function redraw() {
-        //         // on redraw chart gets new dimensions
-        //         dimensions = chartDimensions.get(dimensions);
-        //         chartSVG.redraw(dimensions);
-        //         // new dimensions mean new scales
-        //         scales = chartScales.reset(dimensions,scales);
-        //         // new scales mean new axis
-        //         chartAxis.redrawXAxis(dimensions,scales,axes);
-        //         chartAxis.redrawYAxis(scales,axes);
-        //         // redraw data
-        //         chartStackedBars.redraw(dimensions, scales);
+                // on redraw chart gets new dimensions
+                dimensions = chartDimensions.get(dimensions);
+                // new dimensions mean new scales
+                scales = chartScales.reset(dimensions,scales);
+                // new scales mean new axis
+              //  chartAxis.redrawXAxis(dimensions,scales,axes);
+                chartAxis.redrawInputYAxis(scales,axes);
+                // redraw data
+               // chartStackedBars.redraw(dimensions, scales);
             }
         //
-        //     // with data we can init scales
-        //     scales = chartScales.set(data);
-        //     // width data we can draw items
+            // with data we can init scales
+            scales = chartScales.set(data);
+            chartAxis.drawInputYAxis();
+            // width data we can draw items
         //     chartStackedBars.draw(data, functions);
-        //     // further drawing happens in function that can be repeated.
+            // further drawing happens in function that can be repeated.
             redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);

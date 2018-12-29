@@ -36,6 +36,7 @@ let ChartObjects = function ChartObjects() {
             body : null,
             layers : {},
             yAxis : null,
+            yInputAxis : null,
             xAxis : null,
             area : null,
             line : null,
@@ -49,6 +50,7 @@ let ChartObjects = function ChartObjects() {
         return {
             xTime : null,
             yLinear: null,
+            yLinearInput: null
         }
 
     }
@@ -59,6 +61,7 @@ let ChartObjects = function ChartObjects() {
             xTime : null,
             xBand : null,
             yLinear : null,
+            yInputLinear : null
         }
 
     }

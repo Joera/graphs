@@ -41,11 +41,34 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
+    let drawInputYAxis = function drawInputYAxis() {
+
+        svg.yInputAxis = svg.layers.axes.append("g")
+            .attr('class', 'y-axis')
+            .attr("transform", "translate(0,0)");
+
+    }
+
+    let redrawInputYAxis = function redrawInputYAxis() {
+
+        axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
+
+        axes.yInputLinear
+            .ticks(2);
+
+        svg.yInputAxis
+            .call(axes.yInputLinear);
+
+    }
+
     return {
         drawXAxis : drawXAxis,
         redrawXAxis : redrawXAxis,
         drawYAxis : drawYAxis,
-        redrawYAxis : redrawYAxis
+        redrawYAxis : redrawYAxis,
+        drawInputYAxis : drawInputYAxis,
+        redrawInputYAxis : redrawInputYAxis
+
     }
 }
 
