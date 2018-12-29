@@ -10,7 +10,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         let cummulative = 0;
 
         stackedData.forEach( (s) => {
-            
+
             cummulative = cummulative + s[1];
             s[2] = cummulative;
         });
@@ -93,7 +93,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         //     .y1((d) => { return scales.yLinear(d.y); });
 
         svg.inputBars
-            .attr("y", function(d) { return scales.yInputLinear(d[2]); })
+            .attr("y", function(d) { return scales.yInputLinear(d[1]); })
             .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
             .attr("x", 62)
             .attr("width", 120)
