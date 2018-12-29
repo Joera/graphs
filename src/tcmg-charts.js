@@ -93,15 +93,17 @@ var TCMGCharts = function TCMGCharts() {
             window.addEventListener("resize", redraw, false);
         });
 
-        d3.csv("./dummy_data_input.csv", type, function(error, data) {
+        d3.csv("./dummy_data_input.csv", function(error, data) {
             if (error) throw error;
-            
-            let cummulative = 0;
-            for (let i = 0; i > data.length - 1; i++) {
-                cummulative = cummulative + data[i][1];
-                data[i]['cummulative'] = cummulative;
 
-            }
+            console.log(data);
+
+            // let cummulative = 0;
+            // for (let i = 0; i > data.length - 1; i++) {
+            //     cummulative = cummulative + data[i][1];
+            //     data[i]['cummulative'] = cummulative;
+            //
+            // }
 
             console.log(data);
 
