@@ -71,7 +71,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         function unhighlight() {
-            svg.body.attr('class', '')
+            svg.body.attr('class', null)
         }
 
         function highlight(provenance) {
