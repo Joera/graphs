@@ -70,12 +70,12 @@ let ChartInput = function ChartInput(config,svg,functions) {
         //     return d.data.provenance;
         // });
 
-        function highlight(d) {
+        function highlight(provenance) {
 
             console.log('trueer');
 
-            // svg.body
-            //     .attr('class', (d,i) => { return d.provenance; })
+            svg.body
+                .attr('class', provenance)
         }
 
         svg.inputGroup
@@ -86,8 +86,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("x", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); return 10 * parseInt(s.substring(s.length - 1)); })
             .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); if (s.length > 1) { return dimensions.height - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 7; }})
             .on("mouseover", (d,i) => {
-                highlight(d);
-                console.log(d);
+                highlight(d.provenance);
             });
         ;
 
