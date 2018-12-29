@@ -73,10 +73,10 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .enter()
             .append("g");
 
-        svg.inputRects = svg.inputGroup.selectAll("rect")
-            .data(function(d) { return d; })
-            .enter()
-            .append("rect");
+        // svg.inputRects = svg.inputGroup.selectAll("rect")
+        //     .data(function(d) { return d; })
+        //     .enter()
+        //     .append("rect");
 
         // svg.connection = svg.input.selectAll('.flow')
         //     // je moet per serie .. de data reformatten
@@ -103,11 +103,11 @@ let ChartInput = function ChartInput(config,svg,functions) {
             return d.data.provenance;
         });
 
-        svg.inputRects
-            .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
-            .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
-            .attr("x", 62)
-            .attr("width", 120)
+        // svg.inputRects
+        //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
+        //     .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
+        //     .attr("x", 62)
+        //     .attr("width", 120)
 
 
 
