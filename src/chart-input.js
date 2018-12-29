@@ -89,8 +89,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
             })
-            .on("mouseout", unhighlight())
-        ;
+            .on("mouseout", unhighlight);
 
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
         //     .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
