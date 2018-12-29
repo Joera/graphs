@@ -88,7 +88,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
             })
-            .on("mouseleave", unhighlight())
+            .on("mouseout", unhighlight())
         ;
 
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
