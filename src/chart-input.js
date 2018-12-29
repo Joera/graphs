@@ -9,11 +9,13 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         let cummulative = 0;
 
-        stackedData.forEach( (d) => {
-
-            cummulative = cummulative + d[1];
-            d[2] = cummulative;
+        stackedData.forEach( (s) => {
+            
+            cummulative = cummulative + s[1];
+            s[2] = cummulative;
         });
+
+        console.log(stackedData);
 
         let calcBase = function(index,status) {
             // get out of status loop
