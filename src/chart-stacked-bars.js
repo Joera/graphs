@@ -24,7 +24,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
             let areaData = [];
 
-            if(index < (stackedData.length - 1) ) {
+            if(index < (stackedData.length) ) {
 
                 console.log(stackedData[index]);
 
