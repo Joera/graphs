@@ -55,6 +55,7 @@ var TCMGCharts = function TCMGCharts() {
         const chartStackedBars = ChartStackedBars(config,svg,functions);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
+        chartAxis.drawInputYAxis();
 
         // function to parse csv
         function type(d, i, columns) {
@@ -110,7 +111,7 @@ var TCMGCharts = function TCMGCharts() {
         //
             // with data we can init scales
             scales = chartScales.set(data);
-            chartAxis.drawInputYAxis();
+
             // width data we can draw items
         //     chartStackedBars.draw(data, functions);
             // further drawing happens in function that can be repeated.
