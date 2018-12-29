@@ -46,9 +46,6 @@ let ChartAxis = function ChartAxis(config,svg) {
         svg.yInputAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
             .attr("transform", "translate(0,0)");
-
-        console.log('yooyoyoy');
-
     }
 
     let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
@@ -58,8 +55,8 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.yInputLinear
             .ticks(2);
 
-        svg.yInputAxis
-            .call(axes.yInputLinear);
+        // svg.yInputAxis
+        //     .call(axes.yInputLinear);
 
     }
 
