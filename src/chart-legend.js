@@ -23,6 +23,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .data(data)
             .enter()
             .append("text")
+            .attr('class','label')
             .text((d,i) => { return '100x ' + d.provenance; })
             .attr('x',16)
             .attr('y', (d,i) => { return i * 16 + 10; })
