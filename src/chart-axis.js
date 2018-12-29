@@ -49,7 +49,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
-    let redrawInputYAxis = function redrawInputYAxis() {
+    let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
 
         axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
 
