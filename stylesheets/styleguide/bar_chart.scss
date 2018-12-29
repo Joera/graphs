@@ -99,13 +99,13 @@ text.header {
 .legend rect  {
   fill: $blue;
 
-  &.nieuw_met_historie {
+  &.nieuw.met  {
     fill: darkblue;
   }
-  &.cvw_met_historie {
+  &.cvw.met {
     fill: orange;
   }
-  &.cvw_zonder_historie {
+  &.cvw.zonder  {
     fill: $green;
   }
 }
