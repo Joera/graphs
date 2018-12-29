@@ -51,8 +51,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
         //     return d.data.provenance;
         // });
 
-        svg.inputGroup
-            .attr("transform", function(d) { return 'translate="(62,' + scales.yInputLinear(d['cummulative'])+ ')"'});
+        // svg.inputGroup
+        //     .attr("transform", function(d) { return 'translate="(62,' + scales.yInputLinear(d['cummulative'])+ ')"'});
 
         // svg.inputRects
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
