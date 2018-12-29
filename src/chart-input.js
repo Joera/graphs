@@ -88,6 +88,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("x", 62)
             .attr("width", 60)
             .attr("class", function(d,i) {
+                console.log(d);
                 return d.provenance;
             });
 
