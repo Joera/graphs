@@ -11,11 +11,13 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         stackedData.forEach( (s) => {
 
+            console.log(s);
+
             cummulative = cummulative + s[1];
             s['cummulative'] = cummulative;
         });
 
-        console.log(stackedData);
+        // console.log(stackedData);
 
         let calcBase = function(index,status) {
             // get out of status loop
@@ -98,7 +100,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("x", 62)
             .attr("width", 120)
             .attr("class", function(d,i) {
-                console.log(d);
+                // console.log(d);
                 return d.data.provenance;
             });
 
