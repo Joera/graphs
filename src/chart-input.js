@@ -18,7 +18,6 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .enter()
             .append("g")
             .attr("class", function(d,i) {
-                // console.log(d);
                 return d.data.provenance;
             });;
 
@@ -53,8 +52,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         svg.inputGroup
-            .attr("x", 62)
-            .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
+            .attr("transform", function(d) { return 'translate="(62,' + scales.yInputLinear(d['cummulative'])+ ')"'});
 
         // svg.inputRects
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
