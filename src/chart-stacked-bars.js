@@ -26,7 +26,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
             if(index < (stackedData.length - 1) ) {
 
-                console.log(data);
+                console.log(stackedData);
 
                 // this loops through status
                 for (let j = 0; j < 3; j++) {  //  -
