@@ -55,8 +55,8 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.yInputLinear
             .ticks(2);
 
-        // svg.yInputAxis
-        //     .call(axes.yInputLinear);
+        svg.yInputAxis
+            .call(axes.yInputLinear);
 
     }
 
