@@ -73,7 +73,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .enter()
             .append("g");
 
-        svg.inputRects = svg.inputGroup.input.selectAll("rect")
+        svg.inputRects = svg.inputGroup.selectAll("rect")
             .data(function(d) { return d; })
             .enter()
             .append("rect");
