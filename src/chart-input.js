@@ -72,6 +72,8 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         function highlight(d) {
 
+            console.log('trueer');
+
             svg.body
                 .attr('class', (d,i) => { return d.provenance; })
         }
@@ -85,6 +87,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("y", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); if (s.length > 1) { return dimensions.height - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 7; }})
             .onclick( (d,i) => {
                 highlight(d);
+                console.log('true');
             });
         ;
 
