@@ -98,6 +98,16 @@ text.header {
 
 .legend rect  {
   fill: $blue;
+
+  &.nieuw_met_historie {
+    fill: darkblue;
+  }
+  &.cvw_met_historie {
+    fill: orange;
+  }
+  &.cvw_zonder_historie {
+    fill: $green;
+  }
 }
 
 .legend .label {
