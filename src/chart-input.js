@@ -19,7 +19,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .append("g")
             .attr("class", function(d,i) {
                 return "input " + d.provenance;
-            });;
+            });
 
         // svg.inputRects = svg.inputGroup.selectAll("rect")
         //     .data(function(d) { return d; })
