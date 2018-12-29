@@ -108,6 +108,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         svg.inputGroup
+            .attr("x", 62)
             .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
 
         // svg.inputRects
