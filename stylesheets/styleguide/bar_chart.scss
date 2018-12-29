@@ -66,8 +66,21 @@
 
 svg.cvw_zonder_historie {
 
-  .serie.cvw_zonder_historie rect {
-    fill: $green;
+  .serie rect, .serie path {
+    fill: #ccc;
+  }
+
+  .serie.cvw_zonder_historie {
+    rect, path { fill: $green; }
+  }
+  .serie.cvw_met_historie {
+    rect, path { fill: orange; }
+  }
+  .serie.nieuw_zonder_historie {
+    rect, path { fill: $blue; }
+  }
+  .serie.nieuw_met_historie {
+    rect, path { fill: darkblue; }
   }
 }
 
