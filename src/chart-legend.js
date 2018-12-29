@@ -1,12 +1,20 @@
 let ChartLegend = function ChartLegend(config,svg) {
 
-    let drawInputLegend = function drawInputLegend(dimensions) {
+    let drawInputLegend = function drawInputLegend(dimensions,data) {
 
         svg.legendTotals = svg.layers.legend
             .attr('transform', 'translate(25,' + (parseInt(dimensions.height) - 130) + ')')
             .append("text")
             .attr('class','header')
-            .text('Totaal dossiers')
+            .text('Totaal dossiers');
+
+
+        svg.legendTotals.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr('class', (d,i) => {  console.log(d); return d.provenance;  } )
+
 
         ;
     }

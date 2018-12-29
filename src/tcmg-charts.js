@@ -58,7 +58,7 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
         chartAxis.drawInputYAxis();
-        chartLegend.drawInputLegend(dimensions);
+
 
         // function to parse csv
         function type(d, i, columns) {
@@ -123,6 +123,7 @@ var TCMGCharts = function TCMGCharts() {
             }
         //
             // with data we can init scales
+            chartLegend.drawInputLegend(dimensions,data);
             scales = chartScales.set(data);
             // width data we can draw items
             chartInput.draw(data, functions)
