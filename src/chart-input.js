@@ -71,7 +71,11 @@ let ChartInput = function ChartInput(config,svg,functions) {
         svg.inputGroup = svg.input.selectAll("g")
             .data(function(d) { return d; })
             .enter()
-            .append("g");
+            .append("g")
+            .attr("class", function(d,i) {
+                // console.log(d);
+                return d.data.provenance;
+            });;
 
         // svg.inputRects = svg.inputGroup.selectAll("rect")
         //     .data(function(d) { return d; })
@@ -98,10 +102,13 @@ let ChartInput = function ChartInput(config,svg,functions) {
         //     .y0((d,i) => { return scales.yLinear(d.base); })
         //     .y1((d) => { return scales.yLinear(d.y); });
 
-        svg.inputGroup.attr("class", function(d,i) {
-            // console.log(d);
-            return d.data.provenance;
-        });
+        // svg.inputGroup.attr("class", function(d,i) {
+        //     // console.log(d);
+        //     return d.data.provenance;
+        // });
+
+        svg.inputGroup
+            .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
 
         // svg.inputRects
         //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
