@@ -18,7 +18,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .enter()
             .append("g")
             .attr("class", function(d,i) {
-                return d.provenance;
+                return "input " + d.provenance;
             });
 
         svg.inputRects = svg.inputGroup.selectAll("rect")
