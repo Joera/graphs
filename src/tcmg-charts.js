@@ -25,6 +25,11 @@ var TCMGCharts = function TCMGCharts() {
 
     let formatDates = locale.format("%B %Y");
 
+    var Inputs  = function Inputs(element) {
+
+
+    }
+
     var Procedure  = function Procedure(element) {
 
         const chartObjects = ChartObjects();
@@ -135,6 +140,11 @@ var TCMGCharts = function TCMGCharts() {
 
     }
 
+    var Outputs  = function Outputs(element) {
+
+
+    }
+
 
     // procedure.renderSVG();
     // procedure.renderLayers();
@@ -147,7 +157,9 @@ var TCMGCharts = function TCMGCharts() {
 
 
     return {
-        procedure : Procedure
+        inputs : Inputs,
+        procedure : Procedure,
+        outputs : Outputs
     }
 
 }

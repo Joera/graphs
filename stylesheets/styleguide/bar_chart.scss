@@ -1,20 +1,25 @@
-//.bar  {
-//
-//  fill: #ccc;
-//}
-//
-//.category.cvw_met_historie {
-//
-//  .bar {
-//    fill : #ff0000;
-//  }
-//}
-//
-//
-//.flow {
-//
-//  opacity: .5;
-//}
+
+main {
+  display : flex;
+  flex-direction: row;
+
+  > div {
+    width: 100%;
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: column;
+
+    > div {
+      width: 25%;
+
+      &.nth-of-child(2) {
+        width: 50%;
+      }
+    }
+
+  }
+}
 
 svg  {
   font-family: arial, sans-serif;

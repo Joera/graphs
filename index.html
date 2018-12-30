@@ -14,15 +14,25 @@
 
 
 <body>
-    <div style="width: 100%; height:600px;">
-        <div class="chart-container"></div>
-    </div>
+    <main>
+        <div style="width: 25%; height:600px;">
+            <div class="input-container"></div>
+        </div>
+        <div style="width: 100%; height:600px;">
+            <div class="procedure-container"></div>
+        </div>
+        <div style="width: 25%; height:600px;">
+            <div class="output-container"></div>
+        </div>
+    </main>
 </body>
 
 
 <script>
     var tcmgCharts = new TCMGCharts();
-    tcmgCharts.procedure('.chart-container');
+    tcmgCharts.inputs('.input-container');
+    tcmgCharts.procedure('.procedure-container');
+    tcmgCharts.outputs('.output-container');
 </script>
 
 
