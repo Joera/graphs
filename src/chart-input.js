@@ -71,7 +71,6 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         function unhighlight() {
-            console.log('wahat');
             svg.body.attr('class', null)
         }
 
@@ -80,7 +79,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         }
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(64,' + (dimensions.height - 320) + ')'})
+            .attr("transform", function(d) { return 'translate(64,' + (dimensions.height - 220) + ')'})
             .on("mouseout", unhighlight);
           //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
