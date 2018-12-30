@@ -59,7 +59,6 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawYAxis();
         chartAxis.drawInputYAxis(dimensions);
 
-
         d3.csv("./dummy_data_input.csv", function(error, data) {
             if (error) throw error;
 
