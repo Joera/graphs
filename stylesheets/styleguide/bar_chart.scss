@@ -1,14 +1,14 @@
 
 main {
   display : flex;
-  flex-direction: row;
+  flex-direction: column;
 
   > div {
     width: 100%;
   }
 
   @media (min-width: 800px) {
-    flex-direction: column;
+    flex-direction: row;
 
     > div {
       width: 25%;
