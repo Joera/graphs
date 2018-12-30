@@ -101,7 +101,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element) {
 
-        const chartObjects = ChartObjects();
+        let chartObjects = ChartObjects();
         let config = chartObjects.config();
         let dimensions = chartObjects.dimensions();
         let svg = chartObjects.svg();
