@@ -6,6 +6,13 @@ main {
 
   > div {
     width: 100%;
+
+    .container {
+      border-top: 6px solid #000;
+      width: calc(100% - 4rem);
+      margin: 0 2rem;
+      height: 100%;
+    }
   }
 
   @media (min-width: 800px) {
@@ -13,14 +20,6 @@ main {
 
     > div {
       width: 25%;
-
-
-      .container {
-        border-top: 6px solid #000;
-        width: calc(100% - 4rem);
-        margin: 0 2rem;
-        height: 100%;
-      }
 
       &:nth-child(2) {
         width: 50%;
