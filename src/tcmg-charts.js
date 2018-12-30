@@ -47,7 +47,7 @@ var TCMGCharts = function TCMGCharts() {
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
-
+        console.log(dimensions);
         // create svg elements without data
         let chartSVG = ChartSVG(element,config,dimensions,svg);
         let chartScales = ChartScales(config,dimensions,scales);
