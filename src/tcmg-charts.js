@@ -47,7 +47,7 @@ var TCMGCharts = function TCMGCharts() {
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
-        console.log(dimensions);
+
         // create svg elements without data
         let chartSVG = ChartSVG(element,config,dimensions,svg);
         let chartScales = ChartScales(config,dimensions,scales);
@@ -77,6 +77,7 @@ var TCMGCharts = function TCMGCharts() {
             function redrawInput() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
                 // new dimensions mean new scales
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
