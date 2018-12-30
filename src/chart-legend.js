@@ -3,11 +3,11 @@ let ChartLegend = function ChartLegend(config,svg) {
     let drawInputLegend = function drawInputLegend(dimensions,data) {
 
         svg.legendTotals = svg.layers.legend
-            .attr('transform', 'translate(30,' + (parseInt(config.margin.top) + 30) + ')')
+            .attr('transform', 'translate(30,' + (parseInt(config.margin.top) + 10) + ')')
 
-        svg.legendTotals.append("text")
-            .attr('class','header')
-            .text('Totaal dossiers');
+        // svg.legendTotals.append("text")
+        //     .attr('class','header')
+        //     .text('Totaal dossiers');
 
         svg.legendTotals.selectAll("rect")
             .data(data)
