@@ -13,11 +13,10 @@ main {
     > div {
       width: 25%;
 
-      &.nth-of-child(2) {
+      &:nth-of-child(2) {
         width: 50%;
       }
     }
-
   }
 }
 
