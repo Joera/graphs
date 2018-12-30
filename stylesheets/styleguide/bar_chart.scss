@@ -10,9 +10,12 @@ main {
   @media (min-width: 800px) {
     flex-direction: row;
 
-    .container {
+    > div {
       width: 25%;
-      height: 100%;
+
+      .container {
+        height: 100%;
+      }
 
       &:nth-child(2) {
         width: 50%;
