@@ -160,7 +160,7 @@ var TCMGCharts = function TCMGCharts() {
             // width data we can draw items
             chartStackedBars.draw(data, functions);
             // further drawing happens in function that can be repeated.
-            redraw();
+            // redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);
         });
