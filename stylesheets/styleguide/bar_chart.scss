@@ -10,10 +10,11 @@ main {
   @media (min-width: 800px) {
     flex-direction: row;
 
-    > div {
+    .container {
       width: 25%;
+      height: 100%;
 
-      &:nth-of-child(2) {
+      &:nth-child(2) {
         width: 50%;
       }
     }
@@ -24,9 +25,6 @@ svg  {
   font-family: arial, sans-serif;
 }
 
-.container {
-  height: 100%;
-}
 
 .input {
 
