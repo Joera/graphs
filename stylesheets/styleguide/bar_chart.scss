@@ -13,9 +13,11 @@ main {
 
     > div {
       width: 25%;
-      border-top: 4px solid #000;
+
 
       .container {
+        border-top: 4px solid #000;
+        width: calc(100% - 2rem);
         height: 100%;
       }
 
