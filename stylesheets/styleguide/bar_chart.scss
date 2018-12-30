@@ -20,18 +20,19 @@ main {
       text-transform: uppercase;
       font-weight: bold;
       font-size: .85rem;
+      line-height: 2;
 
     }
 
     > span {
-        width: 6px;
-        height: 1rem;
+        width: 4px;
+        height: .75rem;
         background: black;
     }
 
     .container {
 
-      border-top: 6px solid #000;
+      border-top: 4px solid #000;
       width: calc(100% - 4rem);
       margin: 0rem 2rem;
       height: 100%;
