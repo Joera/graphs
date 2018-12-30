@@ -20,9 +20,11 @@ main {
       text-transform: uppercase;
       font-weight: bold;
       font-size: .85rem;
+
     }
 
     .container {
+      margin-top: 1rem;
       border-top: 6px solid #000;
       width: calc(100% - 4rem);
       margin: 0 2rem;
