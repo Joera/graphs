@@ -21,14 +21,13 @@ main {
       font-weight: bold;
       font-size: .85rem;
 
-      &:after {
-        content :'';
+    }
+
+    > span {
         width: 6px;
         height: .5rem;
         background: black;
-
       }
-
     }
 
     .container {
