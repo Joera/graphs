@@ -71,11 +71,11 @@ let ChartInput = function ChartInput(config,svg,functions) {
         // });
 
         function unhighlight() {
-            svg.body.attr('class', null)
+            d3.select('.procedure-container svg').attr('class', null)
         }
 
         function highlight(provenance) {
-            svg.body.attr('class', provenance)
+            d3.select('.procedure-container svg').attr('class', provenance)
         }
 
         svg.inputGroup
