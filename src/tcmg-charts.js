@@ -27,7 +27,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var Inputs  = function Inputs(element) {
 
-        const chartObjects = ChartObjects();
+        let chartObjects = ChartObjects();
         let config = chartObjects.config();
         let dimensions = chartObjects.dimensions();
         let svg = chartObjects.svg();
@@ -37,24 +37,24 @@ var TCMGCharts = function TCMGCharts() {
 
         config.margin.top = 60;
         config.margin.bottom = 30;
-        config.margin.left = 60;
-        config.padding.bottom = 30;
-        config.padding.left = 160;
-        config.padding.right = 200;
+        config.margin.left = 30;
+        config.padding.bottom = 0;
+        config.padding.left = 0;
+        config.padding.right = 0;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
 
         // get dimensions from parent element
-        const chartDimensions = ChartDimensions(element,config);
+        let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
         // create svg elements without data
-        const chartSVG = ChartSVG(element,config,dimensions,svg);
-        const chartScales = ChartScales(config,dimensions,scales);
-        const chartAxis = ChartAxis(config,svg);
-        const chartStackedBars = ChartStackedBars(config,svg,functions);
-        const chartInput = ChartInput(config,svg,functions);
-        const chartLegend = ChartLegend(config,svg);
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        let chartScales = ChartScales(config,dimensions,scales);
+        let chartAxis = ChartAxis(config,svg);
+        let chartStackedBars = ChartStackedBars(config,svg,functions);
+        let chartInput = ChartInput(config,svg,functions);
+        let chartLegend = ChartLegend(config,svg);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
         chartAxis.drawInputYAxis(dimensions);
@@ -119,14 +119,14 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'value';  // is being set in type function
 
         // get dimensions from parent element
-        const chartDimensions = ChartDimensions(element,config);
+        let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
         // create svg elements without data
-        const chartSVG = ChartSVG(element,config,dimensions,svg);
-        const chartScales = ChartScales(config,dimensions,scales);
-        const chartAxis = ChartAxis(config,svg);
-        const chartStackedBars = ChartStackedBars(config,svg,functions);
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        let chartScales = ChartScales(config,dimensions,scales);
+        let chartAxis = ChartAxis(config,svg);
+        let chartStackedBars = ChartStackedBars(config,svg,functions);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
