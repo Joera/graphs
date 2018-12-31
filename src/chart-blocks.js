@@ -29,6 +29,30 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             }
         }
 
+        let blocksArrayTwo = function(d) {
+
+            let noBlocks = Math.round(parseInt(d['status']) / 100);
+
+            console.log(noBlocks);
+
+            if (Number.isInteger(noBlocks)) {
+
+                let arr = new Array(noBlocks);
+
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i] = {};
+                    arr[i].previous = d.previous;
+                    arr[i].total = d.total;
+                    arr[i].cummulative = d.cummulative;
+                    arr[i].provenance = d.provenance;
+                }
+
+                return arr;
+            } else {
+                return [];
+            }
+        }
+
 
         // series corresponds to provenance - the columns in the csv table//
 
@@ -45,7 +69,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 if (d.status) {
                     console.log(d);
-                    return {}; // wat komt hier?
+                    return blocksArrayTwo(d); // wat komt hier?
                 } else {
                     return blocksArray(d);
                 }
