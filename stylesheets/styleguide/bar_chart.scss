@@ -34,7 +34,7 @@ main {
         border-right: 1px solid #000;
         position: absolute;
         top: 0;
-        width : 100%;
+        width : calc(100% - 2px);
     }
 
     .container {
