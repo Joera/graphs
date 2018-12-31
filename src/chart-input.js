@@ -81,7 +81,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         }
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(64,' + (config.margin.top) + ')'})
+            .attr("transform", function(d) { return 'translate(64,' + (config.margin.top + config.padding.top) + ')'})
             .on("mouseout", unhighlight);
           //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
