@@ -13,15 +13,15 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             .range([(310), 0]) // geen idee waarom 259 ipv 250
             .domain([0,15000]).nice();
 
-      //  console.log(Array.from(new Set(data.map((d) => d[config.xParameter]))));
+        console.log(Array.from(new Set(data.map((d) => d[config.xParameter]))));
 
         scales.xBand = d3.scaleBand()
             // what is domain when working with a stack?
             .domain(data.map(d => d[config.xParameter]))
         //    .domain(Array.from(new Set(data.map((d) => d[config.xParameter]))))
             .paddingInner([0.5])
-            .paddingOuter([0])
-            .align(config.xAlign);
+            .paddingOuter([0.01])
+            .align([0.5]);
 
         scales.yInputLinear = d3.scaleLinear()
             .range([259, 0]) // geen idee waarom 259 ipv 250
