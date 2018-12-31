@@ -38,9 +38,11 @@ var TCMGCharts = function TCMGCharts() {
 
         config.margin.top = 0;
         config.margin.bottom = 0;
+        config.margin.left = 0;
+        config.margin.right = 60;
         config.padding.top = 25;
         config.padding.bottom = 25;
-        config.margin.left = 0;
+
         config.padding.left = 60;
         config.padding.right = 0;
         config.xParameter = 'key';  // name of first column with values of bands on x axis
