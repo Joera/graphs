@@ -125,7 +125,7 @@ var TCMGCharts = function TCMGCharts() {
         let axes = chartObjects.axes();
         let functions = chartObjects.functions();
 
-        config.margin.top = 30;
+        config.margin.top = 0;
         config.margin.bottom = 30;
         config.margin.left = 60;
         config.padding.top = 25;
