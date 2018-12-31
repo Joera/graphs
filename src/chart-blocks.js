@@ -31,7 +31,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 return "blocks " + d.provenance;
             });
 
-        svg.blocks = svg.inputGroup.selectAll("rect")
+        svg.blocks = svg.blockGroup.selectAll("rect")
             .data(function(d) { return blocksArray(d); })
             .enter()
             .append("rect")
