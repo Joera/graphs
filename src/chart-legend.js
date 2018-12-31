@@ -15,7 +15,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('class','')
             .attr('height',18)
             .attr('x',12)
-            .attr('x',8);
+            .attr('y',8);
 
 
         svg.legendTotals.selectAll("rect.type")
