@@ -28,7 +28,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('y', (d,i) => { return i * 16 + 16; });
 
         svg.legendTotals.selectAll(".label")
-            .data(data.reverse())
+            .data(data)
             .enter()
             .append("text")
             .attr('class','label')
