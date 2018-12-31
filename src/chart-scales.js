@@ -21,9 +21,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             .paddingInner([0.5])
             .paddingOuter([0.01])
             .align([0.5]);
-
-        console.log(dimensions.height);
-
+        
         scales.yInputLinear = d3.scaleLinear()
             .range([259, 0]) // geen idee waarom 259 ipv 250
             .domain([0,25000]).nice();

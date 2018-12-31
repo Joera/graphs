@@ -6,7 +6,7 @@ let ChartDimensions = function ChartDimensions(element,config) {
         dimensions.containerHeight = d3.select(element).node().getBoundingClientRect().height - config.margin.top - config.margin.bottom;
         dimensions.height = dimensions.containerHeight - config.padding.top - config.padding.bottom;
         dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
-                
+
         return dimensions;
     }
 
