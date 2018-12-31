@@ -92,20 +92,20 @@ svg {
   }
 }
 
-svg.cvw.zonder.historie {
-   .serie.cvw.zonder.historie {
+svg.zonder.opname {
+   .serie.zonder.opname {
      rect, path { fill: $green; }
    }
  }
 
-svg.cvw.met.historie {
-  .serie.cvw.met.historie {
+svg.cvw.met.opname {
+  .serie.met.opname {
     rect, path { fill: orange; }
   }
 }
 
-svg.nieuw.zonder.historie {
-   .serie.nieuw.zonder.historie {
+svg.Na {
+   .serie.Na {
      rect, path { fill: $blue; }
    }
  }
