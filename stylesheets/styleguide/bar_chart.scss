@@ -58,13 +58,13 @@ main {
   }
   path {  opacity : .4 }
 
-  &.cvw.zonder.historie {
+  &.zonder.opname {
     rect, path {
       fill: $green;
     }
   }
 
-  &.cvw.met.historie {
+  &.met.opname {
     rect, path {
       fill: orange;
     }
