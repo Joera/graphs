@@ -36,11 +36,9 @@ var TCMGCharts = function TCMGCharts() {
         let functions = chartObjects.functions();
 
 
-        config.margin.top = 25;
-        config.margin.bottom = 25;
+        config.padding.top = 25;
+        config.padding.bottom = 25;
         config.margin.left = 60;
-        config.padding.top = 0;
-        config.padding.bottom = 30;
         config.padding.left = 0;
         config.padding.right = 0;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
@@ -146,7 +144,6 @@ var TCMGCharts = function TCMGCharts() {
         let chartStackedBars = ChartStackedBars(config,svg,functions);
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
-
 
         // function to parse csv
         function type(d, i, columns) {
