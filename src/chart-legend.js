@@ -14,7 +14,8 @@ let ChartLegend = function ChartLegend(config,svg) {
             .text('Een vierkantje staat voor 100 meldingen')
             .attr('class','')
             .attr('height',18)
-            .attr('x',12);
+            .attr('x',12)
+            .attr('x',8);
 
 
         svg.legendTotals.selectAll("rect.type")
