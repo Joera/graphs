@@ -165,6 +165,10 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_procedure.csv", type, function(error, data) {
             if (error) throw error;
 
+            // manipulate the data into stacked series
+            functions.stack = d3.stack();
+            let stackedData = functions.stack.keys(data.columns.slice(1))(data);
+
             function redraw() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);

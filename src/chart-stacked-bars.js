@@ -1,11 +1,6 @@
 let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
-    let draw = function draw(data) {
-
-        // manipulate the data into stacked series
-        functions.stack = d3.stack();
-
-        let stackedData = functions.stack.keys(data.columns.slice(1))(data);
+    let draw = function draw(stackedData) {
 
         let calcBase = function(index,status) {
             // get out of status loop
