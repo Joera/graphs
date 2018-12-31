@@ -25,7 +25,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
         // series corresponds to provenance - the columns in the csv table//
 
-        svg.blockGroup = svg.layers.data.selectAll("g")
+        svg.blockGroup = svg.layers.data.selectAll("g.blocks")
             .data(data)
             .enter()
             .append("g")
