@@ -14,7 +14,11 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             if(Array.isArray(d)) {
 
                 console.log('ik ben een array');
-                return [];
+                return {
+                    provenance : "kip"
+                };
+
+
 
 
             } else {
