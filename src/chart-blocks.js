@@ -11,6 +11,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
             let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
 
+            console.log(noBlocks);
+
             if (Number.isInteger(noBlocks)) {
 
                 let arr = new Array(noBlocks);
