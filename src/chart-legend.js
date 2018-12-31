@@ -13,13 +13,14 @@ let ChartLegend = function ChartLegend(config,svg) {
             .text('Een vierkantje staat voor 100 meldingen')
             .attr('class','')
             .attr('height',18)
-            .attr('x',12);
+            .attr('x',12)
+            .attr('y',10);
 
-        svg.legendTotals.selectAll("rect")
+        svg.legendTotals.selectAll("rect.type")
             .data(data)
             .enter()
             .append("rect")
-            .attr('class', (d,i) => { return d.provenance;  } )
+            .attr('class', (d,i) => { return 'type ' + d.provenance;  } )
             .attr('width',8)
             .attr('height',8)
             .attr('y', (d,i) => { return i * 16 + 10; });
