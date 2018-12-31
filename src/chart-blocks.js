@@ -10,7 +10,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         let blocksArray = function(d) {
 
             let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
-        
+
             if (Number.isInteger(noBlocks)) {
 
                 let arr = new Array(noBlocks);
@@ -24,6 +24,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 }
 
                 return arr;
+            } else {
+                return;
             }
 
         }
