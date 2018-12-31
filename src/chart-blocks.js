@@ -11,11 +11,15 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
             console.log(d);
 
-            let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
+            if(Array.isArray(d)) {
 
-            console.log(noBlocks);
 
-            if (Number.isInteger(noBlocks)) {
+            } else {
+
+                let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
+
+                console.log(noBlocks);
+
 
                 let arr = new Array(noBlocks);
 
@@ -28,8 +32,6 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 }
 
                 return arr;
-            } else {
-                return [];
             }
 
         }
