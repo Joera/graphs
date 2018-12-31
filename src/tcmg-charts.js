@@ -139,7 +139,7 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.right = 0;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
-        config.xAlign = [0.0,5];
+        config.xAlign = [0.5];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
