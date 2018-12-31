@@ -1,5 +1,5 @@
-status,cvw zonder historie,cvw met historie,nieuw zonder historie,nieuw met historie
-Wacht op opname,8400,50,9450,100
-Wacht op rapport,1000,500,500,0
-Wacht op reactie bewoner,500,450,50,0
-Wacht op besluit,100,50,0,0
+status,Voor 19 maart 2018 zonder opname,Voor 19 maart 2018 met opname,Na 19 maart 2018
+Wacht op opname,8400,50,9450
+Wacht op rapport,1000,500,500
+Wacht op reactie bewoner,500,450,50
+Wacht op besluit,100,50,0
