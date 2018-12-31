@@ -3,7 +3,7 @@ let ChartLegend = function ChartLegend(config,svg) {
     let drawInputLegend = function drawInputLegend(dimensions,data) {
 
         svg.legendTotals = svg.layers.legend
-            .attr('transform', 'translate(63,' + dimensions.height + (parseInt(config.margin.top) + 0) + ')')
+            .attr('transform', 'translate(63,' + (dimensions.height + config.margin.top - 100) + ')')
 
         svg.legendTotals.append("rect")
             .attr('width',8)
