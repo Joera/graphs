@@ -55,7 +55,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         }
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(' + config.padding.left + ',' + (config.margin.top + dimensions.height) + ')'})
+            .attr("transform", function(d) { return 'translate(' + 0 + ',' + (config.margin.top + dimensions.height) + ')'})
             .on("mouseout", unhighlight);
 
         svg.inputRects
