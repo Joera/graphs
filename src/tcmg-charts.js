@@ -112,7 +112,11 @@ var TCMGCharts = function TCMGCharts() {
 
         let chartSVG = ChartSVG(element,config,dimensions,svg);
         let chartLegend = ChartLegend(config,svg);
-        chartLegend.drawInputLegend(dimensions,data);
+
+        d3.csv("./dummy_data_input.csv", function(error, data) {
+
+            chartLegend.drawInputLegend(dimensions, data);
+        });
 
 
     }
