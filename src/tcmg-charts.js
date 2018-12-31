@@ -68,7 +68,6 @@ var TCMGCharts = function TCMGCharts() {
                 data[i]['previous'] = cummulative;
                 cummulative = cummulative + parseInt(data[i]['total']);
                 data[i]['cummulative'] = cummulative;
-                data[i]['key'] = 'total';
             }
 
             function redrawInput() {
