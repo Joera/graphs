@@ -12,7 +12,7 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
 
     let redraw = function redraw(dimensions) {
         svg.body
-            .attr('height', dimensions.containerHeight)
+            .attr('height', 300) // dimensions.containerHeight
             .attr('width', dimensions.containerWidth);
 
         svg.main
