@@ -24,7 +24,8 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
     let layers = function layers() {
 
         svg.layers.data = svg.body.append('g')
-            .attr('class', 'data');
+            .attr('class', 'data')
+            .attr('transform', 'translate(' + config.padding.left + ',' + config.padding.top + ')');
         svg.layers.axes = svg.body.append('g')
             .attr('class', 'axes');
         svg.layers.legend = svg.body.append('g')

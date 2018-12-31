@@ -49,6 +49,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             return  areaData;
         }
 
+
+
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie")
             .data(stackedData)
