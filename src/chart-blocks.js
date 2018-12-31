@@ -48,7 +48,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 if (Array.isArray(d)) {
                     console.log(d);
-                    return {}; // wat komt hier?
+                    return {}; // wat komt hier?   uhh moet je eigelijk wel stacked doen?
                 } else {
                     return blocksArray(d);
                 }
