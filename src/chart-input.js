@@ -71,7 +71,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
                 if (s.length > 1) {
                     return config.margin.top + 2 - (10 * parseInt(s.substring(0,s.length - 1)));
                 } else {
-                    return 0; }
+                    return config.margin.top; }
             })
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
