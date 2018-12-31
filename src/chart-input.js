@@ -7,7 +7,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         let blocksArray = function(d) {
 
-            let arr = new Array(parseInt(d.total) / 100);
+            let arr = new Array(Math.round(parseInt(d.total) / 100));
 
             for (let i = 0; i < arr.length; i++) {
                 arr[i] = {};
