@@ -87,7 +87,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
         svg.inputRects
             .attr("x", (d,i) => { let s = (parseInt(i) + (parseInt(d.previous) / 100)).toString(); return 10 * parseInt(s.substring(s.length - 1)); })
-            .attr("y", (d,i) => { let s = Math.Round((parseInt(i) + (parseInt(d.previous) / 100))).toString(); console.log(s); if (s.length > 1) { return dimensions.height - 160 - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 160 - 7; }})
+            .attr("y", (d,i) => { let s = Math.round((parseInt(i) + (parseInt(d.previous) / 100))).toString(); console.log(s); if (s.length > 1) { return dimensions.height - 160 - 7 - (10 * parseInt(s.substring(0,s.length - 1))); } else { return dimensions.height - 160 - 7; }})
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
             });
