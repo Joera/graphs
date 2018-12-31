@@ -31,7 +31,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.yLinear = d3.axisLeft(scales.yLinear);
 
         axes.yLinear
-            .ticks(2);
+            .ticks(5);
 
         svg.yAxis
             .call(axes.yLinear);
