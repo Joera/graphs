@@ -13,16 +13,18 @@ main {
     align-items: center;
 
     h2 {
+      font-family: 'RO Serif Bold';
       text-transform: uppercase;
       font-weight: bold;
       font-size: .85rem;
       line-height: 1.6;
+      letter-spacing: .75px;
 
     }
 
     > span {
         width: 1px;
-        height: .75rem;
+        height: .5rem;
         background: black;
     }
 
