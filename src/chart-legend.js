@@ -17,7 +17,6 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('x',12)
             .attr('y',7);
 
-
         svg.legendTotals.selectAll("rect.type")
             .data(data.reverse())
             .enter()

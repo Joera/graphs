@@ -21,6 +21,8 @@
             <div class="input-container container">
                 <div class="sides"></div>
             </div>
+            <div class="legend-container container">
+            </div>
         </div>
         <div>
             <h2>Dossiers in de procedure</h2>
@@ -45,6 +47,7 @@
 <script>
     var tcmgCharts = new TCMGCharts();
     tcmgCharts.inputs('.input-container');
+    tcmgCharts.legend('.legend-container');
     tcmgCharts.procedure('.procedure-container');
     // tcmgCharts.outputs('.output-container');
 </script>

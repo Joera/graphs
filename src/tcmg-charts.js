@@ -55,7 +55,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartAxis = ChartAxis(config,svg);
         let chartStackedBars = ChartStackedBars(config,svg,functions);
         let chartInput = ChartInput(config,svg,functions);
-        let chartLegend = ChartLegend(config,svg);
+
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
         chartAxis.drawInputYAxis(dimensions);
@@ -89,7 +89,7 @@ var TCMGCharts = function TCMGCharts() {
             }
             //
             // with data we can init scales
-            chartLegend.drawInputLegend(dimensions,data);
+
             scales = chartScales.set(data);
             // width data we can draw items
             chartInput.draw(data, functions)
@@ -98,6 +98,23 @@ var TCMGCharts = function TCMGCharts() {
             // for example on window resize
             window.addEventListener("resize", redrawInput, false);
         });
+    }
+
+    var Legend = function(element) {
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        let chartLegend = ChartLegend(config,svg);
+        chartLegend.drawInputLegend(dimensions,data);
+
+
     }
 
     var Procedure  = function Procedure(element) {
@@ -159,7 +176,7 @@ var TCMGCharts = function TCMGCharts() {
             // with data we can init scales
             scales = chartScales.set(data);
             // width data we can draw items
-            chartStackedBars.draw(data, functions);
+            chartStackedBars.draw(data,functions);
             // further drawing happens in function that can be repeated.
             redraw();
             // for example on window resize
@@ -179,6 +196,7 @@ var TCMGCharts = function TCMGCharts() {
 
     return {
         inputs : Inputs,
+        legend : Legend,
         procedure : Procedure,
         outputs : Outputs
     }
