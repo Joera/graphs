@@ -10,6 +10,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         let blocksArray = function(d) {
 
             let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
+            console.log(noBlocks);
             let arr = new Array(noBlocks);
 
             for (let i = 0; i < arr.length; i++) {
