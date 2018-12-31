@@ -69,7 +69,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
                 if (s.length > 1) {
-                    return config.fixedHeight  - (10 * parseInt(s.substring(0,s.length - 1)));
+                    return 0  - (10 * parseInt(s.substring(0,s.length - 1)));
                 } else {
                     return config.fixedHeight; }
             })
