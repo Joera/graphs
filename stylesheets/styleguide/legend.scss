@@ -1,0 +1,29 @@
+text.header {
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .85rem;
+}
+
+.legend rect  {
+  fill: #ccc;
+
+  &.acuut  {
+    fill: darkblue;
+  }
+
+  &.Na  {
+    fill: $blue;
+  }
+
+  &.met.opname {
+    fill: orange;
+  }
+  &.zonder.opname  {
+    fill: $green;
+  }
+}
+
+.legend  {
+  font-size: .7rem;
+}

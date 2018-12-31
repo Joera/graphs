@@ -10,7 +10,7 @@
 }
 
 
-.input {
+.blocks {
 
   rect, path {
     fill: #ccc;
@@ -44,63 +44,3 @@
   }
 }
 
-svg {
-  .serie {
-    rect, path { fill: #ccc; }
-    path {  opacity : .2 }
-  }
-}
-
-svg.zonder.opname {
-   .serie.zonder.opname {
-     rect, path { fill: $green; }
-   }
- }
-
-svg.met.opname {
-  .serie.met.opname {
-    rect, path { fill: orange; }
-  }
-}
-
-svg.Na {
-   .serie.Na {
-     rect, path { fill: $blue; }
-   }
- }
-
-svg.acuut {
-  .serie.acuut {
-    rect, path { fill: darkblue; }
-  }
-}
-
-text.header {
-
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: .85rem;
-}
-
-.legend rect  {
-  fill: #ccc;
-
-  &.acuut  {
-    fill: darkblue;
-  }
-
-  &.Na  {
-    fill: $blue;
-  }
-
-  &.met.opname {
-    fill: orange;
-  }
-  &.zonder.opname  {
-    fill: $green;
-  }
-}
-
-.legend  {
-  font-size: .7rem;
-}

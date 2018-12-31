@@ -22,17 +22,13 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
 
         // series corresponds to provenance - the columns in the csv table//
-        svg.input = svg.layers.data.selectAll(".input")
-            .data([{}])
-            .enter().append("g")
-            .attr("class", "inputs");
 
         svg.inputGroup = svg.input.selectAll("g")
             .data(data)
             .enter()
             .append("g")
             .attr("class", function(d,i) {
-                return "input " + d.provenance;
+                return "blocks " + d.provenance;
             });
 
         svg.inputRects = svg.inputGroup.selectAll("rect")
@@ -59,9 +55,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         }
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(64,' + (config.margin.top + dimensions.height) + ')'})
+            .attr("transform", function(d) { return 'translate(' + config.padding.left + ',' + (config.margin.top + dimensions.height) + ')'})
             .on("mouseout", unhighlight);
-          //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
         svg.inputRects
             .attr("x", (d,i) => { let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString(); return 10 * parseInt(s.substring(s.length - 1)); })
