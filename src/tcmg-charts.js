@@ -35,7 +35,7 @@ var TCMGCharts = function TCMGCharts() {
         let axes = chartObjects.axes();
         let functions = chartObjects.functions();
 
-        config.fixedHeight = 300;
+
         config.margin.top = 15;
         config.margin.bottom = 15;
         config.margin.left = 60;
@@ -45,6 +45,8 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.right = 0;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
+
+        config.fixedHeight = 250;
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
