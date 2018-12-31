@@ -69,9 +69,9 @@ let ChartInput = function ChartInput(config,svg,functions) {
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
                 if (s.length > 1) {
-                    return config.fixedHeight - 160 - 7 - (10 * parseInt(s.substring(0,s.length - 1)));
+                    return config.fixedHeight  - (10 * parseInt(s.substring(0,s.length - 1)));
                 } else {
-                    return config.fixedHeight - 160 - 7; }
+                    return config.fixedHeight; }
             })
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
