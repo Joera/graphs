@@ -39,7 +39,7 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.top = 0;
         config.margin.bottom = 0;
         config.margin.left = 0;
-        config.margin.right = 250;
+        config.margin.right = 0;
         config.padding.top = 25;
         config.padding.bottom = 25;
 
@@ -49,6 +49,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'value';  // is being set in type function
 
         config.fixedHeight = 250;
+        config.xAlign = [0.0];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
@@ -138,6 +139,7 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.right = 0;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
+        config.xAlign = [0.0,5];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
