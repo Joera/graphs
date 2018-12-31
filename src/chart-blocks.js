@@ -42,13 +42,13 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 return "blocks " + d.provenance;
             });
 
-        svg.blocks = svg.blockGroup.selectAll("rect")
+        svg.blocks = svg.blockGroup.selectAll(".block")
             .data(function(d) { return blocksArray(d); })
             .enter()
             .append("rect")
             .attr("width",8)
             .attr("height",8)
-            .attr("class", (d,i) => { return d.provenance; })
+            .attr("class", (d,i) => { return 'block ' + d.provenance; })
         ;
 
     }
