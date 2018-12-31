@@ -25,13 +25,13 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
         console.log(dimensions.height);
 
         scales.yInputLinear = d3.scaleLinear()
-            .range([250, 0]) // -1 because top border adds one px to containerheight
+            .range([255, 0]) // -1 because top border adds one px to containerheight
             .domain([0,25000]).nice();
 
         return scales;
     }
 
-        
+
     let reset = function reset(dimensions,newScales) {
 
         newScales.xTime
