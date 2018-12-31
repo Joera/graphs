@@ -13,6 +13,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
             if(Array.isArray(d)) {
 
+                console.log('ik ben een array');
+
 
             } else {
 
@@ -20,18 +22,22 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 console.log(noBlocks);
 
+                if (Number.isInteger(noBlocks)) {
 
-                let arr = new Array(noBlocks);
+                    let arr = new Array(noBlocks);
 
-                for (let i = 0; i < arr.length; i++) {
-                    arr[i] = {};
-                    arr[i].previous = d.previous;
-                    arr[i].total = d.total;
-                    arr[i].cummulative = d.cummulative;
-                    arr[i].provenance = d.provenance;
+                    for (let i = 0; i < arr.length; i++) {
+                        arr[i] = {};
+                        arr[i].previous = d.previous;
+                        arr[i].total = d.total;
+                        arr[i].cummulative = d.cummulative;
+                        arr[i].provenance = d.provenance;
+                    }
+
+                    return arr;
+                } else {
+                    return [];
                 }
-
-                return arr;
             }
 
         }
