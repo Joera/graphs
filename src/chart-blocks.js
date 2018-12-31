@@ -5,13 +5,11 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         // manipulate the data into stacked series
         // format data for areaflow
 
-
-
         let blocksArray = function(d) {
 
             let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
 
-            console.log(noBlocks);
+            // console.log(noBlocks);
 
             if (Number.isInteger(noBlocks)) {
 
@@ -39,7 +37,6 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .enter()
             .append("g")
             .attr("class", function(d,i) {
-                console.log(d);
                 return "blocks " + d.provenance;
             });
 
