@@ -46,7 +46,12 @@ main {
       height: 100%;
 
       &.input-container {
-        height: 500px;
+        height: 400px;
+        //border-bottom: 1px solid #000;
+      }
+
+      &.legend-container {
+        height: 100px;
         //border-bottom: 1px solid #000;
       }
     }
