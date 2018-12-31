@@ -59,7 +59,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .on("mouseout", unhighlight);
 
         svg.inputRects
-            .attr("x", (d,i) => { let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString(); return 10 * parseInt(s.substring(s.length - 1)); })
+            .attr("x", (d,i) => { let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString(); return 10 * parseInt(s.substring(s.length - 1)) + 2; })
             .attr("y", (d,i) => {
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
