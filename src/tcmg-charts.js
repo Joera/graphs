@@ -85,7 +85,7 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             // with data we can init scales
-            scales = chartScales.set(data);
+            scales = chartScales.set({});
             // width data we can draw items
             chartBlocks.draw(data, functions)
             // further drawing happens in function that can be repeated.
