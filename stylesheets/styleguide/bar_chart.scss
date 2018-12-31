@@ -1,5 +1,13 @@
 
+.x-axis {
 
+  font-size: .4rem;
+
+  @media (min-width : $mobile-max) {
+    font-size: .6rem;
+  }
+
+}
 
 
 .input {
