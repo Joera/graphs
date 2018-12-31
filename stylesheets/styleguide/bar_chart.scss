@@ -126,13 +126,18 @@ text.header {
 .legend rect  {
   fill: #ccc;
 
-  &.nieuw.met  {
+  &.acuut  {
     fill: darkblue;
   }
-  &.cvw.met {
+
+  &.Na  {
+    fill: $blue;
+  }
+
+  &.met.opname {
     fill: orange;
   }
-  &.cvw.zonder  {
+  &.zonder.opname  {
     fill: $green;
   }
 }
