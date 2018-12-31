@@ -43,7 +43,7 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.left = 0;
         config.padding.left = 60;
         config.padding.right = 0;
-        config.xParameter = 0;  // name of first column with values of bands on x axis
+        config.xParameter = 'key';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
 
         config.fixedHeight = 250;
@@ -68,6 +68,7 @@ var TCMGCharts = function TCMGCharts() {
                 data[i]['previous'] = cummulative;
                 cummulative = cummulative + parseInt(data[i]['total']);
                 data[i]['cummulative'] = cummulative;
+                data[i]['key'] = 'total';
             }
 
             function redrawInput() {
