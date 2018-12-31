@@ -5,7 +5,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         // manipulate the data into stacked series
         // format data for areaflow
 
-        console.log(data);
+        console.log(data.length);
 
         let blocksArray = function(d) {
 
