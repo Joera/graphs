@@ -31,7 +31,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
         let blocksArrayTwo = function(d) {
 
-            let noBlocks = Math.round(parseInt(d['status']) / 100);
+            let noBlocks = Math.round(parseInt(d['value']) / 100);
 
             console.log(noBlocks);
 
