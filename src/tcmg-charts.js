@@ -38,7 +38,7 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.top = 30;
         config.margin.bottom = 30;
         config.margin.left = 60;
-        config.padding.top = 30;
+        config.padding.top = 0;
         config.padding.bottom = 30;
         config.padding.left = 0;
         config.padding.right = 0;
@@ -63,8 +63,6 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_input.csv", function(error, data) {
             if (error) throw error;
 
-            console.log(data);
-
             let cummulative = 0;
             for (let i = 0; i < data.length; i++) {
                 data[i]['previous'] = cummulative;
@@ -72,8 +70,6 @@ var TCMGCharts = function TCMGCharts() {
                 data[i]['cummulative'] = cummulative;
 
             }
-
-            // console.log(data);
 
             function redrawInput() {
                 // on redraw chart gets new dimensions
@@ -87,9 +83,8 @@ var TCMGCharts = function TCMGCharts() {
                 // redraw data
                 chartInput.redraw(dimensions, scales);
             }
-            //
-            // with data we can init scales
 
+            // with data we can init scales
             scales = chartScales.set(data);
             // width data we can draw items
             chartInput.draw(data, functions)
@@ -114,11 +109,8 @@ var TCMGCharts = function TCMGCharts() {
         let chartLegend = ChartLegend(config,svg);
 
         d3.csv("./dummy_data_input.csv", function(error, data) {
-
             chartLegend.drawInputLegend(dimensions, data);
         });
-
-
     }
 
     var Procedure  = function Procedure(element) {
