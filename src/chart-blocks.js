@@ -46,9 +46,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         svg.blocks = svg.blockGroup.selectAll(".block")
             .data(function(d) {
 
-                console.log(d);
-
-                if (Array.isArray(d)) {
+                if (d.status) {
                     console.log(d);
                     return {}; // wat komt hier?
                 } else {
