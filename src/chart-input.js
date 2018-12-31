@@ -8,7 +8,6 @@ let ChartInput = function ChartInput(config,svg,functions) {
         let blocksArray = function(d) {
 
             let noBlocks = Math.round(parseInt(d.total) / 100);
-
             let arr = new Array(noBlocks);
 
             for (let i = 0; i < arr.length; i++) {
@@ -18,7 +17,6 @@ let ChartInput = function ChartInput(config,svg,functions) {
                 arr[i].cummulative = d.cummulative;
                 arr[i].provenance = d.provenance;
             }
-
             return arr;
         }
 
@@ -28,7 +26,6 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .data([{}])
             .enter().append("g")
             .attr("class", "inputs");
-
 
         svg.inputGroup = svg.input.selectAll("g")
             .data(data)
@@ -47,30 +44,11 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .attr("class", (d,i) => { return d.provenance; })
         ;
 
-        // svg.connection = svg.input.selectAll('.flow')
-        //     // je moet per serie .. de data reformatten
-        //     .data(function(d,i) { return format(d,i); })
-        //     .enter()
-        //     .append("path")
-        //     .attr("fill", "#ccc")
-        //     .attr('class', 'flow');
     }
 
     let redraw = function redraw(dimensions,scales) {
 
         let barWidth = 0;
-
-        // let area = d3.area()
-        //     .curve(d3.curveCardinal)
-        //     .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
-        //     .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
-        //     .y0((d,i) => { return scales.yLinear(d.base); })
-        //     .y1((d) => { return scales.yLinear(d.y); });
-
-        // svg.inputGroup.attr("class", function(d,i) {
-        //     // console.log(d);
-        //     return d.data.provenance;
-        // });
 
         function unhighlight() {
             d3.select('.procedure-container svg').attr('class', null)
@@ -81,7 +59,7 @@ let ChartInput = function ChartInput(config,svg,functions) {
         }
 
         svg.inputGroup
-            .attr("transform", function(d) { return 'translate(64,' + (config.margin.top + config.padding.top + 40) + ')'})
+            .attr("transform", function(d) { return 'translate(64,' + (config.margin.top) + ')'})
             .on("mouseout", unhighlight);
           //  .attr("transform", function(d) { return 'translate(64,' + scales.yInputLinear(d['cummulative'])+ ')'});
 
@@ -91,17 +69,6 @@ let ChartInput = function ChartInput(config,svg,functions) {
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
             });
-           // .on("mouseout", unhighlight);
-
-        //     .attr("y", function(d) { return scales.yInputLinear(d['cummulative']); })
-        //     .attr("height", function(d) { return scales.yInputLinear(d[0]) - scales.yInputLinear(d[1]); })
-        //     .attr("x", 62)
-        //     .attr("width", 120)
-
-
-
-        // svg.connection
-        //     .attr("d", area);
 
     }
 
