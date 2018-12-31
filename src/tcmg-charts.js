@@ -74,6 +74,7 @@ var TCMGCharts = function TCMGCharts() {
             function redrawInput() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
+                console.log(dimensions);
                 chartSVG.redraw(dimensions);
                 // new dimensions mean new scales
                 scales = chartScales.reset(dimensions,scales);
