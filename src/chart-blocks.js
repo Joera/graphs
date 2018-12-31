@@ -10,8 +10,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         let blocksArray = function(d) {
 
             let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
-
-            if (noBlocks.isInteger()) {
+        
+            if (Number.isInteger(noBlocks)) {
 
                 let arr = new Array(noBlocks);
 
