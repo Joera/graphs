@@ -33,15 +33,13 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
             let noBlocks = Math.round(parseInt(d['value']) / 100);
 
-            console.log(noBlocks);
-
             if (Number.isInteger(noBlocks)) {
 
                 let arr = new Array(noBlocks);
 
                 for (let i = 0; i < arr.length; i++) {
                     arr[i] = {};
-                    arr[i].previous = 0;
+                    arr[i].previous = 1000;
                     arr[i].total = d.value;
                     arr[i].cummulative = 0;
                     arr[i].provenance = d.status;
@@ -73,7 +71,6 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 } else {
                     return blocksArray(d);
                 }
-
             })
             .enter()
             .append("rect")
