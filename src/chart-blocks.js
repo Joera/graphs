@@ -30,6 +30,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .enter()
             .append("g")
             .attr("class", function(d,i) {
+                console.log(d);
                 return "blocks " + d.provenance;
             });
 
