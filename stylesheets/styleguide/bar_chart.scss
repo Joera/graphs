@@ -13,12 +13,12 @@ main {
     align-items: center;
 
     h2 {
-      font-family: 'RO Sans Bold';
+      font-family: 'RO Sans Regular';
       text-transform: uppercase;
       font-weight: bold;
       font-size: .85rem;
       line-height: 1.6;
-      letter-spacing: .75px;
+      letter-spacing: .5px;
 
     }
 
@@ -48,10 +48,6 @@ main {
       }
     }
   }
-}
-
-svg  {
-  font-family: arial, sans-serif;
 }
 
 
