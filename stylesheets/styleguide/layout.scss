@@ -56,7 +56,12 @@ main {
       }
 
       &.legend-container {
-        height: 100px;
+
+        height: 140px;
+
+        @media (min-width : $mobile-max) {
+          height: 100px;
+        }
         //border-bottom: 1px solid #000;
       }
     }
