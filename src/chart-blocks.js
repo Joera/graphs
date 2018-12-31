@@ -25,7 +25,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 return arr;
             } else {
-                return;
+                return [];
             }
 
         }
