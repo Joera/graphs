@@ -8,11 +8,9 @@ let ChartDimensions = function ChartDimensions(element,config) {
         dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
 
         return dimensions;
-
     }
 
     return {
-
         get : get
     }
 }

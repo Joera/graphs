@@ -56,7 +56,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartSVG = ChartSVG(element,config,dimensions,svg);
         let chartScales = ChartScales(config,dimensions,scales);
         let chartAxis = ChartAxis(config,svg);
-        let chartInput = ChartInput(config,svg,functions);
+        let chartBlocks = ChartBlocks(config,svg,functions);
 
         chartAxis.drawInputYAxis(dimensions);
 
@@ -81,13 +81,13 @@ var TCMGCharts = function TCMGCharts() {
                 //  chartAxis.redrawXAxis(dimensions,scales,axes);
                 chartAxis.redrawInputYAxis(scales,axes);
                 // redraw data
-                chartInput.redraw(dimensions, scales);
+                chartBlocks.redraw(dimensions, scales);
             }
 
             // with data we can init scales
             scales = chartScales.set(data);
             // width data we can draw items
-            chartInput.draw(data, functions)
+            chartBlocks.draw(data, functions)
             // further drawing happens in function that can be repeated.
             redrawInput();
             // for example on window resize

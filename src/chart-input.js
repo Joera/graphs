@@ -1,4 +1,4 @@
-let ChartInput = function ChartInput(config,svg,functions) {
+let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
     let draw = function draw(data) {
 
