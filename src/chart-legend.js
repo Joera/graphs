@@ -3,11 +3,17 @@ let ChartLegend = function ChartLegend(config,svg) {
     let drawInputLegend = function drawInputLegend(dimensions,data) {
 
         svg.legendTotals = svg.layers.legend
-            .attr('transform', 'translate(30,' + (parseInt(config.margin.top) + 10) + ')')
+            .attr('transform', 'translate(63,' + (parseInt(config.margin.top) + 10) + ')')
 
-        // svg.legendTotals.append("text")
-        //     .attr('class','header')
-        //     .text('Totaal dossiers');
+        svg.legendTotals.append("rect")
+            .attr('width',8)
+            .attr('height',8);
+
+        svg.legendTotals.append("text")
+            .text('Een vierkantje staat voor 100 meldingen')
+            .attr('class','label')
+            .attr('height',8)
+            .attr('x',12)
 
         svg.legendTotals.selectAll("rect")
             .data(data)
