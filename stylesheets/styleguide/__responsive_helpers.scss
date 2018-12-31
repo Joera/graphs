@@ -1,0 +1,19 @@
+.visible-on-phone, .visible-on-portrait {
+  display: none;
+}
+@media (max-width: $portrait-max) { // 760px;
+  .hidden-on-portrait {
+    display: none;
+  }
+  .visible-on-portrait {
+    display: inline-block;
+  }
+}
+@media (max-width: $mobile-max) { // 760px;
+  .hidden-on-phone {
+    display: none;
+  }
+  .visible-on-phone {
+    display: block;
+  }
+}
