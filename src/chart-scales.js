@@ -8,8 +8,10 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             .domain([d3.min(data, d => new Date(d.date)),endDate]);
 
         scales.yLinear = d3.scaleLinear()
-            .range([dimensions.height, config.margin.top + config.padding.top])
-            .domain([0,d3.max(data, d => d[config.yParameter])]).nice();
+            // .range([dimensions.height, config.margin.top + config.padding.top])
+            // .domain([0,d3.max(data, d => d[config.yParameter])]).nice();
+            .range([(2 * 259), 0]) // geen idee waarom 259 ipv 250
+            .domain([0,12500]).nice();
 
         scales.xBand = d3.scaleBand()
             // what is domain when working with a stack?
