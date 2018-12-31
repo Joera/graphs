@@ -129,7 +129,7 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.bottom = 30;
         config.margin.left = 60;
         config.padding.top = 25;
-        config.padding.bottom = 30;
+        config.padding.bottom = 0;
         config.padding.left = 0;
         config.padding.right = 0;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
@@ -180,9 +180,6 @@ var TCMGCharts = function TCMGCharts() {
             // for example on window resize
             window.addEventListener("resize", redraw, false);
         });
-
-
-
     }
 
     var Outputs  = function Outputs(element) {
