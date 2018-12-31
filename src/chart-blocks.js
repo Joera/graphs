@@ -9,42 +9,26 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
         let blocksArray = function(d) {
 
-            console.log(d);
+            let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
 
-            if(Array.isArray(d)) {
+            console.log(noBlocks);
 
-                console.log('ik ben een array');
-                return {
-                    provenance : "kip"
-                };
+            if (Number.isInteger(noBlocks)) {
 
+                let arr = new Array(noBlocks);
 
-
-
-            } else {
-
-                let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
-
-                console.log(noBlocks);
-
-                if (Number.isInteger(noBlocks)) {
-
-                    let arr = new Array(noBlocks);
-
-                    for (let i = 0; i < arr.length; i++) {
-                        arr[i] = {};
-                        arr[i].previous = d.previous;
-                        arr[i].total = d.total;
-                        arr[i].cummulative = d.cummulative;
-                        arr[i].provenance = d.provenance;
-                    }
-
-                    return arr;
-                } else {
-                    return [];
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i] = {};
+                    arr[i].previous = d.previous;
+                    arr[i].total = d.total;
+                    arr[i].cummulative = d.cummulative;
+                    arr[i].provenance = d.provenance;
                 }
-            }
 
+                return arr;
+            } else {
+                return [];
+            }
         }
 
 
@@ -60,7 +44,16 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             });
 
         svg.blocks = svg.blockGroup.selectAll(".block")
-            .data(function(d) { return blocksArray(d); })
+            .data(function(d) {
+
+                if (Array.isArray(d)) {
+                    console.log(d);
+                    return {}; // wat komt hier?
+                } else {
+                    return blocksArray(d);
+                }
+
+            })
             .enter()
             .append("rect")
             .attr("width",8)
