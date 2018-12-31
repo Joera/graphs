@@ -5,6 +5,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         // manipulate the data into stacked series
         // format data for areaflow
 
+        console.log(data);
+
         let blocksArray = function(d) {
 
             let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
