@@ -55,9 +55,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartAxis = ChartAxis(config,svg);
         let chartStackedBars = ChartStackedBars(config,svg,functions);
         let chartInput = ChartInput(config,svg,functions);
-
-        chartAxis.drawXAxis();
-        chartAxis.drawYAxis();
+        
         chartAxis.drawInputYAxis(dimensions);
 
         d3.csv("./dummy_data_input.csv", function(error, data) {
