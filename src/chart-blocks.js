@@ -10,17 +10,22 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         let blocksArray = function(d) {
 
             let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
-            console.log(noBlocks);
-            let arr = new Array(noBlocks);
 
-            for (let i = 0; i < arr.length; i++) {
-                arr[i] = {};
-                arr[i].previous = d.previous;
-                arr[i].total = d.total;
-                arr[i].cummulative = d.cummulative;
-                arr[i].provenance = d.provenance;
+            if (noBlocks.isInteger()) {
+
+                let arr = new Array(noBlocks);
+
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i] = {};
+                    arr[i].previous = d.previous;
+                    arr[i].total = d.total;
+                    arr[i].cummulative = d.cummulative;
+                    arr[i].provenance = d.provenance;
+                }
+
+                return arr;
             }
-            return arr;
+
         }
 
 
