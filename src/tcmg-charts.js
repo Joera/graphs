@@ -36,8 +36,8 @@ var TCMGCharts = function TCMGCharts() {
         let functions = chartObjects.functions();
 
         config.fixedHeight = 300;
-        config.margin.top = 30;
-        config.margin.bottom = 30;
+        config.margin.top = 15;
+        config.margin.bottom = 15;
         config.margin.left = 60;
         config.padding.top = 0;
         config.padding.bottom = 30;
