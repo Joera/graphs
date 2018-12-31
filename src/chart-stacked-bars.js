@@ -82,7 +82,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.bar
             .attr("y", function(d) { return scales.yLinear(d[1]); })
-            .attr("height", function(d) { return scales.yLinearReverse(d[1]) - scales.yLinearReverse(d[0]); })
+            .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
             .attr("x", function(d) { return scales.xBand(d.data[config.xParameter]); })
             .attr("width", scales.xBand.bandwidth());
 

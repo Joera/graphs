@@ -25,7 +25,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
         console.log(dimensions.height);
 
         scales.yInputLinear = d3.scaleLinear()
-            .range([259, 0]) // -1 because top border adds one px to containerheight
+            .range([259, 0]) // geen idee waarom 259 ipv 250
             .domain([0,25000]).nice();
 
         return scales;
