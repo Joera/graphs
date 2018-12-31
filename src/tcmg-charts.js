@@ -46,7 +46,7 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.left = 60;
         config.padding.right = 0;
         config.xParameter = 'key';  // name of first column with values of bands on x axis
-        config.yParameter = 'value';  // is being set in type function
+        config.yParameter = 'total';  // is being set in type function
 
         config.fixedHeight = 250;
         config.xAlign = [0.0];
