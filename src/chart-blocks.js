@@ -39,7 +39,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 for (let i = 0; i < arr.length; i++) {
                     arr[i] = {};
-                    arr[i].previous = 1000;
+                    arr[i].previous = -4000;
                     arr[i].total = d.value;
                     arr[i].cummulative = 0;
                     arr[i].provenance = d.status;
