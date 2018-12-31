@@ -34,7 +34,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('class','label')
             .text((d) => { return d.provenance; })
             .attr('x',12)
-            .attr('y', (d,i) => { return i * 16 + 25; })
+            .attr('y', (d,i) => { return i * 16 + 24; })
 
         ;
     }
