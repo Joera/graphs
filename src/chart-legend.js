@@ -19,7 +19,7 @@ let ChartLegend = function ChartLegend(config,svg) {
 
 
         svg.legendTotals.selectAll("rect.type")
-            .data(data)
+            .data(data.reverse())
             .enter()
             .append("rect")
             .attr('class', (d,i) => { return 'type ' + d.provenance;  } )
@@ -28,7 +28,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('y', (d,i) => { return i * 16 + 16; });
 
         svg.legendTotals.selectAll(".label")
-            .data(data)
+            .data(data.reverse())
             .enter()
             .append("text")
             .attr('class','label')
