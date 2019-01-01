@@ -6,8 +6,8 @@ let ChartLine = function ChartLine(config,svg) {
             .data([data])
             .attr("class", "line");
 
-        svg.candles = svg.line.selectAll('.candle')
-            .data( (d,i) => { return d; })
+        svg.candles = svg.layers.data.selectAll('.candle')
+            .data(data)
             .attr("class", "candle");
     }
 
