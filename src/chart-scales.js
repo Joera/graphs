@@ -5,7 +5,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
         let endDate = new Date();
 
         scales.xTime = d3.scaleTime()
-            .domain([d3.min(data, d => new Date(d.date)),endDate]);
+            .domain([d3.min(data, d => new Date(d.time)),endDate]);
 
         scales.yLinear = d3.scaleLinear()
             // .range([dimensions.height, config.margin.top + config.padding.top])

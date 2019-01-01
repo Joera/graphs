@@ -6,7 +6,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             .attr('class', 'x-axis');
     }
 
-    let redrawXAxis = function redrawXAxis(dimensions,scales,axes) {
+    let redrawXBandAxis = function redrawXAxis(dimensions,scales,axes) {
 
         axes.xBand = d3.axisBottom(scales.xBand);
 
@@ -17,6 +17,19 @@ let ChartAxis = function ChartAxis(config,svg) {
         svg.xAxis
             .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.margin.top + config.padding.top + 2) + ")")  //
             .call(axes.xBand);
+    }
+
+    let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes) {
+
+        axes.xTime = d3.axisBottom(scales.xTime);
+
+        // axes.xBand
+        // .ticks(d3.timeMonth.every(1))
+        // .tickFormat(d3.timeFormat("%b"));
+
+        svg.xAxis
+            .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.margin.top + config.padding.top + 2) + ")")  //
+            .call(axes.xTime);
     }
 
     let drawYAxis = function drawYAxis() {
@@ -59,7 +72,8 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     return {
         drawXAxis : drawXAxis,
-        redrawXAxis : redrawXAxis,
+        redrawXBandAxis : redrawXBandAxis,
+        redrawXTimeAxis : redrawXTimeAxis,
         drawYAxis : drawYAxis,
         redrawYAxis : redrawYAxis,
         drawInputYAxis : drawInputYAxis,

@@ -81,7 +81,7 @@ var TCMGCharts = function TCMGCharts() {
                 // new dimensions mean new scales
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
-                //  chartAxis.redrawXAxis(dimensions,scales,axes);
+                //  chartAxis.redrawXBandAxis(dimensions,scales,axes);
                 chartAxis.redrawInputYAxis(scales,axes);
                 // redraw data
                 chartBlocks.redraw(dimensions, scales);
@@ -177,7 +177,7 @@ var TCMGCharts = function TCMGCharts() {
                 // new dimensions mean new scales
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
-                chartAxis.redrawXAxis(dimensions,scales,axes);
+                chartAxis.redrawXBandAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
                 chartStackedBars.redraw(dimensions, scales);
@@ -197,6 +197,39 @@ var TCMGCharts = function TCMGCharts() {
     }
 
     var Progress = function(element) {
+
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+        let scales = chartObjects.scales();
+        let axes = chartObjects.axes();
+        let functions = chartObjects.functions();
+
+        config.margin.top = 0;
+        config.margin.bottom = 0;
+        config.margin.left = 0;
+        config.margin.right = 0;
+        config.padding.top = 25;
+        config.padding.bottom = 25;
+        config.padding.left = 40;
+        config.padding.right = 0;
+        config.xParameter = 'time';  // name of first column with values of bands on x axis
+        config.yParameter = 'total';  // is being set in type function
+        config.fixedHeight = 155;
+
+        // get dimensions from parent element
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        // create svg elements without data
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        let chartScales = ChartScales(config,dimensions,scales);
+        let chartAxis = ChartAxis(config,svg);
+
+        chartAxis.drawXAxis();
+        chartAxis.drawYAxis();
 
 
     }
