@@ -11,7 +11,7 @@ let ChartLine = function ChartLine(config,svg) {
             .enter()
             .append("rect")
             .attr("class", "candle up")
-            .style("fill", "orange");
+            .style("fill", "#65A7C5");
 
         svg.candlesDown = svg.layers.data.selectAll('.candle down')
             .data(data)
@@ -33,7 +33,7 @@ let ChartLine = function ChartLine(config,svg) {
 
         svg.candlesUp
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])) - 5; })
-            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
+            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - scales.yLinear(d.increase); })
             .attr('width',10)
             .attr('height', (d) => { return scales.yLinear(d.increase) } )
 
