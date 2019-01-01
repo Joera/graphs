@@ -10,7 +10,7 @@ let ChartLine = function ChartLine(config,svg) {
     let redraw = function redraw(scales,functions) {
 
         functions.line = d3.line()
-            .x(function(d) { return scales.xTime(new Date(d.time)); })
+            .x(function(d) { return scales.xTime(new Date(d[config.xParameter])); })
             .y(function(d) { return scales.yLinear(d[config.yParameter]); });
 
         svg.line
