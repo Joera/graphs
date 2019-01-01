@@ -296,7 +296,7 @@ var TCMGCharts = function TCMGCharts() {
             chartSVG.redraw(dimensions);
 
             svg.layers.data.append('text')
-                .text(d3.format('$.2f')(data[0].value))
+                .text(d3.format('€.0f')(data[0].value))
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
