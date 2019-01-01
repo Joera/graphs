@@ -219,8 +219,8 @@ var TCMGCharts = function TCMGCharts() {
         config.xParameter = 'time';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
         config.fixedHeight = 155;
-        config.minValue = 10000;
-        config.maxValue = 20000;
+        config.minValue = 16000;
+        config.maxValue = 18000;
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
