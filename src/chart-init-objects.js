@@ -41,6 +41,7 @@ let ChartObjects = function ChartObjects() {
             legendTotals : null,
             area : null,
             line : null,
+            candles : null,
             bar : null,
             series : null,
             input : null,

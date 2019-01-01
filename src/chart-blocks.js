@@ -66,7 +66,6 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .data(function(d) {
 
                 if (d.status) {
-                    console.log(d);
                     return blocksArrayTwo(d); // wat komt hier?
                 } else {
                     return blocksArray(d);
