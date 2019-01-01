@@ -408,7 +408,7 @@ var TCMGCharts = function TCMGCharts() {
         config.fixedHeight = 160;
         config.minValue = 0;
         config.maxValue = 3000;
-        config.xAlign = [0.0];
+        config.xAlign = [0.5];
         config.paddingInner = [0.0];
 
         let chartDimensions = ChartDimensions(element,config);
