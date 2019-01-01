@@ -291,6 +291,7 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 20;
         config.padding.left = 0;
         config.padding.right = 0;
+        config.fixedHeight = 60;
 
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
