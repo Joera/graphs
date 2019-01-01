@@ -5,14 +5,14 @@
  *
  */
 
-const locale = d3.formatLocale({
+const currency = d3.formatLocale({
     "decimal": ",",
     "thousands": ".",
     "grouping": [3],
     "currency": ["€",""]
 });
 
-/*
+const locale = d3.timeFormatLocale({
 
     "dateTime": "%a %e %B %Y %T",
     "date": "%d-%m-%Y",
@@ -22,7 +22,9 @@ const locale = d3.formatLocale({
     "shortDays": ["zo", "ma", "di", "wo", "do", "vr", "za"],
     "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
     "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
- */
+
+});
+
 
 var TCMGCharts = function TCMGCharts() {
 
