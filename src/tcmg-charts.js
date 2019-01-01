@@ -302,7 +302,7 @@ var TCMGCharts = function TCMGCharts() {
             chartSVG.redraw(dimensions);
 
             svg.layers.data.append('text')
-                .text(currency.numberFormat(data[0].value))
+                .text(currency.format(data[0].value))
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
