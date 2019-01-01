@@ -21,7 +21,7 @@ const locale = d3.formatDefaultLocale({
     "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
 });
 
-const formatDates = locale.format("%B %Y");
+// const formatDates = locale.format("%B %Y");
 
 
 
