@@ -295,7 +295,7 @@ var TCMGCharts = function TCMGCharts() {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
 
-            var currency = locale.format("($,.2f");
+            var currency = locale.format("$,.2f");
 
             svg.layers.data.append('text')
                 .text(currency(data[0].value))
