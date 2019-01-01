@@ -196,6 +196,11 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
+    var Progress = function(element) {
+
+
+    }
+
     var Outputs  = function Outputs(element) {
 
         let chartObjects = ChartObjects();
@@ -274,6 +279,7 @@ var TCMGCharts = function TCMGCharts() {
         inputs : Inputs,
         legend : Legend,
         procedure : Procedure,
+        progress : Progress,
         outputs : Outputs
     }
 
