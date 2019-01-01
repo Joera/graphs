@@ -36,7 +36,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
 
         newScales.xBand
             // or does this
-            .range([config.padding.left, dimensions.width + config.padding.left])
+            .range([0, dimensions.width])
 
         return newScales;
     }
