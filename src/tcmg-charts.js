@@ -22,7 +22,7 @@ const locale = d3.timeFormatLocale({
 });
 
 const formatDates = locale.format("%B %Y");
-const currency = locale.format("$,");
+
 
 
 var TCMGCharts = function TCMGCharts() {
@@ -296,7 +296,7 @@ var TCMGCharts = function TCMGCharts() {
             chartSVG.redraw(dimensions);
 
             svg.layers.data.append('text')
-                .text(locale.format('$,')(data[0].value))
+                .text(locale.format("($,.2f")(data[0].value))
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
