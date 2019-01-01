@@ -140,7 +140,7 @@ var TCMGCharts = function TCMGCharts() {
         config.xParameter = 'status';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
         config.xAlign = [0.5];
-        config.fixedHeight = 155;
+        config.fixedHeight = 157;
         config.minValue = 0;
         config.maxValue = 15000;
 
