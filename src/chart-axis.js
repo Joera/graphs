@@ -10,10 +10,6 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xBand = d3.axisBottom(scales.xBand);
 
-        // axes.xBand
-            // .ticks(d3.timeMonth.every(1))
-            // .tickFormat(d3.timeFormat("%b"));
-
         svg.xAxis
             .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.margin.top + config.padding.top + 2) + ")")  //
             .call(axes.xBand);
@@ -23,9 +19,9 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xTime = d3.axisBottom(scales.xTime);
 
-        // axes.xBand
-        // .ticks(d3.timeMonth.every(1))
-        // .tickFormat(d3.timeFormat("%b"));
+        axes.xTime
+        .ticks(d3.timeWeek.every(1))
+        .tickFormat(d3.timeFormat("%b"));
 
         svg.xAxis
             .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.margin.top + config.padding.top + 2) + ")")  //
