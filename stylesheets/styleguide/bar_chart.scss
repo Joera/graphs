@@ -46,7 +46,7 @@
 
 .progress-container {
 
-  g:not(".axis") {
+  g.data {
 
     path {
       fill: none;
