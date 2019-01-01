@@ -46,12 +46,14 @@
 
 .progress-container {
 
-  path {
-    fill: none;
-    stroke: #000;
-    stroke-dasharray : 4;
-  }
+  g:not('.axis') {
 
+    path {
+      fill: none;
+      stroke: #000;
+      stroke-dasharray: 4;
+    }
+  }
 }
 
 div.tooltip {
