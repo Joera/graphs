@@ -299,7 +299,7 @@ var TCMGCharts = function TCMGCharts() {
         // create svg elements without data
         let chartSVG = ChartSVG(element,config,dimensions,svg);
 
-        d3.csv("./dummy_data_output.csv", function(error, data) {
+        d3.csv("./dummy_data_remitted.csv", function(error, data) {
 
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
