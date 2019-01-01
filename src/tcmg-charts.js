@@ -49,11 +49,11 @@ var TCMGCharts = function TCMGCharts() {
 
 
         config.margin.top = 0;
-        config.margin.bottom = 30;
+        config.margin.bottom = 0;
         config.margin.left = 0;
         config.margin.right = 0;
         config.padding.top = 25;
-        config.padding.bottom = 25;
+        config.padding.bottom = 50;
 
         config.padding.left = 60;
         config.padding.right = 0;
