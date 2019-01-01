@@ -141,6 +141,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'value';  // is being set in type function
         config.xAlign = [0.5];
         config.fixedHeight = 155;
+        config.maxValue = 15000;
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
@@ -198,7 +199,6 @@ var TCMGCharts = function TCMGCharts() {
 
     var Progress = function(element) {
 
-
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
         let dimensions = chartObjects.dimensions();
@@ -218,6 +218,7 @@ var TCMGCharts = function TCMGCharts() {
         config.xParameter = 'time';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
         config.fixedHeight = 155;
+        config.maxValue = 20000;
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);

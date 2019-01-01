@@ -11,7 +11,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             // .range([dimensions.height, config.margin.top + config.padding.top])
             // .domain([0,d3.max(data, d => d[config.yParameter])]).nice();
             .range([(157), 0]) // geen idee waarom 259 ipv 250
-            .domain([0,15000]).nice();
+            .domain([0,config.maxValue]).nice();
 
       //  console.log(Array.from(new Set(data.map((d) => d[config.xParameter]))));
 
