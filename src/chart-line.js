@@ -38,15 +38,13 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
             .on("mouseover", function(d) {
 
-                let html = 'toename ' + d.increase;
-
-                console.log('yooooo');
+                let html = d.increase + ' nieuwe meldingen';
 
                 svg.tooltip
                     .html(html)
-                    .transition()
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY) + "px")
+                    .transition()
                     .duration(250)
                     .style("opacity", 1);
             })
