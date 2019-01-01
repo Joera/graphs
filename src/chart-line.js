@@ -33,16 +33,16 @@ let ChartLine = function ChartLine(config,svg) {
 
         svg.candlesUp
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
-            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(d.increase) / 150); })
+            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(d.increase) / 200); })
             .attr('width',10)
-            .attr('height', (d) => { return scales.yLinear(d.increase) / 150 } )
+            .attr('height', (d) => { return scales.yLinear(d.increase) / 200 } )
         ;
 
         svg.candlesDown
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
             .attr('width',10)
-            .attr('height', (d) => { return scales.yLinear(d.decrease) / 150 } );
+            .attr('height', (d) => { console.log(d); return scales.yLinear(d.decrease) / 200 } );
     }
 
     return {
