@@ -274,6 +274,46 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
+    var Remitted = function Remitted(element) {
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+        let scales = chartObjects.scales();
+        let axes = chartObjects.axes();
+        let functions = chartObjects.functions();
+
+        config.margin.top = 0;
+        config.margin.bottom = 0;
+        config.margin.left = 0;
+        config.margin.right = 0;
+        config.padding.top = 25;
+        config.padding.bottom = 25;
+        config.padding.left = 0;
+        config.padding.right = 0;
+
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        // create svg elements without data
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+
+        d3.csv("./dummy_data_output.csv", function(error, data) {
+
+            console.log(data);
+
+            dimensions = chartDimensions.get(dimensions);
+            chartSVG.redraw(dimensions);
+
+            svg.layers.data.append('text')
+                .text(data.remittances)
+            ;
+
+        }
+
+    }
+
     var Outputs  = function Outputs(element) {
 
         let chartObjects = ChartObjects();
@@ -290,12 +330,10 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.right = 0;
         config.padding.top = 25;
         config.padding.bottom = 25;
-
         config.padding.left = 60;
         config.padding.right = 0;
         config.xParameter = 'key';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
-
         config.fixedHeight = 259;
         config.xAlign = [0.0];
 
@@ -353,6 +391,7 @@ var TCMGCharts = function TCMGCharts() {
         legend : Legend,
         procedure : Procedure,
         progress : Progress,
+        remitted : Remitted,
         outputs : Outputs
     }
 
