@@ -103,9 +103,9 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
                 if (s.length > 1) {
-                    return  10 - (10 * parseInt(s.substring(0,s.length - 1)));
+                    return  - 10 - (10 * parseInt(s.substring(0,s.length - 1)));
                 } else {
-                    return 10; }
+                    return -10; }
             })
             .on("mouseover", (d,i) => {
                 highlight(d.provenance);
