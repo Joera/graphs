@@ -227,6 +227,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartSVG = ChartSVG(element,config,dimensions,svg);
         let chartScales = ChartScales(config,dimensions,scales);
         let chartAxis = ChartAxis(config,svg);
+        let chartLine = ChartLine(config,svg,functions);
 
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
@@ -244,9 +245,12 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXTimeAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
+                chartLine.redraw(scales,functions);
+
             }
 
             scales = chartScales.set(data);
+            chartLine.draw(data);
             // further drawing happens in function that can be repeated.
             redraw();
             // for example on window resize
