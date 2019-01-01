@@ -29,6 +29,7 @@ const localTime = d3.timeFormatLocale({
 });
 
 const formatDates = localTime.format("%B %Y");
+const currency = localCurrency.format("$,");
 
 
 
@@ -302,10 +303,8 @@ var TCMGCharts = function TCMGCharts() {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
 
-            const currency = localCurrency.format("$,");
-
             svg.layers.data.append('text')
-                .text(currency(data[0].value))
+                .text('Totaal uitgekeerd: ' + currency(data[0].value))
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
