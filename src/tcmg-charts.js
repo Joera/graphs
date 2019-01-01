@@ -424,7 +424,15 @@ var TCMGCharts = function TCMGCharts() {
 
             function redraw() {
 
-
+                // on redraw chart gets new dimensions
+                dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
+                // new dimensions mean new scales
+                scales = chartScales.reset(dimensions,scales);
+                // new scales mean new axis
+                chartAxis.redrawXBandAxis(dimensions,scales,axes);
+                chartAxis.redrawYAxis(scales,axes);
+                // redraw data
             }
 
             // with data we can init scales
