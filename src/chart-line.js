@@ -27,6 +27,7 @@ let ChartLine = function ChartLine(config,svg) {
         svg.candles
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
+            .attr('width',10)
             .attr('height', (d,i) => { return d.increase } )
 
         ;
