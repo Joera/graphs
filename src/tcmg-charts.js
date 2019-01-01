@@ -53,7 +53,7 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.left = 0;
         config.margin.right = 0;
         config.padding.top = 25;
-        config.padding.bottom = 50;
+        config.padding.bottom = 25;
 
         config.padding.left = 60;
         config.padding.right = 0;
