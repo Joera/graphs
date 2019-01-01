@@ -22,9 +22,11 @@ let ChartLine = function ChartLine(config,svg) {
             .attr("d", functions.line);
 
         svg.candles
-            .x(function(d) { return scales.xTime(new Date(d[config.xParameter])); })
-            .y(function(d) { return scales.yLinear(d[config.yParameter]); })
+            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
+            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
             .attr('height', (d,i) => { return d.increase } )
+
+        ;
     }
 
     return {
