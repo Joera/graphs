@@ -44,7 +44,7 @@ let ChartLine = function ChartLine(config,svg) {
                     .html(html)
                     .transition()
                     .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY) + "px");
+                    .style("top", (d3.event.pageY) + "px")
                     .duration(250)
                     .style("opacity", 1);
             })
