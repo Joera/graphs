@@ -6,6 +6,10 @@
  */
 
 const locale = d3.timeFormatLocale({
+    "decimal": ",",
+    "thousands": ".",
+    "grouping": [3],
+    "currency": ["€",""],
     "dateTime": "%a %e %B %Y %T",
     "date": "%d-%m-%Y",
     "time": "%H:%M:%S",
@@ -19,21 +23,6 @@ const locale = d3.timeFormatLocale({
 var TCMGCharts = function TCMGCharts() {
 
     // init multiple charts from this file
-
-    const locale = d3.timeFormatLocale({
-        "dateTime": "%a %e %B %Y %T",
-        "date": "%d-%m-%Y",
-        "time": "%H:%M:%S",
-        "periods": ["AM", "PM"],
-        "days": ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
-        "shortDays": ["zo", "ma", "di", "wo", "do", "vr", "za"],
-        "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
-        "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
-    });
-
-    const tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
 
     let formatDates = locale.format("%B %Y");
 
@@ -307,7 +296,7 @@ var TCMGCharts = function TCMGCharts() {
             chartSVG.redraw(dimensions);
 
             svg.layers.data.append('text')
-                .text(data[0].value);
+                .text(locale.format(data[0].value));
             ;
 
         });
