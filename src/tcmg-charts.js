@@ -307,7 +307,7 @@ var TCMGCharts = function TCMGCharts() {
             chartSVG.redraw(dimensions);
 
             svg.layers.data.append('text')
-                .text(data.remittances)
+                .text(data[0].value);
             ;
 
         });
