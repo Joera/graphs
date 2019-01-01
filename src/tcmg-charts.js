@@ -420,6 +420,8 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
+        let chartBar = ChartBar(config,svg,functions);
+
         d3.csv("./dummy_data_remittances.csv", function(error, data) {
 
             console.log(data);
@@ -435,12 +437,13 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXBandAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
+                chartBar.redraw(dimensions,scales,data);
             }
 
             // with data we can init scales
             scales = chartScales.set(data);
             // width data we can draw items
-
+            chartBar.draw(data);
             // further drawing happens in function that can be repeated.
             redraw();
             // for example on window resize
