@@ -11,7 +11,8 @@ let ChartLine = function ChartLine(config,svg) {
 
         functions.line = d3.line()
             .x(function(d) { return scales.xTime(new Date(d[config.xParameter])); })
-            .y(function(d) { return scales.yLinear(d[config.yParameter]); });
+            .y(function(d) { return scales.yLinear(d[config.yParameter]); })
+            .curve(d3.curveCardinal);
 
         svg.line
             .attr("d", functions.line);
