@@ -36,7 +36,6 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - scales.yLinear(d.increase); })
             .attr('width',10)
             .attr('height', (d) => { return scales.yLinear(d.increase) } )
-
         ;
 
         svg.candlesDown
