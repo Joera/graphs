@@ -15,7 +15,7 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar
             .attr("x", function(d) { return scales.xBand(d[config.xParameter]); })
-            .attr("y", function(d) { return scales.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { return config.margin.top + scales.yLinear(d[config.yParameter]); })
             .attr("height", function(d) { return dimensions.height - scales.yLinear(d[config.yParameter]); })
             .attr("width", barWidth)
         ;
