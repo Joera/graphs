@@ -309,7 +309,6 @@ var TCMGCharts = function TCMGCharts() {
                 .attr('class','number')
                 .attr("text-anchor","middle")
                 .attr("x","50%");
-            ;
 
         });
 
@@ -403,8 +402,8 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 0;
         config.padding.left = 0;
         config.padding.right = 0;
-        config.xParameter = '';  // name of first column with values of bands on x axis
-        config.yParameter = '';  // is being set in type function
+        config.xParameter = 'quartile';  // name of first column with values of bands on x axis
+        config.yParameter = 'count';  // is being set in type function
         // config.fixedHeight = 259;
         config.xAlign = [0.0];
 
@@ -416,9 +415,26 @@ var TCMGCharts = function TCMGCharts() {
         let chartScales = ChartScales(config,dimensions,scales);
         let chartAxis = ChartAxis(config,svg);
 
+        chartAxis.drawXAxis();
+        chartAxis.drawYAxis();
+
         d3.csv("./dummy_data_remittances.csv", function(error, data) {
 
             console.log(data);
+
+            function redraw() {
+
+
+            }
+
+            // with data we can init scales
+            scales = chartScales.set(data);
+            // width data we can draw items
+
+            // further drawing happens in function that can be repeated.
+            redraw();
+            // for example on window resize
+            window.addEventListener("resize", redraw, false);
         });
 
     }
