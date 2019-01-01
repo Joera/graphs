@@ -287,8 +287,8 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.bottom = 0;
         config.margin.left = 0;
         config.margin.right = 0;
-        config.padding.top = 25;
-        config.padding.bottom = 25;
+        config.padding.top = 40;
+        config.padding.bottom = 40;
         config.padding.left = 0;
         config.padding.right = 0;
 
