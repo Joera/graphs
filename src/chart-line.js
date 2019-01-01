@@ -32,7 +32,7 @@ let ChartLine = function ChartLine(config,svg) {
             .attr("d", functions.line);
 
         svg.candlesUp
-            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])) - 5; })
+            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - scales.yLinear(d.increase); })
             .attr('width',10)
             .attr('height', (d) => { return scales.yLinear(d.increase) } )
@@ -40,7 +40,7 @@ let ChartLine = function ChartLine(config,svg) {
         ;
 
         svg.candlesDown
-            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])) + 5; })
+            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
             .attr('width',10)
             .attr('height', (d) => { return scales.yLinear(d.decrease) } );
