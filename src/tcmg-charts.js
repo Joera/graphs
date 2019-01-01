@@ -11,14 +11,6 @@ const localCurrency = d3.formatDefaultLocale({
     "thousands": ".",
     "grouping": [3],
     "currency": ["€",""],
-    "dateTime": "%a %e %B %Y %T",
-    "date": "%d-%m-%Y",
-    "time": "%H:%M:%S",
-    "periods": ["AM", "PM"],
-    "days": ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
-    "shortDays": ["zo", "ma", "di", "wo", "do", "vr", "za"],
-    "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
-    "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
 });
 
 const localTime = d3.timeFormatLocale({
@@ -310,7 +302,7 @@ var TCMGCharts = function TCMGCharts() {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
 
-            var currency = localCurrency.format("$,.2f");
+            const currency = localCurrency.format("$,");
 
             svg.layers.data.append('text')
                 .text(currency(data[0].value))
