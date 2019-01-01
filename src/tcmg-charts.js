@@ -16,9 +16,6 @@ const locale = d3.timeFormatLocale({
     "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
 });
 
-const tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
-
-
 var TCMGCharts = function TCMGCharts() {
 
     // init multiple charts from this file

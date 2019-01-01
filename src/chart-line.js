@@ -42,7 +42,7 @@ let ChartLine = function ChartLine(config,svg) {
 
                 console.log('yooooo');
 
-                tooltip
+                svg.tooltip
                     .html(html)
                     .transition()
                     .style("left", (d3.event.pageX) + "px")
@@ -51,7 +51,7 @@ let ChartLine = function ChartLine(config,svg) {
                     .style("opacity", 1);
             })
             .on("mouseout", function(d) {
-                tooltip.transition()
+                svg.tooltip.transition()
                     .duration(250)
                     .style("opacity", 0);
             })
