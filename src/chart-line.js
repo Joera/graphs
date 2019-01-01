@@ -6,12 +6,19 @@ let ChartLine = function ChartLine(config,svg) {
             .data([data])
             .attr("class", "line");
 
-        svg.candles = svg.layers.data.selectAll('.candle')
+        svg.candlesUp = svg.layers.data.selectAll('.candle up')
             .data(data)
             .enter()
             .append("rect")
-            .attr("class", "candle")
+            .attr("class", "candle up")
             .style("fill", "orange");
+
+        svg.candlesDown = svg.layers.data.selectAll('.candle down')
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "candle down")
+            .style("fill", "#777c00");
     }
 
     let redraw = function redraw(scales,functions) {
@@ -24,13 +31,19 @@ let ChartLine = function ChartLine(config,svg) {
         svg.line
             .attr("d", functions.line);
 
-        svg.candles
-            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
+        svg.candlesUp
+            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])) - 5; })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
             .attr('width',10)
-            .attr('height', (d,i) => { return scales.yLinear(d.decrease) } )
+            .attr('height', (d) => { return scales.yLinear(d.increase) } )
 
         ;
+
+        svg.candlesDown
+            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])) + 5; })
+            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
+            .attr('width',10)
+            .attr('height', (d) => { return scales.yLinear(d.decrease) } );
     }
 
     return {
