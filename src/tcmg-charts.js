@@ -291,13 +291,12 @@ var TCMGCharts = function TCMGCharts() {
         let chartSVG = ChartSVG(element,config,dimensions,svg);
 
         d3.csv("./dummy_data_output.csv", function(error, data) {
-            
 
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
 
             svg.layers.data.append('text')
-                .text(d3.format('s')(data[0].value))
+                .text(d3.format('$.2f')(data[0].value))
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
