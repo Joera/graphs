@@ -10,7 +10,8 @@ let ChartLine = function ChartLine(config,svg) {
             .data(data)
             .enter()
             .append("rect")
-            .attr("class", "candle");
+            .attr("class", "candle")
+            .style("fill", "orange");
     }
 
     let redraw = function redraw(scales,functions) {
