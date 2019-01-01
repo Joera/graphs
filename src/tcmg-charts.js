@@ -385,13 +385,52 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
+    var Remittances = function Remittances(element) {
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+        let scales = chartObjects.scales();
+        let axes = chartObjects.axes();
+        let functions = chartObjects.functions();
+
+        config.margin.top = 0;
+        config.margin.bottom = 0;
+        config.margin.left = 0;
+        config.margin.right = 0;
+        config.padding.top = 0;
+        config.padding.bottom = 0;
+        config.padding.left = 0;
+        config.padding.right = 0;
+        config.xParameter = '';  // name of first column with values of bands on x axis
+        config.yParameter = '';  // is being set in type function
+        // config.fixedHeight = 259;
+        config.xAlign = [0.0];
+
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        // create svg elements without data
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        let chartScales = ChartScales(config,dimensions,scales);
+        let chartAxis = ChartAxis(config,svg);
+
+        d3.csv("./dummy_data_remittances.csv", function(error, data) {
+
+            console.log(data);
+        });
+
+    }
+
     return {
         inputs : Inputs,
         legend : Legend,
         procedure : Procedure,
         progress : Progress,
         remitted : Remitted,
-        outputs : Outputs
+        outputs : Outputs,
+        remittances : Remittances
     }
 }
 
