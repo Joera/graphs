@@ -68,9 +68,11 @@ div.tooltip {
 }
 
 text.number {
-  font-size: 1rem;
-  text-transform: uppercase;
   font-family: "RO Sans";
-  letter-spacing: .25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: .85rem;
+  line-height: 1.6;
+  letter-spacing: .5px;
 
 }
