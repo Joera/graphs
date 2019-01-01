@@ -198,7 +198,74 @@ var TCMGCharts = function TCMGCharts() {
 
     var Outputs  = function Outputs(element) {
 
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+        let scales = chartObjects.scales();
+        let axes = chartObjects.axes();
+        let functions = chartObjects.functions();
 
+        config.margin.top = 0;
+        config.margin.bottom = 0;
+        config.margin.left = 0;
+        config.margin.right = 0;
+        config.padding.top = 25;
+        config.padding.bottom = 25;
+
+        config.padding.left = 60;
+        config.padding.right = 0;
+        config.xParameter = 'key';  // name of first column with values of bands on x axis
+        config.yParameter = 'total';  // is being set in type function
+
+        config.fixedHeight = 259;
+        config.xAlign = [0.0];
+
+        // get dimensions from parent element
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        // create svg elements without data
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        let chartScales = ChartScales(config,dimensions,scales);
+        let chartAxis = ChartAxis(config,svg);
+        let chartBlocks = ChartBlocks(config,svg,functions);
+
+        chartAxis.drawInputYAxis(dimensions);
+
+        d3.csv("./dummy_data_output.csv", function(error, data) {
+            if (error) throw error;
+
+            let cummulative = 0;
+            for (let i = 0; i < data.length; i++) {
+                data[i]['previous'] = cummulative;
+                cummulative = cummulative + parseInt(data[i]['total']);
+                data[i]['cummulative'] = cummulative;
+                data[i]['key'] = 'total';
+            }
+
+            function redrawInput() {
+                // on redraw chart gets new dimensions
+                dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
+                // new dimensions mean new scales
+                scales = chartScales.reset(dimensions,scales);
+                // new scales mean new axis
+                //  chartAxis.redrawXAxis(dimensions,scales,axes);
+                chartAxis.redrawInputYAxis(scales,axes);
+                // redraw data
+                chartBlocks.redraw(dimensions, scales);
+            }
+
+            // with data we can init scales
+            scales = chartScales.set([{ 'key' : 'total'}]);
+            // width data we can draw items
+            chartBlocks.draw(data, functions)
+            // further drawing happens in function that can be repeated.
+            redrawInput();
+            // for example on window resize
+            window.addEventListener("resize", redrawInput, false);
+        });
     }
 
 
