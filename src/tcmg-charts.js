@@ -21,12 +21,13 @@ const locale = d3.timeFormatLocale({
     "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
 });
 
+const formatDates = locale.format("%B %Y");
+const currency = locale.format("$,");
+
 
 var TCMGCharts = function TCMGCharts() {
 
     // init multiple charts from this file
-
-    let formatDates = locale.format("%B %Y");
 
     var Inputs  = function Inputs(element) {
 
@@ -37,7 +38,6 @@ var TCMGCharts = function TCMGCharts() {
         let scales = chartObjects.scales();
         let axes = chartObjects.axes();
         let functions = chartObjects.functions();
-
 
         config.margin.top = 0;
         config.margin.bottom = 0;
@@ -296,9 +296,7 @@ var TCMGCharts = function TCMGCharts() {
 
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
-
-            let currency = locale.format("$,");
-
+            
             svg.layers.data.append('text')
                 .text(currency(data[0].value))
                 .attr("text-anchor","middle")
