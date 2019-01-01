@@ -15,7 +15,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             // .tickFormat(d3.timeFormat("%b"));
 
         svg.xAxis
-            .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.margin.top + config.padding.top) + ")")  //
+            .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.margin.top + config.padding.top + 2) + ")")  //
             .call(axes.xBand);
     }
 
