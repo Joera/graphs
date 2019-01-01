@@ -7,8 +7,8 @@ let ChartDimensions = function ChartDimensions(element,config) {
         dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
 
         if(config.fixedHeight) {
-            dimensions.containerHeight = config.fixedHeight + config.padding.top + config.padding.bottom + config.margin.top - config.margin.bottom;
-            dimensions.height = config.fixedHeight + config.padding.top + config.padding.bottom;
+            dimensions.containerHeight = config.fixedHeight + config.padding.top + config.padding.bottom;
+            dimensions.height = config.fixedHeight;
         } else {
             dimensions.containerHeight = d3.select(element).node().getBoundingClientRect().height - config.margin.top - config.margin.bottom;
             dimensions.height = dimensions.containerHeight - config.padding.top - config.padding.bottom;

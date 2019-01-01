@@ -48,7 +48,7 @@ var TCMGCharts = function TCMGCharts() {
         config.xParameter = 'key';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
 
-        config.fixedHeight = 250;
+        config.fixedHeight = 259;
         config.xAlign = [0.0];
 
         // get dimensions from parent element
