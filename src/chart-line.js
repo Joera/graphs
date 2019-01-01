@@ -40,6 +40,8 @@ let ChartLine = function ChartLine(config,svg) {
 
                 let html = 'toename ' + d.increase;
 
+                console.log('yooooo');
+
                 tooltip
                     .html(html)
                     .transition()
