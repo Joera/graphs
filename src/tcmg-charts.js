@@ -292,13 +292,13 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.csv("./dummy_data_output.csv", function(error, data) {
 
-            console.log(currency(data[0].value));
+            console.log(d3.format()(data[0].value));
 
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
 
             svg.layers.data.append('text')
-                .text(currency(data[0].value))
+                .text(d3.format("$,")(data[0].value))
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
