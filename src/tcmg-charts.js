@@ -231,7 +231,28 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
+        d3.csv("./dummy_data_progress.csv", function(error, data) {
+            if (error) throw error;
 
+            function redraw() {
+                // on redraw chart gets new dimensions
+                dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
+                // new dimensions mean new scales
+                scales = chartScales.reset(dimensions,scales);
+                // new scales mean new axis
+                chartAxis.redrawXTimeAxis(dimensions,scales,axes);
+                chartAxis.redrawYAxis(scales,axes);
+                // redraw data
+            }
+
+            scales = chartScales.set(data);
+            // further drawing happens in function that can be repeated.
+            redraw();
+            // for example on window resize
+            window.addEventListener("resize", redraw, false);
+
+        });
     }
 
     var Outputs  = function Outputs(element) {
