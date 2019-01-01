@@ -34,7 +34,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
     let reset = function reset(dimensions,newScales) {
 
         newScales.xTime
-            .range([config.margin.left + config.padding.left, dimensions.width]);
+            .range([0, dimensions.width]);
 
         newScales.xBand
             // or does this
