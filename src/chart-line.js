@@ -36,6 +36,23 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(0) - scales.yLinear(d.increase)) })
             .attr('width',10)
             .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
+            .on("mouseover", function(d) {
+
+                let html = 'toename ' + d.increase;
+
+                tooltip
+                    .html(html)
+                    .transition()
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY) + "px");
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })
         ;
 
         svg.candlesDown
