@@ -11,14 +11,14 @@ let ChartLine = function ChartLine(config,svg) {
             .enter()
             .append("rect")
             .attr("class", "candle up")
-            .style("fill", "#65A7C5");
+            .style("fill", "#777c00");
 
         svg.candlesDown = svg.layers.data.selectAll('.candle down')
             .data(data)
             .enter()
             .append("rect")
             .attr("class", "candle down")
-            .style("fill", "#777c00");
+            .style("fill", "#65A7C5");
     }
 
     let redraw = function redraw(scales,functions) {
