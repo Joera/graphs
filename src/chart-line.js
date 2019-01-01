@@ -42,7 +42,7 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
             .attr('width',10)
-            .attr('height', (d) => { return scales.yLinear(config.maxValue) - scales.yLinear(d.decrease)  } );
+            .attr('height', (d) => {  console.log(scales.yLinear(config.maxValue)); return 2800 - scales.yLinear(d.decrease)  } );
     }
 
     return {
