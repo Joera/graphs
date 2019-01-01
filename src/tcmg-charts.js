@@ -310,7 +310,7 @@ var TCMGCharts = function TCMGCharts() {
                 .text(data.remittances)
             ;
 
-        }
+        });
 
     }
 
