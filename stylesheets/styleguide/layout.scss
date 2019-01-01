@@ -39,6 +39,10 @@ main {
       position: absolute;
       top: 0;
       width : calc(100% - 2px);
+
+      &.up {
+        top: -.5rem;
+      }
     }
 
     .container {
