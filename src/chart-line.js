@@ -35,14 +35,14 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(d.increase)); })
             .attr('width',10)
-            .attr('height', (d) => { return 2790 - scales.yLinear(d.increase)  } )
+            .attr('height', (d) => { return 2791 - scales.yLinear(d.increase)  } )
         ;
 
         svg.candlesDown
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
             .attr('width',10)
-            .attr('height', (d) => {  console.log(scales.yLinear(config.maxValue)); return 2790 - scales.yLinear(d.decrease)  } );
+            .attr('height', (d) => {  console.log(scales.yLinear(config.maxValue)); return 2791 - scales.yLinear(d.decrease)  } );
     }
 
     return {
