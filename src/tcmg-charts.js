@@ -6,7 +6,7 @@
  */
 
 
-const locale = d3.timeFormatLocale({
+const locale = d3.formatDefaultLocale({
     "decimal": ",",
     "thousands": ".",
     "grouping": [3],
