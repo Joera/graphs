@@ -5,15 +5,12 @@
  *
  */
 
-const currency = d3.formatLocale({
+
+const locale = d3.timeFormatLocale({
     "decimal": ",",
     "thousands": ".",
     "grouping": [3],
-    "currency": ["€",""]
-});
-
-const locale = d3.timeFormatLocale({
-
+    "currency": ["€",""],
     "dateTime": "%a %e %B %Y %T",
     "date": "%d-%m-%Y",
     "time": "%H:%M:%S",
@@ -22,7 +19,6 @@ const locale = d3.timeFormatLocale({
     "shortDays": ["zo", "ma", "di", "wo", "do", "vr", "za"],
     "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
     "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
-
 });
 
 
@@ -301,8 +297,10 @@ var TCMGCharts = function TCMGCharts() {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
 
+            let currency = locale.format("$,");
+
             svg.layers.data.append('text')
-                .text(currency.format(data[0].value))
+                .text(currency(data[0].value))
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
@@ -381,8 +379,6 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
-
-
     return {
         inputs : Inputs,
         legend : Legend,
@@ -391,6 +387,5 @@ var TCMGCharts = function TCMGCharts() {
         remitted : Remitted,
         outputs : Outputs
     }
-
 }
 
