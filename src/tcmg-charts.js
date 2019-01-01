@@ -154,7 +154,7 @@ var TCMGCharts = function TCMGCharts() {
         config.fixedHeight = 157;
         config.minValue = 0;
         config.maxValue = 15000;
-        config.paddingInner = [0,5];
+        config.paddingInner = [0.5];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
@@ -409,7 +409,7 @@ var TCMGCharts = function TCMGCharts() {
         config.minValue = 0;
         config.maxValue = 3000;
         config.xAlign = [0.0];
-        config.paddingInner = [0,0];
+        config.paddingInner = [0.0];
 
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
