@@ -404,7 +404,9 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.right = 0;
         config.xParameter = 'quartile';  // name of first column with values of bands on x axis
         config.yParameter = 'count';  // is being set in type function
-        // config.fixedHeight = 259;
+        config.fixedHeight = 250;
+        config.minValue = 0;
+        config.maxValue = 4000;
         config.xAlign = [0.0];
 
         let chartDimensions = ChartDimensions(element,config);
