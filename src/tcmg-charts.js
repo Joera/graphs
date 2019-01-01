@@ -305,6 +305,7 @@ var TCMGCharts = function TCMGCharts() {
 
             svg.layers.data.append('text')
                 .text('Totaal uitgekeerd: ' + currency(data[0].value))
+                .attr('class','number')
                 .attr("text-anchor","middle")
                 .attr("x","50%");
             ;
