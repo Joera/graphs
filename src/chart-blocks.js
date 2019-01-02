@@ -31,7 +31,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
         let blocksArrayTwo = function(d) {
 
-            let noBlocks = Math.round(parseInt(d['value']) / 100);
+            let noBlocks = Math.ceil(parseInt(d['value']) / 100);
 
             if (Number.isInteger(noBlocks)) {
 
@@ -76,6 +76,27 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .attr("width",8)
             .attr("height",8)
             .attr("class", (d,i) => { return 'block ' + d.provenance; })
+            .on("mouseover", function(d) {
+
+                let html = d.total + ' ' + d.provenance;
+
+                svg.tooltip
+                    .html(html)
+                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })
+
+
+
+
         ;
 
     }
