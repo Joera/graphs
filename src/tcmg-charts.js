@@ -161,7 +161,7 @@ var TCMGCharts = function TCMGCharts() {
         // y-axis
       //  config.fixedHeight = 157;
         config.minValue = 0;
-        config.maxValue = 20000;
+        config.maxValue = 17000;
 
         // x-axis
         config.paddingInner = [0.5];
