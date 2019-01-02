@@ -11,7 +11,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             // .range([dimensions.height, config.margin.top + config.padding.top])
             // .domain([0,d3.max(data, d => d[config.yParameter])]).nice();
             .range([(config.fixedHeight), 0]) // geen idee waarom 259 ipv 250
-            .domain([config.minValue,config.maxValue]).nice();
+            .domain([config.minValue,config.maxValue]);
 
         scales.xBand = d3.scaleBand()
             // what is domain when working with a stack?
@@ -23,7 +23,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
 
         scales.yInputLinear = d3.scaleLinear()
             .range([259, 0]) // geen idee waarom 259 ipv 250
-            .domain([0,25000]).nice();
+            .domain([0,25000]);
 
        // console.log((config.maxValue / 100) + config.scaleOffset);
 
