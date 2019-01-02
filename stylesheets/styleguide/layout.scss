@@ -53,7 +53,6 @@ main {
       .textual {
 
         padding: 30px 15px 0 15px;
-        order: 10;
 
         @media (min-width : $mobile-max) {
 
@@ -66,8 +65,12 @@ main {
         }
       }
 
-      @media (min-width : $mobile-max) {
-        height: 100%;
+      > svg {
+
+        @media (max-width : $mobile-max) {
+
+          order: -1;
+        }
       }
 
       &.input-container {
