@@ -8,6 +8,11 @@ let ChartDimensions = function ChartDimensions(element,config) {
             dimensions.containerWidth = config.fixedWidth + config.padding.left + config.padding.right;
             dimensions.width = config.fixedWidth;
 
+        } else if (config.minWidth && d3.select(element).node().getBoundingClientRect().width < config.minWidth) {
+
+            dimensions.containerWidth = config.minWidth + config.padding.left + config.padding.right;
+            dimensions.width = config.minWidth;
+
         } else {
 
             dimensions.containerWidth = d3.select(element).node().getBoundingClientRect().width - config.margin.left - config.margin.right;

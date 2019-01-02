@@ -161,16 +161,18 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 30;
         config.padding.left = 40;
         config.padding.right = 0;
-        config.xParameter = 'status';  // name of first column with values of bands on x axis
-        config.yParameter = 'value';  // is being set in type function
-        config.xAlign = [0.5];
+          // name of first column with values of bands on x axis
+
+
 
         // y-axis
-      //  config.fixedHeight = 157;
+        config.yParameter = 'value';
         config.minValue = 0;
         config.maxValue = 17000;
 
         // x-axis
+        config.minWidth = 500;
+        config.xParameter = 'status';
         config.paddingInner = [0.5];
 
         // get dimensions from parent element
