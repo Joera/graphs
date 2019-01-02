@@ -63,21 +63,7 @@
   }
 }
 
-div.tooltip {
-  position: absolute;
-  width: auto;
-  height: auto;
-  padding: .25rem .25rem;
-  background: black;
-  color: #fff;
-  pointer-events: none;
-  font-size: .85rem;
 
-  .uppercase {
-
-    @include uppercase;
-  }
-}
 
 text.number {
   @include uppercase;
