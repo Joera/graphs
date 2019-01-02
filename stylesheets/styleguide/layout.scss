@@ -67,8 +67,6 @@ main {
 
       > svg {
 
-        display: none;
-
         @media (max-width : $mobile-max) {
 
           order: -1;
