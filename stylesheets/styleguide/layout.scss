@@ -64,14 +64,7 @@ main {
           padding: 0 0 0 15px;
         }
       }
-
-      > svg {
-
-        @media (max-width : $mobile-max) {
-
-          order: -1;
-        }
-      }
+      
 
       &.input-container {
         height: auto;
