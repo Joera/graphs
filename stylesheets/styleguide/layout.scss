@@ -52,6 +52,16 @@ main {
       height: auto;
       box-sizing: content-box;
 
+      @media (min-width : $mobile-max) {
+
+        margin: 3rem 2rem;
+      }
+
+      @media (min-width : $landscape-max) {
+
+        margin: 0rem 2rem;
+      }
+
       .textual {
 
         padding: 30px 15px 0 15px;
