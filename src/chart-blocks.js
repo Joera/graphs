@@ -115,7 +115,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 highlight(d.provenance);
 
-                let html = "<span class='uppercase'>" + d.provenance + "</span><br/>" +  d.total + " meldingen";
+                let html = d.provenance + "<br/><span class='uppercase'>" +  d.total + " meldingen</span>";
 
                 svg.tooltip
                     .html(html)
