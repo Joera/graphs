@@ -126,6 +126,13 @@ main {
         height: auto;
       }
 
+      &.remittances-container {
+
+        @media (max-width : $mobile-max) {
+          border: none;
+        }
+      }
+
       &.text-container {
 
         border: none;
