@@ -50,8 +50,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[j].cummulative = 0;
                     arr[j].provenance = d.status;
 
-                    if (j < Math.ceil(parseInt(d['Voor 19 maart 2018 zonder opname']) / 100)) {
-                        arr[j].provenance = 'Voor 19 maart 2018 zonder opname';
+                    if (j < blockCount(Object.values(d)[0])) {
+                        arr[j].provenance = Object.keys(d)[0]);
                     }
                 }
 
