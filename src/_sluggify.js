@@ -1,4 +1,4 @@
-function _sluggify(str) {
+function sluggify(str) {
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();
 
