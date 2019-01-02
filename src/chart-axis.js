@@ -75,7 +75,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
 
-        axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
+        axes.yInputLinear = d3.axisLeft(scales.yBlocks);
 
         axes.yInputLinear
             .ticks(4);
