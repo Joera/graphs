@@ -21,6 +21,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[i].provenance = d.provenance;
                     arr[i].qualifier = d.provenance;
                     arr[i].class = sluggify(d.provenance);
+
                 }
 
                 return arr;

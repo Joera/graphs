@@ -59,7 +59,12 @@ var TCMGCharts = function TCMGCharts() {
         config.xParameter = 'key';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
 
+        // y-scale
         config.fixedHeight = 259;
+        config.minValue = 0;
+        config.maxValue = 25000;
+
+        // x-scale
         config.xAlign = [0.0];
         config.paddingInner = [0.0];
 
@@ -73,7 +78,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartAxis = ChartAxis(config,svg);
         let chartBlocks = ChartBlocks(config,svg,functions);
 
-        chartAxis.drawInputYAxis(dimensions);
+        chartAxis.drawBlocksYAxis(dimensions);
 
         d3.csv("./dummy_data_input.csv", function(error, data) {
             if (error) throw error;
@@ -94,7 +99,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
                 //  chartAxis.redrawXBandAxis(dimensions,scales,axes);
-                chartAxis.redrawInputYAxis(scales,axes);
+                chartAxis.redrawBlocksYAxis(scales,axes);
                 // redraw data
                 chartBlocks.redraw(dimensions, scales);
             }

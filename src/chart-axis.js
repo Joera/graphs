@@ -66,6 +66,25 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
+    let drawBlocksYAxis = function drawBlocksYAxis(dimensions) {
+
+        svg.yInputAxis = svg.layers.axes.append("g")
+            .attr('class', 'y-axis')
+            .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + parseInt(config.margin.top + config.padding.top) + ")");
+    }
+
+    let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
+
+        axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
+
+        axes.yInputLinear
+            .ticks(4);
+
+        svg.yInputAxis
+            .call(axes.yInputLinear);
+
+    }
+
     return {
         drawXAxis : drawXAxis,
         redrawXBandAxis : redrawXBandAxis,
@@ -73,7 +92,10 @@ let ChartAxis = function ChartAxis(config,svg) {
         drawYAxis : drawYAxis,
         redrawYAxis : redrawYAxis,
         drawInputYAxis : drawInputYAxis,
-        redrawInputYAxis : redrawInputYAxis
+        redrawInputYAxis : redrawInputYAxis,
+        drawBlocksYAxis : drawBlocksYAxis,
+        redrawBlocksYAxis : redrawBlocksYAxis
+
 
     }
 }
