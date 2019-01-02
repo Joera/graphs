@@ -66,7 +66,17 @@ main {
 
         padding: 30px 15px 0 15px;
 
-        @media (min-width : $mobile-max) {
+        @media (min-width : $mobile-max) and  (max-width : $portrait-max) {
+
+          position: absolute;
+          right : 0;
+          bottom: 40px;
+          width:  calc(100% - 106px - 60px - 30px);
+          border-left: 1px solid #000;
+          padding: 0 0 0 15px;
+        }
+
+        @media (min-width : 1500px) {
 
           position: absolute;
           right : 0;
