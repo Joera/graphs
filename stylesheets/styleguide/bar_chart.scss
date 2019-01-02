@@ -10,40 +10,6 @@
 }
 
 
-.blocks {
-
-  rect, path {
-    fill: #ccc;
-  }
-  path {  opacity : .4 }
-
-  &.zonder.opname {
-    rect, path {
-      fill: $green;
-    }
-  }
-
-  &.met.opname {
-    rect, path {
-      fill: orange;
-    }
-  }
-
-  &.Na {
-    rect, path {
-      fill: $blue;
-      display: block;
-    }
-  }
-
-  &.acuut {
-    rect, path {
-      fill: darkblue;
-      display: block;
-    }
-  }
-}
-
 .progress-container {
 
   g.data {
