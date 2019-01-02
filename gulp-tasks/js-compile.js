@@ -15,6 +15,7 @@ module.exports = function() {
     gulp.task('js-compile', function() {
 
         var graph = gulp.src([
+            './src/_sluggify.js',
             './src/chart-init-objects.js',
             './src/chart-dimensions.js',
             './src/chart-svg.js',
