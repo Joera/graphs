@@ -116,12 +116,12 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         svg.blocks
             .attr("x", (d,i) => {
 
-                let offset,
-                    bandwith = scales.xBand.bandwidth();
+                let offset;
+                let bandwidth = scales.xBand.bandwidth();
 
-               // console.log(bandwith);
+               console.log(bandwidth);
 
-                if(bandwith > 100) {
+                if(bandwidth > 100) {
                     offset = (bandwidth - 100) / 2;
 
                 }
