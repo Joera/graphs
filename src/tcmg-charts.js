@@ -63,7 +63,7 @@ var TCMGCharts = function TCMGCharts() {
      //   config.fixedHeight = 259;
         config.minValue = 0;
         config.maxValue = 25000;
-        config.scaleOffset = 9;
+        // config.scaleOffset = 9;
 
         // x-scale
         config.xAlign = [0.0];
