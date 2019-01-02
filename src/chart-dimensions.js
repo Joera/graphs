@@ -7,10 +7,8 @@ let ChartDimensions = function ChartDimensions(element,config) {
         dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
 
         if(config.fixedHeight){
-
             dimensions.containerHeight = config.fixedHeight + config.padding.top + config.padding.bottom;
             dimensions.height = config.fixedHeight
-
         } else if(config.maxValue) {
             dimensions.containerHeight = (config.maxValue / 100) + config.padding.top + config.padding.bottom;
             dimensions.height = (config.maxValue / 100);
