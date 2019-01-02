@@ -52,7 +52,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                         arr[j].provenance = sluggify(Object.keys(d)[1]);
                     } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2])) {
                         arr[j].provenance = sluggify(Object.keys(d)[2]);
-                    } else if (j < blockCount(Object.values(d)[3])) {
+                    } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2] + Object.values(d)[3])) {
                         arr[j].provenance = sluggify(Object.keys(d)[3]);
                     }
                 }
