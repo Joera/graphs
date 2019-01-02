@@ -127,8 +127,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 if (s.length > 1) {
                     let r = parseInt(s.substring(0,s.length - 1)) * 1000
-                    console.log(scales.yBlocks(r));
-                    return -dimensions.height + scales.yBlocks(r); // (10 * ));
+                    // console.log(scales.yBlocks(r));
+                    return -dimensions.height + scales.yBlocks(r) - 10; // (10 * ));
                 } else {
                     return scales.yBlocks(0) - dimensions.height - config.padding.top - config.padding.bottom; }
             })
