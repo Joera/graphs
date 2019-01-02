@@ -86,6 +86,7 @@ main {
         @media (max-width : $mobile-max) {
           > svg {
             transform: translate(-60px, -30px);
+            overflow: visible;
           }
         }
 
@@ -130,7 +131,14 @@ main {
         border: none;
 
         > div {
-          padding: 0px 2rem 30px 60px;
+
+          padding: 0px 2rem 30px 30px;
+
+          @media (min-width : $mobile-max) {
+            padding: 0px 2rem 30px 60px;
+          }
+
+
         }
       }
     }
