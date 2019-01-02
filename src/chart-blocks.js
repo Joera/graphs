@@ -130,7 +130,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     console.log(scales.yBlocks(r));
                     return dimensions.height - config.padding.bottom - scales.yBlocks(r); // (10 * ));
                 } else {
-                    return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); }
+                    return scales.yBlocks(0) - dimensions.height - config.padding.top - config.padding.bottom; }
             })
             .on("mouseover", function(d) {
 
