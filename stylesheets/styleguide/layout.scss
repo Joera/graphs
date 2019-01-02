@@ -50,6 +50,19 @@ main {
       height: 400px;
       box-sizing: content-box;
 
+      .textual {
+
+        @media (min-width : $mobile-max) {
+
+          position: absolute;
+          right : 0;
+          bottom: 40px;
+          width:  calc(100% - 106px - 60px - 30px);
+          border-left: 1px solid #000;
+          padding-left: 15px;
+        }
+      }
+
       @media (min-width : $mobile-max) {
         height: 100%;
       }
@@ -58,16 +71,6 @@ main {
         height: 320px;
         //border-bottom: 1px solid #000;
 
-        .textual {
-
-          @media (min-width : $mobile-max) {
-
-            position: absolute;
-            right : 0;
-            bottom: 40px;
-            width:  calc(100% - 106px - 60px - 30px);
-          }
-        }
       }
 
       &.legend-container {
