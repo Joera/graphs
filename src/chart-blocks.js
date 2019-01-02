@@ -19,6 +19,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[i].total = d.total;
                     arr[i].cummulative = d.cummulative;
                     arr[i].provenance = d.provenance;
+                    arr[i].qualifier = d.provenance;
                     arr[i].class = sluggify(d.provenance);
                 }
 
@@ -47,7 +48,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[j].previous = 0;
                     arr[j].total = d.value;
                     arr[j].cummulative = 0;
-                    arr[j].provenance = d.status;
+                    arr[j].qualifier = d.status;
 
                     if (j < blockCount(Object.values(d)[1])) {
                         arr[j].provenance = Object.keys(d)[1];
@@ -131,7 +132,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 highlight(d.provenance);
 
-                let html = "<span class='uppercase'>" + d.provenance + "</span><br/>" +  d.total + " meldingen";
+                let html = "<span class='uppercase'>" + d.qualifier + "</span><br/>" +  d.total + " meldingen";
 
                 svg.tooltip
                     .html(html)
