@@ -76,25 +76,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .attr("width",8)
             .attr("height",8)
             .attr("class", (d,i) => { return 'block ' + d.provenance; })
-            .on("mouseover", function(d) {
 
-                highlight(d.provenance);
-
-                let html = d.total + ' ' + d.provenance;
-
-                svg.tooltip
-                    .html(html)
-                    .style("left", (d3.event.pageX + 5) + "px")
-                    .style("top", (d3.event.pageY - 5) + "px")
-                    .transition()
-                    .duration(250)
-                    .style("opacity", 1);
-            })
-            .on("mouseout", function(d) {
-                svg.tooltip.transition()
-                    .duration(250)
-                    .style("opacity", 0);
-            })
 
 
 
@@ -128,6 +110,25 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     return  -7 - (10 * parseInt(s.substring(0,s.length - 1)));
                 } else {
                     return -7; }
+            })
+            .on("mouseover", function(d) {
+
+                highlight(d.provenance);
+
+                let html = d.total + ' ' + d.provenance;
+
+                svg.tooltip
+                    .html(html)
+                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
             })
            ;
 
