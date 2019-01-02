@@ -53,6 +53,7 @@ main {
       .textual {
 
         padding: 30px 15px 0 15px;
+        order: 10;
 
         @media (min-width : $mobile-max) {
 
