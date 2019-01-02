@@ -52,7 +52,7 @@ main {
 
       .textual {
 
-        padding: 30px 15px;
+        padding: 30px 15px 0 15px;
 
         @media (min-width : $mobile-max) {
 
@@ -73,7 +73,7 @@ main {
         height: auto;
         //border-bottom: 1px solid #000;
 
-        
+
 
       }
 
