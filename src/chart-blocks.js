@@ -126,7 +126,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
                 console.log(s);
                 if (s.length > 1) {
-                    console.log(parseInt(s.substring(0,s.length - 1));
+                    console.log(parseInt(s.substring(0,s.length - 1)));
                     return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); // (10 * ));
                 } else {
                     return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); }
