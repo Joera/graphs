@@ -115,7 +115,7 @@ main {
           }
         }
 
-        @media (min-width : $landscape-max) && (max-width : $extra) {
+        @media (min-width : $landscape-max) and (max-width : $extra) {
           > svg {
             transform: translate(-60px, -30px);
             overflow: visible;
