@@ -125,6 +125,7 @@ var TCMGCharts = function TCMGCharts() {
 
         config.margin.top = 30;
         config.padding.left = 60;
+        config.padding.bottom = 30;
 
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
@@ -133,7 +134,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartLegend = ChartLegend(config,svg);
 
         d3.csv("./dummy_data_input.csv", function(error, data) {
-            
+
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
             chartLegend.drawInputLegend(dimensions, data);
