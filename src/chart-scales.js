@@ -16,10 +16,10 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
         scales.xBand = d3.scaleBand()
             // what is domain when working with a stack?
             .domain(data.map(d => d[config.xParameter]))
-        //    .domain(Array.from(new Set(data.map((d) => d[config.xParameter]))))
-            .paddingInner(config.paddingInner)
-            .paddingOuter([0])
-            .align(config.xAlign);
+            // .paddingInner(config.paddingInner)
+            // .paddingOuter([0])
+            // .align(config.xAlign)
+        ;
 
         scales.yInputLinear = d3.scaleLinear()
             .range([259, 0]) // geen idee waarom 259 ipv 250
