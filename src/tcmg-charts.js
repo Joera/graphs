@@ -171,7 +171,7 @@ var TCMGCharts = function TCMGCharts() {
         config.maxValue = 17000;
 
         // x-axis
-        config.minWidth = 500;
+        config.minWidth = 460;
         config.xParameter = 'status';
         config.paddingInner = [0.5];
 
@@ -257,7 +257,7 @@ var TCMGCharts = function TCMGCharts() {
 
 
         config.xParameter = 'time';
-        config.minWidth = 500;
+        config.minWidth = 460;
 
 
 
