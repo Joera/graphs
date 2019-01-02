@@ -83,10 +83,10 @@ main {
     flex-direction: row;
 
     > div {
-      width: 25%;
+      width: 30%;
 
       &:nth-child(2) {
-        width: 50%;
+        width: 40%;
       }
     }
   }
