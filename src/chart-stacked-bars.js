@@ -74,8 +74,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .curve(d3.curveCardinal)
             .x0((d,i) => { if (i < 1) {  console.log(d); return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
             .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
-            .y0((d,i) => { return scales.yLinear(d.base); })
-            .y1((d) => { return scales.yLinear(d.y); });
+            .y0((d,i) => { return scales.yBlocks(d.base); })
+            .y1((d) => { return scales.yBlocks(d.y); });
 
         // svg.bar
         //     .attr("y", function(d) { return scales.yLinear(d[1]); })
