@@ -29,7 +29,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
 
         scales.yBlocks = d3.scaleLinear()
             .range([0,(config.maxValue / 100) + config.scaleOffset]) // geen idee waarom 259 ipv 250
-            .domain([0,config.maxValue]).nice();
+            .domain([config.maxValue,0]).nice();
 
         return scales;
     }
