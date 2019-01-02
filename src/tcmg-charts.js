@@ -60,7 +60,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'total';  // is being set in type function
 
         // y-scale
-        config.fixedHeight = 259;
+     //   config.fixedHeight = 259;
         config.minValue = 0;
         config.maxValue = 25000;
 
@@ -240,9 +240,12 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.right = 0;
         config.xParameter = 'time';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
+
         config.fixedHeight = 155;
+
         config.minValue = 17000;
         config.maxValue = 18000;
+
         config.paddingInner = [0.0];
 
         // get dimensions from parent element
@@ -344,9 +347,17 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 25;
         config.padding.left = 60;
         config.padding.right = 0;
-        config.xParameter = 'key';  // name of first column with values of bands on x axis
-        config.yParameter = 'total';  // is being set in type function
-        config.fixedHeight = 259;
+         // name of first column with values of bands on x axis
+          // is being set in type function
+
+        // y-scale
+        //   config.fixedHeight = 259;
+        config.yParameter = 'total';
+        config.minValue = 0;
+        config.maxValue = 25000;
+
+        // x-scale
+        config.xParameter = 'key';
         config.xAlign = [0.0];
         config.paddingInner = [0.0];
 
@@ -360,7 +371,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartAxis = ChartAxis(config,svg);
         let chartBlocks = ChartBlocks(config,svg,functions);
 
-        chartAxis.drawInputYAxis(dimensions);
+        chartAxis.drawBlocksYAxis(dimensions);
 
         d3.csv("./dummy_data_output.csv", function(error, data) {
             if (error) throw error;
@@ -381,7 +392,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
                 //  chartAxis.redrawXAxis(dimensions,scales,axes);
-                chartAxis.redrawInputYAxis(scales,axes);
+                chartAxis.redrawBlocksYAxis(scales,axes);
                 // redraw data
                 chartBlocks.redraw(dimensions, scales);
             }
