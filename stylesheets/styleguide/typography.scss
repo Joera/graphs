@@ -2,3 +2,14 @@ body {
   font-family: RO Sans, sans-serif;
 }
 
+
+@mixin uppercase() {
+
+  font-family: 'RO Sans';
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: .85rem;
+  line-height: 1.6;
+  letter-spacing: .5px;
+}
+

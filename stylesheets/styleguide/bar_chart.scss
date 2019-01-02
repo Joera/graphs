@@ -72,6 +72,11 @@ div.tooltip {
   color: #fff;
   pointer-events: none;
   font-size: .85rem;
+
+  .uppercse {
+
+    @include uppercase;
+  }
 }
 
 text.number {
