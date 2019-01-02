@@ -80,13 +80,13 @@ main {
       &.legend-container {
 
         padding: 1rem 0 1rem 0;
-        height: 100px;
-
+        height: auto;
+        border: none;
 
         @media (min-width : $mobile-max) {
           padding: 0;
           height: auto;
-          border: none;
+
         }
         //border-bottom: 1px solid #000;
       }
