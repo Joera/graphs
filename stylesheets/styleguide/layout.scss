@@ -109,8 +109,16 @@ main {
             transform: translate(-120px,200px) rotate(90deg);
           }
         }
+      }
 
+      &.progress-container {
 
+        @media (max-width : $mobile-max) {
+          height: 600px;
+          > svg {
+            transform: translate(-120px,200px) rotate(90deg);
+          }
+        }
       }
 
       &.remitted-container {
