@@ -73,18 +73,12 @@ div.tooltip {
   pointer-events: none;
   font-size: .85rem;
 
-  .uppercse {
+  .uppercase {
 
     @include uppercase;
   }
 }
 
 text.number {
-  font-family: "RO Sans";
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: .85rem;
-  line-height: 1.6;
-  letter-spacing: .5px;
-
+  @include uppercase;
 }
