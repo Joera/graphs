@@ -51,7 +51,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[j].provenance = d.status;
 
                     if (j < blockCount(Object.values(d)[0])) {
-                        arr[j].provenance = Object.keys(d)[0]);
+                        arr[j].provenance = Object.keys(d)[0];
                     }
                 }
 
