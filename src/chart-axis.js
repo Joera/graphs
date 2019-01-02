@@ -78,7 +78,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.yBlocks = d3.axisLeft(scales.yBlocks);
 
         axes.yBlocks
-            .ticks(4);
+            .ticks(config.maxValue / 5000);
 
         svg.yAxis
             .call(axes.yBlocks);
