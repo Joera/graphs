@@ -63,6 +63,7 @@ var TCMGCharts = function TCMGCharts() {
      //   config.fixedHeight = 259;
         config.minValue = 0;
         config.maxValue = 25000;
+        config.scaleOffset = 9;
 
         // x-scale
         config.xAlign = [0.0];
@@ -162,6 +163,7 @@ var TCMGCharts = function TCMGCharts() {
       //  config.fixedHeight = 157;
         config.minValue = 0;
         config.maxValue = 15000;
+        config.scaleOffset = 0;
 
         // x-axis
         config.paddingInner = [0.5];
@@ -245,6 +247,7 @@ var TCMGCharts = function TCMGCharts() {
 
         config.minValue = 17000;
         config.maxValue = 18000;
+
 
         config.paddingInner = [0.0];
 
@@ -354,7 +357,8 @@ var TCMGCharts = function TCMGCharts() {
         //   config.fixedHeight = 259;
         config.yParameter = 'total';
         config.minValue = 0;
-        config.maxValue = 25000;
+        config.maxValue = 5000;
+        config.scaleOffset = 9;
 
         // x-scale
         config.xParameter = 'key';
