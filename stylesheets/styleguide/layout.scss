@@ -117,7 +117,7 @@ main {
 
         @media (min-width : $portrait-max) and (max-width : $extra) {
           > svg {
-            transform: translate(-50px, -30px);
+            transform: translate(-40px, -30px);
             overflow: visible;
           }
         }
