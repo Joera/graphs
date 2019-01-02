@@ -45,7 +45,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[j].cummulative = 0;
                     arr[j].provenance = d.status;
 
-                    if (j < d['Voor 19 maart 2018 zonder opname']) {
+                    if (i == 0) {
                         arr[j].provenance = 'Voor 19 maart 2018 zonder opname';
                     }
                 }
