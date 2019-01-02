@@ -42,13 +42,13 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 for (let j = 0; j < arr.length; j++) {
 
-                    console.log(i);
-
                     arr[j] = {};
                     arr[j].previous = 0;
                     arr[j].total = d.value;
                     arr[j].cummulative = 0;
                     arr[j].provenance = d.status;
+
+                    console.log(Object.values(d)[0]);
 
                     if (j < blockCount(Object.values(d)[0])) {
                         arr[j].provenance = Object.keys(d)[0];
