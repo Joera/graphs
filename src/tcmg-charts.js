@@ -417,12 +417,12 @@ var TCMGCharts = function TCMGCharts() {
         let axes = chartObjects.axes();
         let functions = chartObjects.functions();
 
-        config.margin.top = 30;
+        config.margin.top = 0;
         config.margin.bottom = 0;
         config.margin.left = 0;
         config.margin.right = 0;
         config.padding.top = 0;
-        config.padding.bottom = 60;
+        config.padding.bottom = 30;
         config.padding.left = 60;
         config.padding.right = 0;
         config.xParameter = 'quartile';  // name of first column with values of bands on x axis
@@ -430,8 +430,8 @@ var TCMGCharts = function TCMGCharts() {
         config.fixedHeight = 160;
         config.minValue = 0;
         config.maxValue = 3000;
-        config.xAlign = [0.5];
-        config.paddingInner = [0.0];
+        // config.xAlign = [0.5];
+        // config.paddingInner = [0.0];
 
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
