@@ -27,9 +27,14 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             }
         }
 
+        let blockCount = function(value) {
+
+            return Math.ceil(parseInt(value) / 100)
+        }
+
         let blocksArrayTwo = function(d,i) {
 
-            let noBlocks = Math.ceil(parseInt(d['value']) / 100);
+            let noBlocks = blockCount(d['value']);
 
             if (Number.isInteger(noBlocks)) {
 
