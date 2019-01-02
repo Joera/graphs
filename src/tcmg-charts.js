@@ -171,7 +171,7 @@ var TCMGCharts = function TCMGCharts() {
         config.maxValue = 17000;
 
         // x-axis
-        config.minWidth = 460;
+        config.minWidth = 46    0;
         config.xParameter = 'status';
         config.paddingInner = [0.5];
 
@@ -329,14 +329,24 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.csv("./dummy_data_remitted.csv", function(error, data) {
 
-            dimensions = chartDimensions.get(dimensions);
-            chartSVG.redraw(dimensions);
-
-            svg.layers.data.append('text')
+            let text = svg.layers.data.append('text')
                 .text('Totaal uitgekeerd: ' + currency(data[0].value))
                 .attr('class','number')
-                .attr("text-anchor","middle")
-                .attr("x","50%");
+                .attr("text-anchor","middle");
+
+
+            function redraw() {
+
+                dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
+                text.attr("x","50%");
+            }
+
+
+
+            redraw();
+
+            window.addEventListener("resize", redraw, false);
 
         });
 
