@@ -152,7 +152,7 @@ main {
 
   }
 
-  @media (min-width: $mobile-max) {
+  @media (min-width: $portrait-max) {
     flex-direction: row;
 
     > div {
