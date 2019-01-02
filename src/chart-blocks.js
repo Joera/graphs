@@ -9,8 +9,6 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
             let noBlocks = Math.ceil(parseInt(d[config.yParameter]) / 100);
 
-            console.log(noBlocks);
-
             if (Number.isInteger(noBlocks)) {
 
                 let arr = new Array(noBlocks);
@@ -38,6 +36,9 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 let arr = new Array(noBlocks);
 
                 for (let i = 0; i < arr.length; i++) {
+
+                    console.log(d);
+
                     arr[i] = {};
                     arr[i].previous = 0;
                     arr[i].total = d.value;
