@@ -177,7 +177,9 @@ main {
             padding: 0px 2rem 30px 60px;
           }
 
-
+          @media (min-width : $portrait-max) and (max-width : $extra) {
+            padding: 0px 2rem 30px 60px;
+          }
         }
       }
     }
