@@ -428,7 +428,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartBar = ChartBar(config,svg,functions);
 
         d3.csv("./dummy_data_remittances.csv", function(error, data) {
-            
+
             function redraw() {
 
                 // on redraw chart gets new dimensions
