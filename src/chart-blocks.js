@@ -125,9 +125,9 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
                 if (s.length > 1) {
-                    return  2 - (10 * parseInt(s.substring(0,s.length - 1)));
+                    return  -16 - (10 * parseInt(s.substring(0,s.length - 1)));
                 } else {
-                    return 2; }
+                    return -16; }
             })
             .on("mouseover", function(d) {
 
