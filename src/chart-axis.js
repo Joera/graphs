@@ -49,7 +49,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let drawInputYAxis = function drawInputYAxis(dimensions) {
 
-        svg.yInputAxis = svg.layers.axes.append("g")
+        svg.yAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
             .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + parseInt(config.margin.top + config.padding.top) + ")");
     }
@@ -61,27 +61,27 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.yInputLinear
             .ticks(4);
 
-        svg.yInputAxis
+        svg.yAxis
             .call(axes.yInputLinear);
 
     }
 
     let drawBlocksYAxis = function drawBlocksYAxis(dimensions) {
 
-        svg.yInputAxis = svg.layers.axes.append("g")
+        svg.yAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
             .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + parseInt(config.margin.top + config.padding.top) + ")");
     }
 
     let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
 
-        axes.yInputLinear = d3.axisLeft(scales.yBlocks);
+        axes.yBlocks = d3.axisLeft(scales.yBlocks);
 
-        axes.yInputLinear
+        axes.yBlocks
             .ticks(4);
 
-        svg.yInputAxis
-            .call(axes.yInputLinear);
+        svg.yAxis
+            .call(axes.yBlocks);
 
     }
 
