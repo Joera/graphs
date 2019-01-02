@@ -120,16 +120,21 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .on("mouseout", unhighlight);
 
         svg.blocks
-            .attr("x", (d,i) => { let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString(); return 10 * parseInt(s.substring(s.length - 1)) + 3; })
+            .attr("x", (d,i) => {
+                
+                let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
+                return 10 * parseInt(s.substring(s.length - 1)) + 3;
+            })
             .attr("y", (d,i) => {
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
 
-                // if (s.length > 1) {
-                    let r = parseInt(s.substring(0,s.length - 1)) * 1000
+                if (s.length > 1) {
+                    let r = parseInt(s.substring(0,s.length - 1)) * 1000;
                     return -dimensions.height + scales.yBlocks(r) - 10; // (10 * ));
-                // } else {
-                //     return - dimensions.height  + scales.yBlocks(0) - 10; }
+                } else {
+                    return - dimensions.height  + scales.yBlocks(0) - 10;
+                }
             })
             .on("mouseover", function(d) {
 
