@@ -50,7 +50,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                     if (j < blockCount(Object.values(d)[1])) {
                         arr[j].provenance = sluggify(Object.keys(d)[1]);
-                    } else if (j < blockCount(Object.values(d)[2])) {
+                    } else if (j - Object.values(d)[1] < blockCount(Object.values(d)[2])) {
                         arr[j].provenance = sluggify(Object.keys(d)[2]);
                     } else if (j < blockCount(Object.values(d)[3])) {
                         arr[j].provenance = sluggify(Object.keys(d)[3]);
