@@ -24,7 +24,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .attr('class', (d,i) => { return 'type ' + d.provenance;  } )
             .attr('width',8)
             .attr('height',8)
-            .attr('y', (d,i) => { return i * 24 + 24; });
+            .attr('y', (d,i) => { return i * 22 + 22; });
 
         svg.legendTotals.selectAll(".label")
             .data(data)
@@ -32,8 +32,8 @@ let ChartLegend = function ChartLegend(config,svg) {
             .append("text")
             .attr('class','label')
             .text((d) => { return d.provenance; })
-            .attr('x',12)
-            .attr('y', (d,i) => { return i * 24 + 32; })
+            .attr('x',16)
+            .attr('y', (d,i) => { return i * 22 + 30; })
 
         ;
     }
