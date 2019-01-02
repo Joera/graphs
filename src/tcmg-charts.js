@@ -60,6 +60,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'total';  // is being set in type function
 
         // y-scale
+        config.fixedWidth = 100 + 6;
         config.minValue = 0;
         config.maxValue = 25000;
 
