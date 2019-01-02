@@ -78,6 +78,8 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .attr("class", (d,i) => { return 'block ' + d.provenance; })
             .on("mouseover", function(d) {
 
+                highlight(d.provenance);
+
                 let html = d.total + ' ' + d.provenance;
 
                 svg.tooltip
@@ -127,9 +129,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 } else {
                     return -7; }
             })
-            .on("mouseover", (d,i) => {
-                highlight(d.provenance);
-            });
+           ;
 
     }
 
