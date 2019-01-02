@@ -68,7 +68,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             });
 
         svg.blocks = svg.blockGroup.selectAll(".block")
-            .data(function(d) {
+            .data(function(d,i) {
 
                 if (d.status) {
                     return blocksArrayTwo(d,i); // wat komt hier?
