@@ -137,7 +137,7 @@ main {
 
       &.remittances-container {
 
-        @media (max-width : $mobile-max) {
+        @media (max-width : $portrait-max) {
           border: none;
         }
       }
