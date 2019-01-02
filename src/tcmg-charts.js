@@ -247,16 +247,19 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 30;
         config.padding.left = 40;
         config.padding.right = 0;
-        config.xParameter = 'time';  // name of first column with values of bands on x axis
+         // name of first column with values of bands on x axis
+
+
         config.yParameter = 'total';  // is being set in type function
-
         config.fixedHeight = 160;
-
         config.minValue = 17000;
         config.maxValue = 18000;
 
 
-        config.paddingInner = [0.0];
+        config.xParameter = 'time';
+        config.minWidth = 500;
+
+
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
