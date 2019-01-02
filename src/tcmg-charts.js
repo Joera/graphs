@@ -157,9 +157,13 @@ var TCMGCharts = function TCMGCharts() {
         config.xParameter = 'status';  // name of first column with values of bands on x axis
         config.yParameter = 'value';  // is being set in type function
         config.xAlign = [0.5];
-        config.fixedHeight = 157;
+
+        // y-axis
+      //  config.fixedHeight = 157;
         config.minValue = 0;
         config.maxValue = 15000;
+
+        // x-axis
         config.paddingInner = [0.5];
 
         // get dimensions from parent element
@@ -173,7 +177,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartStackedBars = ChartStackedBars(config,svg,functions);
         let chartBlocks = ChartBlocks(config,svg,functions);
         chartAxis.drawXAxis();
-        chartAxis.drawYAxis();
+        chartAxis.drawBlocksYAxis();
 
         // function to parse csv
         function type(d, i, columns) {
@@ -198,7 +202,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
                 chartAxis.redrawXBandAxis(dimensions,scales,axes);
-                chartAxis.redrawYAxis(scales,axes);
+                chartAxis.redrawBlocksYAxis(scales,axes);
                 // redraw data
                 chartStackedBars.redraw(dimensions, scales);
                 chartBlocks.redraw(dimensions, scales);
