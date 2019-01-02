@@ -37,7 +37,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 for (let i = 0; i < arr.length; i++) {
 
-                    console.log(d[0]);
+                    console.log(d['Na 19 maart 2018']);
 
                     arr[i] = {};
                     arr[i].previous = 0;
