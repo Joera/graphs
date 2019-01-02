@@ -116,12 +116,18 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         svg.blocks
             .attr("x", (d,i) => {
 
-                let bandwith = scales.xBand.bandwidth();
+                let offset,
+                    bandwith = scales.xBand.bandwidth();
 
-                console.log(bandwith);
+               // console.log(bandwith);
+
+                if(bandwith > 100) {
+                    offset = (bandwidth - 100) / 2;
+
+                }
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
-                return 10 * parseInt(s.substring(s.length - 1)) + 3;
+                return 10 * parseInt(s.substring(s.length - 1)) + 3 + offset;
             })
             .attr("y", (d,i) => {
 
