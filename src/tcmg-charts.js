@@ -60,10 +60,9 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'total';  // is being set in type function
 
         // y-scale
-     //   config.fixedHeight = 259;
         config.minValue = 0;
         config.maxValue = 25000;
-        config.scaleOffset = 0;
+
 
         // x-scale
         config.xAlign = [0.0];
@@ -163,7 +162,6 @@ var TCMGCharts = function TCMGCharts() {
       //  config.fixedHeight = 157;
         config.minValue = 0;
         config.maxValue = 15000;
-        config.scaleOffset = 0;
 
         // x-axis
         config.paddingInner = [0.5];
