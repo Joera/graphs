@@ -28,8 +28,8 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
        // console.log((config.maxValue / 100) + config.scaleOffset);
 
         scales.yBlocks = d3.scaleLinear()
-            .range([0,(config.maxValue / 100) + config.scaleOffset]) // geen idee waarom 259 ipv 250
-            .domain([config.maxValue,0]).nice();
+            .range([(config.maxValue / 100) + config.scaleOffset, 0]) // geen idee waarom 259 ipv 250
+            .domain([0,config.maxValue]);
 
         return scales;
     }
