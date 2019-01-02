@@ -21,7 +21,6 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[i].provenance = d.provenance;
                     arr[i].qualifier = d.provenance;
                     arr[i].class = sluggify(d.provenance);
-
                 }
 
                 return arr;
@@ -94,11 +93,6 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .attr("width",8)
             .attr("height",8)
             .attr("class", (d,i) => { return 'block ' + d.class; })
-
-
-
-
-
         ;
 
     }
@@ -121,7 +115,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
         svg.blocks
             .attr("x", (d,i) => {
-                
+
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
                 return 10 * parseInt(s.substring(s.length - 1)) + 3;
             })
