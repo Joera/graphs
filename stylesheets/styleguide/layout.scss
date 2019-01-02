@@ -76,7 +76,7 @@ main {
           padding: 0 0 0 15px;
         }
 
-        @media (min-width : 1500px) {
+        @media (min-width : $extra) {
 
           position: absolute;
           right : 0;
@@ -173,7 +173,19 @@ main {
   }
 
   @media (min-width: $portrait-max) {
+
     flex-direction: row;
+
+    > div {
+      width: 25%;
+
+      &:nth-child(2) {
+        width: 50%;
+      }
+    }
+  }
+
+  @media (min-width: $extra) {
 
     > div {
       width: 30%;
