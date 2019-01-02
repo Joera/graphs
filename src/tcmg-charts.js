@@ -357,9 +357,8 @@ var TCMGCharts = function TCMGCharts() {
         config.minValue = 0;
         config.maxValue = 10000;
         // x-scale
+        config.fixedWidth = 100 + 6;
         config.xParameter = 'key';
-        config.xAlign = [0.0];
-        config.paddingInner = [0.0];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
