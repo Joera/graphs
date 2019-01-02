@@ -19,6 +19,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[i].total = d.total;
                     arr[i].cummulative = d.cummulative;
                     arr[i].provenance = d.provenance;
+                    arr[i].class = sluggify(d.provenance);
                 }
 
                 return arr;
@@ -50,10 +51,13 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                     if (j < blockCount(Object.values(d)[1])) {
                         arr[j].provenance = sluggify(Object.keys(d)[1]);
+                        arr[j].class = sluggify(Object.keys(d)[1]);
                     } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2])) {
                         arr[j].provenance = sluggify(Object.keys(d)[2]);
+                        arr[j].class = sluggify(Object.keys(d)[2]);
                     } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2] + Object.values(d)[3])) {
                         arr[j].provenance = sluggify(Object.keys(d)[3]);
+                        arr[j].class = sluggify(Object.keys(d)[3]);
                     }
                 }
 
@@ -87,7 +91,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .append("rect")
             .attr("width",8)
             .attr("height",8)
-            .attr("class", (d,i) => { return 'block ' + d.provenance; })
+            .attr("class", (d,i) => { return 'block ' + d.class; })
 
 
 
