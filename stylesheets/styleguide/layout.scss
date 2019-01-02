@@ -20,6 +20,16 @@ main {
     align-items: center;
     justify-content: flex-start;
 
+    @media (min-width : $mobile-max) {
+
+      margin: 0 0 3rem 0;
+    }
+
+    @media (min-width : $landscape-max) {
+
+      margin: 0;
+    }
+
     h2 {
       @include uppercase();
     }
@@ -48,19 +58,9 @@ main {
       position: relative;
       border-top: 1px solid #000;
       width: calc(100% - 4rem);
-      margin: 0rem;
+      margin: 0rem 2rem;
       height: auto;
       box-sizing: content-box;
-
-      @media (min-width : $mobile-max) {
-
-        margin: 3rem 2rem;
-      }
-
-      @media (min-width : $landscape-max) {
-
-        margin: 0rem 2rem;
-      }
 
       .textual {
 
