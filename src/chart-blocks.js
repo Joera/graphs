@@ -27,7 +27,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             }
         }
 
-        let blocksArrayTwo = function(d) {
+        let blocksArrayTwo = function(d,i) {
 
             let noBlocks = Math.ceil(parseInt(d['value']) / 100);
 
@@ -35,18 +35,18 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 let arr = new Array(noBlocks);
 
-                for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
 
-                    console.log(d['Voor 19 maart 2018 zonder opname']);
+                    console.log(i);
 
-                    arr[i] = {};
-                    arr[i].previous = 0;
-                    arr[i].total = d.value;
-                    arr[i].cummulative = 0;
-                    arr[i].provenance = d.status;
+                    arr[j] = {};
+                    arr[j].previous = 0;
+                    arr[j].total = d.value;
+                    arr[j].cummulative = 0;
+                    arr[j].provenance = d.status;
 
                     if (i < d['Voor 19 maart 2018 zonder opname']) {
-                        arr[i].provenance = 'Na 19 maart 2018';
+                        arr[i].provenance = 'Voor 19 maart 2018 zonder opname';
                     }
                 }
 
@@ -71,7 +71,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .data(function(d) {
 
                 if (d.status) {
-                    return blocksArrayTwo(d); // wat komt hier?
+                    return blocksArrayTwo(d,i); // wat komt hier?
                 } else {
                     return blocksArray(d);
                 }
