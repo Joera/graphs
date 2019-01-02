@@ -57,6 +57,16 @@ main {
       &.input-container {
         height: 320px;
         //border-bottom: 1px solid #000;
+
+        .textual {
+
+          @media (min-width : $mobile-max) {
+
+            position: absolute;
+            right : 0;
+            width:  calc(100% - 106 - 60 - 30);
+          }
+        }
       }
 
       &.legend-container {
