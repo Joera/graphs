@@ -44,6 +44,10 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[i].total = d.value;
                     arr[i].cummulative = 0;
                     arr[i].provenance = d.status;
+
+                    if (i < d[0]) {
+                        arr[i].provenance = 'Na 19 maart 2018';
+                    }
                 }
 
                 return arr;
