@@ -171,7 +171,7 @@ var TCMGCharts = function TCMGCharts() {
         config.maxValue = 17000;
 
         // x-axis
-        config.minWidth = 46    0;
+        config.minWidth = 460;
         config.xParameter = 'status';
         config.paddingInner = [0.5];
 
@@ -342,10 +342,7 @@ var TCMGCharts = function TCMGCharts() {
                 text.attr("x","50%");
             }
 
-
-
             redraw();
-
             window.addEventListener("resize", redraw, false);
 
         });
