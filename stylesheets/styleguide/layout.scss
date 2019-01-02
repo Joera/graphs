@@ -83,6 +83,11 @@ main {
         height: 140px;
         border: none;
 
+        > svg {
+
+          transform : translate(-60px);
+        }
+
         @media (min-width : $mobile-max) {
           padding: 0;
           height: auto;
