@@ -129,7 +129,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     console.log(dimensions.height);
                     return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); //  - 19 - (10 * parseInt(s.substring(0,s.length - 1)));
                 } else {
-                    return 0; }
+                    return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); }
             })
             .on("mouseover", function(d) {
 
