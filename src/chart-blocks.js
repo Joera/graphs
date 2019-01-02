@@ -115,7 +115,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 highlight(d.provenance);
 
-                let html = d.total + ' ' + d.provenance;
+                let html = d.provenance + "<br/>" +  d.total + " meldingen";
 
                 svg.tooltip
                     .html(html)
