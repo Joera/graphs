@@ -120,7 +120,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     bandwidth = scales.xBand.bandwidth();
 
                 if(bandwidth > 100) {
-                    offset = (bandwidth - 100) / 2;
+                    offset = ((bandwidth - 100) / 2) - 1;
                 }
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
