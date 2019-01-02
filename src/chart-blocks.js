@@ -50,13 +50,13 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[j].provenance = d.status;
 
                     if (j < blockCount(Object.values(d)[1])) {
-                        arr[j].provenance = sluggify(Object.keys(d)[1]);
+                        arr[j].provenance = Object.keys(d)[1];
                         arr[j].class = sluggify(Object.keys(d)[1]);
                     } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2])) {
-                        arr[j].provenance = sluggify(Object.keys(d)[2]);
+                        arr[j].provenance = Object.keys(d)[2];
                         arr[j].class = sluggify(Object.keys(d)[2]);
                     } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2] + Object.values(d)[3])) {
-                        arr[j].provenance = sluggify(Object.keys(d)[3]);
+                        arr[j].provenance = Object.keys(d)[3];
                         arr[j].class = sluggify(Object.keys(d)[3]);
                     }
                 }
