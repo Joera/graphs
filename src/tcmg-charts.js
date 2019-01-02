@@ -147,11 +147,11 @@ var TCMGCharts = function TCMGCharts() {
         let functions = chartObjects.functions();
 
         config.margin.top = 0;
-        config.margin.bottom = 60;
+        config.margin.bottom = 30;
         config.margin.left = 0;
         config.margin.right = 0;
         config.padding.top = 30;
-        config.padding.bottom = 30;
+        config.padding.bottom = 60;
         config.padding.left = 40;
         config.padding.right = 0;
         config.xParameter = 'status';  // name of first column with values of bands on x axis
