@@ -48,7 +48,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[j].cummulative = 0;
                     arr[j].provenance = d.status;
 
-                    console.log(Object.keys(d)[0]);
+                    console.log(Object.keys(d));
                   //  console.log(Object.values(d)[0]);
 
                     if (j < blockCount(Object.values(d)[0])) {
