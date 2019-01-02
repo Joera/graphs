@@ -6,7 +6,7 @@
   }
   path {  opacity : .4 }
 
-  &.voor-19-maart-2018-zonder-opname {
+  &.zonder.opname {
     rect, path {
       fill: $green;
     }
@@ -31,4 +31,16 @@
       display: block;
     }
   }
+
+
+}
+
+rect.block {
+
+  fill : #ccc;
+
+  &.voor-19-maart-2018-zonder-opname {
+    fill: $green;
+  }
+
 }
