@@ -116,6 +116,10 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         svg.blocks
             .attr("x", (d,i) => {
 
+                let bandwith = scales.xBand.bandwidth();
+
+                console.log(bandwith);
+
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
                 return 10 * parseInt(s.substring(s.length - 1)) + 3;
             })
