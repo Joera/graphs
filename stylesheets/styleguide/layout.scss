@@ -99,7 +99,10 @@ main {
       &.text-container {
 
         border: none;
-        padding: 0px 2rem 30px 60px;
+
+        > div {
+          padding: 0px 2rem 30px 60px;
+        }
       }
     }
 
