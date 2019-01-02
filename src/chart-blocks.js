@@ -124,7 +124,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .attr("y", (d,i) => {
 
                 let s = Math.ceil((parseInt(i) + (parseInt(d.previous) / 100))).toString();
-                console.log(s);
+     
                 if (s.length > 1) {
                     let r = parseInt(s.substring(0,s.length - 1)) * 1000
                     console.log(dimensions.height);
