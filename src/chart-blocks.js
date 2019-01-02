@@ -7,9 +7,9 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
         let blocksArray = function(d) {
 
-            let noBlocks = Math.round(parseInt(d[config.yParameter]) / 100);
+            let noBlocks = Math.ceil(parseInt(d[config.yParameter]) / 100);
 
-            // console.log(noBlocks);
+            sconsole.log(noBlocks);
 
             if (Number.isInteger(noBlocks)) {
 
