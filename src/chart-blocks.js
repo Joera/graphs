@@ -37,7 +37,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
 
                 for (let i = 0; i < arr.length; i++) {
 
-                    console.log(d);
+                    console.log(d[0]);
 
                     arr[i] = {};
                     arr[i].previous = 0;
