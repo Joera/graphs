@@ -47,7 +47,7 @@ main {
       border-top: 1px solid #000;
       width: calc(100% - 4rem);
       margin: 0rem 2rem;
-      height: 400px;
+      height: auto;
       box-sizing: content-box;
 
       .textual {
@@ -84,7 +84,6 @@ main {
         border: none;
 
         > svg {
-
           @media (max-width : $mobile-max) {
             transform: translate(-60px, -30px);
           }
