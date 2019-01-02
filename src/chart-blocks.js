@@ -127,7 +127,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                 console.log(s);
                 if (s.length > 1) {
                     console.log(parseInt(s.substring(0,s.length - 1));
-                    return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); (10 * ));
+                    return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); // (10 * ));
                 } else {
                     return dimensions.height - config.padding.top - config.padding.bottom - scales.yBlocks(0); }
             })
