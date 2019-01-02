@@ -50,13 +50,15 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[j].cummulative = 0;
                     arr[j].qualifier = d.status;
 
-                    if (j < blockCount(Object.values(d)[1])) {
+                    Object.keys(d).map(e => d[e])
+
+                    if (j < blockCount(Object.keys(d).map(e => d[e])[1])) {
                         arr[j].provenance = Object.keys(d)[1];
                         arr[j].class = sluggify(Object.keys(d)[1]);
-                    } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2])) {
+                    } else if (j < blockCount(Object.keys(d).map(e => d[e])[1] + Object.keys(d).map(e => d[e])[2])) {
                         arr[j].provenance = Object.keys(d)[2];
                         arr[j].class = sluggify(Object.keys(d)[2]);
-                    } else if (j < blockCount(Object.values(d)[1] + Object.values(d)[2] + Object.values(d)[3])) {
+                    } else if (j < blockCount(Object.keys(d).map(e => d[e])[1] + Object.keys(d).map(e => d[e])[2] + Object.keys(d).map(e => d[e])[3])) {
                         arr[j].provenance = Object.keys(d)[3];
                         arr[j].class = sluggify(Object.keys(d)[3]);
                     }
