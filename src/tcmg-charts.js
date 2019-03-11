@@ -280,7 +280,7 @@ var TCMGCharts = function TCMGCharts() {
             function redraw() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
-              //  chartSVG.redraw(dimensions);
+                chartSVG.redraw(dimensions);
                 // new dimensions mean new scales
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
