@@ -287,14 +287,14 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXTimeAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
-                chartLine.redraw(scales,functions);
+            //    chartLine.redraw(scales,functions);
 
             }
 
             scales = chartScales.set(data);
             chartLine.draw(data);
             // further drawing happens in function that can be repeated.
-      //      redraw();
+            redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);
 
