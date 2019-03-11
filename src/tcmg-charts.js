@@ -294,7 +294,7 @@ var TCMGCharts = function TCMGCharts() {
             scales = chartScales.set(data);
             chartLine.draw(data);
             // further drawing happens in function that can be repeated.
-            redraw();
+      //      redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);
 
