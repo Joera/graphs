@@ -24,7 +24,7 @@ let ChartLine = function ChartLine(config,svg) {
     let redraw = function redraw(scales,functions) {
 
         functions.line = d3.line()
-            .x(function(d) { return scales.xTime(new Date(d[config.xParameter])); })
+            .x(function(d) { console.log(config.xParameter); return scales.xTime(new Date(d[config.xParameter])); })
             .y(function(d) { return scales.yLinear(d[config.yParameter]); })
             .curve(d3.curveCardinal);
 
