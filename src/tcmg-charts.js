@@ -252,7 +252,7 @@ var TCMGCharts = function TCMGCharts() {
 
         config.yParameter = 'inbehandeling';  // is being set in type function
         config.fixedHeight = 160;
-        config.minValue = 17000;
+        config.minValue = 10000;
         config.maxValue = 18000;
 
 
