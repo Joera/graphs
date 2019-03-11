@@ -20,8 +20,8 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.xTime = d3.axisBottom(scales.xTime);
 
         axes.xTime
-        .ticks(d3.timeWeek.every(1))
-        .tickFormat(d3.timeFormat("%d %b"));
+        .ticks(d3.timeMonth.every(1))
+        .tickFormat(d3.timeFormat("%b"));
 
         svg.xAxis
             .attr("transform", "translate(" + 0 + "," + (dimensions.height + config.padding.top) + ")")  //
