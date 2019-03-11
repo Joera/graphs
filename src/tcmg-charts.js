@@ -291,6 +291,8 @@ var TCMGCharts = function TCMGCharts() {
 
             }
 
+            console.log(data);
+
             scales = chartScales.set(data);
             chartLine.draw(data);
             // further drawing happens in function that can be repeated.
