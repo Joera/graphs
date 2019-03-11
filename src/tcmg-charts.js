@@ -250,7 +250,7 @@ var TCMGCharts = function TCMGCharts() {
          // name of first column with values of bands on x axis
 
 
-        config.yParameter = 'In behandeling';  // is being set in type function
+        config.yParameter = 'inbehandeling';  // is being set in type function
         config.fixedHeight = 160;
         config.minValue = 17000;
         config.maxValue = 18000;
