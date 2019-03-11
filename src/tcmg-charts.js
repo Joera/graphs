@@ -274,7 +274,7 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
-        d3.csv("./dummy_data_progress.csv", function(error, data) {
+        d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
             if (error) throw error;
 
             function redraw() {
