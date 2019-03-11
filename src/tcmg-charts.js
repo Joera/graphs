@@ -250,13 +250,13 @@ var TCMGCharts = function TCMGCharts() {
          // name of first column with values of bands on x axis
 
 
-        config.yParameter = 'total';  // is being set in type function
+        config.yParameter = 'In behandeling';  // is being set in type function
         config.fixedHeight = 160;
         config.minValue = 17000;
         config.maxValue = 18000;
 
 
-        config.xParameter = 'time';
+        config.xParameter = 'date';
         config.minWidth = 460;
 
 
@@ -274,7 +274,7 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
-        d3.csv("./dummy_data_progress.csv", function(error, data) {
+        d3.csv("./dummy_data_progress_extnded.csv", function(error, data) {
             if (error) throw error;
 
             function redraw() {
