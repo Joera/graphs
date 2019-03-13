@@ -215,19 +215,19 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
             // manipulate the data into stacked series
-            console.log(csv[3]);
+         
 
             let data = [];
 
             data.push( {
                 status : "Wacht op opname",
-                totaal : csv[3] + csv[6]
+                totaal : csv[3]['totaal'] + csv[6]['totaal']
 
             });
 
             data.push( {
                 status : "Wacht op rapport",
-                totaal : csv[5]
+                totaal : csv[5]['totaal']
 
             });
 
@@ -239,11 +239,13 @@ var TCMGCharts = function TCMGCharts() {
 
             data.push( {
                 status : "Voorbereiding besluit",
-                totaal : csv[7]
+                totaal : csv[7]['totaal']
 
             });
 
-            data.columns = csv.columns
+            data.columns = csv.columns;
+
+            console.log(data;)
 
             function redraw() {
                 // on redraw chart gets new dimensions
