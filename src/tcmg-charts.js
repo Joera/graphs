@@ -254,7 +254,7 @@ var TCMGCharts = function TCMGCharts() {
                 return data;
             }
 
-
+            let data = prepareData();
 
             function draw() {
 
@@ -280,7 +280,7 @@ var TCMGCharts = function TCMGCharts() {
 
             // further drawing happens in function that can be repeated.
 
-            let data = prepareData();
+
             draw;
             redraw();
             // for example on window resize
