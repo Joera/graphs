@@ -183,7 +183,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'totaal';
         config.minValue = 0;
         config.maxValue = 8000;
-        config
+        config.fixedHeight = 160;
 
         // x-axis
         config.minWidth = 460;
