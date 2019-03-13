@@ -285,11 +285,11 @@ var TCMGCharts = function TCMGCharts() {
                 console.log(week['besluiten']);
 
                 data.push({
-                    'aos' : week['aos'],
-                    'besluiten' : week['besluiten'],
-                    'inbehandeling' : week['inbehandeling'],
-                    'meldingen' : week['meldingen'],
-                    'opnames' : week['opnames']
+                    aos : week['aos'],
+                    besluiten : week['besluiten'],
+                    inbehandeling : week['inbehandeling'],
+                    meldingen : week['meldingen'],
+                    opnames : week['opnames']
                 });
 
             });
