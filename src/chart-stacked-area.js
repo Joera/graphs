@@ -38,7 +38,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
         svg.areas
             .append('text')
             .datum(function(d) { return d; })
-            .attr('transform', function(d) { return 'translate(' + dimensions.width + ',' + scales.yLinear(d) + ')'; })
+        //    .attr('transform', function(d) { return 'translate(' + dimensions.width + ',' + scales.yLinear(d) + ')'; })
             .attr('x', -6)
             .attr('dy', '.35em')
             .style("text-anchor", "start")
