@@ -254,8 +254,6 @@ var TCMGCharts = function TCMGCharts() {
                 return data;
             }
 
-            let data = prepareData(csv);
-
             function draw(data) {
 
                 // with data we can init scales
@@ -281,6 +279,7 @@ var TCMGCharts = function TCMGCharts() {
             // further drawing happens in function that can be repeated.
 
 
+            let data = prepareData(csv);
             draw(data);
             redraw();
             // for example on window resize
@@ -288,8 +287,8 @@ var TCMGCharts = function TCMGCharts() {
 
             procedureSelect.addEventListener("change", function() {
 
-                prepareData();
-                draw;
+                let data = prepareData(csv);
+                draw(data);
                 redraw();
             });
         });
