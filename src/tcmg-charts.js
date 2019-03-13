@@ -180,7 +180,7 @@ var TCMGCharts = function TCMGCharts() {
         // name of first column with values of bands on x axis
 
         // y-axis
-        config.yParameter = 'value';
+        config.yParameter = 'totaal';
         config.minValue = 0;
         config.maxValue = 17000;
 
