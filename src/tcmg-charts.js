@@ -271,7 +271,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'behandeling';  // is being set in type function
         config.fixedHeight = 160;
         config.minValue = 0;
-        config.maxValue = 25000;
+        config.maxValue = 22000;
 
 
         config.xParameter = 'date';
