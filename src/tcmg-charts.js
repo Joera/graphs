@@ -298,9 +298,11 @@ var TCMGCharts = function TCMGCharts() {
 
                 let newObject = {};
 
-                Object.keys(week).forEach( (prop) => {
+                Object.keys(week).forEach( (key) => {
 
-                    console.log(prop);
+                    if (neededColumns.indexOf(key) < 0) {
+                        console.log(key);
+                    }
 
                 });
 
