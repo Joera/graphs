@@ -21,7 +21,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             .domain(data.map(d => d[config.xParameter]))
             .paddingInner(config.paddingInner)
             .paddingOuter(config.paddingOuter)
-            // .align(config.xAlign)
+            .align([0.5])
         ;
 
         scales.yInputLinear = d3.scaleLinear()

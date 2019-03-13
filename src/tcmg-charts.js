@@ -84,6 +84,7 @@ var TCMGCharts = function TCMGCharts() {
         // x-scale
         config.xAlign = [0.0];
         config.paddingInner = [0.0];
+        config.paddingOuter = [0.0];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
@@ -189,7 +190,7 @@ var TCMGCharts = function TCMGCharts() {
         config.minWidth = 460;
         config.xParameter = 'status';
         config.paddingInner = [0.5];
-        config.paddingOuter = [0.5];
+        config.paddingOuter = [0.25];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
@@ -603,6 +604,9 @@ var TCMGCharts = function TCMGCharts() {
         // x-scale
         config.fixedWidth = 100 + 6;
         config.xParameter = 'key';
+
+        config.paddingInner = [0.0];
+        config.paddingOuter = [0.0];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
