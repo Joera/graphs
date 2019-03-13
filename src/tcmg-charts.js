@@ -297,7 +297,7 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
      //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
-            let neededColumns = ['date','behandeling','besluiten'];
+            let neededColumns = ['date','behandeling','afgehandeld'];
 
             let data = trimColumns(csv,neededColumns);
             csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
