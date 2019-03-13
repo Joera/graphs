@@ -38,7 +38,7 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
             .on("mouseover", function(d) {
 
-                let html = d.increase + ' nieuwe meldingen';
+                let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' + d.decrease + ' nieuwe meldingen';
 
                 svg.tooltip
                     .html(html)
