@@ -43,7 +43,7 @@ let ChartBar = function ChartBar(config,svg) {
                 console.log(d);
 
                 return 'translate(' + scales.xBand(d[config.xParameter]) + ',' +
-                    scales.yLinear(d[config.yParameter]);
+                    scales.yLinear(d[config.yParameter])
                     + ')';
             })
     }
