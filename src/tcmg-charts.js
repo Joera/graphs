@@ -204,7 +204,7 @@ var TCMGCharts = function TCMGCharts() {
        // let chartStackedBars = ChartStackedBars(config,svg,functions);
       //  let chartBlocks = ChartBlocks(config,svg,functions);
         chartAxis.drawXAxis();
-        chartAxis.drawBlocksYAxis();
+        chartAxis.drawYAxis();
 
         // function to parse csv
         function type(d, i, columns) {
@@ -258,7 +258,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
                 chartAxis.redrawXBandAxis(dimensions,scales,axes);
-                chartAxis.redrawBlocksYAxis(scales,axes);
+                chartAxis.redrawYAxis(scales,axes);
                 // redraw data
                 chartBar.redraw(dimensions, scales);
              //   chartBlocks.redraw(dimensions, scales);
@@ -618,7 +618,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartAxis = ChartAxis(config,svg);
         let chartBlocks = ChartBlocks(config,svg,functions);
 
-        chartAxis.drawYAxis(dimensions);
+        chartAxis.drawBlocksYAxis(dimensions);
 
         d3.csv("./dummy_data_output.csv", function(error, data) {
             if (error) throw error;
@@ -639,7 +639,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
                 //  chartAxis.redrawXAxis(dimensions,scales,axes);
-                chartAxis.redrawYAxis(scales,axes);
+                chartAxis.redrawBlocksYAxis(scales,axes);
                 // redraw data
                 chartBlocks.redraw(dimensions, scales);
             }
