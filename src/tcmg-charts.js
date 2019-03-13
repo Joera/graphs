@@ -280,25 +280,25 @@ var TCMGCharts = function TCMGCharts() {
 
             let data = [];
 
-            csv.forEach( (week) => {
-
-                let newObject = {
-                    date : week['date'],
-                    aos : week['aos'],
-                    besluiten : week['besluiten'],
-                    inbehandeling : week['inbehandeling'],
-                    meldingen : week['meldingen'],
-                    opnames : week['opnames']
-                }
-
-                data.push(newObject);
-
-            });
+            // csv.forEach( (week) => {
+            //
+            //     let newObject = {
+            //         date : week['date'],
+            //         aos : week['aos'],
+            //         besluiten : week['besluiten'],
+            //         inbehandeling : week['inbehandeling'],
+            //         meldingen : week['meldingen'],
+            //         opnames : week['opnames']
+            //     }
+            //
+            //     data.push(newObject);
+            //
+            // });
 
 
             functions.stack = d3.stack();
-          //  let stackedData = functions.stack(csv);
-            let stackedData = functions.stack.keys(data.columns.slice(1))(csv);
+            let stackedData = functions.stack(csv);
+          //  let stackedData = functions.stack.keys(data.columns.slice(1))(csv);
 
             console.log(stackedData);
 
