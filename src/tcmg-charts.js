@@ -298,8 +298,8 @@ var TCMGCharts = function TCMGCharts() {
             let data = trimColumns(csv,neededColumns);
 
             functions.stack = d3.stack();
-            let stackedData = functions.stack(data);
-          //  let stackedData = functions.stack.keys(data.columns.slice(1))(csv);
+
+            let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
            console.log(stackedData);
 
