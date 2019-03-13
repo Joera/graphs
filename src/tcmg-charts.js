@@ -379,13 +379,16 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
             if (error) throw error;
+            
+            data.forEach( (week,i) => {
 
-
-            data.forEach( (week) => {
-
-                    week.increase = 110;
-                    week.decrease = 200;
-
+                    if (i > 0) {
+                        week.increase = data[i].meldingen - data[i - 1].meldingen;
+                        week.decrease = data[i].afgehandeld - data[i - 1].afgehandeld;
+                    } else {
+                        week.increase = 0;
+                        week.decrease = 0;
+                    }
             });
 
             function redraw() {
