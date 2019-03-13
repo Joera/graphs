@@ -256,7 +256,7 @@ var TCMGCharts = function TCMGCharts() {
 
             let data = prepareData(csv);
 
-            function draw() {
+            function draw(data) {
 
                 // with data we can init scales
                 scales = chartScales.set(data);
@@ -281,7 +281,7 @@ var TCMGCharts = function TCMGCharts() {
             // further drawing happens in function that can be repeated.
 
 
-            draw;
+            draw(data);
             redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);
