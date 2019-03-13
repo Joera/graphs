@@ -282,6 +282,13 @@ var TCMGCharts = function TCMGCharts() {
 
             let columns = csv['columns'];
 
+
+
+            columns.filter( (c) => {
+
+                return ['date','aos','besluiten','inbehandeling','meldingen','opnames'].indexOf(c) < -1;
+            })
+
             console.log(columns);
 
             csv.forEach( (week,i) => {
