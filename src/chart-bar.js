@@ -40,6 +40,8 @@ let ChartBar = function ChartBar(config,svg) {
         svg.barLabels
             .attr('transform', function(d) {
 
+                console.log(d);
+
                 return 'translate(' + scales.xBand(d[config.xParameter]) + ',' +
                     scales.yLinear(d[config.yParameter]);
                     + ')';
