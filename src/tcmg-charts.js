@@ -278,15 +278,17 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_progress_extended.csv", function(error, csv) {
             if (error) throw error;
 
-            let data = csv.map( (week) => {
+            let data = [];
 
-                return {
+            csv.forEach( (week) => {
+
+                data.push({
                     'aos' : week['aos'],
                     'besluiten' : week['besluiten'],
                     'inbehandeling' : week['inbehandeling'],
                     'meldingen' : week['meldingen'],
                     'opnames' : week['opnames']
-                }
+                });
 
             });
 
