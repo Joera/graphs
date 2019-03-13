@@ -20,6 +20,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
     let redraw = function redraw(dimensions,scales) {
 
+        console.log('yo');
 
         let area = d3.area()
             .x(function(d) {
