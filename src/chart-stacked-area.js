@@ -13,8 +13,14 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             // .attr("fill", "#ccc")
             .attr('class', 'flow');
 
-
-        console.log(stackedData);
+        svg.areaLabels = svg.series
+            .append('text')
+            .datum(function(d) { return d; })
+            .attr('x', 0)
+            .attr('dy', 0)
+            .style("text-anchor", "start")
+            .text(function(d) { return d.key; })
+            .attr('fill-opacity', 1);
 
 
 
@@ -22,8 +28,6 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
     }
 
     let redraw = function redraw(dimensions,scales) {
-
-        console.log('yo');
 
         let area = d3.area()
             .x(function(d) {
@@ -35,15 +39,9 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('d', area);
 
 
-        svg.areas
-            .append('text')
-            .datum(function(d) { return d; })
-        //    .attr('transform', function(d) { return 'translate(' + dimensions.width + ',' + scales.yLinear(d) + ')'; })
-            .attr('x', -6)
-            .attr('dy', '.35em')
-            .style("text-anchor", "start")
-            .text(function(d) { return d.key; })
-            .attr('fill-opacity', 1);
+        svg.areaLabels
+            .attr('transform', function(d) { return 'translate(' + dimensions.containerWidth + ',' + 100 + ')'; })
+
 
 
     }
