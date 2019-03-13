@@ -268,7 +268,7 @@ var TCMGCharts = function TCMGCharts() {
          // name of first column with values of bands on x axis
 
 
-        config.yParameter = 'inbehandeling';  // is being set in type function
+        config.yParameter = 'behandeling';  // is being set in type function
         config.fixedHeight = 160;
         config.minValue = 0;
         config.maxValue = 28000;
@@ -297,7 +297,7 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
      //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
-            let neededColumns = ['date','inbehandeling','besluiten'];
+            let neededColumns = ['date','behandeling','besluiten'];
 
             let data = trimColumns(csv,neededColumns);
 
