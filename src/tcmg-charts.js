@@ -221,7 +221,7 @@ var TCMGCharts = function TCMGCharts() {
 
             // manipulate the data into stacked series
 
-            function pepareData() {
+            function prepareData() {
 
                 let data = [];
 
@@ -254,6 +254,8 @@ var TCMGCharts = function TCMGCharts() {
                 console.log(data);
             }
 
+            prepareData();
+
             function draw() {
 
                 // with data we can init scales
@@ -277,7 +279,7 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             // further drawing happens in function that can be repeated.
-            pepareData();
+
             draw;
             redraw();
             // for example on window resize
@@ -285,7 +287,7 @@ var TCMGCharts = function TCMGCharts() {
 
             procedureSelect.addEventListener("change", function() {
 
-                pepareData();
+                prepareData();
                 draw;
                 redraw();
             });
