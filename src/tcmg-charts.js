@@ -221,7 +221,7 @@ var TCMGCharts = function TCMGCharts() {
 
             // manipulate the data into stacked series
 
-            function prepareData() {
+            function prepareData(csv) {
 
                 let data = [];
 
@@ -254,7 +254,7 @@ var TCMGCharts = function TCMGCharts() {
                 return data;
             }
 
-            let data = prepareData();
+            let data = prepareData(csv);
 
             function draw() {
 
