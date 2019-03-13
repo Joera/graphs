@@ -31,52 +31,52 @@ let ChartLine = function ChartLine(config,svg) {
         svg.line
             .attr("d", functions.line);
 
-        // svg.candlesUp
-        //     .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
-        //     .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(0) - scales.yLinear(d.increase)) })
-        //     .attr('width',10)
-        //     .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
-        //     .on("mouseover", function(d) {
-        //
-        //         let html = d.increase + ' nieuwe meldingen';
-        //
-        //         svg.tooltip
-        //             .html(html)
-        //             .style("left", (d3.event.pageX + 5) + "px")
-        //             .style("top", (d3.event.pageY - 5) + "px")
-        //             .transition()
-        //             .duration(250)
-        //             .style("opacity", 1);
-        //     })
-        //     .on("mouseout", function(d) {
-        //         svg.tooltip.transition()
-        //             .duration(250)
-        //             .style("opacity", 0);
-        //     })
-        // ;
-        //
-        // svg.candlesDown
-        //     .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
-        //     .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
-        //     .attr('width',10)
-        //     .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.decrease)  } )
-        //     .on("mouseover", function(d) {
-        //
-        //         let html = d.decrease + ' nieuwe besluiten';
-        //
-        //         svg.tooltip
-        //             .html(html)
-        //             .style("left", (d3.event.pageX + 5) + "px")
-        //             .style("top", (d3.event.pageY - 5) + "px")
-        //             .transition()
-        //             .duration(250)
-        //             .style("opacity", 1);
-        //     })
-        //     .on("mouseout", function(d) {
-        //         svg.tooltip.transition()
-        //             .duration(250)
-        //             .style("opacity", 0);
-        //     })
+        svg.candlesUp
+            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
+            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(0) - scales.yLinear(d.increase)) })
+            .attr('width',10)
+            .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
+            .on("mouseover", function(d) {
+
+                let html = d.increase + ' nieuwe meldingen';
+
+                svg.tooltip
+                    .html(html)
+                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })
+        ;
+
+        svg.candlesDown
+            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
+            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
+            .attr('width',10)
+            .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.decrease)  } )
+            .on("mouseover", function(d) {
+
+                let html = d.decrease + ' nieuwe besluiten';
+
+                svg.tooltip
+                    .html(html)
+                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })
     }
 
     return {

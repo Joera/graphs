@@ -380,6 +380,14 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
             if (error) throw error;
 
+
+            data.forEach( (week) => {
+
+                    week.increase = 110;
+                    week.decrease = 200;
+
+            });
+
             function redraw() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
