@@ -215,7 +215,7 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
             // manipulate the data into stacked series
-         
+
 
             let data = [];
 
@@ -245,7 +245,7 @@ var TCMGCharts = function TCMGCharts() {
 
             data.columns = csv.columns;
 
-            console.log(data;)
+            console.log(data);
 
             function redraw() {
                 // on redraw chart gets new dimensions
