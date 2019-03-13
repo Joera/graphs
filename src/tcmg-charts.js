@@ -162,6 +162,8 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element) {
 
+        var procedureSelect = document.getElementById("select-municipality");
+
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
         let dimensions = chartObjects.dimensions();
@@ -219,36 +221,46 @@ var TCMGCharts = function TCMGCharts() {
 
             // manipulate the data into stacked series
 
+            function pepareData() {
 
-            let data = [];
+                let data = [];
 
-            data.push( {
-                status : "Wacht op opname",
-                totaal : csv[3]['totaal'] + csv[6]['totaal']
+                data.push({
+                    status: "Wacht op opname",
+                    totaal: csv[3]['totaal'] + csv[6]['totaal']
 
-            });
+                });
 
-            data.push( {
-                status : "Wacht op rapport",
-                totaal : csv[5]['totaal']
+                data.push({
+                    status: "Wacht op rapport",
+                    totaal: csv[5]['totaal']
 
-            });
+                });
 
-            data.push( {
-                status : "Tijd voor zienswijze",
-                totaal : 0
+                data.push({
+                    status: "Tijd voor zienswijze",
+                    totaal: 0
 
-            });
+                });
 
-            data.push( {
-                status : "Voorbereiding besluit",
-                totaal : csv[7]['totaal']
+                data.push({
+                    status: "Voorbereiding besluit",
+                    totaal: csv[7]['totaal']
 
-            });
+                });
 
-            data.columns = csv.columns;
+                data.columns = csv.columns;
 
-            console.log(data);
+                console.log(data);
+            }
+
+            function draw() {
+
+                // with data we can init scales
+                scales = chartScales.set(data);
+                // width data we can draw items
+                chartBar.draw(data, functions);
+            }
 
             function redraw() {
                 // on redraw chart gets new dimensions
@@ -264,14 +276,19 @@ var TCMGCharts = function TCMGCharts() {
              //   chartBlocks.redraw(dimensions, scales);
             }
 
-            // with data we can init scales
-            scales = chartScales.set(data);
-            // width data we can draw items
-            chartBar.draw(data, functions);
             // further drawing happens in function that can be repeated.
+            pepareData();
+            draw;
             redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);
+
+            procedureSelect.addEventListener("change", function() {
+
+                pepareData();
+                draw;
+                redraw();
+            });
         });
     }
 
