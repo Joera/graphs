@@ -292,7 +292,10 @@ var TCMGCharts = function TCMGCharts() {
 
             for (let week in csv) {
 
-                console.log(week);
+                for (let prop in week) {
+
+                    console.log(prop);
+                }
             }
 
             csv.forEach( (week,i) => {
