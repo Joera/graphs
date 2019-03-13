@@ -270,12 +270,16 @@ var TCMGCharts = function TCMGCharts() {
         let chartScales = ChartScales(config,dimensions,scales);
         let chartAxis = ChartAxis(config,svg);
         let chartLine = ChartLine(config,svg,functions);
+        let chartStackedArea = ChartStackedArea(config,svg,functions);
 
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
         d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
             if (error) throw error;
+
+            functions.stack = d3.stack();
+            let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
             function redraw() {
                 // on redraw chart gets new dimensions
@@ -288,6 +292,7 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
                 chartLine.redraw(scales,functions);
+                chartStackedArea.redraw(dimensions, scales);
 
             }
 
@@ -295,6 +300,7 @@ var TCMGCharts = function TCMGCharts() {
 
             scales = chartScales.set(data);
             chartLine.draw(data);
+            chartStackedArea.draw(stackedData,functions);
             // further drawing happens in function that can be repeated.
             redraw();
             // for example on window resize
