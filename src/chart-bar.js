@@ -44,7 +44,7 @@ let ChartBar = function ChartBar(config,svg) {
         svg.barLabels
             .attr('transform', function(d) {
 
-                return 'translate(' + scales.xBand(d[config.xParameter]) + scales.xBand.bandwidth() / 2 + ',' +
+                return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
                     scales.yLinear(d[config.yParameter])
                     + ')';
             })
