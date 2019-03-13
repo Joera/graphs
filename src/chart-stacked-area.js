@@ -28,7 +28,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .y1(function(d) { return y(d[1]); });
 
         svg.areas
-            attr('d', area)
+            .attr('d', area);
 
     }
 
