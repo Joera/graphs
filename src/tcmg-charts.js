@@ -283,6 +283,7 @@ var TCMGCharts = function TCMGCharts() {
             csv.forEach( (week) => {
 
                 let newObject = {
+                    date : week['date'],
                     aos : week['aos'],
                     besluiten : week['besluiten'],
                     inbehandeling : week['inbehandeling'],
@@ -296,8 +297,8 @@ var TCMGCharts = function TCMGCharts() {
 
 
             functions.stack = d3.stack();
-           // let stackedData = functions.stack(data);
-            let stackedData = functions.stack.keys(data.columns.slice(1))(data);
+            let stackedData = functions.stack(csv);
+          //  let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
             console.log(stackedData);
 
