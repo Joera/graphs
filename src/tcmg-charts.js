@@ -215,19 +215,19 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
             // manipulate the data into stacked series
-            console.log(csv);
+            console.log(csv[3]);
 
             let data = [];
 
             data.push( {
                 status : "Wacht op opname",
-                totaal : 0
+                totaal : csv[3] + csv[6]
 
             });
 
             data.push( {
                 status : "Wacht op rapport",
-                totaal : 0
+                totaal : csv[5]
 
             });
 
@@ -239,7 +239,7 @@ var TCMGCharts = function TCMGCharts() {
 
             data.push( {
                 status : "Voorbereiding besluit",
-                totaal : 0
+                totaal : csv[7]
 
             });
 
