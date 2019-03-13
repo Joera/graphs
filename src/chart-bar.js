@@ -16,12 +16,12 @@ let ChartBar = function ChartBar(config,svg) {
             .attr('class','barLabel')
             .attr('x', 0)
             .attr('dx', '0px')
-            .attr('dy', '20px')
+            .attr('dy', '-6px')
             .style("text-anchor", "middle")
             .text(function(d) {
                     return d.totaal;
             })
-            .attr('fill-opacity', 1);
+            ;
 
 
     }
@@ -48,6 +48,11 @@ let ChartBar = function ChartBar(config,svg) {
                     scales.yLinear(d[config.yParameter])
                     + ')';
             })
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('fill-opacity', 1)
     }
 
 
