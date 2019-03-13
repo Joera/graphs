@@ -201,7 +201,7 @@ var TCMGCharts = function TCMGCharts() {
        // let chartStackedBars = ChartStackedBars(config,svg,functions);
       //  let chartBlocks = ChartBlocks(config,svg,functions);
         chartAxis.drawXAxis();
-     //   chartAxis.drawBlocksYAxis();
+        chartAxis.drawBlocksYAxis();
 
         // function to parse csv
         function type(d, i, columns) {
@@ -255,7 +255,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
                 chartAxis.redrawXBandAxis(dimensions,scales,axes);
-             //   chartAxis.redrawBlocksYAxis(scales,axes);
+                chartAxis.redrawBlocksYAxis(scales,axes);
                 // redraw data
                 chartBar.redraw(dimensions, scales);
              //   chartBlocks.redraw(dimensions, scales);
