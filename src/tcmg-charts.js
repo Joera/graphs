@@ -226,7 +226,7 @@ var TCMGCharts = function TCMGCharts() {
             });
 
             data.push( {
-                status : "Wacht op opname",
+                status : "Wacht op rapport",
                 totaal : 0
 
             });
