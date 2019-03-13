@@ -294,7 +294,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 for (let prop in week) {
 
-                    console.log(prop);
+                    console.log(week[prop]);
                 }
             }
 
