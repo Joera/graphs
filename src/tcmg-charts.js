@@ -292,11 +292,11 @@ var TCMGCharts = function TCMGCharts() {
 
                 console.log(newObject);
 
-                data.push(newObject);
+                week = newObject;
 
             });
 
-            console.log(data);
+            console.log(csv);
 
             functions.stack = d3.stack();
             let stackedData = functions.stack(data);
