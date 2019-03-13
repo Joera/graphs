@@ -8,10 +8,10 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr("class", (d) => { return "serie " + d.key });
         // .attr("fill", function(d) { return z(d.key); })
 
-        svg.areas = svg.series.selectAll('.flow')
+        svg.areas = svg.series
         // je moet per serie .. de data reformatten
-            .data(stackedData)
-            .enter()
+        //     .data(stackedData)
+        //     .enter()
             .append("path")
             .attr("fill", "#ccc")
             .attr('class', 'flow');
