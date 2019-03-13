@@ -9,7 +9,7 @@ let ChartBar = function ChartBar(config,svg) {
                 return "bar " + d.status;
             });
 
-        svg.barLabels = svg.layers.data
+        svg.barLabels = svg.layers.data.selectAll(".bar")
             .append('text')
             .datum(function(d) { return d; })
             .attr('x', 0)
