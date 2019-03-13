@@ -37,7 +37,7 @@ var trimColumns =  function(csv,neededColumns) {
         return neededColumns.indexOf(c) > -1;
     });
 
-    console.log(csv.columns);
+    csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
 
     csv.forEach( (week,i) => {
         Object.keys(week).forEach( (key) => {
