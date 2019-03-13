@@ -286,6 +286,8 @@ var TCMGCharts = function TCMGCharts() {
 
             columns = columns.filter( (c) => {
 
+                console.log(c);
+
                 neededColumns.indexOf(c) > -1;
             })
 
@@ -293,7 +295,7 @@ var TCMGCharts = function TCMGCharts() {
 
             csv.forEach( (week,i) => {
 
-                console.log(week);
+                // console.log(week);
 
                 let newObject = {
                     date : week['date'],
