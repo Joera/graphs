@@ -33,9 +33,11 @@ const currency = localCurrency.format("$,");
 
 var trimColumns =  function(csv,neededColumns) {
 
-    csv['columns'] = csv['columns'].filter( (c) => {
+    csv.columns = csv.columns.filter( (c) => {
         return neededColumns.indexOf(c) > -1;
     });
+
+    console.log(csv.columns);
 
     csv.forEach( (week,i) => {
         Object.keys(week).forEach( (key) => {
@@ -303,7 +305,7 @@ var TCMGCharts = function TCMGCharts() {
 
             functions.stack = d3.stack();
 
-            console.log(data.columns);
+            // console.log(data.columns);
 
             let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
