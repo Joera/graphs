@@ -26,6 +26,7 @@ module.exports = function() {
             './src/chart-line.js',
             './src/chart-bar.js',
             './src/chart-stacked-bars.js',
+            './src/chart-stacked-area.js',
             './src/chart-blocks.js',
             './src/chart-area.js',
             './src/tcmg-charts.js'
