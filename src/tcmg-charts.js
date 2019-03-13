@@ -282,8 +282,6 @@ var TCMGCharts = function TCMGCharts() {
 
             csv.forEach( (week) => {
 
-                console.log(week['besluiten']);
-
                 data.push({
                     aos : week['aos'],
                     besluiten : week['besluiten'],
