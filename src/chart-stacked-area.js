@@ -17,7 +17,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .append('text')
             .datum(function(d) { return d; })
             .attr('x', 0)
-            .attr('dy', '-6px')
+            .attr('dy', '6px')
             .style("text-anchor", "start")
             .text(function(d) { return d.key; })
             .attr('fill-opacity', 1);
