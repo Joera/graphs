@@ -300,7 +300,7 @@ var TCMGCharts = function TCMGCharts() {
             let neededColumns = ['date','behandeling','afgehandeld'];
 
             let data = trimColumns(csv,neededColumns);
-            csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
+            // csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
 
             functions.stack = d3.stack();
             let stackedData = functions.stack.keys(data.columns.slice(1))(data);
