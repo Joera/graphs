@@ -211,16 +211,37 @@ var TCMGCharts = function TCMGCharts() {
             return d;
         }
         // point of data injection when using an api
-        d3.csv("./dummy_data_procedure.csv", type, function(error, data) {
+        d3.csv("./dummy_data_procedure.csv", type, function(error, csv){
             if (error) throw error;
 
             // manipulate the data into stacked series
             console.log(data);
 
-            data.forEach( () => {
-
+            data.push( {
+                status : "Wacht op opname",
+                totaal : 0
 
             });
+
+            data.push( {
+                status : "Wacht op opname",
+                totaal : 0
+
+            });
+
+            data.push( {
+                status : "Tijd voor zienswijze",
+                totaal : 0
+
+            });
+
+            data.push( {
+                status : "Voorbereiding besluit",
+                totaal : 0
+
+            });
+
+            data.columns = csv.columns
 
             function redraw() {
                 // on redraw chart gets new dimensions
