@@ -10,14 +10,14 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         svg.areas = svg.series.selectAll('.flow')
         // je moet per serie .. de data reformatten
-        //     .data(function(d,i) { return format(d,i); })
-        //     .enter()
+            .data(function(d,i) { return d; })
+            .enter()
             .append("path")
             .attr("fill", "#ccc")
             .attr('class', 'flow');
 
 
-        // console.log(stackedData);
+        console.log(stackedData);
 
     }
 
