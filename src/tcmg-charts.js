@@ -296,8 +296,8 @@ var TCMGCharts = function TCMGCharts() {
 
 
             functions.stack = d3.stack();
-            let stackedData = functions.stack(data);
-          //  let stackedData = functions.stack.keys(data.columns.slice(1))(data);
+           // let stackedData = functions.stack(data);
+            let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
             console.log(stackedData);
 
