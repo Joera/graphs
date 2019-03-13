@@ -16,6 +16,9 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         console.log(stackedData);
 
+
+
+
     }
 
     let redraw = function redraw(dimensions,scales) {
@@ -30,6 +33,18 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         svg.areas
             .attr('d', area);
+
+
+        svg.areas
+            .append('text')
+            .datum(function(d) { return d; })
+            .attr('transform', function(d) { return 'translate(' + dimensions.width + ',' + scales.yLinear(d) + ')'; })
+            .attr('x', -6)
+            .attr('dy', '.35em')
+            .style("text-anchor", "start")
+            .text(function(d) { return d.key; })
+            .attr('fill-opacity', 1);
+
 
     }
 
