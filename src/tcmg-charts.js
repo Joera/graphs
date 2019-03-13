@@ -294,7 +294,9 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_progress_extended.csv", function(error, csv) {
             if (error) throw error;
 
-            let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
+     //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
+            let neededColumns = ['date','besluiten','inbehandeling'];
+
             let data = trimColumns(csv,neededColumns);
 
             functions.stack = d3.stack();
