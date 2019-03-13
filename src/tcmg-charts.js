@@ -280,23 +280,15 @@ var TCMGCharts = function TCMGCharts() {
 
             let data = [];
 
-            let columns = csv['columns'];
+            // let columns = csv['columns'];
 
             let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-            columns = columns.filter( (c) => {
+            csv['columns'] = csv['columns'].filter( (c) => {
                 return neededColumns.indexOf(c) > -1;
             })
 
-            console.log(columns);
-
-
-
             csv.forEach( (week,i) => {
-
-                // console.log(week);
-
-                let newObject = {};
 
                 Object.keys(week).forEach( (key) => {
 
@@ -304,18 +296,6 @@ var TCMGCharts = function TCMGCharts() {
                         delete week[key];
                     }
                 });
-
-                //
-                //     date : week['date'],
-                //     aos : week['aos'],
-                //     besluiten : week['besluiten'],
-                //     inbehandeling : week['inbehandeling'],
-                //     meldingen : week['meldingen'],
-                //     opnames : week['opnames']
-                // }
-
-                data.push(newObject);
-
             });
 
             console.log(csv);
