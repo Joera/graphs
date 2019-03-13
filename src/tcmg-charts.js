@@ -301,9 +301,8 @@ var TCMGCharts = function TCMGCharts() {
                 Object.keys(week).forEach( (key) => {
 
                     if (neededColumns.indexOf(key) < 0) {
-                        console.log(key);
+                        delete week[key];
                     }
-
                 });
 
                 //
@@ -319,7 +318,7 @@ var TCMGCharts = function TCMGCharts() {
 
             });
 
-            // console.log(csv);
+            console.log(csv);
 
 
             functions.stack = d3.stack();
