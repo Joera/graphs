@@ -37,8 +37,6 @@ var trimColumns =  function(csv,neededColumns) {
         return neededColumns.indexOf(c) > -1;
     });
 
-    csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
-
     csv.forEach( (week,i) => {
         Object.keys(week).forEach( (key) => {
             if (neededColumns.indexOf(key) < 0) {
@@ -273,7 +271,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'behandeling';  // is being set in type function
         config.fixedHeight = 160;
         config.minValue = 0;
-        config.maxValue = 28000;
+        config.maxValue = 25000;
 
 
         config.xParameter = 'date';
@@ -302,11 +300,9 @@ var TCMGCharts = function TCMGCharts() {
             let neededColumns = ['date','behandeling','besluiten'];
 
             let data = trimColumns(csv,neededColumns);
+            csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
 
             functions.stack = d3.stack();
-
-            // console.log(data.columns);
-
             let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
             function redraw() {
