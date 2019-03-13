@@ -297,13 +297,11 @@ var TCMGCharts = function TCMGCharts() {
             let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
             let data = trimColumns(csv,neededColumns);
 
-            console.log(data);
-
             functions.stack = d3.stack();
             let stackedData = functions.stack(data);
           //  let stackedData = functions.stack.keys(data.columns.slice(1))(csv);
 
-        //    console.log(stackedData);
+           console.log(stackedData);
 
             function redraw() {
                 // on redraw chart gets new dimensions
