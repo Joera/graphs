@@ -28,3 +28,23 @@ svg.acuut {
     rect, path { fill: darkblue; }
   }
 }
+
+.serie.opnames path{
+
+    fill: $green;
+}
+
+.serie.meldingen path{
+
+  fill: orange;
+}
+
+.serie.besluiten path{
+
+  fill: $blue;
+}
+
+.serie.aos path{
+
+  fill: darkblue;
+}
