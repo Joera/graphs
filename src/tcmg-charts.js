@@ -203,7 +203,7 @@ var TCMGCharts = function TCMGCharts() {
        // let chartStackedBars = ChartStackedBars(config,svg,functions);
       //  let chartBlocks = ChartBlocks(config,svg,functions);
         chartAxis.drawXAxis();
-      //  chartAxis.drawBlocksYAxis();
+        chartAxis.drawBlocksYAxis();
 
         // function to parse csv
         function type(d, i, columns) {
