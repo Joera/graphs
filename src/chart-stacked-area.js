@@ -24,7 +24,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         let area = d3.area()
             .x(function(d) {
-                return scales.xTime(d.data.date); })
+                return scales.xTime(new Date(d.data.date)); })
             .y0(function(d) { return scales.yLinear(d[0]); })
             .y1(function(d) { return scales.yLinear(d[1]); });
 
