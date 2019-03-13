@@ -34,7 +34,7 @@ let ChartLine = function ChartLine(config,svg) {
         svg.candlesUp
             .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
             .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(0) - scales.yLinear(d.increase)) })
-            .attr('width',10)
+            .attr('width',8)
             .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
             .on("mouseover", function(d) {
 
