@@ -9,6 +9,19 @@ let ChartBar = function ChartBar(config,svg) {
                 return "bar " + d.status;
             });
 
+        svg.barLabels = svg.bar
+            .append('text')
+            .datum(function(d) { return d; })
+            .attr('x', 0)
+            .attr('dx', '0px')
+            .attr('dy', '6px')
+            .style("text-anchor", "middle")
+            .text(function(d) {
+                    return d.totaal;
+            })
+            .attr('fill-opacity', 1);
+
+
     }
 
     let redraw = function redraw(dimensions,scales,data) {
@@ -17,10 +30,18 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar
             .attr("x", function(d) { return scales.xBand(d[config.xParameter]); })
-            .attr("y", function(d) { console.log(scales.yLinear(d[config.yParameter])); return config.margin.top + scales.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { return config.margin.top + scales.yLinear(d[config.yParameter]); })
             .attr("height", function(d) { return dimensions.height - scales.yLinear(d[config.yParameter]); })
             .attr("width", scales.xBand.bandwidth())
         ;
+
+        svg.barLabels
+            .attr('transform', function(d) {
+
+                return 'translate(' + scales.xBand(d[config.xParameter]) + ',' +
+                    scales.yLinear(d[config.yParameter]);
+                    + ')';
+            })
     }
 
 

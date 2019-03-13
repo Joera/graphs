@@ -27,7 +27,6 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
                 } else if (d.key == 'besluiten') {
                     return 'afgehandeld';
                 } else {
-
                     return d.key;
                 }
             })
