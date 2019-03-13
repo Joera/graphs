@@ -20,7 +20,14 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('dx', '-20px')
             .attr('dy', '6px')
             .style("text-anchor", "end")
-            .text(function(d) { return d.key; })
+            .text(function(d) {
+
+                if (d.key == 'behandeling') {
+                    return 'niet afgehandeld';
+                } else if (d.key == 'besluiten') {
+                    return 'afgehandeld';
+                }
+            })
             .attr('fill-opacity', 1);
 
 
