@@ -293,7 +293,8 @@ var TCMGCharts = function TCMGCharts() {
             console.log(data);
 
             functions.stack = d3.stack();
-            let stackedData = functions.stack.keys(data.columns.slice(1))(data);
+            let stackedData = functions.stack(data);
+          //  let stackedData = functions.stack.keys(data.columns.slice(1))(data);
 
             function redraw() {
                 // on redraw chart gets new dimensions
