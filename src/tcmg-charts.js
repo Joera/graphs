@@ -287,6 +287,7 @@ var TCMGCharts = function TCMGCharts() {
 
             procedureSelect.addEventListener("change", function() {
 
+                console.log('yoyoyoyo');
                 let data = prepareData(csv);
                 draw(data);
                 redraw();
