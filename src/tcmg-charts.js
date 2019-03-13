@@ -43,6 +43,8 @@ var trimColumns =  function(csv,neededColumns) {
                 delete week[key];
             }
         });
+
+        week.reverse();
     });
     return csv;
 };
