@@ -215,7 +215,7 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
             // manipulate the data into stacked series
-            aconsole.log(data);
+            console.log(data);
 
             data.forEach( () => {
 
