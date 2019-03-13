@@ -379,10 +379,10 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
             if (error) throw error;
-            
+
             data.forEach( (week,i) => {
 
-                    if (i > 0) {
+                    if (i > 1) {
                         week.increase = data[i].meldingen - data[i - 1].meldingen;
                         week.decrease = data[i].afgehandeld - data[i - 1].afgehandeld;
                     } else {
