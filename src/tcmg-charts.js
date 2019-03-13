@@ -189,6 +189,7 @@ var TCMGCharts = function TCMGCharts() {
         config.minWidth = 460;
         config.xParameter = 'status';
         config.paddingInner = [0.5];
+        config.paddingOuter = [0.5];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
