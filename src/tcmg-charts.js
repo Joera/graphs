@@ -275,8 +275,22 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
-        d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
+        d3.csv("./dummy_data_progress_extended.csv", function(error, csv) {
             if (error) throw error;
+
+            let data = csv.filter( (week) => {
+
+                return {
+                    'aos' : week['aos'],
+                    'besluiten' : week['besluiten'],
+                    'inbehandeling' : week['inbehandeling'],
+                    'meldingen' : week['meldingen'],
+                    'opnames' : week['opnames']
+                }
+
+            });
+
+            console.log(data);
 
             functions.stack = d3.stack();
             let stackedData = functions.stack.keys(data.columns.slice(1))(data);
@@ -295,8 +309,6 @@ var TCMGCharts = function TCMGCharts() {
                 chartStackedArea.redraw(dimensions, scales);
 
             }
-
-            console.log(data);
 
             scales = chartScales.set(data);
             chartLine.draw(data);
