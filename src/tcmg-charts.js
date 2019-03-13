@@ -43,8 +43,6 @@ var trimColumns =  function(csv,neededColumns) {
                 delete week[key];
             }
         });
-
-        week.reverse();
     });
     return csv;
 };
@@ -297,7 +295,7 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
      //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
-            let neededColumns = ['date','besluiten','inbehandeling'];
+            let neededColumns = ['date','inbehandeling','besluiten'];
 
             let data = trimColumns(csv,neededColumns);
 
