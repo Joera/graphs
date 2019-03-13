@@ -17,7 +17,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('class', 'flow');
 
 
-        console.log(stackedData);
+        // console.log(stackedData);
 
     }
 

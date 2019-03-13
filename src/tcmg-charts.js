@@ -290,13 +290,11 @@ var TCMGCharts = function TCMGCharts() {
                     opnames : week['opnames']
                 }
 
-                console.log(newObject);
-
-                week = newObject;
+                data.push(newObject);
 
             });
 
-            console.log(csv);
+            console.log(data);
 
             functions.stack = d3.stack();
             let stackedData = functions.stack(data);
