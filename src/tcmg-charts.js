@@ -43,8 +43,6 @@ var trimColumns =  function(csv,neededColumns) {
                 delete week[key];
             }
         });
-
-        console.log(week);
     });
     return csv;
 };
@@ -217,7 +215,7 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
             // manipulate the data into stacked series
-            console.log(data);
+            aconsole.log(data);
 
             data.forEach( () => {
 
