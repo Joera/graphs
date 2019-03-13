@@ -618,7 +618,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartAxis = ChartAxis(config,svg);
         let chartBlocks = ChartBlocks(config,svg,functions);
 
-        chartAxis.drawBlocksYAxis(dimensions);
+        chartAxis.drawYAxis(dimensions);
 
         d3.csv("./dummy_data_output.csv", function(error, data) {
             if (error) throw error;
@@ -639,7 +639,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
                 //  chartAxis.redrawXAxis(dimensions,scales,axes);
-                chartAxis.redrawBlocksYAxis(scales,axes);
+                chartAxis.redrawYAxis(scales,axes);
                 // redraw data
                 chartBlocks.redraw(dimensions, scales);
             }
