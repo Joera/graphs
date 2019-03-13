@@ -43,6 +43,8 @@ var trimColumns =  function(csv,neededColumns) {
                 delete week[key];
             }
         });
+
+        console.log(week);
     });
     return csv;
 };
