@@ -298,7 +298,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 let newObject = {};
 
-                week.keys().forEach( (prop) => {
+                Object.keys(week).forEach( (prop) => {
 
                     console.log(prop);
 
