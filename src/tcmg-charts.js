@@ -280,6 +280,10 @@ var TCMGCharts = function TCMGCharts() {
 
             let data = [];
 
+            let columns = csv['columns'];
+
+            console.log(columns);
+
             csv.forEach( (week,i) => {
 
                 console.log(week);
