@@ -288,7 +288,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 console.log(c);
 
-                neededColumns.indexOf(c) > -1;
+                return neededColumns.indexOf(c) > -1;
             })
 
             console.log(columns);
