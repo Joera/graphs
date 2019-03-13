@@ -27,7 +27,7 @@
 
     .serie text {
       font-size: .6rem;
-      fill: white;
+      //fill: white;
     }
 
     .serie.opnames path{
@@ -42,7 +42,7 @@
 
     .serie.behandeling path {
 
-      fill: $green;
+      fill: orange;
     }
 
     .serie.afgehandeld path{
