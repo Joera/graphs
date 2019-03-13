@@ -31,6 +31,22 @@ const localTime = d3.timeFormatLocale({
 const formatDates = localTime.format("%B %Y");
 const currency = localCurrency.format("$,");
 
+var trimColumns =  function(csv,neededColumns) {
+
+    csv['columns'] = csv['columns'].filter( (c) => {
+        return neededColumns.indexOf(c) > -1;
+    });
+
+    csv.forEach( (week,i) => {
+        Object.keys(week).forEach( (key) => {
+            if (neededColumns.indexOf(key) < 0) {
+                delete week[key];
+            }
+        });
+    });
+    return csv;
+};
+
 
 
 var TCMGCharts = function TCMGCharts() {
@@ -278,31 +294,13 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_progress_extended.csv", function(error, csv) {
             if (error) throw error;
 
-            let data = [];
-
-            // let columns = csv['columns'];
-
             let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
+            let data = trimColumns(csv,neededColumns);
 
-            csv['columns'] = csv['columns'].filter( (c) => {
-                return neededColumns.indexOf(c) > -1;
-            })
-
-            csv.forEach( (week,i) => {
-
-                Object.keys(week).forEach( (key) => {
-
-                    if (neededColumns.indexOf(key) < 0) {
-                        delete week[key];
-                    }
-                });
-            });
-
-            console.log(csv);
-
+            console.log(data);
 
             functions.stack = d3.stack();
-            let stackedData = functions.stack(csv);
+            let stackedData = functions.stack(data);
           //  let stackedData = functions.stack.keys(data.columns.slice(1))(csv);
 
         //    console.log(stackedData);
