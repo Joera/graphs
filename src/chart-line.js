@@ -1,5 +1,14 @@
 let ChartLine = function ChartLine(config,svg) {
 
+
+    let popup = function popup(d) {
+
+        return moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - '
+            + moment(d[config.xParameter]).format('D MMMM') + '<br/>'
+            + d.increase + ' nieuwe meldingen' + '<br/>'
+            + d.decrease + ' nieuwe besluiten';
+    }
+
     let draw = function draw(data) {
 
         svg.line = svg.layers.data.append("path")
@@ -38,10 +47,8 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
             .on("mouseover", function(d) {
 
-                let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' + d.decrease + ' nieuwe meldingen';
-
                 svg.tooltip
-                    .html(html)
+                    .html(popup(d))
                     .style("left", (d3.event.pageX + 5) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
                     .transition()
@@ -62,10 +69,12 @@ let ChartLine = function ChartLine(config,svg) {
             .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.decrease)  } )
             .on("mouseover", function(d) {
 
-                let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' + d.decrease + ' nieuwe besluiten';
+                let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' +
+                    '' + d.increase + ' nieuwe meldingen' + '<br/>' + d.decrease + ' nieuwe besluiten';
+
 
                 svg.tooltip
-                    .html(html)
+                    .html(popup(d))
                     .style("left", (d3.event.pageX + 5) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
                     .transition()
