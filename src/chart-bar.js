@@ -5,7 +5,9 @@ let ChartBar = function ChartBar(config,svg) {
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data)
             .enter().append("rect")
-            .attr("class", "bar");
+            .attr("class", function(d) {
+                return "bar " + d.status;
+            });
 
     }
 
