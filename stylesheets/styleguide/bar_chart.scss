@@ -56,6 +56,19 @@
   }
 }
 
+.progress-candles-container {
+
+  g.data {
+
+    path {
+      fill: none;
+      stroke: #000;
+      stroke-dasharray: 4;
+    }
+  }
+
+}
+
 .remittances-container {
 
   rect {
