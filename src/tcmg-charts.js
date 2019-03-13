@@ -285,13 +285,15 @@ var TCMGCharts = function TCMGCharts() {
             let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
             columns = columns.filter( (c) => {
-
-                console.log(c);
-
                 return neededColumns.indexOf(c) > -1;
             })
 
             console.log(columns);
+
+            for (let week in csv) {
+
+                console.log(week);
+            }
 
             csv.forEach( (week,i) => {
 
@@ -317,7 +319,7 @@ var TCMGCharts = function TCMGCharts() {
             let stackedData = functions.stack(csv);
           //  let stackedData = functions.stack.keys(data.columns.slice(1))(csv);
 
-            console.log(stackedData);
+        //    console.log(stackedData);
 
             function redraw() {
                 // on redraw chart gets new dimensions
