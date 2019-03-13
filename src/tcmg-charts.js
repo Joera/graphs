@@ -215,7 +215,9 @@ var TCMGCharts = function TCMGCharts() {
             if (error) throw error;
 
             // manipulate the data into stacked series
-            console.log(data);
+            console.log(csv);
+
+            let data = [];
 
             data.push( {
                 status : "Wacht op opname",
