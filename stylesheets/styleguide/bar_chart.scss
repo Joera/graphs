@@ -16,8 +16,33 @@
 
     path {
       fill: none;
-      stroke: #000;
-      stroke-dasharray: 4;
+      //stroke: #000;
+      //stroke-dasharray: 4;
+    }
+
+    .serie path {
+
+      opacity: 1;
+    }
+
+    .serie.opnames path{
+
+      fill: $green;
+    }
+
+    .serie.meldingen path{
+
+      fill: orange;
+    }
+
+    .serie.besluiten path{
+
+      fill: $blue;
+    }
+
+    .serie.aos path{
+
+      fill: darkblue;
     }
   }
 }
