@@ -284,7 +284,7 @@ var TCMGCharts = function TCMGCharts() {
 
 
 
-            columns.filter( (c) => {
+            columns = columns.filter( (c) => {
 
                 return ['date','aos','besluiten','inbehandeling','meldingen','opnames'].indexOf(c) < -1;
             })
