@@ -40,7 +40,20 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
 
         svg.areaLabels
-            .attr('transform', function(d) { console.log(d); return 'translate(' + dimensions.width + ',' + scales.yLinear(d[d.length -1][0] + (scales.yLinear(d[d.length -1][1] - scales.yLinear(d[d.length -1][0] / 2)) + ')'; })
+            .attr('transform', function(d) {
+                console.log(d);
+                return 'translate(' + dimensions.width + ',' +
+
+                    scales.yLinear(
+
+                        d[d.length -1][0] + (
+
+                            d[d.length -1][1] - d[d.length -1][0] / 2
+                        )
+                    )
+
+                 + ')';
+            })
     }
 
 
