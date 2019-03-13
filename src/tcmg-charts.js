@@ -223,6 +223,8 @@ var TCMGCharts = function TCMGCharts() {
 
             function prepareData(csv) {
 
+                console.log('2');
+
                 let data = [];
 
                 data.push({
