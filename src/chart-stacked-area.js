@@ -48,7 +48,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
                         d[d.length -1][0] + (
 
-                            d[d.length -1][1] - d[d.length -1][0] / 2
+                            (d[d.length -1][1] - d[d.length -1][0]) / 2
                         )
                     )
 
