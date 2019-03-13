@@ -264,7 +264,7 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.top = 30;
         config.padding.bottom = 30;
         config.padding.left = 40;
-        config.padding.right = 60;
+        config.padding.right = 0;
          // name of first column with values of bands on x axis
 
 
