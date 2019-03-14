@@ -112,7 +112,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
         }
 
         svg.blockGroup
-            .attr("transform", function(d,i) { console.log(d[config.xParameter]); return 'translate('0',' + (config.margin.top + dimensions.height) + ')'})
+            .attr("transform", function(d,i) { console.log(d[config.xParameter]); return 'translate(' + 0 + ',' + (config.margin.top + dimensions.height) + ')'})
             .on("mouseout", unhighlight);
 
         svg.blocks
