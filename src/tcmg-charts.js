@@ -552,6 +552,8 @@ var TCMGCharts = function TCMGCharts() {
 
     var Remitted = function Remitted(element) {
 
+        let container = document.querySelector(element);
+
         // let chartObjects = ChartObjects();
         // let config = chartObjects.config();
         // let dimensions = chartObjects.dimensions();
@@ -605,7 +607,7 @@ var TCMGCharts = function TCMGCharts() {
                 table.appendChild(tr);
             })
 
-            element.appendChild(table);
+            container.appendChild(table);
 
 
             // function redraw() {
