@@ -179,7 +179,9 @@ var TCMGCharts = function TCMGCharts() {
 
         let colour = d3.scaleOrdinal(d3.schemeCategory10);
 
-        let projection = d3.geoMercator();
+        let projection = d3.geoMercator()
+            .scale(1)
+            .translate([0, 0]);
 
         let path = d3.geoPath()
             .projection(projection);
@@ -194,7 +196,7 @@ var TCMGCharts = function TCMGCharts() {
                 t = [(dimensions.width - s * (b[1][0] + b[0][0])) / 2, (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
             projection
-                .scale(s)
+                // .scale(s)
                 .translate(t);
 
             svg.layers.data.selectAll("path")
