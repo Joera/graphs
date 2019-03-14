@@ -2,6 +2,8 @@ let ChartBar = function ChartBar(config,svg) {
 
     let draw = function draw(data) {
 
+        console.log(data);
+
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data)
             .enter().append("rect")
