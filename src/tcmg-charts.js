@@ -585,15 +585,11 @@ var TCMGCharts = function TCMGCharts() {
             //     .attr('class','number')
             //     .attr("text-anchor","middle");
 
-
-            console.log(element);
-
-
             let table = document.createElement('table');
 
             // thead
             let tr = document.createElement('tr');
-            for (let d in row[0]) {
+            for (let d in data[0]) {
                 let td = document.createElement('td');
                 td.innerText = d;
                 tr.appendChild(td)
