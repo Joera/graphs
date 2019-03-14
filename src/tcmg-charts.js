@@ -215,7 +215,13 @@ var TCMGCharts = function TCMGCharts() {
 
                 geojson.features.forEach( (feature) => {
 
-                    console.log(feature.properties);
+                    // console.log(feature.properties.name);
+
+                    let gemeenteData = csv.find( (g) => {
+                        return g.gemeente = feature.properties.name;
+                    });
+
+                    feature.properties = Object.assign({}, feature.properties, gemeenteData);
 
                 });
 
