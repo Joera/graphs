@@ -142,8 +142,8 @@ var TCMGCharts = function TCMGCharts() {
 
         config.margin.top = 10;
         config.padding.left = 60;
-        config.padding.bottom = 30;
-        config.margin.bottom = -30;
+        config.padding.bottom = 10;
+        config.margin.bottom = 0;
 
         config.xParameter = 'provenance';
 
@@ -732,8 +732,8 @@ var TCMGCharts = function TCMGCharts() {
 
         config.margin.top = 10;
         config.padding.left = 60;
-        config.padding.bottom = 30;
-        config.margin.bottom = -30;
+        config.padding.bottom = 0;
+        config.margin.bottom = 10;
 
         config.xParameter = 'Uitkomst';
 
