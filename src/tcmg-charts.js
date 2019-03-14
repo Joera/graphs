@@ -199,7 +199,7 @@ var TCMGCharts = function TCMGCharts() {
             //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
             var b = [
-                    [0.11374064877658079, -1.1049478224689775],
+                    [0.11474064877658079, -1.1049478224689775],
                     [0.12022108488117365, -1.1032758824373228]
                 ],
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
