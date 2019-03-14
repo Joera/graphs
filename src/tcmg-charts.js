@@ -192,6 +192,9 @@ var TCMGCharts = function TCMGCharts() {
 
         let chartSVG = ChartSVG(element,config,dimensions,svg);
 
+        dimensions = chartDimensions.get(dimensions);
+        chartSVG.redraw(dimensions);
+
         d3.json("/assets/geojson/nld.json", function(error, nld) {
 
             var l = topojson.feature(nld, nld.objects.subunits).features[3],
