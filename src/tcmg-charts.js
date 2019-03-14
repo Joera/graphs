@@ -192,8 +192,8 @@ var TCMGCharts = function TCMGCharts() {
 
             var l = topojson.feature(nld, nld.objects.subunits).features[3],
                 b = path.bounds(l),
-                s = .2 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
-                t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+                s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.width, (b[1][1] - b[0][1]) / dimensions.height),
+                t = [(width - s * (b[1][0] + b[0][0])) / 2, (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
             projection
                 .scale(s)
