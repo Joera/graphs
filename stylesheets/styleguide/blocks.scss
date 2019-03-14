@@ -52,3 +52,19 @@ rect.block {
   }
 
 }
+
+.output-container  {
+
+  rect.block {
+
+    &.afgewezen {
+
+      fill: orange;
+    }
+
+    &.gedeeltelijk-toegekend {
+
+      fill: $green;
+    }
+  }
+}
