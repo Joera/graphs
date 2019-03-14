@@ -230,10 +230,11 @@ var TCMGCharts = function TCMGCharts() {
                         let slug = sluggify(key);
 
                         gemeenteData[slug] = gemeenteData[key];
+                        delete gemeenteData[key];
                     //
                     //     if (key != undefined) {
                     //
-                    //         delete gemeenteData[key];
+                    //
                     //     }
                     }
 
