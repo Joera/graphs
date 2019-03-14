@@ -174,6 +174,8 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 10;
         config.margin.bottom = 0;
 
+        config.fixedHeight = 300;
+
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
