@@ -83,13 +83,26 @@ text.number {
   @include uppercase;
 }
 
-.procedure-container {
+.procedure-container, .remittances-container {
 
   .bar {
     fill : $green;
 
     &.wacht-op-opname {
       fill : orange;
+    }
+
+    &.voorbereiding-besluit {
+      fill : $blue;
+    }
+
+    &.-1k {
+      fill : $blue;
+    }
+
+
+    &.voorbereiding-besluit {
+      fill : $blue;
     }
 
     &.voorbereiding-besluit {
