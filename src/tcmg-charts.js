@@ -242,7 +242,9 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("mouseover", function (d) {
 
-                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" + d.total + " meldingen";
+                        console.log(d);
+
+                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" + d.properties.totaal + " meldingen";
 
                         svg.tooltip
                             .html(html)
