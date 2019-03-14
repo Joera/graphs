@@ -5,14 +5,16 @@ let ChartBar = function ChartBar(config,svg) {
         console.log(data);
 
         svg.bar = svg.layers.data.selectAll(".bar")
-            .data(data);
+            .data(data)
+            .attr("class", function(d) {
+                return "bar " + d.status;
+            });
 
 
         svg.bar.enter().append("rect");
 
-        svg.bar.attr("class", function(d) {
-            return "bar " + d.status;
-        });
+
+
 
 
 
