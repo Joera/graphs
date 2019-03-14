@@ -7,11 +7,6 @@ let ChartBar = function ChartBar(config,svg) {
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data)
 
-            .enter()
-            .append("rect")
-            .attr("class", function(d) {
-                return "bar " + d.status;
-            });
 
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
@@ -27,7 +22,16 @@ let ChartBar = function ChartBar(config,svg) {
             .style("text-anchor", "middle")
 
             ;
+    }
 
+    let enter = function enter() {
+
+        svg.bar
+            .enter()
+            .append("rect")
+            .attr("class", function(d) {
+                return "bar " + d.status;
+            });
 
     }
 
@@ -68,6 +72,7 @@ let ChartBar = function ChartBar(config,svg) {
 
     return  {
         draw : draw,
+        enter : enter,
         redraw : redraw
     }
 }
