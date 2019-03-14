@@ -254,6 +254,8 @@ var TCMGCharts = function TCMGCharts() {
                 return data;
             }
 
+
+
             function draw(data) {
 
                 // with data we can init scales
@@ -276,21 +278,24 @@ var TCMGCharts = function TCMGCharts() {
              //   chartBlocks.redraw(dimensions, scales);
             }
 
+            function run(filter) {
+                let data = prepareData(csv,filter);
+                draw(data);
+                redraw();
+            }
+
             // further drawing happens in function that can be repeated.
 
 
-            let data = prepareData(csv,'totaal');
-            draw(data);
-            redraw();
+            // let data = prepareData(csv,'totaal');
+            // draw(data);
+            // redraw();
 
             // for example on window resize
             window.addEventListener("resize", redraw, false);
 
             procedureSelect.addEventListener("change", function() {
-
-                let data = prepareData(csv,procedureSelect.options[procedureSelect.selectedIndex].value);
-                draw(data);
-                redraw();
+                run(csv,procedureSelect.options[procedureSelect.selectedIndex].value);
             });
         });
     }
