@@ -794,9 +794,9 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.csv("./dummy_data_remittances.csv", function(error, csv) {
 
-            // function prepareData(csv,filter) {
+            function prepareData(csv,filter) {
 
-                let data = [], filter = 'totaal';
+                let data = [];
 
                 data.push({
                     status: "< €1K",
@@ -824,9 +824,17 @@ var TCMGCharts = function TCMGCharts() {
 
                 data.columns = csv.columns;
 
-            //     return data;
-            // }
+                return data;
+            }
 
+            function draw(data) {
+
+                // with data we can init scales
+                scales = chartScales.set(data);
+                // width data we can draw items
+                chartBar.draw(data, functions);
+
+            }
 
             function redraw() {
 
@@ -842,17 +850,22 @@ var TCMGCharts = function TCMGCharts() {
                 chartBar.redraw(dimensions,scales,data);
             }
 
-            // let data = prepareData(csv,'totaal');
+            function run(filter) {
+                let data = prepareData(csv,filter);
+                draw(data);
+                redraw();
+            }
 
-            console.log(data);
-            // with data we can init scales
-            scales = chartScales.set(data);
-            // width data we can draw items
-            chartBar.draw(data);
-            // further drawing happens in function that can be repeated.
-            redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);
+
+            // procedureSelect.addEventListener("change", function() {
+            //     run(procedureSelect.options[procedureSelect.selectedIndex].value);
+            // });
+
+            run('totaal');
+            // hij lijkt alleen elementen te vullen bij een update
+            run('totaal');
         });
 
     }
