@@ -794,9 +794,9 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.csv("./dummy_data_remittances.csv", function(error, csv) {
 
-            function prepareData(csv,filter) {
+            // function prepareData(csv,filter) {
 
-                let data = [];
+                let data = [], filter = 'totaal';
 
                 data.push({
                     status: "< €1K",
@@ -824,8 +824,8 @@ var TCMGCharts = function TCMGCharts() {
 
                 data.columns = csv.columns;
 
-                return data;
-            }
+            //     return data;
+            // }
 
 
             function redraw() {
@@ -842,7 +842,7 @@ var TCMGCharts = function TCMGCharts() {
                 chartBar.redraw(dimensions,scales,data);
             }
 
-            let data = prepareData(csv,'totaal');
+            // let data = prepareData(csv,'totaal');
 
             // with data we can init scales
             scales = chartScales.set(data);
