@@ -579,9 +579,9 @@ var TCMGCharts = function TCMGCharts() {
         // let chartSVG = ChartSVG(element,config,dimensions,svg);
 
         function monies(amount) {
-            
 
-            return ("" + num).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, function($1) { return '€' + $1 + "." });
+
+            return ("€" + amount).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, function($1) { return $1 + "." });
 
         }
 
