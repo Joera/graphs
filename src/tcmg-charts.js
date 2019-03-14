@@ -844,6 +844,7 @@ var TCMGCharts = function TCMGCharts() {
 
             // let data = prepareData(csv,'totaal');
 
+            console.log(data);
             // with data we can init scales
             scales = chartScales.set(data);
             // width data we can draw items
