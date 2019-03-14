@@ -297,6 +297,8 @@ var TCMGCharts = function TCMGCharts() {
             procedureSelect.addEventListener("change", function() {
                 run(procedureSelect.options[procedureSelect.selectedIndex].value);
             });
+
+            run('totaal');
         });
     }
 
