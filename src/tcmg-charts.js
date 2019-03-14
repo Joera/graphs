@@ -183,7 +183,7 @@ var TCMGCharts = function TCMGCharts() {
             .scale(1)
             .translate([0, 0]);
 
-        let path = d3.geo.path()
+        let path = d3.geoPath()
             .projection(projection);
 
         let chartSVG = ChartSVG(element,config,dimensions,svg);
