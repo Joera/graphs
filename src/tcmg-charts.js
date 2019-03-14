@@ -669,7 +669,7 @@ var TCMGCharts = function TCMGCharts() {
         config.maxValue = 10000;
         // x-scale
         config.fixedWidth = 100 + 6;
-        config.xParameter = 'UItkomst';
+        config.xParameter = 'Uitkomst';
 
         config.paddingInner = [0.0];
         config.paddingOuter = [0.0];
@@ -692,9 +692,9 @@ var TCMGCharts = function TCMGCharts() {
             let cummulative = 0;
             for (let i = 0; i < data.length; i++) {
                 data[i]['previous'] = cummulative;
-                cummulative = cummulative + parseInt(data[i]['total']);
+                cummulative = cummulative + parseInt(data[i]['Totaal']);
                 data[i]['cummulative'] = cummulative;
-                data[i]['key'] = 'total';
+                data[i]['key'] = 'Totaal';
             }
 
             function redrawInput() {
