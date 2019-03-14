@@ -600,7 +600,7 @@ var TCMGCharts = function TCMGCharts() {
                 for (let d in row) {
 
                     let td = document.createElement('td');
-                    td.innerText = d;
+                    td.innerText = row[d];
                     tr.appendChild(td)
                 }
 
