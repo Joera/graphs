@@ -847,7 +847,7 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXBandAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
-                chartBar.redraw(dimensions,scales,data);
+                chartBar.redraw(dimensions,scales);
             }
 
             function run(filter) {
