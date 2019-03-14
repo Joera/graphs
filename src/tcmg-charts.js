@@ -291,7 +291,6 @@ var TCMGCharts = function TCMGCharts() {
             window.addEventListener("resize", redraw, false);
 
             procedureSelect.addEventListener("change", function() {
-                console.log('ppp');
                 run(procedureSelect.options[procedureSelect.selectedIndex].value);
             });
 
