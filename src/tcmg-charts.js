@@ -288,8 +288,8 @@ var TCMGCharts = function TCMGCharts() {
             window.addEventListener("resize", redraw, false);
 
             procedureSelect.addEventListener("change", function() {
-
-                console.log(procedureSelect.selectedIndex.value);
+                
+                console.log(procedureSelect.options[procedureSelect.selectedIndex].value);
 
                 let data = prepareData(csv);
                 draw(data);
