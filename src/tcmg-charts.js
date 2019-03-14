@@ -221,7 +221,7 @@ var TCMGCharts = function TCMGCharts() {
 
             // manipulate the data into stacked series
 
-            function prepareData(csv) {
+            function prepareData(csv,filter) {
 
                 console.log('2');
 
@@ -229,13 +229,13 @@ var TCMGCharts = function TCMGCharts() {
 
                 data.push({
                     status: "Wacht op opname",
-                    totaal: csv[3]['totaal'] + csv[6]['totaal']
+                    totaal: csv[3][filter] + csv[6][filter]
 
                 });
 
                 data.push({
                     status: "Wacht op rapport",
-                    totaal: csv[5]['totaal']
+                    totaal: csv[5][filter]
 
                 });
 
@@ -247,7 +247,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 data.push({
                     status: "Voorbereiding besluit",
-                    totaal: csv[7]['totaal']
+                    totaal: csv[7][filter]
 
                 });
 
@@ -281,7 +281,7 @@ var TCMGCharts = function TCMGCharts() {
             // further drawing happens in function that can be repeated.
 
 
-            let data = prepareData(csv);
+            let data = prepareData(csv,'totaal');
             draw(data);
             redraw();
             // for example on window resize
@@ -289,7 +289,6 @@ var TCMGCharts = function TCMGCharts() {
 
             procedureSelect.addEventListener("change", function() {
 
-                console.log('yoyoyoyo');
                 let data = prepareData(csv);
                 draw(data);
                 redraw();
