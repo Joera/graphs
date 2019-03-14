@@ -5,21 +5,27 @@ let ChartBar = function ChartBar(config,svg) {
         console.log(data);
 
         svg.bar = svg.layers.data.selectAll(".bar")
-            .data(data)
-            .enter().append("rect")
-            .attr("class", function(d) {
-                return "bar " + d.status;
-            });
+            .data(data);
+
+        svg.bar.attr("class", function(d) {
+            return "bar " + d.status;
+        });
+
+        svg.bar.enter().append("rect")
+
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
-            .data(data)
-            .enter()
-            .append('text')
+            .data(data);
+
+        svg.barLabels
             .attr('class','barLabel')
+
+        svg.barLabels.enter().append('text')
             .attr('x', 0)
             .attr('dx', '0px')
             .attr('dy', '-6px')
             .style("text-anchor", "middle")
+            .merge(svg.barLabels)
             .text(function(d) {
                     return d.totaal;
             })
