@@ -170,7 +170,7 @@ var TCMGCharts = function TCMGCharts() {
         let svg = chartObjects.svg();
 
         config.margin.top = 10;
-        config.padding.left = 60;
+        config.padding.left = 0;
         config.padding.bottom = 10;
         config.margin.bottom = 0;
 
@@ -195,7 +195,7 @@ var TCMGCharts = function TCMGCharts() {
 
             projection
                 .scale(s)
-                .translate([0, 0]);
+                .translate(t);
 
             svg.layers.data.selectAll("path")
                 .data(topojson.feature(nld, nld.objects.subunits).features).enter()
