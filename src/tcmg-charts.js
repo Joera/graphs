@@ -664,12 +664,12 @@ var TCMGCharts = function TCMGCharts() {
           // is being set in type function
 
         // y-scale
-        config.yParameter = 'total';
+        config.yParameter = 'Totaal';
         config.minValue = 0;
         config.maxValue = 10000;
         // x-scale
         config.fixedWidth = 100 + 6;
-        config.xParameter = 'key';
+        config.xParameter = 'UItkomst';
 
         config.paddingInner = [0.0];
         config.paddingOuter = [0.0];
