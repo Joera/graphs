@@ -222,13 +222,18 @@ var TCMGCharts = function TCMGCharts() {
                         return sluggify(g.gemeente) == sluggify(feature.properties.name);
                     });
 
-                    // for (let key in gemeenteData) {
+
+
+                    for (let key in gemeenteData) {
+
+                        console.log(key);
+                        console.log(sluggify(key));
                     //
                     //     if (key != undefined) {
                     //         gemeenteData[sluggify(key)] = gemeenteData[key];
                     //         delete gemeenteData[key];
                     //     }
-                    // }
+                    }
 
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
 
