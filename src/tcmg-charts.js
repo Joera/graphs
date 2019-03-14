@@ -203,15 +203,15 @@ var TCMGCharts = function TCMGCharts() {
             //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
             var l = geojson.features,
-                b = path.bounds(l),
+                b = path.bounds(geojson.features[0]),
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
 
-             console.log(b);
+            console.log(b);
             projection
-                .scale(3000)
-                .translate([0,3400])
+                .scale(s)
+                .translate(t)
             ;
 
             svg.layers.data.selectAll("path")
