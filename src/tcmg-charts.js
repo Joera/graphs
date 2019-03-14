@@ -800,7 +800,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 data.push({
                     status: "< €1K",
-                    totaal: csv[0][filter] + csv[0][filter]
+                    totaal: csv[0][filter]
 
                 });
 
