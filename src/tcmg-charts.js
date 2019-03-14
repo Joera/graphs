@@ -613,6 +613,7 @@ var TCMGCharts = function TCMGCharts() {
                     let td = document.createElement('td');
 
                     if (Number.isInteger(row[d])) {
+                        console.log('FY');
                         td.innerText = monies(row[d]);
                     } else {
                         td.innerText = row[d];
