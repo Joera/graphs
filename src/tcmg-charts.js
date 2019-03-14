@@ -218,28 +218,14 @@ var TCMGCharts = function TCMGCharts() {
                     // console.log(feature.properties.name);
 
                     let gemeenteData = csv.find( (g) => {
-
                         return sluggify(g.gemeente) == sluggify(feature.properties.name);
                     });
 
-
-
                     for (let key in gemeenteData) {
-
-                        console.log(key);
-                        let slug = sluggify(key);
-
-                        gemeenteData[slug] = gemeenteData[key];
-                        delete gemeenteData[key];
-                    //
-                    //     if (key != undefined) {
-                    //
-                    //
-                    //     }
+                        gemeenteData[sluggify(key)] = gemeenteData[key];
                     }
 
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
-
                 });
 
                 svg.layers.data.selectAll("path")
@@ -263,9 +249,9 @@ var TCMGCharts = function TCMGCharts() {
 
                         let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
                             d.properties.totaal + " uitspraken<br/>" +
-                            d.properties.totaal + " afgewezen<br/>" +
-                            d.properties.totaal + " gedeeltelijk toegekend<br/>" +
-                            d.properties.totaal + " geheel toegekend<br/>"
+                            d.properties.afgewezen + " afgewezen<br/>" +
+                            d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
+                            d.properties['geheel-toegekend'] + " geheel toegekend<br/>"
 
 
                         ;
