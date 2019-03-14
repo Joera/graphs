@@ -8,20 +8,30 @@ text.header {
 .legend rect  {
   fill: #ccc;
 
-  &.acuut  {
+  &.melding-acuut-onveilige-situatie  {
     fill: darkblue;
   }
 
-  &.Na  {
+  &.na-19-maart-2018  {
     fill: $blue;
   }
 
-  &.met.opname {
+  &.voor-19-maart-2018-met-opname {
     fill: orange;
   }
-  &.zonder.opname  {
+  &.voor-19-maart-2018-zonder-opname  {
     fill: $green;
   }
+  &.afgewezen  {
+    fill: orange;
+  }
+  &.gedeeltelijk-toegekend  {
+    fill: $blue;
+  }
+  &.volledig-toegekend  {
+    fill: darkblue;
+  }
+
 }
 
 .legend  {
