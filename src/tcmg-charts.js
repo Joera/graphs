@@ -210,7 +210,7 @@ var TCMGCharts = function TCMGCharts() {
                 .translate(t)
             ;
 
-            d3.csv("./dummy_data_map_output.csv", type, function(error, csv) {
+            d3.csv("./dummy_data_map_output.csv", function(error, csv) {
                 if (error) throw error;
 
                 geojson.features.forEach( (feature) => {
