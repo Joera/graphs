@@ -552,47 +552,61 @@ var TCMGCharts = function TCMGCharts() {
 
     var Remitted = function Remitted(element) {
 
-        let chartObjects = ChartObjects();
-        let config = chartObjects.config();
-        let dimensions = chartObjects.dimensions();
-        let svg = chartObjects.svg();
-        let scales = chartObjects.scales();
-        let axes = chartObjects.axes();
-        let functions = chartObjects.functions();
-
-        config.margin.top = 0;
-        config.margin.bottom = 0;
-        config.margin.left = 0;
-        config.margin.right = 0;
-        config.padding.top = 30;
-        config.padding.bottom = 0;
-        config.padding.left = 0;
-        config.padding.right = 0;
-        config.fixedHeight = 20;
-
-        let chartDimensions = ChartDimensions(element,config);
-        dimensions = chartDimensions.get(dimensions);
-
-        // create svg elements without data
-        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        // let chartObjects = ChartObjects();
+        // let config = chartObjects.config();
+        // let dimensions = chartObjects.dimensions();
+        // let svg = chartObjects.svg();
+        // let scales = chartObjects.scales();
+        // let axes = chartObjects.axes();
+        // let functions = chartObjects.functions();
+        //
+        // config.margin.top = 0;
+        // config.margin.bottom = 0;
+        // config.margin.left = 0;
+        // config.margin.right = 0;
+        // config.padding.top = 30;
+        // config.padding.bottom = 0;
+        // config.padding.left = 0;
+        // config.padding.right = 0;
+        // config.fixedHeight = 20;
+        //
+        // let chartDimensions = ChartDimensions(element,config);
+        // dimensions = chartDimensions.get(dimensions);
+        //
+        // // create svg elements without data
+        // let chartSVG = ChartSVG(element,config,dimensions,svg);
 
         d3.csv("./dummy_data_remitted.csv", function(error, data) {
 
-            let text = svg.layers.data.append('text')
-                .text(data[0].key + ': ' + currency(data[0].total))
-                .attr('class','number')
-                .attr("text-anchor","middle");
+            // let text = svg.layers.data.append('text')
+            //     .text(data[0].key + ': ' + currency(data[0].total))
+            //     .attr('class','number')
+            //     .attr("text-anchor","middle");
 
 
-            function redraw() {
+            let table = document.createElement('table');
 
-                dimensions = chartDimensions.get(dimensions);
-                chartSVG.redraw(dimensions);
-                text.attr("x","50%");
-            }
+            data.forEach( (row) => {
 
-            redraw();
-            window.addEventListener("resize", redraw, false);
+                let tr = document.createElement('tr');
+
+                console.log(row);
+
+                table.appendChild(tr);
+            })
+
+            element.appendChild(table);
+
+
+            // function redraw() {
+            //
+            //     dimensions = chartDimensions.get(dimensions);
+            //     chartSVG.redraw(dimensions);
+            //     text.attr("x","50%");
+            // }
+            //
+            // redraw();
+            // window.addEventListener("resize", redraw, false);
 
         });
 
