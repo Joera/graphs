@@ -179,6 +179,8 @@ var TCMGCharts = function TCMGCharts() {
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
+        console.log(dimensions);
+
         let colour = d3.scaleOrdinal(d3.schemeCategory10);
 
         let projection = d3.geoMercator()
