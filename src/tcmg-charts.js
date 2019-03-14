@@ -281,9 +281,7 @@ var TCMGCharts = function TCMGCharts() {
 
             let data = prepareData(csv,'totaal');
             draw(data);
-            setTimeout( function() {
-                redraw();
-            },500);
+            redraw();
 
             // for example on window resize
             window.addEventListener("resize", redraw, false);

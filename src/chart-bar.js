@@ -25,9 +25,7 @@ let ChartBar = function ChartBar(config,svg) {
             .attr('dx', '0px')
             .attr('dy', '-6px')
             .style("text-anchor", "middle")
-            .text(function(d) {
-                    return d.totaal;
-            })
+
             ;
 
 
@@ -53,6 +51,9 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.barLabels
 
+            .text(function(d) {
+                return d.totaal;
+            })
             .attr('transform', function(d) {
 
                 return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
