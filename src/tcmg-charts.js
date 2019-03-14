@@ -162,7 +162,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element) {
 
-        var procedureSelect = document.getElementById("select-municipality");
+        var procedureSelect = document.getElementById("select-municipality select");
 
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
@@ -288,8 +288,8 @@ var TCMGCharts = function TCMGCharts() {
             window.addEventListener("resize", redraw, false);
 
             procedureSelect.addEventListener("change", function() {
-                
-                console.log(procedureSelect.options[procedureSelect.selectedIndex].value);
+
+                console.log(procedureSelect.options);
 
                 let data = prepareData(csv);
                 draw(data);
