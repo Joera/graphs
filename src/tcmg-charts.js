@@ -578,6 +578,12 @@ var TCMGCharts = function TCMGCharts() {
         // // create svg elements without data
         // let chartSVG = ChartSVG(element,config,dimensions,svg);
 
+        function monies(amount) {
+
+
+            return '&#8364;' + amount;
+        }
+
         d3.csv("./dummy_data_remitted.csv", function(error, data) {
 
             // let text = svg.layers.data.append('text')
@@ -607,7 +613,7 @@ var TCMGCharts = function TCMGCharts() {
                     let td = document.createElement('td');
 
                     if (Number.isInteger(row[d])) {
-                        td.innerText = currency(row[d]);
+                        td.innerText = monies(row[d]);
                     } else {
                         td.innerText = row[d];
                     }
