@@ -46,7 +46,7 @@ let ChartBar = function ChartBar(config,svg) {
             .attr("height", 0)
             .transition()
             .duration(500)
-            .attr("y", function(d) { return config.margin.top + scales.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { console.log(d[config.yParameter]); return config.margin.top + scales.yLinear(d[config.yParameter]); })
             .attr("height", function(d) { return dimensions.height - scales.yLinear(d[config.yParameter]); })
             .attr("width", scales.xBand.bandwidth())
         ;
