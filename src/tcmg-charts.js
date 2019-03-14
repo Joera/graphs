@@ -256,6 +256,8 @@ var TCMGCharts = function TCMGCharts() {
 
             function draw(data) {
 
+                console.log(data);
+
                 // with data we can init scales
                 scales = chartScales.set(data);
                 // width data we can draw items
@@ -272,7 +274,7 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXBandAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
-                chartBar.redraw(dimensions, scales);
+                chartBar.redraw(dimensions,scales);
              //   chartBlocks.redraw(dimensions, scales);
             }
 
