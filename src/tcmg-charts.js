@@ -223,9 +223,11 @@ var TCMGCharts = function TCMGCharts() {
                     });
 
                     for (let key in gemeenteData) {
-                        
-                        gemeenteData[sluggify(key)] = gemeenteData[key];
-                        delete gemeenteData[key];
+
+                        if (key != undefined) {
+                            gemeenteData[sluggify(key)] = gemeenteData[key];
+                            delete gemeenteData[key];
+                        }
                     }
 
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
