@@ -238,7 +238,7 @@ var TCMGCharts = function TCMGCharts() {
                         return 'orange';
                     })
                     .attr("fill-opacity", function (d, i) {
-                        return i / 10;
+                        return d.properties.totaal / 1517;
                     })
                     .attr("class", function (d, i) {
                         return sluggify(d.properties.name);
