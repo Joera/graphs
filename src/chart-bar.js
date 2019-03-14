@@ -35,10 +35,8 @@ let ChartBar = function ChartBar(config,svg) {
 
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
 
-        console.log(svg.bar);
-
         svg.bar
-
+            .merge(svg.bar)
             .attr("x", function(d) { console.log(d[config.yParameter]); return scales.xBand(d[config.xParameter]); })
             .attr("y", function(d) { return dimensions.height; })
             .attr("height", 0)
@@ -50,7 +48,7 @@ let ChartBar = function ChartBar(config,svg) {
         ;
 
         svg.barLabels
-
+            .merge(svg.barLabels)
             .text(function(d) {
                 return d.totaal;
             })
