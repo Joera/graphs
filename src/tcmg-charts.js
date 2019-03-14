@@ -262,6 +262,13 @@ var TCMGCharts = function TCMGCharts() {
                 chartBar.draw(data, functions);
             }
 
+            let data = prepareData(csv,'totaal');
+
+            // with data we can init scales
+            scales = chartScales.set(data);
+            // width data we can draw items
+            chartBar.draw(data, functions);
+
             function redraw() {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
@@ -279,8 +286,8 @@ var TCMGCharts = function TCMGCharts() {
             // further drawing happens in function that can be repeated.
 
 
-            let data = prepareData(csv,'totaal');
-            draw(data);
+
+            // draw(data);
             redraw();
             // for example on window resize
             window.addEventListener("resize", redraw, false);
