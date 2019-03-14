@@ -579,7 +579,7 @@ var TCMGCharts = function TCMGCharts() {
         d3.csv("./dummy_data_remitted.csv", function(error, data) {
 
             let text = svg.layers.data.append('text')
-                .text('Totaal uitgekeerd: ' + currency(data[0].value))
+                .text(data[0].key + ': ' + currency(data[0].total))
                 .attr('class','number')
                 .attr("text-anchor","middle");
 
