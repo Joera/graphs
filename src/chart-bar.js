@@ -11,14 +11,14 @@ let ChartBar = function ChartBar(config,svg) {
             return "bar " + d.status;
         });
 
-        svg.bar.enter().append("rect")
+        svg.bar.enter().append("rect");
 
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data);
 
         svg.barLabels
-            .attr('class','barLabel')
+            .attr('class','barLabel');
 
         svg.barLabels.enter().append('text')
             .attr('x', 0)
