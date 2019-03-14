@@ -14,5 +14,13 @@ table {
          text-align: left;
        }
      }
+
+     &:last-of-type {
+
+       td {
+         border-top: 1px solid black;
+         
+       }
+     }
    }
 }
