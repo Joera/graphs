@@ -195,12 +195,18 @@ var TCMGCharts = function TCMGCharts() {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/nld.json", function(error, nld) {
+        d3.json("/assets/geojson/townships-2015.json", function(error, geojson) {
 
             var l = topojson.feature(nld, nld.objects.subunits).features[3],
                 b = path.bounds(l),
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
+
+            var l = geojson.features,
+                b = path.bounds(l),
+                s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
+                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
+
 
             projection
                 .scale(s)
@@ -208,7 +214,9 @@ var TCMGCharts = function TCMGCharts() {
             ;
 
             svg.layers.data.selectAll("path")
-                .data(topojson.feature(nld, nld.objects.subunits).features).enter()
+               // .data(topojson.feature(nld, nld.objects.subunits).features)
+                .data(geojson.features)
+                .enter()
                 .append("path")
                 .attr("d", path)
                 .attr("fill", function(d, i) {
