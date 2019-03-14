@@ -177,7 +177,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
-        let colour = d3.scale.category20();
+        // let colour = d3.scale.category20();
 
         let projection = d3.geo.mercator()
             .scale(1)
@@ -204,7 +204,7 @@ var TCMGCharts = function TCMGCharts() {
                 .append("path")
                 .attr("d", path)
                 .attr("fill", function(d, i) {
-                    return colour(i);
+                    return '#ccc';
                 })
                 .attr("class", function(d, i) {
                     return d.properties.name;
