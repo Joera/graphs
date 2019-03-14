@@ -15,6 +15,14 @@ table {
        }
      }
 
+     &:first-of-type {
+
+       td {
+         font-size: .8rem;
+         text-transform: uppercase;
+       }
+     }
+
      &:last-of-type {
 
        td {
