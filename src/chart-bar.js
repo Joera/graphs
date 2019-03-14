@@ -26,11 +26,11 @@ let ChartBar = function ChartBar(config,svg) {
 
     }
 
-    let redraw = function redraw(dimensions,scales,data) {
+    let redraw = function redraw(dimensions,scales) {
 
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
 
-        console.log(data);
+        console.log('hi');
 
         svg.bar
             .merge(svg.bar)
