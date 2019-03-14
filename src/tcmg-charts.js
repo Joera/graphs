@@ -226,10 +226,13 @@ var TCMGCharts = function TCMGCharts() {
                 .append("path")
                 .attr("d", path)
                 .attr("fill", function(d, i) {
-                    return colour(i);
+                    return 'orange';
+                })
+                .attr("fill-opacity", function(d, i) {
+                    return i / 10;
                 })
                 .attr("class", function(d, i) {
-                    return d.properties.name;
+                    return sluggify(d.properties.name);
                 });
         });
     }
