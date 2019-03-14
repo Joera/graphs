@@ -183,6 +183,8 @@ var TCMGCharts = function TCMGCharts() {
 
         let colour = d3.scaleOrdinal(d3.schemeCategory10);
 
+        console.log(colour);
+
         let projection = d3.geoMercator()
             .scale(1)
             .translate([0, 0]);
