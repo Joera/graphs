@@ -285,12 +285,12 @@ var TCMGCharts = function TCMGCharts() {
             // for example on window resize
             window.addEventListener("resize", redraw, false);
 
-            procedureSelect.addEventListener("change", function() {
-
-                let data = prepareData(csv,procedureSelect.options[procedureSelect.selectedIndex].value);
-                draw(data);
-                redraw();
-            });
+            // procedureSelect.addEventListener("change", function() {
+            //
+            //     let data = prepareData(csv,procedureSelect.options[procedureSelect.selectedIndex].value);
+            //     draw(data);
+            //     redraw();
+            // });
         });
     }
 
