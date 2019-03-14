@@ -7,8 +7,6 @@ let ChartBar = function ChartBar(config,svg) {
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data)
 
-
-
         svg.bar.enter()
             .append("rect")
             .attr("class", function(d) {
@@ -16,28 +14,22 @@ let ChartBar = function ChartBar(config,svg) {
             });
 
 
+        svg.barLabels = svg.layers.data.selectAll(".barLabel")
+            .data(data);
 
+        svg.barLabels
+            .attr('class','barLabel');
 
-
-
-
-
-                // svg.barLabels = svg.layers.data.selectAll(".barLabel")
-        //     .data(data);
-        //
-        // svg.barLabels
-        //     .attr('class','barLabel');
-        //
-        // svg.barLabels.enter().append('text')
-        //     .attr('x', 0)
-        //     .attr('dx', '0px')
-        //     .attr('dy', '-6px')
-        //     .style("text-anchor", "middle")
-        //     .merge(svg.barLabels)
-        //     .text(function(d) {
-        //             return d.totaal;
-        //     })
-        //     ;
+        svg.barLabels.enter().append('text')
+            .attr('x', 0)
+            .attr('dx', '0px')
+            .attr('dy', '-6px')
+            .style("text-anchor", "middle")
+            .merge(svg.barLabels)
+            .text(function(d) {
+                    return d.totaal;
+            })
+            ;
 
 
     }
@@ -45,10 +37,6 @@ let ChartBar = function ChartBar(config,svg) {
     let redraw = function redraw(dimensions,scales) {
 
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
-
-
-        console.log(svg.bar);
-
 
         svg.bar
             .merge(svg.bar)
@@ -62,19 +50,19 @@ let ChartBar = function ChartBar(config,svg) {
             .attr("width", scales.xBand.bandwidth())
         ;
 
-        // svg.barLabels
-        //     .merge(svg.barLabels)
-        //     .attr('transform', function(d) {
-        //
-        //         return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
-        //             scales.yLinear(d[config.yParameter])
-        //             + ')';
-        //     })
-        //     .attr('fill-opacity', 0)
-        //     .transition()
-        //     .delay(500)
-        //     .duration(500)
-        //     .attr('fill-opacity', 1)
+        svg.barLabels
+            .merge(svg.barLabels)
+            .attr('transform', function(d) {
+
+                return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
+                    scales.yLinear(d[config.yParameter])
+                    + ')';
+            })
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('fill-opacity', 1)
     }
 
 
