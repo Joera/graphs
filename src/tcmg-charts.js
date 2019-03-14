@@ -197,9 +197,10 @@ var TCMGCharts = function TCMGCharts() {
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
-            // projection
-                // .scale(s)
-                // .translate(t);
+            projection
+                .scale(s)
+                // .translate(t)
+            ;
 
             svg.layers.data.selectAll("path")
                 .data(topojson.feature(nld, nld.objects.subunits).features).enter()
