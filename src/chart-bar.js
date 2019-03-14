@@ -14,22 +14,22 @@ let ChartBar = function ChartBar(config,svg) {
         svg.bar.enter().append("rect");
 
 
-        svg.barLabels = svg.layers.data.selectAll(".barLabel")
-            .data(data);
-
-        svg.barLabels
-            .attr('class','barLabel');
-
-        svg.barLabels.enter().append('text')
-            .attr('x', 0)
-            .attr('dx', '0px')
-            .attr('dy', '-6px')
-            .style("text-anchor", "middle")
-            .merge(svg.barLabels)
-            .text(function(d) {
-                    return d.totaal;
-            })
-            ;
+        // svg.barLabels = svg.layers.data.selectAll(".barLabel")
+        //     .data(data);
+        //
+        // svg.barLabels
+        //     .attr('class','barLabel');
+        //
+        // svg.barLabels.enter().append('text')
+        //     .attr('x', 0)
+        //     .attr('dx', '0px')
+        //     .attr('dy', '-6px')
+        //     .style("text-anchor", "middle")
+        //     .merge(svg.barLabels)
+        //     .text(function(d) {
+        //             return d.totaal;
+        //     })
+        //     ;
 
 
     }
@@ -52,19 +52,19 @@ let ChartBar = function ChartBar(config,svg) {
             .attr("width", scales.xBand.bandwidth())
         ;
 
-        svg.barLabels
-            .merge(svg.barLabels)
-            .attr('transform', function(d) {
-
-                return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
-                    scales.yLinear(d[config.yParameter])
-                    + ')';
-            })
-            .attr('fill-opacity', 0)
-            .transition()
-            .delay(500)
-            .duration(500)
-            .attr('fill-opacity', 1)
+        // svg.barLabels
+        //     .merge(svg.barLabels)
+        //     .attr('transform', function(d) {
+        //
+        //         return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
+        //             scales.yLinear(d[config.yParameter])
+        //             + ')';
+        //     })
+        //     .attr('fill-opacity', 0)
+        //     .transition()
+        //     .delay(500)
+        //     .duration(500)
+        //     .attr('fill-opacity', 1)
     }
 
 
