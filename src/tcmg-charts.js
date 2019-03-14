@@ -209,10 +209,10 @@ var TCMGCharts = function TCMGCharts() {
 
 
              console.log(b);
-            // projection
-            //     .scale(s)
+            projection
+                .scale(20)
             //     // .translate(t)
-            // ;
+            ;
 
             svg.layers.data.selectAll("path")
                // .data(topojson.feature(nld, nld.objects.subunits).features)
