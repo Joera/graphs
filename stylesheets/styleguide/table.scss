@@ -8,7 +8,11 @@ table {
 
      td {
        padding: 0 .025rem;
+       text-align: right;
 
+       &.first-of-type {
+         text-align: left;
+       }
      }
    }
 }
