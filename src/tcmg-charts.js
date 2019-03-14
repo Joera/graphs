@@ -295,7 +295,7 @@ var TCMGCharts = function TCMGCharts() {
             window.addEventListener("resize", redraw, false);
 
             procedureSelect.addEventListener("change", function() {
-                run(csv,procedureSelect.options[procedureSelect.selectedIndex].value);
+                run(procedureSelect.options[procedureSelect.selectedIndex].value);
             });
         });
     }
