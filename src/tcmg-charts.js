@@ -295,6 +295,7 @@ var TCMGCharts = function TCMGCharts() {
             });
 
             run('totaal');
+            // hij lijkt alleen elementen te vullen bij een update
             run('totaal');
         });
     }
@@ -425,7 +426,6 @@ var TCMGCharts = function TCMGCharts() {
         let chartSVG = ChartSVG(element,config,dimensions,svg);
         let chartScales = ChartScales(config,dimensions,scales);
         let chartAxis = ChartAxis(config,svg);
-        let chartLine = ChartLine(config,svg,functions);
         let chartStackedArea = ChartStackedArea(config,svg,functions);
 
         chartAxis.drawXAxis();
@@ -453,13 +453,11 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXTimeAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
-                chartLine.redraw(scales,functions);
                 chartStackedArea.redraw(dimensions,scales);
 
             }
 
             scales = chartScales.set(data);
-            chartLine.draw(data);
             chartStackedArea.draw(stackedData,functions);
             // further drawing happens in function that can be repeated.
             redraw();
