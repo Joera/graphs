@@ -219,10 +219,12 @@ var TCMGCharts = function TCMGCharts() {
 
                     let gemeenteData = csv.find( (g) => {
 
-                        return g.gemeente == feature.properties.name;
+                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
                     });
 
                     for (let key in gemeenteData) {
+
+                        console.log(key);
 
                         key = sluggify('key');
                     }
