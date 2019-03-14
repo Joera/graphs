@@ -591,11 +591,20 @@ var TCMGCharts = function TCMGCharts() {
 
             let table = document.createElement('table');
 
+            // thead
+            let tr = document.createElement('tr');
+            for (let d in row[0]) {
+                let td = document.createElement('td');
+                td.innerText = d;
+                tr.appendChild(td)
+            }
+            table.appendChild(tr);
+
+
+            // tbody
             data.forEach( (row) => {
 
-                let tr = document.createElement('tr');
-
-                console.log(row);
+                tr = document.createElement('tr');
 
                 for (let d in row) {
 
