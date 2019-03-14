@@ -55,6 +55,12 @@ rect.block {
 
 .output-container  {
 
+  min-height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+
   rect.block {
 
     &.afgewezen {
