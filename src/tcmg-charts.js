@@ -584,6 +584,9 @@ var TCMGCharts = function TCMGCharts() {
             //     .attr("text-anchor","middle");
 
 
+            console.log(element);
+
+
             let table = document.createElement('table');
 
             data.forEach( (row) => {
