@@ -210,7 +210,7 @@ var TCMGCharts = function TCMGCharts() {
 
             projection
                 .scale(s)
-                .translate(t)
+                // .translate(t)
             ;
 
             svg.layers.data.selectAll("path")
