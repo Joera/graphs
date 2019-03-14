@@ -199,7 +199,7 @@ var TCMGCharts = function TCMGCharts() {
                 .scale(s)
                 .translate(t);
 
-            svg.selectAll("path")
+            svg.layers.data.selectAll("path")
                 .data(topojson.feature(nld, nld.objects.subunits).features).enter()
                 .append("path")
                 .attr("d", path)
