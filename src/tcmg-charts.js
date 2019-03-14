@@ -222,6 +222,11 @@ var TCMGCharts = function TCMGCharts() {
                         return g.gemeente == feature.properties.name;
                     });
 
+                    for (let key in gemeenteData) {
+
+                        key = sluggify('key');
+                    }
+
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
 
                 });
