@@ -247,9 +247,9 @@ var TCMGCharts = function TCMGCharts() {
 
                         let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
                             d.properties.totaal + " uitspraken<br/>" +
-                            d.properties.totaal + " uitspraken<br/>" +
-                            d.properties.totaal + " uitspraken<br/>" +
-                            d.properties.totaal + " uitspraken<br/>" +
+                            d.properties.totaal + " afgewezen<br/>" +
+                            d.properties.totaal + " gedeeltelijk toegekend<br/>" +
+                            d.properties.totaal + " geheel toegekend<br/>"
 
 
                         ;
