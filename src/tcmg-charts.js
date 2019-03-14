@@ -218,7 +218,8 @@ var TCMGCharts = function TCMGCharts() {
                     // console.log(feature.properties.name);
 
                     let gemeenteData = csv.find( (g) => {
-                        return g.gemeente = feature.properties.name;
+
+                        return g.gemeente == feature.properties.name;
                     });
 
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
@@ -244,7 +245,14 @@ var TCMGCharts = function TCMGCharts() {
 
                         console.log(d);
 
-                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" + d.properties.totaal + " meldingen";
+                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
+                            d.properties.totaal + " uitspraken<br/>" +
+                            d.properties.totaal + " uitspraken<br/>" +
+                            d.properties.totaal + " uitspraken<br/>" +
+                            d.properties.totaal + " uitspraken<br/>" +
+
+
+                        ;
 
                         svg.tooltip
                             .html(html)
