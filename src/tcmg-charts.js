@@ -842,7 +842,7 @@ var TCMGCharts = function TCMGCharts() {
                 chartBar.redraw(dimensions,scales,data);
             }
 
-            let data = prepareData('totaal');
+            let data = prepareData(csv,'totaal');
 
             // with data we can init scales
             scales = chartScales.set(data);
