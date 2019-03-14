@@ -170,7 +170,7 @@ var TCMGCharts = function TCMGCharts() {
         let svg = chartObjects.svg();
 
         config.margin.top = 10;
-        config.padding.left = 0;
+        config.padding.left = 60;
         config.padding.bottom = 10;
         config.margin.bottom = 0;
 
@@ -179,7 +179,9 @@ var TCMGCharts = function TCMGCharts() {
 
         let colour = d3.scaleOrdinal(d3.schemeCategory10);
 
-        let projection = d3.geoMercator();
+        let projection = d3.geoMercator()
+            .scale(1)
+            .translate([0, 0]);
 
         let path = d3.geoPath()
             .projection(projection);
