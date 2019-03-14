@@ -262,7 +262,7 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.set(data);
                 // width data we can draw items
                 chartBar.draw(data, functions);
-                chartBar.enter();
+   
             }
 
             function redraw() {
@@ -294,7 +294,7 @@ var TCMGCharts = function TCMGCharts() {
                 run(procedureSelect.options[procedureSelect.selectedIndex].value);
             });
 
-            procedureSelect.selectedIndex = '1';
+            run('totaal');
         });
     }
 
