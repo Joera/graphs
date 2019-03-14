@@ -7,11 +7,13 @@ let ChartBar = function ChartBar(config,svg) {
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data);
 
+
+        svg.bar.enter().append("rect");
+
         svg.bar.attr("class", function(d) {
             return "bar " + d.status;
         });
 
-        svg.bar.enter().append("rect");
 
 
         // svg.barLabels = svg.layers.data.selectAll(".barLabel")
