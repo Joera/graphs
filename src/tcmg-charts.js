@@ -169,12 +169,12 @@ var TCMGCharts = function TCMGCharts() {
         let dimensions = chartObjects.dimensions();
         let svg = chartObjects.svg();
 
-        config.margin.top = 10;
+        config.margin.top = 0;
         config.padding.left = 0;
-        config.padding.bottom = 10;
+        config.padding.bottom = 0;
         config.margin.bottom = 0;
 
-        config.fixedHeight = 600;
+        config.fixedHeight = 500;
 
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
