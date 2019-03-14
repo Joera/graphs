@@ -11,9 +11,7 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar.enter()
             .append("rect")
-
-
-        svg.bar.attr("class", function(d) {
+            .attr("class", function(d) {
                 return "bar " + d.status;
             });
 
