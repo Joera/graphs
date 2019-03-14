@@ -791,7 +791,41 @@ var TCMGCharts = function TCMGCharts() {
 
         let chartBar = ChartBar(config,svg,functions);
 
-        d3.csv("./dummy_data_remittances.csv", function(error, data) {
+        d3.csv("./dummy_data_remittances.csv", function(error, csv) {
+
+            function prepareData(csv,filter) {
+
+                let data = [];
+
+                data.push({
+                    status: "< €1K",
+                    totaal: csv[0][filter] + csv[0][filter]
+
+                });
+
+                data.push({
+                    status: "€1K t/m €4K",
+                    totaal: csv[1][filter]
+
+                });
+
+                data.push({
+                    status: "€4K t/m €10K",
+                    totaal: csv[2][filter]
+
+                });
+
+                data.push({
+                    status: "> €10K",
+                    totaal: csv[3][filter]
+
+                });
+
+                data.columns = csv.columns;
+
+                return data;
+            }
+
 
             function redraw() {
 
@@ -806,6 +840,8 @@ var TCMGCharts = function TCMGCharts() {
                 // redraw data
                 chartBar.redraw(dimensions,scales,data);
             }
+
+            let data = prepareData('totaal');
 
             // with data we can init scales
             scales = chartScales.set(data);
