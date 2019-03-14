@@ -210,7 +210,7 @@ var TCMGCharts = function TCMGCharts() {
 
              console.log(b);
             projection
-                .scale(2200)
+                .scale(3000)
                 .translate([0,2400])
             ;
 
