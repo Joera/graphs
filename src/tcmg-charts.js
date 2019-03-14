@@ -205,45 +205,53 @@ var TCMGCharts = function TCMGCharts() {
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
-
-            console.log(b);
             projection
                 .scale(s)
                 .translate(t)
             ;
 
-            svg.layers.data.selectAll("path")
-               // .data(topojson.feature(nld, nld.objects.subunits).features)
-                .data(geojson.features)
-                .enter()
-                .append("path")
-                .attr("d", path)
-                .attr("fill", function(d, i) {
-                    return 'orange';
-                })
-                .attr("fill-opacity", function(d, i) {
-                    return i / 10;
-                })
-                .attr("class", function(d, i) {
-                    return sluggify(d.properties.name);
-                })
-                .on("mouseover", function(d) {
+            d3.csv("./dummy_data_map_output.csv", type, function(error, csv) {
+                if (error) throw error;
 
-                    let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +  d.total + " meldingen";
+                geojson.features.forEach( (feature) => {
 
-                    svg.tooltip
-                        .html(html)
-                        .style("left", (d3.event.pageX + 5) + "px")
-                        .style("top", (d3.event.pageY - 5) + "px")
-                        .transition()
-                        .duration(250)
-                        .style("opacity", 1);
-                })
-                .on("mouseout", function(d) {
-                    svg.tooltip.transition()
-                        .duration(250)
-                        .style("opacity", 0);
-                })
+                    console.log(feature.properties);
+
+                });
+
+                svg.layers.data.selectAll("path")
+                // .data(topojson.feature(nld, nld.objects.subunits).features)
+                    .data(geojson.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path)
+                    .attr("fill", function (d, i) {
+                        return 'orange';
+                    })
+                    .attr("fill-opacity", function (d, i) {
+                        return i / 10;
+                    })
+                    .attr("class", function (d, i) {
+                        return sluggify(d.properties.name);
+                    })
+                    .on("mouseover", function (d) {
+
+                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" + d.total + " meldingen";
+
+                        svg.tooltip
+                            .html(html)
+                            .style("left", (d3.event.pageX + 5) + "px")
+                            .style("top", (d3.event.pageY - 5) + "px")
+                            .transition()
+                            .duration(250)
+                            .style("opacity", 1);
+                    })
+                    .on("mouseout", function (d) {
+                        svg.tooltip.transition()
+                            .duration(250)
+                            .style("opacity", 0);
+                    })
+            });
         });
     }
 
