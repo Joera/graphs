@@ -57,6 +57,8 @@ let ChartBar = function ChartBar(config,svg) {
             .attr("width", scales.xBand.bandwidth())
         ;
 
+        svg.bar.exit().remove();
+
         svg.barLabels
             .merge(svg.barLabels)
             .text(function(d) {
