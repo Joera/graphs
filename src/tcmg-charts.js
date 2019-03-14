@@ -145,6 +145,8 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 30;
         config.margin.bottom = -30;
 
+        config.xParameter = 'provenance';
+
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
@@ -732,6 +734,8 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.left = 60;
         config.padding.bottom = 30;
         config.margin.bottom = -30;
+
+        config.xParameter = 'Uitkomst';
 
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);

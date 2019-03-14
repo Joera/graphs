@@ -21,7 +21,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .data(data.reverse())
             .enter()
             .append("rect")
-            .attr('class', (d,i) => { return 'type ' + d.provenance;  } )
+            .attr('class', (d,i) => { return 'type ' + d[config.xParameter];  } )
             .attr('width',8)
             .attr('height',8)
             .attr('y', (d,i) => { return i * 22 + 22; });
@@ -31,7 +31,7 @@ let ChartLegend = function ChartLegend(config,svg) {
             .enter()
             .append("text")
             .attr('class','label')
-            .text((d) => { return d.provenance; })
+            .text((d) => { return d[config.xParameter]; })
             .attr('x',16)
             .attr('y', (d,i) => { return i * 22 + 30; })
 
