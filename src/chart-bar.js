@@ -37,6 +37,8 @@ let ChartBar = function ChartBar(config,svg) {
 
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
 
+        console.log('hallo');
+
         svg.bar
 
             .attr("x", function(d) { return scales.xBand(d[config.xParameter]); })
