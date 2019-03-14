@@ -133,7 +133,7 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
-    var Legend = function(element) {
+    var LegendInput = function(element) {
 
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
@@ -721,6 +721,33 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
+    var LegendOutput = function(element) {
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+
+        config.margin.top = 30;
+        config.padding.left = 60;
+        config.padding.bottom = 30;
+        config.margin.bottom = -30;
+
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        let chartLegend = ChartLegend(config,svg);
+
+        d3.csv("./dummy_data_input.csv", function(error, data) {
+
+            dimensions = chartDimensions.get(dimensions);
+            chartSVG.redraw(dimensions);
+            chartLegend.drawInputLegend(dimensions, data);
+
+        });
+    }
+
     var Remittances = function Remittances(element) {
 
         let chartObjects = ChartObjects();
@@ -790,13 +817,14 @@ var TCMGCharts = function TCMGCharts() {
 
     return {
         inputs : Inputs,
-        legend : Legend,
+        legendInput : LegendInput,
         procedure : Procedure,
         procedureAlt : ProcedureAlt,
         progress : Progress,
         progressCandles : ProgressCandles,
         remitted : Remitted,
         outputs : Outputs,
+        legendOutput : LegendOutput,
         remittances : Remittances
     }
 }

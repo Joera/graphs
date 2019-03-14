@@ -29,7 +29,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel felis magna. In quis tristique arcu. Morbi quis venenatis dui. Sed ex tortor, feugiat ac nisi id, molestie placerat mi. Nulla non eleifend odio. Cras lobortis rutrum nisi, a cursus nibh mattis sed.
                 </div>
             </div>
-            <div class="legend-container container">
+            <div class="legend-container-input container">
             </div>
         </div>
         <div>
@@ -67,6 +67,8 @@
                 <div class="textual">
                     Morbi quis venenatis dui. Sed ex tortor, feugiat ac nisi id, molestie placerat mi. Nulla non eleifend odio. Cras lobortis rutrum nisi, a cursus nibh mattis sed.
                 </div>
+                <div class="legend-container-output container">
+                </div>
             </div>
             <div class="remittances-container container">
             </div>
@@ -84,12 +86,13 @@
 <script>
     var tcmgCharts = new TCMGCharts();
     tcmgCharts.inputs('.input-container');
-    tcmgCharts.legend('.legend-container');
+    tcmgCharts.legendInput('.legend-container-input');
     tcmgCharts.procedure('.procedure-container');
     tcmgCharts.progress('.progress-container');
     tcmgCharts.progressCandles('.progress-candles-container');
     tcmgCharts.remitted('.remitted-container');
     tcmgCharts.outputs('.output-container');
+    tcmgCharts.legendOutput('.legend-container-output');
     tcmgCharts.remittances('.remittances-container');
 </script>
 
