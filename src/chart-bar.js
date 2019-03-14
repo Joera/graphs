@@ -38,7 +38,7 @@ let ChartBar = function ChartBar(config,svg) {
 
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
 
-        console.log('hi');
+
 
         svg.bar
             .merge(svg.bar)
