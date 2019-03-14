@@ -581,7 +581,7 @@ var TCMGCharts = function TCMGCharts() {
         function monies(amount) {
 
 
-            return '&#8364;' + amount;
+            return '€' + amount;
         }
 
         d3.csv("./dummy_data_remitted.csv", function(error, data) {
