@@ -17,15 +17,14 @@ let ChartBar = function ChartBar(config,svg) {
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data);
 
-        svg.barLabels
-            .attr('class','barLabel');
+
 
         svg.barLabels.enter().append('text')
+            .attr('class','barLabel');
             .attr('x', 0)
             .attr('dx', '0px')
             .attr('dy', '-6px')
             .style("text-anchor", "middle")
-            .merge(svg.barLabels)
             .text(function(d) {
                     return d.totaal;
             })
@@ -51,7 +50,7 @@ let ChartBar = function ChartBar(config,svg) {
         ;
 
         svg.barLabels
-   
+
             .attr('transform', function(d) {
 
                 return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
