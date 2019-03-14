@@ -18,9 +18,9 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     arr[i].previous = d.previous;
                     arr[i].total = d.total;
                     arr[i].cummulative = d.cummulative;
-                    arr[i].provenance = d.provenance;
-                    arr[i].qualifier = d.provenance;
-                    arr[i].class = sluggify(d.provenance);
+                    arr[i][config.xParameter] = d[config.xParameter];
+                    arr[i].qualifier = d[config.xParameter];
+                    arr[i].class = sluggify(d[config.xParameter]);
                 }
 
                 return arr;
@@ -53,13 +53,13 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
                     Object.keys(d).map(e => d[e])
 
                     if (j < blockCount(Object.keys(d).map(e => d[e])[1])) {
-                        arr[j].provenance = Object.keys(d)[1];
+                        arr[j][config.xParameter] = Object.keys(d)[1];
                         arr[j].class = sluggify(Object.keys(d)[1]);
                     } else if (j < blockCount(Object.keys(d).map(e => d[e])[1] + Object.keys(d).map(e => d[e])[2])) {
-                        arr[j].provenance = Object.keys(d)[2];
+                        arr[j][config.xParameter] = Object.keys(d)[2];
                         arr[j].class = sluggify(Object.keys(d)[2]);
                     } else if (j < blockCount(Object.keys(d).map(e => d[e])[1] + Object.keys(d).map(e => d[e])[2] + Object.keys(d).map(e => d[e])[3])) {
-                        arr[j].provenance = Object.keys(d)[3];
+                        arr[j][config.xParameter] = Object.keys(d)[3];
                         arr[j].class = sluggify(Object.keys(d)[3]);
                     }
                 }
@@ -78,7 +78,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             .enter()
             .append("g")
             .attr("class", function(d,i) {
-                return "blocks " + d.provenance;
+                return "blocks " + d[config.xParameter];
             });
 
         svg.blocks = svg.blockGroup.selectAll(".block")
@@ -141,7 +141,7 @@ let ChartBlocks = function ChartBlocks(config,svg,functions) {
             })
             .on("mouseover", function(d) {
 
-                highlight(d.provenance);
+                highlight(d[config.xParameter]);
 
                 let html = "<span class='uppercase'>" + d.qualifier + "</span><br/>" +  d.total + " meldingen";
 
