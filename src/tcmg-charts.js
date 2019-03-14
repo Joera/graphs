@@ -609,7 +609,13 @@ var TCMGCharts = function TCMGCharts() {
                 for (let d in row) {
 
                     let td = document.createElement('td');
-                    td.innerText = row[d];
+
+                    if (Number.isInteger(row[d])) {
+                        td.innerText = currency(row[d]);
+                    } else {
+                        td.innerText = row[d];
+                    }
+
                     tr.appendChild(td)
                 }
 
