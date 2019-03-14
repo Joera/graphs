@@ -294,7 +294,7 @@ var TCMGCharts = function TCMGCharts() {
                 run(procedureSelect.options[procedureSelect.selectedIndex].value);
             });
 
-            run('totaal');
+            procedureSelect.selectedIndex = '0';
         });
     }
 
