@@ -289,9 +289,7 @@ var TCMGCharts = function TCMGCharts() {
 
             procedureSelect.addEventListener("change", function() {
 
-                console.log(procedureSelect.options[procedureSelect.selectedIndex].value);
-
-                let data = prepareData(csv);
+                let data = prepareData(csv,procedureSelect.options[procedureSelect.selectedIndex].value);
                 draw(data);
                 redraw();
             });
