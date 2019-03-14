@@ -170,7 +170,7 @@ var TCMGCharts = function TCMGCharts() {
         let svg = chartObjects.svg();
 
         config.margin.top = 10;
-        config.padding.left = 60;
+        config.padding.left = 0;
         config.padding.bottom = 10;
         config.margin.bottom = 0;
 
