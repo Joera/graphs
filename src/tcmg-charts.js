@@ -162,7 +162,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element) {
 
-        var procedureSelect = document.getElementById("select-municipality select");
+        var procedureSelect = document.getElementById("select-municipality");
 
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
