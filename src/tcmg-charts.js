@@ -181,7 +181,8 @@ var TCMGCharts = function TCMGCharts() {
 
         console.log(dimensions);
 
-        let colour = d3.scaleOrdinal(d3.schemeCategory10);
+        let colour = d3.scaleOrdinal().
+            range(['orange', '#ccc', '#ccc']);
 
         console.log(colour);
 
