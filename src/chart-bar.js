@@ -11,10 +11,12 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar.enter()
             .append("rect")
-            .attr("class", function(d) {
+
+
+        svg.bar.attr("class", function(d) {
                 return "bar " + d.status;
             });
-            
+
 
 
 
