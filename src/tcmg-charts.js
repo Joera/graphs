@@ -227,12 +227,12 @@ var TCMGCharts = function TCMGCharts() {
                     for (let key in gemeenteData) {
 
                         console.log(key);
-                        let slug = sluggify(key));
+                        let slug = sluggify(key);
 
                         gemeenteData[slug] = gemeenteData[key];
                     //
                     //     if (key != undefined) {
-                    //         
+                    //
                     //         delete gemeenteData[key];
                     //     }
                     }
