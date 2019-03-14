@@ -284,12 +284,7 @@ var TCMGCharts = function TCMGCharts() {
                 redraw();
             }
 
-            // further drawing happens in function that can be repeated.
-
-
-            // let data = prepareData(csv,'totaal');
-            // draw(data);
-            // redraw();
+            // further drawing happens in function that can be repeated
 
             // for example on window resize
             window.addEventListener("resize", redraw, false);
