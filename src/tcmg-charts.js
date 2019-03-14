@@ -179,13 +179,6 @@ var TCMGCharts = function TCMGCharts() {
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
-        console.log(dimensions);
-
-        let colour = d3.scaleOrdinal().
-            range(['orange', '#ccc', '#ccc']);
-
-        console.log(colour);
-
         let projection = d3.geoMercator()
             .scale(1)
             .translate([0, 0]);
@@ -233,7 +226,24 @@ var TCMGCharts = function TCMGCharts() {
                 })
                 .attr("class", function(d, i) {
                     return sluggify(d.properties.name);
-                });
+                })
+                .on("mouseover", function(d) {
+
+                    let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +  d.total + " meldingen";
+
+                    svg.tooltip
+                        .html(html)
+                        .style("left", (d3.event.pageX + 5) + "px")
+                        .style("top", (d3.event.pageY - 5) + "px")
+                        .transition()
+                        .duration(250)
+                        .style("opacity", 1);
+                })
+                .on("mouseout", function(d) {
+                    svg.tooltip.transition()
+                        .duration(250)
+                        .style("opacity", 0);
+                })
         });
     }
 
