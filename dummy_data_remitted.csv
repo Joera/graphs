@@ -1,5 +1,5 @@
-,totaal,gemiddeld
-Bijkomende kosten,504672,3025
-Schadebedrag,12590043,374285
-Wettelijke rente,335494,5080
-Totaal,13430210,
+,totaal,gemiddeld,max
+Bijkomende kosten,504672,510,3025
+Schadebedrag,12590043,4063,374285
+Wettelijke rente,335494,111,5080
+Totaal,13430210,,
