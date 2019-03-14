@@ -592,6 +592,13 @@ var TCMGCharts = function TCMGCharts() {
 
                 console.log(row);
 
+                for (let d in row) {
+
+                    let td = document.createElement('td');
+                    td.innerText = d;
+                    tr.appendChild(td)
+                }
+
                 table.appendChild(tr);
             })
 
