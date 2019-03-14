@@ -162,6 +162,56 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
+    var mapInput = function(element) {
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+
+        config.margin.top = 10;
+        config.padding.left = 60;
+        config.padding.bottom = 10;
+        config.margin.bottom = 0;
+
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        let colour = d3.scale.category20();
+
+        let projection = d3.geo.mercator()
+            .scale(1)
+            .translate([0, 0]);
+
+        let path = d3.geo.path()
+            .projection(projection);
+
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+
+        d3.json("/assets/geojson/nld.json", function(error, nld) {
+
+            var l = topojson.feature(nld, nld.objects.subunits).features[3],
+                b = path.bounds(l),
+                s = .2 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+                t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+            projection
+                .scale(s)
+                .translate(t);
+
+            svg.selectAll("path")
+                .data(topojson.feature(nld, nld.objects.subunits).features).enter()
+                .append("path")
+                .attr("d", path)
+                .attr("fill", function(d, i) {
+                    return colour(i);
+                })
+                .attr("class", function(d, i) {
+                    return d.properties.name;
+                });
+        });
+    }
+
     var Procedure  = function Procedure(element) {
 
         var procedureSelect = document.getElementById("select-municipality");
@@ -873,6 +923,7 @@ var TCMGCharts = function TCMGCharts() {
     return {
         inputs : Inputs,
         legendInput : LegendInput,
+        mapInput : mapInput,
         procedure : Procedure,
         procedureAlt : ProcedureAlt,
         progress : Progress,
