@@ -835,7 +835,7 @@ var TCMGCharts = function TCMGCharts() {
                 // new dimensions mean new scales
                 scales = chartScales.reset(dimensions,scales);
                 // new scales mean new axis
-             //   chartAxis.redrawXBandAxis(dimensions,scales,axes);
+                chartAxis.redrawXBandAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
               //  chartBar.redraw(dimensions,scales,data);
