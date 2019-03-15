@@ -7,6 +7,12 @@
   overflow: hidden;
   z-index: 99;
  // border: 1px solid black;
+  display: none;
+
+  @media all(min-width: $breakpoint-sm) {
+
+      display: block;
+  }
 
   select {
     border-color: black;
