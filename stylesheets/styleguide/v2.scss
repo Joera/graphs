@@ -50,7 +50,7 @@
       &:last-of-type {
 
         > div {
-          width: 33%;
+          width: calc(33.3% - 2rem);
         }
       }
     }
