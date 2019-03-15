@@ -7,10 +7,15 @@
 
       flex-direction: row;
       align-items: flex-start;
-      width: calc(100% - 8rem);
+
       justify-content: space-between;
       padding: 0;
       margin: 0;
+
+      @media (min-width : $breakpoint-sm) {
+
+        width: calc(100% - 8rem);
+      }
 
       > div  {
         flex-direction: column;
