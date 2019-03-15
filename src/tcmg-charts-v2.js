@@ -79,8 +79,7 @@ var TCMGCharts = function TCMGCharts() {
         config.fixedWidth = 100 + 6;
         config.minValue = 0;
         config.maxValue = 25000;
-
-
+        
         // x-scale
         config.xAlign = [0.0];
         config.paddingInner = [0.0];
