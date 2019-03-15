@@ -20,14 +20,14 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
             .enter()
             .append("rect")
             .attr("class", "candle up")
-            .style("fill", "#777c00");
+            .style("fill", "orange");
 
         svg.candlesDown = svg.layers.data.selectAll('.candle down')
             .data(data)
             .enter()
             .append("rect")
             .attr("class", "candle down")
-            .style("fill", "#65A7C5");
+            .style("fill", "#777c00");
 
 
     }
