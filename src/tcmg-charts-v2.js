@@ -299,7 +299,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'totaal';
         config.minValue = 0;
         // config.maxValue = 10000;
-        config.fixedHeight = 200;
+        config.fixedHeight = 220;
 
         // x-axis
         config.minWidth = 460;
@@ -910,32 +910,26 @@ var TCMGCharts = function TCMGCharts() {
                 let data = [];
 
                 data.push({
-                    status: "Afgewezen",
+                    status: "< €1K",
                     totaal: csv[0][filter]
 
                 });
 
                 data.push({
-                    status: "< €1K",
+                    status: "€1K t/m €4K",
                     totaal: csv[1][filter]
 
                 });
 
                 data.push({
-                    status: "€1K t/m €4K",
+                    status: "€4K t/m €10K",
                     totaal: csv[2][filter]
 
                 });
 
                 data.push({
-                    status: "€4K t/m €10K",
-                    totaal: csv[3][filter]
-
-                });
-
-                data.push({
                     status: "> €10K",
-                    totaal: csv[4][filter]
+                    totaal: csv[3][filter]
 
                 });
 
