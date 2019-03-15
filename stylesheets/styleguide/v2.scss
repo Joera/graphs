@@ -41,14 +41,16 @@
       .textual {
         display: none;
       }
-    }
 
-    &:nth-child(6) {
+      &:last-of-type {
 
-      > div {
-        width: 33%;
+        > div {
+          width: 33%;
+        }
       }
     }
+
+
 }
 
 .graph-header {
