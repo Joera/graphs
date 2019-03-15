@@ -56,6 +56,19 @@
   }
 }
 
-.orange { background: orange; }
-.blue { background: $blue; }
-.green { background: $green; color: white; }
+.description {
+
+  span {
+
+    padding: 0 2px;
+
+    &.orange { background: orange; }
+    &.blue { background: $blue; }
+    &.green { background: $green; color: white; }
+  }
+
+  p {
+    margin-bottom: 1.55rem;
+  }
+
+}
