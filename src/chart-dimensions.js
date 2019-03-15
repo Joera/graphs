@@ -27,7 +27,7 @@ let ChartDimensions = function ChartDimensions(element,config) {
         if(config.fixedHeight){
             dimensions.containerHeight = config.fixedHeight + config.padding.top + config.padding.bottom;
             dimensions.height = config.fixedHeight
-        } else if(config.maxValue) {
+        } else if(config.blocks) {
             dimensions.containerHeight = (config.maxValue / 100) + config.padding.top + config.padding.bottom;
             dimensions.height = (config.maxValue / 100);
         } else {
