@@ -3,8 +3,12 @@
   flex-direction: column;
 
     > div {
-      
+
       flex-direction: row;
+
+      .textual {
+        display: none;
+      }
     }
 
 
