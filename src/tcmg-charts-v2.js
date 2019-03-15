@@ -141,8 +141,8 @@ var TCMGCharts = function TCMGCharts() {
         let svg = chartObjects.svg();
 
         config.margin.top = 10;
-        config.padding.left = 60;
-        config.padding.bottom = 10;
+        config.padding.left = 0;
+        config.padding.bottom = 0;
         config.margin.bottom = 0;
 
         config.xParameter = 'provenance';
