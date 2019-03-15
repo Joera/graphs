@@ -721,7 +721,7 @@ var TCMGCharts = function TCMGCharts() {
         let chartSVG = ChartSVG(element,config,dimensions,svg);
         let chartScales = ChartScales(config,dimensions,scales);
         let chartAxis = ChartAxis(config,svg);
-        let chartLine = ChartLine(config,svg,functions);
+        let chartLine = ChartLine(config,svg,functions,dimensions);
      //   let chartStackedArea = ChartStackedArea(config,svg,functions);
 
         chartAxis.drawXAxis();
@@ -751,7 +751,7 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXTimeAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
-                chartLine.redraw(scales,functions);
+                chartLine.redraw(scales,functions,dimensions,data);
             }
 
             scales = chartScales.set(data);

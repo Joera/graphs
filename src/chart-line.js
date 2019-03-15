@@ -1,4 +1,4 @@
-let ChartLine = function ChartLine(config,svg) {
+let ChartLine = function ChartLine(config,svg,dimensions) {
 
 
     let popup = function popup(d) {
@@ -32,7 +32,10 @@ let ChartLine = function ChartLine(config,svg) {
 
     }
 
-    let redraw = function redraw(scales,functions) {
+    let redraw = function redraw(scales,functions,dimensions,data) {
+
+
+        let candleWidth = (dimensions.width / data.length) - 2;
 
         functions.line = d3.line()
             .x(function(d) { return scales.xTime(new Date(d[config.xParameter])); })
