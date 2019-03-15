@@ -11,6 +11,10 @@ let ChartLine = function ChartLine(config,svg) {
 
     let draw = function draw(data) {
 
+        svg.line = svg.layers.data.append("path")
+            .data([data])
+            .attr("class", "line");
+
         svg.candlesUp = svg.layers.data.selectAll('.candle up')
             .data(data)
             .enter()
@@ -25,9 +29,7 @@ let ChartLine = function ChartLine(config,svg) {
             .attr("class", "candle down")
             .style("fill", "#65A7C5");
 
-        svg.line = svg.layers.data.append("path")
-            .data([data])
-            .attr("class", "line");
+
     }
 
     let redraw = function redraw(scales,functions) {
