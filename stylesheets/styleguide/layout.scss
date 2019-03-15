@@ -136,24 +136,24 @@ main {
         //margin-bottom: 30px;
         width: 100%;
 
-        @media (max-width : $breakpoint-sm) {
-
-          height: 600px;
-
-          > svg {
-            transform: translate(-120px,200px) rotate(90deg);
-          }
-        }
+        //@media (max-width : $breakpoint-sm) {
+        //
+        //  //height: 600px;
+        //  //
+        //  //> svg {
+        //  //  transform: translate(-120px,200px) rotate(90deg);
+        //  //}
+        //}
       }
 
       &.progress-container, &.progress-candles-container {
 
-        @media (max-width : $breakpoint-sm) {
-          height: 600px;
-          > svg {
-            transform: translate(-120px,200px) rotate(90deg);
-          }
-        }
+        //@media (max-width : $breakpoint-sm) {
+        //  height: 600px;
+        //  > svg {
+        //    transform: translate(-120px,200px) rotate(90deg);
+        //  }
+        //}
       }
 
       &.remitted-container {
