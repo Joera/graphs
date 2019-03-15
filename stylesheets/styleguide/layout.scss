@@ -186,32 +186,13 @@ main {
 
 
   }
-
-  @media (min-width: $breakpoint-md) {
-
-    flex-direction: row;
-
-    > div {
-      width: 25%;
-
-      &:nth-child(2) {
-        width: 50%;
-      }
-    }
-  }
-
-  @media (min-width: $extra) {
-
-    > div {
-      width: 30%;
-
-      &:nth-child(2) {
-        width: 40%;
-      }
-    }
-  }
 }
 
-#candles main div {
-  width: 100%;
+#candles main {
+
+
+  div {
+    width: 100%;
+    height: calc(100vw - 8rem);
+  }
 }
