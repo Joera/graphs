@@ -67,10 +67,10 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.bottom = 0;
         config.margin.left = 0;
         config.margin.right = 0;
-        config.padding.top = 0;
-        config.padding.bottom = 0;
+        config.padding.top = 30;
+        config.padding.bottom = 30;
 
-        config.padding.left = 0;
+        config.padding.left = 60;
         config.padding.right = 0;
         config.xParameter = 'provenance';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
