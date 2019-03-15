@@ -401,7 +401,7 @@ var TCMGCharts = function TCMGCharts() {
         config.fixedHeight = 200;
 
         // x-axis
-        config.minWidth = 460;
+        // config.minWidth = 460;
         config.xParameter = 'status';
         config.paddingInner = [0.5];
         config.paddingOuter = [0.25];
