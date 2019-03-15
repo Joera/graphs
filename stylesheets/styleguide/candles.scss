@@ -19,5 +19,6 @@
   .progress-candles-container g.data path {
     stroke: orange;
     stroke-width: 2px;
+    stroke-dasharray: none;
   }
 }
