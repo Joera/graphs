@@ -63,6 +63,27 @@
         display: none;
       }
 
+      &:nth-of-type(2) {
+
+        div:first-child {
+          width: 280px;
+        }
+
+        div:nth-child(2) {
+          width: 180px;
+        }
+
+        div:nth-child(3) {
+          width: calc(100% - 280px - 180px - 200px - 6rem);
+        }
+
+        div:nth-child(4) {
+          width: 200px;
+        }
+
+      }
+
+
       &:last-of-type {
 
         > div {
