@@ -9,7 +9,7 @@
 
   .tick text {
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: 1400px) {
       transform: rotate(-45deg);
     }
   }
