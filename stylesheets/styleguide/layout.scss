@@ -138,11 +138,11 @@ main {
 
         @media (max-width : $breakpoint-sm) {
 
-          //height: 600px;
-          //
-          //> svg {
-          //  //transform: translate(-120px,200px) rotate(90deg);
-          //}
+          height: 600px;
+
+          > svg {
+            //transform: translate(-120px,200px) rotate(90deg);
+          }
         }
       }
 
