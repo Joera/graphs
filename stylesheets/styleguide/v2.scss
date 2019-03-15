@@ -66,6 +66,8 @@
 
         > div {
 
+          width: 100%;
+
           @media (min-width: $breakpoint-sm) {
             width: calc(33.3% - 2rem);
           }
