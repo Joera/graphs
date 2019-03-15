@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./assets/css/main.css">
+
+<style>
+
+
+</style>
+
+
+<script src="./assets/scripts/d3.min.js"></script>
+<script src="//d3js.org/d3-geo-projection.v2.min.js"></script>
+<!--<script src="//d3js.org/topojson.v1.min.js"></script>-->
+
+<script src="./assets/scripts/moment.min.js"></script>
+<script src="./assets/scripts/main.js"></script>
+
+
+<body id="candles">
+    <main>
+
+        <h2>Af- en toename dossiers per week</h2>
+        <span></span>
+        <div class="progress-candles-container container">
+            <div class="sides"></div>
+        </div>
+
+    </main>
+</body>
+
+
+<script>
+    var tcmgCharts = new TCMGCharts();
+    tcmgCharts.progressCandles('.progress-candles-container');
+</script>
+
+
+</html>
+
