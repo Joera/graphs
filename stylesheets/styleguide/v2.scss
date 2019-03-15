@@ -25,7 +25,13 @@
         display: none;
       }
     }
+}
 
+.graph-header {
 
-
+  h2 {
+    text-transform: none;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 }
