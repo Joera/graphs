@@ -65,7 +65,10 @@
       &:last-of-type {
 
         > div {
-          width: calc(33.3% - 2rem);
+
+          @media (min-width: $breakpoint-sm) {
+            width: calc(33.3% - 2rem);
+          }
         }
       }
     }
