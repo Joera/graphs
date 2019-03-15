@@ -7,6 +7,13 @@
   //
   //}
 
+  .tick text {
+
+    @media (max-width: $breakpoint-md) {
+      transform: rotate(-45deg);
+    }
+  }
+
 }
 
 
