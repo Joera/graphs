@@ -31,7 +31,7 @@
 
       .container {
         margin: 0;
-        width: auto;
+        width: calc(100% - 2rem);
       }
 
       .container.no-border {
