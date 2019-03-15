@@ -12,8 +12,8 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
 
     let redraw = function redraw(dimensions) {
         svg.body
-            .attr('height', dimensions.containerHeight) //
-            .attr('width', dimensions.containerWidth);
+            .attr('height', dimensions.containerHeight)
+            .attr('width', dimensions.width);
 
         svg.main
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')')
