@@ -70,7 +70,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         svg.yAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
-            .attr("transform", "translate(" + parseInt(dimensions.width) + "," + parseInt(config.margin.top + config.padding.top) + ")");
+            .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left + dimensions.width) + "," + parseInt(config.margin.top + config.padding.top) + ")");
     }
 
     let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
