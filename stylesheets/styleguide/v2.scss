@@ -5,10 +5,10 @@
 
     > div.graph-row {
 
-      flex-direction: row;
-      align-items: flex-start;
 
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       padding: 0;
       margin: 0;
 
@@ -17,6 +17,9 @@
       @media (min-width : $breakpoint-sm) {
 
         width: calc(100% - 8rem);
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
       }
 
       > div  {
