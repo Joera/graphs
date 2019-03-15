@@ -111,14 +111,14 @@ main {
 
         @media (max-width : $breakpoint-sm) {
           > svg {
-            transform: translate(-60px, -30px);
+            //transform: translate(-60px, -30px);
             overflow: visible;
           }
         }
 
         @media (min-width : $breakpoint-md) and (max-width : $extra) {
           > svg {
-            transform: translate(-40px, -30px);
+            //transform: translate(-40px, -30px);
             overflow: visible;
           }
         }
