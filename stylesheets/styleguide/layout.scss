@@ -146,7 +146,7 @@ main {
         }
       }
 
-      &.progress-container, .progress-candles-container {
+      &.progress-container, &.progress-candles-container {
 
         @media (max-width : $breakpoint-sm) {
           height: 600px;
