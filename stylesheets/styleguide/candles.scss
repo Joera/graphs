@@ -1,9 +1,23 @@
 #candles main {
 
+
+  h2 {
+
+    color: $green;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
   align-items: center;
 
   div {
     width: calc(100% - 4rem);
     height: 600px;
+  }
+
+  .progress-candles-container g.data path {
+    stroke: orange;
+    stroke-width: 2px;
   }
 }
