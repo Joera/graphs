@@ -910,26 +910,32 @@ var TCMGCharts = function TCMGCharts() {
                 let data = [];
 
                 data.push({
-                    status: "< €1K",
+                    status: "Afgewezen",
                     totaal: csv[0][filter]
 
                 });
 
                 data.push({
-                    status: "€1K t/m €4K",
+                    status: "< €1K",
                     totaal: csv[1][filter]
 
                 });
 
                 data.push({
-                    status: "€4K t/m €10K",
+                    status: "€1K t/m €4K",
                     totaal: csv[2][filter]
 
                 });
 
                 data.push({
-                    status: "> €10K",
+                    status: "€4K t/m €10K",
                     totaal: csv[3][filter]
+
+                });
+
+                data.push({
+                    status: "> €10K",
+                    totaal: csv[4][filter]
 
                 });
 
