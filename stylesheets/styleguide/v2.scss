@@ -12,6 +12,8 @@
       padding: 0;
       margin: 0;
 
+      width: calc(100% - 2rem);
+
       @media (min-width : $breakpoint-sm) {
 
         width: calc(100% - 8rem);
