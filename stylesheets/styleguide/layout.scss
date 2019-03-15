@@ -106,7 +106,7 @@ main {
       &.legend-container {
 
         padding: 1rem 0 0rem 0;
-        height: 120px;
+        //height: 120px;
         border: none;
 
         @media (max-width : $breakpoint-sm) {
@@ -149,9 +149,9 @@ main {
       &.progress-container {
 
         @media (max-width : $breakpoint-sm) {
-          height: 600px;
+       //   height: 600px;
           > svg {
-            transform: translate(-120px,200px) rotate(90deg);
+        //    transform: translate(-120px,200px) rotate(90deg);
           }
         }
       }
