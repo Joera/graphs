@@ -67,11 +67,11 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.bottom = 0;
         config.margin.left = 0;
         config.margin.right = 0;
-        config.padding.top = 30;
+        config.padding.top = 10;
         config.padding.bottom = 30;
 
-        config.padding.left = 60;
-        config.padding.right = 0;
+        config.padding.left = 0;
+        config.padding.right = 60;
         config.xParameter = 'provenance';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
 
@@ -79,7 +79,6 @@ var TCMGCharts = function TCMGCharts() {
         config.fixedWidth = 100 + 6;
         config.minValue = 0;
         config.maxValue = 25000;
-
 
         // x-scale
         config.xAlign = [0.0];
@@ -141,8 +140,8 @@ var TCMGCharts = function TCMGCharts() {
         let svg = chartObjects.svg();
 
         config.margin.top = 10;
-        config.padding.left = 60;
-        config.padding.bottom = 10;
+        config.padding.left = 0;
+        config.padding.bottom = 0;
         config.margin.bottom = 0;
 
         config.xParameter = 'provenance';
@@ -199,11 +198,11 @@ var TCMGCharts = function TCMGCharts() {
             //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
             var b = [
-                    [0.114, -1.1049478224689775],
-                    [0.12022108488117365, -1.1032758824373228]
+                    [0.116, -1.105],
+                    [0.12, -1.103]
                 ],
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
+                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
             projection
                 .scale(s)
@@ -245,15 +244,115 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("mouseover", function (d) {
 
-                        console.log(d);
+                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
+                            d.properties.totaal + " meldingen<br/>"
+                        ;
+
+                        svg.tooltip
+                            .html(html)
+                            .style("left", (d3.event.pageX + 5) + "px")
+                            .style("top", (d3.event.pageY - 5) + "px")
+                            .transition()
+                            .duration(250)
+                            .style("opacity", 1);
+                    })
+                    .on("mouseout", function (d) {
+                        svg.tooltip.transition()
+                            .duration(250)
+                            .style("opacity", 0);
+                    })
+            });
+        });
+    }
+
+    var mapOutput = function(element) {
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+
+        config.margin.top = 0;
+        config.padding.left = 0;
+        config.padding.bottom = 0;
+        config.margin.bottom = 0;
+
+        config.fixedHeight = 360;
+
+        let chartDimensions = ChartDimensions(element, config);
+        dimensions = chartDimensions.get(dimensions);
+
+        let projection = d3.geoMercator()
+            .scale(1)
+            .translate([0, 0]);
+
+        let path = d3.geoPath()
+            .projection(projection);
+
+        let chartSVG = ChartSVG(element, config, dimensions, svg);
+
+        dimensions = chartDimensions.get(dimensions);
+        chartSVG.redraw(dimensions);
+
+        d3.json("/assets/geojson/townships-2015.json", function (error, geojson) {
+
+            // var l = topojson.feature(nld, nld.objects.subunits).features[3],
+            //     b = path.bounds(l),
+            //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
+            //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
+
+            var b = [
+                    [0.114, -1.105],
+                    [0.12, -1.103]
+                ],
+                s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
+                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
+
+            projection
+                .scale(s)
+                .translate(t)
+            ;
+
+            d3.csv("./dummy_data_map_output.csv", function (error, csv) {
+                if (error) throw error;
+
+                geojson.features.forEach((feature) => {
+
+                    // console.log(feature.properties.name);
+
+                    let gemeenteData = csv.find((g) => {
+                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
+                    });
+
+                    for (let key in gemeenteData) {
+                        gemeenteData[sluggify(key)] = gemeenteData[key];
+                    }
+
+                    feature.properties = Object.assign({}, feature.properties, gemeenteData);
+                });
+
+                svg.layers.data.selectAll("path")
+                // .data(topojson.feature(nld, nld.objects.subunits).features)
+                    .data(geojson.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path)
+                    .attr("fill", function (d, i) {
+                        return 'orange';
+                    })
+                    .attr("fill-opacity", function (d, i) {
+                        return i / 10;
+                    })
+                    .attr("class", function (d, i) {
+                        return sluggify(d.properties.name);
+                    })
+                    .on("mouseover", function (d) {
 
                         let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
                             d.properties.totaal + " uitspraken<br/>" +
                             d.properties.afgewezen + " afgewezen<br/>" +
                             d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
                             d.properties['geheel-toegekend'] + " geheel toegekend<br/>"
-
-
                         ;
 
                         svg.tooltip
@@ -299,7 +398,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'totaal';
         config.minValue = 0;
         // config.maxValue = 10000;
-        config.fixedHeight = 160;
+        config.fixedHeight = 200;
 
         // x-axis
         config.minWidth = 460;
@@ -910,26 +1009,32 @@ var TCMGCharts = function TCMGCharts() {
                 let data = [];
 
                 data.push({
-                    status: "< €1K",
+                    status: "Afgewezen",
                     totaal: csv[0][filter]
 
                 });
 
                 data.push({
-                    status: "€1K t/m €4K",
+                    status: "< €1K",
                     totaal: csv[1][filter]
 
                 });
 
                 data.push({
-                    status: "€4K t/m €10K",
+                    status: "€1K t/m €4K",
                     totaal: csv[2][filter]
 
                 });
 
                 data.push({
-                    status: "> €10K",
+                    status: "€4K t/m €10K",
                     totaal: csv[3][filter]
+
+                });
+
+                data.push({
+                    status: "> €10K",
+                    totaal: csv[4][filter]
 
                 });
 
@@ -985,6 +1090,7 @@ var TCMGCharts = function TCMGCharts() {
         inputs : Inputs,
         legendInput : LegendInput,
         mapInput : mapInput,
+        mapOutput : mapOutput,
         procedure : Procedure,
         procedureAlt : ProcedureAlt,
         progress : Progress,

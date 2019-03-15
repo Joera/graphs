@@ -29,9 +29,9 @@ module.exports = function() {
             './src/chart-stacked-area.js',
             './src/chart-blocks.js',
             './src/chart-area.js',
-            './src/tcmg-charts-v2.js'
+            './src/tcmg-charts.js'
             ])
-            .pipe(concat('main-v2.js'))
+            .pipe(concat('main.js'))
             .pipe(babel({
                 presets: ['es2015']
             }))
