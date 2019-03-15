@@ -1,7 +1,7 @@
 .visible-on-phone, .visible-on-portrait {
   display: none;
 }
-@media (max-width: $portrait-max) { // 760px;
+@media (max-width: $breakpoint-md) { // 760px;
   .hidden-on-portrait {
     display: none;
   }
@@ -9,7 +9,7 @@
     display: inline-block;
   }
 }
-@media (max-width: $mobile-max) { // 760px;
+@media (max-width: $breakpoint-sm) { // 760px;
   .hidden-on-phone {
     display: none;
   }

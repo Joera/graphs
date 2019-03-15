@@ -6,7 +6,7 @@ main {
   margin-top: 1rem;
   justify-content: flex-start;
 
-  @media (min-width : $mobile-max) {
+  @media (min-width : $breakpoint-sm) {
     //height: 560px;
     margin-top: 6rem;
   }
@@ -21,7 +21,7 @@ main {
     align-items: center;
     justify-content: flex-start;
 
-    @media (min-width : $mobile-max) {
+    @media (min-width : $breakpoint-sm) {
 
       margin: 0 0 3rem 0;
     }
@@ -73,7 +73,7 @@ main {
 
         padding: 30px 15px 0 15px;
 
-        @media (min-width : $mobile-max) and  (max-width : $portrait-max) {
+        @media (min-width : $breakpoint-sm) and  (max-width : $breakpoint-md) {
 
           position: absolute;
           right : 0;
@@ -109,21 +109,21 @@ main {
         height: 120px;
         border: none;
 
-        @media (max-width : $mobile-max) {
+        @media (max-width : $breakpoint-sm) {
           > svg {
             transform: translate(-60px, -30px);
             overflow: visible;
           }
         }
 
-        @media (min-width : $portrait-max) and (max-width : $extra) {
+        @media (min-width : $breakpoint-md) and (max-width : $extra) {
           > svg {
             transform: translate(-40px, -30px);
             overflow: visible;
           }
         }
 
-        @media (min-width : $mobile-max) {
+        @media (min-width : $breakpoint-sm) {
           padding: 0;
           height: auto;
 
@@ -135,7 +135,7 @@ main {
 
         margin-bottom: 30px;
 
-        @media (max-width : $mobile-max) {
+        @media (max-width : $breakpoint-sm) {
 
           height: 600px;
 
@@ -147,7 +147,7 @@ main {
 
       &.progress-container {
 
-        @media (max-width : $mobile-max) {
+        @media (max-width : $breakpoint-sm) {
           height: 600px;
           > svg {
             transform: translate(-120px,200px) rotate(90deg);
@@ -161,7 +161,7 @@ main {
 
       &.remittances-container {
 
-        @media (max-width : $portrait-max) {
+        @media (max-width : $breakpoint-md) {
           border: none;
         }
       }
@@ -174,11 +174,11 @@ main {
 
           padding: 15px 2rem 30px 15px;
 
-          @media (min-width : $mobile-max) {
+          @media (min-width : $breakpoint-sm) {
             padding: 0px 2rem 30px 60px;
           }
 
-          @media (min-width : $portrait-max) and (max-width : $extra) {
+          @media (min-width : $breakpoint-md) and (max-width : $extra) {
             padding: 15px 2rem 30px 15px;
           }
         }
@@ -188,7 +188,7 @@ main {
 
   }
 
-  @media (min-width: $portrait-max) {
+  @media (min-width: $breakpoint-md) {
 
     flex-direction: row;
 
