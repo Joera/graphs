@@ -70,7 +70,7 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.top = 10;
         config.padding.bottom = 30;
 
-        config.padding.left = 0;
+        config.padding.left = 60;
         config.padding.right = 60;
         config.xParameter = 'provenance';  // name of first column with values of bands on x axis
         config.yParameter = 'total';  // is being set in type function
@@ -79,8 +79,7 @@ var TCMGCharts = function TCMGCharts() {
         config.fixedWidth = 100 + 6;
         config.minValue = 0;
         config.maxValue = 25000;
-
-
+        
         // x-scale
         config.xAlign = [0.0];
         config.paddingInner = [0.0];
@@ -299,7 +298,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'totaal';
         config.minValue = 0;
         // config.maxValue = 10000;
-        config.fixedHeight = 220;
+        config.fixedHeight = 200;
 
         // x-axis
         config.minWidth = 460;
@@ -910,26 +909,32 @@ var TCMGCharts = function TCMGCharts() {
                 let data = [];
 
                 data.push({
-                    status: "< €1K",
+                    status: "Afgewezen",
                     totaal: csv[0][filter]
 
                 });
 
                 data.push({
-                    status: "€1K t/m €4K",
+                    status: "< €1K",
                     totaal: csv[1][filter]
 
                 });
 
                 data.push({
-                    status: "€4K t/m €10K",
+                    status: "€1K t/m €4K",
                     totaal: csv[2][filter]
 
                 });
 
                 data.push({
-                    status: "> €10K",
+                    status: "€4K t/m €10K",
                     totaal: csv[3][filter]
+
+                });
+
+                data.push({
+                    status: "> €10K",
+                    totaal: csv[4][filter]
 
                 });
 
