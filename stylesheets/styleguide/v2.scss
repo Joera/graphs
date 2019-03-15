@@ -106,5 +106,12 @@
 
 
 .map-input-container {
-  svg { margin-top: -60px; }
+
+
+  svg {
+
+    @media (min-width: $breakpoint-sm) {
+      margin-top: -60px;
+    }
+  }
 }
