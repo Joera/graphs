@@ -70,12 +70,12 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         svg.yAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
-            .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + parseInt(config.margin.top + config.padding.top) + ")");
+            .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left + config.width) + "," + parseInt(config.margin.top + config.padding.top) + ")");
     }
 
     let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
 
-        axes.yBlocks = d3.axisLeft(scales.yBlocks);
+        axes.yBlocks = d3.axisRight(scales.yBlocks);
 
         axes.yBlocks
             .ticks(config.maxValue / 5000);
