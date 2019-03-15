@@ -42,6 +42,13 @@
         display: none;
       }
     }
+
+    &:nth-child(3) {
+
+      > div {
+        width: 33%;
+      }
+    }
 }
 
 .graph-header {
