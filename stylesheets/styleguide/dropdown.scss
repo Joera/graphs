@@ -9,7 +9,7 @@
  // border: 1px solid black;
   display: none;
 
-  @media all(min-width: $breakpoint-sm) {
+  @media (min-width: $breakpoint-sm) {
 
       display: block;
   }
