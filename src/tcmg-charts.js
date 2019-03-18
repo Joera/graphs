@@ -208,7 +208,7 @@ var TCMGCharts = function TCMGCharts() {
             //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
             //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
-            var s = 1;
+            var s = 0.001;
             var t = [0,0];
 
             projection
