@@ -202,9 +202,14 @@ var TCMGCharts = function TCMGCharts() {
             var b = [
                     [0.116, -1.105],
                     [0.12, -1.103]
-                ],
-                s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
+                ];
+
+            // ,
+            //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
+            //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
+
+            var s = 1;
+            var t = [0,0];
 
             projection
                 .scale(s)
