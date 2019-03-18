@@ -201,8 +201,11 @@ var TCMGCharts = function TCMGCharts() {
 
             console.log(path.bounds(geojson.features[0]))
 
+                // [0.114, -1.105],
+                // [0.12, -1.103]
+
             var b = [
-                    [0.1187116059472928,-1.0985755688135375],
+                    [0.1147116059472928,-1.1085755688135375],
                     [0.12150832154068851,-1.0957736701784277]
                 ],
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
