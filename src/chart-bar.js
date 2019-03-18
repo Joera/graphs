@@ -74,7 +74,6 @@ let ChartBar = function ChartBar(config,svg) {
 
     return  {
         draw : draw,
-        enter : enter,
         redraw : redraw
     }
 }
