@@ -219,7 +219,7 @@ var TCMGCharts = function TCMGCharts() {
                     // console.log(feature.properties.name);
 
                     let gemeenteData = csv.find( (g) => {
-                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
+                        return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
                     });
 
                     for (let key in gemeenteData) {
@@ -242,11 +242,11 @@ var TCMGCharts = function TCMGCharts() {
                         return i / 10;
                     })
                     .attr("class", function (d, i) {
-                        return sluggify(d.properties.name);
+                        return sluggify(d.properties.gemeentenaam);
                     })
                     .on("mouseover", function (d) {
 
-                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
+                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span><br/>" +
                             d.properties.totaal + " meldingen<br/>"
                         ;
 
