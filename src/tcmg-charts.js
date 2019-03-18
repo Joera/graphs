@@ -192,7 +192,7 @@ var TCMGCharts = function TCMGCharts() {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/gemeentegrenzen.json", function(error, geojson) {
+        d3.json("/assets/geojson/gemeentegrens.json", function(error, geojson) {
 
             // var l = topojson.feature(nld, nld.objects.subunits).features[3],
             //     b = path.bounds(l),
@@ -296,7 +296,7 @@ var TCMGCharts = function TCMGCharts() {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/gemeentegrenzen.json", function (error, geojson) {
+        d3.json("/assets/geojson/gemeentegrens.json", function (error, geojson) {
 
             // var l = topojson.feature(nld, nld.objects.subunits).features[3],
             //     b = path.bounds(l),
