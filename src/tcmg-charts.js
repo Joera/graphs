@@ -199,7 +199,8 @@ var TCMGCharts = function TCMGCharts() {
             //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
             //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
-            // console.log(path.bounds(geojson.features[0]))
+            console.log(path.bounds(geojson.features[0]));
+            console.log(path.bounds(geojson.features[10]));
 
                 // [0.114, -1.105],
                 // [0.12, -1.103]
@@ -214,8 +215,8 @@ var TCMGCharts = function TCMGCharts() {
 
 
             projection
-                .scale(s)
-                .translate(t)
+                .scale(1)
+                .translate([0,0])
             ;
 
             d3.csv("./dummy_data_map_output.csv", function(error, csv) {
