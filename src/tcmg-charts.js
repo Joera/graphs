@@ -199,7 +199,7 @@ var TCMGCharts = function TCMGCharts() {
             //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
             //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
-            console.log(path.bounds(geojson.features[0]))
+            // console.log(path.bounds(geojson.features[0]))
 
                 // [0.114, -1.105],
                 // [0.12, -1.103]
@@ -246,7 +246,7 @@ var TCMGCharts = function TCMGCharts() {
                         return 'orange';
                     })
                     .attr("fill-opacity", function (d, i) {
-                        return i / 5;
+                        return 1;
                     })
                     .attr("class", function (d, i) {
                         return sluggify(d.properties.gemeentenaam);
