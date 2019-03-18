@@ -206,8 +206,8 @@ var TCMGCharts = function TCMGCharts() {
                 // [0.12, -1.103]
 
             var b = [
-                    [-2.1147116059472928,-2.1085755688135375],
-                    [2.42150832154068851,2.0957736701784277]
+                    [-3.141592653589793, -3.141592653589793],
+                    [3.141592653589793, 3.141592653589793]
                 ],
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
@@ -215,8 +215,8 @@ var TCMGCharts = function TCMGCharts() {
 
 
             projection
-                .scale(10)
-                .translate([100,300])
+                .scale(s)
+                .translate(t)
             ;
 
             d3.csv("./dummy_data_map_output.csv", function(error, csv) {
