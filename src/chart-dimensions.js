@@ -15,8 +15,6 @@ let ChartDimensions = function ChartDimensions(element,config) {
 
         } else {
 
-            console.log(d3.select(element).node().getBoundingClientRect().width);
-
             dimensions.containerWidth = d3.select(element).node().getBoundingClientRect().width - config.margin.left - config.margin.right;
             dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
         }

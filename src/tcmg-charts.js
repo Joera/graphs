@@ -216,8 +216,6 @@ var TCMGCharts = function TCMGCharts() {
             d3.csv("./dummy_data_map_output.csv", function(error, csv) {
                 if (error) throw error;
 
-                console.log(geojson.features);
-
                 geojson.features.forEach( (feature) => {
 
                     // console.log(feature.properties.name);
