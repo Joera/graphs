@@ -216,7 +216,7 @@ var TCMGCharts = function TCMGCharts() {
 
             projection
                 .scale(10)
-                .translate([100,100])
+                .translate([100,300])
             ;
 
             d3.csv("./dummy_data_map_output.csv", function(error, csv) {
