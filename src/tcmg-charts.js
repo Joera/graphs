@@ -357,7 +357,7 @@ var TCMGCharts = function TCMGCharts() {
                         return i / 10;
                     })
                     .attr("class", function (d, i) {
-                        return sluggify(d.properties.gemeentenaam);
+                        return sluggify(d.properties.name);
                     })
                     .on("mouseover", function (d) {
 
