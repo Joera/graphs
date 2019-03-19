@@ -348,8 +348,9 @@ var TCMGCharts = function TCMGCharts() {
                 //     feature.properties = Object.assign({}, feature.properties, name);
                 // });
 
-                svg.layers.data.append("path")
+                svg.layers.data.selectAll("path")
                     .data(features)
+                    .append("path")
                     .enter()
                     .attr("d", path)
 
