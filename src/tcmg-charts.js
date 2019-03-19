@@ -316,7 +316,7 @@ var TCMGCharts = function TCMGCharts() {
             // console.log(geojson.bbox);
             //
             var l = geojson.features[0],
-                b = [[0.11874064877658079, -1.4049478224689775],[0.12022108488117365, -1.4032758824373228]],
+                b = [[0.11874064877658079, -1.1049478224689775],[0.15022108488117365, -1.3032758824373228]],
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
