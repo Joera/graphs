@@ -347,15 +347,13 @@ var TCMGCharts = function TCMGCharts() {
                 // });
 
                 svg.layers.data.append("path")
-                // .data(topojson.feature(nld, nld.objects.subunits).features)
-                    .datum(topojson.feature(mapData, mapData.objects.allegemeentes))
-
+                    .data(topojson.feature(mapData, mapData.objects.allegemeentes).features)
                     .attr("d", path)
                     .attr("fill", function (d, i) {
                         return 'orange';
                     })
                     .attr("fill-opacity", function (d, i) {
-                        return i / 10;
+                        return 1;
                     })
                     // .attr("class", function (d, i) {
                     //     return sluggify(d.properties.name);
