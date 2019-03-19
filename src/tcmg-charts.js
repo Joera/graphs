@@ -350,7 +350,6 @@ var TCMGCharts = function TCMGCharts() {
                 // .data(topojson.feature(nld, nld.objects.subunits).features)
                     .datum(topojson.feature(mapData, mapData.objects.gemeenten))
 
-
                     .attr("d", path)
                     .attr("fill", function (d, i) {
                         return 'orange';
