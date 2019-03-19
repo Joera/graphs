@@ -350,7 +350,9 @@ var TCMGCharts = function TCMGCharts() {
 
                 svg.layers.data.append("path")
                     .data(features)
+                    .enter()
                     .attr("d", path)
+
                     .attr("fill", function (d, i) {
                         return 'orange';
                     })
