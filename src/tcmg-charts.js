@@ -306,7 +306,7 @@ var TCMGCharts = function TCMGCharts() {
 
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/townships-2015.json", function (error, geojson) {
+        d3.json("/assets/geojson/converted.json", function (error, geojson) {
 
             // var l = topojson.feature(nld, nld.objects.subunits).features[3],
             //     b = path.bounds(l),
@@ -315,11 +315,8 @@ var TCMGCharts = function TCMGCharts() {
 
             // console.log(geojson.bbox);
             //
-            var l = geojson.features[0],
-                b = [
-                    [0.114, -1.1049478224689775],
-                    [0.12022108488117365, -1.1032758824373228]
-                ],
+            var l = topojson.feature(geojson, geojson.objects.gemeenten).features[3],
+                b = path.bounds(l),
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
@@ -334,24 +331,24 @@ var TCMGCharts = function TCMGCharts() {
             d3.csv("./dummy_data_map_output.csv", function (error, csv) {
                 if (error) throw error;
 
-                geojson.features.forEach((feature) => {
-
-                    // console.log(feature.properties.name);
-
-                    let gemeenteData = csv.find((g) => {
-                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
-                    });
-
-                    for (let key in gemeenteData) {
-                        gemeenteData[sluggify(key)] = gemeenteData[key];
-                    }
-
-                    feature.properties = Object.assign({}, feature.properties, name);
-                });
+                // geojson.objects.gemeenten.forEach((feature) => {
+                //
+                //     // console.log(feature.properties.name);
+                //
+                //     let gemeenteData = csv.find((g) => {
+                //         return sluggify(g.gemeente) == sluggify(feature.properties.name);
+                //     });
+                //
+                //     for (let key in gemeenteData) {
+                //         gemeenteData[sluggify(key)] = gemeenteData[key];
+                //     }
+                //
+                //     feature.properties = Object.assign({}, feature.properties, name);
+                // });
 
                 svg.layers.data.selectAll("path")
                 // .data(topojson.feature(nld, nld.objects.subunits).features)
-                    .data(geojson.features)
+                    .data(geojson.objects.gemeenten)
                     .enter()
                     .append("path")
                     .attr("d", path)
@@ -361,20 +358,20 @@ var TCMGCharts = function TCMGCharts() {
                     .attr("fill-opacity", function (d, i) {
                         return i / 10;
                     })
-                    .attr("class", function (d, i) {
-                        return sluggify(d.properties.name);
-                    })
+                    // .attr("class", function (d, i) {
+                    //     return sluggify(d.properties.name);
+                    // })
                     .on("mouseover", function (d) {
 
-                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
-                            d.properties.totaal + " uitspraken<br/>" +
-                            d.properties.afgewezen + " afgewezen<br/>" +
-                            d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
-                            d.properties['geheel-toegekend'] + " geheel toegekend<br/>"
-                        ;
+                        // let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
+                        //     d.properties.totaal + " uitspraken<br/>" +
+                        //     d.properties.afgewezen + " afgewezen<br/>" +
+                        //     d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
+                        //     d.properties['geheel-toegekend'] + " geheel toegekend<br/>"
+                        // ;
 
                         svg.tooltip
-                            .html(html)
+                            // .html(html)
                             .style("left", (d3.event.pageX + 5) + "px")
                             .style("top", (d3.event.pageY - 5) + "px")
                             .transition()
