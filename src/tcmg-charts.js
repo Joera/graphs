@@ -360,20 +360,20 @@ var TCMGCharts = function TCMGCharts() {
                     .attr("fill-opacity", function (d, i) {
                         return 1;
                     })
-                    // .attr("class", function (d, i) {
-                    //     return sluggify(d.properties.name);
-                    // })
+                    .attr("class", function (d, i) {
+                        return sluggify(d.properties.name);
+                    })
                     .on("mouseover", function (d) {
 
-                        // let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
-                        //     d.properties.totaal + " uitspraken<br/>" +
-                        //     d.properties.afgewezen + " afgewezen<br/>" +
-                        //     d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
-                        //     d.properties['geheel-toegekend'] + " geheel toegekend<br/>"
-                        // ;
+                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
+                            d.properties.totaal + " uitspraken<br/>" +
+                            d.properties.afgewezen + " afgewezen<br/>" +
+                            d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
+                            d.properties['geheel-toegekend'] + " geheel toegekend<br/>"
+                        ;
 
                         svg.tooltip
-                            // .html(html)
+                            .html(html)
                             .style("left", (d3.event.pageX + 5) + "px")
                             .style("top", (d3.event.pageY - 5) + "px")
                             .transition()
