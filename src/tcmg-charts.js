@@ -315,7 +315,7 @@ var TCMGCharts = function TCMGCharts() {
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
 
-            console.log(features);
+            console.log(b);
 
             projection
                 .scale(s)
@@ -340,7 +340,7 @@ var TCMGCharts = function TCMGCharts() {
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
                 });
 
-                let max = d3.max(data, d => d.properties.totaal);
+                let max = d3.max(features, d => d.properties.totaal);
 
                 svg.layers.data.selectAll("path")
                     .data(features)
