@@ -315,13 +315,15 @@ var TCMGCharts = function TCMGCharts() {
 
             // console.log(geojson.bbox);
             //
-            var l = topojson.feature(mapData, mapData.objects.allegemeentes).features[3],
+
+            let features = topojson.feature(mapData, mapData.objects.allegemeentes).features;
+            var l = features[3],
                 b = path.bounds(l),
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
 
-            console.log(b);
+            console.log(features);
 
             projection
                 .scale(s)
@@ -347,7 +349,7 @@ var TCMGCharts = function TCMGCharts() {
                 // });
 
                 svg.layers.data.append("path")
-                    .data(topojson.feature(mapData, mapData.objects.allegemeentes).features)
+                    .data(features)
                     .attr("d", path)
                     .attr("fill", function (d, i) {
                         return 'orange';
