@@ -2,10 +2,10 @@ div.tooltip {
   position: absolute;
   width: auto;
   height: auto;
-  max-width: 240px;
-  max-height: 240px;
+  max-width: 180px;
+  max-height: 180px;
   padding: 1rem;
-  background: black;
+  background: $blue;
   color: #fff;
   pointer-events: none;
   font-size: .85rem;
