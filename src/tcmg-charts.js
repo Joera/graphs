@@ -308,14 +308,6 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.json("/assets/geojson/fromgeojson.json", function (error, mapData) {
 
-            // var l = topojson.feature(nld, nld.objects.subunits).features[3],
-            //     b = path.bounds(l),
-            //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-            //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
-
-            // console.log(geojson.bbox);
-            //
-
             let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
             var l = features[3],
                 b = path.bounds(l),
@@ -348,6 +340,8 @@ var TCMGCharts = function TCMGCharts() {
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
                 });
 
+                let max = d3.max(data, d => d.properties.totaal);
+
                 svg.layers.data.selectAll("path")
                     .data(features)
                     .enter()
@@ -358,7 +352,9 @@ var TCMGCharts = function TCMGCharts() {
                         return 'orange';
                     })
                     .attr("fill-opacity", function (d, i) {
-                        return i / 10;
+
+                        return d.properties.totaal / max;
+
                     })
                     .attr("class", function (d, i) {
                         return sluggify(d.properties.name);
