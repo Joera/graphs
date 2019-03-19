@@ -343,6 +343,8 @@ var TCMGCharts = function TCMGCharts() {
 
                 let max = d3.max(features, d => d.properties.totaal);
 
+                console.log(max);
+
                 svg.layers.data.selectAll("path")
                     .data(features)
                     .enter()
@@ -354,9 +356,9 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .attr("fill-opacity", function (d, i) {
 
-                        let ratio = 0.8 * d.properties.totaal / max;
+                        let ratio = d.properties.totaal / max;
 
-                        console.log(ratio)
+                        console.log(ratio);
 
                         return ratio + 0.2;
 
