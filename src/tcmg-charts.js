@@ -290,7 +290,7 @@ var TCMGCharts = function TCMGCharts() {
         config.padding.bottom = 0;
         config.margin.bottom = 0;
 
-        config.fixedHeight = 360;
+        // config.fixedHeight = 360;
 
         let chartDimensions = ChartDimensions(element, config);
         dimensions = chartDimensions.get(dimensions);
