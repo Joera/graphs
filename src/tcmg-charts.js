@@ -299,8 +299,7 @@ var TCMGCharts = function TCMGCharts() {
             .scale(1)
             .translate([0, 0]);
 
-        let path = d3.geoPath()
-            .projection(projection);
+
 
         let chartSVG = ChartSVG(element, config, dimensions, svg);
 
@@ -326,6 +325,9 @@ var TCMGCharts = function TCMGCharts() {
                 .scale(s)
                 .translate(t)
             ;
+
+            let path = d3.geoPath()
+                .projection(projection);
 
             d3.csv("./dummy_data_map_output.csv", function (error, csv) {
                 if (error) throw error;
