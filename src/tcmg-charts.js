@@ -194,7 +194,10 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.json("/assets/geojson/gem_grenzen_groningen.topojson", function(error, mapData) {
 
-            var l = topojson.feature(mapData, mapData.objects.gem_grenzen_groningen).features[3],
+
+            let geojson = topojson.feature(mapData, mapData.objects.gem_grenzen_groningen);
+
+            var l = geojson.features[3],
                 b = path.bounds(l),
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
