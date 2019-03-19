@@ -306,7 +306,7 @@ var TCMGCharts = function TCMGCharts() {
 
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/single_gemeente_II.geojson", function (error, geojson) {
+        d3.json("/assets/geojson/townships-2015.json", function (error, geojson) {
 
             // var l = topojson.feature(nld, nld.objects.subunits).features[3],
             //     b = path.bounds(l),
