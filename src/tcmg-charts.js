@@ -348,7 +348,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 svg.layers.data.selectAll("path")
                 // .data(topojson.feature(nld, nld.objects.subunits).features)
-                    .data(geojson.objects.gemeenten)
+                    .data(topojson.feature(geojson, geojson.objects.gemeenten))
                     .enter()
                     .append("path")
                     .attr("d", path)
