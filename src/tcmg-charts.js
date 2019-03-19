@@ -341,7 +341,7 @@ var TCMGCharts = function TCMGCharts() {
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
                 });
 
-                let max = d3.max(features, d => d.properties.totaal);
+                let max = d3.max(features, d => { return d.properties.totaal});
 
                 console.log(max);
 
@@ -356,7 +356,7 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .attr("fill-opacity", function (d, i) {
 
-                        let ratio = d.properties.totaal / max;
+                        let ratio = .8 * d.properties.totaal / 1500;
 
                         console.log(ratio);
 
