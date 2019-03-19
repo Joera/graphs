@@ -358,7 +358,7 @@ var TCMGCharts = function TCMGCharts() {
 
                         console.log(ratio)
 
-                        return ratio) + 0.2;
+                        return ratio + 0.2;
 
                     })
                     .attr("class", function (d, i) {
