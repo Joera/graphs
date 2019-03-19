@@ -296,6 +296,7 @@ var TCMGCharts = function TCMGCharts() {
         dimensions = chartDimensions.get(dimensions);
 
         let projection = d3.geoMercator()
+            .scale(.1)
             .translate([ parseInt(dimensions.containerWidth) / 2, parseInt(dimensions.height)  / 2]);
 
         let path = d3.geoPath()
