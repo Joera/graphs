@@ -192,25 +192,25 @@ var TCMGCharts = function TCMGCharts() {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/gem_grenzen_groningen.json", function(error, geojson) {
+        d3.json("/assets/geojson/gem_grenzen_groningen.topojson", function(error, mapData) {
 
-            // var l = topojson.feature(nld, nld.objects.subunits).features[3],
-            //     b = path.bounds(l),
-            //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-            //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
+            var l = topojson.feature(mapData, mapData.objects.gem_grenzen_groningen).features[3],
+                b = path.bounds(l),
+                s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
+                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
 
-            console.log(path.bounds(geojson.features[0]));
-            console.log(path.bounds(geojson.features[10]));
+            // console.log(path.bounds(geojson.features[0]));
+            // console.log(path.bounds(geojson.features[10]));
 
                 // [0.114, -1.105],
                 // [0.12, -1.103]
 
-            var b = [
-                    [0.1187116059472928, -3.141592653589793],
-                    [0.12150832154068851, 3.141592653589793]
-                ],
-                s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
+            // var b = [
+            //         [0.1187116059472928, -3.141592653589793],
+            //         [0.12150832154068851, 3.141592653589793]
+            //     ],
+            //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
+            //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
 
 
