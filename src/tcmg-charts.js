@@ -316,7 +316,7 @@ var TCMGCharts = function TCMGCharts() {
             // console.log(geojson.bbox);
             //
 
-            let features = topojson.feature(mapData, mapData.objects.allegemeentes).features;
+            let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
             var l = features[3],
                 b = path.bounds(l),
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
