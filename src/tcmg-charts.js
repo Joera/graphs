@@ -306,7 +306,7 @@ var TCMGCharts = function TCMGCharts() {
 
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/fromgeojson.json", function (error, mapData) {
+        d3.json("/assets/geojson/allgeojson.json", function (error, mapData) {
 
             // var l = topojson.feature(nld, nld.objects.subunits).features[3],
             //     b = path.bounds(l),
@@ -315,7 +315,7 @@ var TCMGCharts = function TCMGCharts() {
 
             // console.log(geojson.bbox);
             //
-            var l = topojson.feature(mapData, mapData.objects.gemeenten).features[3],
+            var l = topojson.feature(mapData, mapData.objects.allegemeentes).features[3],
                 b = path.bounds(l),
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
@@ -348,7 +348,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 svg.layers.data.append("path")
                 // .data(topojson.feature(nld, nld.objects.subunits).features)
-                    .datum(topojson.feature(mapData, mapData.objects.gemeenten))
+                    .datum(topojson.feature(mapData, mapData.objects.allegemeentes))
 
                     .attr("d", path)
                     .attr("fill", function (d, i) {
