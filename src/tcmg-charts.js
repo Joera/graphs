@@ -354,7 +354,11 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .attr("fill-opacity", function (d, i) {
 
-                        return (.8 * (d.properties.totaal / max)) + .2;
+                        let ratio = 0.8 * d.properties.totaal / max;
+
+                        console.log(ratio)
+
+                        return ratio) + 0.2;
 
                     })
                     .attr("class", function (d, i) {
