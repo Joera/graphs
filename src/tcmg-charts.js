@@ -333,20 +333,20 @@ var TCMGCharts = function TCMGCharts() {
             d3.csv("./dummy_data_map_output.csv", function (error, csv) {
                 if (error) throw error;
 
-                // geojson.objects.gemeenten.forEach((feature) => {
-                //
-                //     // console.log(feature.properties.name);
-                //
-                //     let gemeenteData = csv.find((g) => {
-                //         return sluggify(g.gemeente) == sluggify(feature.properties.name);
-                //     });
-                //
-                //     for (let key in gemeenteData) {
-                //         gemeenteData[sluggify(key)] = gemeenteData[key];
-                //     }
-                //
-                //     feature.properties = Object.assign({}, feature.properties, name);
-                // });
+                features.forEach((feature) => {
+
+                    // console.log(feature.properties.name);
+
+                    let gemeenteData = csv.find((g) => {
+                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
+                    });
+
+                    for (let key in gemeenteData) {
+                        gemeenteData[sluggify(key)] = gemeenteData[key];
+                    }
+
+                    feature.properties = Object.assign({}, feature.properties, name);
+                });
 
                 svg.layers.data.selectAll("path")
                     .data(features)
