@@ -1103,7 +1103,7 @@ var TCMGCharts = function TCMGCharts() {
 
             let event = document.createEvent("HTMLEvents");
             event.initEvent("change",true,false);
-            select.dispatchEvent(event);
+            procedureSelect.dispatchEvent(event);
 
     }
 
