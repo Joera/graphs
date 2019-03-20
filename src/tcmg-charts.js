@@ -383,150 +383,148 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
-    var Procedure  = function Procedure(element) {
+    var Procedure  = function Procedure(element,filter) {
 
-        let chartObjects = ChartObjects();
-        let config = chartObjects.config();
-        let dimensions = chartObjects.dimensions();
-        let svg = chartObjects.svg();
-        let scales = chartObjects.scales();
-        let axes = chartObjects.axes();
-        let functions = chartObjects.functions();
-
-        config.margin.top = 0;
-        config.margin.bottom = 0;
-        config.margin.left = 0;
-        config.margin.right = 0;
-        config.padding.top = 30;
-        config.padding.bottom = 30;
-        config.padding.left = 40;
-        config.padding.right = 0;
-        // name of first column with values of bands on x axis
-
-        // y-axis
-        config.yParameter = 'totaal';
-        config.minValue = 0;
-        // config.maxValue = 10000;
-        config.fixedHeight = 200;
-
-        // x-axis
-        // config.minWidth = 460;
-        config.xParameter = 'status';
-        config.paddingInner = [0.5];
-        config.paddingOuter = [0.25];
-
-        // get dimensions from parent element
-        let chartDimensions = ChartDimensions(element,config);
-        dimensions = chartDimensions.get(dimensions);
-
-        // create svg elements without data
-        let chartSVG = ChartSVG(element,config,dimensions,svg);
-        let chartScales = ChartScales(config,dimensions,scales);
-        let chartAxis = ChartAxis(config,svg);
-        let chartBar = ChartBar(config,svg);
-       // let chartStackedBars = ChartStackedBars(config,svg,functions);
-      //  let chartBlocks = ChartBlocks(config,svg,functions);
-        chartAxis.drawXAxis();
-        chartAxis.drawYAxis();
-
-        // function to parse csv
-        function type(d, i, columns) {
-            let t;
-            for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-            d.value = t;
-            return d;
-        }
+        if(filter) {
+            run(filter);
+        } else {
 
 
+            let chartObjects = ChartObjects();
+            let config = chartObjects.config();
+            let dimensions = chartObjects.dimensions();
+            let svg = chartObjects.svg();
+            let scales = chartObjects.scales();
+            let axes = chartObjects.axes();
+            let functions = chartObjects.functions();
 
-        // point of data injection when using an api
-        d3.csv("./dummy_data_procedure.csv", type, function(error, csv){
-            if (error) throw error;
+            config.margin.top = 0;
+            config.margin.bottom = 0;
+            config.margin.left = 0;
+            config.margin.right = 0;
+            config.padding.top = 30;
+            config.padding.bottom = 30;
+            config.padding.left = 40;
+            config.padding.right = 0;
+            // name of first column with values of bands on x axis
 
-            // manipulate the data into stacked series
+            // y-axis
+            config.yParameter = 'totaal';
+            config.minValue = 0;
+            // config.maxValue = 10000;
+            config.fixedHeight = 200;
 
-            function prepareData(csv,filter) {
+            // x-axis
+            // config.minWidth = 460;
+            config.xParameter = 'status';
+            config.paddingInner = [0.5];
+            config.paddingOuter = [0.25];
 
-                let data = [];
+            // get dimensions from parent element
+            let chartDimensions = ChartDimensions(element, config);
+            dimensions = chartDimensions.get(dimensions);
 
-                data.push({
-                    status: "Wacht op opname",
-                    totaal: csv[3][filter] + csv[6][filter]
+            // create svg elements without data
+            let chartSVG = ChartSVG(element, config, dimensions, svg);
+            let chartScales = ChartScales(config, dimensions, scales);
+            let chartAxis = ChartAxis(config, svg);
+            let chartBar = ChartBar(config, svg);
+            // let chartStackedBars = ChartStackedBars(config,svg,functions);
+            //  let chartBlocks = ChartBlocks(config,svg,functions);
+            chartAxis.drawXAxis();
+            chartAxis.drawYAxis();
 
-                });
-
-                data.push({
-                    status: "Wacht op rapport",
-                    totaal: csv[5][filter]
-
-                });
-
-                data.push({
-                    status: "Tijd voor zienswijze",
-                    totaal: 0
-
-                });
-
-                data.push({
-                    status: "Voorbereiding besluit",
-                    totaal: csv[7][filter]
-
-                });
-
-                data.columns = csv.columns;
-
-                return data;
+            // function to parse csv
+            function type(d, i, columns) {
+                let t;
+                for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+                d.value = t;
+                return d;
             }
 
+            // point of data injection when using an api
+            d3.csv("./dummy_data_procedure.csv", type, function (error, csv) {
+                if (error) throw error;
+
+                // manipulate the data into stacked series
+
+                function prepareData(csv, filter) {
+
+                    let data = [];
+
+                    data.push({
+                        status: "Wacht op opname",
+                        totaal: csv[3][filter] + csv[6][filter]
+
+                    });
+
+                    data.push({
+                        status: "Wacht op rapport",
+                        totaal: csv[5][filter]
+
+                    });
+
+                    data.push({
+                        status: "Tijd voor zienswijze",
+                        totaal: 0
+
+                    });
+
+                    data.push({
+                        status: "Voorbereiding besluit",
+                        totaal: csv[7][filter]
+
+                    });
+
+                    data.columns = csv.columns;
+
+                    return data;
+                }
 
 
-            function draw(data) {
+                function draw(data) {
 
-                // with data we can init scales
-                scales = chartScales.set(data);
-                // width data we can draw items
-                chartBar.draw(data, functions);
+                    // with data we can init scales
+                    scales = chartScales.set(data);
+                    // width data we can draw items
+                    chartBar.draw(data, functions);
 
-            }
+                }
 
-            function redraw() {
-                // on redraw chart gets new dimensions
-                dimensions = chartDimensions.get(dimensions);
-                chartSVG.redraw(dimensions);
-                // new dimensions mean new scales
-                scales = chartScales.reset(dimensions,scales);
-                // new scales mean new axis
-                chartAxis.redrawXBandAxis(dimensions,scales,axes);
-                chartAxis.redrawYAxis(scales,axes);
-                // redraw data
-                chartBar.redraw(dimensions,scales);
-             //   chartBlocks.redraw(dimensions, scales);
-            }
+                function redraw() {
+                    // on redraw chart gets new dimensions
+                    dimensions = chartDimensions.get(dimensions);
+                    chartSVG.redraw(dimensions);
+                    // new dimensions mean new scales
+                    scales = chartScales.reset(dimensions, scales);
+                    // new scales mean new axis
+                    chartAxis.redrawXBandAxis(dimensions, scales, axes);
+                    chartAxis.redrawYAxis(scales, axes);
+                    // redraw data
+                    chartBar.redraw(dimensions, scales);
+                    //   chartBlocks.redraw(dimensions, scales);
+                }
 
+                function run(filter) {
+                    let data = prepareData(csv, filter);
+                    draw(data);
+                    redraw();
+                }
 
+                // further drawing happens in function that can be repeated
 
-            // further drawing happens in function that can be repeated
+                // for example on window resize
+                window.addEventListener("resize", redraw, false);
 
-            // for example on window resize
-            window.addEventListener("resize", redraw, false);
+                procedureSelect.addEventListener("change", function () {
+                    run(procedureSelect.options[procedureSelect.selectedIndex].value);
+                });
 
-            procedureSelect.addEventListener("change", function() {
-                run(procedureSelect.options[procedureSelect.selectedIndex].value);
+                run('totaal');
+                // hij lijkt alleen elementen te vullen bij een update
+                run('totaal');
             });
 
-            Run('totaal');
-            // hij lijkt alleen elementen te vullen bij een update
-            Run('totaal');
-        });
-
-        var Run = function Run(filter) {
-            let data = prepareData(csv,filter);
-            draw(data);
-            redraw();
-        }
-
-        return {
-            run : Run
         }
     }
 
@@ -1107,7 +1105,7 @@ var TCMGCharts = function TCMGCharts() {
     var setMunicipalitySelect = function setMunicipalitySelect(municipality) {
 
             procedureSelect.value = municipality;
-            Procedure.run(municipality);
+            Procedure('',municipality);
 
     }
 
