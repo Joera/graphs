@@ -31,7 +31,7 @@ const localTime = d3.timeFormatLocale({
 const formatDates = localTime.format("%B %Y");
 const currency = localCurrency.format("$,");
 
-const procedureSelect = document.getElementById("select-municipality");
+
 
 var trimColumns =  function(csv,neededColumns) {
 
@@ -54,6 +54,8 @@ var trimColumns =  function(csv,neededColumns) {
 var TCMGCharts = function TCMGCharts() {
 
     // init multiple charts from this file
+
+    let procedureSelect = document.getElementById("select-municipality");
 
     var Inputs  = function Inputs(element) {
 
