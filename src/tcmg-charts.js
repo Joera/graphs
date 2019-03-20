@@ -212,7 +212,7 @@ var TCMGCharts = function TCMGCharts() {
             d3.csv("./dummy_data_map_output.csv", function(error, csv) {
                 if (error) throw error;
 
-                geojson.features.forEach( (feature) => {
+                features.forEach( (feature) => {
 
                     // console.log(feature.properties.name);
 
@@ -237,7 +237,7 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .attr("fill-opacity", function (d, i) {
 
-                        // to do : use d3.max to find max value 
+                        // to do : use d3.max to find max value
                         let ratio = .8 * d.properties.totaal / 1500;
                         return ratio + 0.2;
                     })
