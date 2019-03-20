@@ -205,7 +205,7 @@ var TCMGCharts = function TCMGCharts() {
 
 
             projection
-                .scale(s)
+                .scale(1.2 * s)
                 .translate(t)
             ;
 

@@ -35,7 +35,7 @@
       }
 
       .container.input-container {
-        margin-top: 43px;
+        margin-top: 0px;
       }
 
       .legend-container-input {
@@ -92,11 +92,11 @@
           }
 
           > div:nth-child(3) {
-            width: calc(100% - 280px - 180px - 200px - 6rem);
+            width: calc(100% - 280px - 180px - 240px - 6rem);
           }
 
           > div:nth-child(4) {
-            width: 200px;
+            width: 240px;
           }
         }
 
