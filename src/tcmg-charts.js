@@ -1100,7 +1100,7 @@ var TCMGCharts = function TCMGCharts() {
     var setMunicipalitySelect = function setMunicipalitySelect(municipality) {
 
             procedureSelect.value = municipality;
-            procedure.run(municipality);
+            Procedure.run(municipality);
 
     }
 
