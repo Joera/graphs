@@ -502,7 +502,7 @@ var TCMGCharts = function TCMGCharts() {
              //   chartBlocks.redraw(dimensions, scales);
             }
 
-            function run(filter) {
+            var run = function run(filter) {
                 let data = prepareData(csv,filter);
                 draw(data);
                 redraw();
@@ -521,6 +521,10 @@ var TCMGCharts = function TCMGCharts() {
             // hij lijkt alleen elementen te vullen bij een update
             run('totaal');
         });
+
+        return {
+            run : run
+        }
     }
 
     var ProcedureAlt  = function ProcedureAlt(element) {
