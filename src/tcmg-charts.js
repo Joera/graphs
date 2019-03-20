@@ -217,14 +217,14 @@ var TCMGCharts = function TCMGCharts() {
                     // console.log(feature.properties.name);
 
                     let gemeenteData = csv.find( (g) => {
-                        return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
+                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
                     });
 
                     for (let key in gemeenteData) {
                         gemeenteData[sluggify(key)] = gemeenteData[key];
                     }
 
-                    feature.properties = Object.assign({}, feature.properties, gemeenteData);
+                    feature.properties = Object.assign({}, feature.properties, name);
                 });
 
                 svg.layers.data.selectAll("path")
@@ -242,11 +242,11 @@ var TCMGCharts = function TCMGCharts() {
                         return ratio + 0.2;
                     })
                     .attr("class", function (d, i) {
-                        return sluggify(d.properties.gemeentenaam);
+                        return sluggify(d.properties.name);
                     })
                     .on("mouseover", function (d) {
 
-                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span><br/>" +
+                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
                             d.properties.totaal + " meldingen<br/>"
                         ;
 
