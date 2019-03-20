@@ -385,8 +385,6 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element) {
 
-
-
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
         let dimensions = chartObjects.dimensions();
@@ -438,6 +436,13 @@ var TCMGCharts = function TCMGCharts() {
             d.value = t;
             return d;
         }
+
+        var Run = function Run(filter) {
+            let data = prepareData(csv,filter);
+            draw(data);
+            redraw();
+        }
+
         // point of data injection when using an api
         d3.csv("./dummy_data_procedure.csv", type, function(error, csv){
             if (error) throw error;
@@ -502,11 +507,7 @@ var TCMGCharts = function TCMGCharts() {
              //   chartBlocks.redraw(dimensions, scales);
             }
 
-            var run = function run(filter) {
-                let data = prepareData(csv,filter);
-                draw(data);
-                redraw();
-            }
+
 
             // further drawing happens in function that can be repeated
 
@@ -517,13 +518,13 @@ var TCMGCharts = function TCMGCharts() {
                 run(procedureSelect.options[procedureSelect.selectedIndex].value);
             });
 
-            run('totaal');
+            Run('totaal');
             // hij lijkt alleen elementen te vullen bij een update
-            run('totaal');
+            Run('totaal');
         });
 
         return {
-            run : run
+            run : Run
         }
     }
 
