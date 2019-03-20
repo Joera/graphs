@@ -264,7 +264,7 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("click", function (d) {
 
-                        alert('hiya');
+                        setMunicipalitySelect(d.properties.name);
                     });
             });
         });
@@ -1093,6 +1093,11 @@ var TCMGCharts = function TCMGCharts() {
 
     }
 
+    var setMunicipalitySelect = function setMunicipalitySelect(municipality) {
+
+            console.log(municipality);
+    }
+
     return {
         inputs : Inputs,
         legendInput : LegendInput,
@@ -1105,7 +1110,8 @@ var TCMGCharts = function TCMGCharts() {
         remitted : Remitted,
         outputs : Outputs,
         legendOutput : LegendOutput,
-        remittances : Remittances
+        remittances : Remittances,
+        setMunicipalitySelect : setMunicipalitySelect
     }
 }
 
