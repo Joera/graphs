@@ -205,7 +205,7 @@ var TCMGCharts = function TCMGCharts() {
 
 
             projection
-                .scale(1.2 * s)
+                .scale(s)
                 .translate(t)
             ;
 
@@ -213,8 +213,6 @@ var TCMGCharts = function TCMGCharts() {
                 if (error) throw error;
 
                 features.forEach( (feature) => {
-
-                    // console.log(feature.properties.name);
 
                     let gemeenteData = csv.find( (g) => {
                         return sluggify(g.gemeente) == sluggify(feature.properties.name);
@@ -325,7 +323,6 @@ var TCMGCharts = function TCMGCharts() {
                         return sluggify(g.gemeente) == sluggify(feature.properties.name);
                     });
 
-                    console.log(gemeenteData);
                     for (let key in gemeenteData) {
 
                         gemeenteData[sluggify(key)] = gemeenteData[key];
@@ -335,8 +332,6 @@ var TCMGCharts = function TCMGCharts() {
                 });
 
                 let max = d3.max(features, d => { return d.properties.totaal});
-
-                console.log(max);
 
                 svg.layers.data.selectAll("path")
                     .data(features)
