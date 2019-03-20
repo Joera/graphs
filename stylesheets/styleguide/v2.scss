@@ -22,7 +22,7 @@
         justify-content: space-between;
       }
 
-      > div  {
+      > div, > a  {
         flex-direction: column;
         align-items: center;
         //width: 33%;
@@ -63,8 +63,12 @@
         height: 240px;
       }
 
-      .container.remittances-container, .container.map-output-container {
+      .container.remittances-container {
         height: 240px;
+      }
+
+      .container.map-output-container {
+        height: 320px;
       }
 
       .top-margin {
