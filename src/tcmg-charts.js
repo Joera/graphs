@@ -192,29 +192,16 @@ var TCMGCharts = function TCMGCharts() {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/gem_grenzen_groningen.topojson", function(error, mapData) {
+        d3.json("/assets/geojson/fromgeojson.json", function (error, mapData) {
 
-
-            let geojson = topojson.feature(mapData, mapData.objects.gem_grenzen_groningen);
-
-            var l = geojson.features[3],
-                b = path.bounds(l),
+            let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
+            var l = features[3],
+                b = [
+                    [0.114, -1.101],
+                    [0.12022108488117365, -1.105]
+                ],
                 s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])), (dimensions.height - s * (b[1][1] + b[0][1])) / 2];
-
-            // console.log(path.bounds(geojson.features[0]));
-            // console.log(path.bounds(geojson.features[10]));
-
-                // [0.114, -1.105],
-                // [0.12, -1.103]
-
-            // var b = [
-            //         [0.1187116059472928, -3.141592653589793],
-            //         [0.12150832154068851, 3.141592653589793]
-            //     ],
-            //     s = .2 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-            //     t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
-
+                t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
 
             projection
@@ -225,24 +212,23 @@ var TCMGCharts = function TCMGCharts() {
             d3.csv("./dummy_data_map_output.csv", function(error, csv) {
                 if (error) throw error;
 
-                geojson.features.forEach( (feature) => {
-
-                    // console.log(feature.properties.name);
-
-                    let gemeenteData = csv.find( (g) => {
-                        return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
-                    });
-
-                    for (let key in gemeenteData) {
-                        gemeenteData[sluggify(key)] = gemeenteData[key];
-                    }
-
-                    feature.properties = Object.assign({}, feature.properties, gemeenteData);
-                });
+                // geojson.features.forEach( (feature) => {
+                //
+                //     // console.log(feature.properties.name);
+                //
+                //     let gemeenteData = csv.find( (g) => {
+                //         return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
+                //     });
+                //
+                //     for (let key in gemeenteData) {
+                //         gemeenteData[sluggify(key)] = gemeenteData[key];
+                //     }
+                //
+                //     feature.properties = Object.assign({}, feature.properties, gemeenteData);
+                // });
 
                 svg.layers.data.selectAll("path")
-                // .data(topojson.feature(nld, nld.objects.subunits).features)
-                    .data(geojson.features)
+                    .data(features)
                     .enter()
                     .append("path")
                     .attr("d", path)
@@ -274,6 +260,10 @@ var TCMGCharts = function TCMGCharts() {
                             .duration(250)
                             .style("opacity", 0);
                     })
+                    .on("click", function (d) {
+
+                        alert('hiya');
+                    });
             });
         });
     }
