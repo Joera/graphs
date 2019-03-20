@@ -212,20 +212,20 @@ var TCMGCharts = function TCMGCharts() {
             d3.csv("./dummy_data_map_output.csv", function(error, csv) {
                 if (error) throw error;
 
-                // geojson.features.forEach( (feature) => {
-                //
-                //     // console.log(feature.properties.name);
-                //
-                //     let gemeenteData = csv.find( (g) => {
-                //         return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
-                //     });
-                //
-                //     for (let key in gemeenteData) {
-                //         gemeenteData[sluggify(key)] = gemeenteData[key];
-                //     }
-                //
-                //     feature.properties = Object.assign({}, feature.properties, gemeenteData);
-                // });
+                geojson.features.forEach( (feature) => {
+
+                    // console.log(feature.properties.name);
+
+                    let gemeenteData = csv.find( (g) => {
+                        return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
+                    });
+
+                    for (let key in gemeenteData) {
+                        gemeenteData[sluggify(key)] = gemeenteData[key];
+                    }
+
+                    feature.properties = Object.assign({}, feature.properties, gemeenteData);
+                });
 
                 svg.layers.data.selectAll("path")
                     .data(features)
@@ -236,7 +236,10 @@ var TCMGCharts = function TCMGCharts() {
                         return 'orange';
                     })
                     .attr("fill-opacity", function (d, i) {
-                        return 1;
+
+                        // to do : use d3.max to find max value 
+                        let ratio = .8 * d.properties.totaal / 1500;
+                        return ratio + 0.2;
                     })
                     .attr("class", function (d, i) {
                         return sluggify(d.properties.gemeentenaam);
@@ -347,8 +350,6 @@ var TCMGCharts = function TCMGCharts() {
                     .attr("fill-opacity", function (d, i) {
 
                         let ratio = .8 * d.properties.totaal / 1500;
-
-                        console.log(ratio);
 
                         return ratio + 0.2;
 
