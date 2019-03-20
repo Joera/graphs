@@ -31,6 +31,8 @@ const localTime = d3.timeFormatLocale({
 const formatDates = localTime.format("%B %Y");
 const currency = localCurrency.format("$,");
 
+const procedureSelect = document.getElementById("select-municipality");
+
 var trimColumns =  function(csv,neededColumns) {
 
     csv.columns = csv.columns.filter( (c) => {
@@ -264,7 +266,7 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("click", function (d) {
 
-                        setMunicipalitySelect(d.properties.name);
+                        setMunicipalitySelect(sluggify(d.properties.name));
                     });
             });
         });
@@ -381,7 +383,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element) {
 
-        var procedureSelect = document.getElementById("select-municipality");
+
 
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
@@ -1096,6 +1098,8 @@ var TCMGCharts = function TCMGCharts() {
     var setMunicipalitySelect = function setMunicipalitySelect(municipality) {
 
             console.log(municipality);
+
+            procedureSelect.value = municipality;
     }
 
     return {
