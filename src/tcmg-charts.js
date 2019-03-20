@@ -437,11 +437,7 @@ var TCMGCharts = function TCMGCharts() {
             return d;
         }
 
-        var Run = function Run(filter) {
-            let data = prepareData(csv,filter);
-            draw(data);
-            redraw();
-        }
+
 
         // point of data injection when using an api
         d3.csv("./dummy_data_procedure.csv", type, function(error, csv){
@@ -522,6 +518,12 @@ var TCMGCharts = function TCMGCharts() {
             // hij lijkt alleen elementen te vullen bij een update
             Run('totaal');
         });
+
+        var Run = function Run(filter) {
+            let data = prepareData(csv,filter);
+            draw(data);
+            redraw();
+        }
 
         return {
             run : Run
