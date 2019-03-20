@@ -385,11 +385,6 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element,filter) {
 
-        if(filter) {
-            run(filter);
-        } else {
-
-
             let chartObjects = ChartObjects();
             let config = chartObjects.config();
             let dimensions = chartObjects.dimensions();
@@ -517,6 +512,7 @@ var TCMGCharts = function TCMGCharts() {
                 window.addEventListener("resize", redraw, false);
 
                 procedureSelect.addEventListener("change", function () {
+                    console.log('hi');
                     run(procedureSelect.options[procedureSelect.selectedIndex].value);
                 });
 
@@ -525,7 +521,6 @@ var TCMGCharts = function TCMGCharts() {
                 run('totaal');
             });
 
-        }
     }
 
     var ProcedureAlt  = function ProcedureAlt(element) {
