@@ -9,13 +9,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "style": "gulp scss-compile",
     "scripts": "gulp js-compile",
-    "copy-assets": "gulp copy-assets"
+    "copy-assets": "gulp copy-assets",
+    "dataset":
   },
   "repository": {
     "type": "git",
     "url": "https://ZuidasTT@bitbucket.org/ZuidasTT/zuidas-visualization-planning.git"
   },
-  "author": "Tom Timmerman",
+  "author": "Joera Mulders",
   "license": "ISC",
   "dependencies": {
     "d3": "^4.8.0",
