@@ -1,0 +1,11 @@
+STATUS;COUNT_of_DOSSIER_STATUS;STS_OMS
+AFW;823;Aanvraag afgewezen
+AIB;5279;Aanvraag in behandeling
+AIN;671;Aanvraag ingetrokken
+BEH;4511;Beheer / Ontwikkeling
+FIX;2073;Gefixeerd
+GDS;11;Ontvangst
+IOP;5848;In Opname
+OPL;5;oplossing
+VBC;1402;Voorbereiding Besluit Commissie
+VOP;1434;Voorbereiding Opname
