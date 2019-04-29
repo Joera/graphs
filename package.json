@@ -9,8 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "style": "gulp scss-compile",
     "scripts": "gulp js-compile",
-    "copy-assets": "gulp copy-assets",
-    "dataset":
+    "copy-assets": "gulp copy-assets"
   },
   "repository": {
     "type": "git",
