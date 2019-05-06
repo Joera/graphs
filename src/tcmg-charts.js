@@ -315,7 +315,7 @@ var TCMGCharts = function TCMGCharts() {
                     [0.114, -1.101],
                     [0.12022108488117365, -1.105]
                 ],
-                s = .1 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
+                s = .15 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
                 t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2, ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 40];
 
 
@@ -357,12 +357,12 @@ var TCMGCharts = function TCMGCharts() {
                         if (d.properties.totaal) {
                             return 'orange';
                         } else {
-                            return '#ddd';
+                            return '#eee';
                         }
                     })
                     .attr("stroke", function (d, i) {
 
-                            return '#333';
+                            return '#999';
 
                     })
                     .attr("fill-opacity", function (d, i) {
