@@ -302,7 +302,7 @@ var TCMGCharts = function TCMGCharts() {
 
         chartSVG.redraw(dimensions);
 
-        d3.json("/assets/geojson/fromgeojson.json", function (error, mapData) {
+        d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
             let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
             var l = features[3],
