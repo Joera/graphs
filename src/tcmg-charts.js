@@ -357,7 +357,7 @@ var TCMGCharts = function TCMGCharts() {
                         if (d.properties.totaal) {
                             return 'orange';
                         } else {
-                            return '#fefefe';
+                            return '#eee';
                         }
                     })
                     // .attr("stroke", function (d, i) {
