@@ -325,7 +325,7 @@ var TCMGCharts = function TCMGCharts() {
                 features.forEach((feature) => {
 
                     let gemeenteData = csv.find((g) => {
-                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
+                        return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
                     });
 
                     for (let key in gemeenteData) {
