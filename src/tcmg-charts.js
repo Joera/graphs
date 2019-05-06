@@ -355,7 +355,20 @@ var TCMGCharts = function TCMGCharts() {
                     .attr("d", path)
 
                     .attr("fill", function (d, i) {
-                        return 'orange';
+
+                        if (d.properties.totaal) {
+                            return 'orange';
+                        } else {
+                            return '#ddd';
+                        }
+                    })
+                    .attr("stroke", function (d, i) {
+
+                        if (d.properties.totaal) {
+                            return 'orange';
+                        } else {
+                            return '#333';
+                        }
                     })
                     .attr("fill-opacity", function (d, i) {
 
