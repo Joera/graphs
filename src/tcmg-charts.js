@@ -316,7 +316,7 @@ var TCMGCharts = function TCMGCharts() {
                     [0.12022108488117365, -1.105]
                 ],
                 s = .15 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-                t = [((dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2) + 120 , ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 70];
+                t = [((dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2) + 110 , ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 70];
 
 
             projection
@@ -357,18 +357,18 @@ var TCMGCharts = function TCMGCharts() {
                         if (d.properties.totaal) {
                             return 'orange';
                         } else {
-                            return '#eee';
+                            return '#fefefe';
                         }
                     })
-                    .attr("stroke", function (d, i) {
-
-                        if (d.properties.totaal) {
-                            return 'orange';
-                        } else {
-                            return '#999';
-                        }
-
-                    })
+                    // .attr("stroke", function (d, i) {
+                    //
+                    //     if (d.properties.totaal) {
+                    //         return 'orange';
+                    //     } else {
+                    //         return '#999';
+                    //     }
+                    //
+                    // })
                     .attr("fill-opacity", function (d, i) {
 
                         let ratio = .8 * d.properties.totaal / 1500;
