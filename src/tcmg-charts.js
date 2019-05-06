@@ -248,14 +248,23 @@ var TCMGCharts = function TCMGCharts() {
                         if (d.properties.totaal) {
                             return 'orange';
                         } else {
-                            return '#ccc';
+                            return '#fff';
                         }
                     })
                     .attr("fill-opacity", function (d, i) {
 
                         // to do : use d3.max to find max value
-                        let ratio = .8 * d.properties.totaal / 1500;
-                        return ratio + 0.2;
+                        if(d.properties.totaal) {
+
+                            return .4;
+
+                        } else {
+
+                            return 0; 
+
+                        }
+                        // let ratio = .8 * d.properties.totaal / 1500;
+                        // return ratio + 0.2;
                     })
                     .attr("class", function (d, i) {
                         return sluggify(d.properties.name);
