@@ -220,7 +220,7 @@ var TCMGCharts = function TCMGCharts() {
                 features.forEach( (feature) => {
 
                     let gemeenteData = csv.find( (g) => {
-                        return sluggify(g.gemeente) == sluggify(feature.properties.name);
+                        return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
                     });
 
                     for (let key in gemeenteData) {
@@ -249,7 +249,7 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("mouseover", function (d) {
 
-                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
+                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span><br/>" +
                             d.properties.totaal + " meldingen<br/>"
                         ;
 
@@ -329,7 +329,7 @@ var TCMGCharts = function TCMGCharts() {
                         console.log(feature.properties.gemeentenaam);
 
                         let gemeenteData = csv.find((g) => {
-                            return sluggify('p') == sluggify(feature.properties.gemeentenaam);
+                            return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
                         });
 
                         // for (let key in gemeenteData) {
