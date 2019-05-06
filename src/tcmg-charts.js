@@ -236,7 +236,12 @@ var TCMGCharts = function TCMGCharts() {
                     .append("path")
                     .attr("d", path)
                     .attr("fill", function (d, i) {
-                        return 'orange';
+
+                        if (d.properties.totaal) {
+                            return 'orange';
+                        } else {
+                            return '#ccc';
+                        }
                     })
                     .attr("fill-opacity", function (d, i) {
 
