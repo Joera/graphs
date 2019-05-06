@@ -362,7 +362,11 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .attr("stroke", function (d, i) {
 
+                        if (d.properties.totaal) {
+                            return 'orange';
+                        } else {
                             return '#999';
+                        }
 
                     })
                     .attr("fill-opacity", function (d, i) {
