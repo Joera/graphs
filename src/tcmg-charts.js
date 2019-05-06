@@ -329,7 +329,7 @@ var TCMGCharts = function TCMGCharts() {
                         console.log(feature.properties.gemeentenaam);
 
                         let gemeenteData = csv.find((g) => {
-                            return sluggify(g.gemeente) == sluggify('p');
+                            return sluggify('p') == sluggify(feature.properties.gemeentenaam);
                         });
 
                         // for (let key in gemeenteData) {
