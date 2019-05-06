@@ -332,10 +332,10 @@ var TCMGCharts = function TCMGCharts() {
                             return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
                         });
 
-                        for (let key in gemeenteData) {
-
-                            gemeenteData[sluggify(key)] = gemeenteData[key];
-                        }
+                        // for (let key in gemeenteData) {
+                        //
+                        //     gemeenteData[sluggify(key)] = gemeenteData[key];
+                        // }
 
                         feature.properties = Object.assign({}, feature.properties, gemeenteData);
                     }
