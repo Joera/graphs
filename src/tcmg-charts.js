@@ -263,7 +263,7 @@ var TCMGCharts = function TCMGCharts() {
                         // return ratio + 0.2;
                     })
                     .attr("class", function (d, i) {
-                        return sluggify(d.properties.name);
+                        return sluggify(d.properties.gemeentenaam);
                     })
                     .on("mouseover", function (d) {
 
@@ -286,7 +286,7 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("click", function (d) {
 
-                        setMunicipalitySelect(sluggify(d.properties.name));
+                        setMunicipalitySelect(sluggify(d.properties.gemeentenaam));
                     });
             });
         });
@@ -390,11 +390,11 @@ var TCMGCharts = function TCMGCharts() {
 
                     })
                     .attr("class", function (d, i) {
-                        return sluggify(d.properties.name);
+                        return sluggify(d.properties.gemeentenaam);
                     })
                     .on("mouseover", function (d) {
 
-                        let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
+                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span><br/>" +
                             d.properties.totaal + " uitspraken<br/>" +
                             d.properties.afgewezen + " afgewezen<br/>" +
                             d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
