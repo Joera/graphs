@@ -227,7 +227,7 @@ var TCMGCharts = function TCMGCharts() {
                     //     gemeenteData[sluggify(key)] = gemeenteData[key];
                     // }
 
-                    feature.properties = Object.assign({}, feature.properties, gemeenteData);
+                    // feature.properties = Object.assign({}, feature.properties, gemeenteData);
                 });
 
                 svg.layers.data.selectAll("path")
