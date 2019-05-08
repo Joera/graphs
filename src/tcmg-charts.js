@@ -217,13 +217,15 @@ var TCMGCharts = function TCMGCharts() {
 
                 features.forEach( (feature) => {
 
-                    let gemeenteData = csv.find( (g) => {
-                        return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
-                    });
+                    console.log(feature.properties.gemeentenaam);
 
-                    for (let key in gemeenteData) {
-                        gemeenteData[sluggify(key)] = gemeenteData[key];
-                    }
+                    // let gemeenteData = csv.find( (g) => {
+                    //     return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
+                    // });
+                    //
+                    // for (let key in gemeenteData) {
+                    //     gemeenteData[sluggify(key)] = gemeenteData[key];
+                    // }
 
                     feature.properties = Object.assign({}, feature.properties, gemeenteData);
                 });
