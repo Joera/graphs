@@ -265,7 +265,10 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("mouseover", function (d) {
 
-                        d3.select(this).attr("fill-opacity", 1);
+                        if(d.properties.totaal) {
+
+                            d3.select(this).attr("fill-opacity", 1);
+                        }
 
                         let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span>";
 
@@ -278,6 +281,12 @@ var TCMGCharts = function TCMGCharts() {
                             .style("opacity", 1);
                     })
                     .on("mouseout", function (d) {
+
+                        if (d.properties.totaal) {
+
+                            d3.select(this).attr("fill-opacity", .4);
+                        }
+                        
                         svg.tooltip.transition()
                             .duration(250)
                             .style("opacity", 0);
