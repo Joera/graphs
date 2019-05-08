@@ -253,9 +253,9 @@ var TCMGCharts = function TCMGCharts() {
 
                         // to do : use d3.max to find max value
                         if(d.properties.totaal) {
-                            return .4;
+                            return .6;
                         } else {
-                            return 0;
+                            return .6;
                         }
                         // let ratio = .8 * d.properties.totaal / 1500;
                         // return ratio + 0.2;
@@ -286,7 +286,7 @@ var TCMGCharts = function TCMGCharts() {
 
                             d3.select(this).attr("fill-opacity", .4);
                         }
-                        
+
                         svg.tooltip.transition()
                             .duration(250)
                             .style("opacity", 0);
