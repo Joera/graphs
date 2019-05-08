@@ -233,14 +233,14 @@ var TCMGCharts = function TCMGCharts() {
                     .enter()
                     .append("path")
                     .attr("d", path)
-                    .attr("stroke", function (d, i) {
-
-                        if (d.properties.totaal) {
-                            return 'orange';
-                        } else {
-                            return '#ccc';
-                        }
-                    })
+                    // .attr("stroke", function (d, i) {
+                    //                     //
+                    //                     //     if (d.properties.totaal) {
+                    //                     //         return 'orange';
+                    //                     //     } else {
+                    //                     //         return '#ccc';
+                    //                     //     }
+                    //                     // })
                     .attr("fill", function (d, i) {
 
                         if (d.properties.totaal) {
@@ -253,13 +253,9 @@ var TCMGCharts = function TCMGCharts() {
 
                         // to do : use d3.max to find max value
                         if(d.properties.totaal) {
-
                             return .4;
-
                         } else {
-
                             return 0;
-
                         }
                         // let ratio = .8 * d.properties.totaal / 1500;
                         // return ratio + 0.2;
@@ -269,9 +265,9 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("mouseover", function (d) {
 
-                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span><br/>" +
-                            d.properties.totaal + " meldingen<br/>"
-                        ;
+                        d3.select(this).attr("r", 10).style("fill-opacity", 1);
+
+                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span><br/>";
 
                         svg.tooltip
                             .html(html)
