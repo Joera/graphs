@@ -246,7 +246,7 @@ var TCMGCharts = function TCMGCharts() {
                         if (d.properties.totaal) {
                             return 'orange';
                         } else {
-                            return '#fff';
+                            return '#eee';
                         }
                     })
                     .attr("fill-opacity", function (d, i) {
@@ -265,9 +265,9 @@ var TCMGCharts = function TCMGCharts() {
                     })
                     .on("mouseover", function (d) {
 
-                        d3.select(this).attr("r", 10).style("fill-opacity", 1);
+                        d3.select(this).attr("fill-opacity", 1);
 
-                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span><br/>";
+                        let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span>";
 
                         svg.tooltip
                             .html(html)
