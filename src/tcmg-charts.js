@@ -480,7 +480,7 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             // point of data injection when using an api
-            d3.csv("https://tcmg.publikaan.nl/api/procedure?week=recent", function (error, json) {
+            d3.json("https://tcmg.publikaan.nl/api/procedure?week=recent", function (error, json) {
                 if (error) throw error;
 
                 // manipulate the data into stacked series
