@@ -427,6 +427,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var Procedure  = function Procedure(element,filter) {
 
+            let url;
             let chartObjects = ChartObjects();
             let config = chartObjects.config();
             let dimensions = chartObjects.dimensions();
@@ -472,100 +473,102 @@ var TCMGCharts = function TCMGCharts() {
             chartAxis.drawYAxis();
 
             // function to parse csv
-            function type(d, i, columns) {
-                let t;
-                for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-                d.value = t;
-                return d;
-            }
+            // function type(d, i, columns) {
+            //     let t;
+            //     for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+            //     d.value = t;
+            //     return d;
+            // }
 
-            // point of data injection when using an api
-            d3.json("https://tcmg.publikaan.nl/api/procedure?week=recent", function (error, json) {
-                if (error) throw error;
+            function prepareData(json) {
 
-                // manipulate the data into stacked series
+                console.log(json['ONTVANGST']);
 
-                function prepareData(json) {
+                let data = [];
 
-                    console.log(json['ONTVANGST']);
+                data.push({
+                    status: "Wacht op opname",
+                    totaal: json['ONTVANGST'] + json['PLANNING_OPNAME']
 
-                    let data = [];
-
-                    data.push({
-                        status: "Wacht op opname",
-                        totaal: json['ONTVANGST'] + json['PLANNING_OPNAME']
-
-                    });
-
-                    data.push({
-                        status: "Wacht op rapport",
-                        totaal: json['OPLEV_SCHADERAPPORT']
-
-                    });
-
-                    data.push({
-                        status: "Tijd voor zienswijze",
-                        totaal: 0
-
-                    });
-
-                    data.push({
-                        status: "Voorbereiding besluit",
-                        totaal: json['VOORBER_CIE']
-
-                    });
-
-
-                    return data;
-                }
-
-
-                function draw(data) {
-
-                    console.log(data);
-
-                    // with data we can init scales
-                    scales = chartScales.set(data);
-                    // width data we can draw items
-                    chartBar.draw(data, functions);
-
-                }
-
-                function redraw() {
-                    // on redraw chart gets new dimensions
-                    dimensions = chartDimensions.get(dimensions);
-                    chartSVG.redraw(dimensions);
-                    // new dimensions mean new scales
-                    scales = chartScales.reset(dimensions, scales);
-                    // new scales mean new axis
-                    chartAxis.redrawXBandAxis(dimensions, scales, axes);
-                    chartAxis.redrawYAxis(scales, axes);
-                    // redraw data
-                    chartBar.redraw(dimensions, scales);
-                    //   chartBlocks.redraw(dimensions, scales);
-                }
-
-                function run(filter) {
-                    let data = prepareData(json);
-                    console.log(data);
-                    draw(data);
-                    redraw();
-                }
-
-                // further drawing happens in function that can be repeated
-
-                // for example on window resize
-                window.addEventListener("resize", redraw, false);
-
-                procedureSelect.addEventListener("change", function () {
-                    console.log('hi');
-                    run(procedureSelect.options[procedureSelect.selectedIndex].value);
                 });
 
-                run('totaal');
-                // hij lijkt alleen elementen te vullen bij een update
-                run('totaal');
+                data.push({
+                    status: "Wacht op rapport",
+                    totaal: json['OPLEV_SCHADERAPPORT']
+
+                });
+
+                data.push({
+                    status: "Tijd voor zienswijze",
+                    totaal: 0
+
+                });
+
+                data.push({
+                    status: "Voorbereiding besluit",
+                    totaal: json['VOORBER_CIE']
+
+                });
+
+
+                return data;
+            }
+
+            function draw(data) {
+
+                console.log(data);
+
+                // with data we can init scales
+                scales = chartScales.set(data);
+                // width data we can draw items
+                chartBar.draw(data, functions);
+
+            }
+
+            function redraw() {
+                // on redraw chart gets new dimensions
+                dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
+                // new dimensions mean new scales
+                scales = chartScales.reset(dimensions, scales);
+                // new scales mean new axis
+                chartAxis.redrawXBandAxis(dimensions, scales, axes);
+                chartAxis.redrawYAxis(scales, axes);
+                // redraw data
+                chartBar.redraw(dimensions, scales);
+                //   chartBlocks.redraw(dimensions, scales);
+            }
+
+            function run(json) {
+                let data = prepareData(json);
+                console.log(data);
+                draw(data);
+                redraw();
+            }
+        
+            function fetchApi(municipality) {
+
+                if(municipality) {
+                    url = "https://tcmg.publikaan.nl/api/procedure?week=recent";
+                } else {
+                    url = "https://tcmg.publikaan.nl/api/procedure?week=recent";
+                }
+                // point of data injection when using an api
+                d3.json(url, function (error, json) {
+                    if (error) throw error;
+
+                    run(json);
+                });
+            }
+
+            window.addEventListener("resize", redraw, false);
+
+            procedureSelect.addEventListener("change", function () {
+                console.log('hi');
+                fetchApi(procedureSelect.options[procedureSelect.selectedIndex].value);
             });
+
+            fetchApi(false);
 
     }
 
