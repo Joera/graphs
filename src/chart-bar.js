@@ -38,19 +38,18 @@ let ChartBar = function ChartBar(config,svg) {
     let redraw = function redraw(dimensions,scales) {
 
 
-        console.log(scales);
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
 
         svg.bar
             .merge(svg.bar)
-            .attr("x", function(d) { console.log(d); }) // return scales.xBand(d[config.xParameter]); })
-            // .attr("y", function(d) { return dimensions.height; })
-            // .attr("height", 0)
-            // .transition()
-            // .duration(500)
-            // .attr("y", function(d) { return config.margin.top + scales.yLinear(d[config.yParameter]); })
-            // .attr("height", function(d) { return dimensions.height - scales.yLinear(d[config.yParameter]); })
-            // .attr("width", scales.xBand.bandwidth())
+            .attr("x", function(d) { return scales.xBand(d[config.xParameter]); })
+            .attr("y", function(d) { return dimensions.height; })
+            .attr("height", 0)
+            .transition()
+            .duration(500)
+            .attr("y", function(d) { return config.margin.top + scales.yLinear(d[config.yParameter]); })
+            .attr("height", function(d) { return dimensions.height - scales.yLinear(d[config.yParameter]); })
+            .attr("width", scales.xBand.bandwidth())
         ;
 
         svg.bar.exit().remove();
