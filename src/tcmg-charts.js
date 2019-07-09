@@ -480,26 +480,26 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             // point of data injection when using an api
-            d3.csv("./dummy_data_procedure.csv", type, function (error, csv) {
+            d3.csv("https://tcmg.publikaan.nl/api/procedure?week=recent", function (error, json) {
                 if (error) throw error;
 
                 // manipulate the data into stacked series
 
-                function prepareData(csv, filter) {
+                function prepareData(json) {
 
-                    console.log(csv);
+                 //   console.log(csv);
 
                     let data = [];
 
                     data.push({
                         status: "Wacht op opname",
-                        totaal: csv[3][filter] + csv[6][filter]
+                        totaal: json['ONTVANGST'] + json['PLANNING OPNAME']
 
                     });
 
                     data.push({
                         status: "Wacht op rapport",
-                        totaal: csv[5][filter]
+                        totaal: json['OPLEV SCHADERAPPORT']
 
                     });
 
@@ -511,11 +511,10 @@ var TCMGCharts = function TCMGCharts() {
 
                     data.push({
                         status: "Voorbereiding besluit",
-                        totaal: csv[7][filter]
+                        totaal: json['VOORBER CIE']
 
                     });
 
-                    data.columns = csv.columns;
 
                     return data;
                 }
@@ -547,7 +546,7 @@ var TCMGCharts = function TCMGCharts() {
                 }
 
                 function run(filter) {
-                    let data = prepareData(csv, filter);
+                    let data = prepareData(json);
                     console.log(data);
                     draw(data);
                     redraw();
