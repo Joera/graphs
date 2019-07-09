@@ -43,7 +43,7 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("x", function(d) { console.log(d); return scales.xBand(d[config.xParameter]); })
+            .attr("x", function(d) { console.log(d); }) // return scales.xBand(d[config.xParameter]); })
             // .attr("y", function(d) { return dimensions.height; })
             // .attr("height", 0)
             // .transition()
