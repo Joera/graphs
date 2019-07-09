@@ -479,41 +479,45 @@ var TCMGCharts = function TCMGCharts() {
                 return d;
             }
 
+            // https://tcmg.publikaan.nl/api/procedure?week=recent
+
             // point of data injection when using an api
-            d3.csv("./dummy_data_procedure.csv", type, function (error, csv) {
+            d3.json("https://tcmg.publikaan.nl/api/procedure?week=recent", type, function (error, json) {
                 if (error) throw error;
 
                 // manipulate the data into stacked series
 
-                function prepareData(csv, filter) {
+                function prepareData(json, filter) {
+
+                    console.log(json);
 
                     let data = [];
 
-                    data.push({
-                        status: "Wacht op opname",
-                        totaal: csv[3][filter] + csv[6][filter]
+                    // data.push({
+                    //     status: "Wacht op opname",
+                    //     totaal: csv[3][filter] + csv[6][filter]
+                    //
+                    // });
+                    //
+                    // data.push({
+                    //     status: "Wacht op rapport",
+                    //     totaal: csv[5][filter]
+                    //
+                    // });
+                    //
+                    // data.push({
+                    //     status: "Tijd voor zienswijze",
+                    //     totaal: 0
+                    //
+                    // });
+                    //
+                    // data.push({
+                    //     status: "Voorbereiding besluit",
+                    //     totaal: csv[7][filter]
+                    //
+                    // });
 
-                    });
-
-                    data.push({
-                        status: "Wacht op rapport",
-                        totaal: csv[5][filter]
-
-                    });
-
-                    data.push({
-                        status: "Tijd voor zienswijze",
-                        totaal: 0
-
-                    });
-
-                    data.push({
-                        status: "Voorbereiding besluit",
-                        totaal: csv[7][filter]
-
-                    });
-
-                    data.columns = csv.columns;
+                    // data.columns = csv.columns;
 
                     return data;
                 }
@@ -545,7 +549,7 @@ var TCMGCharts = function TCMGCharts() {
                 }
 
                 function run(filter) {
-                    let data = prepareData(csv, filter);
+                    let data = prepareData(json, filter);
                     console.log(data);
                     draw(data);
                     redraw();
