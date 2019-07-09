@@ -542,7 +542,11 @@ var TCMGCharts = function TCMGCharts() {
             function run(json) {
                 let data = prepareData(json);
                 draw(data);
-                redraw();
+
+                setTimeout( function() {
+                    redraw();
+                },2000)
+
             }
 
             function fetchApi(municipality) {
