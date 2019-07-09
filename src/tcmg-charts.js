@@ -493,13 +493,13 @@ var TCMGCharts = function TCMGCharts() {
 
                     data.push({
                         status: "Wacht op opname",
-                        totaal: json['ONTVANGST'] + json['PLANNING OPNAME']
+                        totaal: json['ONTVANGST'] + json['PLANNING_OPNAME']
 
                     });
 
                     data.push({
                         status: "Wacht op rapport",
-                        totaal: json['OPLEV SCHADERAPPORT']
+                        totaal: json['OPLEV_SCHADERAPPORT']
 
                     });
 
@@ -511,7 +511,7 @@ var TCMGCharts = function TCMGCharts() {
 
                     data.push({
                         status: "Voorbereiding besluit",
-                        totaal: json['VOORBER CIE']
+                        totaal: json['VOORBER_CIE']
 
                     });
 
