@@ -482,8 +482,6 @@ var TCMGCharts = function TCMGCharts() {
 
             function prepareData(json) {
 
-                console.log(json['ONTVANGST']);
-
                 let data = [];
 
                 data.push({
@@ -526,6 +524,8 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             function redraw() {
+
+                console.log('redrawwwwwer');
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
                 chartSVG.redraw(dimensions);
@@ -1112,8 +1112,6 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             function redraw() {
-
-                console.log('redrawwwwwer');
 
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
