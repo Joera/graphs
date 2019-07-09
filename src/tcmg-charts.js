@@ -561,6 +561,8 @@ var TCMGCharts = function TCMGCharts() {
                     if (error) throw error;
 
                     run(json);
+                    // weirdness
+                    run(json);
                 });
             }
 
