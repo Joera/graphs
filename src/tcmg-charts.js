@@ -487,7 +487,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 function prepareData(json) {
 
-                    console.log(json['ONTVANGST']);
+                    console.log(json);
 
                     let data = [];
 
