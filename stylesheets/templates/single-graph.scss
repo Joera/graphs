@@ -1,5 +1,12 @@
 .single-graph main {
 
+  svg {
+    overflow: visible;
+  }
+
+  .x-axis .tick text {
+    transform: rotate(45deg);
+  }
 
   h2 {
 
