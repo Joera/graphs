@@ -699,8 +699,6 @@ var TCMGCharts = function TCMGCharts() {
 
      //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-            console.log(json);
-
             let neededColumns = ['DATUM','MELDING','BESCHIKT'];
 
             let data = trimColumns(json,neededColumns);
@@ -709,9 +707,11 @@ var TCMGCharts = function TCMGCharts() {
             console.log(data);
 
             functions.stack = d3.stack()
-                .keys(Object.keys(data[0]).slice(1));
+                .keys(Object.keys(data[0]).slice(2));
 
             let stackedData = functions.stack(data);
+
+            console.log(stackedData);
 
             function redraw() {
                 // on redraw chart gets new dimensions
