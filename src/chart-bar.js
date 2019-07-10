@@ -15,7 +15,7 @@ let ChartBar = function ChartBar(config,svg) {
             .data(data)
             .enter()
             .append('text')
-            .attr('class','barLabel')
+            .attr('class','barLabel small-label')
             .attr('x', 0)
             .attr('dx', '0px')
             .attr('dy', '-6px')
