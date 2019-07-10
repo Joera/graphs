@@ -559,7 +559,6 @@ var TCMGCharts = function TCMGCharts() {
                     data = prepareData(json);
                     run(data);
                     // weirdness
-                    run(json);
                 });
             }
 
