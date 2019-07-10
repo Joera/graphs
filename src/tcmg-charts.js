@@ -428,6 +428,7 @@ var TCMGCharts = function TCMGCharts() {
     var Procedure  = function Procedure(element,filter) {
 
             let url;
+            let data = {};
             let chartObjects = ChartObjects();
             let config = chartObjects.config();
             let dimensions = chartObjects.dimensions();
@@ -514,7 +515,7 @@ var TCMGCharts = function TCMGCharts() {
 
             function draw(data) {
 
-                console.log(data);
+                // console.log(data);
 
                 // with data we can init scales
                 scales = chartScales.set(data);
@@ -540,13 +541,9 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             function run(json) {
-                let data = prepareData(json);
+
                 draw(data);
-
-                setTimeout( function() {
-                    redraw();
-                },2000)
-
+                redraw();
             }
 
             function fetchApi(municipality) {
@@ -559,8 +556,8 @@ var TCMGCharts = function TCMGCharts() {
                 // point of data injection when using an api
                 d3.json(url, function (error, json) {
                     if (error) throw error;
-
-                    run(json);
+                    data = prepareData(json);
+                    run(data);
                     // weirdness
                     run(json);
                 });
