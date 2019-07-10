@@ -4,8 +4,6 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data)
-
-
             .enter()
             .append("rect")
             .attr("class", function(d) {
@@ -14,9 +12,9 @@ let ChartBar = function ChartBar(config,svg) {
 
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
-            .data(data);
-
-        svg.barLabels.enter().append('text')
+            .data(data)
+            .enter()
+            .append('text')
             .attr('class','barLabel')
             .attr('x', 0)
             .attr('dx', '0px')
