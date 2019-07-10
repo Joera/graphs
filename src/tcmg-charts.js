@@ -699,12 +699,12 @@ var TCMGCharts = function TCMGCharts() {
 
      //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-            let neededColumns = ['DATUM','MELDING','BESCHIKT'];
+            let neededColumns = ['DATUM','MELDING','BESCHIKT','_date'];
 
             let data = trimColumns(json,neededColumns);
             functions.stack = d3.stack()
                 // do not stack DATUM
-                .keys(Object.keys(data[0]).slice(1));
+                .keys(Object.keys(data[0]).slice(1,4));
 
             let stackedData = functions.stack(data);
 
