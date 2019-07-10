@@ -459,6 +459,8 @@ var TCMGCharts = function TCMGCharts() {
             config.paddingInner = [0.5];
             config.paddingOuter = [0.25];
 
+            let colours = ['orange','green','darkblue','blue'];
+
             // get dimensions from parent element
             let chartDimensions = ChartDimensions(element, config);
             dimensions = chartDimensions.get(dimensions);
@@ -540,7 +542,7 @@ var TCMGCharts = function TCMGCharts() {
                 d3.json(url, function (error, json) {
                     if (error) throw error;
                     data = prepareData(json);
-                    draw(data);
+                    draw(data,colours);
                     redraw();
 
                 });

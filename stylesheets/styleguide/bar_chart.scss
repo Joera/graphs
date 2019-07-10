@@ -106,20 +106,27 @@ text.number {
     &.-k {
       fill : $blue;
     }
-
-
-    &.voorbereiding-besluit {
-      fill : $blue;
-    }
-
-    &.voorbereiding-besluit {
-      fill : $blue;
-    }
   }
 
   text.barLabel {
 
     font-size: .8rem;
+  }
+
+}
+
+.bar {
+
+  &.green {
+    fill : $green;
+  }
+
+  &.orange {
+    fill : orange;
+  }
+
+  &.blue {
+    fill : $blue;
   }
 
 }

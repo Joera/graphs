@@ -1,13 +1,13 @@
 let ChartBar = function ChartBar(config,svg) {
 
-    let draw = function draw(data) {
+    let draw = function draw(data,colours) {
 
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data)
             .enter()
             .append("rect")
-            .attr("class", function(d) {
-                return "bar " + sluggify(d.status);
+            .attr("class", function(d,i) {
+                return "bar " + sluggify(d.status) + " " + colours[i];
             });
 
 
