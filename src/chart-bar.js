@@ -11,29 +11,24 @@ let ChartBar = function ChartBar(config,svg) {
                 return "bar " + sluggify(d.status);
             });
 
-        svg.barLabels = svg.layers.data.selectAll(".barLabel")
-            .data(data);
+        svg.bar.enter()
+            .append("rect")
+            .attr("class", function(d) {
+                return "bar " + sluggify(d.status);
+            });
 
-        svg.barLabels.enter().append('text')
-            .attr('class','barLabel')
-            .attr('x', 0)
-            .attr('dx', '0px')
-            .attr('dy', '-6px')
-            .style("text-anchor", "middle")
-
-            ;
+        // svg.barLabels = svg.layers.data.selectAll(".barLabel")
+        //     .data(data);
+        //
+        // svg.barLabels.enter().append('text')
+        //     .attr('class','barLabel')
+        //     .attr('x', 0)
+        //     .attr('dx', '0px')
+        //     .attr('dy', '-6px')
+        //     .style("text-anchor", "middle")
+        //
+        //     ;
     }
-
-    // let enter = function enter() {
-    //
-    //     svg.bar
-    //         .enter()
-    //         .append("rect")
-    //         .attr("class", function(d) {
-    //             return "bar " + d.status;
-    //         });
-    //
-    // }
 
     let redraw = function redraw(dimensions,scales) {
 

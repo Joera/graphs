@@ -519,7 +519,6 @@ var TCMGCharts = function TCMGCharts() {
                 scales = chartScales.set(data);
                 // width data we can draw items
                 chartBar.draw(data, functions);
-                chartBar.draw(data, functions);
 
             }
 
