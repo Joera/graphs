@@ -551,8 +551,9 @@ var TCMGCharts = function TCMGCharts() {
                     if (error) throw error;
                     data = prepareData(json);
                     draw(data);
+                    draw(data);
                     redraw();
-                    redraw();
+                    // redraw();
                     // weirdness
                 });
             }
