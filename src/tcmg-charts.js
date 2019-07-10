@@ -540,12 +540,6 @@ var TCMGCharts = function TCMGCharts() {
                 //   chartBlocks.redraw(dimensions, scales);
             }
 
-            function run(json) {
-
-                draw(data);
-                redraw();
-            }
-
             function fetchApi(municipality) {
 
                 if(municipality) {
@@ -557,7 +551,8 @@ var TCMGCharts = function TCMGCharts() {
                 d3.json(url, function (error, json) {
                     if (error) throw error;
                     data = prepareData(json);
-                    run(data);
+                    draw(data);
+                    redraw();
                     // weirdness
                 });
             }
