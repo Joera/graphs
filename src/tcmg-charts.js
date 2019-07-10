@@ -512,7 +512,7 @@ var TCMGCharts = function TCMGCharts() {
                 // with data we can init scales
                 scales = chartScales.set(data);
                 // width data we can draw items
-                chartBar.draw(data, functions);
+                chartBar.draw(data, colours);
 
             }
 
@@ -542,7 +542,7 @@ var TCMGCharts = function TCMGCharts() {
                 d3.json(url, function (error, json) {
                     if (error) throw error;
                     data = prepareData(json);
-                    draw(data,colours);
+                    draw(data);
                     redraw();
 
                 });
