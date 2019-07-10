@@ -6,8 +6,8 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
 
         scales.xTime = d3.scaleTime()
             .domain([
-                d3.min(data, d => new Date(d[config.xParameter])),
-                d3.max(data, d => new Date(d[config.xParameter])),
+                d3.min(data, d => new Date('2019-01-01')),  // d[config.xParameter]
+                d3.max(data, d => new Date('2020-01-01')),
             ]);
 
         scales.yLinear = d3.scaleLinear()
