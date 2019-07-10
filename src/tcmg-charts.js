@@ -707,7 +707,7 @@ var TCMGCharts = function TCMGCharts() {
 
             functions.stack = d3.stack()
                 // do not stack DATUM
-                .keys(Object.keys(data[0]).slice(1,4));
+                .keys(Object.keys(data[0]).slice(1,3));
 
             let stackedData = functions.stack(data);
 
