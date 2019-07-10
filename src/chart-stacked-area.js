@@ -1,6 +1,6 @@
 let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
-    let draw = function draw(stackedData) {
+    let draw = function draw(stackedData,colours) {
 
         svg.series = svg.layers.data.selectAll(".serie")
             .data(stackedData)
@@ -11,7 +11,9 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
         svg.areas = svg.series
             .append("path")
             // .attr("fill", "#ccc")
-            .attr('class', 'flow');
+            .attr('class', (d,i) => {
+                return 'flow ' + colours[i];
+            });
 
         svg.areaLabels = svg.series
             .append('text')

@@ -677,7 +677,7 @@ var TCMGCharts = function TCMGCharts() {
         config.xParameter = '_date';
         config.minWidth = 460;
 
-
+        let colours = ['orange','green'];
 
         // get dimensions from parent element
         let chartDimensions = ChartDimensions(element,config);
@@ -692,7 +692,7 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
-        let url = 'https://tcmg.publikaan.nl/api/procedure'
+        let url = 'https://tcmg.publikaan.nl/api/procedure';
 
         d3.json(url, function(error, json) {
             if (error) throw error;
@@ -709,7 +709,7 @@ var TCMGCharts = function TCMGCharts() {
 
             let stackedData = functions.stack(data);
 
-            console.log(stackedData);
+            //console.log(stackedData);
 
             function redraw() {
                 // on redraw chart gets new dimensions
@@ -726,7 +726,7 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             scales = chartScales.set(data);
-            chartStackedArea.draw(stackedData,functions);
+            chartStackedArea.draw(stackedData,colours);
             // further drawing happens in function that can be repeated.
             redraw();
             // for example on window resize
