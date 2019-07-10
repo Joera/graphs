@@ -33,20 +33,20 @@ const currency = localCurrency.format("$,");
 
 
 
-var trimColumns =  function(csv,neededColumns) {
+var trimColumns =  function(json,neededColumns) {
 
-    csv.columns = csv.columns.filter( (c) => {
-        return neededColumns.indexOf(c) > -1;
-    });
+    // csv.columns = csv.columns.filter( (c) => {
+    //     return neededColumns.indexOf(c) > -1;
+    // });
 
-    csv.forEach( (week,i) => {
+    json.forEach( (week,i) => {
         Object.keys(week).forEach( (key) => {
             if (neededColumns.indexOf(key) < 0) {
                 delete week[key];
             }
         });
     });
-    return csv;
+    return json;
 };
 
 
@@ -701,13 +701,17 @@ var TCMGCharts = function TCMGCharts() {
 
             console.log(json);
 
-            let neededColumns = ['date','behandeling','afgehandeld'];
+            let neededColumns = ['DATUM','MELDING','BESCHIKT'];
 
             let data = trimColumns(json,neededColumns);
-            csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
+         //   csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
 
-            functions.stack = d3.stack();
-            let stackedData = functions.stack.keys(data.columns.slice(1))(data);
+            console.log(data);
+
+            functions.stack = d3.stack()
+                .keys(Object.keys(data[0]).slice(1));
+
+            let stackedData = functions.stack(data);
 
             function redraw() {
                 // on redraw chart gets new dimensions
