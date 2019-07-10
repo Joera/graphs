@@ -45,21 +45,21 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .y0(function(d) { return scales.yLinear(d[0]); })
             .y1(function(d) { return scales.yLinear(d[1]); });
 
-        svg.areas
-            .attr('d', area);
-
-
-        svg.areaLabels
-            .attr('transform', function(d) {
-
-                return 'translate(' + dimensions.width + ',' +
-                    scales.yLinear(
-                        d[d.length -1][0] + (
-                            (d[d.length -1][1] - d[d.length -1][0]) / 2
-                        )
-                    )
-                 + ')';
-            })
+        // svg.areas
+        //     .attr('d', area);
+        //
+        //
+        // svg.areaLabels
+        //     .attr('transform', function(d) {
+        //
+        //         return 'translate(' + dimensions.width + ',' +
+        //             scales.yLinear(
+        //                 d[d.length -1][0] + (
+        //                     (d[d.length -1][1] - d[d.length -1][0]) / 2
+        //                 )
+        //             )
+        //          + ')';
+        //     })
     }
 
 
