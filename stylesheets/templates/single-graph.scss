@@ -17,11 +17,11 @@
   padding-left: 2rem;
 
   div {
-    width: calc(100% - 2rem);
+    width: calc(100vw - 4rem);
     height: 80vh;
 
     @media (min-width: 700px) {
-      width: calc(100% - 12rem);
+      width: calc(100vw - 12rem);
       //height: 80vh;
     }
   }
