@@ -6,7 +6,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
 
         scales.xTime = d3.scaleTime()
             .domain([
-                d3.min(data, d => { console.log(new Date(d[config.xParameter])); return new Date(d[config.xParameter])}),
+                d3.min(data, d => { console.log(d[config.xParameter]); console.log(new Date(d[config.xParameter])); return new Date(d[config.xParameter])}),
                 d3.max(data, d => new Date(d[config.xParameter])),
             ]);
 
