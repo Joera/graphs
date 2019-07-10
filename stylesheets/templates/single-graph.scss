@@ -4,8 +4,8 @@
     overflow: visible;
   }
 
-  .x-axis .tick:nth-child(even) text {
-    transform: translate(20px 0);
+  .x-axis .tick:nth-child(odd) text {
+    transform: translate(0px,15px);
   }
 
   h2 {
