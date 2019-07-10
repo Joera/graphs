@@ -10,12 +10,7 @@ let ChartBar = function ChartBar(config,svg) {
             .attr("class", function(d) {
                 return "bar " + sluggify(d.status);
             });
-
-        svg.bar.enter()
-            .append("rect")
-            .attr("class", function(d) {
-                return "bar " + sluggify(d.status);
-            });
+        
 
         // svg.barLabels = svg.layers.data.selectAll(".barLabel")
         //     .data(data);
