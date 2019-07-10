@@ -526,7 +526,6 @@ var TCMGCharts = function TCMGCharts() {
 
             function redraw() {
 
-                console.log('redrawwwwwer');
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
                 chartSVG.redraw(dimensions);
