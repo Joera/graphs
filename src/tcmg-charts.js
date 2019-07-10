@@ -702,11 +702,8 @@ var TCMGCharts = function TCMGCharts() {
             let neededColumns = ['DATUM','MELDING','BESCHIKT'];
 
             let data = trimColumns(json,neededColumns);
-         //   csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
-
-            console.log(data);
-
             functions.stack = d3.stack()
+                // do not stack DATUM
                 .keys(Object.keys(data[0]).slice(1));
 
             let stackedData = functions.stack(data);
@@ -723,7 +720,7 @@ var TCMGCharts = function TCMGCharts() {
                 chartAxis.redrawXTimeAxis(dimensions,scales,axes);
                 chartAxis.redrawYAxis(scales,axes);
                 // redraw data
-                chartStackedArea.redraw(dimensions,scales);
+             //   chartStackedArea.redraw(dimensions,scales);
 
             }
 
