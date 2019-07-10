@@ -703,7 +703,7 @@ var TCMGCharts = function TCMGCharts() {
 
             let data = trimColumns(json,neededColumns);
 
-            console.log(Object.keys(data[0]).slice(1,4));
+            console.log(Object.keys(data[0]).slice(1,3));
 
             functions.stack = d3.stack()
                 // do not stack DATUM
