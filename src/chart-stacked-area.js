@@ -41,25 +41,26 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         let area = d3.area()
             .x(function(d) {
+                console.log(d);
                 return scales.xTime(new Date(d.data.date)); })
             .y0(function(d) { return scales.yLinear(d[0]); })
             .y1(function(d) { return scales.yLinear(d[1]); });
 
-        // svg.areas
-        //     .attr('d', area);
-        //
-        //
-        // svg.areaLabels
-        //     .attr('transform', function(d) {
-        //
-        //         return 'translate(' + dimensions.width + ',' +
-        //             scales.yLinear(
-        //                 d[d.length -1][0] + (
-        //                     (d[d.length -1][1] - d[d.length -1][0]) / 2
-        //                 )
-        //             )
-        //          + ')';
-        //     })
+        svg.areas
+            .attr('d', area);
+
+
+        svg.areaLabels
+            .attr('transform', function(d) {
+
+                return 'translate(' + dimensions.width + ',' +
+                    scales.yLinear(
+                        d[d.length -1][0] + (
+                            (d[d.length -1][1] - d[d.length -1][0]) / 2
+                        )
+                    )
+                 + ')';
+            })
     }
 
 
