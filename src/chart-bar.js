@@ -3,13 +3,9 @@ let ChartBar = function ChartBar(config,svg) {
     let draw = function draw(data) {
 
         svg.bar = svg.layers.data.selectAll(".bar")
-            .data(data)
+            .data(data);
 
-        svg.bar.enter()
-            .append("rect")
-            .attr("class", function(d) {
-                return "bar " + sluggify(d.status);
-            });
+        
 
         svg.bar.enter()
             .append("rect")
