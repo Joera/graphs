@@ -40,7 +40,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
     let redraw = function redraw(dimensions,scales) {
 
         let area = d3.area()
-            // .x(function(d) { return scales.xTime(new Date(d.data._date)); })
+             .x(function(d) { return scales.xTime(d.data); })
             .y0(function(d) { return scales.yLinear(d[0]); })
             .y1(function(d) { return scales.yLinear(d[1]); });
 

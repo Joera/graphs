@@ -674,7 +674,7 @@ var TCMGCharts = function TCMGCharts() {
         config.maxValue = 22000;
 
 
-        config.xParameter = 'date';
+        config.xParameter = '_date';
         config.minWidth = 460;
 
 
