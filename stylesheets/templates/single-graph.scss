@@ -13,8 +13,13 @@
   padding-left: 2rem;
 
   div {
-    width: calc(100% - 12rem);
-    height: 600px;
+    width: calc(100% - 2rem);
+    height: 80vh;
+
+    @media (min-width: 700px) {
+      width: calc(100% - 12rem);
+      //height: 80vh;
+    }
   }
 
   .progress-candles-container g.data path {
