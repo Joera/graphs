@@ -692,14 +692,19 @@ var TCMGCharts = function TCMGCharts() {
         chartAxis.drawXAxis();
         chartAxis.drawYAxis();
 
-        d3.csv("./dummy_data_progress_extended.csv", function(error, csv) {
+        let url = 'https://tcmg.publikaan.nl/api/procedure'
+
+        d3.json(url, function(error, json) {
             if (error) throw error;
 
      //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
+
+            console.log(json);
+
             let neededColumns = ['date','behandeling','afgehandeld'];
 
-            let data = trimColumns(csv,neededColumns);
-            // csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
+            let data = trimColumns(json,neededColumns);
+            csv.columns = [csv.columns[0],csv.columns[2],csv.columns[1]];
 
             functions.stack = d3.stack();
             let stackedData = functions.stack.keys(data.columns.slice(1))(data);
