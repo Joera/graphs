@@ -473,14 +473,6 @@ var TCMGCharts = function TCMGCharts() {
             chartAxis.drawXAxis();
             chartAxis.drawYAxis();
 
-            // function to parse csv
-            // function type(d, i, columns) {
-            //     let t;
-            //     for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-            //     d.value = t;
-            //     return d;
-            // }
-
             function prepareData(json) {
 
                 let data = [];
@@ -556,10 +548,12 @@ var TCMGCharts = function TCMGCharts() {
 
             window.addEventListener("resize", redraw, false);
 
-            procedureSelect.addEventListener("change", function () {
-                console.log('hi');
-                fetchApi(procedureSelect.options[procedureSelect.selectedIndex].value);
-            });
+            if(procedureSelect != null) {
+                procedureSelect.addEventListener("change", function () {
+                    console.log('hi');
+                    fetchApi(procedureSelect.options[procedureSelect.selectedIndex].value);
+                });
+            }
 
             fetchApi(false);
 
