@@ -1142,6 +1142,62 @@ var TCMGCharts = function TCMGCharts() {
 
     }
 
+    var ReservoirFlows = function RemiReservoirFlows(element) {
+
+
+        let colours = ['green','orange','blue'];
+        let url = "https://tcmg.publikaan.nl/api/stuwmeerregeling?week=recent";
+
+        let chartObjects = ChartObjects();
+        let config = chartObjects.config();
+        let dimensions = chartObjects.dimensions();
+        let svg = chartObjects.svg();
+        let scales = chartObjects.scales();
+        let axes = chartObjects.axes();
+        let functions = chartObjects.functions();
+
+        config.margin.top = 0;
+        config.margin.bottom = 0;
+        config.margin.left = 0;
+        config.margin.right = 0;
+        config.padding.top = 0;
+        config.padding.bottom = 0;
+        config.padding.left = 0;
+        config.padding.right = 0;
+        // config.xParameter = 'status';  // name of first column with values of bands on x axis
+        // config.yParameter = 'totaal';  // is being set in type function
+        // config.fixedHeight = 160;
+        // config.minValue = 0;
+        // config.maxValue = 2000;
+        // config.xAlign = [0.5];
+        // config.paddingInner = [0.5];
+        // config.paddingOuter = [0.5];
+
+        let chartDimensions = ChartDimensions(element,config);
+        dimensions = chartDimensions.get(dimensions);
+
+        // create svg elements without data
+        let chartSVG = ChartSVG(element,config,dimensions,svg);
+        // let chartScales = ChartScales(config,dimensions,scales);
+        // let chartAxis = ChartAxis(config,svg);
+
+        // chartAxis.drawXAxis();
+        // chartAxis.drawYAxis();
+
+        let chartSankey = ChartSankey(config,svg,functions);
+
+        d3.json(url, function(error, json) {
+
+            console.log(json);
+            let nodes = Object.keys(json);
+            console.log(nodes);
+
+        });
+
+
+
+    }
+
     var setMunicipalitySelect = function setMunicipalitySelect(municipality) {
 
             procedureSelect.value = municipality;
@@ -1165,6 +1221,7 @@ var TCMGCharts = function TCMGCharts() {
         outputs : Outputs,
         legendOutput : LegendOutput,
         remittances : Remittances,
+        reservoirFlows : ReservoirFlows,
         setMunicipalitySelect : setMunicipalitySelect
     }
 }

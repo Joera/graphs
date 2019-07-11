@@ -29,6 +29,7 @@ module.exports = function() {
             './src/chart-stacked-area.js',
             './src/chart-blocks.js',
             './src/chart-area.js',
+            './src/chart-sankey.js',
             './src/tcmg-charts.js'
             ])
             .pipe(concat('main.js'))
