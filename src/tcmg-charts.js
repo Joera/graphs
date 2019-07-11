@@ -1189,8 +1189,10 @@ var TCMGCharts = function TCMGCharts() {
         d3.json(url, function(error, json) {
 
             console.log(json);
-            let nodes = Object.keys(json);
-            console.log(nodes);
+            let columns = Object.keys(json[0]);
+
+
+            console.log(columns);
 
         });
 
