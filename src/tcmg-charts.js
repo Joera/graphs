@@ -1203,7 +1203,7 @@ var TCMGCharts = function TCMGCharts() {
             for (let group of json.filter( r => r['CATEGORY'] != 'all')) {
                 nodes.push({
                     'node' : index,
-                    'name' : 'Groep ' + r['CATEGORY']
+                    'name' : 'Groep ' + group['CATEGORY']
                 });
                 index++;
             }
