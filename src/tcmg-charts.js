@@ -1197,7 +1197,7 @@ var TCMGCharts = function TCMGCharts() {
             let nodes = [];
             let links = [];
             let index = 0;
-            let mo_index = 0;
+
 
             // let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
             // let nodes = columns.concat(groups);
@@ -1207,6 +1207,8 @@ var TCMGCharts = function TCMGCharts() {
                     'node' : index,
                     'name' : 'Groep ' + group['CATEGORY']
                 });
+
+                let mo_index = 0;
 
                 for (let column of columns) {
                     links.push({
