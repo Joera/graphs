@@ -1129,7 +1129,7 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             function run(filter) {
-                let data = prepareData(csv,filter);
+                let data = prepareData(json,filter);
                 draw(data);
                 redraw();
             }
