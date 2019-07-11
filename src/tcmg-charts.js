@@ -1058,39 +1058,45 @@ var TCMGCharts = function TCMGCharts() {
 
         let chartBar = ChartBar(config,svg,functions);
 
-        d3.csv("./dummy_data_remittances.csv", function(error, csv) {
+        let url = 'https://tcmg.publikaan.nl/api/schadevergoedingen?week=recent';
 
-            function prepareData(csv,filter) {
+        d3.json(url, function(error, json) {
+
+            function prepareData(json,filter) {
+
+                json = json.filter( j => j['CATEGORY'] === filter);
+
+                console.log(json);
 
                 let data = [];
 
-                data.push({
-                    status: "Afgewezen",
-                    totaal: csv[0][filter]
-
-                });
+                // data.push({
+                //     status: "Afgewezen",
+                //     totaal: json[0][filter]
+                //
+                // });
 
                 data.push({
                     status: "< €1K",
-                    totaal: csv[1][filter]
+                    totaal: json['0_1000']
 
                 });
 
                 data.push({
                     status: "€1K t/m €4K",
-                    totaal: csv[2][filter]
+                    totaal: json['1000_4000']
 
                 });
 
                 data.push({
                     status: "€4K t/m €10K",
-                    totaal: csv[3][filter]
+                    totaal: json['4000_10000']
 
                 });
 
                 data.push({
                     status: "> €10K",
-                    totaal: csv[4][filter]
+                    totaal: json['MEER_DAN_10000']
 
                 });
 
@@ -1135,9 +1141,9 @@ var TCMGCharts = function TCMGCharts() {
             //     run(procedureSelect.options[procedureSelect.selectedIndex].value);
             // });
 
-            run('totaal');
+            run('all');
             // hij lijkt alleen elementen te vullen bij een update
-            run('totaal');
+            run('all');
         });
 
     }
@@ -1162,27 +1168,14 @@ var TCMGCharts = function TCMGCharts() {
         config.margin.right = 0;
         config.padding.top = 30;
         config.padding.bottom = 30;
-        config.padding.left = 90;
-        config.padding.right = 90;
-        // config.xParameter = 'status';  // name of first column with values of bands on x axis
-        // config.yParameter = 'totaal';  // is being set in type function
-        // config.fixedHeight = 160;
-        // config.minValue = 0;
-        // config.maxValue = 2000;
-        // config.xAlign = [0.5];
-        // config.paddingInner = [0.5];
-        // config.paddingOuter = [0.5];
+        config.padding.left = 30;
+        config.padding.right = 30;
 
         let chartDimensions = ChartDimensions(element,config);
         dimensions = chartDimensions.get(dimensions);
 
         // create svg elements without data
         let chartSVG = ChartSVG(element,config,dimensions,svg);
-        // let chartScales = ChartScales(config,dimensions,scales);
-        // let chartAxis = ChartAxis(config,svg);
-
-        // chartAxis.drawXAxis();
-        // chartAxis.drawYAxis();
 
         let chartSankey = ChartSankey(config,svg,functions);
 
@@ -1242,9 +1235,6 @@ var TCMGCharts = function TCMGCharts() {
                 });
             }
 
-            console.log(nodes);
-            console.log(links);
-
             function draw(data) {
 
             }
@@ -1258,6 +1248,8 @@ var TCMGCharts = function TCMGCharts() {
                 chartSankey.redraw(nodes,links,dimensions);
             }
 
+            // for example on window resize
+            window.addEventListener("resize", redraw, false);
 
             redraw();
 
