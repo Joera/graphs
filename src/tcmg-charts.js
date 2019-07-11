@@ -1186,6 +1186,14 @@ var TCMGCharts = function TCMGCharts() {
 
         let chartSankey = ChartSankey(config,svg,functions);
 
+        // Set the sankey diagram properties
+        let sankey = d3.sankey()
+            .nodeWidth(36)
+            .nodePadding(40)
+            .size([dimensions.width, dimensions.height]);
+
+        let path = sankey.link();
+
         d3.json(url, function(error, json) {
 
             let columns = Object.keys(json[0]);
@@ -1233,6 +1241,11 @@ var TCMGCharts = function TCMGCharts() {
 
             console.log(nodes);
             console.log(links);
+
+            sankey
+                .nodes(nodes)
+                .links(links)
+                .layout(32);
 
 
 
