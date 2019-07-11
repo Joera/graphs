@@ -309,7 +309,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .size([dimensions.width, dimensions.height]);
 
         let path = sankey.link();
-        
+
         sankey
             .nodes(nodes)
             .links(links)
