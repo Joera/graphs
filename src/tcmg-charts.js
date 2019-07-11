@@ -1020,6 +1020,8 @@ var TCMGCharts = function TCMGCharts() {
 
     var Remittances = function Remittances(element) {
 
+        let colours = ['green','green','green','green'];
+
         let chartObjects = ChartObjects();
         let config = chartObjects.config();
         let dimensions = chartObjects.dimensions();
@@ -1040,7 +1042,7 @@ var TCMGCharts = function TCMGCharts() {
         config.yParameter = 'totaal';  // is being set in type function
         config.fixedHeight = 160;
         config.minValue = 0;
-        config.maxValue = 2000;
+        config.maxValue = 4000;
         // config.xAlign = [0.5];
         config.paddingInner = [0.5];
         config.paddingOuter = [0.5];
@@ -1065,8 +1067,6 @@ var TCMGCharts = function TCMGCharts() {
             function prepareData(json,filter) {
 
                 json = json.filter( j => j['CATEGORY'] === filter)[0];
-
-                console.log(json);
 
                 let data = [];
 
@@ -1110,7 +1110,7 @@ var TCMGCharts = function TCMGCharts() {
                 // with data we can init scales
                 scales = chartScales.set(data);
                 // width data we can draw items
-                chartBar.draw(data, functions);
+                chartBar.draw(data, colours);
 
             }
 
