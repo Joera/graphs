@@ -1100,7 +1100,7 @@ var TCMGCharts = function TCMGCharts() {
 
                 });
 
-                data.columns = csv.columns;
+                // data.columns = csv.columns;
 
                 return data;
             }
