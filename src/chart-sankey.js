@@ -360,7 +360,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("text-anchor", "end")
             .attr("transform", null)
             .text(function(d) { return d.name  })
-            .filter(function(d) { return d.x < width / 2; })
+            .filter(function(d) { return d.x < dimensions.width / 2; })
             .attr("x", 6 + sankey.nodeWidth())
             .attr("text-anchor", "start");
 
