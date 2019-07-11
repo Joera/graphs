@@ -1064,7 +1064,7 @@ var TCMGCharts = function TCMGCharts() {
 
             function prepareData(json,filter) {
 
-                json = json.filter( j => j['CATEGORY'] === filter);
+                json = json.filter( j => j['CATEGORY'] === filter)[0];
 
                 console.log(json);
 
