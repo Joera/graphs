@@ -1207,10 +1207,10 @@ var TCMGCharts = function TCMGCharts() {
                     'name' : 'Groep ' + group['CATEGORY']
                 });
 
-                for (let column of columns) {
+                for (let columnNo in columns) {
                     links.push({
                         'source': index,
-                        'target': column,
+                        'target': columnNo,
                         'value': group[column]
                      })
                 }
