@@ -1195,6 +1195,7 @@ var TCMGCharts = function TCMGCharts() {
             });
 
             let nodes = [];
+            let links = [];
             let index = 0;
 
             // let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
@@ -1205,6 +1206,16 @@ var TCMGCharts = function TCMGCharts() {
                     'node' : index,
                     'name' : 'Groep ' + group['CATEGORY']
                 });
+
+                for (let column of columns) {
+                    links.push({
+                        'source': index,
+                        'target': column,
+                        'value': group[column]
+                     })
+                }
+
+
                 index++;
             }
 
@@ -1217,6 +1228,11 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             console.log(nodes);
+            console.log(links);
+
+
+
+
         });
 
 
