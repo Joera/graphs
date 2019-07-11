@@ -1191,7 +1191,7 @@ var TCMGCharts = function TCMGCharts() {
             let columns = Object.keys(json[0]);
 
             columns = columns.filter( col => {
-                return ['id','DATUM','CATEGORY','_date','_category','_week','_year'].indexOf(col) < 0;
+                return ['id','DATUM','CATEGORY','Totaal','_date','_category','_week','_year'].indexOf(col) < 0;
             });
 
             let nodes = [];
