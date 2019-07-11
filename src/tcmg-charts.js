@@ -1279,7 +1279,7 @@ var TCMGCharts = function TCMGCharts() {
                 .style("fill", function(d) {
                     return "#777c00" }) // d.color = color(d.name.replace(/ .*/, "")); })
                 .style("stroke", function(d) {
-                    return '#000' })
+                    return "#777c00" })
                 .append("title")
                 .text(function(d) {
                     return d.name + "\n" + d.value; });
