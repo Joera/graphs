@@ -1209,6 +1209,7 @@ var TCMGCharts = function TCMGCharts() {
                 let desc = '';
 
                 if (group['CATEGORY'] == '1') desc = 'Nog geen opname - melding voor 1 januari 2019';
+                if (group['CATEGORY'] == '2') desc = 'In opname - nog geen rapport - melding voor 1 januari 2019';
 
                 nodes.push({
                     'node' : index,
@@ -1232,10 +1233,12 @@ var TCMGCharts = function TCMGCharts() {
             }
 
             for (let column of columns) {
+                let desc = '';
                 index++;
                 nodes.push({
                     'node' : index,
-                    'name' : column
+                    'name' : column,
+                    'desc' : desc,
                 });
             }
 
