@@ -1248,13 +1248,41 @@ var TCMGCharts = function TCMGCharts() {
                 .layout(32);
 
             // add in the links
-            var link = svg.layers.data.append("g").selectAll(".link")
+            let link = svg.layers.data.append("g").selectAll(".link")
                 .data(links)
                 .enter().append("path")
                 .attr("class", "link")
                 .attr("d", path)
                 .style("stroke-width", function(d) { return Math.max(1, d.dy); })
                 .sort(function(a, b) { return b.dy - a.dy; });
+
+            // add in the nodes
+            let node = svg.layers.data.append("g").selectAll(".node")
+                .data(nodes)
+                .enter().append("g")
+                .attr("class", "node")
+                .attr("transform", function(d) {
+                    return "translate(" + d.x + "," + d.y + ")"; });
+                // .call(d3.drag()
+                //     .subject(function(d) {
+                //         return d;
+                //     })
+                //     .on("start", function() {
+                //         this.parentNode.appendChild(this);
+                //     })
+                //     .on("drag", dragmove));
+
+            // add the rectangles for the nodes
+            node.append("rect")
+                .attr("height", function(d) { return d.dy; })
+                .attr("width", sankey.nodeWidth())
+                .style("fill", function(d) {
+                    return "#777c00" }) // d.color = color(d.name.replace(/ .*/, "")); })
+                .style("stroke", function(d) {
+                    return '#000' })
+                .append("title")
+                .text(function(d) {
+                    return d.name + "\n" + d.value; });
 
 
 
