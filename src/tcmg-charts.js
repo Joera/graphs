@@ -1194,8 +1194,27 @@ var TCMGCharts = function TCMGCharts() {
                 return ['id','DATUM','CATEGORY','_date','_category','_week','_year'].indexOf(col) < 0;
             });
 
-            let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
-            let nodes = columns.concat(groups);
+            let nodes = [];
+            let index = 0;
+
+            // let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
+            // let nodes = columns.concat(groups);
+
+            for (let group of json.filter( r => r['CATEGORY'] != 'all')) {
+                nodes.push({
+                    'node' : index,
+                    'name' : 'Groep ' + r['CATEGORY']
+                });
+                index++;
+            }
+
+            for (let column of columns) {
+                index++;
+                nodes.push({
+                    'node' : index,
+                    'name' : column
+                });
+            }
 
             console.log(nodes);
         });
