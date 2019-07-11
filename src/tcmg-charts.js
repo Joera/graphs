@@ -1203,9 +1203,17 @@ var TCMGCharts = function TCMGCharts() {
             // let nodes = columns.concat(groups);
 
             for (let group of json.filter( r => r['CATEGORY'] != 'all')) {
+
+                let title = 'Groep ' + group['CATEGORY'];
+
+                let desc = '';
+
+                if (r['CATEGORY'] == '1') desc = 'Nog geen opname - melding voor 1 januari 2019';
+
                 nodes.push({
                     'node' : index,
-                    'name' : 'Groep ' + group['CATEGORY']
+                    'name' : title,
+                    'desc' : desc,
                 });
 
                 let mo_index = 0;
