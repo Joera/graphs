@@ -1248,15 +1248,15 @@ var TCMGCharts = function TCMGCharts() {
                 .layout(32);
 
             // add in the links
-            // var link = svg.append("g").selectAll(".link")
-            //     .data(graph.links)
-            //     .enter().append("path")
-            //     .attr("class", "link")
-            //     .attr("d", path)
-            //     .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-            //     .sort(function(a, b) { return b.dy - a.dy; });
-            //
-            //
+            var link = svg.layers.data.append("g").selectAll(".link")
+                .data(links)
+                .enter().append("path")
+                .attr("class", "link")
+                .attr("d", path)
+                .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+                .sort(function(a, b) { return b.dy - a.dy; });
+
+
 
 
         });
