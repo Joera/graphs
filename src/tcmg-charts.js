@@ -1196,7 +1196,7 @@ var TCMGCharts = function TCMGCharts() {
                 return ['id','DATUM','CATEGORY','_date','_category','_week','_year'].indexOf(col) < 0;
             });
 
-            let groups = json.map( p => { if(p['CATEGORY'] != 'all') return p['CATEGORY']});
+            let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
 
             console.log(groups);
 
