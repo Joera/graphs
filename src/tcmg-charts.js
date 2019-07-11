@@ -1188,18 +1188,16 @@ var TCMGCharts = function TCMGCharts() {
 
         d3.json(url, function(error, json) {
 
-            console.log(json);
             let columns = Object.keys(json[0]);
 
             columns = columns.filter( col => {
-
                 return ['id','DATUM','CATEGORY','_date','_category','_week','_year'].indexOf(col) < 0;
             });
 
             let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
+            let nodes = columns.concat(groups);
 
-            console.log(groups);
-
+            console.log(nodes);
         });
 
 
