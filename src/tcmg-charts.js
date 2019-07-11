@@ -1194,9 +1194,11 @@ var TCMGCharts = function TCMGCharts() {
             columns = columns.filter( col => {
 
                 return ['id','DATUM','CATEGORY','_date','_category','_week','_year'].indexOf(col) < 0;
-            })
+            });
 
-            console.log(columns);
+            let groups = json.map( p => p['CATEGORY']);
+
+            console.log(groups);
 
         });
 
