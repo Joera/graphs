@@ -19,7 +19,7 @@ var meldingen = function(element) {
     // name of first column with values of bands on x axis
 
 
-    config.yParameter = 'melding';  // is being set in type function
+    config.yParameter = 'MELDING';  // is being set in type function
     // config.fixedHeight = 160;
     config.minValue = 0;
     config.maxValue = 60000;
