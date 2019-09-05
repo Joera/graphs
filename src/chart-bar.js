@@ -56,10 +56,10 @@ let ChartBar = function ChartBar(config,svg) {
 
                 if (config.xParameter === '_date') {
 
-                    scales.xTime.bandwidth()
+                     return 20;
                 } else {
 
-                    scales.xBand.bandwidth()
+                    return scales.xBand.bandwidth()
                 }
 
             })
