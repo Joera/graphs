@@ -22,7 +22,7 @@ var weekverloop = function(element) {
     config.yParameter = 'behandeling';  // is being set in type function
     // config.fixedHeight = 160;
     config.minValue = 0;
-    config.maxValue = 40000;
+    config.maxValue = 60000;
 
 
     config.xParameter = '_date';
