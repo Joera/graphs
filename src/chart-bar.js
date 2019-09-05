@@ -56,7 +56,7 @@ let ChartBar = function ChartBar(config,svg) {
 
                 if (config.xParameter === '_date') {
 
-                     return 20;
+                     return 60;
                 } else {
 
                     return scales.xBand.bandwidth()
@@ -67,22 +67,31 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar.exit().remove();
 
-        // svg.barLabels
-        //     .merge(svg.barLabels)
-        //     .text(function(d) {
-        //         return d.totaal;
-        //     })
-        //     .attr('transform', function(d) {
-        //
-        //         return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
-        //             scales.yLinear(d[config.yParameter])
-        //             + ')';
-        //     })
-        //     .attr('fill-opacity', 0)
-        //     .transition()
-        //     .delay(500)
-        //     .duration(500)
-        //     .attr('fill-opacity', 1)
+        svg.barLabels
+            .merge(svg.barLabels)
+            .text(function(d) {
+                return d.totaal;
+            })
+            .attr('transform', function(d) {
+
+                if (config.xParameter === '_date') {
+
+                    return 'translate(' + (scales.xTime(d[config.xParameter]) + 60 + ',' +
+                        scales.yLinear(d[config.yParameter])
+                        + ')';
+
+                } else {
+
+                    return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
+                        scales.yLinear(d[config.yParameter])
+                        + ')';
+                }
+            })
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('fill-opacity', 1)
     }
 
 
