@@ -72,8 +72,27 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         let area = d3.area()
             .curve(d3.curveCardinal)
-            .x0((d,i) => { if (i < 1) {  return  scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x);}})  // console.log(d);
-            .x1((d,i) => { if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }})
+            .x0((d,i) => {
+
+                if (config.xParameter === '_date') {
+
+                    return  scales.xTime(new Date(d.x));
+
+                } else if (i < 1) {  
+
+                    return  scales.xBand(d.x) + scales.xBand.bandwidth()
+
+                } else {
+
+                    return scales.xBand(d.x);
+                }
+
+            })  // console.log(d);
+            .x1((d,i) => {
+
+                if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }
+
+            })
             .y0((d,i) => { return scales.yBlocks(d.base); })
             .y1((d) => { return scales.yBlocks(d.y); });
 

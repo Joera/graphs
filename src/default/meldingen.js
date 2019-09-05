@@ -38,7 +38,7 @@ var meldingen = function(element) {
     let chartSVG = ChartSVG(element,config,dimensions,svg);
     let chartScales = ChartScales(config,dimensions,scales);
     let chartAxis = ChartAxis(config,svg);
-    let chartBar = ChartBar(config,svg);
+    let chartStackedBars = ChartStackedBars(config,svg);
 
     chartAxis.drawXAxis();
     chartAxis.drawYAxis();
@@ -53,6 +53,7 @@ var meldingen = function(element) {
         let data = trimColumns(json,neededColumns);
 
 
+        // custom formula
         for (let i = 0; i < data.length; i++) {
 
             if(i > 0) {
@@ -60,16 +61,14 @@ var meldingen = function(element) {
             }
         }
 
-        console.log(data);
-        console.log(Object.keys(data[0]).slice(1,3));
+        // deze in andere bestadnje plaatsen?
+        functions.stack = d3.stack()
+        // do not stack DATUM
+            .keys(Object.keys(data[0]).slice(1,3));
 
-        // functions.stack = d3.stack()
-        // // do not stack DATUM
-        //     .keys(Object.keys(data[0]).slice(1,3));
-        //
-        // let stackedData = functions.stack(data);
+        let stackedData = functions.stack(data);
 
-        //console.log(stackedData);
+        console.log(stackedData);
 
         function redraw() {
             // on redraw chart gets new dimensions
@@ -81,12 +80,12 @@ var meldingen = function(element) {
             chartAxis.redrawXTimeAxis(dimensions,scales,axes);
             chartAxis.redrawYAxis(scales,axes);
             // redraw data
-            chartBar.redraw(dimensions,scales);
+            chartStackedBars.redraw(dimensions,scales);
 
         }
 
         scales = chartScales.set(data);
-        chartBar.draw(data,colours);
+        chartStackedBars.draw(stackedData,colours);
         // further drawing happens in function that can be repeated.
         redraw();
         // for example on window resize
