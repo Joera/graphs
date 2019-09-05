@@ -55,9 +55,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("class", (d,i) => {
 
                 if (i === 0 || !!(i && !(i%2))) {
-                    return "serie " + colours[0];
+                    return "stackGroup " + colours[0];
                 } else {
-                    return "serie " + colours[1];
+                    return "stackGroup " + colours[1];
                 }
             });
 

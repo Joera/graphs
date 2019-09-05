@@ -114,18 +114,28 @@ text.number {
 
 }
 
-.bar {
+.bar, .stackGroup {
 
-  &.green {
+  &.green &, .bar {
     fill : $green;
+    
   }
 
   &.orange {
     fill : orange;
+
+    .bar {
+      fill : orange;
+    }
   }
 
   &.blue {
     fill : $blue;
+
+    .bar {
+      fill : $blue;
+    }
   }
 
 }
+
