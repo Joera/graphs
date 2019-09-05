@@ -1,4 +1,4 @@
-var weekverloop = function(element) {
+var meldingen = function(element) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
