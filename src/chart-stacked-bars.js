@@ -153,21 +153,21 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .text(function(d) {
                 console.log(d); return '1111';
             })
-            // .attr('transform', function(d) {
-            //
-            //     if (config.xParameter === '_date') {
-            //
-            //         return 'translate(' + (scales.xTime(new Date(d[config.xParameter]))) + 60 + ',' +
-            //             scales.yLinear(d[config.yParameter])
-            //             + ')';
-            //
-            //     } else {
-            //
-            //         return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
-            //             scales.yLinear(d[config.yParameter])
-            //             + ')';
-            //     }
-            // })
+            .attr('transform', function(d) {
+
+                if (config.xParameter === '_date') {
+
+                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter]))) + 60 + ',' +
+                        scales.yLinear(d.data[config.yParameter])
+                        + ')';
+
+                } else {
+
+                    return 'translate(' + (scales.xBand(d.data[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
+                        scales.yLinear(d.data[config.yParameter])
+                        + ')';
+                }
+            })
             .attr('fill-opacity', 0)
             .transition()
             .delay(500)
