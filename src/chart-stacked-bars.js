@@ -52,21 +52,31 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.series = svg.layers.data.selectAll(".serie")
             .data(stackedData)
             .enter().append("g")
-            .attr("class", (d) => { return "serie " + d.key });
+            .attr("class", (d) => {
+
+                if (i === 0 || !!(i && !(i%2))) {
+                    return "serie " + colours[0];
+                } else {
+                    return "serie " + colours[1];
+                }
+            });
+        
             // .attr("fill", function(d) { return z(d.key); })
 
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
-            .enter().append("rect")
-            .attr("fill", function(d,i)  {
+            .enter().append("rect");
 
-                if (i === 0 || !!(i && !(i%2))) {
-                    return colours[0];
-                } else {
-                    return colours[1];
-                }
 
-            });
+            // .attr("fill", function(d,i)  {
+            //
+            //     if (i === 0 || !!(i && !(i%2))) {
+            //         return colours[0];
+            //     } else {
+            //         return colours[1];
+            //     }
+            //
+            // });
 
         // svg.connection = svg.series.selectAll('.flow')
         //     // je moet per serie .. de data reformatten
