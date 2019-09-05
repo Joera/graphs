@@ -59,7 +59,7 @@ var meldingen = function(element) {
 
                 let newObject = {};
 
-                newObject['meldingen'] = data['MET_HISTORIE'] + data['GEEN_HISTORIE'] + data['19MRT_TM_30SEPT_GEEN_HIST'] + data['19MRT_TM_30SEPT_MET_HISTO'];
+                newObject['meldingen'] = json['MET_HISTORIE'] + json['GEEN_HISTORIE'] + json['19MRT_TM_30SEPT_GEEN_HIST'] + json['19MRT_TM_30SEPT_MET_HISTO'];
 
                 cleanArray.push(newObject);
             }
