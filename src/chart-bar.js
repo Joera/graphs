@@ -39,7 +39,7 @@ let ChartBar = function ChartBar(config,svg) {
 
                 if (config.xParameter === '_date') {
 
-                    return scales.xTime(d[config.xParameter]);
+                    return scales.xTime(new Date(d[config.xParameter]));
 
                 } else {
 
