@@ -67,6 +67,18 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("class", "bar")
             ;
 
+        svg.barLabels = svg.series.selectAll(".barLabel")
+            .data(function(d) { return d; })
+            .enter()
+            .append('text')
+            .attr('class','barLabel small-label')
+            .attr('x', 0)
+            .attr('dx', '0px')
+            .attr('dy', '-6px')
+            .style("text-anchor", "middle")
+
+        ;
+
         // svg.connection = svg.series.selectAll('.flow')
         //     // je moet per serie .. de data reformatten
         //     .data(function(d,i) { return format(d,i); })
@@ -107,6 +119,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .y1((d) => { return scales.yBlocks(d.y); });
         //
         svg.bar
+            .merge(svg.bar)
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
             .attr("x", function(d) {
@@ -132,6 +145,34 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 }
             })
            ;
+
+        svg.bar.exit().remove();
+
+        svg.barLabels
+            .merge(svg.barLabels)
+            .text(function(d) {
+                return d.totaal;
+            })
+            .attr('transform', function(d) {
+
+                if (config.xParameter === '_date') {
+
+                    return 'translate(' + (scales.xTime(new Date(d[config.xParameter]))) + 60 + ',' +
+                        scales.yLinear(d[config.yParameter])
+                        + ')';
+
+                } else {
+
+                    return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
+                        scales.yLinear(d[config.yParameter])
+                        + ')';
+                }
+            })
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('fill-opacity', 1)
         //
         // svg.connection
         //     .attr("d", area);
