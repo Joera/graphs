@@ -151,7 +151,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.barLabels
             .merge(svg.barLabels)
             .text(function(d) {
-                return d.totaal;
+                console.log(d); return '1111';
             })
             .attr('transform', function(d) {
 
