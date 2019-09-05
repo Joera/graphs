@@ -52,6 +52,17 @@ var meldingen = function(element) {
 
         let data = trimColumns(json,neededColumns);
 
+
+        for (let i = 0; i < data.length; i++) {
+
+            if(i > 0) {
+                data[i]['nieuw'] = data[i]['MELDING'] - data[i - 1]['MELDING'];
+            }
+        }
+
+        console.log(data);
+        console.log(Object.keys(data[0]));
+
         // functions.stack = d3.stack()
         // // do not stack DATUM
         //     .keys(Object.keys(data[0]).slice(1,3));
