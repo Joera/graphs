@@ -61,6 +61,9 @@ var meldingen = function(element) {
             }
         }
 
+        // remove first
+        data = data.slice(1);
+
          console.log(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
 
         // deze in andere bestadnje plaatsen?
