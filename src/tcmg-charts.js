@@ -1,56 +1,5 @@
 'use strict';
 
-
-/**
- *
- */
-
-
-const localCurrency = d3.formatDefaultLocale({
-    "decimal": ",",
-    "thousands": ".",
-    "grouping": [3],
-    "currency": ["€",""],
-});
-
-const localTime = d3.timeFormatLocale({
-    "decimal": ",",
-    "thousands": ".",
-    "grouping": [3],
-    "currency": ["€",""],
-    "dateTime": "%a %e %B %Y %T",
-    "date": "%d-%m-%Y",
-    "time": "%H:%M:%S",
-    "periods": ["AM", "PM"],
-    "days": ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
-    "shortDays": ["zo", "ma", "di", "wo", "do", "vr", "za"],
-    "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
-    "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"]
-});
-
-const formatDates = localTime.format("%B %Y");
-const currency = localCurrency.format("$,");
-
-
-
-var trimColumns =  function(json,neededColumns) {
-
-    // csv.columns = csv.columns.filter( (c) => {
-    //     return neededColumns.indexOf(c) > -1;
-    // });
-
-    json.forEach( (week,i) => {
-        Object.keys(week).forEach( (key) => {
-            if (neededColumns.indexOf(key) < 0) {
-                delete week[key];
-            }
-        });
-    });
-    return json;
-};
-
-
-
 var TCMGCharts = function TCMGCharts() {
 
     // init multiple charts from this file

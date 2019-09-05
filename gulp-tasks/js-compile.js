@@ -17,6 +17,10 @@ module.exports = function() {
         var graph = gulp.src([
             './src/_polyfill.js',
             './src/_sluggify.js',
+            './src/_formats.js',
+            './src/_helpers.js',
+
+
             './src/chart-init-objects.js',
             './src/chart-dimensions.js',
             './src/chart-svg.js',
@@ -30,7 +34,12 @@ module.exports = function() {
             './src/chart-blocks.js',
             './src/chart-area.js',
             './src/chart-sankey.js',
-            './src/tcmg-charts.js'
+
+            './src/tcmg-charts.js',
+
+            './src/default/weekverloop.js'
+
+
             ])
             .pipe(concat('main.js'))
             .pipe(babel({
