@@ -61,25 +61,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 }
             });
 
-            // .attr("fill", function(d) { return z(d.key); })
-
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect")
             .attr("class", "bar")
             ;
-        
-
-
-            // .attr("fill", function(d,i)  {
-            //
-            //     if (i === 0 || !!(i && !(i%2))) {
-            //         return colours[0];
-            //     } else {
-            //         return colours[1];
-            //     }
-            //
-            // });
 
         // svg.connection = svg.series.selectAll('.flow')
         //     // je moet per serie .. de data reformatten

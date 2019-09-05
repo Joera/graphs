@@ -118,23 +118,14 @@ text.number {
 
   &.green &, .bar {
     fill : $green;
-
   }
 
-  &.orange {
+  &.orange &, .bar {
     fill : orange;
-
-    .bar {
-      fill : orange;
-    }
   }
 
-  &.blue {
+  &.blue &, .bar {
     fill : $blue;
-
-    .bar {
-      fill : $blue;
-    }
   }
 
 }
