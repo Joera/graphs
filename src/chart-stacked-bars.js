@@ -2,47 +2,49 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     let draw = function draw(stackedData) {
 
-        let calcBase = function(index,status) {
-            // get out of status loop
-            let base = 0;
-                // this loops through provenances width max of (current index) s
-                for (let i = 0; i < index; i++) {
-                    base = stackedData[i][status][1];
-                }
-                return base;
-            // }
-        }
+        // uncommented code was voor triangles in between the bars .....
+
+        // let calcBase = function(index,status) {
+        //     // get out of status loop
+        //     let base = 0;
+        //         // this loops through provenances width max of (current index) s
+        //         for (let i = 0; i < index; i++) {
+        //             base = stackedData[i][status][1];
+        //         }
+        //         return base;
+        //     // }
+        // }
 
         // format data for areaflow
-        let format = function(stack,index) {
-            // this loops through provenances
-
-            let areaData = [];
-
-            if(index < (stackedData.length) ) {
-
-                // this loops through status
-                for (let j = 0; j < 3; j++) {  //  -
-                    let pathCombo = [], pathObject = {}, nextPathObject = {};
-
-                    pathObject.x = stackedData[index][j].data.status;
-                    pathObject.y = stackedData[index][j][1];
-                    pathObject.base = calcBase(index,j);
-                    pathObject.class = stackedData[index].key;
-                    pathCombo.push(pathObject);
-
-                    nextPathObject.x = stackedData[index][j+1].data.status;
-                    nextPathObject.y = stackedData[index][j+1][1];
-                    nextPathObject.base = calcBase(index,j+1);
-                    nextPathObject.class = stackedData[index].key;
-                    pathCombo.push(nextPathObject);
-
-                    areaData.push(pathCombo);
-                }
-            }
-
-            return  areaData;
-        }
+        // let format = function(stack,index) {
+        //     // this loops through provenances
+        //
+        //     let areaData = [];
+        //
+        //     if(index < (stackedData.length) ) {
+        //
+        //         // this loops through status
+        //         for (let j = 0; j < 3; j++) {  //  -
+        //             let pathCombo = [], pathObject = {}, nextPathObject = {};
+        //
+        //             pathObject.x = stackedData[index][j].data.status;
+        //             pathObject.y = stackedData[index][j][1];
+        //             pathObject.base = calcBase(index,j);
+        //             pathObject.class = stackedData[index].key;
+        //             pathCombo.push(pathObject);
+        //
+        //             nextPathObject.x = stackedData[index][j+1].data.status;
+        //             nextPathObject.y = stackedData[index][j+1][1];
+        //             nextPathObject.base = calcBase(index,j+1);
+        //             nextPathObject.class = stackedData[index].key;
+        //             pathCombo.push(nextPathObject);
+        //
+        //             areaData.push(pathCombo);
+        //         }
+        //     }
+        //
+        //     return  areaData;
+        // }
 
 
 
@@ -57,53 +59,53 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .data(function(d) { return d; })
             .enter().append("rect");
 
-        svg.connection = svg.series.selectAll('.flow')
-            // je moet per serie .. de data reformatten
-            .data(function(d,i) { return format(d,i); })
-            .enter()
-            .append("path")
-            .attr("fill", "#ccc")
-            .attr('class', 'flow');
+        // svg.connection = svg.series.selectAll('.flow')
+        //     // je moet per serie .. de data reformatten
+        //     .data(function(d,i) { return format(d,i); })
+        //     .enter()
+        //     .append("path")
+        //     .attr("fill", "#ccc")
+        //     .attr('class', 'flow');
     }
 
     let redraw = function redraw(dimensions,scales) {
 
         let barWidth = 0;
 
-        let area = d3.area()
-            .curve(d3.curveCardinal)
-            .x0((d,i) => {
-
-                if (config.xParameter === '_date') {
-
-                    return  scales.xTime(new Date(d.x));
-
-                } else if (i < 1) {  
-
-                    return  scales.xBand(d.x) + scales.xBand.bandwidth()
-
-                } else {
-
-                    return scales.xBand(d.x);
-                }
-
-            })  // console.log(d);
-            .x1((d,i) => {
-
-                if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }
-
-            })
-            .y0((d,i) => { return scales.yBlocks(d.base); })
-            .y1((d) => { return scales.yBlocks(d.y); });
-
-        // svg.bar
-        //     .attr("y", function(d) { return scales.yLinear(d[1]); })
-        //     .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
-        //     .attr("x", function(d) { return scales.xBand(d.data[config.xParameter]); })
-        //     .attr("width", scales.xBand.bandwidth());
-
-        svg.connection
-            .attr("d", area);
+        // let area = d3.area()
+        //     .curve(d3.curveCardinal)
+        //     .x0((d,i) => {
+        //
+        //         if (config.xParameter === '_date') {
+        //
+        //             return  scales.xTime(new Date(d.x));
+        //
+        //         } else if (i < 1) {
+        //
+        //             return  scales.xBand(d.x) + scales.xBand.bandwidth()
+        //
+        //         } else {
+        //
+        //             return scales.xBand(d.x);
+        //         }
+        //
+        //     })  // console.log(d);
+        //     .x1((d,i) => {
+        //
+        //         if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }
+        //
+        //     })
+        //     .y0((d,i) => { return scales.yBlocks(d.base); })
+        //     .y1((d) => { return scales.yBlocks(d.y); });
+        //
+        // // svg.bar
+        // //     .attr("y", function(d) { return scales.yLinear(d[1]); })
+        // //     .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
+        // //     .attr("x", function(d) { return scales.xBand(d.data[config.xParameter]); })
+        // //     .attr("width", scales.xBand.bandwidth());
+        //
+        // svg.connection
+        //     .attr("d", area);
 
     }
 
