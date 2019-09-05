@@ -51,6 +51,7 @@ var meldingen = function(element) {
 
         let cleanArray = [];
 
+        console.log(json);
 
         for (let i = 0; i < json.length; i++) {
 
