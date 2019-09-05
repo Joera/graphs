@@ -157,7 +157,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 if (config.xParameter === '_date') {
 
-                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter]))) + 60 + ',' +
+                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter]))) + 30 + ',' +
                         scales.yLinear(d.data[config.yParameter])
                         + ')';
 
