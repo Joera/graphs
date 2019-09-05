@@ -61,7 +61,7 @@ var meldingen = function(element) {
         }
 
         console.log(data);
-        console.log(Object.keys(data[0]));
+        console.log(Object.keys(data[0]).slice(1,3));
 
         // functions.stack = d3.stack()
         // // do not stack DATUM
