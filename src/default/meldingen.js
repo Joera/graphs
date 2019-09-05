@@ -61,6 +61,8 @@ var meldingen = function(element) {
             }
         }
 
+        console.log(Object.keys(data[0]).slice(1,3));
+
         // deze in andere bestadnje plaatsen?
         functions.stack = d3.stack()
         // do not stack DATUM
