@@ -98,11 +98,31 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .y0((d,i) => { return scales.yBlocks(d.base); })
         //     .y1((d) => { return scales.yBlocks(d.y); });
         //
-        // // svg.bar
-        // //     .attr("y", function(d) { return scales.yLinear(d[1]); })
-        // //     .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
-        // //     .attr("x", function(d) { return scales.xBand(d.data[config.xParameter]); })
-        // //     .attr("width", scales.xBand.bandwidth());
+        svg.bar
+            .attr("y", function(d) { return scales.yLinear(d[1]); })
+            .attr("height", function(d) { return scales.yLinear(d[0]) - scales.yLinear(d[1]); })
+            .attr("x", function(d) {
+
+                if(config.xParameter === "_date") {
+
+                    return scales.xTime(new Date(d.data[config.xParameter]));
+
+                } else {
+
+                    return scales.xBand(d.data[config.xParameter]);
+                }
+            })
+            .attr("width", function(d) {
+
+                if(config.xParameter === "_date") {
+
+                    return 60;
+
+                } else {
+
+                    return scales.xBand.bandwidth();
+                }
+            });
         //
         // svg.connection
         //     .attr("d", area);
