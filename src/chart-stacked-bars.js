@@ -52,7 +52,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.series = svg.layers.data.selectAll(".serie")
             .data(stackedData)
             .enter().append("g")
-            .attr("class", (d) => {
+            .attr("class", (d,i) => {
 
                 if (i === 0 || !!(i && !(i%2))) {
                     return "serie " + colours[0];
@@ -60,7 +60,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     return "serie " + colours[1];
                 }
             });
-        
+
             // .attr("fill", function(d) { return z(d.key); })
 
         svg.bar = svg.series.selectAll("rect")
