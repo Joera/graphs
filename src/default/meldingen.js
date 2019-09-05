@@ -75,7 +75,7 @@ var meldingen = function(element) {
         }
 
         scales = chartScales.set(data);
-        // chartBar.draw(data,colours);
+        chartBar.draw(data,colours);
         // further drawing happens in function that can be repeated.
         redraw();
         // for example on window resize
