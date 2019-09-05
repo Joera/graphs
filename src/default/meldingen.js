@@ -61,12 +61,12 @@ var meldingen = function(element) {
             }
         }
 
-        console.log(Object.keys(data[0]).filter(key => key === 'MELDING' || key === 'nieuw');
+      //  console.log(Object.keys(data[0]).filter(key => key === 'MELDING' || key === 'nieuw');
 
         // deze in andere bestadnje plaatsen?
         functions.stack = d3.stack()
         // do not stack DATUM
-            .keys(Object.keys(data[0]).filter(key => key === 'MELDING' || key === 'nieuw');
+            .keys(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
 
         let stackedData = functions.stack(data);
 
