@@ -122,6 +122,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     return scales.xBand.bandwidth();
                 }
+            })
+            .attr("fill", function(d)  {
+
+                console.log(d);
+
             });
         //
         // svg.connection
