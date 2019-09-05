@@ -33,7 +33,7 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("x", function(d) { return scales.xBand(d[config.xParameter]); })
+            .attr("x", function(d) { console.log(d); return scales.xBand(d[config.xParameter]); })
             .attr("y", function(d) { return dimensions.height; })
             .attr("height", 0)
             .transition()
@@ -45,22 +45,22 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar.exit().remove();
 
-        svg.barLabels
-            .merge(svg.barLabels)
-            .text(function(d) {
-                return d.totaal;
-            })
-            .attr('transform', function(d) {
-
-                return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
-                    scales.yLinear(d[config.yParameter])
-                    + ')';
-            })
-            .attr('fill-opacity', 0)
-            .transition()
-            .delay(500)
-            .duration(500)
-            .attr('fill-opacity', 1)
+        // svg.barLabels
+        //     .merge(svg.barLabels)
+        //     .text(function(d) {
+        //         return d.totaal;
+        //     })
+        //     .attr('transform', function(d) {
+        //
+        //         return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
+        //             scales.yLinear(d[config.yParameter])
+        //             + ')';
+        //     })
+        //     .attr('fill-opacity', 0)
+        //     .transition()
+        //     .delay(500)
+        //     .duration(500)
+        //     .attr('fill-opacity', 1)
     }
 
 

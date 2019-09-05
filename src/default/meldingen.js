@@ -70,7 +70,7 @@ var meldingen = function(element) {
             chartAxis.redrawXTimeAxis(dimensions,scales,axes);
             chartAxis.redrawYAxis(scales,axes);
             // redraw data
-       //     chartBar.redraw(dimensions,scales);
+            chartBar.redraw(dimensions,scales);
 
         }
 
