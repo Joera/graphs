@@ -1,6 +1,6 @@
 let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
-    let draw = function draw(stackedData) {
+    let draw = function draw(stackedData,colours) {
 
         // uncommented code was voor triangles in between the bars .....
 
@@ -57,7 +57,16 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
-            .enter().append("rect");
+            .enter().append("rect")
+            .attr("fill", function(d,i)  {
+
+                if (i === 0 || !!(i && !(i%2))) {
+                    return colours[0];
+                } else {
+                    return colours[1];
+                }
+
+            });
 
         // svg.connection = svg.series.selectAll('.flow')
         //     // je moet per serie .. de data reformatten
@@ -123,11 +132,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     return scales.xBand.bandwidth();
                 }
             })
-            .attr("fill", function(d)  {
-
-                console.log(d);
-
-            });
+           ;
         //
         // svg.connection
         //     .attr("d", area);
