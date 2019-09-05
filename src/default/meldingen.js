@@ -70,12 +70,12 @@ var meldingen = function(element) {
             chartAxis.redrawXTimeAxis(dimensions,scales,axes);
             chartAxis.redrawYAxis(scales,axes);
             // redraw data
-            chartBar.redraw(dimensions,scales);
+       //     chartBar.redraw(dimensions,scales);
 
         }
 
         scales = chartScales.set(data);
-        chartBar.draw(data,colours);
+        // chartBar.draw(data,colours);
         // further drawing happens in function that can be repeated.
         redraw();
         // for example on window resize
