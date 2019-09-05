@@ -37,6 +37,7 @@ module.exports = function() {
 
             './src/tcmg-charts.js',
 
+            './src/default/meldingen.js',
             './src/default/weekverloop.js'
 
 
