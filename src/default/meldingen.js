@@ -61,15 +61,13 @@ var meldingen = function(element) {
             }
         }
 
-        // remove first
+        // remove first because it has no diff with previous
         data = data.slice(1);
-
-         console.log(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
 
         // deze in andere bestadnje plaatsen?
         functions.stack = d3.stack()
         // do not stack DATUM
-            .keys(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
+            .keys(Object.keys(data[0]).filter(key => neededColumns.indexOf(key) > -1));
 
         let stackedData = functions.stack(data);
 
