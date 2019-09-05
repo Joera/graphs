@@ -31,9 +31,21 @@ let ChartBar = function ChartBar(config,svg) {
 
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
 
+        // is date or not date
+
         svg.bar
             .merge(svg.bar)
-            .attr("x", function(d) { console.log(d[config.xParameter]); return scales.xBand(d[config.xParameter]); })
+            .attr("x", function(d) { 
+
+                if (config.xParameter === '_date') {
+
+                    return scales.xTime(d[config.xParameter]);
+
+                } else {
+
+                    return scales.xBand(d[config.xParameter]);
+                }
+            })
             .attr("y", function(d) { return dimensions.height; })
             .attr("height", 0)
             .transition()
