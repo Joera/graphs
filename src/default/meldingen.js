@@ -28,7 +28,7 @@ var meldingen = function(element) {
     config.xParameter = '_date';
     config.minWidth = 460;
 
-    let colours = ['orange','green'];
+    let colours = ['green','blue'];
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);
