@@ -43,26 +43,40 @@ var meldingen = function(element) {
     chartAxis.drawXAxis();
     chartAxis.drawYAxis();
 
-    let url = 'https://tcmg.publikaan.nl/api/procedure';
+    let url = 'https://tcmg.publikaan.nl/api/meldingen';
 
     d3.json(url, function(error, json) {
         if (error) throw error;
 
-        let neededColumns = ['DATUM','MELDING','_date'];
 
-        let data = trimColumns(json,neededColumns);
+        let cleanArray = [];
 
 
-        // custom formula
         for (let i = 0; i < data.length; i++) {
 
             if(i > 0) {
-                data[i]['nieuw'] = data[i]['MELDING'] - data[i - 1]['MELDING'];
+
+                let newObject = {};
+
+                newObject['meldingen'] = data['MET_HISTORIE'] + data['GEEN_HISTORIE'] + data['19MRT_TM_30SEPT_GEEN_HIST'] + data['19MRT_TM_30SEPT_MET_HISTO'];
+
+                cleanArray.push(newObject);
+            }
+        }
+
+        console.log(cleanArray);
+
+        // custom formula
+        for (let i = 0; i < cleanArray.length; i++) {
+
+            if(i > 0) {
+
+                cleanArray[i]['nieuw'] = cleanArray[i]['meldingen'] - cleanArray[i - 1]['meldingen'];
             }
         }
 
         // remove first because it has no diff with previous
-        data = data.slice(1);
+        data = cleanArray.slice(1);
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
