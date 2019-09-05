@@ -7,7 +7,7 @@ let ChartBar = function ChartBar(config,svg) {
             .enter()
             .append("rect")
             .attr("class", function(d,i) {
-                return "bar " + sluggify(d.status) + " " + colours[i];
+                return "bar  " + colours[i]; // + sluggify(d.status) + "
             });
 
 
