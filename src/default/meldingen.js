@@ -61,7 +61,10 @@ var meldingen = function(element) {
             }
         }
 
-        console.log(Object.keys(data[0]).slice(1,3));
+        console.log(Object.keys(data[0]).filter(
+
+            key => key === 'MELDING' || key === 'nieuw';
+        );
 
         // deze in andere bestadnje plaatsen?
         functions.stack = d3.stack()
