@@ -52,7 +52,7 @@ var meldingen = function(element) {
         let cleanArray = [];
 
 
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < json.length; i++) {
 
             if(i > 0) {
 
@@ -76,7 +76,7 @@ var meldingen = function(element) {
         }
 
         // remove first because it has no diff with previous
-        data = cleanArray.slice(1);
+        let data = cleanArray.slice(1);
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
