@@ -57,7 +57,9 @@ var meldingen = function(element) {
 
                 let newObject = {};
 
-                newObject['meldingen'] = parseInt(json['MET_HISTORIE']); // + parseInt(json['GEEN_HISTORIE']) + parseInt(json['19MRT_TM_30SEPT_GEEN_HIST']) + parseInt(json['19MRT_TM_30SEPT_MET_HISTO']);
+
+
+                newObject['meldingen'] = parseInt(json[i]['MET_HISTORIE']) + parseInt(json[i]['GEEN_HISTORIE']) + parseInt(json[i]['19MRT_TM_30SEPT_GEEN_HIST']) + parseInt(json[i]['19MRT_TM_30SEPT_MET_HISTO']);
 
                 cleanArray.push(newObject);
         }
