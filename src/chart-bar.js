@@ -35,7 +35,7 @@ let ChartBar = function ChartBar(config,svg) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("x", function(d) { 
+            .attr("x", function(d) {
 
                 if (config.xParameter === '_date') {
 
@@ -52,7 +52,17 @@ let ChartBar = function ChartBar(config,svg) {
             .duration(500)
             .attr("y", function(d) { return config.margin.top + scales.yLinear(d[config.yParameter]); })
             .attr("height", function(d) { return dimensions.height - scales.yLinear(d[config.yParameter]); })
-            .attr("width", scales.xBand.bandwidth())
+            .attr("width", function(d) {
+
+                if (config.xParameter === '_date') {
+
+                    scales.xTime.bandwidth()
+                } else {
+
+                    scales.xBand.bandwidth()
+                }
+
+            })
         ;
 
         svg.bar.exit().remove();
