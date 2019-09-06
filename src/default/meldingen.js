@@ -48,7 +48,9 @@ var meldingen = function(element) {
     d3.json(url, function(error, json) {
         if (error) throw error;
 
-       let data = json; // .slice(1);
+
+        // remove data entry from wednesday
+       let data = json.slice(1);
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuwe_meldingen'].indexOf(key) > -1));
