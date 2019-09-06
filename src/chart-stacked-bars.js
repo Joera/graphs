@@ -99,6 +99,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
     let redraw = function redraw(dimensions,scales) {
 
         let barWidth = 0;
+        let yOffset;
+        let xOffset;
 
 
         // let area = d3.area()
@@ -188,8 +190,12 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 if (config.xParameter === '_date') {
 
-                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + dimensions.width / (2 * dataArray.length)) + ',' +
-                        (scales.yLinear(d[1]) + ((scales.yLinear(d[0]) - scales.yLinear(d[1])) - scales.yLinear(config.minValue)) / 2)
+                    xOffset = dimensions.width / (2 * dataArray.length);
+
+                    yOffset = (scales.yLinear(d[0] - config.minValue) - scales.yLinear(d[1] - config.minValue)) / 2);
+
+                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset  + ',' +
+                        (scales.yLinear(d[1]) + yOffset)
                         + ')';
 
                 } else {
