@@ -27,6 +27,8 @@ var gemeentes = function(element) {
     dimensions = chartDimensions.get(dimensions);
     chartSVG.redraw(dimensions);
 
+    let property = 'melding';
+
     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
         let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
@@ -79,7 +81,7 @@ var gemeentes = function(element) {
                 //                     // })
                 .attr("fill", function (d, i) {
 
-                    if (d.properties.melding) {
+                    if (d.properties[property]) {
                         return 'orange';
                     } else {
                         return '#eee';
@@ -88,13 +90,13 @@ var gemeentes = function(element) {
                 .attr("fill-opacity", function (d, i) {
 
                     // to do : use d3.max to find max value
-                    if(d.properties.melding) {
-                        return .6;
-                    } else {
-                        return .6;
-                    }
-                    // let ratio = .8 * d.properties.totaal / 1500;
-                    // return ratio + 0.2;
+                    // if(d.properties.melding) {
+                    //     return .6;
+                    // } else {
+                    //     return .6;
+                    // }
+                    let ratio = .8 * d.properties[property] / 1500;
+                    return ratio + 0.2;
                 })
                 .attr("class", function (d, i) {
                     return sluggify(d.properties.gemeentenaam);
