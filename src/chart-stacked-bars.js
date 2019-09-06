@@ -227,14 +227,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     return new Date(d.data['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
                 })
-                // .attr('transform', function(d) {
-                //
-                //         xOffset = dimensions.width / (2 * dataArray.length);
-                //
-                //         return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
-                //             dimensions.height
-                //             + ')';
-                // })
+                .attr('transform', function(d) {
+
+                        xOffset = dimensions.width / (2 * dataArray.length);
+
+                        return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
+                            dimensions.height
+                            + ')';
+                })
                 .attr('fill-opacity', 0)
                 .transition()
                 .delay(500)
