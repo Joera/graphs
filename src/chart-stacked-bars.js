@@ -188,8 +188,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 if (config.xParameter === '_date') {
 
-                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) - dimensions.width / (2 * dataArray.length)) + ',' +
-                        (scales.yLinear(d[1]) - 100)
+                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + dimensions.width / (2 * dataArray.length)) + ',' +
+                        (scales.yLinear(d[1]) + 100)
                         + ')';
 
                 } else {
