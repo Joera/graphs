@@ -30,14 +30,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                 return sluggify(d.properties.gemeentenaam);
             })
             .attr("d", path)
-            .attr("stroke", function (d, i) {
-
-                if (d.properties[property]) {
-                    return '#fff';
-                } else {
-                    return '#fff';
-                }
-            })
+            .attr("stroke", "#fff")
             ;
     }
 
