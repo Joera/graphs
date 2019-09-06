@@ -43,13 +43,15 @@ var gemeentes = function(element) {
             .translate(t)
         ;
 
-        d3.csv("./dummy_data_map_output.csv", function(error, csv) {
+        let url = 'https://tcmg.publikaan.nl/api/gemeentes';
+
+        d3.json(url, function(error, json) {
             if (error) throw error;
 
             features.forEach( (feature) => {
 
-                let gemeenteData = csv.find( (g) => {
-                    return sluggify(g.gemeente) == sluggify(feature.properties.gemeentenaam);
+                let gemeenteData = json.find( (g) => {
+                    return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
                 });
 
                 for (let key in gemeenteData) {
