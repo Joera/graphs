@@ -48,19 +48,7 @@ var meldingen = function(element) {
     d3.json(url, function(error, json) {
         if (error) throw error;
 
-
-        let cleanArray = [];
-
-        // // custom formula
-        // for (let i = 0; i < cleanArray.length; i++) {
-        //
-        //     if(i > 0) {
-        //         cleanArray[i]['nieuw'] = cleanArray[i]['meldingen'] - cleanArray[i - 1]['meldingen'];
-        //     }
-        // }
-
-        // remove first because it has no diff with previous
-        let data = json.slice(1);
+       let data = json; // .slice(1);
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuwe_meldingen'].indexOf(key) > -1));
