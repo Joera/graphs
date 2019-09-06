@@ -20,7 +20,6 @@ module.exports = function() {
             './src/_formats.js',
             './src/_helpers.js',
 
-
             './src/chart-init-objects.js',
             './src/chart-dimensions.js',
             './src/chart-svg.js',
@@ -39,7 +38,8 @@ module.exports = function() {
 
             './src/default/opnames.js',
             './src/default/meldingen.js',
-            './src/default/weekverloop.js'
+            './src/default/weekverloop.js',
+            './src/default/gemeentes.js'
 
 
             ])
