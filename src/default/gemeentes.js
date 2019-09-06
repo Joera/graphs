@@ -79,7 +79,7 @@ var gemeentes = function(element) {
                 //                     // })
                 .attr("fill", function (d, i) {
 
-                    if (d.properties.totaal) {
+                    if (d.properties.melding) {
                         return 'orange';
                     } else {
                         return '#eee';
@@ -88,7 +88,7 @@ var gemeentes = function(element) {
                 .attr("fill-opacity", function (d, i) {
 
                     // to do : use d3.max to find max value
-                    if(d.properties.totaal) {
+                    if(d.properties.melding) {
                         return .6;
                     } else {
                         return .6;
