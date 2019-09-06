@@ -181,7 +181,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.barLabels
             .merge(svg.barLabels)
             .text(function(d) {
-                console.log(d); return '1111';
+
+                return d[1] - d[0];
             })
             .attr('transform', function(d) {
 
