@@ -1,6 +1,11 @@
 let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
+    let data;
+
     let draw = function draw(stackedData,colours) {
+
+
+        data = stackedData;
 
         // uncommented code was voor triangles in between the bars .....
 
@@ -137,7 +142,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 if(config.xParameter === "_date") {
 
-                    return 60;
+                    return dimensions.width / data.length;
 
                 } else {
 
