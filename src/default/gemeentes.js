@@ -76,7 +76,7 @@ var gemeentes = function(element) {
                     if (d.properties[property]) {
                         return '#fff';
                     } else {
-                        return '#eee';
+                        return '#fff';
                     }
                 })
                 .attr("fill", function (d, i) {
