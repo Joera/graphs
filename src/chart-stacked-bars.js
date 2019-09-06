@@ -163,7 +163,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr("x", function(d) {
 
-                if(config.xParameter === "_datee") {
+                if(config.xParameter === "_date") {
 
                     return scales.xTime(new Date(d.data[config.xParameter]));
 
@@ -209,7 +209,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 } else {
 
                     return 'translate(' + (scales.xBand(d.data[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
-                        scales.yLinear(d.data[config.yParameter])
+                        (scales.yLinear(d[1]) - yOffset)
                         + ')';
                 }
             })
@@ -231,7 +231,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                         xOffset = dimensions.width / (2 * dataArray.length);
 
-                        return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
+                        return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
                             dimensions.height
                             + ')';
                 })
