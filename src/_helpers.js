@@ -17,5 +17,5 @@ var trimColumns =  function(json,neededColumns) {
 
 var thousands = function(number) {
 
-    return number.toLocaleString('nl_NL');
+    return number.toLocaleString('nl-NL');
 }
