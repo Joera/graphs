@@ -71,14 +71,14 @@ var gemeentes = function(element) {
                 .enter()
                 .append("path")
                 .attr("d", path)
-                // .attr("stroke", function (d, i) {
-                //                     //
-                //                     //     if (d.properties.totaal) {
-                //                     //         return 'orange';
-                //                     //     } else {
-                //                     //         return '#ccc';
-                //                     //     }
-                //                     // })
+                .attr("stroke", function (d, i) {
+
+                    if (d.properties[property]) {
+                        return '#fff';
+                    } else {
+                        return '#ccc';
+                    }
+                })
                 .attr("fill", function (d, i) {
 
                     if (d.properties[property]) {
