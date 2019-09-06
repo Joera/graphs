@@ -2,10 +2,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     let data;
 
-    let draw = function draw(stackedData,colours) {
+    let draw = function draw(data,stackedData,colours) {
 
 
-        data = stackedData;
+        data = data;
 
         // uncommented code was voor triangles in between the bars .....
 
