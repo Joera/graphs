@@ -78,7 +78,7 @@ var meldingen = function(element) {
 
         scales = chartScales.set(data);
         chartStackedBars.draw(data,stackedData,colours);
-        chartLegend.drawDefault(dimensions);
+      //  chartLegend.drawDefault(dimensions);
         // further drawing happens in function that can be repeated.
         redraw();
         // for example on window resize
