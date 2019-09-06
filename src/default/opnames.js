@@ -19,17 +19,18 @@ var opnames = function(element) {
     // name of first column with values of bands on x axis
 
 
-    config.yParameter = 'AANTAL_OPNAMES';  // is being set in type function
+     // is being set in type function
     // config.fixedHeight = 160;
     config.minValue = 0; // 18000;
     //  config.maxValue = 30000;
 
 
     config.xParameter = '_date';
+    config.yParameter = 'opnames';
     // config.minWidth = 460;
-
-    config.paddingInner = 3;
-    config.paddingOuter = 6;
+    //
+    // config.paddingInner = 3;
+    // config.paddingOuter = 6;
 
     let colours = ['green','blue'];
 
