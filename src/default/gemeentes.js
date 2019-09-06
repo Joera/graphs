@@ -15,32 +15,16 @@ var gemeentes = function(element) {
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
-
-
     let chartSVG = ChartSVG(element,config,dimensions,svg);
 
     dimensions = chartDimensions.get(dimensions);
     chartSVG.redraw(dimensions);
 
-    let chartMap = ChartMap(config,svg);
-
-
+    let chartMap = ChartMap(config,svg,dimensions);
 
     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
         let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
-        var l = features[3],
-            b = [
-                [0.114, -1.101],
-                [0.12022108488117365, -1.105]
-            ],
-            s = .15 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-            t = [((dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2) + 60 , ((dimensions.height - s * (b[1][1] + b[0][1])) / 2) - 0];
-
-        projection
-            .scale(s)
-            .translate(t)
-        ;
 
         let url = 'https://tcmg.publikaan.nl/api/gemeentes';
 
@@ -60,8 +44,6 @@ var gemeentes = function(element) {
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
             });
 
-
-            console.log(features);
 
             function redraw(property) {
                 // on redraw chart gets new dimensions
