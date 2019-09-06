@@ -96,7 +96,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
     let redraw = function redraw(dimensions,scales) {
 
         let barWidth = 0;
-        
+
 
         // let area = d3.area()
         //     .curve(d3.curveCardinal)
@@ -128,6 +128,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.bar)
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) {
+
+                console.log(d);
 
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
 
