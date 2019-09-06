@@ -61,6 +61,9 @@ var gemeentes = function(element) {
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
             });
 
+
+            console.log(features);
+
             svg.layers.data.selectAll("path")
                 .data(features)
                 .enter()
