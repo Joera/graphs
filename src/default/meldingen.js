@@ -28,8 +28,8 @@ var meldingen = function(element) {
     config.xParameter = '_date';
    // config.minWidth = 460;
 
-    config.paddingInner = 30;
-    config.paddingOuter = 60;
+    config.paddingInner = 3;
+    config.paddingOuter = 6;
 
     let colours = ['green','blue'];
 
