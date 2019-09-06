@@ -53,7 +53,7 @@ var meldingen = function(element) {
 
 
         // remove data entry from wednesday
-       let data = json.slice(1);
+       let data = json.slice(1).reverse();
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuwe_meldingen'].indexOf(key) > -1));
