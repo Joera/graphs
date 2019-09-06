@@ -25,7 +25,10 @@ let ChartAxis = function ChartAxis(config,svg) {
             axes.xTime
                 .ticks(d3.timeMonth.every(1))
                 .tickFormat(d3.timeFormat("%b"));
+        } else {
 
+            axes.xTime
+                .tickValues([]);
         }
 
         svg.xAxis
