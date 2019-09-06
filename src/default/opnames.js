@@ -21,7 +21,7 @@ var opnames = function(element) {
 
     config.yParameter = 'AANTAL_OPNAMES';  // is being set in type function
     // config.fixedHeight = 160;
-    config.minValue = 18000;
+    config.minValue = 0; // 18000;
     //  config.maxValue = 30000;
 
 
