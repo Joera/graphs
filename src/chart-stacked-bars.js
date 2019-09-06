@@ -104,7 +104,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 .attr('class','dateLabel small-label')
                 .attr('x', 0)
                 .attr('dx', '0px')
-                .attr('dy', '30px')
+                .attr('dy', '15px')
                 .style("text-anchor", "middle")
 
             ;
@@ -199,12 +199,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 if (config.xParameter === '_date') {
 
                     xOffset = dimensions.width / (2 * dataArray.length);
-
                     let start = (d[0] < config.minValue) ? config.minValue : d[0];
-
                     yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
-
-                    console.log(yOffset);
 
                     return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                         (scales.yLinear(d[1]) - yOffset)
