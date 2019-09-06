@@ -78,7 +78,7 @@ var gemeentes = function(element) {
                 chartMap.redraw(dimensions,property);
             }
 
-            chartMap.draw(data);
+            chartMap.draw(features);
             //  chartLegend.drawDefault(dimensions);
             // further drawing happens in function that can be repeated.
             let property = 'melding';
