@@ -192,7 +192,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     xOffset = dimensions.width / (2 * dataArray.length);
 
-                    yOffset = (scales.yLinear(d[0] - config.minValue) - scales.yLinear(d[1] - config.minValue)) / 2);
+                    yOffset = (scales.yLinear(d[0] - config.minValue) - scales.yLinear(d[1] - config.minValue) / 2);
 
                     return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset  + ',' +
                         (scales.yLinear(d[1]) + yOffset)
