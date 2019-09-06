@@ -13,3 +13,9 @@ var trimColumns =  function(json,neededColumns) {
     });
     return json;
 };
+
+
+var thousands = function(number) {
+
+    return number.toLocaleString('nl_NL');
+}

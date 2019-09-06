@@ -143,11 +143,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.bar)
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) {
-
-            //    if (d[0] > config.minValue) d[0] = config.minValue;
-
-                console.log(d);
-
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
 
             })
@@ -166,8 +161,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 if(config.xParameter === "_date") {
 
-                    console.log(dataArray.length);
-
                     return dimensions.width / dataArray.length;
 
                 } else {
@@ -184,7 +177,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.barLabels)
             .text(function(d) {
 
-                return d[1] - d[0];
+                return thousands(d[1] - d[0]);
             })
             .attr('transform', function(d) {
 
@@ -194,7 +187,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     let start = (d[0] < config.minValue) ? config.minValue : d[0];
 
-                    yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 12;
+                    yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
 
                     console.log(yOffset);
 
