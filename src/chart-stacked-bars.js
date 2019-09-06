@@ -196,12 +196,12 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr('transform', function(d) {
 
+                xOffset = dimensions.width / (2 * dataArray.length);
+                let start = (d[0] < config.minValue) ? config.minValue : d[0];
+                yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
+
                 if (config.xParameter === '_datee') {
-
-                    xOffset = dimensions.width / (2 * dataArray.length);
-                    let start = (d[0] < config.minValue) ? config.minValue : d[0];
-                    yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
-
+                    
                     return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                         (scales.yLinear(d[1]) - yOffset)
                         + ')';
@@ -227,14 +227,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     return new Date(d.data['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
                 })
-                .attr('transform', function(d) {
-
-                        xOffset = dimensions.width / (2 * dataArray.length);
-
-                        return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
-                            dimensions.height
-                            + ')';
-                })
+                // .attr('transform', function(d) {
+                //
+                //         xOffset = dimensions.width / (2 * dataArray.length);
+                //
+                //         return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
+                //             dimensions.height
+                //             + ')';
+                // })
                 .attr('fill-opacity', 0)
                 .transition()
                 .delay(500)
