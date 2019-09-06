@@ -42,6 +42,7 @@ var meldingen = function(element) {
     let chartScales = ChartScales(config,dimensions,scales);
     let chartAxis = ChartAxis(config,svg);
     let chartStackedBars = ChartStackedBars(config,svg);
+    let chartLegend = ChartLegend(config,svg);
 
     chartAxis.drawXAxis();
     chartAxis.drawYAxis();
@@ -77,6 +78,7 @@ var meldingen = function(element) {
 
         scales = chartScales.set(data);
         chartStackedBars.draw(data,stackedData,colours);
+        chartLegend.drawDefault(dimensions);
         // further drawing happens in function that can be repeated.
         redraw();
         // for example on window resize
