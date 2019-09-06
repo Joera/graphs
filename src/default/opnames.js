@@ -1,4 +1,4 @@
-var meldingen = function(element) {
+var opnames = function(element) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
