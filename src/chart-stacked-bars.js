@@ -163,7 +163,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr("x", function(d) {
 
-                if(config.xParameter === "_date") {
+                if(config.xScale === 'time') {
 
                     return scales.xTime(new Date(d.data[config.xParameter]));
 
@@ -174,7 +174,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr("width", function(d) {
 
-                if(config.xParameter === "_datee") {
+                if(config.xScale === 'time') {
 
                     return dimensions.width / dataArray.length;
 
@@ -200,8 +200,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
                 yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
 
-                if (config.xParameter === '_datee') {
-                    
+                if (config.xScale === 'time') {
+
                     return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                         (scales.yLinear(d[1]) - yOffset)
                         + ')';
