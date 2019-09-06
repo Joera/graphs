@@ -131,6 +131,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 console.log(d[1]);
 
+                if (d[1] < config.minValue) d[1] = config.minValue;
+
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
 
             })
