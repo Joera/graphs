@@ -192,11 +192,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     xOffset = dimensions.width / (2 * dataArray.length);
 
-                    console.log(d);
-
                     let start = (d[0] < config.minValue) ? config.minValue : d[0];
 
-                    yOffset = scales.yLinear(d[1] - start) / 2;
+                    yOffset = (scales.yLinear(d[1]) - scales.yLinear(start)) / 2;
 
                     console.log(yOffset);
 
