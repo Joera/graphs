@@ -26,7 +26,7 @@ var meldingen = function(element) {
 
 
     config.xParameter = '_date';
-    config.minWidth = 460;
+   // config.minWidth = 460;
 
     let colours = ['green','blue'];
 
