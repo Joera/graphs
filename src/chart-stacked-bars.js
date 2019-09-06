@@ -117,6 +117,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let yOffset;
         let xOffset;
 
+        console.log(scales.xBand.bandwidth());
+
 
         // let area = d3.area()
         //     .curve(d3.curveCardinal)
