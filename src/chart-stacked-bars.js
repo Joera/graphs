@@ -94,6 +94,21 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .append("path")
         //     .attr("fill", "#ccc")
         //     .attr('class', 'flow');
+
+        if(config.xParameter === "_date") {
+
+            svg.dateLabels = svg.series.selectAll(".dateLabel")
+                .data(function(d) { return d; })
+                .enter()
+                .append('text')
+                .attr('class','dateLabel small-label white')
+                .attr('x', 0)
+                .attr('dx', '0px')
+                .attr('dy', '-6px')
+                .style("text-anchor", "middle")
+
+            ;
+        }
     }
 
     let redraw = function redraw(dimensions,scales) {
@@ -206,7 +221,36 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .transition()
             .delay(500)
             .duration(500)
-            .attr('fill-opacity', 1)
+            .attr('fill-opacity', 1);
+
+        if(config.xParameter === "_date") {
+
+            svg.dateLabels
+                .merge(svg.dateLabels)
+                .text(function(d) {
+
+                    return d.data['_date'];
+                })
+                .attr('transform', function(d) {
+
+                        xOffset = dimensions.width / (2 * dataArray.length);
+
+                        // let start = (d[0] < config.minValue) ? config.minValue : d[0];
+                        //
+                        // yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
+
+                        return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
+                            dimensions.height
+                            + ')';
+                })
+                .attr('fill-opacity', 0)
+                .transition()
+                .delay(500)
+                .duration(500)
+                .attr('fill-opacity', 1);
+
+
+        }
         //
         // svg.connection
         //     .attr("d", area);
