@@ -52,7 +52,7 @@ var meldingen = function(element) {
         let cleanArray = [];
 
         console.log(json);
-      
+
         // // custom formula
         for (let i = 0; i < cleanArray.length; i++) {
 
@@ -66,7 +66,7 @@ var meldingen = function(element) {
         let data = json.slice(1);
 
         functions.stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
+            .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuw'].indexOf(key) > -1));
 
         let stackedData = functions.stack(data);
 
