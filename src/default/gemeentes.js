@@ -15,12 +15,7 @@ var gemeentes = function(element) {
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
-    let projection = d3.geoMercator()
-        .scale(1)
-        .translate([0, 0]);
 
-    let path = d3.geoPath()
-        .projection(projection);
 
     let chartSVG = ChartSVG(element,config,dimensions,svg);
 

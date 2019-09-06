@@ -1,5 +1,12 @@
 let ChartMap = function ChartLine(config,svg) {
 
+    let projection = d3.geoMercator()
+        .scale(1)
+        .translate([0, 0]);
+
+    let path = d3.geoPath()
+        .projection(projection);
+
     let draw = function draw(features) {
 
         svg.map = svg.layers.data.selectAll("path")
