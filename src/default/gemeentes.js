@@ -68,8 +68,6 @@ var gemeentes = function(element) {
 
             console.log(features);
 
-
-
             function redraw(property) {
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);

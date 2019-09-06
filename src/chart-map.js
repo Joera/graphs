@@ -1,6 +1,6 @@
 let ChartMap = function ChartLine(config,svg) {
 
-    let draw = function draw(data) {
+    let draw = function draw(features) {
 
         svg.map = svg.layers.data.selectAll("path")
             .data(features)
