@@ -52,6 +52,10 @@ let ChartLegend = function ChartLegend(config,svg) {
 
     }
 
+    let redrawDefault = function redrawDefault(dimensions) {
+
+    }
+
 
 
 
