@@ -7,6 +7,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         dataArray = data;
 
+
+/////////////////////////
+
         // uncommented code was voor triangles in between the bars .....
 
         // let calcBase = function(index,status) {
@@ -124,6 +127,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .y0((d,i) => { return scales.yBlocks(d.base); })
         //     .y1((d) => { return scales.yBlocks(d.y); });
         //
+
+        svg.append("defs").append("clipPath")
+            .attr("id", "clip")
+            .append("rect")
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height);
+
+
         svg.bar
             .merge(svg.bar)
             .attr("y", function(d) { return scales.yLinear(d[1]); })
@@ -160,6 +171,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     return scales.xBand.bandwidth();
                 }
             })
+            .attr("clip-path", "url(#clip)")
            ;
 
         svg.bar.exit().remove();
