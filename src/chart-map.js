@@ -34,7 +34,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             ;
     }
 
-    let redraw = function redraw(dimensions,roperty) {
+    let redraw = function redraw(dimensions,property) {
 
         svg.map
             .merge(svg.map)
