@@ -1,4 +1,4 @@
-let ChartMap = function ChartLine(config,svg,dimensions) {
+let ChartMap = function ChartMap(config,svg,dimensions) {
 
     let projection = d3.geoMercator()
         .scale(1)
@@ -7,8 +7,7 @@ let ChartMap = function ChartLine(config,svg,dimensions) {
     let path = d3.geoPath()
         .projection(projection);
 
-    var l = features[3],
-        b = [
+    var b = [
             [0.114, -1.101],
             [0.12022108488117365, -1.105]
         ],
