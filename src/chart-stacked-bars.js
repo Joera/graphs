@@ -113,7 +113,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     let redraw = function redraw(dimensions,scales) {
 
-        let barWidth = 0;
+        let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
         let xOffset;
 
@@ -182,7 +182,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 } else {
 
-                    return 60; //scales.xBand.bandwidth();
+                    return barWidth; //scales.xBand.bandwidth();
                 }
             })
             .attr("clip-path", "url(#clip)")
@@ -210,7 +210,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 } else {
 
-                    return 'translate(' + (scales.xBand(d.data[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
+                    return 'translate(' + (scales.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
                         (scales.yLinear(d[1]) - yOffset)
                         + ')';
                 }
