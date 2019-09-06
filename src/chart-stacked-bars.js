@@ -129,9 +129,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) {
 
-                console.log(d[1]);
+
 
                 if (d[1] < config.minValue) d[1] = config.minValue;
+
+                console.log(d[1]);
 
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
 
