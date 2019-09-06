@@ -131,7 +131,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
 
 
-                if (d[1] < config.minValue) d[1] = config.minValue;
+                if (d[1] > config.minValue) d[1] = config.minValue;
 
                 console.log(d[1]);
 
