@@ -142,6 +142,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 if(config.xParameter === "_date") {
 
+                    console.log(data.length);
+
                     return dimensions.width / data.length;
 
                 } else {
