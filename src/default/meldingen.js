@@ -52,21 +52,8 @@ var meldingen = function(element) {
         let cleanArray = [];
 
         console.log(json);
-
-        for (let i = 0; i < json.length; i++) {
-
-                let newObject = {};
-
-
-
-                newObject['meldingen'] = parseInt(json[i]['MET_HISTORIE']) + parseInt(json[i]['GEEN_HISTORIE']) + parseInt(json[i]['19MRT_TM_30SEPT_GEEN_HIST']) + parseInt(json[i]['19MRT_TM_30SEPT_MET_HISTO']);
-
-                cleanArray.push(newObject);
-        }
-
-        console.log(cleanArray);
-
-        // custom formula
+      
+        // // custom formula
         for (let i = 0; i < cleanArray.length; i++) {
 
             if(i > 0) {
@@ -76,7 +63,7 @@ var meldingen = function(element) {
         }
 
         // remove first because it has no diff with previous
-        let data = cleanArray.slice(1);
+        let data = json.slice(1);
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['MELDING','nieuw'].indexOf(key) > -1));
