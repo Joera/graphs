@@ -165,7 +165,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 if(config.xParameter === "_date") {
 
-                    return scales.xTime(new Date(d.data[config.xParameter]));
+                    return scales.xBand(new Date(d.data[config.xParameter]));
 
                 } else {
 
@@ -202,7 +202,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     let start = (d[0] < config.minValue) ? config.minValue : d[0];
                     yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
 
-                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
+                    return 'translate(' + (scales.xBand(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                         (scales.yLinear(d[1]) - yOffset)
                         + ')';
 
@@ -231,7 +231,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                         xOffset = dimensions.width / (2 * dataArray.length);
 
-                        return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
+                        return 'translate(' + (scales.xBand(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                             dimensions.height
                             + ')';
                 })
