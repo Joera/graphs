@@ -128,7 +128,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .y1((d) => { return scales.yBlocks(d.y); });
         //
 
-        svg.layers.append("defs").append("clipPath")
+        svg.layers.data.append("defs").append("clipPath")
             .attr("id", "clip")
             .append("rect")
             .attr("width", dimensions.width)
