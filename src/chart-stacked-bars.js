@@ -163,9 +163,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr("x", function(d) {
 
-                if(config.xParameter === "_date") {
+                if(config.xParameter === "_datee") {
 
-                    return scales.xBand(new Date(d.data[config.xParameter]));
+                    return scales.xTime(new Date(d.data[config.xParameter]));
 
                 } else {
 
@@ -174,7 +174,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr("width", function(d) {
 
-                if(config.xParameter === "_date") {
+                if(config.xParameter === "_datee") {
 
                     return dimensions.width / dataArray.length;
 
@@ -196,13 +196,13 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr('transform', function(d) {
 
-                if (config.xParameter === '_date') {
+                if (config.xParameter === '_datee') {
 
                     xOffset = dimensions.width / (2 * dataArray.length);
                     let start = (d[0] < config.minValue) ? config.minValue : d[0];
                     yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
 
-                    return 'translate(' + (scales.xBand(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
+                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                         (scales.yLinear(d[1]) - yOffset)
                         + ')';
 
@@ -231,7 +231,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                         xOffset = dimensions.width / (2 * dataArray.length);
 
-                        return 'translate(' + (scales.xBand(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
+                        return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                             dimensions.height
                             + ')';
                 })
