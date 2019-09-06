@@ -33,6 +33,7 @@ module.exports = function() {
             './src/chart-blocks.js',
             './src/chart-area.js',
             './src/chart-sankey.js',
+            './src/chart-map.js',
 
             './src/tcmg-charts.js',
 
