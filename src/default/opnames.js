@@ -61,6 +61,8 @@ var opnames = function(element) {
 
         let stackedData = functions.stack(data);
 
+        console.log(stackedData);
+
         function redraw() {
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
