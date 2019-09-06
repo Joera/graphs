@@ -57,7 +57,7 @@ var meldingen = function(element) {
         let data = json.slice(1).reverse();
 
         functions.stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuwe_meldingen'].indexOf(key) > -1));
+            .keys(Object.keys(data[0]).filter(key => ['opnames'].indexOf(key) > -1));
 
         let stackedData = functions.stack(data);
 
