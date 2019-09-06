@@ -17,7 +17,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             .domain([
                 config.minValue,
                 config.maxValue || d3.max(data, d => d[config.yParameter])
-            ]).nice();
+            ]);
 
         scales.xBand = d3.scaleBand()
             // what is domain when working with a stack?
