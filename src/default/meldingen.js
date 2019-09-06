@@ -28,6 +28,9 @@ var meldingen = function(element) {
     config.xParameter = '_date';
    // config.minWidth = 460;
 
+    config.paddingInner = 30;
+    config.paddingOuter = 60;
+
     let colours = ['green','blue'];
 
     // get dimensions from parent element
