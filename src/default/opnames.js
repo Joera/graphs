@@ -29,8 +29,8 @@ var opnames = function(element) {
     config.yParameter = 'opnames';
     // config.minWidth = 460;
     //
-    // config.paddingInner = 3;
-    // config.paddingOuter = 6;
+    config.paddingInner = 3;
+    config.paddingOuter = 6;
 
     let colours = ['green','blue'];
 
