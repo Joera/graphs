@@ -48,7 +48,7 @@ let ChartLegend = function ChartLegend(config,svg) {
         svg.legendDefault = svg.layers.legend
             .attr("transform","translate(" + dimensions.height + ",30)")
             .style("font-size","12px");
-          //  .call(d3.legend);
+            .call(d3.legend);
 
     }
 
