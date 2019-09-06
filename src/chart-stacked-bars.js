@@ -95,20 +95,20 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .attr("fill", "#ccc")
         //     .attr('class', 'flow');
 
-        if(config.xParameter === "_date") {
 
-            svg.dateLabels = svg.series.selectAll(".dateLabel")
-                .data(function(d) { return d; })
-                .enter()
-                .append('text')
-                .attr('class','dateLabel small-label')
-                .attr('x', 0)
-                .attr('dx', '0px')
-                .attr('dy', '22px')
-                .style("text-anchor", "middle")
 
-            ;
-        }
+        svg.dateLabels = svg.series.selectAll(".dateLabel")
+            .data(function(d) { return d; })
+            .enter()
+            .append('text')
+            .attr('class','dateLabel small-label')
+            .attr('x', 0)
+            .attr('dx', '-30px')
+            .attr('dy', '22px')
+            .style("text-anchor", "middle")
+
+        ;
+
     }
 
     let redraw = function redraw(dimensions,scales) {
@@ -221,7 +221,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .duration(500)
             .attr('fill-opacity', 1);
 
-        if(config.xParameter === "_date") {
+
 
             svg.dateLabels
                 .merge(svg.dateLabels)
@@ -244,7 +244,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 .attr('fill-opacity', 1);
 
 
-        }
+
         //
         // svg.connection
         //     .attr("d", area);
