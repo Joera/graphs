@@ -101,10 +101,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 .data(function(d) { return d; })
                 .enter()
                 .append('text')
-                .attr('class','dateLabel small-label white')
+                .attr('class','dateLabel small-label')
                 .attr('x', 0)
                 .attr('dx', '0px')
-                .attr('dy', '-6px')
+                .attr('dy', '30px')
                 .style("text-anchor", "middle")
 
             ;
@@ -234,10 +234,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 .attr('transform', function(d) {
 
                         xOffset = dimensions.width / (2 * dataArray.length);
-
-                        // let start = (d[0] < config.minValue) ? config.minValue : d[0];
-                        //
-                        // yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
 
                         return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
                             dimensions.height
