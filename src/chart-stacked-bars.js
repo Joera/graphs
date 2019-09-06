@@ -96,8 +96,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
     let redraw = function redraw(dimensions,scales) {
 
         let barWidth = 0;
-
-        console.log(scales.domain());
+        
 
         // let area = d3.area()
         //     .curve(d3.curveCardinal)
