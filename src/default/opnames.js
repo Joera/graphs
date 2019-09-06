@@ -58,7 +58,7 @@ var opnames = function(element) {
         let data = json.slice(1).reverse();
 
         functions.stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(key => ['opnames'].indexOf(key) > -1));
+            .keys(Object.keys(data[0]).filter(key => ['opnames','nieuwe_opnames'].indexOf(key) > -1));
 
         let stackedData = functions.stack(data);
 
