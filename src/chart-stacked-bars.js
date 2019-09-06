@@ -79,7 +79,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .data(function(d) { return d; })
             .enter()
             .append('text')
-            .attr('class','barLabel small-label')
+            .attr('class','barLabel small-label white')
             .attr('x', 0)
             .attr('dx', '0px')
             .attr('dy', '-6px')
@@ -194,7 +194,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     let start = (d[0] < config.minValue) ? config.minValue : d[0];
 
-                    yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 30;
+                    yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 10;
 
                     console.log(yOffset);
 

@@ -1,4 +1,9 @@
 .small-label {
 
   font-size: .8rem;
+
+
+  &.white {
+    fill:  white;
+  }
 }
