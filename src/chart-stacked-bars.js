@@ -182,7 +182,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 } else {
 
-                    return scales.xBand.bandwidth();
+                    return 60; //scales.xBand.bandwidth();
                 }
             })
             .attr("clip-path", "url(#clip)")
