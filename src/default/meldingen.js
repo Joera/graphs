@@ -19,7 +19,7 @@ var meldingen = function(element) {
     // name of first column with values of bands on x axis
 
 
-    config.yParameter = 'MELDING';  // is being set in type function
+    config.yParameter = 'meldingen';  // is being set in type function
     // config.fixedHeight = 160;
     config.minValue = 0;
     config.maxValue = 60000;
@@ -51,21 +51,16 @@ var meldingen = function(element) {
 
         let cleanArray = [];
 
-        console.log(json);
-
         // // custom formula
         for (let i = 0; i < cleanArray.length; i++) {
 
             if(i > 0) {
-
                 cleanArray[i]['nieuw'] = cleanArray[i]['meldingen'] - cleanArray[i - 1]['meldingen'];
             }
         }
 
         // remove first because it has no diff with previous
         let data = json.slice(1);
-
-        console.log(data);
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuw'].indexOf(key) > -1));
