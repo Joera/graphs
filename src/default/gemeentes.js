@@ -27,7 +27,9 @@ var gemeentes = function(element) {
     dimensions = chartDimensions.get(dimensions);
     chartSVG.redraw(dimensions);
 
-    let property = 'melding';
+    let chartMap = ChartMap(config,svg);
+
+
 
     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
@@ -66,73 +68,24 @@ var gemeentes = function(element) {
 
             console.log(features);
 
-            svg.layers.data.selectAll("path")
-                .data(features)
-                .enter()
-                .append("path")
-                .attr("d", path)
-                .attr("stroke", function (d, i) {
 
-                    if (d.properties[property]) {
-                        return '#fff';
-                    } else {
-                        return '#fff';
-                    }
-                })
-                .attr("fill", function (d, i) {
 
-                    if (d.properties[property]) {
-                        return 'orange';
-                    } else {
-                        return '#eee';
-                    }
-                })
-                .attr("fill-opacity", function (d, i) {
+            function redraw(property) {
+                // on redraw chart gets new dimensions
+                dimensions = chartDimensions.get(dimensions);
+                chartSVG.redraw(dimensions);
+                // redraw data
+                chartMap.redraw(dimensions,property);
+            }
 
-                    // to do : use d3.max to find max value
-                    // if(d.properties.melding) {
-                    //     return .6;
-                    // } else {
-                    //     return .6;
-                    // }
-                    let ratio = .8 * d.properties[property] / 1500;
-                    return ratio + 0.2;
-                })
-                .attr("class", function (d, i) {
-                    return sluggify(d.properties.gemeentenaam);
-                })
-                .on("mouseover", function (d) {
+            chartMap.draw(data);
+            //  chartLegend.drawDefault(dimensions);
+            // further drawing happens in function that can be repeated.
+            let property = 'melding';
+            redraw(property);
+            // for example on window resize
+            window.addEventListener("resize", redraw, false);
 
-                    if(d.properties.totaal) {
-
-                        d3.select(this).attr("fill-opacity", 1);
-                    }
-
-                    let html = "<span class='uppercase'>" + d.properties.gemeentenaam + "</span>";
-
-                    svg.tooltip
-                        .html(html)
-                        .style("left", (d3.event.pageX + 5) + "px")
-                        .style("top", (d3.event.pageY - 5) + "px")
-                        .transition()
-                        .duration(250)
-                        .style("opacity", 1);
-                })
-                .on("mouseout", function (d) {
-
-                    if (d.properties.totaal) {
-
-                        d3.select(this).attr("fill-opacity", .4);
-                    }
-
-                    svg.tooltip.transition()
-                        .duration(250)
-                        .style("opacity", 0);
-                })
-                .on("click", function (d) {
-
-                    setMunicipalitySelect(sluggify(d.properties.gemeentenaam));
-                });
         });
     });
 }

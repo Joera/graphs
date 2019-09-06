@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 var TCMGCharts = function TCMGCharts() {
 
     // init multiple charts from this file
