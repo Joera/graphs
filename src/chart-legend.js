@@ -43,11 +43,23 @@ let ChartLegend = function ChartLegend(config,svg) {
 
     }
 
+    let drawDefault = function drawDefault(dimensions) {
+
+        svg.legendDefault = svg.layers.legend
+            .attr("transform","translate(" + dimensions.height + ",30)")
+            .style("font-size","12px")
+            .call(d3.legend);
+
+    }
+
+
 
 
     return {
         drawInputLegend : drawInputLegend,
-        redrawInputLegend : redrawInputLegend
+        redrawInputLegend : redrawInputLegend,
+        drawDefault : drawDefault,
+        redrawDefault : redrawDefault
 
     }
 }
