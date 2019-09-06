@@ -199,7 +199,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     yOffset = scales.yLinear(d[1] - start) / 2;
 
                     return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
-                        (scales.yLinear(d[1]) + yOffset)
+                        (scales.yLinear(d[0]) + yOffset)
                         + ')';
 
                 } else {
