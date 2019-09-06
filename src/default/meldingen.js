@@ -66,7 +66,8 @@ var meldingen = function(element) {
             // new dimensions mean new scales
             scales = chartScales.reset(dimensions,scales);
             // new scales mean new axis
-          //  chartAxis.redrawXTimeAxis(dimensions,scales,axes);
+
+            chartAxis.redrawXTimeAxis(dimensions,scales,axes,false);
             chartAxis.redrawYAxis(scales,axes);
             // redraw data
             chartStackedBars.redraw(dimensions,scales);

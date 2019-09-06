@@ -15,13 +15,18 @@ let ChartAxis = function ChartAxis(config,svg) {
             .call(axes.xBand);
     }
 
-    let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes) {
+    let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
 
         axes.xTime = d3.axisBottom(scales.xTime);
 
-        axes.xTime
-        .ticks(d3.timeMonth.every(1))
-        .tickFormat(d3.timeFormat("%b"));
+
+        if(ticks) {
+
+            axes.xTime
+                .ticks(d3.timeMonth.every(1))
+                .tickFormat(d3.timeFormat("%b"));
+
+        }
 
         svg.xAxis
             .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.padding.top) + ")")  //
