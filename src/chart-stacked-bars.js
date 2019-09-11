@@ -59,7 +59,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
 
         // series corresponds to provenance - the columns in the csv table//
-        svg.series = svg.layers.data.selectAll(".serie")
+        svg.series = svg.layers.data.selectAll(".stackGroup")
             .data(stackedData);
 
         svg.series.exit().remove();
