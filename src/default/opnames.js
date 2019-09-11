@@ -48,7 +48,7 @@ var opnames = function(element) {
     chartAxis.drawXAxis();
     chartAxis.drawYAxis();
 
-    let url = 'https://tcmg.publikaan.nl/api/meldingen';
+    let url = 'https://tcmg.publikaan.nl/api/procedure';
 
     d3.json(url, function(error, json) {
         if (error) throw error;
