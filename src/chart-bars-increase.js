@@ -52,7 +52,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("y", function(d) { return scales.yLinear(d[1]); })
+            .attr("y", function(d) { console.log(d); return scales.yLinear(d[config.yParameter]); })
             .attr("height", function(d) {
 
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
