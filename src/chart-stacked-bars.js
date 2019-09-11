@@ -81,6 +81,21 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.bar
             .merge(svg.barEnter)
+            .attr("x", function(d) {
+                if(config.xScale === 'time') {
+                    return xScale.xTime(new Date(d.data[config.xParameter]));
+                } else {
+                    return xScale.xBand(d.data[config.xParameter]);
+                }
+            })
+            .attr("width", function(d) {
+                if(config.xScale === 'time') {
+                    return dimensions.width / dataArray.length;
+                } else {
+                    return barWidth; //scales.xBand.bandwidth();
+                }
+            })
+            .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
             .attr("y", function(d) { return yScale.stacked(d[1]); })
@@ -88,29 +103,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 return yScale.stacked(d[0]) - yScale.stacked(d[1]);
 
             })
-            .attr("x", function(d) {
-
-                if(config.xScale === 'time') {
-
-                    return xScale.xTime(new Date(d.data[config.xParameter]));
-
-                } else {
-
-                    return xScale.xBand(d.data[config.xParameter]);
-                }
-            })
-            .attr("width", function(d) {
-
-                if(config.xScale === 'time') {
-
-                    return dimensions.width / dataArray.length;
-
-                } else {
-
-                    return barWidth; //scales.xBand.bandwidth();
-                }
-            })
-            .attr("clip-path", "url(#clip)")
            ;
 
         svg.barLabels
