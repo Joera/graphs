@@ -121,7 +121,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 let start = (config.minValue) ? config.minValue : 0;
 
-                yOffset = .5 * (dimensions.height - scales.yLinear(d['nieuwe_meldingen'] + config.minValue)) - 11;
+                yOffset = .5 * (dimensions.height - scales.yLinear(d['nieuwe_meldingen'] + config.minValue)) + 11;
 
                 return 'translate(' + (scales.xBand(d[config.xParameter]) - 20) + ',' +
                     (scales.yLinear(d[config.yParameter]) + yOffset)
