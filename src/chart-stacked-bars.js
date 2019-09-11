@@ -65,7 +65,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.series.exit().remove();
 
-        svg.series.enter().append("g")
+        svg.series
+            .enter()
+            .append("g")
             .attr("class", (d,i) => {
 
                 if (i === 0 || !!(i && !(i%2))) {
@@ -80,7 +82,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.bar = svg.series.selectAll(".bar")
             .data(function(d) { return d; });
 
-        svg.bar.exit().remove();
+      //  svg.bar.exit().remove();
 
         svg.bar.enter()
             .append("rect")
