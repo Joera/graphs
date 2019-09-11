@@ -115,7 +115,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .merge(svg.diffLabels)
             .text(function(d) {
 
-                return thousands(d['nieuwe_meldingen']);
+                return '+' + thousands(d['nieuwe_meldingen']);
             })
             .attr('transform', function(d) {
 
@@ -137,7 +137,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .merge(svg.barLabels)
             .text(function(d) {
 
-                return '+' + thousands(d[config.yParameter]);
+                return thousands(d[config.yParameter]);
             })
             .attr('transform', function(d) {
 

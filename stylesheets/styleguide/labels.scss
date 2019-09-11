@@ -7,3 +7,10 @@
     fill:  white;
   }
 }
+
+text {
+
+  &.blue {
+    fill: $blue;
+  }
+}
