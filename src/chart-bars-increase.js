@@ -6,11 +6,17 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         dataArray = data;
 
-        svg.bar = svg.layers.data.selectAll("rect")
+        svg.bar = svg.layers.data.selectAll(".bar")
             .data(data)
             .enter().append("rect")
             .attr("class", "bar " + colours[0])
             ;
+
+        svg.difference = svg.layers.data.selectAll(".diff")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "diff " + colours[1])
+        ;
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data)
@@ -71,6 +77,27 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
            ;
 
         svg.bar.exit().remove();
+
+        svg.difference
+            .merge(svg.difference)
+            .attr("y", function(d) { return scales.yLinear(d[config.yParameter]); })
+            .attr("height", function(d) {
+
+                return dimensions.height - scales.yLinear(d[config.yParameter]);
+            })
+            .attr("x", function(d) {
+
+                return scales.xBand(d[config.xParameter]) - barWidth;
+            })
+            .attr("width", function(d) {
+
+                return 10;
+            })
+            .attr("clip-path", "url(#clip)")
+        ;
+
+
+        svg.difference.exit().remove();
 
         svg.barLabels
             .merge(svg.barLabels)
