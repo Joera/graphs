@@ -103,7 +103,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .append('text')
             .attr('class','dateLabel small-label')
             .attr('x', 0)
-            .attr('dx', '-30px')
+            .attr('dx', '0px')
             .attr('dy', '22px')
             .style("text-anchor", "middle")
 
