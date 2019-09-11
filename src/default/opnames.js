@@ -24,7 +24,6 @@ var opnames = function(element) {
     config.minValue = 0; // 18000;
     //  config.maxValue = 30000;
 
-
     config.xParameter = '_date';
     config.yParameter = 'opnames';
     // config.minWidth = 460;
@@ -86,7 +85,7 @@ var opnames = function(element) {
         function update(propertyArray) {
 
             let stackedData = filterData(propertyArray);
-            scales = chartScales.set(data);
+            scales = chartScales.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
             //  chartLegend.drawDefault(dimensions);
             // further drawing happens in function that can be repeated.
