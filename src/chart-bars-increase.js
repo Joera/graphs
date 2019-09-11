@@ -81,7 +81,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr('transform', function(d) {
 
                 xOffset = dimensions.width / (2 * dataArray.length);
-                let start = (config.minValue) ? config.minValue : 0];
+                let start = (config.minValue) ? config.minValue : 0;
 
                 yOffset = ((scales.yLinear(d[config.yParameter]) - scales.yLinear(start)) / 2) - 11;
 
