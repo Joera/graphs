@@ -40,11 +40,16 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .attr("class","value small-label")
             .attr("x", function(d) {
                 return path.centroid(d)[0];
+
+                if (sluggify(d.properties.gemeentenaam) === 'delfzijl') {
+                    return path.centroid(d)[0] + 20;
+                } else {
+                    return path.centroid(d)[0];
+                }
             })
             .attr("y", function(d) {
 
                 if (sluggify(d.properties.gemeentenaam) === 'delfzijl') {
-
                     return path.centroid(d)[1] + 20;
                 } else {
                     return path.centroid(d)[1];
