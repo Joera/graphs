@@ -32,6 +32,21 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .attr("d", path)
             .attr("stroke", "#fff")
             ;
+
+        svg.selectAll(".value")
+            .data(features)
+            .enter()
+            .append("text")
+            .attr("class","value")
+            .attr("x", function(d) {
+                return path.centroid(d)[0];
+            })
+            .attr("y", function(d) {
+                return path.centroid(d)[1];
+            })
+            .attr("text-anchor", "middle")
+            .attr("font-size", "12px")
+            .text("foo");
     }
 
     let redraw = function redraw(dimensions,property) {
