@@ -81,9 +81,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.bar
             .merge(svg.barEnter)
-            .attr("y", function(d) { return scales.yLinear(d[1]); })
+            .attr("y", function(d) { return scales.yStacked(d[1]); })
             .attr("height", function(d) {
-                return scales.yLinear(d[0]) - scales.yLinear(d[1]);
+                return scales.yStacked(d[0]) - scales.yStacked(d[1]);
 
             })
             .attr("x", function(d) {
@@ -121,10 +121,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 xOffset = dimensions.width / (2 * dataArray.length);
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
-                yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
+                yOffset = ((scales.yStacked(d[1]) - scales.yStacked(start)) / 2) - 11;
 
                 return 'translate(' + (scales.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
-                    (scales.yLinear(d[1]) - yOffset)
+                    (scales.yStacked(d[1]) - yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
