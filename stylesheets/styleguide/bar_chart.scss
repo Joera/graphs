@@ -120,11 +120,11 @@ text.number {
     fill : $green;
   }
 
-  &.orange &, .bar {
+  &.orange, &.orange &, .bar {
     fill : orange;
   }
 
-  &.blue &, .bar {
+  &.blue, &.blue &, .bar {
     fill : $blue;
   }
 
