@@ -110,11 +110,8 @@ var opnames = function(element) {
                 } else {
 
                     let index = propertyArray.indexOf(option.value);
-                    console.log(index);
                     propertyArray.splice(index,1);
                 }
-
-                console.log(propertyArray);
 
                 update(propertyArray);
 
