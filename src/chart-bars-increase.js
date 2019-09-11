@@ -158,7 +158,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("y", function(d) { return scales.yLinear(d[0]); })
+            .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) {
 
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
@@ -166,7 +166,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("x", function(d) {
 
-                return scales.xBand(d.data[config.xParameter]) - barWidth;
+                return scales.xBand(d.data[config.xParameter]);
             })
             .attr("width", function(d) {
 
