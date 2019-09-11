@@ -51,6 +51,10 @@ html {
     li {
       margin-bottom: .5rem;
 
+      label {
+        padding-left: .5rem;
+      }
+
       &:last-of-type {
         margin-bottom: 0;
       }
