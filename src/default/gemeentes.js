@@ -61,7 +61,7 @@ var gemeentes = function(element) {
             chartMap.draw(features);
             //  chartLegend.drawDefault(dimensions);
             // further drawing happens in function that can be repeated.
-            let property = 'melding';
+            let property = 'schademeldingen';
             redraw(property);
             // for example on window resize
             window.addEventListener("resize", redraw, false);
