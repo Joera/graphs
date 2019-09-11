@@ -24,7 +24,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 return "stackGroup " + colours[i];
             });
 
-        svg.bar = svg.seriesEnter.selectAll("rect")
+        svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
             .data(function(d) { return d; });
 
         svg.bar.exit().remove();
