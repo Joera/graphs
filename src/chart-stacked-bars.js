@@ -127,8 +127,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let xOffset;
 
         svg.series = svg.series
-            .merge(seriesEnter);
-        
+            .merge(svg.seriesEnter);
+
 
 
         // let area = d3.area()
