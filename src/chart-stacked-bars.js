@@ -9,7 +9,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
     let draw = function draw(data,stackedData,colours) {
 
         dataArray = data;
-        console.log(stackedData);
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".stackGroup")
@@ -81,7 +80,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.barMerged = svg.barEnter
             .merge(svg.bar)
-            .attr("y", function(d) { return dimensions.height; })
             .attr("x", function(d) {
                 if(config.xScale === 'time') {
                     return xScale.xTime(new Date(d.data[config.xParameter]));
@@ -101,7 +99,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .duration(500)
             .attr("y", function(d) { return yScale.stacked(d[1]); })
             .attr("height", function(d) {
-                console.log(d); return yScale.stacked(d[0]) - yScale.stacked(d[1]);
+                return yScale.stacked(d[0]) - yScale.stacked(d[1]);
             })
            ;
 
