@@ -59,7 +59,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("x", function(d) {
 
-                return scales.xBand(d.data[config.xParameter]);
+                return scales.xBand(d[config.xParameter]);
             })
             .attr("width", function(d) {
 
