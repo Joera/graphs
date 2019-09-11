@@ -84,7 +84,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("height", function(d) {
 
                 console.log(scales.yLinear(d['nieuwe_meldingen']));
-                return scales.yLinear(d['nieuwe_meldingen']);
+                return scales.yLinear(d['nieuwe_meldingen'] + config.minValue);
             })
             .attr("x", function(d) {
 
