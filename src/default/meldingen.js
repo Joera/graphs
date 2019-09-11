@@ -21,7 +21,7 @@ var meldingen = function(element) {
 
     config.yParameter = 'meldingen';  // is being set in type function
     // config.fixedHeight = 160;
-    config.minValue = 0;
+    config.minValue = 18000;
   //  config.maxValue = 30000;
 
 
