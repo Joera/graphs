@@ -39,10 +39,10 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .append("text")
             .attr("class","value small-label")
             .attr("x", function(d) {
-                return path.centroid(d)[0];
+                return path.mean(d)[0];
             })
             .attr("y", function(d) {
-                return path.centroid(d)[1];
+                return path.mean(d)[1];
             })
             .attr("text-anchor", "middle");
     }

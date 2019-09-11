@@ -70,7 +70,6 @@ var gemeentes = function(element) {
 
                 option.addEventListener( 'click', () => {
 
-                    console.log(option.value);
                     redraw(option.value);
 
                 },false)
