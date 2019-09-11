@@ -103,7 +103,7 @@ var opnames = function(element) {
 
             option.addEventListener( 'click', () => {
 
-                propertyArray[propertyArray.length + 1] = option.value;
+                propertyArray[propertyArray.length] = option.value;
 
                 console.log(propertyArray)
 
