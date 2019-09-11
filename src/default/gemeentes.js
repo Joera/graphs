@@ -25,14 +25,7 @@ var gemeentes = function(element) {
 
     let options = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
-    for (let option of options) {
 
-        option.addEventListener( 'click', () => {
-
-            console.log(option);
-
-        },false)
-    }
 
     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
@@ -72,6 +65,16 @@ var gemeentes = function(element) {
             redraw(property);
             // for example on window resize
             window.addEventListener("resize", redraw, false);
+
+            for (let option of options) {
+
+                option.addEventListener( 'click', () => {
+
+                    console.log(option.value);
+                    redraw(option.value);
+
+                },false)
+            }
 
         });
     });
