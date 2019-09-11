@@ -77,11 +77,13 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
 
 
-        svg.bar = svg.series.selectAll("rect")
+        svg.bar = svg.series.selectAll(".bar")
             .data(function(d) { return d; });
 
+        svg.bar.exit().remove();
 
-        svg.bar.enter().append("rect")
+        svg.bar.enter()
+            .append("rect")
             .attr("class", "bar")
             ;
 
