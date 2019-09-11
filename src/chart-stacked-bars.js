@@ -79,6 +79,15 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.series = svg.series
             .merge(svg.seriesEnter);
 
+
+        svg.barEnter
+            .transition()
+            .duration(500)
+            .attr("y", function(d) { return yScale.stacked(d[1]); })
+            .attr("height", function(d) {
+                console.log(d); return yScale.stacked(d[0]) - yScale.stacked(d[1]);
+            })
+
         svg.bar
             .merge(svg.barEnter)
             .attr("y", function(d) { return dimensions.height; })
