@@ -81,11 +81,6 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             })
             .on("mouseover", function (d) {
 
-                // if(d.properties[property]) {
-                //
-                //     d3.select(this).attr("fill-opacity", 1);
-                // }
-
                 let html = "<div class='uppercase'>" + d.properties.gemeentenaam + "</div><div>" + d.properties[property] + "</div>";
 
                 svg.tooltip
@@ -97,11 +92,6 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                     .style("opacity", 1);
             })
             .on("mouseout", function (d) {
-
-                // if (d.properties[property]) {
-                //
-                //     d3.select(this).attr("fill-opacity", .4);
-                // }
 
                 svg.tooltip.transition()
                     .duration(250)

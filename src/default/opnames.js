@@ -50,6 +50,8 @@ var opnames = function(element) {
 
     let url = 'https://tcmg.publikaan.nl/api/procedure';
 
+    let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
+
     d3.json(url, function(error, json) {
         if (error) throw error;
 
@@ -57,7 +59,7 @@ var opnames = function(element) {
         // remove data entry from wednesday
         let data = json.slice(1).reverse();
 
-        let propertyArray = ['opnames','nieuwe_opnames'];
+        let propertyArray = ['opnames'];
 
         function filterData(array) {
 
@@ -94,6 +96,15 @@ var opnames = function(element) {
         update(propertyArray);
         // for example on window resize
         window.addEventListener("resize", redraw, false);
+
+        for (let option of options) {
+
+            option.addEventListener( 'click', () => {
+
+                update(propertyArray.push(option.value));
+
+            },false)
+        }
 
     });
 }

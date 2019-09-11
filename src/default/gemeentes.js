@@ -25,8 +25,6 @@ var gemeentes = function(element) {
 
     let options = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
-
-
     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
         let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
