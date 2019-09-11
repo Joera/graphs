@@ -54,12 +54,14 @@ var meldingen = function(element) {
 
 
         // remove data entry from wednesday
-       let data = json.slice(1).reverse();
+       let data = json.reverse();
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuwe_meldingen'].indexOf(key) > -1));
 
         let stackedData = functions.stack(data);
+
+        let { data,stackedData } = filterData(data)
 
         function redraw() {
             // on redraw chart gets new dimensions
