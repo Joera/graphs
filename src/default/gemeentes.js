@@ -16,14 +16,23 @@ var gemeentes = function(element) {
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
-    console.log(dimensions);
-
     let chartSVG = ChartSVG(element,config,dimensions,svg);
 
     dimensions = chartDimensions.get(dimensions);
     chartSVG.redraw(dimensions);
 
     let chartMap = ChartMap(config,svg,dimensions);
+
+    let options = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
+
+    for (let option of options) {
+
+        option.addEventListener( 'click', () => {
+
+            console.log(option);
+
+        },false)
+    }
 
     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
@@ -35,8 +44,6 @@ var gemeentes = function(element) {
             if (error) throw error;
 
             features.forEach( (feature) => {
-
-                console.log(json);
 
                 let gemeenteData = json.find( (g) => {
                     return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
