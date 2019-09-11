@@ -86,9 +86,12 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("class", "bar")
             ;
 
-        svg.barLabels = svg.series.selectAll(".barLabel")
-            .data(function(d) { return d; })
-            .enter()
+        svg.barLabels = svg.seriesEnter.selectAll(".barLabel")
+            .data(function(d) { return d; });
+
+        svg.barLabels.exit().remove();
+
+        svg.barLabelsEnter = svg.barLabels.enter()
             .append('text')
             .attr('class','barLabel small-label white')
             .attr('x', 0)
@@ -168,7 +171,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
            ;
 
         svg.barLabels
-            .merge(svg.barLabels)
+            .merge(svg.barLabelsEnter)
             .text(function(d) {
 
                 return thousands(d[1] - d[0]);
@@ -179,18 +182,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
                 yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
 
-                if (config.xScale === 'time') {
-
-                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
-                        (scales.yLinear(d[1]) - yOffset)
-                        + ')';
-
-                } else {
-
-                    return 'translate(' + (scales.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
-                        (scales.yLinear(d[1]) - yOffset)
-                        + ')';
-                }
+                return 'translate(' + (scales.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
+                    (scales.yLinear(d[1]) - yOffset)
+                    + ')';
             })
             .attr('fill-opacity', 0)
             .transition()
