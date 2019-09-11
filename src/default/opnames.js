@@ -103,9 +103,9 @@ var opnames = function(element) {
 
             option.addEventListener( 'click', () => {
 
-                let newArray = propertyArray.push(option.value);
+                let newArray = propertyArray.push({});
 
-                console.log(newArray);
+                console.log(option.value);
 
                 update(newArray);
 
