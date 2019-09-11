@@ -45,4 +45,15 @@ html {
   width: auto;
   height: auto;
   padding: 2rem;
+
+  ul {
+
+    li {
+      margin-bottom: .5rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
