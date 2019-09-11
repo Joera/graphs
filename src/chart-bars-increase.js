@@ -10,7 +10,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
-            .style("fill",config.colours[0])
+            .style("fill",colours[0])
             ;
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
