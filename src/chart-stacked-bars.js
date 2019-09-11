@@ -2,6 +2,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     let dataArray;
 
+    svg.defs = svg.layers.data.append("defs").append("clipPath")
+        .attr("id", "clip")
+        .append("rect");
+
     let draw = function draw(data,stackedData,colours) {
 
 
@@ -75,8 +79,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     return "stackGroup " + colours[1];
                 }
             });
-
-
 
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
@@ -158,9 +160,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .y1((d) => { return scales.yBlocks(d.y); });
         //
 
-        svg.layers.data.append("defs").append("clipPath")
-            .attr("id", "clip")
-            .append("rect")
+       svg.defs
             .attr("width", dimensions.width)
             .attr("height", dimensions.height);
 
