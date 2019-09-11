@@ -112,7 +112,10 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
         svg.values
             .text(function (d) {
 
-                return d.properties[property];
+                if(d.properties[property] > 0) {
+
+                    return d.properties[property];
+                }
             });
 
 
