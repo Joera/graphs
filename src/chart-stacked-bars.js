@@ -81,6 +81,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.bar
             .merge(svg.barEnter)
+            .transition()
+            .duration(500)
             .attr("y", function(d) { return yScale.stacked(d[1]); })
             .attr("height", function(d) {
                 return yScale.stacked(d[0]) - yScale.stacked(d[1]);
