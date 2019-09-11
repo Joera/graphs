@@ -76,7 +76,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .merge(svg.barLabels)
             .text(function(d) {
 
-                return thousands(d[1] - d[0]);
+                return thousands(d[config.yParameter]);
             })
             .attr('transform', function(d) {
 
