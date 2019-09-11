@@ -42,7 +42,14 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                 return path.centroid(d)[0];
             })
             .attr("y", function(d) {
-                return path.centroid(d)[1];
+
+                if (sluggify(d.properties.gemeentenaam) === 'defzijl') {
+
+                    return path.centroid(d)[1] + 20;
+                } else {
+                    return path.centroid(d)[1];
+                }
+
             })
             .attr("text-anchor", "middle");
     }
