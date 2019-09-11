@@ -81,6 +81,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.bar
             .merge(svg.barEnter)
+            .attr("y", function(d) { return dimensions.height; })
             .attr("x", function(d) {
                 if(config.xScale === 'time') {
                     return xScale.xTime(new Date(d.data[config.xParameter]));
