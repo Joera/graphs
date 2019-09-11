@@ -94,7 +94,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 } else {
 
-                    return scales.xBand(d.data[config.xParameter]);
+                    return scales.xBandStacked(d.data[config.xParameter]);
                 }
             })
             .attr("width", function(d) {
@@ -123,7 +123,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
                 yOffset = ((scales.yStacked(d[1]) - scales.yStacked(start)) / 2) - 11;
 
-                return 'translate(' + (scales.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
+                return 'translate(' + (scales.xBandStacked(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
                     (scales.yStacked(d[1]) - yOffset)
                     + ')';
             })
@@ -141,7 +141,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr('transform', function(d) {
 
-                return 'translate(' + (scales.xBand(d.data[config.xParameter]) + (barWidth / 2))  + ',' +
+                return 'translate(' + (scales.xBandStacked(d.data[config.xParameter]) + (barWidth / 2))  + ',' +
                     dimensions.height
                     + ')';
             })
