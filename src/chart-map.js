@@ -44,9 +44,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .attr("y", function(d) {
                 return path.centroid(d)[1];
             })
-            .attr("text-anchor", "middle")
-            .attr("font-size", "12px")
-            .text("foo");
+            .attr("text-anchor", "middle");
     }
 
     let redraw = function redraw(dimensions,property) {
@@ -97,6 +95,12 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                 svg.tooltip.transition()
                     .duration(250)
                     .style("opacity", 0);
+            });
+
+        svg.values
+            .text(function (d) {
+
+                return d.properties[property];
             });
 
 
