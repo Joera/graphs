@@ -84,9 +84,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
                 yOffset = ((scales.yLinear(d[config.yParameter]) - scales.yLinear(start)) / 2) - 11;
 
-                    return 'translate(' + (scales.xBand(d[config.xParameter]) + ( barWidth / 2)) + ',' +
-                        (scales.yLinear(d[config.yParameter]) - yOffset)
-                        + ')';
+                return 'translate(' + (scales.xBand(d[config.xParameter]) + ( barWidth / 2)) + ',' +
+                    (scales.yLinear(d[config.yParameter]) - yOffset)
+                    + ')';
             })
             .attr('fill-opacity', 0)
             .transition()

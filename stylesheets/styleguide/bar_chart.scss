@@ -88,35 +88,35 @@
 text.number {
   @include uppercase;
 }
-
-.procedure-container, .remittances-container {
-
-  .bar {
-    fill : $green;
-
-    &.wacht-op-opname {
-      fill : orange;
-    }
-
-    &.voorbereiding-besluit {
-      fill : $blue;
-    }
-
-    &.-k {
-      fill : $blue;
-    }
-  }
-
-  text.barLabel {
-
-    font-size: .8rem;
-  }
-
-}
+//
+//.procedure-container, .remittances-container {
+//
+//  .bar {
+//    fill : $green;
+//
+//    &.wacht-op-opname {
+//      fill : orange;
+//    }
+//
+//    &.voorbereiding-besluit {
+//      fill : $blue;
+//    }
+//
+//    &.-k {
+//      fill : $blue;
+//    }
+//  }
+//
+//  text.barLabel {
+//
+//    font-size: .8rem;
+//  }
+//
+//}
 
 .bar, .stackGroup {
 
-  &.green &, .bar {
+  &.green, &.green &, .bar {
     fill : $green;
   }
 
