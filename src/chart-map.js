@@ -33,7 +33,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .attr("stroke", "#fff")
             ;
 
-        svg.selectAll(".value")
+        svg.values = svg.layers.data.selectAll(".value")
             .data(features)
             .enter()
             .append("text")
