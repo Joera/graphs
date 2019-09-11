@@ -1,0 +1,15 @@
+.selector {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  .properties {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+}
