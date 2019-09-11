@@ -117,7 +117,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let yOffset;
         let xOffset;
 
-        console.log(scales.xBand.bandwidth());
 
 
         // let area = d3.area()
@@ -158,7 +157,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("y", function(d) { console.log(scales.yLinear(d[1])); return scales.yLinear(d[1]); })
+            .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) {
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
 
