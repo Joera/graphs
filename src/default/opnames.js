@@ -40,8 +40,8 @@ var opnames = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartXScale = ChartXScale(config,dimensions,scales);
-    let chartYScale = ChartYScale(config,dimensions,scales);
+    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
     let chartStackedBars = ChartStackedBars(config,svg);
     let chartLegend = ChartLegend(config,svg);
@@ -74,14 +74,14 @@ var opnames = function(element) {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
             // new dimensions mean new scales
-            xScale = chartXScale.reset(dimensions,scales);
-            yScale = chartYScale.reset(dimensions,scales);
+            xScale = chartXScale.reset(dimensions,xScale);
+            yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
 
-            chartAxis.redrawXTimeAxis(dimensions,scales,axes,false);
-            chartAxis.redrawYAxisStacked(scales,axes);
+            chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
+            chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
-            chartStackedBars.redraw(dimensions,scales);
+            chartStackedBars.redraw(dimensions,xScale,yScale);
 
         }
 
