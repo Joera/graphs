@@ -51,6 +51,7 @@ var gemeentes = function(element) {
 
 
             function redraw(property) {
+                console.log(property);
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
                 chartSVG.redraw(dimensions);
