@@ -78,8 +78,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
 
         svg.bar = svg.series.selectAll("rect")
-            .data(function(d) { return d; })
-            .enter().append("rect")
+            .data(function(d) { return d; });
+
+
+        svg.bar.enter().append("rect")
             .attr("class", "bar")
             ;
 
@@ -167,7 +169,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
 
         svg.bar
-            .merge(svg.bar)
+            //.merge(svg.bar)
+            .transition()
+            .duration(500)
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) {
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
