@@ -21,7 +21,7 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             .range([(config.fixedHeight || dimensions.height), 0])
             .domain([
                 config.minValue,
-                config.maxValue || d3.max(data, function (d) { if(d[d.length][1]) return d[d.length][1]; } )
+                config.maxValue || d3.max(data, function (d) { if (d[d.length] && d[d.length][1]) return d[d.length][1]; } )
             ]).nice();
 
         scales.xBand = d3.scaleBand()
