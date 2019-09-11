@@ -84,19 +84,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
                 yOffset = ((scales.yLinear(d[config.yParameter]) - scales.yLinear(start)) / 2) - 11;
 
-                if (config.xScale === 'time') {
-
-                    return 'translate(' + (scales.xTime(new Date(d[config.xParameter])) + xOffset)  + ',' +
-                    return 'translate(' + (scales.xTime(new Date(d[config.xParameter])) + xOffset)  + ',' +
-                        (scales.yLinear(d[config.yParameter]) - yOffset)
-                        + ')';
-
-                } else {
-
                     return 'translate(' + (scales.xBand(d[config.xParameter]) + ( barWidth / 2)) + ',' +
                         (scales.yLinear(d[config.yParameter]) - yOffset)
                         + ')';
-                }
             })
             .attr('fill-opacity', 0)
             .transition()
