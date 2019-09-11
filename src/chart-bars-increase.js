@@ -30,6 +30,18 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         ;
 
+        svg.diffLabels = svg.layers.data.selectAll(".diffLabel")
+            .data(data)
+            .enter()
+            .append('text')
+            .attr('class','diffLabel label blue')
+            .attr('x', 0)
+            .attr('dx', '0px')
+            .attr('dy', '-6px')
+            .style("text-anchor", "end")
+
+        ;
+
         svg.dateLabels = svg.layers.data.selectAll(".dateLabel")
             .data(data)
             .enter()
@@ -98,6 +110,28 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
 
         svg.difference.exit().remove();
+
+        svg.diffLabels
+            .merge(svg.diffLabels)
+            .text(function(d) {
+
+                return thousands(d[config.yParameter]);
+            })
+            .attr('transform', function(d) {
+
+                let start = (config.minValue) ? config.minValue : 0;
+
+                yOffset = .5 * (dimensions.height - scales.yLinear(d['nieuwe_meldingen'] + config.minValue)) - 11;
+
+                return 'translate(' + (scales.xBand(d[config.xParameter]) - 20) + ',' +
+                    (scales.yLinear(d[config.yParameter]) - yOffset)
+                    + ')';
+            })
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('fill-opacity', 1);
 
         svg.barLabels
             .merge(svg.barLabels)
