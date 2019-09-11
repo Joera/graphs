@@ -231,9 +231,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 })
                 .attr('transform', function(d) {
 
-                        xOffset = dimensions.width / (2 * dataArray.length);
+                        xOffset = barWidth / 2;
 
-                        return 'translate(' + (scales.xBand(d.data[config.xParameter]) - 0)  + ',' +
+                        return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
                             dimensions.height
                             + ')';
                 })
