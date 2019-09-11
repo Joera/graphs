@@ -28,6 +28,7 @@ module.exports = function() {
             './src/chart-legend.js',
             './src/chart-line.js',
             './src/chart-bar.js',
+            './src/chart-bars-increase.js',
             './src/chart-stacked-bars.js',
             './src/chart-stacked-area.js',
             './src/chart-blocks.js',

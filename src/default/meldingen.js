@@ -41,7 +41,7 @@ var meldingen = function(element) {
     let chartSVG = ChartSVG(element,config,dimensions,svg);
     let chartScales = ChartScales(config,dimensions,scales);
     let chartAxis = ChartAxis(config,svg);
-    let chartStackedBars = ChartStackedBars(config,svg);
+    let chartBarsIncrease = ChartBarsIncrease(config,svg);
     let chartLegend = ChartLegend(config,svg);
 
     chartAxis.drawXAxis();
@@ -72,12 +72,12 @@ var meldingen = function(element) {
             chartAxis.redrawXTimeAxis(dimensions,scales,axes,false);
             chartAxis.redrawYAxis(scales,axes);
             // redraw data
-            chartStackedBars.redraw(dimensions,scales);
+            chartBarsIncrease.redraw(dimensions,scales);
 
         }
 
         scales = chartScales.set(data);
-        chartStackedBars.draw(data,stackedData,colours);
+        chartBarsIncrease.draw(data,stackedData,colours);
       //  chartLegend.drawDefault(dimensions);
         // further drawing happens in function that can be repeated.
         redraw();
