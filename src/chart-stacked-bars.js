@@ -75,9 +75,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 return "stackGroup " + colours[i];
             });
 
-        svg.bar = svg.series.selectAll("rect")
-            .data(function(d) { return d; })
-            .enter().append("rect")
+        svg.bar = svg.seriesEnter.selectAll("rect")
+            .data(function(d) { return d; });
+
+        svg.bar.exit().remove();
+
+        svg.barEnter = svg.bar
+            .enter()
+            .append("rect")
             .attr("class", "bar")
             ;
 
@@ -123,47 +128,15 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let yOffset;
         let xOffset;
 
-        svg.series = svg.series
-            .merge(svg.seriesEnter);
-
-
-
-        // let area = d3.area()
-        //     .curve(d3.curveCardinal)
-        //     .x0((d,i) => {
-        //
-        //         if (config.xParameter === '_date') {
-        //
-        //             return  scales.xTime(new Date(d.x));
-        //
-        //         } else if (i < 1) {
-        //
-        //             return  scales.xBand(d.x) + scales.xBand.bandwidth()
-        //
-        //         } else {
-        //
-        //             return scales.xBand(d.x);
-        //         }
-        //
-        //     })  // console.log(d);
-        //     .x1((d,i) => {
-        //
-        //         if (i < 1) {  return scales.xBand(d.x) + scales.xBand.bandwidth() } else { return scales.xBand(d.x); }
-        //
-        //     })
-        //     .y0((d,i) => { return scales.yBlocks(d.base); })
-        //     .y1((d) => { return scales.yBlocks(d.y); });
-        //
-
-       svg.defs
+        svg.defs
             .attr("width", dimensions.width)
             .attr("height", dimensions.height);
 
-
-
+        svg.series = svg.series
+            .merge(svg.seriesEnter);
 
         svg.bar
-            .merge(svg.bar)
+            .merge(svg.barEnter)
             .attr("y", function(d) { return scales.yLinear(d[1]); })
             .attr("height", function(d) {
                 return scales.yLinear(d[0]) - scales.yLinear(d[1]);
@@ -193,8 +166,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr("clip-path", "url(#clip)")
            ;
-
-        svg.bar.exit().remove();
 
         svg.barLabels
             .merge(svg.barLabels)
