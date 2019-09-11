@@ -64,7 +64,7 @@ var gemeentes = function(element) {
             let property = 'schademeldingen';
             redraw(property);
             // for example on window resize
-            window.addEventListener("resize", redraw, false);
+            window.addEventListener("resize", redraw(property), false);
 
             for (let option of options) {
 
