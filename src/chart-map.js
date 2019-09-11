@@ -48,9 +48,12 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             })
             .attr("fill-opacity", function (d, i) {
 
-                let ratio = .8 * d.properties[property] / 1500;
-
-                return ratio + 0.4;
+                if (d.properties[property]) {
+                    let ratio = .8 * d.properties[property] / 1500;
+                    return ratio + 0.2;
+                } else {
+                    return 1;
+                }
             })
             .on("mouseover", function (d) {
 
