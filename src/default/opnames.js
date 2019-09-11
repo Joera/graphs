@@ -98,23 +98,15 @@ var opnames = function(element) {
         window.addEventListener("resize", redraw, false);
 
         for (let option of options) {
-
             option.addEventListener( 'click', () => {
-
                 if (option.checked) {
-
                     propertyArray[propertyArray.length] = option.value;
-
                 } else {
-
                     let index = propertyArray.indexOf(option.value);
                     propertyArray.splice(index,1);
                 }
-
                 update(propertyArray);
-
-            },false)
+            }, false)
         }
-
     });
 }

@@ -8,59 +8,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     let draw = function draw(data,stackedData,colours) {
 
-
         dataArray = data;
-
         console.log(stackedData);
-
-
-/////////////////////////
-
-        // uncommented code was voor triangles in between the bars .....
-
-        // let calcBase = function(index,status) {
-        //     // get out of status loop
-        //     let base = 0;
-        //         // this loops through provenances width max of (current index) s
-        //         for (let i = 0; i < index; i++) {
-        //             base = stackedData[i][status][1];
-        //         }
-        //         return base;
-        //     // }
-        // }
-
-        // format data for areaflow
-        // let format = function(stack,index) {
-        //     // this loops through provenances
-        //
-        //     let areaData = [];
-        //
-        //     if(index < (stackedData.length) ) {
-        //
-        //         // this loops through status
-        //         for (let j = 0; j < 3; j++) {  //  -
-        //             let pathCombo = [], pathObject = {}, nextPathObject = {};
-        //
-        //             pathObject.x = stackedData[index][j].data.status;
-        //             pathObject.y = stackedData[index][j][1];
-        //             pathObject.base = calcBase(index,j);
-        //             pathObject.class = stackedData[index].key;
-        //             pathCombo.push(pathObject);
-        //
-        //             nextPathObject.x = stackedData[index][j+1].data.status;
-        //             nextPathObject.y = stackedData[index][j+1][1];
-        //             nextPathObject.base = calcBase(index,j+1);
-        //             nextPathObject.class = stackedData[index].key;
-        //             pathCombo.push(nextPathObject);
-        //
-        //             areaData.push(pathCombo);
-        //         }
-        //     }
-        //
-        //     return  areaData;
-        // }
-
-
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".stackGroup")
@@ -101,18 +50,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         ;
 
-        // svg.connection = svg.series.selectAll('.flow')
-        //     // je moet per serie .. de data reformatten
-        //     .data(function(d,i) { return format(d,i); })
-        //     .enter()
-        //     .append("path")
-        //     .attr("fill", "#ccc")
-        //     .attr('class', 'flow');
+        svg.dateLabels = svg.seriesEnter.selectAll(".dateLabel")
+            .data(function(d) { return d; });
 
-
-
-        svg.dateLabels = svg.series.selectAll(".dateLabel")
-            .data(function(d) { return d; })
+        svg.dateLabelsEnter = svg.dateLabels
             .enter()
             .append('text')
             .attr('class','dateLabel small-label')
@@ -192,33 +133,23 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .duration(500)
             .attr('fill-opacity', 1);
 
+        svg.dateLabels
+            .merge(svg.dateLabelsEnter)
+            .text(function(d) {
 
+                return new Date(d.data['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
+            })
+            .attr('transform', function(d) {
 
-            svg.dateLabels
-                .merge(svg.dateLabels)
-                .text(function(d) {
-
-                    return new Date(d.data['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
-                })
-                .attr('transform', function(d) {
-
-                        xOffset = barWidth / 2;
-
-                        return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
-                            dimensions.height
-                            + ')';
-                })
-                .attr('fill-opacity', 0)
-                .transition()
-                .delay(500)
-                .duration(500)
-                .attr('fill-opacity', 1);
-
-
-
-        //
-        // svg.connection
-        //     .attr("d", area);
+                return 'translate(' + (scales.xBand(d.data[config.xParameter]) + (barWidth / 2))  + ',' +
+                    dimensions.height
+                    + ')';
+            })
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('fill-opacity', 1);
 
     }
 
