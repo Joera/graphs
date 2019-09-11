@@ -37,7 +37,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .data(features)
             .enter()
             .append("text")
-            .attr("class","value")
+            .attr("class","value small-label")
             .attr("x", function(d) {
                 return path.centroid(d)[0];
             })
