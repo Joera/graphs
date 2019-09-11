@@ -42,7 +42,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                 return path.centroid(d)[0];
 
                 if (sluggify(d.properties.gemeentenaam) === 'delfzijl') {
-                    return path.centroid(d)[0] + 20;
+                    return path.centroid(d)[0] + 40;
                 } else {
                     return path.centroid(d)[0];
                 }
