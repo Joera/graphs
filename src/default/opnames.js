@@ -76,7 +76,7 @@ var opnames = function(element) {
             // new scales mean new axis
 
             chartAxis.redrawXTimeAxis(dimensions,scales,axes,false);
-            chartAxis.redrawYAxis(scales,axes);
+            chartAxis.redrawYAxisStacked(scales,axes);
             // redraw data
             chartStackedBars.redraw(dimensions,scales);
 

@@ -55,6 +55,18 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
+    let redrawYAxisStacked = function redrawYAxisStacked(scales,axes) {
+
+        axes.yLinear = d3.axisLeft(scales.yStacked);
+
+        axes.yLinear
+            .ticks(5);
+
+        svg.yAxis
+            .call(axes.yLinear);
+
+    }
+
     let drawInputYAxis = function drawInputYAxis(dimensions) {
 
         svg.yAxis = svg.layers.axes.append("g")
