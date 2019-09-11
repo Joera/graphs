@@ -7,6 +7,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         dataArray = data;
 
+        console.log(stackedData);
+
 
 /////////////////////////
 
