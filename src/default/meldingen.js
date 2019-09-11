@@ -56,10 +56,10 @@ var meldingen = function(element) {
         // remove data entry from wednesday
        let data = json.reverse();
 
-        functions.stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuwe_meldingen'].indexOf(key) > -1));
-
-        let stackedData = functions.stack(data);
+        // functions.stack = d3.stack()
+        //     .keys(Object.keys(data[0]).filter(key => ['meldingen','nieuwe_meldingen'].indexOf(key) > -1));
+        //
+        // let stackedData = functions.stack(data);
 
         function redraw() {
             // on redraw chart gets new dimensions
@@ -77,7 +77,7 @@ var meldingen = function(element) {
         }
 
         scales = chartScales.set(data);
-        chartBarsIncrease.draw(data,stackedData,colours);
+        chartBarsIncrease.draw(data,colours);
       //  chartLegend.drawDefault(dimensions);
         // further drawing happens in function that can be repeated.
         redraw();

@@ -2,7 +2,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let dataArray;
 
-    let draw = function draw(data,stackedData,colours) {
+    let draw = function draw(data,colours) {
 
 
         dataArray = data;
@@ -58,7 +58,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie")
-            .data(stackedData)
+            .data(data)
             .enter().append("g")
             .attr("class", (d,i) => {
 
