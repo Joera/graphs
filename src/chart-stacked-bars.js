@@ -57,11 +57,15 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         // }
 
 
+        svg.defs = svg.layers.data.append("defs").append("clipPath");
 
         // series corresponds to provenance - the columns in the csv table//
         svg.series = svg.layers.data.selectAll(".serie")
-            .data(stackedData)
-            .enter().append("g")
+            .data(stackedData);
+
+        svg.series.exit().remove();
+
+        svg.series.enter().append("g")
             .attr("class", (d,i) => {
 
                 if (i === 0 || !!(i && !(i%2))) {
@@ -71,7 +75,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 }
             });
 
-        svg.series.exit().remove();
+
 
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
@@ -115,6 +119,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     }
 
+
+
+
     let redraw = function redraw(dimensions,scales) {
 
         let barWidth = 60; // scales.xBand.bandwidth() ||
@@ -150,7 +157,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         //     .y1((d) => { return scales.yBlocks(d.y); });
         //
 
-        svg.layers.data.append("defs").append("clipPath")
+        svg.defs
             .attr("id", "clip")
             .append("rect")
             .attr("width", dimensions.width)
