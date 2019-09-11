@@ -9,8 +9,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.bar = svg.layers.data.selectAll("rect")
             .data(data)
             .enter().append("rect")
-            .attr("class", "bar")
-            .style("fill",colours[0])
+            .attr("class", "bar " + colours[0])
             ;
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
@@ -87,13 +86,14 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 if (config.xScale === 'time') {
 
-                    return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
+                    return 'translate(' + (scales.xTime(new Date(d[config.xParameter])) + xOffset)  + ',' +
+                    return 'translate(' + (scales.xTime(new Date(d[config.xParameter])) + xOffset)  + ',' +
                         (scales.yLinear(d[config.yParameter]) - yOffset)
                         + ')';
 
                 } else {
 
-                    return 'translate(' + (scales.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
+                    return 'translate(' + (scales.xBand(d[config.xParameter]) + ( barWidth / 2)) + ',' +
                         (scales.yLinear(d[config.yParameter]) - yOffset)
                         + ')';
                 }
