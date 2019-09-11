@@ -10,7 +10,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("class", "bar")
             ;
 
-        svg.barLabels = svg.series.selectAll(".barLabel")
+        svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data)
             .enter()
             .append('text')
@@ -22,7 +22,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         ;
 
-        svg.dateLabels = svg.series.selectAll(".dateLabel")
+        svg.dateLabels = svg.layers.data.selectAll(".dateLabel")
             .data(data)
             .enter()
             .append('text')
