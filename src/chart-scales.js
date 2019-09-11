@@ -11,12 +11,17 @@ let ChartScales = function ChartScales(config,dimensions,scales) {
             ]);
 
         scales.yLinear = d3.scaleLinear()
-            // .range([dimensions.height, config.margin.top + config.padding.top])
-            // .domain([0,d3.max(data, d => d[config.yParameter])]).nice();
             .range([(config.fixedHeight || dimensions.height), 0])
             .domain([
                 config.minValue,
                 config.maxValue || d3.max(data, d => d[config.yParameter])
+            ]).nice();
+
+        scales.yStacked = d3.scaleLinear()
+            .range([(config.fixedHeight || dimensions.height), 0])
+            .domain([
+                config.minValue,
+                config.maxValue || d3.max(data, d => console.log(d); d[config.yParameter])
             ]).nice();
 
         scales.xBand = d3.scaleBand()
