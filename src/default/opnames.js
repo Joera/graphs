@@ -57,12 +57,14 @@ var opnames = function(element) {
         // remove data entry from wednesday
         let data = json.slice(1).reverse();
 
-        functions.stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(key => ['opnames','nieuwe_opnames'].indexOf(key) > -1));
+        let propertyArray = ['opnames','nieuwe_opnames'];
 
-        let stackedData = functions.stack(data);
+        function filterData(array) {
 
-        console.log(stackedData);
+            functions.stack = d3.stack()
+                .keys(Object.keys(data[0]).filter(key => array.indexOf(key) > -1));
+            return functions.stack(data);
+        }
 
         function redraw() {
             // on redraw chart gets new dimensions
@@ -79,11 +81,17 @@ var opnames = function(element) {
 
         }
 
-        scales = chartScales.set(data);
-        chartStackedBars.draw(data,stackedData,colours);
-        //  chartLegend.drawDefault(dimensions);
-        // further drawing happens in function that can be repeated.
-        redraw();
+        function update(propertyArray) {
+
+            let stackedData = filterData(propertyArray);
+            scales = chartScales.set(data);
+            chartStackedBars.draw(data,stackedData,colours);
+            //  chartLegend.drawDefault(dimensions);
+            // further drawing happens in function that can be repeated.
+            redraw();
+        }
+
+        update(propertyArray);
         // for example on window resize
         window.addEventListener("resize", redraw, false);
 
