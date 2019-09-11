@@ -15,6 +15,8 @@ var gemeentes = function(element) {
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
+    console.log(dimensions);
+
     let chartSVG = ChartSVG(element,config,dimensions,svg);
 
     dimensions = chartDimensions.get(dimensions);
