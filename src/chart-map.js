@@ -27,8 +27,6 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .enter()
             .append("path")
             .attr("class", function (d, i) {
-
-                console.log(sluggify(d.properties.gemeentenaam));
                 return sluggify(d.properties.gemeentenaam);
             })
             .attr("d", path)
