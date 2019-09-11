@@ -36,6 +36,8 @@ var gemeentes = function(element) {
 
             features.forEach( (feature) => {
 
+                console.log(json);
+
                 let gemeenteData = json.find( (g) => {
                     return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
                 });
