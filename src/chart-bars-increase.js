@@ -80,18 +80,18 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 xOffset = dimensions.width / (2 * dataArray.length);
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
-                yOffset = ((scales.yLinear(d[1]) - scales.yLinear(start)) / 2) - 11;
+                yOffset = ((scales.yLinear(d[config.yParameter]) - scales.yLinear(start)) / 2) - 11;
 
                 if (config.xScale === 'time') {
 
                     return 'translate(' + (scales.xTime(new Date(d.data[config.xParameter])) + xOffset)  + ',' +
-                        (scales.yLinear(d[1]) - yOffset)
+                        (scales.yLinear(d[config.yParameter]) - yOffset)
                         + ')';
 
                 } else {
 
                     return 'translate(' + (scales.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
-                        (scales.yLinear(d[1]) - yOffset)
+                        (scales.yLinear(d[config.yParameter]) - yOffset)
                         + ')';
                 }
             })
@@ -107,13 +107,13 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 .merge(svg.dateLabels)
                 .text(function(d) {
 
-                    return new Date(d.data['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
+                    return new Date(d['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
                 })
                 .attr('transform', function(d) {
 
                         xOffset = barWidth / 2;
 
-                        return 'translate(' + (scales.xBand(d.data[config.xParameter]) + xOffset)  + ',' +
+                        return 'translate(' + (scales.xBand(d[config.xParameter]) + xOffset)  + ',' +
                             dimensions.height
                             + ')';
                 })
