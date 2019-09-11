@@ -71,6 +71,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 }
             });
 
+        svg.series.exit().remove();
+
         svg.bar = svg.series.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect")
