@@ -52,15 +52,20 @@ let ChartObjects = function ChartObjects() {
         }
     }
 
-    let scales = function scales() {
+    let xScale = function xScale() {
 
         return {
             xTime : null,
+        }
+    }
+
+    let yScale = function yScale() {
+
+        return {
             yLinear: null,
             yLinearInput: null,
             yInputLinearReverse: null
         }
-
     }
 
     let axes = function axis() {
@@ -88,7 +93,8 @@ let ChartObjects = function ChartObjects() {
         config : config,
         dimensions : dimensions,
         svg : svg,
-        scales : scales,
+        xScale : xScale,
+        yScale : yScale,
         axes : axes,
         functions : functions
 

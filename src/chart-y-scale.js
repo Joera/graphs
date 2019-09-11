@@ -1,4 +1,4 @@
-let ChartScales = function ChartScales(config,dimensions,scales) {
+let ChartYScale = function ChartYScale(config,dimensions,scales) {
 
     let set = function set(data) {
 

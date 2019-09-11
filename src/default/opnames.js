@@ -4,7 +4,8 @@ var opnames = function(element) {
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
     let svg = chartObjects.svg();
-    let scales = chartObjects.scales();
+    let xScale = chartObjects.xScale();
+    let yScale = chartObjects.yScale();
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
@@ -39,7 +40,8 @@ var opnames = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartScales = ChartScales(config,dimensions,scales);
+    let chartXScale = ChartXScale(config,dimensions,scales);
+    let chartYScale = ChartYScale(config,dimensions,scales);
     let chartAxis = ChartAxis(config,svg);
     let chartStackedBars = ChartStackedBars(config,svg);
     let chartLegend = ChartLegend(config,svg);
@@ -72,7 +74,8 @@ var opnames = function(element) {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
             // new dimensions mean new scales
-            scales = chartScales.reset(dimensions,scales);
+            xScale = chartXScale.reset(dimensions,scales);
+            yScale = chartYScale.reset(dimensions,scales);
             // new scales mean new axis
 
             chartAxis.redrawXTimeAxis(dimensions,scales,axes,false);
@@ -85,7 +88,8 @@ var opnames = function(element) {
         function update(propertyArray) {
 
             let stackedData = filterData(propertyArray);
-            scales = chartScales.set(stackedData);
+            xScale = chartXScale.set(data);
+            yScale = chartYScale.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
             //  chartLegend.drawDefault(dimensions);
             // further drawing happens in function that can be repeated.
