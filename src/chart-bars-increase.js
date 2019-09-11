@@ -115,7 +115,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .merge(svg.diffLabels)
             .text(function(d) {
 
-                return thousands(d[config.yParameter]);
+                return thousands(d[config['nieuwe_meldingen']]);
             })
             .attr('transform', function(d) {
 
@@ -124,7 +124,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 yOffset = .5 * (dimensions.height - scales.yLinear(d['nieuwe_meldingen'] + config.minValue)) - 11;
 
                 return 'translate(' + (scales.xBand(d[config.xParameter]) - 20) + ',' +
-                    (scales.yLinear(d[config.yParameter]) - yOffset)
+                    (scales.yLinear(d[config.yParameter]) + yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
