@@ -35,7 +35,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("class", "bar")
             ;
 
-        svg.barLabels = svg.seriesEnter.selectAll(".barLabel")
+        svg.barLabels = svg.seriesEnter.merge(svg.series).selectAll(".barLabel")
             .data(function(d) { return d; });
 
         svg.barLabels.exit().remove();
@@ -76,8 +76,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("width", dimensions.width)
             .attr("height", dimensions.height);
 
-        svg.series = svg.series
-            .merge(svg.seriesEnter);
+        svg.series = svg.seriesEnter
+            .merge(svg.series);
 
         svg.barMerged = svg.barEnter
             .merge(svg.bar)
