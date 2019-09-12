@@ -18,11 +18,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.seriesEnter = svg.series
             .enter()
-            .append("g")
-            .attr("class", (d,i) => {
-                
-                return "stackGroup " + colours[d.key];
-            });
+            .append("g");
+
 
         svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
             .data(function(d) { return d; });
@@ -82,7 +79,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("height", dimensions.height);
 
         svg.series = svg.seriesEnter
-            .merge(svg.series);
+            .merge(svg.series)
+            .attr("class", (d,i) => {
+                return "stackGroup " + colours[d.key];
+            });
 
         svg.barMerged = svg.barEnter
             .merge(svg.bar)
