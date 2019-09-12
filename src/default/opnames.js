@@ -127,9 +127,11 @@ var opnames = function(element) {
 
         for (let radio of radios) {
 
-            increments = !increments;
-            console.log(increments);
-            update(propertyArray,increments)
+            radio.addEventListener( 'click', () => {
+                increments = !increments;
+                console.log(increments);
+                update(propertyArray,increments)
+            }, false)
         }
     });
 }
