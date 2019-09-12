@@ -81,6 +81,7 @@ var opnames = function(element) {
             }
 
             console.log(array);
+            console.log(data[0]);
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[0]).filter(key => array.indexOf(key) > -1));
