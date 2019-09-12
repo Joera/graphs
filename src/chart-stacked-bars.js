@@ -50,7 +50,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         ;
 
         svg.dateLabels = svg.layers.axes.selectAll(".dateLabel")
-            .data(function(d) { return d; });
+            .data(data);
 
         svg.dateLabelsEnter = svg.dateLabels
             .enter()
