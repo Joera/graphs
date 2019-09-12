@@ -100,7 +100,7 @@ var opnames = function(element) {
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
 
-            chartAxis.redrawXBandAxis(dimensions,xScale,axes,false);
+            chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
             chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
             chartStackedBars.redraw(dimensions,xScale,yScale,colours);
