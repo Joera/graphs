@@ -31,7 +31,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .append("rect")
             .attr("class", "bar")
             .attr("height", function(d) {
-                return dimension.height
+                return dimensions.height
             })
             ;
 
