@@ -2,7 +2,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let dataArray;
 
-    let draw = function draw(data,colours) {
+    let draw = function draw(data,colours,property) {
 
         dataArray = data;
 
@@ -16,12 +16,13 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .append("rect")
             .attr("class", (d,i) => {
 
+            if (property === 'aos_meldingen') {
 
-                console.log(d);
+                return "bar orange";
 
-                return "bar " + colours[0]
-            })
-            ;
+            } else {
+                return "bar green";
+            }
 
         svg.difference = svg.layers.data.selectAll(".diff")
             .data(data)

@@ -80,7 +80,7 @@ var meldingen = function(element) {
 
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(data,property);
-            chartBarsIncrease.draw(data,colours);
+            chartBarsIncrease.draw(data,colours,property);
             redraw(property);
         }
 
