@@ -60,6 +60,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr('dx', '0px')
             .attr('dy', '52px')
             .style("text-anchor", "middle")
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('fill-opacity', 1)
 
         ;
 
@@ -137,11 +142,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     dimensions.height
                     + ')';
             })
-            .attr('fill-opacity', 0)
-            .transition()
-            .delay(500)
-            .duration(500)
-            .attr('fill-opacity', 1);
+            ,
 
     }
 
