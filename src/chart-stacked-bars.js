@@ -84,14 +84,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 if(config.xScale === 'time') {
                     return xScale.xTime(new Date(d.data[config.xParameter]));
                 } else {
-                    return xScale.xBand(d.data[config.xParameter]);
+                    return xScale.band(d.data[config.xParameter]);
                 }
             })
             .attr("width", function(d) {
                 if(config.xScale === 'time') {
                     return dimensions.width / dataArray.length;
                 } else {
-                    return barWidth; //scales.xBand.bandwidth();
+                    return barWidth; //scales.band.bandwidth();
                 }
             })
             .attr("clip-path", "url(#clip)")
@@ -115,7 +115,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
                 yOffset = ((yScale.stacked(d[1]) - yScale.stacked(start)) / 2) - 11;
 
-                return 'translate(' + (xScale.xBand(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
+                return 'translate(' + (xScale.band(d.data[config.xParameter]) + ( barWidth / 2)) + ',' +
                     (yScale.stacked(d[1]) - yOffset)
                     + ')';
             })
@@ -133,7 +133,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr('transform', function(d) {
 
-                return 'translate(' + (xScale.xBand(d.data[config.xParameter]) + (barWidth / 2))  + ',' +
+                return 'translate(' + (xScale.band(d.data[config.xParameter]) + (barWidth / 2))  + ',' +
                     dimensions.height
                     + ')';
             })
