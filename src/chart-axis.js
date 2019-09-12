@@ -17,7 +17,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
 
-        axes.xTime = d3.axisBottom(scales.xTime);
+        axes.xTime = d3.axisBottom(scales.time);
 
 
         if(ticks) {
