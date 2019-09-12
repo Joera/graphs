@@ -73,6 +73,7 @@ var opnames = function(element) {
             if(increments) {
                 for (let prop of array) {
 
+                    console.log('hi');
                     if(prop.slice(0,7) !== 'nieuwe_') { }
 
                     prop = 'nieuwe_' + prop;
