@@ -35,7 +35,11 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         ;
 
         svg.diffLabels = svg.layers.data.selectAll(".diffLabel")
-            .data(data)
+            .data(data);
+
+        svg.diffLabels.exit().remove();
+
+        svg.diffLabelsEnter = svg.diffLabels
             .enter()
             .append('text')
             .attr('class','diffLabel label blue')
@@ -128,9 +132,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.difference.exit().remove();
 
         svg.diffLabels
-            .merge(svg.diffLabels)
+            .merge(svg.diffLabelsEnter)
             .text(function(d) {
-
+s
                 return '+' + thousands(d['nieuwe_schademeldingen']);
             })
             .attr('transform', function(d) {
