@@ -56,7 +56,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale) {
+    let redraw = function redraw(dimensions,xScale,yScale,property) {
 
         let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
@@ -71,14 +71,14 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("y", function(d) { return yScale.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { return yScale.yLinear(d[property]); })
             .attr("height", function(d) {
 
-                return dimensions.height - yScale.yLinear(d[config.yParameter]);
+                return dimensions.height - yScale.yLinear(d[property]);
             })
             .attr("x", function(d) {
 
-                return xScale.xBand(d[config.xParameter]);
+                return xScale.xBand(d[property]);
             })
             .attr("width", function(d) {
 
@@ -91,14 +91,14 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.difference
             .merge(svg.difference)
-            .attr("y", function(d) { return yScale.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { return yScale.yLinear(d[property]); })
             .attr("height", function(d) {
 
                 return dimensions.height - yScale.yLinear(d['nieuwe_meldingen'] + config.minValue);
             })
             .attr("x", function(d) {
 
-                return xScale.xBand(d[config.xParameter]) - 14;
+                return xScale.xBand(d[property]) - 14;
             })
             .attr("width", function(d) {
 
@@ -122,8 +122,8 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 yOffset = .5 * (dimensions.height - yScale.yLinear(d['nieuwe_meldingen'] + config.minValue)) + 11;
 
-                return 'translate(' + (xScale.xBand(d[config.xParameter]) - 20) + ',' +
-                    (yScale.yLinear(d[config.yParameter]) + yOffset)
+                return 'translate(' + (xScale.xBand(d[property]) - 20) + ',' +
+                    (yScale.yLinear(d[property]) + yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
@@ -136,17 +136,17 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .merge(svg.barLabels)
             .text(function(d) {
 
-                return thousands(d[config.yParameter]);
+                return thousands(d[property]);
             })
             .attr('transform', function(d) {
 
                 xOffset = dimensions.width / (2 * dataArray.length);
                 let start = (config.minValue) ? config.minValue : 0;
 
-                yOffset = ((yScale.yLinear(d[config.yParameter]) - yScale.yLinear(start)) / 2) - 11;
+                yOffset = ((yScale.yLinear(d[property]) - yScale.yLinear(start)) / 2) - 11;
 
-                return 'translate(' + (xScale.xBand(d[config.xParameter]) + ( barWidth / 2)) + ',' +
-                    (yScale.yLinear(d[config.yParameter]) - yOffset)
+                return 'translate(' + (xScale.xBand(d[property]) + ( barWidth / 2)) + ',' +
+                    (yScale.yLinear(d[property]) - yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
@@ -154,8 +154,6 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .delay(500)
             .duration(500)
             .attr('fill-opacity', 1);
-
-
 
             svg.dateLabels
                 .merge(svg.dateLabels)
