@@ -33,6 +33,10 @@
     flex-direction: row;
     justify-content: flex-end;
 
+    @media (min-width: $breakpoint-sm) {
+      flex-direction: column;
+    }
+
       li {
         border-radius: 6px;
         border: 1px solid black;
