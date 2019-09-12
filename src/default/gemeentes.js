@@ -69,7 +69,7 @@ var gemeentes = function(element) {
 
                 radio.addEventListener( 'click', () => {
 
-                    redraw(option.value);
+                    redraw(radio.value);
 
                 },false)
             }
