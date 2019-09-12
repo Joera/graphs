@@ -142,7 +142,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     dimensions.height
                     + ')';
             })
-            ,
+            ;
 
     }
 
