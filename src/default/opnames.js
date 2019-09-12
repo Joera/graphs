@@ -72,10 +72,10 @@ var opnames = function(element) {
 
             if(increments) {
                 for (let i = 0; i < array.length; i++) {
-                    array[i] = (prop.slice(0,6) ? 'nieuwe_' + array[i] : array[i];
+                    array[i] = (prop.slice(0,6)) ? 'nieuwe_' + array[i] : array[i];
                 }
             } else {
-                
+
             }
 
             console.log(array);
