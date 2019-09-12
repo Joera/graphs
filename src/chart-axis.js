@@ -11,7 +11,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.xBand = d3.axisBottom(xScale.band);
 
         svg.xAxis
-            .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.padding.top) + ")")  //
+            .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
             .call(axes.xBand);
     }
 
