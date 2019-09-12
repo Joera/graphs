@@ -39,7 +39,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         svg.yAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
-            .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + (config.margin.top + config.padding.top) + ")");
+            .attr("transform", "translate(" + parseInt(config.margin.left) + "," + (config.margin.top + config.padding.top) + ")");
     }
 
     let redrawYAxis = function redrawYAxis(yScale,axes) {
@@ -66,43 +66,43 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
-    let drawInputYAxis = function drawInputYAxis(dimensions) {
-
-        svg.yAxis = svg.layers.axes.append("g")
-            .attr('class', 'y-axis')
-            .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + parseInt(config.margin.top + config.padding.top) + ")");
-    }
-
-    let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
-
-        axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
-
-        axes.yInputLinear
-            .ticks(4);
-
-        svg.yAxis
-            .call(axes.yInputLinear);
-
-    }
-
-    let drawBlocksYAxis = function drawBlocksYAxis(dimensions) {
-
-        svg.yAxis = svg.layers.axes.append("g")
-            .attr('class', 'y-axis')
-            .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left + dimensions.width) + "," + parseInt(config.margin.top + config.padding.top) + ")");
-    }
-
-    let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
-
-        axes.yBlocks = d3.axisRight(scales.yBlocks);
-
-        axes.yBlocks
-            .ticks(config.maxValue / 5000);
-
-        svg.yAxis
-            .call(axes.yBlocks);
-
-    }
+    // let drawInputYAxis = function drawInputYAxis(dimensions) {
+    //
+    //     svg.yAxis = svg.layers.axes.append("g")
+    //         .attr('class', 'y-axis')
+    //         .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + parseInt(config.margin.top + config.padding.top) + ")");
+    // }
+    //
+    // let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
+    //
+    //     axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
+    //
+    //     axes.yInputLinear
+    //         .ticks(4);
+    //
+    //     svg.yAxis
+    //         .call(axes.yInputLinear);
+    //
+    // }
+    //
+    // let drawBlocksYAxis = function drawBlocksYAxis(dimensions) {
+    //
+    //     svg.yAxis = svg.layers.axes.append("g")
+    //         .attr('class', 'y-axis')
+    //         .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left + dimensions.width) + "," + parseInt(config.margin.top + config.padding.top) + ")");
+    // }
+    //
+    // let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
+    //
+    //     axes.yBlocks = d3.axisRight(scales.yBlocks);
+    //
+    //     axes.yBlocks
+    //         .ticks(config.maxValue / 5000);
+    //
+    //     svg.yAxis
+    //         .call(axes.yBlocks);
+    //
+    // }
 
     return {
         drawXAxis : drawXAxis,
