@@ -8,8 +8,14 @@
   margin: 1.5rem 0;
   width: calc(100%);
 
-  @media (min-width: $breakpoint-md) {
+
+  @media (min-width: $breakpoint-sm) {
     flex-direction: row;
+
+  }
+
+  @media (min-width: $breakpoint-md) {
+
     width: calc(100% - 12rem);
   }
 
