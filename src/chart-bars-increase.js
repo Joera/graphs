@@ -16,14 +16,12 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .append("rect")
             .attr("class", "bar");
 
-        svg.difference = svg.layers.data.selectAll(".diff")
-            .data(data)
-            .enter().append("rect")
-            .attr("class", "diff blue")
-        ;
-
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
-            .data(data)
+            .data(data);
+
+        svg.barLabels.exit().remove();
+
+        svg.barLabelsEnter = svg.barLabels
             .enter()
             .append('text')
             .attr('class','barLabel small-label white')
@@ -33,6 +31,14 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .style("text-anchor", "middle")
 
         ;
+
+        svg.difference = svg.layers.data.selectAll(".diff")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "diff blue")
+        ;
+
+
 
         svg.diffLabels = svg.layers.data.selectAll(".diffLabel")
             .data(data);
@@ -104,6 +110,28 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 }
             });
 
+        svg.barLabels
+            .merge(svg.barLabelsEnter)
+            .text(function(d) {
+
+                return thousands(d[property]);
+            })
+            .attr('fill-opacity', 0)
+            .transition()
+            .delay(500)
+            .duration(500)
+            .attr('transform', function(d) {
+
+                xOffset = dimensions.width / (2 * dataArray.length);
+
+                yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
+
+                return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
+                    (yScale.linear(d[property]) - yOffset)
+                    + ')';
+            })
+            .attr('fill-opacity', 1);
+
 
 
         svg.difference
@@ -151,27 +179,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .duration(500)
             .attr('fill-opacity', 1);
 
-        svg.barLabels
-            .merge(svg.barLabels)
-            .text(function(d) {
 
-                return thousands(d[property]);
-            })
-            .attr('transform', function(d) {
-
-                xOffset = dimensions.width / (2 * dataArray.length);
-
-                yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
-
-                return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
-                    (yScale.linear(d[property]) - yOffset)
-                    + ')';
-            })
-            .attr('fill-opacity', 0)
-            .transition()
-            .delay(500)
-            .duration(500)
-            .attr('fill-opacity', 1);
 
             svg.dateLabels
                 .merge(svg.dateLabels)
