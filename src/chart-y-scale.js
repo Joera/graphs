@@ -3,9 +3,15 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
     let set = function set(data,property) {
 
         let endDate = new Date();
+        let minValue;
 
         // kun je dit meegeven als conditional
-        let minValue = 0; //(d3.max(data, d => d[property]) > 20000) ? config.minValue : 900;
+
+        if(config.minValue) {
+            minValue = (d3.max(data, d => d[property]) > 20000) ? config.minValue : 900;
+        } else {
+            minValue = 0; //
+        }
 
         scale.linear = d3.scaleLinear()
             .range([(config.fixedHeight || dimensions.height), 0])
