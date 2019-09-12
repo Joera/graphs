@@ -33,12 +33,14 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         ;
 
         svg.difference = svg.layers.data.selectAll(".diff")
-            .data(data)
+            .data(data);
+
+        svg.difference.exit().remove()
+
+        svg.differenceEnter = svg.difference
             .enter().append("rect")
             .attr("class", "diff blue")
         ;
-
-
 
         svg.diffLabels = svg.layers.data.selectAll(".diffLabel")
             .data(data);
@@ -117,6 +119,16 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 return thousands(d[property]);
             })
             .attr('fill-opacity', 0)
+            .attr('transform', function(d) {
+
+                xOffset = dimensions.width / (2 * dataArray.length);
+
+                yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
+
+                return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
+                    dimensions.height
+                    + ')';
+            })
             .transition()
             .delay(500)
             .duration(500)
@@ -135,7 +147,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
 
         svg.difference
-            .merge(svg.difference)
+            .merge(svg.differenceEnter)
             .attr("y", function(d) { return yScale.linear(d[property]); })
             .attr("height",0)
             .attr("x", function(d) {
