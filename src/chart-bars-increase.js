@@ -62,6 +62,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         let yOffset;
         let xOffset;
 
+        let minValue = (d3.max(dataArray, d => d[property]) > 20000) ? config.minValue : 0;
 
         svg.layers.data.append("defs").append("clipPath")
             .attr("id", "clip")
@@ -94,7 +95,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("y", function(d) { return yScale.linear(d[property]); })
             .attr("height", function(d) {
 
-                return dimensions.height - yScale.linear(d['nieuwe_meldingen'] + config.minValue);
+                return dimensions.height - yScale.linear(d['nieuwe_meldingen'] + minValue);
             })
             .attr("x", function(d) {
 
@@ -118,9 +119,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr('transform', function(d) {
 
-                let start = (config.minValue) ? config.minValue : 0;
-
-                yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_meldingen'] + config.minValue)) + 11;
+                yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_meldingen'] + minValue)) + 11;
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) - 20) + ',' +
                     (yScale.linear(d[property]) + yOffset)
@@ -141,9 +140,8 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr('transform', function(d) {
 
                 xOffset = dimensions.width / (2 * dataArray.length);
-                let start = (config.minValue) ? config.minValue : 0;
 
-                yOffset = ((yScale.linear(d[property]) - yScale.linear(start)) / 2) - 11;
+                yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
                     (yScale.linear(d[property]) - yOffset)

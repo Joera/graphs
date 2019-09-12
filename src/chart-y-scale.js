@@ -4,17 +4,20 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         let endDate = new Date();
 
+        // kun je dit meegeven als conditional
+        let minValue = (d3.max(data, d => d[property]) > 20000) ? config.minValue : 0;
+
         scale.linear = d3.scaleLinear()
             .range([(config.fixedHeight || dimensions.height), 0])
             .domain([
-                config.minValue,
+                minValue,
                 config.maxValue || d3.max(data, d => d[property])
             ]).nice();
 
         scale.stacked = d3.scaleLinear()
             .range([(config.fixedHeight || dimensions.height), 0])
             .domain([
-                config.minValue,
+                minValue,
                 config.maxValue || d3.max(data, function (d) { if (d[d.length - 1] && d[d.length - 1][1]) { return d[d.length - 1][1]; }} )
             ]).nice();
 
