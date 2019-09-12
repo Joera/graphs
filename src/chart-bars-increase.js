@@ -78,7 +78,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("x", function(d) {
 
-                return xScale.xBand(d[property]);
+                return xScale.band(d[config.xParameter]);
             })
             .attr("width", function(d) {
 
@@ -98,7 +98,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("x", function(d) {
 
-                return xScale.xBand(d[property]) - 14;
+                return xScale.band(d[config.xParameter]) - 14;
             })
             .attr("width", function(d) {
 
@@ -122,7 +122,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_meldingen'] + config.minValue)) + 11;
 
-                return 'translate(' + (xScale.xBand(d[property]) - 20) + ',' +
+                return 'translate(' + (xScale.band(d[config.xParameter]) - 20) + ',' +
                     (yScale.linear(d[property]) + yOffset)
                     + ')';
             })
@@ -145,7 +145,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 yOffset = ((yScale.linear(d[property]) - yScale.linear(start)) / 2) - 11;
 
-                return 'translate(' + (xScale.xBand(d[property]) + ( barWidth / 2)) + ',' +
+                return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
                     (yScale.linear(d[property]) - yOffset)
                     + ')';
             })
@@ -165,7 +165,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                         xOffset = barWidth / 2;
 
-                        return 'translate(' + (xScale.xBand(d[config.xParameter]) + xOffset)  + ',' +
+                        return 'translate(' + (xScale.band(d[config.xParameter]) + xOffset)  + ',' +
                             dimensions.height
                             + ')';
                 })

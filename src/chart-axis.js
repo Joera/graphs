@@ -6,9 +6,9 @@ let ChartAxis = function ChartAxis(config,svg) {
             .attr('class', 'x-axis');
     }
 
-    let redrawXBandAxis = function redrawXAxis(dimensions,scales,axes) {
+    let redrawXBandAxis = function redrawXAxis(dimensions,xScale,axes) {
 
-        axes.xBand = d3.axisBottom(scales.xBand);
+        axes.xBand = d3.axisBottom(xScale.band);
 
         svg.xAxis
             .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.padding.top) + ")")  //
