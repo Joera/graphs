@@ -91,7 +91,7 @@ var meldingen = function(element) {
 
         for (let radio of radios) {
             radio.addEventListener( 'click', () => {
-                redraw(radio.value);
+                update(radio.value);
             },false)
         }
 
