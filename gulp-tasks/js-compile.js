@@ -17,6 +17,7 @@ module.exports = function() {
         var graph = gulp.src([
             './src/_polyfill.js',
             './src/_sluggify.js',
+            './src/_colours.js',
             './src/_formats.js',
             './src/_helpers.js',
 
