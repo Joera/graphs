@@ -72,10 +72,10 @@ var meldingen = function(element) {
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
 
-            chartAxis.redrawXTimeAxis(dimensions,scales,axes,false);
-            chartAxis.redrawYAxis(scales,axes);
+            chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
+            chartAxis.redrawYAxis(yScale,axes);
             // redraw data
-            chartBarsIncrease.redraw(dimensions,scales);
+            chartBarsIncrease.redraw(dimensions,xScale,yScale);
 
         }
 
