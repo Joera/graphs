@@ -76,7 +76,7 @@ var opnames = function(element) {
                     console.log('hi');
                   //  if(prop.slice(0,7) !== 'nieuwe_') { }
 
-                    array[i] = 'nieuwe_' + prop;
+                    array[i] = 'nieuwe_' + array[i];
                 }
             }
 
