@@ -5,7 +5,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         let endDate = new Date();
 
         // kun je dit meegeven als conditional
-        let minValue = (d3.max(data, d => d[property]) > 20000) ? config.minValue : 800;
+        let minValue = (d3.max(data, d => d[property]) > 20000) ? config.minValue : 900;
 
         scale.linear = d3.scaleLinear()
             .range([(config.fixedHeight || dimensions.height), 0])
