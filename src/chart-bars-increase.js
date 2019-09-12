@@ -16,6 +16,8 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .append("rect")
             .attr("class", (d,i) => {
 
+                console.log(property);
+
                 if (property === 'aos_meldingen') {
                     return "bar orange";
 
