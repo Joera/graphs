@@ -68,7 +68,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale) {
+    let redraw = function redraw(dimensions,xScale,yScale,colours) {
 
         let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
