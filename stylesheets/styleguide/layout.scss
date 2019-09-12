@@ -21,15 +21,15 @@ main {
     align-items: center;
     justify-content: flex-start;
 
-    @media (min-width : $breakpoint-sm) {
-
-      margin: 0 0 3rem 0;
-    }
-
-    @media (min-width : $landscape-max) {
-
-      margin: 0;
-    }
+    //@media (min-width : $breakpoint-sm) {
+    //
+    //  margin: 0 0 3rem 0;
+    //}
+    //
+    //@media (min-width : $landscape-max) {
+    //
+    //  margin: 0;
+    //}
 
     h2 {
       @include uppercase();
