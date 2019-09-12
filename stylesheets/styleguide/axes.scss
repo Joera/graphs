@@ -14,3 +14,10 @@
   }
 
 }
+
+.y-axis {
+
+  .tick:last-of-type text {
+    display: none;
+  }
+}
