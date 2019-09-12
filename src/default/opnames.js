@@ -127,7 +127,8 @@ var opnames = function(element) {
 
         for (let radio of radios) {
 
-            increments = !increments
+            increments = !increments;
+            console.log(increments);
             update(propertyArray,increments)
         }
     });
