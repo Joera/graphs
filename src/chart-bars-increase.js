@@ -16,7 +16,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .append("rect")
             .attr("class", (d,i) => {
 
-                return "bar " + colours[i]
+
+                console.log(d);
+
+                return "bar " + colours[0]
             })
             ;
 
