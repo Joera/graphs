@@ -33,7 +33,7 @@
 
   div.container {
     width: calc(100vw - 2rem);
-    height: calc(100vh - 31px - 180px);
+    height: calc(100vh - 31px - 160px);
 
     @media (min-width: $breakpoint-sm) {
       width: calc(100vw - 12rem);
