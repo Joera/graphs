@@ -1,14 +1,14 @@
 let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
-    let set = function set(data) {
+    let set = function set(data,property) {
 
         let endDate = new Date();
 
-        scale.yLinear = d3.scaleLinear()
+        scale.linear = d3.scaleLinear()
             .range([(config.fixedHeight || dimensions.height), 0])
             .domain([
                 config.minValue,
-                config.maxValue || d3.max(data, d => d[config.yParameter])
+                config.maxValue || d3.max(data, d => d[property])
             ]).nice();
 
         scale.stacked = d3.scaleLinear()

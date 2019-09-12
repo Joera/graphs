@@ -71,10 +71,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("y", function(d) { return yScale.yLinear(d[property]); })
+            .attr("y", function(d) { return yScale.linear(d[property]); })
             .attr("height", function(d) {
 
-                return dimensions.height - yScale.yLinear(d[property]);
+                return dimensions.height - yScale.linear(d[property]);
             })
             .attr("x", function(d) {
 
@@ -91,10 +91,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.difference
             .merge(svg.difference)
-            .attr("y", function(d) { return yScale.yLinear(d[property]); })
+            .attr("y", function(d) { return yScale.linear(d[property]); })
             .attr("height", function(d) {
 
-                return dimensions.height - yScale.yLinear(d['nieuwe_meldingen'] + config.minValue);
+                return dimensions.height - yScale.linear(d['nieuwe_meldingen'] + config.minValue);
             })
             .attr("x", function(d) {
 
@@ -120,10 +120,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 let start = (config.minValue) ? config.minValue : 0;
 
-                yOffset = .5 * (dimensions.height - yScale.yLinear(d['nieuwe_meldingen'] + config.minValue)) + 11;
+                yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_meldingen'] + config.minValue)) + 11;
 
                 return 'translate(' + (xScale.xBand(d[property]) - 20) + ',' +
-                    (yScale.yLinear(d[property]) + yOffset)
+                    (yScale.linear(d[property]) + yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
@@ -143,10 +143,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 xOffset = dimensions.width / (2 * dataArray.length);
                 let start = (config.minValue) ? config.minValue : 0;
 
-                yOffset = ((yScale.yLinear(d[property]) - yScale.yLinear(start)) / 2) - 11;
+                yOffset = ((yScale.linear(d[property]) - yScale.linear(start)) / 2) - 11;
 
                 return 'translate(' + (xScale.xBand(d[property]) + ( barWidth / 2)) + ',' +
-                    (yScale.yLinear(d[property]) - yOffset)
+                    (yScale.linear(d[property]) - yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
