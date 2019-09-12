@@ -115,7 +115,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .duration(250)
             .attr("height", function(d) {
 
-                return dimensions.height - yScale.linear(d['nieuwe_meldingen'] + minValue);
+                return dimensions.height - yScale.linear(d['nieuwe_schademeldingen'] + minValue);
             })
         ;
 
@@ -126,11 +126,11 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .merge(svg.diffLabels)
             .text(function(d) {
 
-                return '+' + thousands(d['nieuwe_meldingen']);
+                return '+' + thousands(d['nieuwe_schademeldingen']);
             })
             .attr('transform', function(d) {
 
-                yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_meldingen'] + minValue)) + 11;
+                yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_schademeldingen'] + minValue)) + 11;
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) - 20) + ',' +
                     (yScale.linear(d[property]) + yOffset)

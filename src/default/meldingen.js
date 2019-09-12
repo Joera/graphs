@@ -84,7 +84,7 @@ var meldingen = function(element) {
             redraw(property);
         }
 
-        let property = 'meldingen';
+        let property = 'schademeldingen';
         update(property);
 
         window.addEventListener("resize", redraw, false);
