@@ -26,19 +26,19 @@
   padding-left: 1rem;
 
 
-  @media (min-width: $breakpoint-sm) {
-    width: calc(100vw - 12rem);
-    padding-left: 2rem;
-  }
+  //@media (min-width: $breakpoint-sm) {
+  //  //width: calc(100vw - 12rem);
+  //  padding-left: 2rem;
+  //}
 
   div.container {
     width: calc(100vw - 2rem);
     height: calc(100vh - 31px - 220px);
 
-    @media (min-width: $breakpoint-sm) {
-      width: calc(100vw - 12rem);
-      //height: 80vh;
-    }
+    //@media (min-width: $breakpoint-sm) {
+    //  width: calc(100vw - 12rem);
+    //  //height: 80vh;
+    //}
   }
 
   .progress-candles-container g.data path {
