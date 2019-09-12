@@ -1,6 +1,7 @@
 var opnames = function(element) {
 
     let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
+    let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -65,8 +66,16 @@ var opnames = function(element) {
         let data = json.reverse();
 
         let propertyArray = ['opnames'];
+        let increments = false;
 
-        function filterData(array) {
+        function filterData(array,increments) {
+
+            if(increments) {
+                for (let prop of array) {
+                    console.log(prop.slice(0,6));
+                    if(prop.slice(0,6) !== 'nieuwe_') { prop.prop = 'nieuwe_' + prop; }
+                }
+            }
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[0]).filter(key => array.indexOf(key) > -1));
@@ -89,9 +98,9 @@ var opnames = function(element) {
 
         }
 
-        function update(propertyArray) {
+        function update(propertyArray,increments) {
 
-            let stackedData = filterData(propertyArray);
+            let stackedData = filterData(propertyArray,increments);
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
@@ -100,7 +109,7 @@ var opnames = function(element) {
             redraw();
         }
 
-        update(propertyArray);
+        update(propertyArray,increments);
         // for example on window resize
         window.addEventListener("resize", redraw, false);
 
@@ -112,8 +121,14 @@ var opnames = function(element) {
                     let index = propertyArray.indexOf(option.value);
                     propertyArray.splice(index,1);
                 }
-                update(propertyArray);
+                update(propertyArray,increments);
             }, false)
+        }
+
+        for (let radio of radios) {
+
+            increments = !increments
+            update(propertyArray,increments)
         }
     });
 }
