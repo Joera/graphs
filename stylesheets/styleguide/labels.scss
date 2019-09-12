@@ -4,7 +4,10 @@
 
 
   &.white {
-    fill:  white;
+
+    @media (min-width: $breakpoint-sm) {
+      fill:  white;
+    }
   }
 }
 
