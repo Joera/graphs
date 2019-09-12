@@ -71,12 +71,12 @@ var opnames = function(element) {
         function filterData(array,increments) {
 
             if(increments) {
-                for (let prop of array) {
+                for (let i = 0; i < array.length; i++) {
 
                     console.log('hi');
                   //  if(prop.slice(0,7) !== 'nieuwe_') { }
 
-                    prop = 'nieuwe_'; // + prop;
+                    array[i] = 'nieuwe_' + prop;
                 }
             }
 
