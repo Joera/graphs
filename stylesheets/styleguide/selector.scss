@@ -30,11 +30,11 @@
   .properties {
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-end;
 
     @media (min-width: $breakpoint-sm) {
-      flex-direction: column;
+      flex-direction: row;
     }
 
       li {
