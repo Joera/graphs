@@ -129,7 +129,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.dateLabelsEnter)
             .text(function(d) {
 
-                return new Date(d.data['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
+                return new Date(d['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
             })
             .attr('transform', function(d) {
 
