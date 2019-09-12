@@ -19,7 +19,6 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xTime = d3.axisBottom(scales.time);
 
-
         if(ticks) {
 
             axes.xTime
