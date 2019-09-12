@@ -43,9 +43,9 @@ let ChartAxis = function ChartAxis(config,svg) {
             .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + (config.margin.top + config.padding.top) + ")");
     }
 
-    let redrawYAxis = function redrawYAxis(scales,axes) {
+    let redrawYAxis = function redrawYAxis(yScale,axes) {
 
-        axes.yLinear = d3.axisLeft(scales.yLinear);
+        axes.yLinear = d3.axisLeft(yScale.linear);
 
         axes.yLinear
             .ticks(5);
