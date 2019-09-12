@@ -56,13 +56,12 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,scales) {
+    let redraw = function redraw(dimensions,xScale,yScale) {
 
         let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
         let xOffset;
 
-        console.log(scales.xBand.bandwidth());
 
         svg.layers.data.append("defs").append("clipPath")
             .attr("id", "clip")
@@ -72,14 +71,14 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.bar
             .merge(svg.bar)
-            .attr("y", function(d) { console.log(d); return scales.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { return yScale.yLinear(d[config.yParameter]); })
             .attr("height", function(d) {
 
-                return dimensions.height - scales.yLinear(d[config.yParameter]);
+                return dimensions.height - yScale.yLinear(d[config.yParameter]);
             })
             .attr("x", function(d) {
 
-                return scales.xBand(d[config.xParameter]);
+                return xScale.xBand(d[config.xParameter]);
             })
             .attr("width", function(d) {
 
@@ -92,14 +91,14 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.difference
             .merge(svg.difference)
-            .attr("y", function(d) { return scales.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { return yScale.yLinear(d[config.yParameter]); })
             .attr("height", function(d) {
 
-                return dimensions.height - scales.yLinear(d['nieuwe_meldingen'] + config.minValue);
+                return dimensions.height - yScale.yLinear(d['nieuwe_meldingen'] + config.minValue);
             })
             .attr("x", function(d) {
 
-                return scales.xBand(d[config.xParameter]) - 14;
+                return xScale.xBand(d[config.xParameter]) - 14;
             })
             .attr("width", function(d) {
 
@@ -121,10 +120,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 let start = (config.minValue) ? config.minValue : 0;
 
-                yOffset = .5 * (dimensions.height - scales.yLinear(d['nieuwe_meldingen'] + config.minValue)) + 11;
+                yOffset = .5 * (dimensions.height - yScale.yLinear(d['nieuwe_meldingen'] + config.minValue)) + 11;
 
-                return 'translate(' + (scales.xBand(d[config.xParameter]) - 20) + ',' +
-                    (scales.yLinear(d[config.yParameter]) + yOffset)
+                return 'translate(' + (xScale.xBand(d[config.xParameter]) - 20) + ',' +
+                    (yScale.yLinear(d[config.yParameter]) + yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
@@ -144,10 +143,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 xOffset = dimensions.width / (2 * dataArray.length);
                 let start = (config.minValue) ? config.minValue : 0;
 
-                yOffset = ((scales.yLinear(d[config.yParameter]) - scales.yLinear(start)) / 2) - 11;
+                yOffset = ((yScale.yLinear(d[config.yParameter]) - yScale.yLinear(start)) / 2) - 11;
 
-                return 'translate(' + (scales.xBand(d[config.xParameter]) + ( barWidth / 2)) + ',' +
-                    (scales.yLinear(d[config.yParameter]) - yOffset)
+                return 'translate(' + (xScale.xBand(d[config.xParameter]) + ( barWidth / 2)) + ',' +
+                    (yScale.yLinear(d[config.yParameter]) - yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
@@ -168,7 +167,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                         xOffset = barWidth / 2;
 
-                        return 'translate(' + (scales.xBand(d[config.xParameter]) + xOffset)  + ',' +
+                        return 'translate(' + (xScale.xBand(d[config.xParameter]) + xOffset)  + ',' +
                             dimensions.height
                             + ')';
                 })
