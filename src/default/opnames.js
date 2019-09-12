@@ -55,7 +55,7 @@ var opnames = function(element) {
 
     d3.json(url, function(error, json) {
         if (error) throw error;
-        
+
         let data = json.reverse();
 
         let propertyArray = ['opnames'];

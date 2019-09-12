@@ -128,5 +128,9 @@ rect, .bar, .stackGroup {
     fill : $blue;
   }
 
+  &.darkblue, &.darkblue & {
+    fill : darkblue;
+  }
+
 }
 
