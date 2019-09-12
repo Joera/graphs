@@ -39,7 +39,7 @@ var opnames = function(element) {
         'opnames': 'green',
         'nul-metingen': 'blue',
         'adviesrapporten': 'orange',
-        'besluiten': 'darkblue',
+        'besluiten': 'darkblue'
     }
 
     // get dimensions from parent element

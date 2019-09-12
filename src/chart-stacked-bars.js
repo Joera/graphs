@@ -20,8 +20,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .enter()
             .append("g")
             .attr("class", (d,i) => {
-
-                console.log(d.key);
+                
                 return "stackGroup " + colours[d.key];
             });
 
