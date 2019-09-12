@@ -71,7 +71,7 @@ var opnames = function(element) {
         function filterData(array,increments) {
 
             console.log(increments);
-            console.log(array[i].slice(0,6));
+            console.log(array[0].slice(0,6));
 
             if(increments) {
                 for (let i = 0; i < array.length; i++) {
