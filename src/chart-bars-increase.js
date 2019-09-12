@@ -100,10 +100,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.difference
             .merge(svg.difference)
             .attr("y", function(d) { return yScale.linear(d[property]); })
-            .attr("height", function(d) {
-
-                return dimensions.height - yScale.linear(d['nieuwe_meldingen'] + minValue);
-            })
+            .attr("height",0)
             .attr("x", function(d) {
 
                 return xScale.band(d[config.xParameter]) - 14;
@@ -113,6 +110,13 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 return 10;
             })
             .attr("clip-path", "url(#clip)")
+            .transition()
+            .delay(250)
+            .duration(250)
+            .attr("height", function(d) {
+
+                return dimensions.height - yScale.linear(d['nieuwe_meldingen'] + minValue);
+            })
         ;
 
 
