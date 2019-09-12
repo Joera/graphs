@@ -87,7 +87,7 @@ var meldingen = function(element) {
         let property = 'schademeldingen';
         update(property);
 
-        window.addEventListener("resize", redraw, false);
+        window.addEventListener("resize", redraw(property), false);
 
         for (let radio of radios) {
             radio.addEventListener( 'click', () => {
