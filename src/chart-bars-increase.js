@@ -7,8 +7,13 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         dataArray = data;
 
         svg.bar = svg.layers.data.selectAll(".bar")
-            .data(data)
-            .enter().append("rect")
+            .data(data);
+
+        svg.bar.exit().remove();
+
+        svg.barEnter = svg.bar
+            .enter()
+            .append("rect")
             .attr("class", "bar " + colours[0])
             ;
 
@@ -71,12 +76,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("height", dimensions.height);
 
         svg.bar
-            .merge(svg.bar)
-            .attr("y", function(d) { return yScale.linear(d[property]); })
-            .attr("height", function(d) {
-
-                return dimensions.height - yScale.linear(d[property]);
-            })
+            .merge(svg.barEnter)
             .attr("x", function(d) {
 
                 return xScale.band(d[config.xParameter]);
@@ -86,9 +86,15 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 return barWidth;
             })
             .attr("clip-path", "url(#clip)")
+            .transition()
+            .duration(500)
+            .attr("y", function(d) { return yScale.linear(d[property]); })
+            .attr("height", function(d) {
+                return dimensions.height - yScale.linear(d[property]);
+            })
            ;
 
-        svg.bar.exit().remove();
+
 
         svg.difference
             .merge(svg.difference)
@@ -172,12 +178,6 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 .delay(500)
                 .duration(500)
                 .attr('fill-opacity', 1);
-
-
-
-        //
-        // svg.connection
-        //     .attr("d", area);
 
     }
 
