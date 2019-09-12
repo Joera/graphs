@@ -2,7 +2,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let dataArray;
 
-    let draw = function draw(data,colours,property) {
+    let draw = function draw(data,colours) {
 
         dataArray = data;
 
@@ -14,17 +14,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.barEnter = svg.bar
             .enter()
             .append("rect")
-            .attr("class", (d,i) => {
-
-                console.log(property);
-
-                if (property === 'aos_meldingen') {
-                    return "bar orange";
-
-                } else {
-                    return "bar green";
-                }
-            });
+            .attr("class", "bar");
 
         svg.difference = svg.layers.data.selectAll(".diff")
             .data(data)
@@ -102,7 +92,13 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("height", function(d) {
                 return dimensions.height - yScale.linear(d[property]);
             })
-           ;
+            .style("fill", function(d) {
+                if(property === 'aos_meldingen') {
+                    return orange;
+                } else {
+                    return green;
+                }
+            });
 
 
 
