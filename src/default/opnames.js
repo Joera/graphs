@@ -34,7 +34,13 @@ var opnames = function(element) {
     config.paddingInner = 3;
     config.paddingOuter = 6;
 
-    let colours = ['green','blue','orange','darkblue'];
+    let colours = {
+
+        'opnames': 'green',
+        'nul-metingen': 'blue',
+        'adviesrapporten': 'orange',
+        'besluiten': 'darkblue',
+    }
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);
