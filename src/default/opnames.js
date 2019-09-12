@@ -72,10 +72,12 @@ var opnames = function(element) {
 
             if(increments) {
                 for (let prop of array) {
-                    console.log(prop.slice(0,6));
+
                     if(prop.slice(0,6) !== 'nieuwe_') { prop = 'nieuwe_' + prop; }
                 }
             }
+
+            console.log(array);
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[0]).filter(key => array.indexOf(key) > -1));
@@ -129,7 +131,6 @@ var opnames = function(element) {
 
             radio.addEventListener( 'click', () => {
                 increments = !increments;
-                console.log(increments);
                 update(propertyArray,increments)
             }, false)
         }
