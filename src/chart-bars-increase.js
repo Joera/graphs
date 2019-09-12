@@ -86,8 +86,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 return barWidth;
             })
             .attr("clip-path", "url(#clip)")
+            .attr("y", function(d) { return dimensions.height; })
             .transition()
-            .duration(500)
+            .duration(250)
             .attr("y", function(d) { return yScale.linear(d[property]); })
             .attr("height", function(d) {
                 return dimensions.height - yScale.linear(d[property]);
