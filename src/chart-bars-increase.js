@@ -16,13 +16,13 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .append("rect")
             .attr("class", (d,i) => {
 
-            if (property === 'aos_meldingen') {
+                if (property === 'aos_meldingen') {
+                    return "bar orange";
 
-                return "bar orange";
-
-            } else {
-                return "bar green";
-            }
+                } else {
+                    return "bar green";
+                }
+            });
 
         svg.difference = svg.layers.data.selectAll(".diff")
             .data(data)
