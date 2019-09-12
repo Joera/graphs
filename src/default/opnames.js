@@ -70,9 +70,6 @@ var opnames = function(element) {
 
         function filterData(array,increments) {
 
-            console.log(increments);
-            console.log(array[0].slice(0,6));
-
             if(increments) {
                 for (let i = 0; i < array.length; i++) {
                     array[i] = (array[i].slice(0,7) !== 'nieuwe_') ? 'nieuwe_' + array[i] : array[i];
@@ -109,6 +106,7 @@ var opnames = function(element) {
         function update(propertyArray,increments) {
 
             let stackedData = filterData(propertyArray,increments);
+            console.log(stackedData);
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
