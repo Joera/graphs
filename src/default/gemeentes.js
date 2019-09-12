@@ -23,7 +23,7 @@ var gemeentes = function(element) {
 
     let chartMap = ChartMap(config,svg,dimensions);
 
-    let options = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
+    let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
 
@@ -49,7 +49,7 @@ var gemeentes = function(element) {
 
 
             function redraw(property) {
-                console.log(property);
+
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
                 chartSVG.redraw(dimensions);
@@ -65,9 +65,9 @@ var gemeentes = function(element) {
             // for example on window resize
             window.addEventListener("resize", redraw(property), false);
 
-            for (let option of options) {
+            for (let radio of radios) {
 
-                option.addEventListener( 'click', () => {
+                radio.addEventListener( 'click', () => {
 
                     redraw(option.value);
 

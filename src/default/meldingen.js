@@ -1,5 +1,7 @@
 var meldingen = function(element) {
 
+    let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
+
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
@@ -63,7 +65,7 @@ var meldingen = function(element) {
         //
         // let stackedData = functions.stack(data);
 
-        function redraw() {
+        function redraw(property) {
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
@@ -75,7 +77,7 @@ var meldingen = function(element) {
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
             chartAxis.redrawYAxis(yScale,axes);
             // redraw data
-            chartBarsIncrease.redraw(dimensions,xScale,yScale);
+            chartBarsIncrease.redraw(dimensions,xScale,yScale,property);
 
         }
 
@@ -85,9 +87,19 @@ var meldingen = function(element) {
 
       //  chartLegend.drawDefault(dimensions);
         // further drawing happens in function that can be repeated.
-        redraw();
+        let property = 'meldingen';
+        redraw(property);
         // for example on window resize
         window.addEventListener("resize", redraw, false);
+
+        for (let radio of radios) {
+
+            radio.addEventListener( 'click', () => {
+
+                redraw(option.value);
+
+            },false)
+        }
 
     });
 }

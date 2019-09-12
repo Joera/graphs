@@ -1,5 +1,7 @@
 var opnames = function(element) {
 
+    let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
+
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
@@ -50,8 +52,6 @@ var opnames = function(element) {
     chartAxis.drawYAxis();
 
     let url = 'https://tcmg.publikaan.nl/api/procedure';
-
-    let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
 
     d3.json(url, function(error, json) {
         if (error) throw error;
