@@ -23,13 +23,19 @@
   }
 
   align-items: flex-start;
-  padding-left: 2rem;
+  padding-left: 1rem;
+
+
+  @media (min-width: $breakpoint-sm) {
+    width: calc(100vw - 12rem);
+    padding-left: 2rem;
+  }
 
   div.container {
-    width: calc(100vw - 4rem);
+    width: calc(100vw - 2rem);
     height: 60vh;
 
-    @media (min-width: 700px) {
+    @media (min-width: $breakpoint-sm) {
       width: calc(100vw - 12rem);
       //height: 80vh;
     }
