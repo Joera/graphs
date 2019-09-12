@@ -112,7 +112,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         redrawYAxis : redrawYAxis,
         // drawInputYAxis : drawInputYAxis,
         // redrawInputYAxis : redrawInputYAxis,
-        // redrawYAxisStacked : redrawYAxisStacked,
+        redrawYAxisStacked : redrawYAxisStacked,
         // drawBlocksYAxis : drawBlocksYAxis,
         // redrawBlocksYAxis : redrawBlocksYAxis
 
