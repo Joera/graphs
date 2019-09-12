@@ -55,10 +55,8 @@ var opnames = function(element) {
 
     d3.json(url, function(error, json) {
         if (error) throw error;
-
-
-        // remove data entry from wednesday
-        let data = json.slice(1).reverse();
+        
+        let data = json.reverse();
 
         let propertyArray = ['opnames'];
 
