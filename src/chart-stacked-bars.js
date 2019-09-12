@@ -55,7 +55,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .append('text')
             .attr('class','dateLabel small-label')
             .attr('x', 0)
-            .attr('dx', '0px')
+            .attr('dx', -config.padding.left)
             .attr('dy', '52px')
             .style("text-anchor", "middle")
             .attr('fill-opacity', 0)
