@@ -49,7 +49,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         ;
 
-        svg.dateLabels = svg.seriesEnter.selectAll(".dateLabel")
+        svg.dateLabels = svg.svg.layers.axes.selectAll(".dateLabel")
             .data(function(d) { return d; });
 
         svg.dateLabelsEnter = svg.dateLabels
