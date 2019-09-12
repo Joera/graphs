@@ -34,7 +34,7 @@ var meldingen = function(element) {
     config.paddingInner = 3;
     config.paddingOuter = 6;
 
-    let colours = ['green','blue'];
+    let colours = ['green','orange'];
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);

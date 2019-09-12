@@ -14,13 +14,16 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.barEnter = svg.bar
             .enter()
             .append("rect")
-            .attr("class", "bar " + colours[0])
+            .attr("class", (d,i) => {
+
+                "bar " + colours[i]
+            })
             ;
 
         svg.difference = svg.layers.data.selectAll(".diff")
             .data(data)
             .enter().append("rect")
-            .attr("class", "diff " + colours[1])
+            .attr("class", "diff blue")
         ;
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
