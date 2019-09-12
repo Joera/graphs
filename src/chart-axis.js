@@ -110,11 +110,11 @@ let ChartAxis = function ChartAxis(config,svg) {
         redrawXTimeAxis : redrawXTimeAxis,
         drawYAxis : drawYAxis,
         redrawYAxis : redrawYAxis,
-        drawInputYAxis : drawInputYAxis,
-        redrawInputYAxis : redrawInputYAxis,
-        redrawYAxisStacked : redrawYAxisStacked,
-        drawBlocksYAxis : drawBlocksYAxis,
-        redrawBlocksYAxis : redrawBlocksYAxis
+        // drawInputYAxis : drawInputYAxis,
+        // redrawInputYAxis : redrawInputYAxis,
+        // redrawYAxisStacked : redrawYAxisStacked,
+        // drawBlocksYAxis : drawBlocksYAxis,
+        // redrawBlocksYAxis : redrawBlocksYAxis
 
 
     }
