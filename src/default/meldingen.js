@@ -92,7 +92,7 @@ var meldingen = function(element) {
         for (let radio of radios) {
             radio.addEventListener( 'click', () => {
                 update(radio.value);
-                document.querySelector('h2').innerText = radio.value;
+                document.querySelector('h2').innerText = radio.value.replace('_',' ');
             },false)
         }
 
