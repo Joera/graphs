@@ -70,6 +70,9 @@ var opnames = function(element) {
 
         function filterData(array,increments) {
 
+            console.log(increments);
+            console.log(array[i].slice(0,6));
+
             if(increments) {
                 for (let i = 0; i < array.length; i++) {
                     array[i] = (array[i].slice(0,6) !== 'nieuwe_') ? 'nieuwe_' + array[i] : array[i];
