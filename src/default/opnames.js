@@ -79,7 +79,7 @@ var opnames = function(element) {
                 }
             } else {
                 for (let i = 0; i < array.length; i++) {
-                    array[i] = (array[i].slice(0,7) === 'nieuwe_') ? array[i].slice(6,array[i].length) : array[i];
+                    array[i] = (array[i].slice(0,7) === 'nieuwe_') ? array[i].slice(7,array[i].length) : array[i];
                 }
             }
 
