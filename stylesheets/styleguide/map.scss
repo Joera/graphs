@@ -52,6 +52,8 @@ html {
   width: auto;
   height: auto;
   padding: 2rem;
+  position: relative;
+  z-index: 99;
 
   @media (min-width: $breakpoint-sm) {
     position: absolute;
