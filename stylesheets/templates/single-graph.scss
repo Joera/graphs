@@ -20,6 +20,10 @@
 
   div.container {
     width: 100vw;
-    height: calc(100vh - 31px - 160px);
+    height: calc(100vh - 31px - 180px);
+
+    @media (min-width: $breakpoint-sm) {
+      height: calc(100vh - 31px - 160px);
+    }
   }
 }
