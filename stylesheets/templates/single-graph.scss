@@ -1,13 +1,9 @@
 .single-graph main {
 
+  //align-items: flex-start;
+
   svg {
     overflow: visible;
-  }
-
-  .x-axis .tick:nth-child(odd) text {
-    @media (max-width: 700px) {
-      transform: translate(0px, 15px);
-    }
   }
 
   h2 {
@@ -22,28 +18,8 @@
     }
   }
 
-  align-items: flex-start;
-  padding-left: 1rem;
-
-
-  //@media (min-width: $breakpoint-sm) {
-  //  //width: calc(100vw - 12rem);
-  //  padding-left: 2rem;
-  //}
-
   div.container {
-    width: calc(100vw - 2rem);
+    width: 100vw;
     height: calc(100vh - 31px - 220px);
-
-    //@media (min-width: $breakpoint-sm) {
-    //  width: calc(100vw - 12rem);
-    //  //height: 80vh;
-    //}
-  }
-
-  .progress-candles-container g.data path {
-    stroke: darkblue;
-    stroke-width: 2px;
-    stroke-dasharray: none;
   }
 }

@@ -2,18 +2,15 @@
 
   font-size: .6rem;
 
-  //@media (min-width : $breakpoint-sm) {
-  //
+
+  //.tick:nth-child(odd) text {
+  //  @media (max-width: 700px) {
+  //    transform: translate(0px, 15px);
+  //  }
   //}
-
-  .tick text {
-
-    @media (max-width: 1400px) {
-      //transform: rotate(-45deg);
-    }
-  }
-
 }
+
+
 
 .y-axis {
 
