@@ -40,6 +40,7 @@ html {
   }
 
   svg {
+        margin-top: -260px;
       @media (min-width: $breakpoint-sm) {
         margin-top: -200px;
       }
@@ -48,12 +49,16 @@ html {
 
 .map-selector {
 
-  position: absolute;
-  right: 0;
-  top: 0%;
   width: auto;
   height: auto;
   padding: 2rem;
+
+  @media (min-width: $breakpoint-sm) {
+    position: absolute;
+    right: 0;
+    top: 0%;
+  }
+
 
   ul {
 
