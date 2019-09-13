@@ -1,0 +1,27 @@
+li.checkbox {
+
+
+  border: 1px solid black;
+  border-radius: 4px;
+
+  input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+
+  label {
+    display: block;
+    padding: 3px .5rem 3px .5rem;
+  }
+
+  input:checked + label {
+    background: $green;
+    color: white;
+  }
+
+
+}
