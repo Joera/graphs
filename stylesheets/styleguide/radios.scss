@@ -27,7 +27,7 @@ ul.radios {
     }
 
     input:checked + label {
-     // background: #eee;
+     background: $green;
     }
   }
 }
