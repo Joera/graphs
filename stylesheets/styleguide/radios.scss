@@ -12,7 +12,7 @@ ul.radios {
       border-right: 1px solid black;
     }
 
-    &:checked {
+    input:checked + label {
       background: #eee;
     }
   }
