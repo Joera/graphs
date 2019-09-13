@@ -43,7 +43,8 @@ module.exports = function() {
             './src/default/opnames.js',
             './src/default/meldingen.js',
             './src/default/weekverloop.js',
-            './src/default/gemeentes.js'
+            './src/default/gemeentes.js',
+            './src/default/stroommodel.js'
 
 
             ])
