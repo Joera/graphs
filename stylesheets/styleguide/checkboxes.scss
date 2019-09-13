@@ -26,5 +26,17 @@ li.checkbox {
     color: white;
   }
 
+  input#nul-metingen:checked + label {
+    background: $blue;
+  }
+
+  input#adviesrapporten:checked + label {
+    background: $orange;
+  }
+
+  input#besluiten:checked + label {
+    background: $darkblue;
+  }
+
 
 }
