@@ -74,6 +74,14 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let yOffset;
         let xOffset;
 
+        if(window.innerWidth < 900) {
+            barWidth = 32;
+        }
+
+        if(window.innerWidth < 600) {
+            barWidth = 12;
+        }
+
         svg.defs
             .attr("width", dimensions.width)
             .attr("height", dimensions.height);
@@ -140,7 +148,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.dateLabelsEnter)
             .text(function(d) {
 
-                return new Date(d['_date']).toLocaleDateString('nl-NL',{ month: 'long', day: 'numeric'});
+                if (window.innerWidth < 900) {
+                    return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'numeric', day: 'numeric'});
+                } else {
+                    return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
+                }
             })
             .attr('transform', function(d) {
 
