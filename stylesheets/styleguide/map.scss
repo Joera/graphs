@@ -30,9 +30,14 @@ html {
 
   align-self: center;
 
-  width: 80%;
+  width: 100%;
   max-width: 800px;
-  min-height: 800px;
+  min-height: 400px;
+
+  @media (min-width: $breakpoint-sm) {
+    min-height: 800px;
+    width: 80%;
+  }
 
   svg {
       @media (min-width: $breakpoint-sm) {
