@@ -21,9 +21,10 @@
   .nature {
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-sm) {
+      flex-direction: column;
       margin-left: 40px;
     }
 
@@ -33,6 +34,7 @@
         border: 1px solid black;
         padding: 4px 1rem 4px .25rem;
         margin-bottom: .5rem;
+        margin-right: .5rem;
       }
   }
 
