@@ -5,6 +5,8 @@
 
   &.white {
 
+    fill:  black;
+
     @media (min-width: $breakpoint-sm) {
       fill:  white;
     }
