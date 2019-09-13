@@ -1,0 +1,17 @@
+ul.radios {
+
+  border: 1px solid black;
+  border-radius: 4px;
+
+  li {
+    border: none;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid black;
+    }
+
+    &:checked {
+      background: #eee;
+    }
+  }
+}
