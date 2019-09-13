@@ -5,11 +5,20 @@ ul.radios {
   margin-bottom: .5rem;
 
   li {
+    position: relative;
     border: none;
     padding: 3px .5rem 3px .5rem;
 
     &:not(:last-of-type) {
       border-right: 1px solid black;
+    }
+
+    input {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
     }
 
     input:checked + label {
