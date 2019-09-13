@@ -6,6 +6,7 @@ ul.radios {
 
   li {
     border: none;
+    padding: 3px .5rem 3px .5rem;
 
     &:not(:last-of-type) {
       border-right: 1px solid black;
