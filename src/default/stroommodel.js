@@ -107,4 +107,4 @@ var stroommodel = function(element) {
         redraw();
     });
 
-});
+}
