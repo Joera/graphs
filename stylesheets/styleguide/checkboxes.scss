@@ -28,10 +28,12 @@ li.checkbox {
 
   input#nul-metingen:checked + label {
     background: $blue;
+    color: black;
   }
 
   input#adviesrapporten:checked + label {
     background: $orange;
+    color: black;
   }
 
   input#besluiten:checked + label {
