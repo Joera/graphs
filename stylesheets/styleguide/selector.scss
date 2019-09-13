@@ -40,11 +40,12 @@
   .properties {
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
 
     @media (min-width: $breakpoint-sm) {
-      flex-direction: row;
+      //flex-direction: row;
       justify-content: flex-end;
     }
 
@@ -53,9 +54,10 @@
         border: 1px solid black;
         padding: 4px 1rem 4px .25rem;
         margin-bottom: .5rem;
+        margin-right: .5rem;
 
         @media (min-width: $breakpoint-sm) {
-          margin-right: .5rem;
+
           margin-bottom: 0rem;
         }
 
