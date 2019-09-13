@@ -23,11 +23,13 @@ ul.radios {
     }
 
     label {
+      display: block;
       padding: 3px .5rem 3px .5rem;
     }
 
     input:checked + label {
-     background: $green;
+        background: $green;
+      color: white;
     }
   }
 }
