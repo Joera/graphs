@@ -31,17 +31,21 @@ html {
   align-self: center;
 
   width: 80%;
-
-
   max-width: 800px;
   min-height: 800px;
+
+  svg {
+      @media (min-width: $breakpoint-sm) {
+        margin-top: -200px;
+      }
+  }
 }
 
 .map-selector {
 
   position: absolute;
   right: 0;
-  top: 20%;
+  top: 0%;
   width: auto;
   height: auto;
   padding: 2rem;
