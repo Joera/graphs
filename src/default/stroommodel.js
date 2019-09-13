@@ -94,6 +94,9 @@ var stroommodel = function(element) {
 
         function redraw() {
 
+            console.log(nodes);
+            console.log(links);
+
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
