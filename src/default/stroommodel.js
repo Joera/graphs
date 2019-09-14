@@ -34,18 +34,20 @@ var stroommodel = function(element) {
 
     d3.json(url, function(error, json) {
 
+        console.log(json);
+
         let neededColumns = ["AOS_REGULIER_19MRT_30SEPT","AOS_REGULIER_VANAF_1OKT20","19MRT_TM_30SEPT_MET_HISTO","VANAF_010KT2018_MET_HISTO","19MRT_TM_30SEPT_GEEN_HIST","VANAF_O1OKT2018_GEEN_HIST","AOS_VR_19MRT_MET_HISTORIE","VOOR_19MRT_MET_HISTORIE","VOOR_19MRT_GEEN_HISTORIE"];
 
-        let columns = json.filter(col => {
-            return neededColumns.indexOf(col) > -1;
-        });
+        // let columns = json.filter(col => {
+        //     return neededColumns.indexOf(col) > -1;
+        // });
 
 
         let nodes = [];
         let links = [];
         let index = 0;
 
-        console.log(columns);
+        // console.log(columns);
 
 
         // let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
