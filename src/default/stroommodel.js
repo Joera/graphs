@@ -32,10 +32,7 @@ var stroommodel = function(element) {
 
     let chartSankey = ChartSankey(config,svg,functions);
 
-    d3.json(url, function(error, { result, filteredObject, nodes, links }) {
-
-        console.log(nodes);
-
+    d3.json(url, function(error, {result,filteredObject,nodes,links}) {
 
         // let columns = json.filter(col => {
         //     return neededColumns.indexOf(col) > -1;
@@ -44,7 +41,7 @@ var stroommodel = function(element) {
 
         // let nodes = [];
         // let links = [];
-        let index = 0;
+        // let index = 0;
 
         // console.log(columns);
 
