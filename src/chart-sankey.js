@@ -320,8 +320,13 @@ let ChartSankey = function ChartSankey(config,svg) {
             .data(links)
             .enter().append("path")
             .attr("class", function(d) {
-                console.log(d.target.name);
-                return "link";
+
+                if (d.target.name === 'IN_PROCEDURE') {
+                    return "link in-procedure";
+                } else {
+                    return "link";
+                }
+
             })
             .attr("d", path)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); })
