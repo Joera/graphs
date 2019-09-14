@@ -86,7 +86,7 @@ d3.sankey = function() {
                 y1 = d.target.y + d.ty + d.dy / 2;
             return "M" + x0 + "," + y0
                 + "h" + d.source.dx
-                + "v" + d.source.dx
+                + "v" + d.target.y
                 + "h" + -d.source.dx
                 + "Z";
         }
@@ -362,7 +362,7 @@ let ChartSankey = function ChartSankey(config,svg) {
                 }
             })
             .attr("d", shortPath)
-            .style("stroke-width", function(d) { return 1 } );
+            .style("stroke-width", function(d) { return d.source.dx } );
             // .sort(function(a, b) { return b.dy - a.dy; });
 
 
