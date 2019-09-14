@@ -80,14 +80,14 @@ d3.sankey = function() {
         var curvature = .5;
 
         function link(d) {
-            var x0 = d.source.x + d.source.dx,
+            var x0 = d.source.x + 12,
                 y0 = d.source.y + d.sy + d.dy / 2,
 
                 x1 = d.source.x + d.source.dx,
                 y1 = d.target.y + d.ty + d.dy / 2;
             return "M" + x0 + "," + y0
-                + "h" + d.source.dx
-                + "v" + d.source.dx
+                + "h" + 12
+                + "v" + 12
                 + "h" + -d.source.dx
                 + "Z";
         }
