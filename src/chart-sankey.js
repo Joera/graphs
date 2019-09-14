@@ -368,7 +368,7 @@ let ChartSankey = function ChartSankey(config,svg) {
         node.append("text")
             .attr("x", -6)
             .attr("y", function(d) { return d.dy / 2; })
-            .attr("dy", ".35em")
+            .attr("dy", "-.35em")
             .attr("text-anchor", "middle")
             .attr("transform", null)
             .text(function(d) { return d.value  })
