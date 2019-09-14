@@ -352,17 +352,19 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("height", function(d) { return d.dy; })
             .attr("width", sankey.nodeWidth())
             .style("fill", function(d) {
-                return blue
-
-            }) // d.color = color(d.name.replace(/ .*/, "")); })
-            .style("stroke", function(d) {
-                console.log(d);
                 if (d.name === 'IN_PROCEDURE') {
                     return orange;
                 } else {
                     return blue;
                 }
+            })
+            .style("stroke", function(d) {
 
+                if (d.name === 'IN_PROCEDURE') {
+                    return orange;
+                } else {
+                    return blue;
+                }
             })
             .append("title")
             .text(function(d) {
