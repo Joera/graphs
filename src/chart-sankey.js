@@ -1,6 +1,6 @@
 d3.sankey = function() {
     var sankey = {},
-        nodeWidth = 4,
+        nodeWidth = 24,
         nodePadding = 20,
         size = [1, 1],
         nodes = [],
@@ -80,7 +80,7 @@ d3.sankey = function() {
         var curvature = .5;
 
         function link(d) {
-            var x0 = d.source.x + d.source.dx,
+            var x0 = d.source.x + d.source.dx - nodeWidth,
                 x1 = d.target.x,
                 xi = d3.interpolateNumber(x0, x1),
                 x2 = xi(curvature),
