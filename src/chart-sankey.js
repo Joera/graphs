@@ -362,10 +362,10 @@ let ChartSankey = function ChartSankey(config,svg) {
                 }
             })
             .attr("d", shortPath)
-            .style("stroke-width", function(d) { return d.source.dx } );
+            .style("stroke-width", function(d) { return Math.max(1, d.dy); } );
             // .sort(function(a, b) { return b.dy - a.dy; });
 
-        
+
         // add in the nodes
         let node = svg.layers.data.append("g").selectAll(".node")
             .data(nodes)
