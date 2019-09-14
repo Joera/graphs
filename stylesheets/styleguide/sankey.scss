@@ -15,8 +15,13 @@
   stroke-opacity: .3;
 
   &.in-procedure {
-    stroke: $orange;
+    //stroke: $orange;
   }
+}
+
+.orangeLink {
+  fill: none;
+  stroke: $orange;
 }
 
 .link:hover {
