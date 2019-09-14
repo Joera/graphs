@@ -364,6 +364,18 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("x", 6 + sankey.nodeWidth())
             .attr("text-anchor", "start");
 
+        // add in the title for the nodes
+        node.append("text")
+            .attr("x", -6)
+            .attr("y", function(d) { return d.dy / 2; })
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .attr("transform", null)
+            .text(function(d) { return d.value  })
+            .filter(function(d) { return d.x < dimensions.width / 2; })
+            .attr("x", 6 + sankey.nodeWidth())
+            .attr("text-anchor", "middle");
+
 
         // tooltip doen met + ' ' + d.desc;
     }
