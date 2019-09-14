@@ -34,7 +34,7 @@ var stroommodel = function(element) {
 
     d3.json(url, function(error, { result, filteredObject, nodes, links }) {
 
-        // console.log(json);
+        console.log(nodes);
 
 
         // let columns = json.filter(col => {
