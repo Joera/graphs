@@ -48,45 +48,64 @@ var stroommodel = function(element) {
         // let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
         // let nodes = columns.concat(groups);
 
-        for (let group of json.filter(r => r['CATEGORY'] != 'all')) {
+        // for (let group of json.filter(r => r['CATEGORY'] != 'all')) {
+        //
+        //     let title = 'Groep ' + group['CATEGORY'];
+        //
+        //     let desc = '';
+        //
+        //     if (group['CATEGORY'] == '1') desc = 'Nog geen opname - melding voor 1 januari 2019';
+        //     if (group['CATEGORY'] == '2') desc = 'In opname - nog geen rapport - melding voor 1 januari 2019';
+        //
+        //     nodes.push({
+        //         'node': index,
+        //         'name': title,
+        //         'desc': desc,
+        //     });
+        //
+        //     let mo_index = 0;
+        //
+        //     for (let column of columns) {
+        //         links.push({
+        //             'source': index,
+        //             'target': json.filter(r => r['CATEGORY'] != 'all').length + mo_index,
+        //             'value': group[column]
+        //         });
+        //         mo_index++;
+        //     }
+        //
+        //
+        //     index++;
+        // }
+        //
+        // for (let column of columns) {
+        //     let desc = '';
+        //     index++;
+        //     nodes.push({
+        //         'node': index,
+        //         'name': column,
+        //         'desc': desc,
+        //     });
+        // }
 
-            let title = 'Groep ' + group['CATEGORY'];
-
-            let desc = '';
-
-            if (group['CATEGORY'] == '1') desc = 'Nog geen opname - melding voor 1 januari 2019';
-            if (group['CATEGORY'] == '2') desc = 'In opname - nog geen rapport - melding voor 1 januari 2019';
-
-            nodes.push({
-                'node': index,
-                'name': title,
-                'desc': desc,
-            });
-
-            let mo_index = 0;
-
-            for (let column of columns) {
-                links.push({
-                    'source': index,
-                    'target': json.filter(r => r['CATEGORY'] != 'all').length + mo_index,
-                    'value': group[column]
-                });
-                mo_index++;
-            }
+        nodes.push({
+            'node': 1,
+            'name': 'herkomst 1',
+            'desc': 'hoi'
+        });
 
 
-            index++;
-        }
+        nodes.push({
+            'node': 2,
+            'name': 'bestemming 1',
+            'desc': 'doei'
+        })
 
-        for (let column of columns) {
-            let desc = '';
-            index++;
-            nodes.push({
-                'node': index,
-                'name': column,
-                'desc': desc,
-            });
-        }
+        links.push({
+            'source': 1,
+            'target': 2,
+            'value': 300
+        });
 
         function draw(data) {
 
