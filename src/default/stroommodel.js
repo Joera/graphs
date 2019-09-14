@@ -89,21 +89,21 @@ var stroommodel = function(element) {
         // }
 
         nodes.push({
-            'node': 1,
+            'node': 0,
             'name': 'herkomst 1',
             'desc': 'hoi'
         });
 
 
         nodes.push({
-            'node': 2,
+            'node': 1,
             'name': 'bestemming 1',
             'desc': 'doei'
         })
 
         links.push({
-            'source': 1,
-            'target': 2,
+            'source': 0,
+            'target': 1,
             'value': 300
         });
 
