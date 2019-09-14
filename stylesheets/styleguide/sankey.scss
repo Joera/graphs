@@ -11,9 +11,9 @@
 
 .link {
   fill: none;
-  stroke: $darkblue;
-  stroke-opacity: .2;
-  
+  stroke: $blue;
+  stroke-opacity: .3;
+
   &.in-procedure {
     stroke: $orange;
   }
