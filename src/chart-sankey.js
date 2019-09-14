@@ -362,7 +362,7 @@ let ChartSankey = function ChartSankey(config,svg) {
                 }
             })
             .attr("d", shortPath)
-            .style("stroke-width", function(d) { return Math.max(1, d.dy); });
+            .style("stroke-width", function(d) { return sankey.nodeWidth(); });
             // .sort(function(a, b) { return b.dy - a.dy; });
 
 
