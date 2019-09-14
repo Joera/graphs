@@ -331,13 +331,16 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("d", path)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); })
             .sort(function(a, b) { return b.dy - a.dy; })
+
+        let orangeLink = svg.layers.data.append("g").selectAll(".orangeLink")
+            .data(links)
             .enter().append("path")
             .attr("class", function(d) {
 
                 if (d.target.name === 'IN_PROCEDURE') {
-                    return "cow in-procedure";
+                    return "orangeLink in-procedure";
                 } else {
-                    return "cow";
+                    return "orangeLink";
                 }
             })
             .attr("d", shortPath)
