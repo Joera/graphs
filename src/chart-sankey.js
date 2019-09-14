@@ -81,16 +81,15 @@ d3.sankey = function() {
 
         function link(d) {
             var x0 = d.source.x + d.source.dx - nodeWidth,
-                x1 = d.target.x,
-                xi = d3.interpolateNumber(x0, x1),
-                x2 = xi(curvature),
-                x3 = xi(1 - curvature),
+
                 y0 = d.source.y + d.sy + d.dy / 2,
+
+                x1 = d.source.x + d.source.dx,
                 y1 = d.target.y + d.ty + d.dy / 2;
             return "M" + x0 + "," + y0
-                + "C" + x2 + "," + y0
-                + " " + x3 + "," + y1
-                + " " + x1 + "," + y1;
+                + "h" + nodeWidth
+                + "v" + nodeWidth
+                + "Z";
         }
 
         link.curvature = function(_) {
