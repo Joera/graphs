@@ -11,8 +11,12 @@
 
 .link {
   fill: none;
-  stroke: #000;
+  stroke: $darkblue;
   stroke-opacity: .2;
+  
+  &.in-procedure {
+    stroke: $orange;
+  }
 }
 
 .link:hover {
