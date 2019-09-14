@@ -357,12 +357,12 @@ let ChartSankey = function ChartSankey(config,svg) {
             }) // d.color = color(d.name.replace(/ .*/, "")); })
             .style("stroke", function(d) {
                 console.log(d);
-                // if (d.target.name === 'IN_PROCEDURE') {
-                //     return orange;
-                // } else {
-                //     return blue;
-                // }
-                return blue;
+                if (d.name === 'IN_PROCEDURE') {
+                    return orange;
+                } else {
+                    return blue;
+                }
+
             })
             .append("title")
             .text(function(d) {
