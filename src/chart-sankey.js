@@ -319,7 +319,10 @@ let ChartSankey = function ChartSankey(config,svg) {
         let link = svg.layers.data.append("g").selectAll(".link")
             .data(links)
             .enter().append("path")
-            .attr("class", "link")
+            .attr("class", function(d) {
+                console.log(d);
+                return "link";
+            })
             .attr("d", path)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); })
             .sort(function(a, b) { return b.dy - a.dy; });
