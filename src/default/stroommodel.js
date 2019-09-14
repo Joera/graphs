@@ -4,7 +4,7 @@ var stroommodel = function(element) {
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
     let colours = ['green','orange','blue'];
-    let url = "https://tcmg.publikaan.nl/api/stuwmeerregeling?week=recent";
+    let url = "https://tcmg.publikaan.nl/api/flowchart?week=recent";
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -34,15 +34,20 @@ var stroommodel = function(element) {
 
     d3.json(url, function(error, json) {
 
-        let columns = Object.keys(json[0]);
+        let neededColumns = "AOS_REGULIER_19MRT_30SEPT","AOS_REGULIER_VANAF_1OKT20","19MRT_TM_30SEPT_MET_HISTO","VANAF_010KT2018_MET_HISTO","19MRT_TM_30SEPT_GEEN_HIST","VANAF_O1OKT2018_GEEN_HIST","AOS_VR_19MRT_MET_HISTORIE","VOOR_19MRT_MET_HISTORIE","VOOR_19MRT_GEEN_HISTORIE";
 
-        columns = columns.filter(col => {
-            return ['id', 'DATUM', 'CATEGORY', 'Totaal', '_date', '_category', '_week', '_year'].indexOf(col) < 0;
+        let columns = json.filter(col => {
+            return neededColumns.indexOf(col) < 0;
         });
+
+        
+
 
         let nodes = [];
         let links = [];
         let index = 0;
+
+        console.log(json);
 
 
         // let groups = json.map( p => p['CATEGORY']).filter( r => r != 'all');
