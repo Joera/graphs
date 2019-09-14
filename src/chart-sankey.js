@@ -309,6 +309,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .size([dimensions.width, dimensions.height]);
 
         let path = sankey.link();
+        let shortPath = sankey.link();
 
         sankey
             .nodes(nodes)
@@ -329,7 +330,21 @@ let ChartSankey = function ChartSankey(config,svg) {
             })
             .attr("d", path)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+            .sort(function(a, b) { return b.dy - a.dy; })
+            .enter().append("path")
+            .attr("class", function(d) {
+
+                if (d.target.name === 'IN_PROCEDURE') {
+                    return "cow in-procedure";
+                } else {
+                    return "cow";
+                }
+            })
+            .attr("d", shortPath)
+            .style("stroke-width", function(d) { return Math.max(1, d.dy); })
             .sort(function(a, b) { return b.dy - a.dy; });
+
+
 
         // add in the nodes
         let node = svg.layers.data.append("g").selectAll(".node")
@@ -369,6 +384,8 @@ let ChartSankey = function ChartSankey(config,svg) {
             .append("title")
             .text(function(d) {
                 return d.name + "\n" + d.value; });
+
+
 
         // add in the title for the nodes
         node.append("text")
