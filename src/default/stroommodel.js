@@ -88,15 +88,17 @@ var stroommodel = function(element) {
         //     });
         // }
 
+
+
         nodes.push({
             'node': 0,
-            'name': 'herkomst 1',
+            'name': '19MRT_TM_30SEPT_MET_HISTO',
             'desc': 'hoi'
         });
 
         nodes.push({
             'node': 1,
-            'name': 'herkomst 2',
+            'name': 'VANAF_010KT2018_MET_HISTO',
             'desc': 'hoi'
         });
 
@@ -110,13 +112,13 @@ var stroommodel = function(element) {
         links.push({
             'source': 0,
             'target': 2,
-            'value': 300
+            'value': 2544
         });
 
         links.push({
             'source': 1,
             'target': 2,
-            'value': 400
+            'value': 8844
         });
 
         function draw(data) {
