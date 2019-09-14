@@ -353,9 +353,9 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("height", function(d) { return d.dy; })
             .attr("width", sankey.nodeWidth())
             .style("fill", function(d) {
-                return "#777c00" }) // d.color = color(d.name.replace(/ .*/, "")); })
+                return blue }) // d.color = color(d.name.replace(/ .*/, "")); })
             .style("stroke", function(d) {
-                return "#777c00" })
+                return blue })
             .append("title")
             .text(function(d) {
                 return d.name + "\n" + d.value; });
