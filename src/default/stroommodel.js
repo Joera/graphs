@@ -32,19 +32,18 @@ var stroommodel = function(element) {
 
     let chartSankey = ChartSankey(config,svg,functions);
 
-    d3.json(url, function(error, json) {
+    d3.json(url, function(error, { result, filteredObject, nodes, links }) {
 
         console.log(json);
 
-        let neededColumns = ["AOS_REGULIER_19MRT_30SEPT","AOS_REGULIER_VANAF_1OKT20","19MRT_TM_30SEPT_MET_HISTO","VANAF_010KT2018_MET_HISTO","19MRT_TM_30SEPT_GEEN_HIST","VANAF_O1OKT2018_GEEN_HIST","AOS_VR_19MRT_MET_HISTORIE","VOOR_19MRT_MET_HISTORIE","VOOR_19MRT_GEEN_HISTORIE"];
 
         // let columns = json.filter(col => {
         //     return neededColumns.indexOf(col) > -1;
         // });
 
 
-        let nodes = [];
-        let links = [];
+        // let nodes = [];
+        // let links = [];
         let index = 0;
 
         // console.log(columns);
@@ -95,68 +94,68 @@ var stroommodel = function(element) {
 
 
 
-        nodes.push({
-            'node': 0,
-            'name': '19MRT_TM_30SEPT_MET_HISTO',
-            'desc': 'hoi'
-        });
+        // nodes.push({
+        //     'node': 0,
+        //     'name': '19MRT_TM_30SEPT_MET_HISTO',
+        //     'desc': 'hoi'
+        // });
+        //
+        // nodes.push({
+        //     'node': 1,
+        //     'name': 'VANAF_010KT2018_MET_HISTO',
+        //     'desc': 'hoi'
+        // });
+        //
+        // nodes.push({
+        //     'node': 2,
+        //     'name': 'VOOR_19MRT_MET_HISTORIE',
+        //     'desc': 'hoi'
+        // });
+        //
+        // nodes.push({
+        //     'node': 3,
+        //     'name': 'VOOR_19MRT_GEEN_HISTORIE',
+        //     'desc': 'hoi'
+        // });
+        //
+        //
+        // nodes.push({
+        //     'node': 4,
+        //     'name': 'schademeldingen',
+        //     'desc': 'doei'
+        // });
+        //
+        // nodes.push({
+        //     'node': 5,
+        //     'name': 'aos meldingen',
+        //     'desc': 'doei'
+        // });
+        //
+        // links.push({
+        //     'source': 0,
+        //     'target': 2,
+        //     'value': 2544
+        // });
+        //
+        // links.push({
+        //     'source': 1,
+        //     'target': 4,
+        //     'value': 8844
+        // });
+        //
+        // links.push({
+        //     'source': 2,
+        //     'target': 4,
+        //     'value': 8360
+        // });
+        //
+        // links.push({
+        //     'source': 3,
+        //     'target': 4,
+        //     'value': 4587
+        // });
 
-        nodes.push({
-            'node': 1,
-            'name': 'VANAF_010KT2018_MET_HISTO',
-            'desc': 'hoi'
-        });
-
-        nodes.push({
-            'node': 2,
-            'name': 'VOOR_19MRT_MET_HISTORIE',
-            'desc': 'hoi'
-        });
-
-        nodes.push({
-            'node': 3,
-            'name': 'VOOR_19MRT_GEEN_HISTORIE',
-            'desc': 'hoi'
-        });
-
-
-        nodes.push({
-            'node': 4,
-            'name': 'schademeldingen',
-            'desc': 'doei'
-        });
-
-        nodes.push({
-            'node': 5,
-            'name': 'aos meldingen',
-            'desc': 'doei'
-        });
-
-        links.push({
-            'source': 0,
-            'target': 2,
-            'value': 2544
-        });
-
-        links.push({
-            'source': 1,
-            'target': 4,
-            'value': 8844
-        });
-
-        links.push({
-            'source': 2,
-            'target': 4,
-            'value': 8360
-        });
-
-        links.push({
-            'source': 3,
-            'target': 4,
-            'value': 4587
-        });
-
-        function draw(data) {
+        function draw() {
 
         }
 
