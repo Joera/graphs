@@ -102,12 +102,30 @@ var stroommodel = function(element) {
             'desc': 'hoi'
         });
 
-
         nodes.push({
             'node': 2,
-            'name': 'bestemming 1',
+            'name': 'VOOR_19MRT_MET_HISTORIE',
+            'desc': 'hoi'
+        });
+
+        nodes.push({
+            'node': 3,
+            'name': 'VOOR_19MRT_GEEN_HISTORIE',
+            'desc': 'hoi'
+        });
+
+
+        nodes.push({
+            'node': 11,
+            'name': 'schademeldingen',
             'desc': 'doei'
-        })
+        });
+
+        nodes.push({
+            'node': 12,
+            'name': 'aos meldingen',
+            'desc': 'doei'
+        });
 
         links.push({
             'source': 0,
@@ -117,8 +135,20 @@ var stroommodel = function(element) {
 
         links.push({
             'source': 1,
-            'target': 2,
+            'target': 11,
             'value': 8844
+        });
+
+        links.push({
+            'source': 2,
+            'target': 11,
+            'value': 8360
+        });
+
+        links.push({
+            'source': 3,
+            'target': 11,
+            'value': 4587
         });
 
         function draw(data) {
