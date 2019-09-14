@@ -320,7 +320,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .data(links)
             .enter().append("path")
             .attr("class", function(d) {
-                console.log(d);
+                console.log(d.target.name);
                 return "link";
             })
             .attr("d", path)
