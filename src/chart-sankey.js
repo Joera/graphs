@@ -76,6 +76,32 @@ d3.sankey = function() {
         return link;
     };
 
+    sankey.annotation = function() {
+        var curvature = .5;
+
+        function link(d) {
+            var x0 = d.source.x + d.source.dx,
+                x1 = d.target.x,
+                xi = d3.interpolateNumber(x0, x1),
+                x2 = xi(curvature),
+                x3 = xi(1 - curvature),
+                y0 = d.source.y + d.sy + d.dy / 2,
+                y1 = d.target.y + d.ty + d.dy / 2;
+            return "M" + x0 + "," + y0
+                + "C" + x2 + "," + y0
+                + " " + x3 + "," + y1
+                + " " + x1 + "," + y1;
+        }
+
+        link.curvature = function(_) {
+            if (!arguments.length) return curvature;
+            curvature = +_;
+            return link;
+        };
+
+        return link;
+    };
+
     // Populate the sourceLinks and targetLinks for each node.
     // Also, if the source and target are not objects, assume they are indices.
     function computeNodeLinks() {
@@ -309,7 +335,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .size([dimensions.width, dimensions.height]);
 
         let path = sankey.link();
-        let shortPath = sankey.link();
+        let shortPath = sankey.annotation();
 
         sankey
             .nodes(nodes)
