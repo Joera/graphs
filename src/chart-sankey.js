@@ -89,6 +89,7 @@ d3.sankey = function() {
             return "M" + x0 + "," + y0
                 + "h" + nodeWidth
                 + "v" + nodeWidth
+                + "h" + -nodeWidth
                 + "Z";
         }
 
