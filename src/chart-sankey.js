@@ -326,7 +326,6 @@ let ChartSankey = function ChartSankey(config,svg) {
                 } else {
                     return "link";
                 }
-
             })
             .attr("d", path)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); })
@@ -353,9 +352,16 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("height", function(d) { return d.dy; })
             .attr("width", sankey.nodeWidth())
             .style("fill", function(d) {
-                return blue }) // d.color = color(d.name.replace(/ .*/, "")); })
+                return blue
+
+            }) // d.color = color(d.name.replace(/ .*/, "")); })
             .style("stroke", function(d) {
-                return blue })
+                if (d.target.name === 'IN_PROCEDURE') {
+                    return orange;
+                } else {
+                    return blue;
+                }
+            })
             .append("title")
             .text(function(d) {
                 return d.name + "\n" + d.value; });
