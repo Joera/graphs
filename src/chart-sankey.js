@@ -77,7 +77,6 @@ d3.sankey = function() {
     };
 
     sankey.annotation = function() {
-        var curvature = .5;
 
         function link(d) {
             var x0 = d.source.x,
@@ -91,12 +90,6 @@ d3.sankey = function() {
                 + "h" + -12
                 + "Z";
         }
-
-        link.curvature = function(_) {
-            if (!arguments.length) return curvature;
-            curvature = +_;
-            return link;
-        };
 
         return link;
     };
@@ -369,8 +362,8 @@ let ChartSankey = function ChartSankey(config,svg) {
                 }
             })
             .attr("d", shortPath)
-            .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-            .sort(function(a, b) { return b.dy - a.dy; });
+            .style("stroke-width", function(d) { return Math.max(1, d.dy); });
+            // .sort(function(a, b) { return b.dy - a.dy; });
 
 
 
