@@ -365,8 +365,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .style("stroke-width", function(d) { return d.source.dx } );
             // .sort(function(a, b) { return b.dy - a.dy; });
 
-
-
+        
         // add in the nodes
         let node = svg.layers.data.append("g").selectAll(".node")
             .data(nodes)
