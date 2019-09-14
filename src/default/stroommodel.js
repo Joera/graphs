@@ -94,17 +94,29 @@ var stroommodel = function(element) {
             'desc': 'hoi'
         });
 
-
         nodes.push({
             'node': 1,
+            'name': 'herkomst 2',
+            'desc': 'hoi'
+        });
+
+
+        nodes.push({
+            'node': 2,
             'name': 'bestemming 1',
             'desc': 'doei'
         })
 
         links.push({
             'source': 0,
-            'target': 1,
+            'target': 2,
             'value': 300
+        });
+
+        links.push({
+            'source': 1,
+            'target': 2,
+            'value': 400
         });
 
         function draw(data) {
