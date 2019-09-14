@@ -305,7 +305,7 @@ let ChartSankey = function ChartSankey(config,svg) {
         // Set the sankey diagram properties
         let sankey = d3.sankey()
             .nodeWidth(24)
-            .nodePadding(200)
+            .nodePadding(80)
             .size([dimensions.width, dimensions.height]);
 
         let path = sankey.link();
