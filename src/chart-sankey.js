@@ -304,7 +304,7 @@ let ChartSankey = function ChartSankey(config,svg) {
 
         // Set the sankey diagram properties
         let sankey = d3.sankey()
-            .nodeWidth(36)
+            .nodeWidth(24)
             .nodePadding(100)
             .size([dimensions.width, dimensions.height]);
 
@@ -313,7 +313,7 @@ let ChartSankey = function ChartSankey(config,svg) {
         sankey
             .nodes(nodes)
             .links(links)
-            .layout(32);
+            .layout(64);
 
         // add in the links
         let link = svg.layers.data.append("g").selectAll(".link")
