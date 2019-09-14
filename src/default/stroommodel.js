@@ -116,13 +116,13 @@ var stroommodel = function(element) {
 
 
         nodes.push({
-            'node': 11,
+            'node': 4,
             'name': 'schademeldingen',
             'desc': 'doei'
         });
 
         nodes.push({
-            'node': 12,
+            'node': 5,
             'name': 'aos meldingen',
             'desc': 'doei'
         });
@@ -135,19 +135,19 @@ var stroommodel = function(element) {
 
         links.push({
             'source': 1,
-            'target': 11,
+            'target': 4,
             'value': 8844
         });
 
         links.push({
             'source': 2,
-            'target': 11,
+            'target': 4,
             'value': 8360
         });
 
         links.push({
             'source': 3,
-            'target': 11,
+            'target': 4,
             'value': 4587
         });
 
