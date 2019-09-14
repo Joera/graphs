@@ -80,7 +80,7 @@ d3.sankey = function() {
 
         function link(d) {
             var x0 = d.source.x,
-                y0 = d.source.y + d.sy + d.dy / 2,
+                y0 = d.source.y,
 
                 x1 = d.source.x + d.source.dx,
                 y1 = d.target.y + d.ty + d.dy / 2;
