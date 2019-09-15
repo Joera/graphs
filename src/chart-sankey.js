@@ -102,13 +102,13 @@ let ChartSankey = function ChartSankey(config,svg) {
             });
 
         svg.nodeRect
-            .style("stroke-opacity", 0.3)
+            .style("opacity", 0.3)
             .attr("height", function(d) { return d.dy; })
             .attr("width", svg.sankey.nodeWidth())
             .transition()
             .delay(1000)
             .duration(1500)
-            .style("stroke-opacity", 1)
+            .style("opacity", 1)
 
         // add the rectangles for the nodes
 
