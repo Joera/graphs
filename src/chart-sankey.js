@@ -387,7 +387,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .enter().append("g")
             .attr("class", "uncomplete")
             .attr("transform", function(d) {
-                return "translate(" + d.x + "," + d.y + ")"; })
+                return "translate(" + d.source.x + "," + d.source.y + ")"; })
         ;
 
         // add the rectangles for the nodes
