@@ -102,7 +102,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             });
 
         svg.nodeRect
-            .style("opacity", 0.3)
+            .style("opacity", 0.4)
             .attr("height", function(d) { return d.dy; })
             .attr("width", svg.sankey.nodeWidth())
             .transition()
