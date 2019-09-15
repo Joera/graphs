@@ -59,10 +59,8 @@ let ChartSankey = function ChartSankey(config,svg) {
             .append("g")
             .attr("class", "node");
 
-        svg.nodeGroupEnter
+        svg.nodeRect = svg.nodeGroupEnter
             .append("rect")
-            .attr("height", function(d) { return d.dy; })
-            .attr("width", svg.sankey.nodeWidth())
             .style("fill", function(d) {
                 if (d.name === 'IN_PROCEDURE') {
                     return orange;
@@ -102,6 +100,10 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("transform", function(d) {
                 return "translate(" + d.x + "," + d.y + ")";
             });
+
+        svg.nodeRect
+            .attr("height", function(d) { return d.dy; })
+            .attr("width", svg.sankey.nodeWidth());
 
         // add the rectangles for the nodes
 
