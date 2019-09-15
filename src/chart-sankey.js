@@ -96,6 +96,7 @@ let ChartSankey = function ChartSankey(config,svg) {
 
         svg.nodeRectUncompletedEnter = svg.nodeRectUncompleted
             .append("rect")
+            .attr("class","node-uncompleted")
             .style("fill", orange )
             .style("stroke", orange );
 
