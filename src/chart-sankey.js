@@ -350,22 +350,6 @@ let ChartSankey = function ChartSankey(config,svg) {
             .style("stroke-width", function(d) { return Math.max(1, d.dy); })
             .sort(function(a, b) { return b.dy - a.dy; })
 
-        // let orangeLink = svg.layers.data.append("g").selectAll(".orangeLink")
-        //     .data(links)
-        //     .enter().append("path")
-        //     .attr("class", function(d) {
-        //
-        //         if (d.target.name === 'IN_PROCEDURE') {
-        //             return "orangeLink in-procedure";
-        //         } else {
-        //             return "orangeLink";
-        //         }
-        //     })
-        //     .attr("d", shortPath)
-        //     .style("stroke-width", function(d) { return Math.max(1, d.dy); } )
-        //     .sort(function(a, b) { return b.dy - a.dy; });
-
-
         // add in the nodes
         let node = svg.layers.data.append("g").selectAll(".node")
             .data(nodes)
@@ -389,6 +373,37 @@ let ChartSankey = function ChartSankey(config,svg) {
             .style("stroke", function(d) {
 
                 if (d.name === 'IN_PROCEDURE') {
+                    return orange;
+                } else {
+                    return blue;
+                }
+            })
+            .append("title")
+            .text(function(d) {
+                return d.name + "\n" + d.value; });
+
+        let uncompleted = svg.layers.data.append("g").selectAll(".uncomplete")
+            .data(links)
+            .enter().append("g")
+            .attr("class", "uncomplete")
+            .attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")"; })
+        ;
+
+        // add the rectangles for the nodes
+        uncompleted.append("rect")
+            .attr("height", function(d) { console.log(d); return d.dy; })
+            .attr("width", sankey.nodeWidth())
+            .style("fill", function(d) {
+                if (d.target.name === 'IN_PROCEDURE') {
+                    return orange;
+                } else {
+                    return blue;
+                }
+            })
+            .style("stroke", function(d) {
+
+                if (d.target.name === 'IN_PROCEDURE') {
                     return orange;
                 } else {
                     return blue;
