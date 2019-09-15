@@ -97,7 +97,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("text-anchor", "start");
 
         svg.nodeGroupUncompleted = svg.nodeLayer.selectAll('.node-uncompleted')
-            .data(links.filter( (l) => l.class === 'uncompleted'));
+            .data(links.filter( (l) => l.class === 'in-procedure'));
 
         svg.nodeGroupUncompleted.exit().remove();
 
