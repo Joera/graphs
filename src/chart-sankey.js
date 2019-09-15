@@ -106,7 +106,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("x", -6)
             .attr("dy", ".5em")
             .attr("transform", null)
-            .text(d => d.name)
+            .text(d => translate(d.name))
             .attr("text-anchor", "start");
 
         svg.nodeValue = svg.nodeGroupEnter
