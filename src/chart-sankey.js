@@ -8,6 +8,13 @@ let ChartSankey = function ChartSankey(config,svg) {
 
     let path;
 
+
+    let translate = function translate(name) {
+
+        if(name === 'MELDING') return 'schademelding';
+
+    }
+
     let set = function set(nodes,links,dimensions) {
 
         svg.sankey = d3.sankey()
