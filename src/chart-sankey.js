@@ -11,7 +11,11 @@ let ChartSankey = function ChartSankey(config,svg) {
 
     let translate = function translate(name) {
 
-        if(name === 'MELDING') return 'schademelding';
+        if(name === 'MELDING') {
+            return 'schademeldingen';
+        } else {
+            return name;
+        }
 
     }
 
