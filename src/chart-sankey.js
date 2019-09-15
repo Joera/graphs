@@ -58,6 +58,9 @@ let ChartSankey = function ChartSankey(config,svg) {
 
         svg.nodeRect = svg.nodeGroupEnter
             .append("rect")
+            .attr("class", function(d) {
+                return d.class;
+            })
             .style("fill", function(d) {
                 if (d.name === 'IN_PROCEDURE') {
                     return orange;
@@ -73,6 +76,11 @@ let ChartSankey = function ChartSankey(config,svg) {
                     return blue;
                 }
             });
+
+        svg.nodeRectUncompleted = svg.nodeGroupEnter
+            .append("rect")
+            .style("fill", orange)
+            .style("stroke", orange);
 
         svg.nodeName = svg.nodeGroupEnter
             .append("text")
