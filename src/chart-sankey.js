@@ -74,10 +74,10 @@ let ChartSankey = function ChartSankey(config,svg) {
                 }
             });
 
-        svg.nodeRectUncompleted = svg.nodeGroupEnter
-            .append("rect")
-            .style("fill", orange)
-            .style("stroke", orange);
+        // svg.nodeRectUncompleted = svg.nodeGroupEnter
+        //     .append("rect")
+        //     .style("fill", orange)
+        //     .style("stroke", orange);
 
         // svg.nodeGroupUncompleted = svg.nodeLayer.selectAll('.node-uncompleted')
         //     .data(links.filter( (l) => l.class === 'in-procedure'));
@@ -95,7 +95,7 @@ let ChartSankey = function ChartSankey(config,svg) {
         svg.nodeRectUncompleted.exit().remove();
 
         svg.nodeRectUncompletedEnter = svg.nodeRectUncompleted
-            .append("path")
+            .append("rect")
             .attr("class","node-uncompleted")
             .style("fill", orange )
             .style("stroke", orange );
