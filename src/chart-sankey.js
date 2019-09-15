@@ -106,7 +106,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("height", function(d) { return d.dy; })
             .attr("width", svg.sankey.nodeWidth())
             .transition()
-            .delay(1000)
+            .delay(500)
             .duration(1500)
             .style("opacity", 1)
 
