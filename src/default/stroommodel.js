@@ -96,6 +96,7 @@ var stroommodel = function(element) {
         // for example on window resize
         window.addEventListener("resize", redraw, false);
 
+        draw();
         redraw();
     });
 
