@@ -165,7 +165,7 @@ let ChartSankey = function ChartSankey(config,svg) {
 
         svg.nodeRectUncompleted
             .style("opacity", 0.4)
-            .attr("height", function(d) { console.log(d); return d.source.dy; })
+            .attr("height", function(d) { console.log(d); return d.dy; })
             .attr("width", svg.sankey.nodeWidth())
             .transition()
             .delay(500)
