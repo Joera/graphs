@@ -89,7 +89,7 @@ let ChartSankey = function ChartSankey(config,svg) {
         //     .append("g")
         //     .attr("class", "node-uncompleted");
 
-        svg.nodeRectUncompleted = svg.nodeGroup.selectAll('.node-uncompleted')
+        svg.nodeRectUncompleted = svg.nodeGroupEnter.selectAll('.node-uncompleted')
             .data(links.filter( (l) => l.class === 'in-procedure'));
 
         svg.nodeRectUncompleted.exit().remove();
@@ -149,7 +149,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .delay(500)
             .duration(1500)
             .style("opacity", 1);
-        
+
 
         svg.nodeRectUncompleted
             .merge(svg.nodeRectUncompletedEnter)
