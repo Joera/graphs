@@ -5,13 +5,9 @@
 
 let ChartSankey = function ChartSankey(config,svg) {
 
-    let nodes, links, path;
 
 
-    let setSankey = function setSankey(nodes,links,dimensions) {
-
-        nodes = nodes;
-        links = links;
+    let set = function set(nodes,links,dimensions) {
 
         svg.sankey = d3.sankey()
             .nodeWidth(24)
@@ -26,10 +22,10 @@ let ChartSankey = function ChartSankey(config,svg) {
             .layout(64);
     }
 
-    let draw = function draw(nodes,links,dimensions) {
+    let draw = function draw(nodes,links) {
 
         // Set the sankey diagram properties
-        setSankey(nodes,links,dimensions);
+
 
         svg.linkLayer = svg.layers.data.append("g")
             .attr("class", "linkGroup");
@@ -99,7 +95,7 @@ let ChartSankey = function ChartSankey(config,svg) {
     let redraw = function redraw(dimensions) {
 
         // how to update dimensions
-        setSankey(nodes,links,dimensions);
+
 
         // add in the links
         svg.links

@@ -86,6 +86,7 @@ var stroommodel = function(element) {
 
         function redraw() {
 
+            chartSankey.set(nodes,links,dimensions);
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
@@ -95,6 +96,7 @@ var stroommodel = function(element) {
 
         // for example on window resize
         window.addEventListener("resize", redraw, false);
+
 
         draw();
         redraw();
