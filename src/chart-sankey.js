@@ -107,7 +107,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("x", -6)
             .attr("dy", "-.5em")
             .attr("transform", null)
-            .text(d => { console.log(d); return d.value.toString()});
+            .text(d => { return (d.value !== undefined) ? d.value : '0' });
     }
 
     let redraw = function redraw(dimensions) {
