@@ -58,9 +58,6 @@ let ChartSankey = function ChartSankey(config,svg) {
 
         svg.nodeRect = svg.nodeGroupEnter
             .append("rect")
-            .attr("class", function(d) {
-                return d.class;
-            })
             .style("fill", function(d) {
                 if (d.name === 'IN_PROCEDURE') {
                     return orange;
@@ -98,6 +95,21 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("text-anchor", "end")
             .attr("transform", null)
             .attr("text-anchor", "start");
+
+        svg.nodeGroupUncompleted = svg.nodeLayer.selectAll('.node')
+            .data(links);
+
+        svg.nodeGroupUncompleted.exit().remove();
+
+        svg.nodeGroupUncompletedEnter = svg.nodeGroupUncompleted
+            .enter()
+            .append("g")
+            .attr("class", "node");
+
+        svg.nodeRectUncompleted = svg.nodeGroupUncompletedEnter
+            .append("rect")
+            .style("fill", orange )
+            .style("stroke", orange );
 
     }
 
@@ -144,6 +156,15 @@ let ChartSankey = function ChartSankey(config,svg) {
             .text(function(d) { return d.value  })
             .filter(function(d) { return d.x < dimensions.width / 2; })
             .attr("x", 6 + svg.sankey.nodeWidth());
+
+        svg.nodeRectUncompleted
+            .style("opacity", 0.4)
+            .attr("height", function(d) { return d.target.dy; })
+            .attr("width", svg.sankey.nodeWidth())
+            .transition()
+            .delay(500)
+            .duration(1500)
+            .style("opacity", 1);
     }
 
 
