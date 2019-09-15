@@ -99,7 +99,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("x", -6)
             .attr("dy", ".35em")
             .attr("transform", null)
-            .text(function(d) { return d.name  })
+            .text(d => d.name)
             .attr("text-anchor", "start");
 
         svg.nodeValue = svg.nodeGroupEnter
@@ -108,7 +108,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("dy", "-.7em")
             .attr("text-anchor", "end")
             .attr("transform", null)
-            .text(function(d) { return d.value  })
+            .text(d => d.value)
             .attr("text-anchor", "start");
 
     }
@@ -161,19 +161,22 @@ let ChartSankey = function ChartSankey(config,svg) {
             .style("opacity", 1);
 
         svg.nodeName
-          //  .filter(function(d) { return d.x < dimensions.width / 2; })
             .attr("x", (d) => {
                 return (d.x < dimensions.width / 2) ? 6 + svg.sankey.nodeWidth() : -6
             })
             .attr("y", (d) => d.dy / 2 )
             .attr("text-anchor", (d) => {
                 return (d.x < dimensions.width / 2) ? "start" : "end";
-            })
+            });
 
         svg.nodeValue
             .attr("y", function(d) { return d.dy / 2; })
-            // .filter(function(d) { return d.x < dimensions.width / 2; })
-            .attr("x", 6 + svg.sankey.nodeWidth());
+            .attr("x", (d) => {
+                return (d.x < dimensions.width / 2) ? 6 + svg.sankey.nodeWidth() : -6
+            })
+            .attr("text-anchor", (d) => {
+                return (d.x < dimensions.width / 2) ? "start" : "end";
+            });
     }
 
 
