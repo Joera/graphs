@@ -89,6 +89,8 @@ let ChartSankey = function ChartSankey(config,svg) {
         //     .append("g")
         //     .attr("class", "node-uncompleted");
 
+        console.log(links.filter( (l) => l.class === 'in-procedure'));
+
         svg.nodeRectUncompleted = svg.nodeGroupEnter.selectAll('.node-uncompleted')
             .data(links.filter( (l) => l.class === 'in-procedure'));
 
