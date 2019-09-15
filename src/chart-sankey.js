@@ -6,6 +6,7 @@
 let ChartSankey = function ChartSankey(config,svg) {
 
 
+    let path;
 
     let set = function set(nodes,links,dimensions) {
 
