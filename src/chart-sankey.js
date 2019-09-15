@@ -339,12 +339,12 @@ let ChartSankey = function ChartSankey(config,svg) {
             .data(links)
             .enter().append("path")
             .attr("class", function(d) {
-
                 return 'link ' + d.class;
             })
             .attr("d", path)
-            .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-            .sort(function(a, b) { return b.dy - a.dy; })
+            .style("stroke-width", function(d) { return Math.max(1, d.dy); });
+
+        //    .sort(function(a, b) { return b.dy - a.dy; })
 
         // add in the nodes
         let node = svg.layers.data.append("g").selectAll(".node")
