@@ -139,6 +139,7 @@ let ChartSankey = function ChartSankey(config,svg) {
 
 
     return  {
+        set : set,
         draw : draw,
         redraw : redraw
     }
