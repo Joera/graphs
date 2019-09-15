@@ -78,7 +78,10 @@ var stroommodel = function(element) {
         headers: { "Content-type": "application/json; charset=UTF-8"}
     }).then( ({nodes,links}) => {
 
-        function draw() {}
+        function draw() {
+
+            chartSankey.draw(nodes, links, dimensions);
+        }
 
         function redraw() {
 
@@ -86,7 +89,7 @@ var stroommodel = function(element) {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
             // redraw data
-            chartSankey.redraw(nodes, links, dimensions);
+            chartSankey.redraw(dimensions);
         }
 
         // for example on window resize

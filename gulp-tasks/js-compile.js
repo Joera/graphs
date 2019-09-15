@@ -20,6 +20,7 @@ module.exports = function() {
             './src/_colours.js',
             './src/_formats.js',
             './src/_helpers.js',
+            './src/_sankey.js',
 
             './src/chart-init-objects.js',
             './src/chart-dimensions.js',
