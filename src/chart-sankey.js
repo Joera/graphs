@@ -98,7 +98,6 @@ let ChartSankey = function ChartSankey(config,svg) {
             .append("text")
             .attr("x", -6)
             .attr("dy", ".35em")
-            .attr("text-anchor", "end")
             .attr("transform", null)
             .text(function(d) { return d.name  })
             .attr("text-anchor", "start");
@@ -164,7 +163,10 @@ let ChartSankey = function ChartSankey(config,svg) {
         svg.nodeName
           //  .filter(function(d) { return d.x < dimensions.width / 2; })
             .attr("x", 6 + svg.sankey.nodeWidth())
-            .attr("y", function(d) { return d.dy / 2; });
+            .attr("y", function(d) { return d.dy / 2; })
+            .attr("text-anchor", (d) => {
+                return (d.x < dimensions.width / 2) ? "end" : "start";
+            })
 
         svg.nodeValue
             .attr("y", function(d) { return d.dy / 2; })
