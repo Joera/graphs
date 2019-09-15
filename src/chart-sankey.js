@@ -157,6 +157,12 @@ let ChartSankey = function ChartSankey(config,svg) {
             .filter(function(d) { return d.x < dimensions.width / 2; })
             .attr("x", 6 + svg.sankey.nodeWidth());
 
+        svg.nodeGroupUncompleted
+            .merge(svg.nodeGroupUncompletedEnter)
+            .attr("transform", function(d) {
+                return "translate(" + d.source.x + "," + d.source.y + ")";
+            });
+
         svg.nodeRectUncompleted
             .style("opacity", 0.4)
             .attr("height", function(d) { return d.target.dy; })
