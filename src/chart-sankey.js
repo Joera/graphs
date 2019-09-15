@@ -31,10 +31,10 @@ let ChartSankey = function ChartSankey(config,svg) {
         // Set the sankey diagram properties
         setSankey(nodes,links,dimensions);
 
-        svg.linkGroup = svg.layers.data.append("g")
+        svg.linkLayer = svg.layers.data.append("g")
             .attr("class", "linkGroup");
 
-        svg.links = svg.linkGroup.selectAll(".link")
+        svg.links = svg.linkLayer.selectAll(".link")
             .data(links);
 
         svg.links.exit().remove();
@@ -45,6 +45,19 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("class", function(d) {
                 return 'link ' + d.class;
             });
+
+        svg.nodeLayer = svg.layers.data.append("g")
+            .attr("class", "nodeGroup");
+
+        svg.nodeGroup = svg.nodeLayer.selectAll('.node')
+            .data(nodes);
+
+        svg.nodeGroup.exit().remove();
+
+        svg.nodeGroupEnter = svg.nodeGroup
+            .enter()
+            .append("g")
+            .attr("class", "node")
 
     }
 
@@ -64,16 +77,15 @@ let ChartSankey = function ChartSankey(config,svg) {
         //    .sort(function(a, b) { return b.dy - a.dy; })
 
         // add in the nodes
-        let node = svg.layers.data.append("g").selectAll(".node")
-            .data(nodes)
-            .enter().append("g")
-            .attr("class", "node")
+        svg.nodeGroup
+            .merge(svg.nodeGroupEnter)
             .attr("transform", function(d) {
-                return "translate(" + d.x + "," + d.y + ")"; })
-       ;
+                return "translate(" + d.x + "," + d.y + ")";
+            });
 
         // add the rectangles for the nodes
-        node.append("rect")
+        svg.nodeGroup
+            .append("rect")
             .attr("height", function(d) { return d.dy; })
             .attr("width", svg.sankey.nodeWidth())
             .style("fill", function(d) {
@@ -95,41 +107,11 @@ let ChartSankey = function ChartSankey(config,svg) {
             .text(function(d) {
                 return d.name + "\n" + d.value; });
 
-        let uncompleted = svg.layers.data.append("g").selectAll(".uncomplete")
-            .data(links)
-            .enter().append("g")
-            .attr("class", "uncomplete")
-            .attr("transform", function(d) {
-                return "translate(" + d.source.x + "," + d.source.y + ")"; })
-        ;
-
-        // add the rectangles for the nodes
-        uncompleted.append("rect")
-            .attr("height", function(d) { console.log(d); return d.dy; })
-            .attr("width", svg.sankey.nodeWidth())
-            .style("fill", function(d) {
-                if (d.target.name === 'IN_PROCEDURE') {
-                    return orange;
-                } else {
-                    return blue;
-                }
-            })
-            .style("stroke", function(d) {
-
-                if (d.target.name === 'IN_PROCEDURE') {
-                    return orange;
-                } else {
-                    return blue;
-                }
-            })
-            .append("title")
-            .text(function(d) {
-                return d.name + "\n" + d.value; });
-
 
 
         // add in the title for the nodes
-        node.append("text")
+        svg.nodeGroup
+            .append("text")
             .attr("x", -6)
             .attr("y", function(d) { return d.dy / 2; })
             .attr("dy", ".35em")
@@ -141,7 +123,8 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("text-anchor", "start");
 
         // add in the title for the nodes
-        node.append("text")
+        svg.nodeGroup
+            .append("text")
             .attr("x", -6)
             .attr("y", function(d) { return d.dy / 2; })
             .attr("dy", "-.7em")
