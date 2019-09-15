@@ -59,7 +59,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .append("g")
             .attr("class", "node");
 
-        svg.nodeGroup
+        svg.nodeGroupEnter
             .append("rect")
             .attr("height", function(d) { return d.dy; })
             .attr("width", svg.sankey.nodeWidth())
