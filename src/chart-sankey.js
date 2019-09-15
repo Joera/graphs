@@ -174,7 +174,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("text-anchor", (d) => {
                 return (d.x < dimensions.width / 2) ? "start" : "end";
             })
-            .text(d => { return (d.value !== undefined) ? d.value : '0' });
+            .text(d => thousands(d.value));
     }
 
 
