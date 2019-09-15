@@ -57,7 +57,27 @@ let ChartSankey = function ChartSankey(config,svg) {
         svg.nodeGroupEnter = svg.nodeGroup
             .enter()
             .append("g")
-            .attr("class", "node")
+            .attr("class", "node");
+
+        svg.nodeGroup
+            .append("rect")
+            .attr("height", function(d) { return d.dy; })
+            .attr("width", svg.sankey.nodeWidth())
+            .style("fill", function(d) {
+                if (d.name === 'IN_PROCEDURE') {
+                    return orange;
+                } else {
+                    return blue;
+                }
+            })
+            .style("stroke", function(d) {
+
+                if (d.name === 'IN_PROCEDURE') {
+                    return orange;
+                } else {
+                    return blue;
+                }
+            });
 
     }
 
@@ -84,25 +104,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             });
 
         // add the rectangles for the nodes
-        svg.nodeGroup
-            .append("rect")
-            .attr("height", function(d) { return d.dy; })
-            .attr("width", svg.sankey.nodeWidth())
-            .style("fill", function(d) {
-                if (d.name === 'IN_PROCEDURE') {
-                    return orange;
-                } else {
-                    return blue;
-                }
-            })
-            .style("stroke", function(d) {
 
-                if (d.name === 'IN_PROCEDURE') {
-                    return orange;
-                } else {
-                    return blue;
-                }
-            });
 
 
             // .append("title")
