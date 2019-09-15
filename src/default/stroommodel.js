@@ -52,8 +52,9 @@ var stroommodel = function(element) {
         ["MELDING", "AANTAL_BESLUIT_STUWMEER", "STUWMEERREGELING","completed"],
         ["MELDING", "GEEN_REACTIE_STUWMEER", "STUWMEERREGELING","uncompleted"],
         ["MELDING","WACHT_OP_OPNAME","IN_PROCEDURE","in-procedure"],
-        ["STUWMEERREGELING", "GEEN_REACTIE_STUWMEER", "IN_PROCEDURE","in-procedure"],
-        ["STUWMEERREGELING", "AANTAL_BESLUIT_STUWMEER", "AANTAL_BESLUIT_STUWMEER",""],
+        ["STUWMEERREGELING", "GEEN_REACTIE_STUWMEER", "IN_PROCEDURE","in-procedure"], // 0%
+        ["STUWMEERREGELING", "AANTAL_BESLUIT_STUWMEER", "AANTAL_BESLUIT_STUWMEER",""], // 100%
+
 
         ["aos_totaal","","",""],
         ["OPNAMES","RAPPORTAGES","RAPPORTAGES",""],
