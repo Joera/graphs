@@ -84,56 +84,56 @@ let ChartSankey = function ChartSankey(config,svg) {
             });
 
         // add the rectangles for the nodes
-        svg.nodeGroup
-            .append("rect")
-            .attr("height", function(d) { return d.dy; })
-            .attr("width", svg.sankey.nodeWidth())
-            .style("fill", function(d) {
-                if (d.name === 'IN_PROCEDURE') {
-                    return orange;
-                } else {
-                    return blue;
-                }
-            })
-            .style("stroke", function(d) {
+        // svg.nodeGroup
+        //     .append("rect")
+        //     .attr("height", function(d) { return d.dy; })
+        //     .attr("width", svg.sankey.nodeWidth())
+        //     .style("fill", function(d) {
+        //         if (d.name === 'IN_PROCEDURE') {
+        //             return orange;
+        //         } else {
+        //             return blue;
+        //         }
+        //     })
+        //     .style("stroke", function(d) {
+        //
+        //         if (d.name === 'IN_PROCEDURE') {
+        //             return orange;
+        //         } else {
+        //             return blue;
+        //         }
+        //     })
+        //     .append("title")
+        //     .text(function(d) {
+        //         return d.name + "\n" + d.value; });
 
-                if (d.name === 'IN_PROCEDURE') {
-                    return orange;
-                } else {
-                    return blue;
-                }
-            })
-            .append("title")
-            .text(function(d) {
-                return d.name + "\n" + d.value; });
 
-
-
-        // add in the title for the nodes
-        svg.nodeGroup
-            .append("text")
-            .attr("x", -6)
-            .attr("y", function(d) { return d.dy / 2; })
-            .attr("dy", ".35em")
-            .attr("text-anchor", "end")
-            .attr("transform", null)
-            .text(function(d) { return d.name  })
-            .filter(function(d) { return d.x < dimensions.width / 2; })
-            .attr("x", 6 + svg.sankey.nodeWidth())
-            .attr("text-anchor", "start");
 
         // add in the title for the nodes
-        svg.nodeGroup
-            .append("text")
-            .attr("x", -6)
-            .attr("y", function(d) { return d.dy / 2; })
-            .attr("dy", "-.7em")
-            .attr("text-anchor", "end")
-            .attr("transform", null)
-            .text(function(d) { return d.value  })
-            .filter(function(d) { return d.x < dimensions.width / 2; })
-            .attr("x", 6 + svg.sankey.nodeWidth())
-            .attr("text-anchor", "start");
+        // svg.nodeGroup
+        //     .append("text")
+        //     .attr("x", -6)
+        //     .attr("y", function(d) { return d.dy / 2; })
+        //     .attr("dy", ".35em")
+        //     .attr("text-anchor", "end")
+        //     .attr("transform", null)
+        //     .text(function(d) { return d.name  })
+        //     .filter(function(d) { return d.x < dimensions.width / 2; })
+        //     .attr("x", 6 + svg.sankey.nodeWidth())
+        //     .attr("text-anchor", "start");
+
+        // add in the title for the nodes
+        // svg.nodeGroup
+        //     .append("text")
+        //     .attr("x", -6)
+        //     .attr("y", function(d) { return d.dy / 2; })
+        //     .attr("dy", "-.7em")
+        //     .attr("text-anchor", "end")
+        //     .attr("transform", null)
+        //     .text(function(d) { return d.value  })
+        //     .filter(function(d) { return d.x < dimensions.width / 2; })
+        //     .attr("x", 6 + svg.sankey.nodeWidth())
+        //     .attr("text-anchor", "start");
 
 
         // tooltip doen met + ' ' + d.desc;
