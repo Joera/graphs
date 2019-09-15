@@ -106,8 +106,8 @@ let ChartSankey = function ChartSankey(config,svg) {
             .append("text")
             .attr("x", -6)
             .attr("dy", "-.5em")
-            .attr("transform", null)
-            .text(d => { return (d.value !== undefined) ? d.value : '0' });
+            .attr("transform", null);
+
     }
 
     let redraw = function redraw(dimensions) {
@@ -173,7 +173,8 @@ let ChartSankey = function ChartSankey(config,svg) {
             })
             .attr("text-anchor", (d) => {
                 return (d.x < dimensions.width / 2) ? "start" : "end";
-            });
+            })
+            .text(d => { return (d.value !== undefined) ? d.value : '0' });
     }
 
 
