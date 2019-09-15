@@ -165,7 +165,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("x", 6 + svg.sankey.nodeWidth())
             .attr("y", function(d) { return d.dy / 2; })
             .attr("text-anchor", (d) => {
-                return (d.x > dimensions.width / 2) ? "end" : "start";
+                return (d.x < dimensions.width / 2) ? "start" : "end";
             })
 
         svg.nodeValue
