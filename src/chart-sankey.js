@@ -102,6 +102,9 @@ let ChartSankey = function ChartSankey(config,svg) {
             });
 
         svg.nodeRect
+            .attr("width", 0)
+            .transition()
+            .duration(500)
             .attr("height", function(d) { return d.dy; })
             .attr("width", svg.sankey.nodeWidth());
 
