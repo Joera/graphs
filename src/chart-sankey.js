@@ -109,6 +109,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .attr("dy", "-.7em")
             .attr("text-anchor", "end")
             .attr("transform", null)
+            .text(function(d) { return d.value  })
             .attr("text-anchor", "start");
 
     }
@@ -161,14 +162,13 @@ let ChartSankey = function ChartSankey(config,svg) {
             .style("opacity", 1);
 
         svg.nodeName
-            .filter(function(d) { return d.x < dimensions.width / 2; })
+          //  .filter(function(d) { return d.x < dimensions.width / 2; })
             .attr("x", 6 + svg.sankey.nodeWidth())
             .attr("y", function(d) { return d.dy / 2; });
 
         svg.nodeValue
             .attr("y", function(d) { return d.dy / 2; })
-            .text(function(d) { return d.value  })
-            .filter(function(d) { return d.x < dimensions.width / 2; })
+            // .filter(function(d) { return d.x < dimensions.width / 2; })
             .attr("x", 6 + svg.sankey.nodeWidth());
     }
 
