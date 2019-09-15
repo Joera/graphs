@@ -99,6 +99,7 @@ let ChartSankey = function ChartSankey(config,svg) {
     let redraw = function redraw(dimensions) {
 
         // how to update dimensions
+        setSankey(nodes,links,dimensions);
 
         // add in the links
         svg.links
