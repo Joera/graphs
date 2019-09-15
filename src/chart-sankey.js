@@ -340,7 +340,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             .enter().append("path")
             .attr("class", function(d) {
 
-                return 'link ' + link.class;
+                return 'link ' + d.class;
             })
             .attr("d", path)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); })
