@@ -56,7 +56,7 @@ let ChartSankey = function ChartSankey(config,svg) {
         svg.links
             .merge(svg.linksEnter)
             .attr("d", path)
-            .style("stroke-width", function(d) { return Math.min(1, d.dy); });
+            .style("stroke-width", function(d) { return Math.min(1, d.dy); })
             .transition()
             .duration(500)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); });
