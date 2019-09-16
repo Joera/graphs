@@ -47,6 +47,7 @@ var gemeentes = function(element) {
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
             });
 
+            console.log(features);
 
             function redraw(property) {
 
