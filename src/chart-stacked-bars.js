@@ -75,7 +75,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let xOffset;
 
         if(window.innerWidth < 900) {
-            barWidth = 40;
+            barWidth = 48;
         }
 
         // if(window.innerWidth < 600) {

@@ -79,11 +79,11 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         let xOffset;
 
         if(window.innerWidth < 900) {
-            barWidth = 32;
+            barWidth = 48;
         }
 
         if(window.innerWidth < 600) {
-            barWidth = 12;
+            barWidth = 16;
         }
 
         let minValue = (d3.max(dataArray, d => d[property]) > 20000) ? config.minValue : 900;
