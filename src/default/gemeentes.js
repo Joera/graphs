@@ -24,9 +24,9 @@ var gemeentes = function(element) {
 
     if (window.innerWidth < 600) {
 
-        // dimensions = Object.keys(dimensions).map(function(key, index) {
-        //     dimensions[key] *= 1.33;
-        // });
+        Object.keys(dimensions).map(function(key, index) {
+            dimensions[key] *= 1.33;
+        });
     }
 
     console.log(dimensions);
