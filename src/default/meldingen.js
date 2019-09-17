@@ -61,7 +61,7 @@ var meldingen = function(element) {
        let data = json.reverse();
 
         if(window.innerWidth < 600) {
-            data = data.slice(0,3);
+            data = data.slice(data.length - 3,data.length);
         }
 
         function redraw(property) {
