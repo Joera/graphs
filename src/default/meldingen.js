@@ -60,6 +60,10 @@ var meldingen = function(element) {
         // remove data entry from wednesday
        let data = json.reverse();
 
+        if(window.innerWidth < 600) {
+            data = data.slice(0,3);
+        }
+
         function redraw(property) {
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);

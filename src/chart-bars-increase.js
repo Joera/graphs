@@ -5,9 +5,6 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
     let draw = function draw(data,colours) {
 
         // slice count of columns on mobile
-        if(window.innerWidth < 600) {
-            data = data.slice(0,3);
-        }
 
         dataArray = data;
 
