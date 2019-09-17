@@ -60,7 +60,7 @@ var meldingen = function(element) {
         // remove data entry from wednesday
        let data = json.reverse();
 
-        if(window.innerWidth < 600) {
+        if (window.innerWidth < 600) {
             data = data.slice(data.length - 3,data.length);
         }
 
