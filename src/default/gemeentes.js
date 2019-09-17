@@ -19,6 +19,13 @@ var gemeentes = function(element) {
     let chartSVG = ChartSVG(element,config,dimensions,svg);
 
     dimensions = chartDimensions.get(dimensions);
+
+    console.log(dimensions);
+
+    if (window.innerWidth < 600) {
+        dimensions = dimensions;
+    }
+
     chartSVG.redraw(dimensions);
 
     let chartMap = ChartMap(config,svg,dimensions);
@@ -47,7 +54,7 @@ var gemeentes = function(element) {
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
             });
 
-            console.log(features);
+        //    console.log(features);
 
             function redraw(property) {
 
