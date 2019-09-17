@@ -40,7 +40,9 @@ html {
   }
 
   svg {
-        margin-top: -260px;
+      margin-top: -400px;
+      margin-left: -80px;
+
       @media (min-width: $breakpoint-sm) {
         margin-top: -200px;
       }
