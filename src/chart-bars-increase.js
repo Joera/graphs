@@ -4,6 +4,11 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let draw = function draw(data,colours) {
 
+        // slice count of columns on mobile
+        if(window.innerWidth < 600) {
+            data = data.slice(0,3);
+        }
+
         dataArray = data;
 
         svg.bar = svg.layers.data.selectAll(".bar")
@@ -82,9 +87,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             barWidth = 48;
         }
 
-        if(window.innerWidth < 600) {
-            barWidth = 16;
-        }
+        // if(window.innerWidth < 600) {
+        //     barWidth = 16;
+        // }
 
         let minValue = (d3.max(dataArray, d => d[property]) > 20000) ? config.minValue : 900;
 
