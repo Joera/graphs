@@ -23,7 +23,10 @@ var gemeentes = function(element) {
    //
 
     if (window.innerWidth < 600) {
-        dimensions = dimensions.map( d => d * 1.33);
+
+        dimensions = Object.keys(dimensions).map(function(key, index) {
+            dimensions[key] *= 1.33;
+        });
     }
 
     console.log(dimensions);
