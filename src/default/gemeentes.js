@@ -20,11 +20,13 @@ var gemeentes = function(element) {
 
     dimensions = chartDimensions.get(dimensions);
 
-   // console.log(dimensions);
+   //
 
     if (window.innerWidth < 600) {
-        dimensions = dimensions.map(d => d * 1.33);
+        dimensions = dimensions.map( d => d * 1.33);
     }
+
+    console.log(dimensions);
 
     chartSVG.redraw(dimensions);
 
