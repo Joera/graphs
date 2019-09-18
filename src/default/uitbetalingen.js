@@ -106,8 +106,8 @@ var uitbetalingen = function(element) {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
             // new dimensions mean new scales
-            newxScale = chartXScale.reset(dimensions,xScale);
-            newyScale = chartYScale.reset(dimensions,yScale);
+            let newxScale = chartXScale.reset(dimensions,xScale);
+            let newyScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
             chartAxis.redrawXBandAxis(dimensions,xScale,axes);
             chartAxis.redrawYAxis(newyScale,axes);
