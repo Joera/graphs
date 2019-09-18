@@ -46,8 +46,6 @@ var uitbetalingen = function(element) {
 
     d3.json(url, function(error, json) {
 
-        console.log(json);
-
         function prepareData(json,filter) {
 
             json = json.filter( j => j['_category'] === filter)[0];
@@ -83,8 +81,6 @@ var uitbetalingen = function(element) {
                 totaal: json['MEER_DAN_10000']
 
             });
-
-            // data.columns = csv.columns;
 
             return data;
         }

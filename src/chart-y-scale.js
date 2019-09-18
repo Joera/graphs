@@ -13,6 +13,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             minValue = 0; //
         }
 
+        console.log(dimensions);
+
         scale.linear = d3.scaleLinear()
             .range([dimensions.height, 0])
             .domain([

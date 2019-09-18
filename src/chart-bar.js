@@ -28,13 +28,6 @@ let ChartBar = function ChartBar(config,svg) {
 
     let redraw = function redraw(dimensions,xScale,yScale) {
 
-
-        // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
-
-        // is date or not date
-
-        console.log(dimensions);
-
         svg.bar
             .merge(svg.bar)
             .attr("x", function(d) {
