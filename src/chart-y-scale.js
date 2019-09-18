@@ -14,7 +14,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         }
 
         scale.linear = d3.scaleLinear()
-            .range([(config.fixedHeight || dimensions.height), 0])
+            .range([dimensions.height, 0])
             .domain([
                 minValue,
                 config.maxValue || d3.max(data, d => d[property])
