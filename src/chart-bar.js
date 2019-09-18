@@ -26,7 +26,7 @@ let ChartBar = function ChartBar(config,svg) {
             ;
     }
 
-    let redraw = function redraw(dimensions,scales) {
+    let redraw = function redraw(dimensions,xScale,yScale) {
 
 
         // let barWidth = ((dimensions.width - config.padding.left - config.padding.right) / data.length) - 2;
@@ -39,19 +39,19 @@ let ChartBar = function ChartBar(config,svg) {
 
                 if (config.xParameter === '_date') {
 
-                    return scales.xTime(new Date(d[config.xParameter]));
+                    return xScale.time(new Date(d[config.xParameter]));
 
                 } else {
 
-                    return scales.xBand(d[config.xParameter]);
+                    return xScale.band(d[config.xParameter]);
                 }
             })
             .attr("y", function(d) { return dimensions.height; })
             .attr("height", 0)
             .transition()
             .duration(500)
-            .attr("y", function(d) { return config.margin.top + scales.yLinear(d[config.yParameter]); })
-            .attr("height", function(d) { return dimensions.height - scales.yLinear(d[config.yParameter]); })
+            .attr("y", function(d) { return config.margin.top + yScale.linear(d[config.yParameter]); })
+            .attr("height", function(d) { return dimensions.height - yScale.linear(d[config.yParameter]); })
             .attr("width", function(d) {
 
                 if (config.xParameter === '_date') {
@@ -59,7 +59,7 @@ let ChartBar = function ChartBar(config,svg) {
                      return 60;
                 } else {
 
-                    return scales.xBand.bandwidth()
+                    return xScale.band.bandwidth()
                 }
 
             })
@@ -76,14 +76,14 @@ let ChartBar = function ChartBar(config,svg) {
 
                 if (config.xParameter === '_date') {
 
-                    return 'translate(' + (scales.xTime(new Date(d[config.xParameter]))) + 60 + ',' +
-                        scales.yLinear(d[config.yParameter])
+                    return 'translate(' + (xScale.time(new Date(d[config.xParameter]))) + 60 + ',' +
+                        yScale.linear(d[config.yParameter])
                         + ')';
 
                 } else {
 
-                    return 'translate(' + (scales.xBand(d[config.xParameter]) + (scales.xBand.bandwidth() / 2)) + ',' +
-                        scales.yLinear(d[config.yParameter])
+                    return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ',' +
+                        yScale.linear(d[config.yParameter])
                         + ')';
                 }
             })
