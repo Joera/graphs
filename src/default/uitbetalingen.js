@@ -6,6 +6,8 @@ var uitbetalingen = function(element) {
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
     let svg = chartObjects.svg();
+    let xScale = chartObjects.xScale();
+    let yScale = chartObjects.yScale();
     let scales = chartObjects.scales();
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
@@ -32,7 +34,8 @@ var uitbetalingen = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartScales = ChartScales(config,dimensions,scales);
+    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
 
     chartAxis.drawXAxis();
@@ -86,7 +89,9 @@ var uitbetalingen = function(element) {
     function draw(data) {
 
         // with data we can init scales
-        scales = chartScales.set(data);
+        xScale = chartXScale.set(data);
+        yScale = chartYScale.set(stackedData);
+
         // width data we can draw items
         chartBar.draw(data, colours);
 
@@ -98,7 +103,8 @@ var uitbetalingen = function(element) {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
         // new dimensions mean new scales
-        scales = chartScales.reset(dimensions,scales);
+        xScale = chartXScale.reset(dimensions,xScale);
+        yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
         chartAxis.redrawXBandAxis(dimensions,scales,axes);
         chartAxis.redrawYAxis(scales,axes);
