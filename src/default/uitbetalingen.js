@@ -8,7 +8,6 @@ var uitbetalingen = function(element) {
     let svg = chartObjects.svg();
     let xScale = chartObjects.xScale();
     let yScale = chartObjects.yScale();
-    let scales = chartObjects.scales();
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
