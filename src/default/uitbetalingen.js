@@ -44,8 +44,9 @@ var uitbetalingen = function(element) {
 
     let url = 'https://tcmg.publikaan.nl/api/schadevergoedingen?week=recent';
 
-
     d3.json(url, function(error, json) {
+
+        console.log(json);
 
         function prepareData(json,filter) {
 
