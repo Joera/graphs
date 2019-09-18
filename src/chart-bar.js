@@ -5,16 +5,23 @@ let ChartBar = function ChartBar(config,svg) {
         console.log(data);
 
         svg.bar = svg.layers.data.selectAll(".bar")
-            .data(data)
+            .data(data);
+        
+        svg.bar.exit().remove();
+
+        svg.barEnter = svg.bar
             .enter()
             .append("rect")
             .attr("class", function(d,i) {
                 return "bar  " + colours[i]; // + sluggify(d.status) + "
             });
 
-
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
-            .data(data)
+            .data(data);
+
+        svg.barLabels.exit().remove();
+
+        svg.barLabelsEnter = svg.barLabels
             .enter()
             .append('text')
             .attr('class','barLabel small-label')
@@ -29,7 +36,7 @@ let ChartBar = function ChartBar(config,svg) {
     let redraw = function redraw(dimensions,xScale,yScale) {
 
         svg.bar
-            .merge(svg.bar)
+            .merge(svg.barEnter)
             .attr("x", function(d) {
 
                 if (config.xParameter === '_date') {
@@ -43,27 +50,26 @@ let ChartBar = function ChartBar(config,svg) {
             })
             .attr("y", function(d) { return dimensions.height; })
             .attr("height", 0)
-            .transition()
-            .duration(500)
-            .attr("y", function(d) { return config.margin.top + yScale.linear(d[config.yParameter]); })
-            .attr("height", function(d) { return dimensions.height - yScale.linear(d[config.yParameter]); })
             .attr("width", function(d) {
 
                 if (config.xParameter === '_date') {
 
-                     return 60;
+                    return 60;
                 } else {
 
                     return xScale.band.bandwidth()
                 }
 
             })
+            .transition()
+            .duration(500)
+            .attr("y", function(d) { return config.margin.top + yScale.linear(d[config.yParameter]); })
+            .attr("height", function(d) { return dimensions.height - yScale.linear(d[config.yParameter]); })
+
         ;
 
-        svg.bar.exit().remove();
-
         svg.barLabels
-            .merge(svg.barLabels)
+            .merge(svg.barLabelsEnter)
             .text(function(d) {
                 return d.totaal;
             })
