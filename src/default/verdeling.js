@@ -1,4 +1,4 @@
-var uitbetalingen = function(element) {
+var verdeling = function(element) {
 
     let colours = ['green','green','green','green'];
 

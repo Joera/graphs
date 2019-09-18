@@ -769,97 +769,6 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
-    var Remitted = function Remitted(element) {
-
-        let container = document.querySelector(element);
-
-        // let chartObjects = ChartObjects();
-        // let config = chartObjects.config();
-        // let dimensions = chartObjects.dimensions();
-        // let svg = chartObjects.svg();
-        // let scales = chartObjects.scales();
-        // let axes = chartObjects.axes();
-        // let functions = chartObjects.functions();
-        //
-        // config.margin.top = 0;
-        // config.margin.bottom = 0;
-        // config.margin.left = 0;
-        // config.margin.right = 0;
-        // config.padding.top = 30;
-        // config.padding.bottom = 0;
-        // config.padding.left = 0;
-        // config.padding.right = 0;
-        // config.fixedHeight = 20;
-        //
-        // let chartDimensions = ChartDimensions(element,config);
-        // dimensions = chartDimensions.get(dimensions);
-        //
-        // // create svg elements without data
-        // let chartSVG = ChartSVG(element,config,dimensions,svg);
-
-        function monies(amount) {
-
-
-            return ("€" + amount).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, function($1) { return $1 + "." });
-
-        }
-
-        d3.csv("./dummy_data_remitted.csv", function(error, data) {
-
-            // let text = svg.layers.data.append('text')
-            //     .text(data[0].key + ': ' + currency(data[0].total))
-            //     .attr('class','number')
-            //     .attr("text-anchor","middle");
-
-            let table = document.createElement('table');
-
-            // thead
-            let tr = document.createElement('tr');
-            for (let d in data[0]) {
-                let td = document.createElement('td');
-                td.innerText = d;
-                tr.appendChild(td)
-            }
-            table.appendChild(tr);
-
-
-            // tbody
-            data.forEach( (row) => {
-
-                tr = document.createElement('tr');
-
-                for (let d in row) {
-
-                    let td = document.createElement('td');
-
-                    if (Number.isInteger(parseInt(row[d]))) {
-                        td.innerText = monies(row[d]);
-                    } else if(row[d] !== undefined) {
-                        td.innerText = row[d];
-                    }
-
-                    tr.appendChild(td)
-                }
-
-                table.appendChild(tr);
-            })
-
-            container.appendChild(table);
-
-
-            // function redraw() {
-            //
-            //     dimensions = chartDimensions.get(dimensions);
-            //     chartSVG.redraw(dimensions);
-            //     text.attr("x","50%");
-            // }
-            //
-            // redraw();
-            // window.addEventListener("resize", redraw, false);
-
-        });
-
-    }
 
     var Outputs  = function Outputs(element) {
 
@@ -942,49 +851,49 @@ var TCMGCharts = function TCMGCharts() {
         });
     }
 
-    var LegendOutput = function(element) {
-
-        let chartObjects = ChartObjects();
-        let config = chartObjects.config();
-        let dimensions = chartObjects.dimensions();
-        let svg = chartObjects.svg();
-
-        config.margin.top = 10;
-        config.padding.left = 60;
-        config.padding.bottom = 0;
-        config.margin.bottom = 10;
-
-        config.xParameter = 'Uitkomst';
-
-        let chartDimensions = ChartDimensions(element,config);
-        dimensions = chartDimensions.get(dimensions);
-
-        let chartSVG = ChartSVG(element,config,dimensions,svg);
-        let chartLegend = ChartLegend(config,svg);
-
-        d3.csv("./dummy_data_output.csv", function(error, data) {
-
-            dimensions = chartDimensions.get(dimensions);
-            chartSVG.redraw(dimensions);
-            chartLegend.drawInputLegend(dimensions, data);
-
-        });
-    }
-
-
+    // var LegendOutput = function(element) {
+    //
+    //     let chartObjects = ChartObjects();
+    //     let config = chartObjects.config();
+    //     let dimensions = chartObjects.dimensions();
+    //     let svg = chartObjects.svg();
+    //
+    //     config.margin.top = 10;
+    //     config.padding.left = 60;
+    //     config.padding.bottom = 0;
+    //     config.margin.bottom = 10;
+    //
+    //     config.xParameter = 'Uitkomst';
+    //
+    //     let chartDimensions = ChartDimensions(element,config);
+    //     dimensions = chartDimensions.get(dimensions);
+    //
+    //     let chartSVG = ChartSVG(element,config,dimensions,svg);
+    //     let chartLegend = ChartLegend(config,svg);
+    //
+    //     d3.csv("./dummy_data_output.csv", function(error, data) {
+    //
+    //         dimensions = chartDimensions.get(dimensions);
+    //         chartSVG.redraw(dimensions);
+    //         chartLegend.drawInputLegend(dimensions, data);
+    //
+    //     });
+    // }
 
 
 
 
-        var setMunicipalitySelect = function setMunicipalitySelect(municipality) {
 
-            procedureSelect.value = municipality;
 
-            let event = document.createEvent("HTMLEvents");
-            event.initEvent("change",true,false);
-            procedureSelect.dispatchEvent(event);
-
-    }
+    //     var setMunicipalitySelect = function setMunicipalitySelect(municipality) {
+    //
+    //         procedureSelect.value = municipality;
+    //
+    //         let event = document.createEvent("HTMLEvents");
+    //         event.initEvent("change",true,false);
+    //         procedureSelect.dispatchEvent(event);
+    //
+    // }
 
     return {
         inputs : Inputs,
@@ -995,12 +904,11 @@ var TCMGCharts = function TCMGCharts() {
         procedureAlt : ProcedureAlt,
         progress : Progress,
         progressCandles : ProgressCandles,
-        remitted : Remitted,
         outputs : Outputs,
         legendOutput : LegendOutput,
         // remittances : Remittances,
         // reservoirFlows : ReservoirFlows,
-        setMunicipalitySelect : setMunicipalitySelect
+        // setMunicipalitySelect : setMunicipalitySelect
     }
 }
 
