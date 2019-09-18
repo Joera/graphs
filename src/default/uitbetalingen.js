@@ -44,81 +44,82 @@ var uitbetalingen = function(element) {
 
     let url = 'https://tcmg.publikaan.nl/api/schadevergoedingen?week=recent';
 
-    function prepareData(json,filter) {
-
-        json = json.filter( j => j['CATEGORY'] === filter)[0];
-
-        let data = [];
-
-        // data.push({
-        //     status: "Afgewezen",
-        //     totaal: json[0][filter]
-        //
-        // });
-
-        data.push({
-            status: "< €1K",
-            totaal: json['0_1000']
-
-        });
-
-        data.push({
-            status: "€1K t/m €4K",
-            totaal: json['1000_4000']
-
-        });
-
-        data.push({
-            status: "€4K t/m €10K",
-            totaal: json['4000_10000']
-
-        });
-
-        data.push({
-            status: "> €10K",
-            totaal: json['MEER_DAN_10000']
-
-        });
-
-        // data.columns = csv.columns;
-
-        return data;
-    }
-
-    function draw(data) {
-
-        // with data we can init scales
-        xScale = chartXScale.set(data);
-        yScale = chartYScale.set(stackedData);
-
-        // width data we can draw items
-        chartBar.draw(data, colours);
-
-    }
-
-    function redraw() {
-
-        // on redraw chart gets new dimensions
-        dimensions = chartDimensions.get(dimensions);
-        chartSVG.redraw(dimensions);
-        // new dimensions mean new scales
-        xScale = chartXScale.reset(dimensions,xScale);
-        yScale = chartYScale.reset(dimensions,yScale);
-        // new scales mean new axis
-        chartAxis.redrawXBandAxis(dimensions,scales,axes);
-        chartAxis.redrawYAxis(scales,axes);
-        // redraw data
-        chartBar.redraw(dimensions,scales);
-    }
-
-    function run(filter) {
-        let data = prepareData(json,filter);
-        draw(data);
-        redraw();
-    }
 
     d3.json(url, function(error, json) {
 
+        function prepareData(json,filter) {
+
+            json = json.filter( j => j['CATEGORY'] === filter)[0];
+
+            let data = [];
+
+            // data.push({
+            //     status: "Afgewezen",
+            //     totaal: json[0][filter]
+            //
+            // });
+
+            data.push({
+                status: "< €1K",
+                totaal: json['0_1000']
+
+            });
+
+            data.push({
+                status: "€1K t/m €4K",
+                totaal: json['1000_4000']
+
+            });
+
+            data.push({
+                status: "€4K t/m €10K",
+                totaal: json['4000_10000']
+
+            });
+
+            data.push({
+                status: "> €10K",
+                totaal: json['MEER_DAN_10000']
+
+            });
+
+            // data.columns = csv.columns;
+
+            return data;
+        }
+
+        function draw(data) {
+
+            // with data we can init scales
+            xScale = chartXScale.set(data);
+            yScale = chartYScale.set(stackedData);
+
+            // width data we can draw items
+            chartBar.draw(data, colours);
+
+        }
+
+        function redraw() {
+
+            // on redraw chart gets new dimensions
+            dimensions = chartDimensions.get(dimensions);
+            chartSVG.redraw(dimensions);
+            // new dimensions mean new scales
+            xScale = chartXScale.reset(dimensions,xScale);
+            yScale = chartYScale.reset(dimensions,yScale);
+            // new scales mean new axis
+            chartAxis.redrawXBandAxis(dimensions,scales,axes);
+            chartAxis.redrawYAxis(scales,axes);
+            // redraw data
+            chartBar.redraw(dimensions,scales);
+        }
+
+        function run(filter) {
+            let data = prepareData(json,filter);
+            draw(data);
+            redraw();
+        }
+        
         run('all');
     });
 
