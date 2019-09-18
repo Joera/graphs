@@ -50,7 +50,7 @@ var uitbetalingen = function(element) {
 
         function prepareData(json,filter) {
 
-            json = json.filter( j => j['CATEGORY'] === filter)[0];
+            json = json.filter( j => j['_category'] === filter)[0];
 
             let data = [];
 
