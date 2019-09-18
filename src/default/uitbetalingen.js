@@ -119,12 +119,14 @@ var uitbetalingen = function(element) {
             draw(data);
             redraw();
         }
-        
+
         run('all');
+
+        window.addEventListener("resize", redraw, false);
     });
 
     // for example on window resize
-    window.addEventListener("resize", redraw, false);
+
 
     // procedureSelect.addEventListener("change", function() {
     //     run(procedureSelect.options[procedureSelect.selectedIndex].value);
