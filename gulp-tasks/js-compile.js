@@ -45,7 +45,8 @@ module.exports = function() {
             './src/default/meldingen.js',
             './src/default/weekverloop.js',
             './src/default/gemeentes.js',
-            './src/default/stroommodel.js'
+            './src/default/stroommodel.js',
+            './src/default/uitbetalingen.js'
 
 
             ])
