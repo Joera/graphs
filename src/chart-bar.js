@@ -33,6 +33,8 @@ let ChartBar = function ChartBar(config,svg) {
 
         // is date or not date
 
+        console.log(dimensions);
+
         svg.bar
             .merge(svg.bar)
             .attr("x", function(d) {
