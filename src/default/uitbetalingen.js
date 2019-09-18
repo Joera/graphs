@@ -114,13 +114,13 @@ var uitbetalingen = function(element) {
             chartBar.redraw(dimensions,scales);
         }
 
-        function run(filter) {
+        function run(json,filter) {
             let data = prepareData(json,filter);
             draw(data);
             redraw();
         }
 
-        run('all');
+        run(json,'all');
 
         window.addEventListener("resize", redraw, false);
     });
