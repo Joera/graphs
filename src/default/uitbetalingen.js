@@ -92,7 +92,7 @@ var uitbetalingen = function(element) {
         function draw(data) {
 
             // with data we can init scales
-            xScale = chartXScale.set(data);
+            xScale = chartXScale.set(data,config.yParameter);
             yScale = chartYScale.set(data);
 
             // width data we can draw items
