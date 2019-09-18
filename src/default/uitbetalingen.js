@@ -106,13 +106,13 @@ var uitbetalingen = function(element) {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
             // new dimensions mean new scales
-            xScale = chartXScale.reset(dimensions,xScale);
-            yScale = chartYScale.reset(dimensions,yScale);
+            newxScale = chartXScale.reset(dimensions,xScale);
+            newyScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
             chartAxis.redrawXBandAxis(dimensions,xScale,axes);
-            chartAxis.redrawYAxis(yScale,axes);
+            chartAxis.redrawYAxis(newyScale,axes);
             // redraw data
-            chartBar.redraw(dimensions,xScale,yScale);
+            chartBar.redraw(dimensions,xScale,newyScale);
         }
 
         function run(json,filter) {
