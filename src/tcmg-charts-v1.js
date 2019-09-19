@@ -245,15 +245,11 @@ var TcmgChartsV1 = function TCMGCharts() {
                     })
                     .on("mouseover", function (d) {
 
-                        console.log(d);
-
                         let html = "<span class='uppercase'>" + d.properties.name + "</span><br/>" +
                             d.properties.totaal + " uitspraken<br/>" +
                             d.properties.afgewezen + " afgewezen<br/>" +
                             d.properties['gedeeltelijk-toegekend'] + " gedeeltelijk toegekend<br/>" +
                             d.properties['geheel-toegekend'] + " geheel toegekend<br/>"
-
-
                         ;
 
                         svg.tooltip

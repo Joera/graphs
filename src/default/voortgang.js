@@ -61,7 +61,7 @@ var voortgang = function(element) {
 
         let stackedData = functions.stack(data);
 
-        console.log(stackedData);
+        //console.log(stackedData);
 
         function draw(data) {
 
