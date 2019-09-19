@@ -28,7 +28,14 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
                         for (let i = 0; i < d.length - 1; i++) {
                             // console.log(d[i][1]);
-                            return 2 * d[i][1];
+                            let v = 0;
+
+                            for (let e = 0; e < data.length - 1; e++) {
+                                v += data[e][i][1];
+                            }
+
+                            console.log(v);
+                            return v;
                         }
                 } )
             ]).nice();
