@@ -48,7 +48,8 @@ module.exports = function() {
             './src/default/stroommodel.js',
             './src/default/bedragen.js',
             './src/default/verdeling.js',
-            './src/default/voortgang.js'
+            './src/default/voortgang.js',
+            './src/default/candles.js'
 
 
             ])

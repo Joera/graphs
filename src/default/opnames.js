@@ -71,9 +71,11 @@ var opnames = function(element) {
 
         if (window.innerWidth < 600) {
             data = data.slice(data.length - 3,data.length);
+        } else {
+            data = data.slice(data.length - 6,data.length);
         }
 
-        let propertyArray = ['opnames'];
+        let propertyArray = ['schadeopnames'];
         let increments = false;
 
         function filterData(array,increments) {
