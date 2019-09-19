@@ -16,7 +16,7 @@ var candles = function(element) {
     config.padding.top = 30;
     config.padding.bottom = 30;
     config.padding.left = 30;
-    config.padding.right = 90;
+    config.padding.right = 30;
     // name of first column with values of bands on x axis
 
 
