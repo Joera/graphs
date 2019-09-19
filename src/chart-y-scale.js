@@ -21,12 +21,12 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         console.log('once');
 
-        let arrayOfCumulatedValues = data.map( (d) => {
+        let arrayOfCumulatedValues = data.map( (property) => {
 
-            for (let i = 0; i < d.length - 1; i++) {
-                // console.log(d[i]);
+            for (let i = 0; i < property.length - 1; i++) {
+
                 let v = 0;
-
+                
                 for (let e = 0; e < data.length; e++) {
                     // console.log(data[e][i][1]);
                     v = v + data[e][i][1];
