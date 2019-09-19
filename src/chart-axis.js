@@ -20,16 +20,12 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.xTime = d3.axisBottom(scales.time);
 
         if(ticks) {
-
             axes.xTime
                 .ticks(d3.timeMonth.every(1))
                 .tickFormat(function(date){
                     return (d3.timeYear(date) < date) ? localTime.format('%b')(date) : localTime.format('%Y')(date);
                 });
-
-
         } else {
-
             axes.xTime
                 .tickValues([]);
         }

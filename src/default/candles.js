@@ -69,7 +69,7 @@ var candles = function(element) {
         function draw() {
 
             xScale = chartXScale.set(data);
-            yScale = chartYScale.set(data);
+            yScale = chartYScale.set(data,config.yParameter);
             chartLine.draw(data);
 
         }
