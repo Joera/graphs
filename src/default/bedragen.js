@@ -1,5 +1,7 @@
 var bedragen = function(element) {
 
+    let totalElement = document.querySelector('h2 span');
+
     let colours = ['green','green','green','green','green'];
 
     let chartObjects = ChartObjects();
@@ -122,6 +124,8 @@ var bedragen = function(element) {
             let data = prepareData(json,filter);
             draw(data);
             redraw();
+            totalElement.innerText = convertToCurrency('4646464');
+
         }
 
         run(json,'all');
