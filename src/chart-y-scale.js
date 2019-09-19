@@ -26,7 +26,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
                         for (let i = 0; i < d.length - 1; i++) {
                             console.log(d[i][1]);
-                            return d[i][1];
+                            return 2 * d[i][1];
                         }
                 } )
             ]).nice();
