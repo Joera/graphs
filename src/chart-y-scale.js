@@ -28,7 +28,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 let v = 0;
                 for (let e = 0; e < data.length; e++) {
                     console.log(data[e][i][1]);
-                    v = v + data[e][i][1];
+                    v = data[e][i][1]; // v
                 }
                 arrayOfCumulatedValues.push(v);
             }
