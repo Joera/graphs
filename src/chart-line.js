@@ -67,30 +67,30 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
             })
         ;
 
-        // svg.candlesDown
-        //     .attr('x',(d) => { return xScale.time(new Date(d[config.xParameter])); })
-        //     .attr('y',(d) => { return yScale.linear(d[config.yParameter]); })
-        //     .attr('width',candleWidth)
-        //     .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d.decrease)  } )
-        //     .on("mouseover", function(d) {
-        //
-        //         let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' +
-        //             '' + d.increase + ' nieuwe meldingen' + '<br/>' + d.decrease + ' nieuwe besluiten';
-        //
-        //
-        //         svg.tooltip
-        //             .html(popup(d))
-        //             .style("left", (d3.event.pageX + 5) + "px")
-        //             .style("top", (d3.event.pageY - 5) + "px")
-        //             .transition()
-        //             .duration(250)
-        //             .style("opacity", 1);
-        //     })
-        //     .on("mouseout", function(d) {
-        //         svg.tooltip.transition()
-        //             .duration(250)
-        //             .style("opacity", 0);
-        //     })
+        svg.candlesDown
+            .attr('x',(d) => { return xScale.time(new Date(d[config.xParameter])); })
+            .attr('y',(d) => { return yScale.linear(d[config.yParameter]); })
+            .attr('width',candleWidth)
+            .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d['nieuwe_afgehandeld'])  } )
+            .on("mouseover", function(d) {
+
+                let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' +
+                    '' + d['nieuwe_schademeldingen'] + ' nieuwe meldingen' + '<br/>' + d['nieuwe_afgehandeld'] + ' nieuwe besluiten';
+
+
+                svg.tooltip
+                    .html(popup(d))
+                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })
     }
 
     return {
