@@ -21,13 +21,17 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         let arrayOfCumulatedValues = [];
 
-        for (let i = 0; i < property.length - 1; i++) {
-            let v = 0;
-            for (let e = 0; e < data.length; e++) {
-                // console.log(data[e][i][1]);
-                v = v + data[e][i][1];
+        for (let p = 0; p < data.length; p++) {
+
+            for (let i = 0; i < data[p].length - 1; i++) {
+
+                let v = 0;
+                for (let e = 0; e < data.length; e++) {
+                    // console.log(data[e][i][1]);
+                    v = v + data[e][i][1];
+                }
+                arrayOfCumulatedValues.push(v);
             }
-            arrayOfCumulatedValues.push(v);
         }
 
         console.log(arrayOfCumulatedValues);
