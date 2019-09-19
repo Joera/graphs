@@ -21,27 +21,27 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         console.log('once');
 
+        let arrayOfCumulatedValues = data.map( (d) => {
+
+            for (let i = 0; i < d.length - 1; i++) {
+                // console.log(d[i]);
+                let v = 0;
+
+                for (let e = 0; e < data.length; e++) {
+                    // console.log(data[e][i][1]);
+                    v = v + data[e][i][1];
+                }
+
+                return v;
+            }
+        }
+
         scale.stacked = d3.scaleLinear()
             .domain([
                 minValue,
-                config.maxValue || d3.max(data, function (d) {
-
-                    // console.log(d);
-
-                        for (let i = 0; i < d.length - 1; i++) {
-                            // console.log(d[i]);
-                            let v = 0;
-
-                            for (let e = 0; e < data.length; e++) {
-                                // console.log(data[e][i][1]);
-                                v = v + data[e][i][1];
-                            }
-
-                            console.log(v);
-                          //  return v;
-                        }
-                } )
-            ]).nice();
+                config.maxValue || d3.max(arrayOfCumulatedValues)
+            ])
+            .nice();
 
         return scale;
     }
