@@ -26,7 +26,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 minValue,
                 config.maxValue || d3.max(data, function (d) {
 
-                    console.log(d);
+                    // console.log(d);
 
                         for (let i = 0; i < d.length - 1; i++) {
                             console.log(d[i]);
@@ -39,7 +39,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                             }
 
                             // console.log(v);
-                            return v;
+                          //  return v;
                         }
                 } )
             ]).nice();
