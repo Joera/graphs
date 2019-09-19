@@ -22,7 +22,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         scale.stacked = d3.scaleLinear()
             .domain([
                 minValue,
-                config.maxValue || d3.max(data, function (d) { return d[1]; } )
+                config.maxValue || d3.max(data, function (d) { console.log(d); return d[1]; } )
             ]).nice();
 
         // scale.yBlocks = d3.scaleLinear()
