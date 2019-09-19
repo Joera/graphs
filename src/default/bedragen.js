@@ -124,7 +124,7 @@ var bedragen = function(element) {
             let data = prepareData(json,filter);
             draw(data);
             redraw();
-            totalElement.innerText = convertToCurrency('4646464');
+            totalElement.innerText = convertToCurrency(4646464);
 
         }
 
