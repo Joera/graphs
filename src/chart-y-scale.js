@@ -22,12 +22,14 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         scale.stacked = d3.scaleLinear()
             .domain([
                 minValue,
-                config.maxValue || d3.max(data, function (d) { console.log(d); return d[1]; } )
-            ]).nice();
+                config.maxValue || d3.max(data, function (d) {
 
-        // scale.yBlocks = d3.scaleLinear()
-        //     .range([(config.maxValue / 100), 0]) // geen idee waarom 259 ipv 250
-        //     .domain([0,config.maxValue]);
+                        for (let i = 0; i < d.length - 1; i++) {
+                            console.log(d[i]);
+                            return d[i][1];
+                        }
+                } )
+            ]).nice();
 
         return scale;
     }
