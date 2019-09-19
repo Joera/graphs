@@ -103,6 +103,11 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
 
                 if(d.properties[property] > 0) {
 
+                    if (property === 'totaal-verleend') {
+
+                        return convertToCurrency(d.properties[property]);
+                    }
+
                     return d.properties[property];
                 }
             });
