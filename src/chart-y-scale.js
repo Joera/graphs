@@ -19,13 +19,15 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 config.maxValue || d3.max(data, d => d[property])
             ]).nice();
 
+        console.log('once');
+
         scale.stacked = d3.scaleLinear()
             .domain([
                 minValue,
                 config.maxValue || d3.max(data, function (d) {
 
                         for (let i = 0; i < d.length - 1; i++) {
-                            console.log(d[i][1]);
+                            // console.log(d[i][1]);
                             return 2 * d[i][1];
                         }
                 } )
