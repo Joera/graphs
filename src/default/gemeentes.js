@@ -61,8 +61,6 @@ var gemeentes = function(element) {
                     }
 
                     gemeenteData[sluggify(key)] = gemeenteData[key];
-
-
                 }
 
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
