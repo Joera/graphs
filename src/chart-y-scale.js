@@ -37,7 +37,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                                 v = v + data[e][i][1];
                             }
 
-                            /console.log(v);
+                            console.log(v);
                           //  return v;
                         }
                 } )
