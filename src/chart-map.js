@@ -105,7 +105,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
 
                     console.log(property);
 
-                    if (property === 'totaal-verleend') {
+                    if (property === 'TOTAAL_VERLEEND') {
 
                         return convertToCurrency(d.properties[property]);
                     }
