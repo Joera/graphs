@@ -75,10 +75,11 @@ var voortgang = function(element) {
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
             // new dimensions mean new scales
-            scales = chartScales.reset(dimensions,scales);
+            xScale = chartXScale.reset(dimensions,xScale);
+            yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
-            chartAxis.redrawXTimeAxis(dimensions,scales,axes);
-            chartAxis.redrawYAxis(scales,axes);
+            chartAxis.redrawXTimeAxis(dimensions,xScale,axes);
+            chartAxis.redrawYAxis(yScale,axes);
             // redraw data
             chartStackedArea.redraw(dimensions,scales);
 
