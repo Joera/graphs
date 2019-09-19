@@ -24,17 +24,14 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         let arrayOfCumulatedValues = data.map( (property) => {
 
             for (let i = 0; i < property.length - 1; i++) {
-
                 let v = 0;
-                
                 for (let e = 0; e < data.length; e++) {
                     // console.log(data[e][i][1]);
                     v = v + data[e][i][1];
                 }
-
                 return v;
             }
-        }
+        });
 
         scale.stacked = d3.scaleLinear()
             .domain([
