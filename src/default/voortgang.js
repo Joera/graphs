@@ -4,7 +4,8 @@ var voortgang = function(element) {
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
     let svg = chartObjects.svg();
-    let scales = chartObjects.scales();
+    let xScale = chartObjects.xScale();
+    let yScale = chartObjects.yScale();
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
@@ -14,7 +15,7 @@ var voortgang = function(element) {
     config.margin.right = 0;
     config.padding.top = 30;
     config.padding.bottom = 30;
-    config.padding.left = 40;
+    config.padding.left = 30;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
@@ -36,7 +37,8 @@ var voortgang = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartScales = ChartScales(config,dimensions,scales);
+    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
     let chartStackedArea = ChartStackedArea(config,svg,functions);
 
@@ -60,7 +62,13 @@ var voortgang = function(element) {
 
         let stackedData = functions.stack(data);
 
-        //console.log(stackedData);
+        console.log(stackedData);
+
+        function draw(data) {
+
+            xScale = chartXScale.set(data);
+            yScale = chartYScale.set(data,config.yParameter);
+        }
 
         function redraw() {
             // on redraw chart gets new dimensions
@@ -76,9 +84,9 @@ var voortgang = function(element) {
 
         }
 
-        scales = chartScales.set(data);
         chartStackedArea.draw(stackedData,colours);
         // further drawing happens in function that can be repeated.
+        draw(data);
         redraw();
         // for example on window resize
         window.addEventListener("resize", redraw, false);
