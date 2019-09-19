@@ -4,11 +4,12 @@ div.tooltip {
   height: auto;
   max-width: 180px;
   max-height: 180px;
-  padding: 1rem;
+  padding: .5rem;
   background: black;
   color: #fff;
   pointer-events: none;
   font-size: .85rem;
+  border-radius: 4px;
 
   .uppercase {
 
