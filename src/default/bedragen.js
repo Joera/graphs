@@ -21,6 +21,7 @@ var bedragen = function(element) {
     config.padding.right = 0;
     config.xParameter = 'status';  // name of first column with values of bands on x axis
     config.yParameter = 'totaal';  // is being set in type function
+    config.currencyLabels = true;
     // config.fixedHeight = 160;
     config.minValue = 0;
     // config.maxValue = 6000;

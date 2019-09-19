@@ -69,7 +69,16 @@ let ChartBar = function ChartBar(config,svg) {
         svg.barLabels
             .merge(svg.barLabelsEnter)
             .text(function(d) {
-                return d.totaal;
+
+                if(config.currencyLabels) {
+
+                    return convertToCurrency(d.totaal);
+
+                } else {
+                    return d.totaal;
+                }
+
+
             })
             .attr('transform', function(d) {
 
