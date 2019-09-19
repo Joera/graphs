@@ -81,7 +81,13 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             })
             .on("mouseover", function (d) {
 
-                let html = "<div class='uppercase'>" + d.properties.gemeentenaam + "</div><div>" + d.properties[property] + "</div>";
+                let html = ''
+
+                if (property === 'TOTAAL_VERLEEND') {
+                    html = "<div class='uppercase'>" + d.properties.gemeentenaam + "</div><div>" + convertToCurrency(d.properties[property]) + "</div>";
+                }
+
+                html = "<div class='uppercase'>" + d.properties.gemeentenaam + "</div><div>" + d.properties[property] + "</div>";
 
                 svg.tooltip
                     .html(html)
@@ -106,7 +112,6 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                     console.log(property);
 
                     if (property === 'TOTAAL_VERLEEND') {
-
                         return convertToCurrency(d.properties[property]);
                     }
 
