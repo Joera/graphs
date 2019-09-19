@@ -22,12 +22,12 @@ var candles = function(element) {
 
     config.yParameter = 'in_behandeling';  // is being set in type function
     // config.fixedHeight = 160;
-    config.minValue = 13000;
-    config.maxValue = 17000;
+    // config.minValue = 13000;
+    // config.maxValue = 17000;
 
 
     config.xParameter = 'date';
-    config.minWidth = 460;
+    // config.minWidth = 460;
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
