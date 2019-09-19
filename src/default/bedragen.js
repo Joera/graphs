@@ -1,5 +1,7 @@
 var bedragen = function(element) {
 
+    let colours = ['green','green','green','green'];
+
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
@@ -17,21 +19,15 @@ var bedragen = function(element) {
     config.padding.bottom = 30;
     config.padding.left = 30;
     config.padding.right = 0;
-    // name of first column with values of bands on x axis
-    // is being set in type function
-
-    // y-scale
-    config.yParameter = 'Totaal';
+    config.xParameter = 'status';  // name of first column with values of bands on x axis
+    config.yParameter = 'totaal';  // is being set in type function
+    // config.fixedHeight = 160;
     config.minValue = 0;
-    config.maxValue = 10000;
-    // x-scale
-    config.fixedWidth = 100 + 6;
-    config.xParameter = 'Uitkomst';
+    // config.maxValue = 6000;
+    // config.xAlign = [0.5];
+    config.paddingInner = [0.5];
+    config.paddingOuter = [0.5];
 
-    config.paddingInner = [0.0];
-    config.paddingOuter = [0.0];
-
-    // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
@@ -40,22 +36,21 @@ var bedragen = function(element) {
     let chartXScale = ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
-    let chartBlocks = ChartBlocks(config,svg,functions);
 
-    chartAxis.drawBlocksYAxis(dimensions);
+    chartAxis.drawXAxis();
+    chartAxis.drawYAxis();
+
+    let chartBar = ChartBar(config,svg,functions);
 
     let url = 'https://tcmg.publikaan.nl/api/schadevergoedingen?week=recent';
 
     d3.json(url, function(error, json) {
-        if (error) throw error;
 
-        let data = [];
-
-        function prepareData(json) {
+        function prepareData(json,filter) {
 
             json = json.filter( j => j['_category'] === filter)[0];
 
-            data = [];
+            let data = [];
 
             // data.push({
             //     status: "Afgewezen",
@@ -64,42 +59,51 @@ var bedragen = function(element) {
             // });
 
             data.push({
-                status: "Schadebedrag",
-                totaal: json[0]['SCHADEBEDRAG']
+                status: "Vergoeding mijnbouwschade",
+                totaal: json['BEDRAG_SCHADEBEDRAG']
+
+            });
+
+            data.push({
+                status: "Stuwmeerregeling",
+                totaal: json['BEDRAG_STUWMEER']
+
+            });
+
+            data.push({
+                status: "Vergoeding overige schades",
+                totaal: json['BEDRAG_GEVOLGSCHADE']
+
+            });
+
+            data.push({
+                status: "Bijkomsende kosten",
+                totaal: json['BEDRAG_BK']
 
             });
 
             data.push({
                 status: "Wettelijke rente",
-                totaal: json['AANTAL_WETTELIJKE_RENTE']
-
-            });
-
-            data.push({
-                status: "€4K t/m €10K",
-                totaal: json['BIJKOMENDE_KOSTEN']
-
-            });
-
-            data.push({
-                status: "> €10K",
-                totaal: json['MEER_DAN_10000']
+                totaal: json['BEDRAG_WR']
 
             });
 
             return data;
         }
 
+        function draw(data) {
 
-        function draw() {
-
+            // with data we can init scales
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(data,config.yParameter);
 
+            // width data we can draw items
             chartBar.draw(data, colours);
+
         }
 
         function redraw() {
+
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
@@ -107,21 +111,20 @@ var bedragen = function(element) {
             xScale = chartXScale.reset(dimensions,xScale);
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
-            //  chartAxis.redrawXAxis(dimensions,scales,axes);
-            chartAxis.redrawBlocksYAxis(scales,axes);
+            chartAxis.redrawXBandAxis(dimensions,xScale,axes);
+            chartAxis.redrawYAxis(yScale,axes);
             // redraw data
-            chartBlocks.redraw(dimensions, scales);
+            chartBar.redraw(dimensions,xScale,yScale);
         }
 
-        function run(json) {
-            data = prepareData(json);
+        function run(json,filter) {
+            let data = prepareData(json,filter);
             draw(data);
             redraw();
         }
 
-        run(json);
+        run(json,'all');
 
-        // for example on window resize
         window.addEventListener("resize", redraw, false);
     });
 }
