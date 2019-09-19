@@ -19,23 +19,16 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 config.maxValue || d3.max(data, d => d[property])
             ]).nice();
 
+        let arrayOfCumulatedValues = [];
 
-
-        let arrayOfCumulatedValues = data.map( (property) => {
-
-            let array = [];
-
-            for (let i = 0; i < property.length - 1; i++) {
-                let v = 0;
-                for (let e = 0; e < data.length; e++) {
-                    // console.log(data[e][i][1]);
-                    v = v + data[e][i][1];
-                }
-                array.push(v);
+        for (let i = 0; i < property.length - 1; i++) {
+            let v = 0;
+            for (let e = 0; e < data.length; e++) {
+                // console.log(data[e][i][1]);
+                v = v + data[e][i][1];
             }
-
-            return array;
-        });
+            arrayOfCumulatedValues.push(v);
+        }
 
         console.log(arrayOfCumulatedValues);
 
