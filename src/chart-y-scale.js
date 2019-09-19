@@ -25,7 +25,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 config.maxValue || d3.max(data, function (d) {
 
                         for (let i = 0; i < d.length - 1; i++) {
-                            console.log(d[i]);
+                            console.log(d[i][1]);
                             return d[i][1];
                         }
                 } )
