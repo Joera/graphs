@@ -51,7 +51,7 @@ var voortgang = function(element) {
 
         //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-        let neededColumns = ['DATUM','MELDING','BESCHIKT','_date'];
+        let neededColumns = ['DATUM','afgehandeld','niet_afgehandeld','_date'];
 
         let data = trimColumns(json,neededColumns);
 
