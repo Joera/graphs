@@ -124,7 +124,7 @@ var bedragen = function(element) {
             let data = prepareData(json,filter);
             draw(data);
             redraw();
-            totalElement.innerText = convertToCurrency(json['TOTAAL_VERLEEND']);
+            totalElement.innerText = convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']);
 
         }
 
