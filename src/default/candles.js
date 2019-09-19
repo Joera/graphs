@@ -49,7 +49,7 @@ var candles = function(element) {
         if (error) throw error;
 
 
-        let neededColumns = ['schademeldingen','afgehandeld','nieuwe_schademeldingen','nieuwe_afgehandeld','_date'];
+        let neededColumns = ['schademeldingen','afgehandeld','in_behandeling','nieuwe_schademeldingen','nieuwe_afgehandeld','_date'];
         let data = trimColumns(json,neededColumns);
 
 
