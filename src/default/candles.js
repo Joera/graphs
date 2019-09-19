@@ -75,10 +75,10 @@ var candles = function(element) {
             xScale = chartXScale.reset(dimensions,xScale);
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
-            chartAxis.redrawXTimeAxis(dimensions,scales,axes);
-            chartAxis.redrawYAxis(scales,axes);
+            chartAxis.redrawXTimeAxis(dimensions,xScale,axes);
+            chartAxis.redrawYAxis(yScale,axes);
             // redraw data
-            chartLine.redraw(scales,functions,dimensions,data);
+            chartLine.redraw(xScale,yScale,functions,dimensions,data);
         }
 
 

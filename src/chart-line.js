@@ -32,24 +32,24 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
     }
 
-    let redraw = function redraw(scales,functions,dimensions,data) {
+    let redraw = function redraw(xScale,yScale,functions,dimensions,data) {
 
 
         let candleWidth = (dimensions.width / data.length) - 4;
 
         functions.line = d3.line()
-            .x(function(d) { return scales.xTime(new Date(d[config.xParameter])); })
-            .y(function(d) { return scales.yLinear(d[config.yParameter]); })
+            .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
+            .y(function(d) { return yScale.linear(d[config.yParameter]); })
             .curve(d3.curveCardinal);
 
         svg.line
             .attr("d", functions.line);
 
         svg.candlesUp
-            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
-            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]) - (scales.yLinear(0) - scales.yLinear(d.increase)) })
+            .attr('x',(d) => { return xScale.time(new Date(d[config.xParameter])); })
+            .attr('y',(d) => { return yScale.linear(d[config.yParameter]) - (yScale.linear(0) - yScale.linear(d.increase)) })
             .attr('width',candleWidth)
-            .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.increase)  } )
+            .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d.increase)  } )
             .on("mouseover", function(d) {
 
                 svg.tooltip
@@ -68,10 +68,10 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
         ;
 
         svg.candlesDown
-            .attr('x',(d) => { return scales.xTime(new Date(d[config.xParameter])); })
-            .attr('y',(d) => { return scales.yLinear(d[config.yParameter]); })
+            .attr('x',(d) => { return xScale.time(new Date(d[config.xParameter])); })
+            .attr('y',(d) => { return yScale.linear(d[config.yParameter]); })
             .attr('width',candleWidth)
-            .attr('height', (d) => { return scales.yLinear(0) - scales.yLinear(d.decrease)  } )
+            .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d.decrease)  } )
             .on("mouseover", function(d) {
 
                 let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' +
