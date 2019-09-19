@@ -72,7 +72,7 @@ var opnames = function(element) {
         if (window.innerWidth < 600) {
             data = data.slice(data.length - 3,data.length);
         } else {
-            data = data.slice(data.length - 9,data.length);
+            data = data.slice(data.length - 10,data.length);
         }
 
         let propertyArray = ['schadeopnames'];
