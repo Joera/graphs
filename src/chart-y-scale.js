@@ -19,7 +19,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 config.maxValue || d3.max(data, d => d[property])
             ]).nice();
 
-        console.log('once');
+
 
         let arrayOfCumulatedValues = data.map( (property) => {
 
@@ -32,6 +32,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 return v;
             }
         });
+
+        console.log(arrayOfCumulatedValues);
 
         scale.stacked = d3.scaleLinear()
             .domain([
