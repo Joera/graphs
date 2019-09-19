@@ -59,6 +59,8 @@ var candles = function(element) {
             }
         });
 
+        console.log(data);
+
         function draw() {
 
             xScale = chartXScale.set(data);
