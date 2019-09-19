@@ -27,7 +27,6 @@ var voortgang = function(element) {
 
 
     config.xParameter = '_date';
-    config.minWidth = 460;
 
     let colours = ['orange','green'];
 
@@ -55,6 +54,8 @@ var voortgang = function(element) {
         let neededColumns = ['DATUM','MELDING','BESCHIKT','_date'];
 
         let data = trimColumns(json,neededColumns);
+
+        console.log(data);
 
         functions.stack = d3.stack()
         // do not stack DATUM
