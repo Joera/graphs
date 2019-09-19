@@ -26,7 +26,7 @@ var candles = function(element) {
     // config.maxValue = 17000;
 
 
-    config.xParameter = 'date';
+    config.xParameter = '_date';
     // config.minWidth = 460;
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);
