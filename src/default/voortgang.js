@@ -77,7 +77,7 @@ var voortgang = function(element) {
             xScale = chartXScale.reset(dimensions,xScale);
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
-            chartAxis.redrawXTimeAxis(dimensions,xScale,axes);
+            chartAxis.redrawXTimeAxis(dimensions,xScale,axes,true);
             chartAxis.redrawYAxis(yScale,axes);
             // redraw data
             chartStackedArea.redraw(dimensions,xScale,yScale);
