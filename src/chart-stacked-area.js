@@ -24,10 +24,10 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .style("text-anchor", "end")
             .text(function(d) {
 
-                if (d.key == 'behandeling') {
-                    return 'niet afgehandeld';
-                } else if (d.key == 'besluiten') {
-                    return 'afgehandeld';
+                if (d.key == 'in_behandeling') {
+                    return 'In behandeling';
+                } else if (d.key == 'afgehandeld') {
+                    return 'Afgehandeld';
                 } else {
                     return d.key;
                 }
@@ -52,6 +52,8 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         svg.areaLabels
             .attr('transform', function(d) {
+
+                console.log(d)
 
                 return 'translate(' + dimensions.width + ',' +
                     yScale.linear(
