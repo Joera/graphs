@@ -115,7 +115,7 @@ var opnames = function(element) {
 
             let stackedData = filterData(propertyArray,increments);
             xScale = chartXScale.set(data);
-            yScale = chartYScale.set(data);
+            yScale = chartYScale.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
             //  chartLegend.drawDefault(dimensions);
             // further drawing happens in function that can be repeated.
