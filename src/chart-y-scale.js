@@ -30,9 +30,12 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                             // console.log(d[i][1]);
                             let v = 0;
 
-                            for (let e = 0; e < data.length - 1; e++) {
+                            console.log('1');
 
-                                console.log(data[e])
+                            for (let e = 0; e < data.length; e++) {
+
+                                console.log('2');
+                                console.log(data[e]);
                                 v = v + data[e][i][1];
                             }
 
