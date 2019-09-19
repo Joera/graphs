@@ -365,7 +365,6 @@ var TCMGCharts = function TCMGCharts() {
 
         procedure : Procedure,
         procedureAlt : ProcedureAlt,
-        progress : Progress,
         progressCandles : ProgressCandles,
 
     }
