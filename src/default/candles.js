@@ -43,13 +43,15 @@ var candles = function(element) {
     chartAxis.drawXAxis();
     chartAxis.drawYAxis();
 
-    d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
+    let url = 'https://tcmg.publikaan.nl/api/procedure';
+
+    d3.json(url, function(error, data) {
         if (error) throw error;
 
         data.forEach( (week,i) => {
 
             if (i > 1) {
-                week.increase = data[i].meldingen - data[i - 1].meldingen;
+                week.increase = data[i].schademeldingen - data[i - 1].schademeldingen;
                 week.decrease = data[i].afgehandeld - data[i - 1].afgehandeld;
             } else {
                 week.increase = 0;
