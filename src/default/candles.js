@@ -45,19 +45,24 @@ var candles = function(element) {
 
     let url = 'https://tcmg.publikaan.nl/api/procedure';
 
-    d3.json(url, function(error, data) {
+    d3.json(url, function(error, json) {
         if (error) throw error;
 
-        data.forEach( (week,i) => {
 
-            if (i > 1) {
-                week.increase = data[i]['schademeldingen'] - data[i - 1]['schademeldingen'];
-                week.decrease = data[i]['afgehandeld'] - data[i - 1]['afgehandeld'];
-            } else {
-                week.increase = 0;
-                week.decrease = 0;
-            }
-        });
+        let neededColumns = ['schademeldingen','afgehandeld','nieuwe_schademeldingen','nieuwe_afgehandeld','_date'];
+        let data = trimColumns(json,neededColumns);
+
+
+        // data.forEach( (week,i) => {
+        //
+        //     if (i > 1) {
+        //         week.increase = data[i]['schademeldingen'] - data[i - 1]['schademeldingen'];
+        //         week.decrease = data[i]['afgehandeld'] - data[i - 1]['afgehandeld'];
+        //     } else {
+        //         week.increase = 0;
+        //         week.decrease = 0;
+        //     }
+        // });
 
         console.log(data);
 
