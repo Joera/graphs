@@ -22,7 +22,7 @@ var candles = function(element) {
 
     config.yParameter = 'in_behandeling';  // is being set in type function
     // config.fixedHeight = 160;
-    // config.minValue = 13000;
+    config.minValue = 13000;
     // config.maxValue = 17000;
 
 
