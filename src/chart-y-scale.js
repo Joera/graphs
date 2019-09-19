@@ -29,16 +29,15 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                     // console.log(d);
 
                         for (let i = 0; i < d.length - 1; i++) {
-                            console.log(d[i]);
+                            // console.log(d[i]);
                             let v = 0;
 
                             for (let e = 0; e < data.length; e++) {
-
-                                console.log(data[e][i][1]);
+                                // console.log(data[e][i][1]);
                                 v = v + data[e][i][1];
                             }
 
-                            // console.log(v);
+                            /console.log(v);
                           //  return v;
                         }
                 } )
