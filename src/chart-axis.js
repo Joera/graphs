@@ -24,7 +24,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             axes.xTime
                 .ticks(d3.timeMonth.every(1))
                 .tickFormat(function(date){
-                    return (d3.timeYear(date) < date) ? d3.timeFormat('%b')(date) : d3.timeFormat('%Y')(date);
+                    return (d3.timeYear(date) < date) ? localTime.format('%b')(date) : localTime.format('%Y')(date);
                 });
 
 
