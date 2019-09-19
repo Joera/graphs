@@ -1,6 +1,6 @@
 var bedragen = function(element) {
 
-    let colours = ['green','green','green','green'];
+    let colours = ['green','green','green','green','green'];
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -77,7 +77,7 @@ var bedragen = function(element) {
             });
 
             data.push({
-                status: "Bijkomsende kosten",
+                status: "Bijkomende kosten",
                 totaal: json['BEDRAG_BK']
 
             });
