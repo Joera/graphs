@@ -54,8 +54,10 @@ var gemeentes = function(element) {
 
                 for (let key in gemeenteData) {
 
+                    console.log(sluggify(key));
+
                     if (sluggify(key) === 'totaal_verleend') {
-                        gemeenteData[key] = currency(gemeenteData[key]);
+                        gemeenteData[key] = convertToCurrency(gemeenteData[key]);
                     }
 
                     gemeenteData[sluggify(key)] = gemeenteData[key];
