@@ -236,82 +236,7 @@ var TCMGCharts = function TCMGCharts() {
 
     var ProgressCandles = function(element) {
 
-        let chartObjects = ChartObjects();
-        let config = chartObjects.config();
-        let dimensions = chartObjects.dimensions();
-        let svg = chartObjects.svg();
-        let scales = chartObjects.scales();
-        let axes = chartObjects.axes();
-        let functions = chartObjects.functions();
 
-        config.margin.top = 0;
-        config.margin.bottom = 0;
-        config.margin.left = 0;
-        config.margin.right = 0;
-        config.padding.top = 30;
-        config.padding.bottom = 30;
-        config.padding.left = 40;
-        config.padding.right = 0;
-        // name of first column with values of bands on x axis
-
-
-        config.yParameter = 'behandeling';  // is being set in type function
-        // config.fixedHeight = 160;
-        config.minValue = 13000;
-        config.maxValue = 17000;
-
-
-        config.xParameter = 'date';
-        config.minWidth = 460;
-        // get dimensions from parent element
-        let chartDimensions = ChartDimensions(element,config);
-        dimensions = chartDimensions.get(dimensions);
-
-        // create svg elements without data
-        let chartSVG = ChartSVG(element,config,dimensions,svg);
-        let chartScales = ChartScales(config,dimensions,scales);
-        let chartAxis = ChartAxis(config,svg);
-        let chartLine = ChartLine(config,svg,functions,dimensions);
-     //   let chartStackedArea = ChartStackedArea(config,svg,functions);
-
-        chartAxis.drawXAxis();
-        chartAxis.drawYAxis();
-
-        d3.csv("./dummy_data_progress_extended.csv", function(error, data) {
-            if (error) throw error;
-
-            data.forEach( (week,i) => {
-
-                    if (i > 1) {
-                        week.increase = data[i].meldingen - data[i - 1].meldingen;
-                        week.decrease = data[i].afgehandeld - data[i - 1].afgehandeld;
-                    } else {
-                        week.increase = 0;
-                        week.decrease = 0;
-                    }
-            });
-
-            function redraw() {
-                // on redraw chart gets new dimensions
-                dimensions = chartDimensions.get(dimensions);
-                chartSVG.redraw(dimensions);
-                // new dimensions mean new scales
-                scales = chartScales.reset(dimensions,scales);
-                // new scales mean new axis
-                chartAxis.redrawXTimeAxis(dimensions,scales,axes);
-                chartAxis.redrawYAxis(scales,axes);
-                // redraw data
-                chartLine.redraw(scales,functions,dimensions,data);
-            }
-
-            scales = chartScales.set(data);
-            chartLine.draw(data);
-            // further drawing happens in function that can be repeated.
-            redraw();
-            // for example on window resize
-            window.addEventListener("resize", redraw, false);
-
-        });
     }
 
 
@@ -365,7 +290,7 @@ var TCMGCharts = function TCMGCharts() {
 
         procedure : Procedure,
         procedureAlt : ProcedureAlt,
-        progressCandles : ProgressCandles,
+        // progressCandles : ProgressCandles,
 
     }
 }

@@ -28,7 +28,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 }
             }
         }
-        
+
         scale.stacked = d3.scaleLinear()
             .domain([
                 minValue,
