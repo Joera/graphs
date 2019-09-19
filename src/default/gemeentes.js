@@ -29,8 +29,6 @@ var gemeentes = function(element) {
         });
     }
 
-    console.log(dimensions);
-
     chartSVG.redraw(dimensions);
 
     let chartMap = ChartMap(config,svg,dimensions);

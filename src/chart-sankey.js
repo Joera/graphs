@@ -130,9 +130,9 @@ let ChartSankey = function ChartSankey(config,svg) {
         svg.links
             .merge(svg.linksEnter)
             .attr("d", path)
-            .style("stroke-width", function(d) { return Math.min(1, d.dy); })
-            .transition()
-            .duration(500)
+            // .style("stroke-width", function(d) { return Math.min(1, d.dy); })
+            // .transition()
+            // .duration(500)
             .style("stroke-width", function(d) { return Math.max(1, d.dy); });
 
         //    .sort(function(a, b) { return b.dy - a.dy; })
@@ -161,7 +161,7 @@ let ChartSankey = function ChartSankey(config,svg) {
 
         svg.nodeRectUncompleted
             .style("opacity", 0.4)
-            .attr("height", function(d) { console.log(d); return d.dy; })
+            .attr("height", function(d) { return d.dy; })
             .attr("width", svg.sankey.nodeWidth())
             .transition()
             .delay(500)

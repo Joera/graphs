@@ -112,7 +112,6 @@ var opnames = function(element) {
         function update(propertyArray,increments) {
 
             let stackedData = filterData(propertyArray,increments);
-            console.log(stackedData);
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
