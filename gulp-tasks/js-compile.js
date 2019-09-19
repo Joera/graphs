@@ -47,7 +47,8 @@ module.exports = function() {
             './src/default/gemeentes.js',
             './src/default/stroommodel.js',
             './src/default/bedragen.js',
-            './src/default/verdeling.js'
+            './src/default/verdeling.js',
+            './src/default/voortgang.js'
 
 
             ])
