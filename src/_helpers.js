@@ -19,3 +19,8 @@ var thousands = function(number) {
 
     return number.toLocaleString('nl-NL');
 }
+
+var currency = function(number) {
+
+    return number.toLocaleString('nl-NL', {style: 'currency', currency: 'EUR', minimumFractionDigits: 2 });
+}

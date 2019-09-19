@@ -53,7 +53,14 @@ var gemeentes = function(element) {
                 });
 
                 for (let key in gemeenteData) {
+
+                    if (sluggify(key) === 'totaal_verleend') {
+                        gemeenteData[key] = currency(gemeenteData[key]);
+                    }
+
                     gemeenteData[sluggify(key)] = gemeenteData[key];
+
+
                 }
 
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
