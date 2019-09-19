@@ -37,12 +37,12 @@ var opnames = function(element) {
 
     let colours = {
 
-        'opnames': 'green',
-        'nul-metingen': 'blue',
+        'schadeopnames': 'green',
+        'nulmetingen': 'blue',
         'adviesrapporten': 'orange',
         'besluiten': 'darkblue',
-        'nieuwe_opnames': 'green',
-        'nieuwe_nul-metingen': 'blue',
+        'nieuwe_schadeopnames': 'green',
+        'nieuwe_nulmetingen': 'blue',
         'nieuwe_adviesrapporten': 'orange',
         'nieuwe_besluiten': 'darkblue'
     }
