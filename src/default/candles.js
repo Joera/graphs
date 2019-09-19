@@ -20,7 +20,7 @@ var candles = function(element) {
     // name of first column with values of bands on x axis
 
 
-    config.yParameter = 'behandeling';  // is being set in type function
+    config.yParameter = 'in_behandeling';  // is being set in type function
     // config.fixedHeight = 160;
     config.minValue = 13000;
     config.maxValue = 17000;
@@ -51,8 +51,8 @@ var candles = function(element) {
         data.forEach( (week,i) => {
 
             if (i > 1) {
-                week.increase = data[i].schademeldingen - data[i - 1].schademeldingen;
-                week.decrease = data[i].afgehandeld - data[i - 1].afgehandeld;
+                week.increase = data[i]['schademeldingen'] - data[i - 1]['schademeldingen'];
+                week.decrease = data[i]['afgehandeld'] - data[i - 1]['afgehandeld'];
             } else {
                 week.increase = 0;
                 week.decrease = 0;
