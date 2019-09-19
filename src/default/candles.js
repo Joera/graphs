@@ -52,7 +52,7 @@ var candles = function(element) {
         let neededColumns = ['schademeldingen','afgehandeld','in_behandeling','nieuwe_schademeldingen','nieuwe_afgehandeld','_date'];
         let data = trimColumns(json,neededColumns);
 
-        data = data.slice(1,data.length);
+        data = data.slice(2,data.length);
 
         // data.forEach( (week,i) => {
         //
