@@ -31,6 +31,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                             let v = 0;
 
                             for (let e = 0; e < data.length - 1; e++) {
+
+                                console.log(data[e])
                                 v = v + data[e][i][1];
                             }
 
