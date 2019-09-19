@@ -108,8 +108,6 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
 
                 if(d.properties[property] > 0) {
 
-                    console.log(property);
-
                     if (property === 'TOTAAL_VERLEEND') {
                         return convertToCurrency(d.properties[property]);
                     }
