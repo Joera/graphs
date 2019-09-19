@@ -81,7 +81,7 @@ var voortgang = function(element) {
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes);
             chartAxis.redrawYAxis(yScale,axes);
             // redraw data
-            chartStackedArea.redraw(dimensions,scales);
+            chartStackedArea.redraw(dimensions,xScale,yScale);
 
         }
 
