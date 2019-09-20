@@ -22,7 +22,7 @@ let ChartAxis = function ChartAxis(config,svg) {
                 .attr("y", function () {
                     if (alternate_text) {
                         alternate_text = false;
-                        return 24;
+                        return 26;
                     } else {
                         alternate_text = true;
                         return 10;
