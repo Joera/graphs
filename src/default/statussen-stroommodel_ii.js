@@ -218,6 +218,12 @@ var statussen_stroommodel_ii  = function (element,filter) {
                 'name': '[ADVIESRAPPORT_GEEN_REACTI]',
                 'desc': 'dec',
                 'class': 'in-procedure'
+            },
+            {
+                'node': 18,
+                'name': '[RAPPORTAGES]',
+                'desc': 'dec',
+                'class': 'in-procedure'
             }
         ];
 
@@ -285,6 +291,12 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'source': 11,
+                'target': 18,
+                'value': 10246,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT - BESLUIT STUWMEER
+                'class': ''
+            },
+            {
+                'source': 18,
                 'target': 4,
                 'value': 10246,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT - BESLUIT STUWMEER
                 'class': ''
