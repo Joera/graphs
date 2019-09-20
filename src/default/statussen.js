@@ -33,7 +33,7 @@ var statussen  = function (element,filter) {
     config.paddingInner = [0.5];
     config.paddingOuter = [0.25];
 
-    let colours = ['orange','green','darkblue','blue'];
+    let colours = ['orange','green','darkblue','blue','orange','green'];
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element, config);
