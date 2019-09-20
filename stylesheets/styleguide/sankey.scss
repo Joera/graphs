@@ -14,7 +14,7 @@
   stroke: $blue;
   stroke-opacity: .3;
 
-  &.uncompleted {
+  &.uncompleted, &.samengevoegd {
     stroke: #000;
   }
 
