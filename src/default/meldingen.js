@@ -62,6 +62,10 @@ var meldingen = function(element) {
 
         if (window.innerWidth < 600) {
             data = data.slice(data.length - 3,data.length);
+        } else if (window.innerWidth < 1200) {
+            data = data.slice(data.length - 10,data.length);
+        } else {
+            data = data.slice(data.length - 20,data.length);
         }
 
         function redraw(property) {
