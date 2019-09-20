@@ -56,7 +56,7 @@ var statussen  = function (element,filter) {
 
         data.push({
             status: "Melding ontvangen",
-            totaal: json[0]['ONTVANGST'];
+            totaal: json[0]['ONTVANGST']
 
         });
 
@@ -86,8 +86,8 @@ var statussen  = function (element,filter) {
         });
 
         data.push({
-            status: "Besluit wordt voorbereid",
-            totaal: json[0]['VOORBER_CIE']
+            status: "Besluit genomen",
+            totaal: json[0]['BESCHIKT']
 
         });
 
