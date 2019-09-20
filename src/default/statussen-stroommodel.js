@@ -252,8 +252,8 @@ var statussen_stroommodel  = function (element,filter) {
                 'class': ''
             },
             {
-                'source': 12,
-                'target': 4,
+                'source': 11,
+                'target': 12,
                 'value': 4645,  // OPLEV_SCHADERAPPORT
                 'class': ''
             }
