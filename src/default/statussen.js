@@ -52,7 +52,7 @@ var statussen  = function (element,filter) {
 
     function prepareData(json) {
 
-        console.log(json)
+
 
         let data = [];
 
@@ -98,6 +98,8 @@ var statussen  = function (element,filter) {
     }
 
     function draw(data) {
+
+        console.log(data)
 
         // with data we can init scales
         xScale = chartXScale.set(data);
