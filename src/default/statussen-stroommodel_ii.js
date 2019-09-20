@@ -292,7 +292,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             {
                 'source': 13,
                 'target': 11,
-                'value': 23458,  // OPLEV_SCHADERAPPORT
+                'value': 14891,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT - BESLUIT STUWMEER
                 'class': ''
             },
             {
