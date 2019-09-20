@@ -223,7 +223,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
                 'node': 19,
                 'name': '[RAPPORTAGES]',
                 'desc': 'dec',
-                'class': 'in-procedure'
+                'class': ''
             }
         ];
 
