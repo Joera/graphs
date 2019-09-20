@@ -85,25 +85,25 @@ let ChartSankey = function ChartSankey(config,svg) {
                 }
             });
 
-        svg.nodeRectUncompleted = svg.nodeGroupEnter
-            .append("rect")
-            .style("fill", orange)
-            .style("stroke", orange);
-
-        svg.nodeGroupUncompleted = svg.nodeLayer.selectAll('.node-uncompleted')
-            .data(links.filter( (l) => l.class === 'in-procedure'));
-
-        svg.nodeGroupUncompleted.exit().remove();
-
-        svg.nodeGroupUncompletedEnter = svg.nodeGroupUncompleted
-            .enter()
-            .append("g")
-            .attr("class", "node-uncompleted");
-
-        svg.nodeRectUncompleted = svg.nodeGroupUncompletedEnter
-            .append("rect")
-            .style("fill", orange )
-            .style("stroke", orange );
+        // svg.nodeRectUncompleted = svg.nodeGroupEnter
+        //     .append("rect")
+        //     .style("fill", orange)
+        //     .style("stroke", orange);
+        //
+        // svg.nodeGroupUncompleted = svg.nodeLayer.selectAll('.node-uncompleted')
+        //     .data(links.filter( (l) => l.class === 'in-procedure'));
+        //
+        // svg.nodeGroupUncompleted.exit().remove();
+        //
+        // svg.nodeGroupUncompletedEnter = svg.nodeGroupUncompleted
+        //     .enter()
+        //     .append("g")
+        //     .attr("class", "node-uncompleted");
+        //
+        // svg.nodeRectUncompleted = svg.nodeGroupUncompletedEnter
+        //     .append("rect")
+        //     .style("fill", orange )
+        //     .style("stroke", orange );
 
         svg.nodeName = svg.nodeGroupEnter
             .append("text")
@@ -153,20 +153,20 @@ let ChartSankey = function ChartSankey(config,svg) {
             .duration(1500)
             .style("opacity", 1);
 
-        svg.nodeGroupUncompleted
-            .merge(svg.nodeGroupUncompletedEnter)
-            .attr("transform", function(d) {
-                return "translate(" + d.source.x + "," + d.source.y + ")";
-            });
-
-        svg.nodeRectUncompleted
-            .style("opacity", 0.4)
-            .attr("height", function(d) { return d.dy; })
-            .attr("width", svg.sankey.nodeWidth())
-            .transition()
-            .delay(500)
-            .duration(1500)
-            .style("opacity", 1);
+        // svg.nodeGroupUncompleted
+        //     .merge(svg.nodeGroupUncompletedEnter)
+        //     .attr("transform", function(d) {
+        //         return "translate(" + d.source.x + "," + d.source.y + ")";
+        //     });
+        //
+        // svg.nodeRectUncompleted
+        //     .style("opacity", 0.4)
+        //     .attr("height", function(d) { return d.dy; })
+        //     .attr("width", svg.sankey.nodeWidth())
+        //     .transition()
+        //     .delay(500)
+        //     .duration(1500)
+        //     .style("opacity", 1);
 
         svg.nodeName
             .attr("x", (d) => {
