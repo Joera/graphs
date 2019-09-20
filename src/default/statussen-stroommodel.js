@@ -104,7 +104,7 @@ var statussen_stroommodel  = function (element,filter) {
 
     }
 
-    function redraw() {
+    function redraw(nodes,links) {
 
         chartSankey.set(nodes,links,dimensions);
         dimensions = chartDimensions.get(dimensions);
@@ -114,22 +114,47 @@ var statussen_stroommodel  = function (element,filter) {
 
     function fetchApi(municipality) {
 
-        if(municipality) {
-            url = "https://tcmg.publikaan.nl/api/flowchart?week=recent&gemeente=" + municipality;
-        } else {
-            url = "https://tcmg.publikaan.nl/api/flowchart?week=recent";
-        }
-        // point of data injection when using an api
+        let nodes = [
 
-        d3.json(url, {
-            method:"POST",
-            body: JSON.stringify({ 'connections' : connections }),
-            headers: { "Content-type": "application/json; charset=UTF-8"}
-        }).then( ({nodes,links}) => {
+            {
+                'node': 0,
+                'name': 'ontvangen meldingen',
+                'desc': 'description',
+            },
+            {
+                'node': 1,
+                'name': 'opname wordt ingepland',
+                'desc': 'description',
+            }
+        ];
+
+        let links = [
+
+            {
+                'source': 0,
+                'target': 1,
+                'value': 500,
+                'class': 'chipz'
+            }
+
+        ];
+
+        // if(municipality) {
+        //     url = "https://tcmg.publikaan.nl/api/flowchart?week=recent&gemeente=" + municipality;
+        // } else {
+        //     url = "https://tcmg.publikaan.nl/api/flowchart?week=recent";
+        // }
+        // // point of data injection when using an api
+        //
+        // d3.json(url, {
+        //     method:"POST",
+        //     body: JSON.stringify({ 'connections' : connections }),
+        //     headers: { "Content-type": "application/json; charset=UTF-8"}
+        // }).then( ({nodes,links}) => {
 
             draw(nodes,links);
-            redraw();
-        });
+            redraw(nodes,links);
+        // });
     }
 
     window.addEventListener("resize", redraw, false);
