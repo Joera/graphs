@@ -23,7 +23,7 @@ let ChartSankey = function ChartSankey(config,svg) {
 
         svg.sankey = d3.sankey()
             .nodeWidth(24)
-            .nodePadding(60)
+            .nodePadding(40)
             .size([dimensions.width, dimensions.height]);
 
         path = svg.sankey.link();
