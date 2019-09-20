@@ -51,7 +51,8 @@ module.exports = function() {
             './src/default/voortgang.js',
             './src/default/candles.js',
             './src/default/statussen.js',
-            './src/default/statussen-stroommodel.js'
+            './src/default/statussen-stroommodel.js',
+            './src/default/statussen-stroommodel_ii.js'
 
 
             ])
