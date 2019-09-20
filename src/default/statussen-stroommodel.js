@@ -125,6 +125,11 @@ var statussen_stroommodel  = function (element,filter) {
                 'node': 1,
                 'name': 'opname wordt ingepland',
                 'desc': 'description',
+            },
+            {
+                'node': 2,
+                'name': 'in_behandeling',
+                'desc': 'description',
             }
         ];
 
@@ -133,8 +138,14 @@ var statussen_stroommodel  = function (element,filter) {
             {
                 'source': 0,
                 'target': 1,
-                'value': 500,
-                'class': 'chipz'
+                'value': 29792,
+                'class': 'blue'
+            },
+            {
+                'source': 0,
+                'target': 2,
+                'value': 2214,
+                'class': 'orange'
             }
 
         ];
