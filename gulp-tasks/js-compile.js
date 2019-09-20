@@ -39,7 +39,7 @@ module.exports = function() {
             './src/chart-sankey.js',
             './src/chart-map.js',
 
-            './src/tcmg-charts.js',
+            // './src/tcmg-charts.js',
 
             './src/default/opnames.js',
             './src/default/meldingen.js',
