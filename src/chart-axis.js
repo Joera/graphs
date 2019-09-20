@@ -6,13 +6,29 @@ let ChartAxis = function ChartAxis(config,svg) {
             .attr('class', 'x-axis');
     }
 
-    let redrawXBandAxis = function redrawXAxis(dimensions,xScale,axes) {
+    let redrawXBandAxis = function redrawXAxis(dimensions,xScale,axes,alternateTicks) {
 
         axes.xBand = d3.axisBottom(xScale.band);
 
         svg.xAxis
             .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
             .call(axes.xBand);
+
+        if (alternateTicks) {
+
+            let alternate_text = false;
+
+            d3.selectAll("g.x-axis g.tick text")
+                .attr("y", function () {
+                    if (alternate_text) {
+                        alternate_text = false;
+                        return 6;
+                    } else {
+                        alternate_text = true;
+                        return 20;
+                    }
+                });
+        }
     }
 
     let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks) {

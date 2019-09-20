@@ -99,8 +99,6 @@ var statussen  = function (element,filter) {
 
     function draw(data) {
 
-        console.log(data)
-
         // with data we can init scales
         xScale = chartXScale.set(data);
         yScale = chartYScale.set(data,config.yParameter);
@@ -118,7 +116,7 @@ var statussen  = function (element,filter) {
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
-        chartAxis.redrawXBandAxis(dimensions, xScale, axes, false);
+        chartAxis.redrawXBandAxis(dimensions, xScale, axes, true);
         chartAxis.redrawYAxis(yScale, axes);
         // redraw data
         chartBar.redraw(dimensions, xScale,yScale);
