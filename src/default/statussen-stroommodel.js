@@ -123,7 +123,7 @@ var statussen_stroommodel  = function (element,filter) {
             },
             {
                 'node': 1,
-                'name': 'opname ingepland',
+                'name': 'gereed voor planning opname',
                 'desc': 'description',
             },
             {
