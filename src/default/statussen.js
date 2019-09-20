@@ -23,9 +23,9 @@ var statussen  = function (element,filter) {
 
     // y-axis
     config.yParameter = 'totaal';
-    config.minValue = 0;
+    // config.minValue = 0;
     // config.maxValue = 10000;
-    config.fixedHeight = 200;
+    // config.fixedHeight = 200;
 
     // x-axis
     // config.minWidth = 460;
