@@ -140,6 +140,36 @@ var statussen_stroommodel  = function (element,filter) {
                 'node': 4,
                 'name': 'Schaderapport geaccepteerd',
                 'desc': 'description',
+            },
+            {
+                'node': 5,
+                'name': 'Geheel toegekend',
+                'desc': 'description',
+            },
+            {
+                'node': 6,
+                'name': 'Geen consistent besluit',
+                'desc': 'description',
+            },
+            {
+                'node': 7,
+                'name': 'Gedeeltelijk toegekend',
+                'desc': 'description',
+            },
+            {
+                'node': 8,
+                'name': 'Stuwmeer',
+                'desc': 'description',
+            },
+            {
+                'node': 9,
+                'name': 'Bijkomkosten huur',
+                'desc': 'description',
+            },
+            {
+                'node': 10,
+                'name': 'Afgewezen',
+                'desc': 'description',
             }
         ];
 
@@ -168,6 +198,42 @@ var statussen_stroommodel  = function (element,filter) {
                 'target': 3,
                 'value': 820,
                 'class': 'in-procedure'
+            },
+            {
+                'source': 0,
+                'target': 5,
+                'value': 2300,
+                'class': ''
+            },
+            {
+                'source': 0,
+                'target': 6,
+                'value': 4,
+                'class': ''
+            },
+            {
+                'source': 0,
+                'target': 7,
+                'value': 5880,
+                'class': ''
+            },
+            {
+                'source': 0,
+                'target': 8,
+                'value': 8567,
+                'class': ''
+            },
+            {
+                'source': 0,
+                'target': 9,
+                'value': 66,
+                'class': ''
+            },
+            {
+                'source': 0,
+                'target': 10,
+                'value': 947,
+                'class': ''
             }
 
         ];
