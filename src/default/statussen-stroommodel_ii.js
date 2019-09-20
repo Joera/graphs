@@ -280,7 +280,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             {
                 'source': 11,
                 'target': 4,
-                'value': 18813,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT
+                'value': 10246,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT - BESLUIT STUWMEER
                 'class': ''
             },
             {
