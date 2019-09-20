@@ -315,7 +315,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'source': 16,
-                'target': 817,
+                'target': 17,
                 'value': 7312,  // ONTVANGST
                 'class': 'in-procedure'
             },
