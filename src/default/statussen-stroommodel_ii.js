@@ -134,7 +134,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'node': 3,
-                'name': 'Wacht op besluit',
+                'name': 'Wacht op besluit [VOORBER_CIE]',
                 'desc': 'description',
                 'class': 'in-procedure'
             },
@@ -180,7 +180,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'node': 12,
-                'name': 'Schaderapport wordt geschreven',
+                'name': 'Schaderapport wordt geschreven [OPLEV_SCHADERAPPORT]',
                 'desc': 'dec',
                 'class': 'in-procedure'
             },
@@ -191,13 +191,13 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'node': 14,
-                'name': 'Schadeopname wordt ingepland',
+                'name': 'Schadeopname wordt ingepland [PLANNING_OPNAME]',
                 'desc': 'dec',
                 'class': 'in-procedure'
             },
             {
                 'node': 15,
-                'name': 'Dossier wordt aangemaakt',
+                'name': 'Dossier wordt aangemaakt [ONTVANGST]',
                 'desc': 'dec',
                 'class': 'in-procedure'
             },
