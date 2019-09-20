@@ -55,26 +55,39 @@ var statussen  = function (element,filter) {
         let data = [];
 
         data.push({
-            status: "Wacht op opname",
-            totaal: json['ONTVANGST'] + json['PLANNING_OPNAME']
+            status: "Melding ontvangen",
+            totaal: json[0]['ONTVANGST'];
 
         });
 
         data.push({
-            status: "Wacht op rapport",
-            totaal: json['OPLEV_SCHADERAPPORT']
+            status: "Schadeopname wordt ingepland",
+            totaal: json[0]['PLANNING_OPNAME']
 
         });
 
         data.push({
-            status: "Tijd voor zienswijze",
-            totaal: 0
+            status: "Schadeopname is ingepland",
+            totaal: json[0]['PLANNING_OPNAME']
 
         });
 
         data.push({
-            status: "Voorbereiding besluit",
-            totaal: json['VOORBER_CIE']
+            status: "Schaderapport wordt geschreven",
+            totaal: json[0]['OPLEV_SCHADERAPPORT']
+
+        });
+
+
+        data.push({
+            status: "Besluit wordt voorbereid",
+            totaal: json[0]['VOORBER_CIE']
+
+        });
+
+        data.push({
+            status: "Besluit wordt voorbereid",
+            totaal: json[0]['VOORBER_CIE']
 
         });
 
