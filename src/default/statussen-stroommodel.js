@@ -130,6 +130,11 @@ var statussen_stroommodel  = function (element,filter) {
                 'node': 2,
                 'name': 'in_behandeling',
                 'desc': 'description',
+            },
+            {
+                'node': 3,
+                'name': 'schaderapport wordt geschreven',
+                'desc': 'description',
             }
         ];
 
@@ -145,6 +150,18 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 0,
                 'target': 2,
                 'value': 2214,
+                'class': 'in-procedure'
+            },
+            {
+                'source': 1,
+                'target': 3,
+                'value': 25147,
+                'class': ''
+            },
+            {
+                'source': 1,
+                'target': 2,
+                'value': 4645,
                 'class': 'in-procedure'
             }
 
