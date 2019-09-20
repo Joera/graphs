@@ -160,7 +160,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'node': 8,
-                'name': 'Stuwmeer',
+                'name': 'Besluit stuwmeer',
                 'desc': 'description',
             },
             {
@@ -209,7 +209,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'node': 17,
-                'name': 'GEEN_REACTIE_STUWMEER',
+                'name': 'Geen reactie stuwmeer',
                 'desc': 'dec',
                 'class': ''
             }
@@ -220,7 +220,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
             {
                 'source': 4,
                 'target': 0,
-                'value': 17764,
+                'value': 9197,  // [BESCHIKT] - [BESLUIT STUWMEER]
                 'class': ''
             },
             {
