@@ -209,7 +209,13 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'node': 17,
-                'name': 'Geen reactie stuwmeer',
+                'name': '[GEEN_REACTIE_STUWMEER]',
+                'desc': 'dec',
+                'class': 'in-procedure'
+            },
+            {
+                'node': 18,
+                'name': '[ADVIESRAPPORT_GEEN_REACTI]',
                 'desc': 'dec',
                 'class': 'in-procedure'
             }
@@ -325,6 +331,12 @@ var statussen_stroommodel_ii  = function (element,filter) {
                 'value': 15879,  // ONTVANGST
                 'class': ''
             },
+            {
+                'source': 4,
+                'target': 18,
+                'value': 4117,  // ONTVANGST
+                'class': ''
+            }
 
 
         ];
