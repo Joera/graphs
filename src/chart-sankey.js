@@ -70,7 +70,8 @@ let ChartSankey = function ChartSankey(config,svg) {
         svg.nodeRect = svg.nodeGroupEnter
             .append("rect")
             .style("fill", function(d) {
-                if (d.name === 'IN_PROCEDURE') {
+
+                if (d.class === 'in-procedure') {
                     return orange;
                 } else {
                     return blue;
@@ -78,7 +79,7 @@ let ChartSankey = function ChartSankey(config,svg) {
             })
             .style("stroke", function(d) {
 
-                if (d.name === 'IN_PROCEDURE') {
+                if (d.class === 'in-procedure') {
                     return orange;
                 } else {
                     return blue;

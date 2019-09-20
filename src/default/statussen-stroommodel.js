@@ -120,6 +120,7 @@ var statussen_stroommodel  = function (element,filter) {
                 'node': 0,
                 'name': 'Beschikt',
                 'desc': 'description',
+
             },
             {
                 'node': 1,
@@ -135,6 +136,7 @@ var statussen_stroommodel  = function (element,filter) {
                 'node': 3,
                 'name': 'Wacht op besluit',
                 'desc': 'description',
+                'class': 'in-procedure'
             },
             {
                 'node': 4,
@@ -179,7 +181,8 @@ var statussen_stroommodel  = function (element,filter) {
             {
                 'node': 12,
                 'name': 'Schaderapport wordt geschreven',
-                'desc': 'dec'
+                'desc': 'dec',
+                'class': 'in-procedure'
             },
             {
                 'node': 13,
@@ -189,12 +192,14 @@ var statussen_stroommodel  = function (element,filter) {
             {
                 'node': 14,
                 'name': 'Schadeopname wordt ingepland',
-                'desc': 'dec'
+                'desc': 'dec',
+                'class': 'in-procedure'
             },
             {
                 'node': 15,
                 'name': 'Dossier wordt aangemaakt',
-                'desc': 'dec'
+                'desc': 'dec',
+                'class': 'in-procedure'
             }
         ];
 
