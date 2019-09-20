@@ -138,7 +138,7 @@ var statussen_stroommodel  = function (element,filter) {
             },
             {
                 'node': 4,
-                'name': 'Schaderapport geaccepteerd',
+                'name': 'Schaderapport geaccepteerd',  // BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE
                 'desc': 'description',
             },
             {
@@ -170,6 +170,16 @@ var statussen_stroommodel  = function (element,filter) {
                 'node': 10,
                 'name': 'Afgewezen',
                 'desc': 'description',
+            },
+            {
+                'node': 11,
+                'name': 'Opname plaatsgevonden',  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) + OPLEV_SCHADERAPPORT
+                'desc': 'description',
+            },
+            {
+                'node': 12,
+                'name': 'Schaderapport wordt geschreven',
+                'desc': 'dec'
             }
         ];
 
@@ -233,6 +243,18 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 0,
                 'target': 10,
                 'value': 947,
+                'class': ''
+            },
+            {
+                'source': 11,
+                'target': 4,
+                'value': 18813,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT
+                'class': ''
+            },
+            {
+                'source': 12,
+                'target': 4,
+                'value': 4645,  // OPLEV_SCHADERAPPORT
                 'class': ''
             }
 
