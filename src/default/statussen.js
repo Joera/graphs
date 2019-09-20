@@ -103,7 +103,7 @@ var statussen  = function (element,filter) {
 
         // with data we can init scales
         xScale = chartXScale.set(data);
-        yScale = chartYScale.set(data);
+        yScale = chartYScale.set(data,config.yParameter);
         // width data we can draw items
         chartBar.draw(data, colours);
 
