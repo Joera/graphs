@@ -282,13 +282,13 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 13,
                 'target': 14,
                 'value': 2214,  // PLANNING OPNAME
-                'class': ''
+                'class': 'in-procedure'
             },
             {
                 'source': 13,
                 'target': 15,
                 'value': 6563,  // ONTVANGST
-                'class': ''
+                'class': 'in-procedure'
             }
 
         ];
