@@ -123,7 +123,7 @@ var statussen_stroommodel  = function (element,filter) {
             },
             {
                 'node': 1,
-                'name': 'opname wordt ingepland',
+                'name': 'opname ingepland',
                 'desc': 'description',
             },
             {
@@ -145,7 +145,7 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 0,
                 'target': 2,
                 'value': 2214,
-                'class': 'orange'
+                'class': 'in-procedure'
             }
 
         ];
