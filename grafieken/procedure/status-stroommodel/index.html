@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<style>
+
+
+</style>
+
+
+<script src="/assets/scripts/d3.min.js"></script>
+<script src="/assets/scripts/main.js"></script>
+
+
+<body class="single-graph">
+<main>
+
+    <h2>Actueel aantal dossiers per status</h2>
+
+    <select class="municipalities">
+        <option value="all">Alle gemeenten</option>
+        <option value="appingedam">Appingedam</option>
+        <option value="bedum">Bedum</option>
+        <option value="delfzijl">Delfzijl</option>
+        <option value="eemsmond">Eemsmond</option>
+        <option value="groningen">Groningen</option>
+        <option value="haren">Haren</option>
+        <option value="loppersum">Loppersum</option>
+        <option value="midden-groningen">Midden-Groningen</option>
+        <option value="oldambt">Oldambt</option>
+        <option value="ten-boer">Ten Boer</option>
+        <option value="veendam">Veendam</option>
+        <option value="winsum">Winsum</option>
+    </select>
+
+
+
+    <!--<span></span>-->
+    <div id="container" class="container">
+
+    </div>
+
+</main>
+</body>
+
+
+<script>
+    statussen('#container');
+</script>
+
+
+</html>
