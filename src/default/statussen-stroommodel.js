@@ -173,7 +173,7 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 3,
                 'target': 4,
                 'value': 24327,
-                'class': 'in-procedure'
+                'class': ''
             },
             {
                 'source': 3,
