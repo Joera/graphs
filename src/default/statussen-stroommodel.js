@@ -118,22 +118,27 @@ var statussen_stroommodel  = function (element,filter) {
 
             {
                 'node': 0,
-                'name': 'ontvangen meldingen',
+                'name': 'Ontvangen meldingen',
                 'desc': 'description',
             },
             {
                 'node': 1,
-                'name': 'gereed voor planning opname',
+                'name': 'Gereed voor planning opname',
                 'desc': 'description',
             },
             {
                 'node': 2,
-                'name': 'in_behandeling',
+                'name': 'In behandeling',
                 'desc': 'description',
             },
             {
                 'node': 3,
-                'name': 'schaderapport wordt geschreven',
+                'name': 'Schaderapport wordt geschreven',
+                'desc': 'description',
+            },
+            {
+                'node': 4,
+                'name': 'Besluit wordt voorbereid',
                 'desc': 'description',
             }
         ];
@@ -162,6 +167,18 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 1,
                 'target': 2,
                 'value': 4645,
+                'class': 'in-procedure'
+            },
+            {
+                'source': 3,
+                'target': 4,
+                'value': 24327,
+                'class': 'in-procedure'
+            },
+            {
+                'source': 3,
+                'target': 2,
+                'value': 820,
                 'class': 'in-procedure'
             }
 
