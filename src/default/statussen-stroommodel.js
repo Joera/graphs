@@ -198,7 +198,7 @@ var statussen_stroommodel  = function (element,filter) {
                 'class': ''
             },
             {
-                'source': 4,
+                'source': 11,
                 'target': 2,
                 'value': 4077,
                 'class': 'samengevoegd'
