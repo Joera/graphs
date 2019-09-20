@@ -255,7 +255,7 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 11,
                 'target': 12,
                 'value': 4645,  // OPLEV_SCHADERAPPORT
-                'class': 'orange'
+                'class': 'in-procedure'
             }
 
         ];
