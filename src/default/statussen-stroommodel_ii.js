@@ -211,7 +211,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
                 'node': 17,
                 'name': 'Geen reactie stuwmeer',
                 'desc': 'dec',
-                'class': ''
+                'class': 'in-procedure'
             }
         ];
 
