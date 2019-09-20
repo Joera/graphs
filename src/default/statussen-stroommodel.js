@@ -180,6 +180,21 @@ var statussen_stroommodel  = function (element,filter) {
                 'node': 12,
                 'name': 'Schaderapport wordt geschreven',
                 'desc': 'dec'
+            },
+            {
+                'node': 13,
+                'name': 'Schademelding ontvangen',
+                'desc': 'dec'
+            },
+            {
+                'node': 14,
+                'name': 'Schadeopname wordt ingepland',
+                'desc': 'dec'
+            },
+            {
+                'node': 15,
+                'name': 'Dossier wordt aangemaakt',
+                'desc': 'dec'
             }
         ];
 
@@ -256,6 +271,24 @@ var statussen_stroommodel  = function (element,filter) {
                 'target': 12,
                 'value': 4645,  // OPLEV_SCHADERAPPORT
                 'class': 'in-procedure'
+            },
+            {
+                'source': 13,
+                'target': 12,
+                'value': 27535,  // OPLEV_SCHADERAPPORT
+                'class': ''
+            },
+            {
+                'source': 13,
+                'target': 14,
+                'value': 2214,  // PLANNING OPNAME
+                'class': ''
+            },
+            {
+                'source': 13,
+                'target': 15,
+                'value': 6563,  // ONTVANGST
+                'class': ''
             }
 
         ];
