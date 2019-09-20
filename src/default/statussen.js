@@ -70,12 +70,7 @@ var statussen  = function (element,filter) {
             totaal: json[0]['PLANNING_OPNAME']
 
         });
-
-        data.push({
-            status: "Schadeopname is ingepland",
-            totaal: json[0]['PLANNING_OPNAME']
-
-        });
+        
 
         data.push({
             status: "Schaderapport wordt geschreven",
