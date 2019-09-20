@@ -118,7 +118,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
 
             {
                 'node': 0,
-                'name': 'Beschikt',   // BESCHIKT - AANTAL_BESLUIT_STUWMEER
+                'name': 'Beschikt [BESCHIKT] - [AANTAL_BESLUIT_STUWMEER]',   // BESCHIKT - AANTAL_BESLUIT_STUWMEER
                 'desc': 'description',
 
             },
