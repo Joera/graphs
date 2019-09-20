@@ -57,7 +57,7 @@ var statussen  = function (element,filter) {
         let data = [];
 
         data.push({
-            status: "Melding ontvangen",
+            status: "Schademelding ontvangen",
             totaal: json[0]['ONTVANGST']
 
         });
