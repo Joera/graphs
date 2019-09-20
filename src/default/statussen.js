@@ -52,6 +52,8 @@ var statussen  = function (element,filter) {
 
     function prepareData(json) {
 
+        console.log(json)
+
         let data = [];
 
         data.push({
