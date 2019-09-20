@@ -1,5 +1,8 @@
 var statussen  = function (element,filter) {
 
+
+    let municipalitySelect = document.querySelector('select.municipalities');
+
     let url;
     let data = {};
     let chartObjects = ChartObjects();
@@ -141,12 +144,12 @@ var statussen  = function (element,filter) {
 
     window.addEventListener("resize", redraw, false);
 
-    // if(procedureSelect != null) {
-    //     procedureSelect.addEventListener("change", function () {
-    //         console.log('hi');
-    //         fetchApi(procedureSelect.options[procedureSelect.selectedIndex].value);
-    //     });
-    // }
+    if(municipalitySelect != null) {
+        municipalitySelect.addEventListener("change", function () {
+            console.log('hi');
+            fetchApi(municipalitySelect.options[municipalitySelect.selectedIndex].value);
+        });
+    }
 
     fetchApi(false);
 
