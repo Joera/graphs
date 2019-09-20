@@ -206,6 +206,12 @@ var statussen_stroommodel_ii  = function (element,filter) {
                 'name': 'Stuwmeerregeling',
                 'desc': 'dec',
                 'class': ''
+            },
+            {
+                'node': 17,
+                'name': 'GEEN_REACTIE_STUWMEER',
+                'desc': 'dec',
+                'class': ''
             }
         ];
 
@@ -305,6 +311,12 @@ var statussen_stroommodel_ii  = function (element,filter) {
                 'source': 16,
                 'target': 8,
                 'value': 8567,  // ONTVANGST
+                'class': ''
+            },
+            {
+                'source': 16,
+                'target': 817,
+                'value': 7312,  // ONTVANGST
                 'class': 'in-procedure'
             },
 
