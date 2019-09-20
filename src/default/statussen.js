@@ -128,7 +128,7 @@ var statussen  = function (element,filter) {
     function fetchApi(municipality) {
 
         if(municipality) {
-            url = "https://tcmg.publikaan.nl/api/procedure?week=recent";
+            url = "https://tcmg.publikaan.nl/api/procedure?week=recent&gemeente=" + municipality;
         } else {
             url = "https://tcmg.publikaan.nl/api/procedure?week=recent";
         }
