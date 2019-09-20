@@ -118,27 +118,27 @@ var statussen_stroommodel  = function (element,filter) {
 
             {
                 'node': 0,
-                'name': 'Ontvangen meldingen',
+                'name': 'Beschikt',
                 'desc': 'description',
             },
             {
                 'node': 1,
-                'name': 'Gereed voor planning opname',
+                'name': 'Ingetrokken',
                 'desc': 'description',
             },
             {
                 'node': 2,
-                'name': 'In behandeling',
+                'name': 'Afgehandeld samengevat',
                 'desc': 'description',
             },
             {
                 'node': 3,
-                'name': 'Schaderapport wordt geschreven',
+                'name': 'Wacht op besluit',
                 'desc': 'description',
             },
             {
                 'node': 4,
-                'name': 'Besluit wordt voorbereid',
+                'name': 'Schaderapport geaccepteerd',
                 'desc': 'description',
             }
         ];
@@ -146,38 +146,26 @@ var statussen_stroommodel  = function (element,filter) {
         let links = [
 
             {
-                'source': 0,
+                'source': 4,
+                'target': 0,
+                'value': 17764,
+                'class': ''
+            },
+            {
+                'source': 4,
                 'target': 1,
-                'value': 29792,
+                'value': 797,
                 'class': ''
             },
             {
-                'source': 0,
+                'source': 4,
                 'target': 2,
-                'value': 2214,
-                'class': 'in-procedure'
+                'value': 4077,
+                'class': ''
             },
             {
-                'source': 1,
+                'source': 4,
                 'target': 3,
-                'value': 25147,
-                'class': ''
-            },
-            {
-                'source': 1,
-                'target': 2,
-                'value': 4645,
-                'class': 'in-procedure'
-            },
-            {
-                'source': 3,
-                'target': 4,
-                'value': 24327,
-                'class': ''
-            },
-            {
-                'source': 3,
-                'target': 2,
                 'value': 820,
                 'class': 'in-procedure'
             }
