@@ -139,7 +139,7 @@ var statussen_stroommodel  = function (element,filter) {
                 'source': 0,
                 'target': 1,
                 'value': 29792,
-                'class': 'blue'
+                'class': ''
             },
             {
                 'source': 0,
