@@ -220,7 +220,7 @@ var statussen_stroommodel_ii  = function (element,filter) {
                 'class': 'in-procedure'
             },
             {
-                'node': 18,
+                'node': 19,
                 'name': '[RAPPORTAGES]',
                 'desc': 'dec',
                 'class': 'in-procedure'
@@ -291,12 +291,12 @@ var statussen_stroommodel_ii  = function (element,filter) {
             },
             {
                 'source': 11,
-                'target': 18,
+                'target': 19,
                 'value': 10246,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT - BESLUIT STUWMEER
                 'class': ''
             },
             {
-                'source': 18,
+                'source': 19,
                 'target': 4,
                 'value': 10246,  // ( BESCHIKT + AFGEH_SAMENGEV + INGETROKKEN + VOORBER_CIE ) - OPLEV_SCHADERAPPORT - BESLUIT STUWMEER
                 'class': ''
