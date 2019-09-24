@@ -18,6 +18,7 @@
   "author": "Joera Mulders",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "d3": "^4.8.0",
     "gulp-concat": "^2.6.1"
   },

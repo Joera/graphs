@@ -15,6 +15,7 @@ module.exports = function() {
     gulp.task('js-compile', function() {
 
         var graph = gulp.src([
+            './node_modules/babel-polyfill/dist/polyfill.js',
             './src/_polyfill.js',
             './src/_sluggify.js',
             './src/_colours.js',
