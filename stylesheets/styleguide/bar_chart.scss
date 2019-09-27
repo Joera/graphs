@@ -105,7 +105,7 @@ rect, .bar, .stackGroup {
   }
 
   &.orange, &.orange &, .bar {
-    fill : orange;
+    fill : $orange;
   }
 
   &.blue, &.blue &, .bar {
@@ -113,7 +113,7 @@ rect, .bar, .stackGroup {
   }
 
   &.darkblue, &.darkblue & {
-    fill : darkblue;
+    fill : $darkblue;
   }
 
 }
