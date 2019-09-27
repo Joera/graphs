@@ -1,6 +1,6 @@
 var verdeling = function(element) {
 
-    let colours = ['green','green','green','green'];
+    let colours = ['orange','green','green','green','green'];
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -52,11 +52,11 @@ var verdeling = function(element) {
 
             let data = [];
 
-            // data.push({
-            //     status: "Afgewezen",
-            //     totaal: json['AFW']
-            //
-            // });
+            data.push({
+                status: "Afgewezen",
+                totaal: json['AFW']
+
+            });
 
             data.push({
                 status: "< €1K",
