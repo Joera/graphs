@@ -26,11 +26,11 @@ var convertToCurrency = function(number) {
 }
 
 
-var addK = function(string) {
+var shortenCurrency = function(string) {
 
-    if (parseInt(string) < 10000) {
+    if (string.length < 8) {
         return string;
-    } else if (parseInt(string) < 10000000) {
+    } else if (string.length < 12) {
         return string.slice(0,string.length - 4) + 'K';
     } else {
         return string.slice(0,string.length - 8) + 'M';
