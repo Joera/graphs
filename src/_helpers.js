@@ -28,11 +28,11 @@ var convertToCurrency = function(number) {
 
 var shortenCurrency = function(string) {
 
-    if (string.length < 8) {
+    if (string.length < 7) {
         return string;
-    } else if (string.length < 12) {
-        return string.slice(0,string.length - 4) + 'K';
+    } else if (string.length < 11) {
+        return string.slice(0,string.length - 2) + 'K';
     } else {
-        return string.slice(0,string.length - 8) + 'M';
+        return string.slice(0,string.length - 6) + 'M';
     }
 }
