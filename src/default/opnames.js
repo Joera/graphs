@@ -39,12 +39,10 @@ var opnames = function(element) {
 
         'schadeopnames': 'green',
         'nulmetingen': 'orange',
-        'adviesrapporten': 'orange',
         'besluiten_regulier': 'blue',
         'besluiten_stuwmeerregeling': 'darkblue',
         'nieuwe_schadeopnames': 'green',
-        'nieuwe_nulmetingen': 'blue',
-        'nieuwe_adviesrapporten': 'orange',
+        'nieuwe_nulmetingen': 'orange',
         'nieuwe_besluiten_regulier': 'blue',
         'nieuwe_besluiten_stuwmeerregeling': 'darkblue'
     }
