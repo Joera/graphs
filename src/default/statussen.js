@@ -61,33 +61,33 @@ var statussen  = function (element,filter) {
 
         data.push({
             status: "Schademelding ontvangen",
-            totaal: json[0]['ONTVANGST']
+            totaal: json['ONTVANGST']
 
         });
 
         data.push({
             status: "Schadeopname wordt ingepland",
-            totaal: json[0]['PLANNING_OPNAME']
+            totaal: json['PLANNING_OPNAME']
 
         });
 
 
         data.push({
             status: "Schaderapport wordt geschreven",
-            totaal: json[0]['OPLEV_SCHADERAPPORT']
+            totaal: json['OPLEV_SCHADERAPPORT']
 
         });
 
 
         data.push({
             status: "Besluit wordt voorbereid",
-            totaal: json[0]['VOORBER_CIE']
+            totaal: json['VOORBER_CIE']
 
         });
 
         data.push({
             status: "Besluit genomen",
-            totaal: json[0]['BESCHIKT']
+            totaal: json['BESCHIKT']
 
         });
 
