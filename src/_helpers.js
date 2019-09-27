@@ -28,5 +28,11 @@ var convertToCurrency = function(number) {
 
 var addK = function(string) {
 
-    return string.slice(0,string.length - 4) + 'K';
+    if (parseInt(string) < 10000) {
+        return string;
+    } else if (parseInt(string) < 10000000) {
+        return string.slice(0,string.length - 4) + 'K';
+    } else {
+        return string.slice(0,string.length - 8) + 'M';
+    }
 }
