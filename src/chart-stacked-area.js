@@ -52,7 +52,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
         svg.areaLabels
             .attr('transform', function(d) {
 
-                return 'translate(' + dimensions.width + ',' +
+                return 'translate(' + (dimensions.width - 30) + ',' +
                     yScale.linear(
                         d[d.length - 1][0] + (
                             .5 * (d[d.length - 1][1])
