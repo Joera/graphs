@@ -110,6 +110,9 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
 
                     if (property === 'TOTAAL_VERLEEND' || property === 'bedrag_stuwmeer') {
                         return shortenCurrency(convertToCurrency(d.properties[property]));
+                    } else if (property === 'percentage_stuwmeer') {
+
+                        return parseInt(d.properties[property]).toString() + '%';
                     }
 
                     return d.properties[property];
