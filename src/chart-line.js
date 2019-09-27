@@ -3,8 +3,8 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
     let popup = function popup(d) {
 
-        return moment(d[config.xParameter]).subtract(1, 'week').format('D MM') + ' - '
-            + moment(d[config.xParameter]).format('D MM') + '<br/>'
+        return moment(d[config.xParameter]).subtract(1, 'week').format('D/MM') + ' - '
+            + moment(d[config.xParameter]).format('D/MM') + '<br/>'
             + d['nieuwe_schademeldingen'] + ' nieuwe meldingen' + '<br/>'
             + d['nieuwe_afgehandeld'] + ' nieuwe besluiten';
     }
@@ -73,7 +73,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
             .attr('width',candleWidth)
             .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d['nieuwe_afgehandeld'])  } )
             .on("mouseover", function(d) {
-                
+
                 svg.tooltip
                     .html(popup(d))
                     .style("left", (d3.event.pageX + 5) + "px")
