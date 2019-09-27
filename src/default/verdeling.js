@@ -42,7 +42,7 @@ var verdeling = function(element) {
 
     let chartBar = ChartBar(config,svg,functions);
 
-    let url = 'https://tcmg.publikaan.nl/api/data?week=recent';
+    let url = 'https://tcmg.publikaan.nl/api/gemeentes?week=recent';
 
     d3.json(url, function(error, json) {
 
