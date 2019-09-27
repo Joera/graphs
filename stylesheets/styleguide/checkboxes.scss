@@ -27,7 +27,7 @@ li.checkbox {
   }
 
   input#nulmetingen:checked + label {
-    background: $blue;
+    background: $orange;
     color: black;
   }
 
@@ -36,7 +36,11 @@ li.checkbox {
     color: black;
   }
 
-  input#besluiten:checked + label {
+  input#besluiten_regulier:checked + label {
+    background: $blue;
+  }
+
+  input#besluiten_stuwmeerregeling:checked + label {
     background: $darkblue;
   }
 

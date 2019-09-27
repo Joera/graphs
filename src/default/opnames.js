@@ -45,7 +45,7 @@ var opnames = function(element) {
         'nieuwe_schadeopnames': 'green',
         'nieuwe_nulmetingen': 'blue',
         'nieuwe_adviesrapporten': 'orange',
-        'nieuwe_besluiten_regulier': 'darkblue',
+        'nieuwe_besluiten_regulier': 'blue',
         'nieuwe_besluiten_stuwmeeregeling': 'darkblue'
     }
 
