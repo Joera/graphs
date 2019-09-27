@@ -71,7 +71,7 @@ var bedragen = function(element) {
 
             data.push({
                 status: "Stuwmeerregeling",
-                totaal: json['BEDRAG_STUWMEER']
+                totaal: json['BEDRAG_SMR']
 
             });
 
@@ -83,13 +83,13 @@ var bedragen = function(element) {
 
             data.push({
                 status: "Bijkomende kosten",
-                totaal: json['BEDRAG_BK']
+                totaal: json['BEDRAG_BIJKOMENDE_KOSTEN']
 
             });
 
             data.push({
                 status: "Wettelijke rente",
-                totaal: json['BEDRAG_WR']
+                totaal: json['BEDRAG_WETTELIJKE_RENTE']
 
             });
 
