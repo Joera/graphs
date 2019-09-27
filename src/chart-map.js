@@ -109,7 +109,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                 if(d.properties[property] > 0) {
 
                     if (property === 'TOTAAL_VERLEEND') {
-                        return convertToCurrency(d.properties[property]);
+                        return addK(convertToCurrency(d.properties[property]));
                     }
 
                     return d.properties[property];

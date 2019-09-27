@@ -24,3 +24,9 @@ var convertToCurrency = function(number) {
 
     return number.toLocaleString('nl-NL', {style: 'currency', currency: 'EUR', minimumFractionDigits: 0 });
 }
+
+
+var addK = function(string) {
+
+    string.slice(0,string.length - 4) + 'K';
+}
