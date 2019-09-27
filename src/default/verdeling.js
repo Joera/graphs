@@ -52,11 +52,11 @@ var verdeling = function(element) {
 
             let data = [];
 
-            // data.push({
-            //     status: "Afgewezen",
-            //     totaal: json[0][filter]
-            //
-            // });
+            data.push({
+                status: "Afgewezen",
+                totaal: json['AFW']
+
+            });
 
             data.push({
                 status: "< €1K",
