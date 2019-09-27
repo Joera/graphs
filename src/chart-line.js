@@ -5,8 +5,8 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
         return moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - '
             + moment(d[config.xParameter]).format('D MMMM') + '<br/>'
-            + d.increase + ' nieuwe meldingen' + '<br/>'
-            + d.decrease + ' nieuwe besluiten';
+            + d['nieuwe_schademeldingen'] + ' nieuwe meldingen' + '<br/>'
+            + d['nieuwe_afgehandeld'] + ' nieuwe besluiten';
     }
 
     let draw = function draw(data) {
