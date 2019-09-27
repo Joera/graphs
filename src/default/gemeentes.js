@@ -51,14 +51,13 @@ var gemeentes = function(element) {
                 });
 
                 for (let key in gemeenteData) {
-
                     gemeenteData[sluggify(key)] = gemeenteData[key];
                 }
 
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
             });
 
-        //    console.log(features);
+            console.log(features);
 
             function redraw(property) {
 
@@ -78,11 +77,8 @@ var gemeentes = function(element) {
             window.addEventListener("resize", redraw(property), false);
 
             for (let radio of radios) {
-
                 radio.addEventListener( 'click', () => {
-
                     redraw(radio.value);
-
                 },false)
             }
 
