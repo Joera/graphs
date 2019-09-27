@@ -120,32 +120,26 @@ var statussen  = function (element,filter) {
         chartBar.redraw(dimensions, xScale,yScale);
     }
 
-    function fetchApi(municipality) {
 
-        if(municipality) {
-            url = "https://tcmg.publikaan.nl/api/data?week=recent&gemeente=" + municipality;
-        } else {
-            url = "https://tcmg.publikaan.nl/api/data?week=recent";
+    function run(json, muni) {
+
+        let data = prepareData(json,muni);
+        draw(data);
+        redraw();
+    }
+
+    url = "https://tcmg.publikaan.nl/api/gemeentes";
+
+    d3.json(url, function (error, json) {
+        if (error) throw error;
+        run(json,'all');
+
+        window.addEventListener("resize", redraw, false);
+
+        if(municipalitySelect != null) {
+            municipalitySelect.addEventListener("change", function () {
+                run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
+            });
         }
-        // point of data injection when using an api
-        d3.json(url, function (error, json) {
-            if (error) throw error;
-            data = prepareData(json);
-            draw(data);
-            redraw();
-
-        });
-    }
-
-    window.addEventListener("resize", redraw, false);
-
-    if(municipalitySelect != null) {
-        municipalitySelect.addEventListener("change", function () {
-            console.log('hi');
-            fetchApi(municipalitySelect.options[municipalitySelect.selectedIndex].value);
-        });
-    }
-
-    fetchApi(false);
-
+    });
 }
