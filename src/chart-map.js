@@ -108,7 +108,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
 
                 if(d.properties[property] > 0) {
 
-                    if (property === 'TOTAAL_VERLEEND') {
+                    if (property === 'TOTAAL_VERLEEND' || property === 'bedrag_stuwmeer') {
                         return shortenCurrency(convertToCurrency(d.properties[property]));
                     }
 
