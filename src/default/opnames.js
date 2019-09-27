@@ -41,12 +41,12 @@ var opnames = function(element) {
         'nulmetingen': 'orange',
         'adviesrapporten': 'orange',
         'besluiten_regulier': 'blue',
-        'besluiten_stuwmeeregeling': 'darkblue',
+        'besluiten_stuwmeerregeling': 'darkblue',
         'nieuwe_schadeopnames': 'green',
         'nieuwe_nulmetingen': 'blue',
         'nieuwe_adviesrapporten': 'orange',
         'nieuwe_besluiten_regulier': 'blue',
-        'nieuwe_besluiten_stuwmeeregeling': 'darkblue'
+        'nieuwe_besluiten_stuwmeerregeling': 'darkblue'
     }
 
     // get dimensions from parent element
