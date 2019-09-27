@@ -123,9 +123,9 @@ var statussen  = function (element,filter) {
     function fetchApi(municipality) {
 
         if(municipality) {
-            url = "https://tcmg.publikaan.nl/api/procedure?week=recent&gemeente=" + municipality;
+            url = "https://tcmg.publikaan.nl/api/data?week=recent&gemeente=" + municipality;
         } else {
-            url = "https://tcmg.publikaan.nl/api/procedure?week=recent";
+            url = "https://tcmg.publikaan.nl/api/data?week=recent";
         }
         // point of data injection when using an api
         d3.json(url, function (error, json) {
