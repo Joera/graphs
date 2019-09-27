@@ -28,5 +28,5 @@ var convertToCurrency = function(number) {
 
 var addK = function(string) {
 
-    string.slice(0,string.length - 4) + 'K';
+    return string.slice(0,string.length - 4) + 'K';
 }
