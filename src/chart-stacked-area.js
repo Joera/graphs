@@ -33,10 +33,6 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
                 }
             })
             .attr('fill-opacity', 1);
-
-
-
-
     }
 
     let redraw = function redraw(dimensions,xScale,yScale) {
