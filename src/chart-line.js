@@ -74,6 +74,8 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
             .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d['nieuwe_afgehandeld'])  } )
             .on("mouseover", function(d) {
 
+                console.log(d);
+
                 let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' +
                     '' + d['nieuwe_schademeldingen'] + ' nieuwe meldingen' + '<br/>' + d['nieuwe_afgehandeld'] + ' nieuwe besluiten';
 
