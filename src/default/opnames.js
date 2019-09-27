@@ -38,13 +38,15 @@ var opnames = function(element) {
     let colours = {
 
         'schadeopnames': 'green',
-        'nulmetingen': 'blue',
+        'nulmetingen': 'orange',
         'adviesrapporten': 'orange',
-        'besluiten': 'darkblue',
+        'besluiten_regulier': 'blue',
+        'besluiten_stuwmeeregeling': 'darkblue',
         'nieuwe_schadeopnames': 'green',
         'nieuwe_nulmetingen': 'blue',
         'nieuwe_adviesrapporten': 'orange',
-        'nieuwe_besluiten': 'darkblue'
+        'nieuwe_besluiten_regulier': 'darkblue',
+        'nieuwe_besluiten_stuwmeeregeling': 'darkblue'
     }
 
     // get dimensions from parent element
