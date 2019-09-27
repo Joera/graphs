@@ -76,7 +76,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
                 console.log(d);
 
-                let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MMMM') + ' - ' + moment(d[config.xParameter]).format('D MMMM') + '<br/>' +
+                let html = moment(d[config.xParameter]).subtract(1, 'week').format('D MM') + ' - ' + moment(d[config.xParameter]).format('D MM') + '<br/>' +
                     '' + d['nieuwe_schademeldingen'] + ' nieuwe meldingen' + '<br/>' + d['nieuwe_afgehandeld'] + ' nieuwe besluiten';
 
 
