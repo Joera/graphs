@@ -54,7 +54,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX - 160) + "px")
+                    .style("left", (d3.event.pageX - 205) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
                     .transition()
                     .duration(250)
@@ -76,7 +76,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX - 160) + "px")
+                    .style("left", (d3.event.pageX - 205) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
                     // .style('width', '400px')
                     .transition()
