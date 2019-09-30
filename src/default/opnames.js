@@ -135,10 +135,11 @@ var opnames = function(element) {
         for (let option of options) {
             option.addEventListener( 'click', () => {
 
-                console.log(option.value);
+
                 if (option.checked) {
                     propertyArray[propertyArray.length] = option.value;
                 } else {
+                    console.log(option.value);
                     let index = propertyArray.indexOf(option.value);
                     propertyArray.splice(index,1);
                 }
