@@ -62,33 +62,33 @@ var statussen  = function (element,filter) {
         let data = [];
 
         data.push({
-            status: "Ontvangst en analyse",
+            status: (window.innerWidth  > 760) ? "Ontvangst en analyse" : "1",
             totaal: json['ONTVANGST']
 
         });
 
         data.push({
-            status: "Schade-opname wordt ingepland",
+            status: (window.innerWidth  > 760) ? "Schade-opname wordt ingepland" : "2",
             totaal: json['PLANNING_OPNAME']
 
         });
 
 
         data.push({
-            status: "Schade-opname uitgevoerd, adviesrapport opleveren",
+            status: (window.innerWidth  > 760) ? "Schade-opname uitgevoerd, adviesrapport opleveren" : "3",
             totaal: json['OPLEV_SCHADERAPPORT']
 
         });
 
 
         data.push({
-            status: "Adviesrapport opgeleverd, besluit voorbereiden",
+            status: (window.innerWidth  > 760) ? "Adviesrapport opgeleverd, besluit voorbereiden" : "4",
             totaal: json['VOORBER_CIE']
 
         });
 
         data.push({
-            status: "Besluit genomen",
+            status: (window.innerWidth  > 760) ? "Besluit genomen" : "5",
             totaal: json['BESCHIKT']
 
         });
