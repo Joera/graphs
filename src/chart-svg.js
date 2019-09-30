@@ -22,7 +22,8 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
 
         svg.layers.legend
             .attr('transform', 'translate(' + config.padding.left + ',' + (dimensions.containerHeight + config.padding.top) + ')')
-            .style("width", "100%");
+            .attr("width", dimensions.containerWidth)
+            .attr("width", 30);
     }
 
     let layers = function layers() {
