@@ -70,8 +70,6 @@ let ChartAxis = function ChartAxis(config,svg) {
                 .ticks(5);
         }
 
-
-
         svg.yAxis
             .call(axes.yLinear);
 
@@ -81,8 +79,13 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.yLinear = d3.axisLeft(scales.stacked);
 
-        axes.yLinear
-            .ticks(5);
+        if(config.noTicksYAxis) {
+            axes.yLinear
+                .tickValues([]);
+        } else {
+            axes.yLinear
+                .ticks(5);
+        }
 
         svg.yAxis
             .call(axes.yLinear);
