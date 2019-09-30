@@ -61,7 +61,7 @@ var gemeentes = function(element) {
 
             function redraw(property) {
 
-                yScale = chartYScale.set(features,property);
+
 
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
@@ -71,6 +71,7 @@ var gemeentes = function(element) {
             }
 
             chartMap.draw(features);
+            yScale = chartYScale.set(features);
             //  chartLegend.drawDefault(dimensions);
             // further drawing happens in function that can be repeated.
             let property = 'schademeldingen';
