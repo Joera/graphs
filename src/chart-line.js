@@ -76,7 +76,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX - 32) + "px")
+                    .style("left", (d3.event.pageX - 132) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
                     // .style('width', '400px')
                     .transition()
