@@ -35,7 +35,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
     let redraw = function redraw(xScale,yScale,functions,dimensions,data) {
 
 
-        let candleWidth = (window.innerWidth < 640) ? ((dimensions.width / data.length) - 4) : (dimensions.width / data.length);
+        let candleWidth = (window.innerWidth > 640) ? ((dimensions.width / data.length) - 4) : (dimensions.width / data.length);
 
         functions.line = d3.line()
             .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
