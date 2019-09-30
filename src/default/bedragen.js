@@ -110,9 +110,6 @@ var bedragen = function(element) {
                         .attr("width",dimensions.containerWidth)
                         .style("opacity", 1);
                 });
-
-
-
             }
         }
 

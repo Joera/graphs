@@ -54,8 +54,7 @@ var statussen  = function (element,filter) {
     chartAxis.drawYAxis();
 
     function prepareData(json,muni) {
-
-        console.log(json);
+        
 
         json = json.filter( j => j['_category'] === muni)[0];
 
@@ -146,6 +145,7 @@ var statussen  = function (element,filter) {
         let data = prepareData(json,muni);
         draw(data);
         redraw();
+        legend(data);
     }
 
     url = "https://tcmg.publikaan.nl/api/gemeentes";
