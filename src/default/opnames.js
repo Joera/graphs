@@ -94,6 +94,8 @@ var opnames = function(element) {
                 }
             }
 
+            console.log(array);
+
             functions.stack = d3.stack()
                 .keys(Object.keys(data[data.length - 1]).filter(key => array.indexOf(key) > -1));
             return functions.stack(data);
@@ -121,8 +123,6 @@ var opnames = function(element) {
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
-            //  chartLegend.drawDefault(dimensions);
-            // further drawing happens in function that can be repeated.
             redraw();
         }
 
@@ -145,7 +145,6 @@ var opnames = function(element) {
         for (let radio of radios) {
 
             radio.addEventListener( 'change', () => {
-
                 increments = !increments;
                 update(propertyArray,increments)
             }, false)
