@@ -1,6 +1,6 @@
 var bedragen = function(element) {
 
-    let totalElement = document.querySelector('h3 span');
+    let totalElement = document.querySelector('h3    span');
 
     let colours = ['green','green','green','green','green'];
 
