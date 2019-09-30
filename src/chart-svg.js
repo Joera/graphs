@@ -19,6 +19,9 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')')
             .attr('width', (dimensions.containerWidth - config.margin.left - config.margin.right))
             .attr('height', (dimensions.containerHeight - config.margin.top - config.margin.bottom));
+
+        svg.layers.legend
+            .attr('transform', 'translate(' + config.padding.left + ',' + (dimensions.containerHeight + config.padding.top) + ')');
     }
 
     let layers = function layers() {
@@ -29,8 +32,7 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
         svg.layers.axes = svg.body.append('g')
             .attr('class', 'axes');
         svg.layers.legend = svg.body.append('g')
-            .attr('class', 'legend')
-            .attr('transform', 'translate(' + config.padding.left + ',' + (dimensions.containerHeight + config.padding.top) + ')');
+            .attr('class', 'legend');
     }
 
     render();
