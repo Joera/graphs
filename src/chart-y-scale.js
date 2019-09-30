@@ -29,8 +29,6 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             }
         }
 
-        console.log(d3.max(arrayOfCumulatedValues));
-
         scale.stacked = d3.scaleLinear()
             .domain([
                 minValue,
