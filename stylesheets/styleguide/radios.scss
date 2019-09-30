@@ -3,6 +3,7 @@ ul.radios {
   border: 1px solid black;
   border-radius: 4px;
   margin-bottom: .5rem;
+  cursor: pointer;
 
   li {
     position: relative;
@@ -32,4 +33,6 @@ ul.radios {
       color: white;
     }
   }
+
+
 }
