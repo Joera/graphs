@@ -114,18 +114,15 @@ var bedragen = function(element) {
         }
 
         function draw(data) {
-
             // with data we can init scales
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(data,config.yParameter);
 
             // width data we can draw items
             chartBar.draw(data, colours);
-
         }
 
         function redraw() {
-
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
@@ -148,12 +145,8 @@ var bedragen = function(element) {
 
         }
 
-
-
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
-
-
     });
 }

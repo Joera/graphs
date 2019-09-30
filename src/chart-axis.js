@@ -77,7 +77,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             axes.yLinear
                 .ticks(5);
         }
-        
+
         if(config.currencyLabels ) {
             axes.yLinear
                 .tickFormat(function(d){
