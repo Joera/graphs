@@ -139,8 +139,10 @@ var opnames = function(element) {
                 if (option.checked) {
                     propertyArray[propertyArray.length] = option.value;
                 } else {
+                    console.log(propertyArray);
                     console.log(option.value);
                     let index = propertyArray.indexOf(option.value);
+                    console.log(index);
                     propertyArray.splice(index,1);
                 }
                 update(propertyArray,increments);
