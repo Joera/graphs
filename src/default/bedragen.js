@@ -57,37 +57,36 @@ var bedragen = function(element) {
 
             let data = [];
 
-            // data.push({
-            //     status: "Afgewezen",
-            //     totaal: json[0][filter]
-            //
-            // });
-
             data.push({
+                abbrev: "1",
                 status: "Vergoeding mijnbouwschade",
                 totaal: json['BEDRAG_SCHADEBEDRAG']
 
             });
 
             data.push({
+                abbrev: "2",
                 status: "Stuwmeerregeling",
                 totaal: json['BEDRAG_SMR']
 
             });
 
             data.push({
+                abbrev: "3",
                 status: "Vergoeding overige schades",
                 totaal: json['BEDRAG_GEVOLGSCHADE']
 
             });
 
             data.push({
+                abbrev: "4",
                 status: "Bijkomende kosten",
                 totaal: json['BEDRAG_BIJKOMENDE_KOSTEN']
 
             });
 
             data.push({
+                abbrev: "5",
                 status: "Wettelijke rente",
                 totaal: json['BEDRAG_WETTELIJKE_RENTE']
 

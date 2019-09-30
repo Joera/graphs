@@ -14,6 +14,11 @@ let ChartAxis = function ChartAxis(config,svg) {
             .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
             .call(axes.xBand);
 
+        axes.xBand
+            .tickFormat( (d,i) => {
+                return (window.innerWidth < 640) ? d[config.xParameter] : i;
+            });
+
         if (alternateTicks) {
 
             let alternate_text = false;
