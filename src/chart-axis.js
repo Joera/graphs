@@ -16,7 +16,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xBand
             .tickFormat( (d,i) => {
-                return (window.innerWidth < 640) ? d[config.xParameter] : i;
+                return (window.innerWidth > 640) ? d[config.xParameter] : i;
             });
 
         if (alternateTicks) {
