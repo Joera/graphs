@@ -135,9 +135,10 @@ var bedragen = function(element) {
 
         if (window.innerWidth < 640) {
 
-            svg.layers.legend
 
             svg.layers.legend.append("div")
+                .attr("width", dimensions.containerHeight)
+                .attr("height", 30)
                 .attr('pointer-events', 'none')
                 .attr("class", "small-label")
                 .style("opacity", 1)
