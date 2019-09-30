@@ -10,10 +10,10 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xBand = d3.axisBottom(xScale.band);
 
-        axes.xBand
-            .tickFormat( (d,i) => {
-                return (window.innerWidth < 640) ? (i + 1) : d[config.xParameter];
-            });
+        // axes.xBand
+        //     .tickFormat( (d,i) => {
+        //         return (window.innerWidth < 640) ? (i + 1) : d[config.xParameter];
+        //     });
 
         svg.xAxis
             .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
