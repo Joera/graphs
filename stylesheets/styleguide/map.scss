@@ -36,6 +36,10 @@ html {
 
   @media (min-width: $breakpoint-xxsm) {
     min-height: 800px;
+  }
+
+  @media (min-width: $breakpoint-xsm) {
+    min-height: 800px;
     width: 80%;
   }
 
