@@ -135,10 +135,18 @@ var bedragen = function(element) {
 
         if (window.innerWidth < 640) {
 
+            let text ='';
+
+            data.forEach( (d,i) => {
+
+                text  += i '. ' + d[config.xParameters];
+            }
+
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .text("1. Ontvangst en analyse 2. Schade-opname wordt ingepland")
+                .text(text)
+                .attr("width",dimensions.containerWidth)
                 .style("opacity", 1);
 
         }
