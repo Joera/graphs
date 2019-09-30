@@ -99,18 +99,19 @@ var bedragen = function(element) {
 
             if (window.innerWidth < 640) {
 
-                let text ='';
-
                 data.forEach( (d,i) => {
 
-                    text  += (i + 1) + '. ' + d[config.xParameter] + ' ';
+                    let text  = (i + 1) + '. ' + d[config.xParameter] + ' ';
+
+                    svg.layers.legend.append("text")
+                        .attr("class", "small-label")
+                        .attr("dy", (d,i) => i * 20)
+                        .text(text)
+                        .attr("width",dimensions.containerWidth)
+                        .style("opacity", 1);
                 });
 
-                svg.layers.legend.append("text")
-                    .attr("class", "small-label")
-                    .text(text)
-                    .attr("width",dimensions.containerWidth)
-                    .style("opacity", 1);
+
 
             }
         }

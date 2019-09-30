@@ -12,14 +12,12 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xBand
             .tickFormat( (d,i) => {
-                return (window.innerWidth < 640) ? i : d[config.xParameter];
+                return (window.innerWidth < 640) ? (i + 1) : d[config.xParameter];
             });
 
         svg.xAxis
             .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
             .call(axes.xBand);
-
-
 
         if (alternateTicks) {
 
@@ -37,11 +35,8 @@ let ChartAxis = function ChartAxis(config,svg) {
                             return 10;
                         }
                     });
-
             }
         }
-
-
     }
 
     let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
