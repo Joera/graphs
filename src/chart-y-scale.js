@@ -36,9 +36,11 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             ])
             .nice();
 
+     //   let mapMax =
+
         scale.map = d3.scaleLinear()
             .domain([0, d3.max(data, d => {
-                if(d[property] !== undefined) return d[property]
+                return (d[property] > 0) ? d[property] : 0;
             })])
             .range([0.3,1]);
 
