@@ -132,5 +132,17 @@ var bedragen = function(element) {
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
+
+        if (window.innerWidth < 640) {
+
+            svg.layers.legend
+
+            svg.layers.legend.append("div")
+                .attr('pointer-events', 'none')
+                .attr("class", "small-label")
+                .style("opacity", 1)
+                .html("1. Ontvangst en analyse 2. Schade-opname wordt ingepland");
+
+        }
     });
 }

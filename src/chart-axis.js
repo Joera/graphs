@@ -41,15 +41,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             }
         }
 
-        if (window.innerWidth < 640) {
 
-            svg.layers.legend.append("div")
-                .attr('pointer-events', 'none')
-                .attr("class", "small-label")
-                .style("opacity", 1)
-                .html("1. Ontvangst en analyse 2. Schade-opname wordt ingepland");
-
-        }
     }
 
     let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
