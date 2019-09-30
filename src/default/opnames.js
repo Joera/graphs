@@ -146,6 +146,7 @@ var opnames = function(element) {
 
             radio.addEventListener( 'click', (el) => {
 
+                console.log(el);
                 if(!el.checked) increments = !increments;
                 update(propertyArray,increments)
             }, false)
