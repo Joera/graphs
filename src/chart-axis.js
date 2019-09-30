@@ -65,7 +65,6 @@ let ChartAxis = function ChartAxis(config,svg) {
         if(config.noTicksYAxis) {
             axes.yLinear
                 .tickValues([]);
-
         } else {
             axes.yLinear
                 .ticks(5);
