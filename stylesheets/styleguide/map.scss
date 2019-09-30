@@ -44,7 +44,7 @@ html {
   }
 
   svg {
-      margin-top: -400px;
+      margin-top: -70px;
       margin-left: -80px;
 
       @media (min-width: $breakpoint-xxsm) {
@@ -62,13 +62,14 @@ html {
   width: auto;
   height: auto;
   //padding: 2rem;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 99;
 
   @media (min-width: $breakpoint-xxsm) {
-    position: absolute;
+    left: auto;
     right: 0;
-    top: 0%;
   }
 
 
