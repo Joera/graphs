@@ -74,7 +74,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
 
                 if(d.properties[property] !== undefined) {
 
-                    console.log(yScale.map(d.properties[property]));
+               //     console.log(yScale.map(d.properties[property]));
 
                     return yScale.map(d.properties[property]);
 
