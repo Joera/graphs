@@ -78,6 +78,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
                     .html(popup(d))
                     .style("right", (d3.event.pageX + 5) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
+                    .attr('width', 400)
                     .transition()
                     .duration(250)
                     .style("opacity", 1);
