@@ -135,6 +135,8 @@ var opnames = function(element) {
         for (let option of options) {
             option.addEventListener( 'click', () => {
 
+                if(increments) option.value = 'nieuwe_' + option.value;
+
 
                 if (option.checked) {
                     propertyArray[propertyArray.length] = option.value;
@@ -145,6 +147,9 @@ var opnames = function(element) {
                     console.log(index);
                     propertyArray.splice(index,1);
                 }
+
+
+
                 update(propertyArray,increments);
             }, false)
         }
