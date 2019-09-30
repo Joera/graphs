@@ -84,6 +84,8 @@ var opnames = function(element) {
 
         function filterData(array,increments) {
 
+            console.log(array);
+
             if(increments) {
                 for (let i = 0; i < array.length; i++) {
                     array[i] = (array[i].slice(0,7) !== 'nieuwe_') ? 'nieuwe_' + array[i] : array[i];
@@ -94,7 +96,7 @@ var opnames = function(element) {
                 }
             }
 
-            console.log(array);
+
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[data.length - 1]).filter(key => array.indexOf(key) > -1));

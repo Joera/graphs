@@ -64,7 +64,7 @@ var candles = function(element) {
         //         week.decrease = 0;
         //     }
         // });
-        
+
 
         function draw() {
 
