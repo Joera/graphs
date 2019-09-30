@@ -135,7 +135,7 @@ var opnames = function(element) {
         for (let option of options) {
             option.addEventListener( 'click', () => {
 
-                if(increments) option.value = 'nieuwe_' + option.value;
+                if(increments && option.value.slice(0,7) !== 'nieuwe_' ) option.value = 'nieuwe_' + option.value;
 
 
                 if (option.checked) {
