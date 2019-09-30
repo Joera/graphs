@@ -38,7 +38,13 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             ])
             .nice();
 
+        scale.map = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d[property])])
+            .range([1, 0.3]);
+
         return scale;
+
+
     }
 
 

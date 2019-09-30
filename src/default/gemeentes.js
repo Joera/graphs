@@ -3,6 +3,7 @@ var gemeentes = function(element) {
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
+    let yScale = chartObjects.yScale();
     let svg = chartObjects.svg();
 
     config.margin.top = 0;
@@ -17,6 +18,7 @@ var gemeentes = function(element) {
     dimensions = chartDimensions.get(dimensions);
 
     let chartSVG = ChartSVG(element,config,dimensions,svg);
+    let chartYScale = ChartYScale(config,dimensions,yScale);
 
     dimensions = chartDimensions.get(dimensions);
 
@@ -57,15 +59,15 @@ var gemeentes = function(element) {
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
             });
 
-            console.log(features);
-
             function redraw(property) {
+
+                yScale = chartYScale.set(data,property);
 
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
                 chartSVG.redraw(dimensions);
                 // redraw data
-                chartMap.redraw(dimensions,property);
+                chartMap.redraw(dimensions,property,yScale);
             }
 
             chartMap.draw(features);
