@@ -44,6 +44,10 @@ html {
       margin-left: -80px;
 
       @media (min-width: $breakpoint-xxsm) {
+        margin-top: -100px;
+      }
+
+      @media (min-width: $breakpoint-xsm) {
         margin-top: -200px;
       }
   }
