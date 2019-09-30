@@ -41,7 +41,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         scale.map = d3.scaleLinear()
             .domain([0, d3.max(data, d => {
 
-                console.log(d.properties[property]);
+                console.log(d);
+                console.log(property);
 
                 if(d.properties[property] !== undefined) {
                     console.log(d.properties[property]);
