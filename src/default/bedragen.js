@@ -140,9 +140,8 @@ var bedragen = function(element) {
             data.forEach( (d,i) => {
 
                 text  += i + '. ' + d[config.xParameters];
-            }
-
-
+            });
+            
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .text(text)
