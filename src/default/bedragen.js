@@ -105,7 +105,7 @@ var bedragen = function(element) {
 
                     svg.layers.legend.append("text")
                         .attr("class", "small-label")
-                        .attr("dy", (d,i) => i * 20)
+                        .attr("dy", i * 20)
                         .text(text)
                         .attr("width",dimensions.containerWidth)
                         .style("opacity", 1);
