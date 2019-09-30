@@ -12,7 +12,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xBand
             .tickFormat( (d,i) => {
-                return (window.innerWidth > 640) ? d[config.xParameter] : i;
+                return (window.innerWidth < 640) ? i : d[config.xParameter];
             });
 
         svg.xAxis
@@ -39,6 +39,16 @@ let ChartAxis = function ChartAxis(config,svg) {
                     });
 
             }
+        }
+
+        if (window.innerWidth < 640) {
+
+            svg.layers.legend.append("div")
+                .attr('pointer-events', 'none')
+                .attr("class", "small-label")
+                .style("opacity", 1)
+                .html("1. Ontvangst en analyse 2. Schade-opname wordt ingepland");
+
         }
     }
 
