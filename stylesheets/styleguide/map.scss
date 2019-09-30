@@ -34,7 +34,7 @@ html {
   max-width: 800px;
   min-height: 400px;
 
-  @media (min-width: $breakpoint-xsm) {
+  @media (min-width: $breakpoint-xxsm) {
     min-height: 800px;
     width: 80%;
   }
@@ -43,7 +43,7 @@ html {
       margin-top: -400px;
       margin-left: -80px;
 
-      @media (min-width: $breakpoint-xsm) {
+      @media (min-width: $breakpoint-xxsm) {
         margin-top: -200px;
       }
   }
@@ -57,7 +57,7 @@ html {
   position: relative;
   z-index: 99;
 
-  @media (min-width: $breakpoint-xsm) {
+  @media (min-width: $breakpoint-xxsm) {
     position: absolute;
     right: 0;
     top: 0%;
