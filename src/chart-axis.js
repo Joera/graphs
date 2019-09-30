@@ -13,7 +13,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         axes.xBand
             .tickFormat( (d,i) => {
                 console.log(d);
-                return (window.innerWidth < 640) ? (i + 1) : d[config.xParameter];
+                return (window.innerWidth < 640) ? (i + 1) : d;
             });
 
         svg.xAxis
