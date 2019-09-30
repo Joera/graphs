@@ -12,7 +12,7 @@ var verdeling = function(element) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = (window.innerWidth > 640) ? 0 : 90;
+    config.margin.bottom = (window.innerWidth > 640) ? 0 : 100;
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
