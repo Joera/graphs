@@ -116,7 +116,7 @@ var bedragen = function(element) {
             xScale = chartXScale.reset(dimensions,xScale);
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
-            chartAxis.redrawXBandAxis(dimensions,xScale,axes);
+            chartAxis.redrawXBandAxis(dimensions,xScale,axes,true);
             chartAxis.redrawYAxis(yScale,axes);
             // redraw data
             chartBar.redraw(dimensions,xScale,yScale);
