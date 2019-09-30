@@ -37,7 +37,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .nice();
 
         scale.map = d3.scaleLinear()
-            .domain([0, 8000)
+            .domain([0, 8000])
             .range([.3,1]);
 
         return scale;
