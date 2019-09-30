@@ -207,11 +207,11 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 .merge(svg.dateLabels)
                 .text(function(d) {
 
-                    if (window.innerWidth < 900) {
+                    // if (window.innerWidth < 900) {
                         return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'numeric', day: 'numeric'});
-                    } else {
-                        return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
-                    }
+                    // } else {
+                    //     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
+                    // }
                 })
                 .attr('transform', function(d) {
 

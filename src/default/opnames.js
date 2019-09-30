@@ -35,6 +35,8 @@ var opnames = function(element) {
     config.paddingInner = 3;
     config.paddingOuter = 6;
 
+    config.noTicksYAxis = true;
+
     let colours = {
 
         'schadeopnames': 'green',
