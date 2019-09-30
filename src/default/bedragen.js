@@ -95,6 +95,26 @@ var bedragen = function(element) {
             return data;
         }
 
+        function legend(data) {
+
+            if (window.innerWidth < 640) {
+
+                let text ='';
+
+                data.forEach( (d,i) => {
+
+                    text  += i + '. ' + d[config.xParameters];
+                });
+
+                svg.layers.legend.append("text")
+                    .attr("class", "small-label")
+                    .text(text)
+                    .attr("width",dimensions.containerWidth)
+                    .style("opacity", 1);
+
+            }
+        }
+
         function draw(data) {
 
             // with data we can init scales
@@ -126,28 +146,16 @@ var bedragen = function(element) {
             draw(data);
             redraw();
             totalElement.innerText = convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']);
+            legend(data);
 
         }
+
+
 
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
 
-        if (window.innerWidth < 640) {
 
-            let text ='';
-
-            data.forEach( (d,i) => {
-
-                text  += i + '. ' + d[config.xParameters];
-            });
-            
-            svg.layers.legend.append("text")
-                .attr("class", "small-label")
-                .text(text)
-                .attr("width",dimensions.containerWidth)
-                .style("opacity", 1);
-
-        }
     });
 }
