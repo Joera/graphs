@@ -72,9 +72,13 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             })
             .attr("fill-opacity", function (d, i) {
 
-                console.log(d.properties[property]);
+                if(d.properties[property] !== undefined) {
 
-                return yScale.map(d.properties[property]);
+                    console.log(d.properties[property]);
+
+                    return yScale.map(d.properties[property]);
+
+                }
 
                 // if (d.properties[property]) {
                 //     let ratio = .8 * d.properties[property] / 1500;   // dit moet met een scale ....
