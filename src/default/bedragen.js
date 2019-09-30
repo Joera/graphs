@@ -136,13 +136,10 @@ var bedragen = function(element) {
         if (window.innerWidth < 640) {
 
 
-            svg.layers.legend.append("div")
-                .attr("width", dimensions.containerHeight)
-                .attr("height", 30)
-                .attr('pointer-events', 'none')
+            svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .style("opacity", 1)
-                .html("1. Ontvangst en analyse 2. Schade-opname wordt ingepland");
+                .text("1. Ontvangst en analyse 2. Schade-opname wordt ingepland")
+                .style("opacity", 1);
 
         }
     });
