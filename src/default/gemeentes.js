@@ -61,8 +61,6 @@ var gemeentes = function(element) {
 
             function redraw(property) {
 
-
-
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
                 chartSVG.redraw(dimensions);
@@ -70,11 +68,12 @@ var gemeentes = function(element) {
                 chartMap.redraw(dimensions,property,yScale);
             }
 
+            let property = 'schademeldingen';
             chartMap.draw(features);
             yScale = chartYScale.set(features);
             //  chartLegend.drawDefault(dimensions);
             // further drawing happens in function that can be repeated.
-            let property = 'schademeldingen';
+
             redraw(property);
             // for example on window resize
             window.addEventListener("resize", redraw(property), false);
