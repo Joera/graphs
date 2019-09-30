@@ -54,7 +54,7 @@ var statussen  = function (element,filter) {
     chartAxis.drawYAxis();
 
     function prepareData(json,muni) {
-        
+
 
         json = json.filter( j => j['_category'] === muni)[0];
 
