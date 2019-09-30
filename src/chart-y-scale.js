@@ -19,6 +19,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 config.maxValue || d3.max(data, d => d[property])
             ]).nice();
 
+
+
         let arrayOfCumulatedValues = [];
 
         for (let p = 0; p < data.length; p++) {
