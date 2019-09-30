@@ -134,6 +134,8 @@ var opnames = function(element) {
 
         for (let option of options) {
             option.addEventListener( 'click', () => {
+
+                console.log(option.value);
                 if (option.checked) {
                     propertyArray[propertyArray.length] = option.value;
                 } else {
