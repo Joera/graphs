@@ -103,7 +103,7 @@ var bedragen = function(element) {
 
                 data.forEach( (d,i) => {
 
-                    text  += i + '. ' + d[config.xParameters];
+                    text  += i + '. ' + d[config.xParameter];
                 });
 
                 svg.layers.legend.append("text")
