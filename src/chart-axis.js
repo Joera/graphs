@@ -25,16 +25,20 @@ let ChartAxis = function ChartAxis(config,svg) {
 
             let alternate_text = false;
 
-            d3.selectAll("g.x-axis g.tick text")
-                .attr("y", function () {
-                    if (alternate_text) {
-                        alternate_text = false;
-                        return 26;
-                    } else {
-                        alternate_text = true;
-                        return 10;
-                    }
-                });
+            if(window.innerWidth > 640) {
+
+                d3.selectAll("g.x-axis g.tick text")
+                    .attr("y", function () {
+                        if (alternate_text) {
+                            alternate_text = false;
+                            return 26;
+                        } else {
+                            alternate_text = true;
+                            return 10;
+                        }
+                    });
+
+            }
         }
     }
 
