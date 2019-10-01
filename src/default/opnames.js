@@ -13,11 +13,11 @@ var opnames = function(element,smallMultiple) {
     let functions = chartObjects.functions();
 
     config.margin.top = smallMultiple? 15 : 30;
-    config.margin.bottom = 0;
+    config.margin.bottom = 30;
     config.margin.left = 0;
     config.margin.right = 0;
     config.padding.top = 0;
-    config.padding.bottom = 30;
+    config.padding.bottom = 0;
     config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
