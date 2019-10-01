@@ -15,8 +15,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .sort(null)
             .value(function(d) { return d['totaal']; });
 
-        svg.layers.data
-            .attr("transform", "translate(" + (dimensions.containerWidth / 2)+ "," + (dimensions.containerHeight / 2) + ")");
+
 
         svg.arcGroup = svg.layers.data.selectAll(".arc")
             .data(pie(data))
@@ -34,6 +33,9 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
     }
 
     let redraw = function redraw(dimensions) {
+
+        svg.layers.data
+            .attr("transform", "translate(" + (dimensions.containerWidth / 2)+ "," + (dimensions.containerHeight / 2) + ")");
 
         let radius = dimensions.containerWidth / 4;
 
