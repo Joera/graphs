@@ -17,7 +17,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
 
         let colours = d3.scaleOrdinal()
-            .range([green,orange,blue,darkblue]);
+            .range([green,blue,orange, grey, darkblue]);
 
         svg.arcGroup = svg.layers.data.selectAll(".arc")
             .data(pie(data))
