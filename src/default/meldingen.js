@@ -61,7 +61,7 @@ var meldingen = function(element) {
        let data = json.reverse();
 
         if (window.innerWidth < 600) {
-            data = data.slice(data.length - 3,data.length);
+            data = data.slice(data.length - 4,data.length);
         } else if (window.innerWidth < 1200) {
             data = data.slice(data.length - 6,data.length);
         } else {
