@@ -47,7 +47,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                     return d.properties[property];
                 }
             })])
-            .range([0.5,1]);
+            .range([0.3,1]);
 
         return scale;
 

@@ -62,7 +62,6 @@ var gemeentes = function(element) {
             function redraw(features, property) {
 
                 yScale = chartYScale.set(features,property);
-
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
                 chartSVG.redraw(dimensions);
@@ -72,7 +71,6 @@ var gemeentes = function(element) {
 
             let property = 'schademeldingen';
             chartMap.draw(features);
-
 
             redraw(features, property);
             // for example on window resize
