@@ -86,11 +86,11 @@ var pieChartSum = function(element) {
 
         function legend(data) {
 
-            if (window.innerWidth < 640) {
+            // if (window.innerWidth < 640) {
 
                 data.forEach( (d,i) => {
 
-                    let text  = (i + 1) + '. ' + d[config.xParameter] + ' ';
+                    let text  = (i + 1) + '. ' + d['status'] + ': ' + convertToCurrency(d['totaal']);
 
                     svg.layers.legend.append("text")
                         .attr("class", "small-label")
@@ -99,7 +99,7 @@ var pieChartSum = function(element) {
                         .attr("width",dimensions.containerWidth)
                         .style("opacity", 1);
                 });
-            }
+            // }
         }
 
         function draw(data) {
