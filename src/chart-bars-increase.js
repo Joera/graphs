@@ -34,14 +34,24 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         ;
 
-        svg.difference = svg.layers.data.selectAll(".diff")
+        // svg.difference = svg.layers.data.selectAll(".diff")
+        //     .data(data);
+        //
+        // svg.difference.exit().remove()
+        //
+        // svg.differenceEnter = svg.difference
+        //     .enter().append("rect")
+        //     .attr("class", "diff blue")
+        // ;
+
+        svg.differenceCircle = svg.layers.data.selectAll(".diff")
             .data(data);
 
-        svg.difference.exit().remove()
+        svg.differenceCircle.exit().remove()
 
-        svg.differenceEnter = svg.difference
-            .enter().append("rect")
-            .attr("class", "diff blue")
+        svg.differenceCircleEnter = svg.differenceCircle
+            .enter().append("circle")
+            .attr("class", "diff white")
         ;
 
         svg.diffLabels = svg.layers.data.selectAll(".diffLabel")
@@ -156,30 +166,43 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
 
 
-        svg.difference
-            .merge(svg.differenceEnter)
-            .attr("y", function(d) { return yScale.linear(d[property]); })
-            .attr("height",0)
-            .attr("x", function(d) {
+        // svg.difference
+        //     .merge(svg.differenceEnter)
+        //     .attr("y", function(d) { return yScale.linear(d[property]); })
+        //     .attr("height",0)
+        //     .attr("x", function(d) {
+        //         return xScale.band(d[config.xParameter]) - 14;
+        //     })
+        //     .attr("width", function(d) {
+        //         return 10;
+        //     })
+        //     .attr("clip-path", "url(#clip)")
+        //     .transition()
+        //     .delay(250)
+        //     .duration(250)
+        //     .attr("height", function(d) {
+        //         return dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue);
+        //     })
+        // ;
 
-                return xScale.band(d[config.xParameter]) - 14;
+        svg.differenceCircle
+            .merge(svg.differenceCircleEnter)
+            .attr("cy", function(d) { return yScale.linear(d[property]); })
+            .attr("cx", function(d) {
+                return xScale.band(d[config.xParameter]) + 3;
             })
-            .attr("width", function(d) {
-
-                return 10;
-            })
-            .attr("clip-path", "url(#clip)")
+            .attr("r", barWidth - 6)
+            .attr('fill-opacity', 0)
             .transition()
             .delay(250)
             .duration(250)
-            .attr("height", function(d) {
-
-                return dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue);
-            })
-        ;
+            .attr('fill-opacity', 1);
 
 
-        svg.difference.exit().remove();
+
+
+
+        // svg.difference.exit().remove();
 
         svg.diffLabels
             .merge(svg.diffLabelsEnter)
