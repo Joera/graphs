@@ -16,6 +16,8 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .value(function(d) { return d['totaal']; });
 
 
+        let colours = d3.scaleOrdinal()
+            .range([green,orange,blue,darkblue]);
 
         svg.arcGroup = svg.layers.data.selectAll(".arc")
             .data(pie(data))
@@ -24,7 +26,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcPath = svg.arcGroup
             .append("path")
-            .style("fill", function(d) { return config.colours(data); });
+            .style("fill", function(d) { return colours(d['status']); });
 
         svg.arcLabel = svg.arcGroup.append("text")
             .attr("dy", ".35em")
