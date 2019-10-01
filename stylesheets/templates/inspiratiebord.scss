@@ -4,6 +4,10 @@
   flex-direction: column;
   align-items: center;
 
+  .tick text, .small-label {
+    font-size: .6rem;
+  }
+
   main {
 
     display: grid;
