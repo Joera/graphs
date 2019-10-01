@@ -189,7 +189,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .merge(svg.differenceCircleEnter)
             .attr("cy", function(d) { return yScale.linear(d[property]); })
             .attr("cx", function(d) {
-                return xScale.band(d[config.xParameter]) + (barWidth / 2) + 6;
+                return xScale.band(d[config.xParameter]) + (barWidth / 2) + 3;
             })
             .attr("r", (barWidth / 2) - 6)
             .attr('fill-opacity', 0)
