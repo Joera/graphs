@@ -32,7 +32,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         svg.arcLabel = svg.arcGroup
             .append("text")
             .attr("dy", ".35em")
-            .text( (d) => {  console.log(d); return d.data['status']; });
+            .text( (d) => {  console.log(d); return d.data['status'] + ': ' + d.data['totaal']; });
 
     }
 
