@@ -211,12 +211,18 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 return '+' + thousands(d['nieuwe_' + property]);
             })
+            // .attr('transform', function(d) {
+            //
+            //     yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue)) + 11;
+            //
+            //     return 'translate(' + (xScale.band(d[config.xParameter]) - 20) + ',' +
+            //         (yScale.linear(d[property]) + yOffset)
+            //         + ')';
+            // })
             .attr('transform', function(d) {
 
-                yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue)) + 11;
-
-                return 'translate(' + (xScale.band(d[config.xParameter]) - 20) + ',' +
-                    (yScale.linear(d[property]) + yOffset)
+                return 'translate(' + 0 + ',' +
+                (barWidth / 2)
                     + ')';
             })
             .attr('fill-opacity', 0)
