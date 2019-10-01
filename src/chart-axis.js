@@ -22,19 +22,6 @@ let ChartAxis = function ChartAxis(config,svg) {
         if (alternateTicks) {
 
             let alternate_text = false;
-
-<<<<<<< HEAD
-            d3.selectAll("g.x-axis g.tick text")
-                .attr("y", function () {
-                    if (alternate_text) {
-                        alternate_text = false;
-                        return (window.innerWidth > 760) ? 26 : 10;
-                    } else {
-                        alternate_text = true;
-                        return 10;
-                    }
-                });
-=======
             if(window.innerWidth > 640) {
 
                 d3.selectAll("g.x-axis g.tick text")
@@ -48,7 +35,6 @@ let ChartAxis = function ChartAxis(config,svg) {
                         }
                     });
             }
->>>>>>> master
         }
     }
 
@@ -120,44 +106,6 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
-    // let drawInputYAxis = function drawInputYAxis(dimensions) {
-    //
-    //     svg.yAxis = svg.layers.axes.append("g")
-    //         .attr('class', 'y-axis')
-    //         .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left) + "," + parseInt(config.margin.top + config.padding.top) + ")");
-    // }
-    //
-    // let redrawInputYAxis = function redrawInputYAxis(scales,axes) {
-    //
-    //     axes.yInputLinear = d3.axisLeft(scales.yInputLinear);
-    //
-    //     axes.yInputLinear
-    //         .ticks(4);
-    //
-    //     svg.yAxis
-    //         .call(axes.yInputLinear);
-    //
-    // }
-    //
-    // let drawBlocksYAxis = function drawBlocksYAxis(dimensions) {
-    //
-    //     svg.yAxis = svg.layers.axes.append("g")
-    //         .attr('class', 'y-axis')
-    //         .attr("transform", "translate(" + parseInt(config.margin.left + config.padding.left + dimensions.width) + "," + parseInt(config.margin.top + config.padding.top) + ")");
-    // }
-    //
-    // let redrawBlocksYAxis = function redrawBlocksYAxis(scales,axes) {
-    //
-    //     axes.yBlocks = d3.axisRight(scales.yBlocks);
-    //
-    //     axes.yBlocks
-    //         .ticks(config.maxValue / 5000);
-    //
-    //     svg.yAxis
-    //         .call(axes.yBlocks);
-    //
-    // }
-
     return {
         drawXAxis : drawXAxis,
         redrawXBandAxis : redrawXBandAxis,
@@ -167,10 +115,6 @@ let ChartAxis = function ChartAxis(config,svg) {
         // drawInputYAxis : drawInputYAxis,
         // redrawInputYAxis : redrawInputYAxis,
         redrawYAxisStacked : redrawYAxisStacked,
-        // drawBlocksYAxis : drawBlocksYAxis,
-        // redrawBlocksYAxis : redrawBlocksYAxis
-
-
     }
 }
 
