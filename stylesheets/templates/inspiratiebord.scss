@@ -26,12 +26,20 @@
 
       grid-column: 3;
       grid-row: 2;
+
+      svg {
+        overflow: visible;
+      }
     }
 
     section#aosmeldingen {
 
       grid-column: 4;
       grid-row: 2;
+
+      svg {
+        overflow: visible;
+      }
     }
 
 
