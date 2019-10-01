@@ -44,11 +44,10 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .domain([0, d3.max(data, d => {
 
                 if(d.properties[property] !== undefined) {
-                    console.log(d.properties[property]);
                     return d.properties[property];
                 }
             })])
-            .range([0.3,1]);
+            .range([0.5,1]);
 
         return scale;
 
