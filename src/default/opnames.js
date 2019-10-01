@@ -13,11 +13,11 @@ var opnames = function(element) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = (window.innerWidth > 640) ? 0 : 60;
+    config.margin.bottom = 0;
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
-    config.padding.bottom = 30;
+    config.padding.bottom = (window.innerWidth  > 760) ? 30 : 60
     config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
@@ -72,7 +72,7 @@ var opnames = function(element) {
         let data = json.reverse();
 
         if (window.innerWidth < 600) {
-            data = data.slice(data.length - 3,data.length);
+            data = data.slice(data.length - 4,data.length);
         } else if (window.innerWidth < 1200) {
             data = data.slice(data.length - 10,data.length);
         } else {
