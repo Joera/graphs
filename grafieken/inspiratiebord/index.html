@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+
+<script src="/assets/scripts/d3.min.js"></script>
+<script src="//d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="//d3js.org/topojson.v2.min.js"></script>
+<script src="/assets/scripts/moment.min.js"></script>
+<script src="/assets/scripts/main.js"></script>
+
+
+<style>
+
+    body {
+        margin: 0;
+    }
+
+    iframe {
+        border: none;
+    }
+
+
+</style>
+
+
+<body id="inspiratiebord">
+
+
+<main>
+
+    <aside>
+
+        <option value="all">Alle gemeenten</option>
+        <option value="aa-en-hunze">Aa en Hunze</option>
+        <option value="appingedam">Appingedam</option>
+        <option value="assen">Assen</option>
+        <option value="delfzijl">Delfzijl</option>
+        <option value="emmen">Emmen</option>
+        <option value="groningen">Groningen</option>
+        <option value="het-hogeland">Het Hogeland</option>
+        <option value="loppersum">Loppersum</option>
+        <option value="midden-groningen">Midden-Groningen</option>
+        <option value="noordenveld">Noordenveld</option>
+        <option value="oldambt">Oldambt</option>
+        <option value="pekela">Pekela</option>
+        <option value="stadskanaal">Stadskanaal</option>
+        <option value="tynaarlo">Tynaarlo</option>
+        <option value="veendam">Veendam</option>
+        <option value="westerkwartier">Westerkwartier</option>
+        <option value="westerwolde">Westerwolde</option>
+
+
+    </aside>
+
+
+
+    <section id="map">
+
+        <div class="map-input-container container"></div>
+
+    </section>
+
+</main>
+
+
+</body>
+
+<script>
+    gemeentes('.map-input-container');
+</script>
+
+</html>

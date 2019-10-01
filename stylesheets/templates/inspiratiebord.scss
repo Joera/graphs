@@ -1,0 +1,22 @@
+#inspiratiebord {
+
+  main {
+
+    display: grid;
+    grid-template-columns: auto repeat(6, 15rem) auto;
+    grid-template-rows: repeat(4, 15rem);
+
+
+    aside {
+      grid-column: 2;
+      grid-row: 1 / span 4
+    }
+
+
+    section#map {
+
+      grid-column: 5 / span 2;
+      grid-row: 1 / span 2;
+    }
+  }
+}
