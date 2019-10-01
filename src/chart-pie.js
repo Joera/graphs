@@ -48,7 +48,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         let arc = d3.arc()
             .outerRadius(radius - 10)
-            .innerRadius(20);
+            .innerRadius(30);
 
         svg.arcPath
             .attr("d", arc);
