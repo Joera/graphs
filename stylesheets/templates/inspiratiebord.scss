@@ -8,21 +8,21 @@
 
     display: grid;
     grid-template-columns: auto repeat(6, 15rem) auto;
-    grid-template-rows: repeat(4, 15rem);
+    grid-template-rows: 6rem repeat(4, 15rem);
     justify-content: center;
-    margin-top: 3rem;
+
 
 
     aside {
       grid-column: 2;
-      grid-row: 1 / span 4
+      grid-row: 2 / span 4
     }
 
 
     section#map {
 
       grid-column: 6 / span 2;
-      grid-row: 1 / span 2;
+      grid-row: 2 / span 2;
 
       .map-input-container svg {
         margin: 0 0 0 0;
