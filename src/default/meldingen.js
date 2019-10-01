@@ -1,4 +1,6 @@
 var meldingen = function(element,smallMultiple) {
+    
+    const chartXScaleClass = new ChartXScale();
 
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
@@ -46,7 +48,7 @@ var meldingen = function(element,smallMultiple) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartXScale = chartXScaleClass(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
     let chartBarsIncrease = ChartBarsIncrease(config,svg);
