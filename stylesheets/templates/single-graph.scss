@@ -28,7 +28,7 @@
 
     &.extra-room-bottom {
       @media (max-width: $breakpoint-sm) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 160px);
       }
 
     }
