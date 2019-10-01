@@ -84,7 +84,7 @@ var pieChartSum = function(element) {
             return data;
         }
 
-        function legend(data) {
+        function legend(data,filter) {
 
             // if (window.innerWidth < 640) {
 
@@ -127,6 +127,15 @@ var pieChartSum = function(element) {
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1);
 
+            svg.layers.legend.append("text")
+                .attr("class", "small-label")
+                .attr("dx", 300)
+                .attr("dy", (i * 20) + 2)
+                .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
+                .attr("width",dimensions.containerWidth)
+                .style("opacity", 1)
+                .style("text-anchor", "end");
+
             // }
         }
 
@@ -146,7 +155,7 @@ var pieChartSum = function(element) {
             draw(data);
             redraw();
           //  totalElement.innerText = convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']);
-            legend(data);
+            legend(data,filter);
 
         }
 
