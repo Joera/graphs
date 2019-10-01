@@ -13,7 +13,7 @@ var opnames = function(element) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = 0;
+    config.margin.bottom = (window.innerWidth > 640) ? 0 : 60;
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
@@ -144,9 +144,8 @@ var opnames = function(element) {
                     propertyArray.splice(index,1);
                 }
 
-
-
                 update(propertyArray,increments);
+
             }, false)
         }
 
