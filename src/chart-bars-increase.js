@@ -65,8 +65,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr('class','diffLabel small-label blue')
             .attr('x', 0)
             .attr('dx', '0px')
-            .attr('dy', '-6px')
-            .style("text-anchor", "end")
+            .attr('dy', '0px')
+            .style("text-anchor", "middle")
+            // .attr('dy', '-6px')
+            // .style("text-anchor", "end")
 
         ;
 
