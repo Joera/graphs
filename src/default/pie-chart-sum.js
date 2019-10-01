@@ -42,7 +42,7 @@ var pieChartSum = function(element) {
 
         function prepareData(json,filter) {
 
-            console.log(json);
+
 
             json = json.filter( j => j['_category'] === filter)[0];
 
@@ -77,6 +77,8 @@ var pieChartSum = function(element) {
                 totaal: json['BEDRAG_WETTELIJKE_RENTE']
 
             });
+
+            console.log(data);
 
             return data;
         }
