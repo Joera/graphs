@@ -74,13 +74,13 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         let yOffset;
         let xOffset;
 
-        if(window.innerWidth < 900 || smallMultiple) {
+        if(window.innerWidth < 900) {
             barWidth = 48;
         }
 
-        // if(window.innerWidth < 600) {
-        //     barWidth = 12;
-        // }
+        if(smallMultiple) {
+            barWidth = 12;
+        }
 
         svg.defs
             .attr("width", dimensions.width)
