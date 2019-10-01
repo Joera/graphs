@@ -93,7 +93,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         let xOffset;
 
         if(window.innerWidth < 900) {
-            barWidth = 48;
+            barWidth = 46;
         }
 
         // if(window.innerWidth < 600) {
