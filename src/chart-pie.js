@@ -42,7 +42,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
     let redraw = function redraw(dimensions) {
 
         svg.layers.data
-            .attr("transform", "translate(0," + (dimensions.containerHeight / 2) + ")");
+            .attr("transform", "translate(" + (dimensions.containerWidth / 4)+ "," + (dimensions.containerHeight / 2) + ")");
 
         let radius = dimensions.containerWidth / 4;
 
