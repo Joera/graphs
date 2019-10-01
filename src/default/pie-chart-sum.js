@@ -93,7 +93,15 @@ var pieChartSum = function(element) {
 
                 data.forEach( (d,i) => {
 
-                    let text  = (i + 1) + '. ' + d['status'] + ': ' + convertToCurrency(d['totaal']);
+                    let text  = d['status'] + ': ' + convertToCurrency(d['totaal']);
+
+                    svg.layers.legend.append("line")
+                        .attr("class", "small-label")
+                        .attr("y", data.length * 20)
+                        .attr("height",1)
+                        .attr("width",dimensions.containerWidth)
+                        .style("opacity", 1)
+                        .style("fill","black");
 
                     svg.layers.legend.append("text")
                         .attr("class", "small-label")
