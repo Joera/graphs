@@ -1,4 +1,4 @@
-var meldingen = function(element) {
+var meldingen = function(element,customConfig) {
 
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
@@ -34,6 +34,8 @@ var meldingen = function(element) {
     config.paddingInner = 3;
     config.paddingOuter = 6;
 
+    config.dataArrayLength = 10;
+
     let colours = ['green','orange'];
 
     // get dimensions from parent element
@@ -60,7 +62,10 @@ var meldingen = function(element) {
         // remove data entry from wednesday
        let data = json.reverse();
 
-        if (window.innerWidth < 600) {
+
+       if(config.dataArrayLength) {
+           data = data.slice(data.length - config.dataArrayLength,data.length);
+       } else if (window.innerWidth < 600) {
             data = data.slice(data.length - 3,data.length);
         } else if (window.innerWidth < 1200) {
             data = data.slice(data.length - 6,data.length);
