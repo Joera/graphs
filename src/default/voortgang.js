@@ -9,7 +9,7 @@ var voortgang = function(element) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = 0;
+    config.margin.top = smallMultiple? 15 : 30;
     config.margin.bottom = 0;
     config.margin.left = 30;
     config.margin.right = 0;
