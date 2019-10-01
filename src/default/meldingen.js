@@ -34,7 +34,7 @@ var meldingen = function(element,customConfig) {
     config.paddingInner = 3;
     config.paddingOuter = 6;
 
-    config.dataArrayLength = 3;
+    config.dataArrayLength = 4;
 
     let colours = ['green','orange'];
 
