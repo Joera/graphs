@@ -191,8 +191,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("cx", function(d) {
                 return xScale.band(d[config.xParameter]) + 3;
             })
-            .attr("r", barWidth - 6)
+            .attr("r", (barWidth / 2) - 3)
             .attr('fill-opacity', 0)
+            .style('fill','white')
             .transition()
             .delay(250)
             .duration(250)
