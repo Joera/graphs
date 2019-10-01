@@ -1,16 +1,9 @@
 var pieChartSum = function(element) {
 
-    let totalElement = document.querySelector('h3    span');
-
-    let colours = ['green','green','green','green','green'];
-
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
     let svg = chartObjects.svg();
-    let xScale = chartObjects.xScale();
-    let yScale = chartObjects.yScale();
-    let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
@@ -29,7 +22,7 @@ var pieChartSum = function(element) {
     config.maxHeight = 300;
 
     config.colours = d3.scaleOrdinal()
-        .range([green,darkblue,blue,orange]);
+        .range([green,darkblue,blue,orange,grey]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
@@ -79,8 +72,6 @@ var pieChartSum = function(element) {
 
             });
 
-            console.log(data);
-
             return data;
         }
 
@@ -105,7 +96,7 @@ var pieChartSum = function(element) {
                         .attr("dy", (i * 20) + 2)
                         .attr("dx",16)
                         .text(d['status'] + ':')
-                        .attr("width",dimensions.containerWidth)
+                        .attr("width", dimensions.containerWidth)
                         .style("opacity", 1);
 
                     svg.layers.legend.append("text")
@@ -113,7 +104,7 @@ var pieChartSum = function(element) {
                         .attr("dx", 300)
                         .attr("dy", (i * 20) + 2)
                         .text(convertToCurrency(d['totaal']))
-                        .attr("width",dimensions.containerWidth)
+                        .attr("width", dimensions.containerWidth)
                         .style("opacity", 1)
                         .style("text-anchor", "end");
 
