@@ -8,7 +8,7 @@
 
     display: grid;
     grid-template-columns: auto 12rem repeat(2, 20rem) repeat(2, 16rem) auto;
-    grid-template-rows: 6rem repeat(4, 20rem);
+    grid-template-rows: 6rem repeat(4, 16rem);
     justify-content: center;
 
     h3 {

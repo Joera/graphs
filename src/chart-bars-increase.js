@@ -187,7 +187,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.differenceCircle
             .merge(svg.differenceCircleEnter)
-            .attr("cy", function(d) { return yScale.linear(d[property]); })
+            .attr("cy", function(d) { return yScale.linear(d[property]) + (barWidth / 2) + 13 ; })
             .attr("cx", function(d) {
                 return xScale.band(d[config.xParameter]) + (barWidth / 2) + 3;
             })
