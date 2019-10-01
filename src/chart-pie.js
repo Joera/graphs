@@ -32,7 +32,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
     let redraw = function redraw(dimensions) {
 
-        let radius = dimensions.containerWidth / 2;
+        let radius = dimensions.containerWidth / 4;
 
         let labelArc = d3.arc()
             .outerRadius(radius - 40)
