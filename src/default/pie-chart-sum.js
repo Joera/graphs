@@ -29,7 +29,7 @@ var pieChartSum = function(element) {
     config.maxHeight = 300;
 
     config.colours = d3.scaleOrdinal()
-        .range([green,orange,blue,darkblue]);
+        .range([green,darkblue,blue,orange]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
