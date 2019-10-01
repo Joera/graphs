@@ -93,6 +93,16 @@
     section#voortgang {
 
       grid-column: 5 / span 2;
+      grid-row: 4;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#candles {
+
+      grid-column: 5 / span 2;
       grid-row: 5;
 
       svg {
