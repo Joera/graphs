@@ -88,12 +88,17 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let redraw = function redraw(dimensions,xScale,yScale,property) {
 
-        let barWidth = 48; // scales.xBand.bandwidth() ||
+        let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
         let xOffset;
 
         if(window.innerWidth < 900) {
             barWidth = 48;
+        }
+
+        if(config.dataArrayLength) {
+
+            barWidth = (dimensions.width / dataArrayLength) - 8;
         }
 
         // if(window.innerWidth < 600) {
