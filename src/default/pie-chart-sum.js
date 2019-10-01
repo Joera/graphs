@@ -94,7 +94,7 @@ var pieChartSum = function(element) {
                 data.forEach( (d,i) => {
 
                     svg.layers.legend.append("rect")
-                        .attr("y", (i * 20) - 6)
+                        .attr("y", (i * 20) - 8)
                         .attr("height",12)
                         .attr("width",12)
                         .attr("fill", config.colours(i))
