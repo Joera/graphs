@@ -22,6 +22,11 @@
       grid-row: 2 / span 4
     }
 
+    section .container {
+
+      height: 100%;
+    }
+
     section#schademeldingen {
 
       grid-column: 3;
