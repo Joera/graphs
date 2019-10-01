@@ -161,7 +161,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
-                    (yScale.linear(d[property]) - yOffset + (barWidth / 2))
+                    (yScale.linear(d[property]) - yOffset + (barWidth / 4))
                     + ')';
             })
             .attr('fill-opacity', 1);
