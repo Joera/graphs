@@ -1,4 +1,4 @@
-var voortgang = function(element) {
+var voortgang = function(element,smallMultiple) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -13,7 +13,7 @@ var voortgang = function(element) {
     config.margin.bottom = 0;
     config.margin.left = 30;
     config.margin.right = 0;
-    config.padding.top = smallMultiple? 15 : 30;
+    config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
     config.padding.left = 30;
     config.padding.right = 0;
