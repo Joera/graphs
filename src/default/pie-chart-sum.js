@@ -88,6 +88,9 @@ var pieChartSum = function(element) {
 
             // if (window.innerWidth < 640) {
 
+            svg.layers.legend
+                .attr('transform', 'translate(' + (dimensions.containerWidth / 2) + ',' + (dimensions.containerHeight / 2) + ')');
+
                 data.forEach( (d,i) => {
 
                     let text  = (i + 1) + '. ' + d['status'] + ': ' + convertToCurrency(d['totaal']);
