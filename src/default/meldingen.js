@@ -15,7 +15,7 @@ var meldingen = function(element,customConfig) {
     config.margin.bottom = 0;
     config.margin.left = 30;
     config.margin.right = 0;
-    config.padding.top = 10;
+    config.padding.top = 15;
     config.padding.bottom = 30;
     config.padding.left = 30;
     config.padding.right = 0;
@@ -32,7 +32,7 @@ var meldingen = function(element,customConfig) {
    // config.minWidth = 460;
 
     config.paddingInner = 0;
-    config.paddingOuter = .05;
+    config.paddingOuter = .075;
 
     config.dataArrayLength = 4;
 

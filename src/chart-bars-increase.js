@@ -62,7 +62,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.diffLabelsEnter = svg.diffLabels
             .enter()
             .append('text')
-            .attr('class','diffLabel small-label blue')
+            .attr('class','diffLabel small-label') // blue
             .attr('x', 0)
             .attr('dx', '0px')
             .attr('dy', '0px')
