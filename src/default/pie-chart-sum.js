@@ -102,6 +102,14 @@ var pieChartSum = function(element) {
                         .attr("width",dimensions.containerWidth)
                         .style("opacity", 1);
                 });
+
+            svg.layers.legend.append("text")
+                .attr("class", "small-label")
+                .attr("dy", data.length * 20)
+                .text('Totaal:')
+                .attr("width",dimensions.containerWidth)
+                .style("opacity", 1);
+
             // }
         }
 
