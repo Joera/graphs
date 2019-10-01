@@ -107,6 +107,10 @@
 
       svg {
         overflow: visible;
+
+        line {
+          fill: transparent;
+        }
       }
     }
 
