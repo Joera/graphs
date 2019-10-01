@@ -24,7 +24,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcPath = svg.arcGroup
             .append("path")
-            .style("fill", function(d) { return config.colours(d['status']); });
+            .style("fill", function(d) { return config.colours(d); });
 
         svg.arcLabel = svg.arcGroup.append("text")
             .attr("dy", ".35em")
