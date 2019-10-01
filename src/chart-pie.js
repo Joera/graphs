@@ -31,8 +31,11 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcLabel = svg.arcGroup
             .append("text")
+            .attr("class","small-label")
             .attr("dy", ".35em")
             .text( (d) => {  console.log(d); return d.data['status'] + ': ' + d.data['totaal']; });
+            .style("stroke","none")
+            .style("fill","black");
 
     }
 
