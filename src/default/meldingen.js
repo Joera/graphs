@@ -13,7 +13,7 @@ var meldingen = function(element,customConfig) {
 
     config.margin.top = 0;
     config.margin.bottom = 0;
-    config.margin.left = 0;
+    config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
     config.padding.bottom = 30;
