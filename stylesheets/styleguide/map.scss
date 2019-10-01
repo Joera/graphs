@@ -34,16 +34,24 @@ html {
   max-width: 800px;
   min-height: 400px;
 
-  @media (min-width: $breakpoint-sm) {
+  @media (min-width: $breakpoint-xxsm) {
+    min-height: 800px;
+  }
+
+  @media (min-width: $breakpoint-xsm) {
     min-height: 800px;
     width: 80%;
   }
 
   svg {
-      margin-top: -400px;
+      margin-top: -70px;
       margin-left: -80px;
 
-      @media (min-width: $breakpoint-sm) {
+      @media (min-width: $breakpoint-xxsm) {
+        margin-top: -300px;
+      }
+
+      @media (min-width: $breakpoint-xsm) {
         margin-top: -200px;
       }
   }
@@ -53,14 +61,15 @@ html {
 
   width: auto;
   height: auto;
-  padding: 2rem;
-  position: relative;
+  //padding: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 99;
 
-  @media (min-width: $breakpoint-sm) {
-    position: absolute;
+  @media (min-width: $breakpoint-xxsm) {
+    left: auto;
     right: 0;
-    top: 0%;
   }
 
 

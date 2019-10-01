@@ -5,8 +5,8 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
         return moment(d[config.xParameter]).subtract(1, 'week').format('D/MM') + ' - '
             + moment(d[config.xParameter]).format('D/MM') + '<br/>'
-            + d['nieuwe_schademeldingen'] + ' nieuwe meldingen' + '<br/>'
-            + d['nieuwe_afgehandeld'] + ' nieuwe besluiten';
+            + d['nieuwe_schademeldingen'] + ' Nieuwe schademeldingen' + '<br/>'
+            + d['nieuwe_afgehandeld'] + ' Deze week afgehandeld';
     }
 
     let draw = function draw(data) {
@@ -35,7 +35,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
     let redraw = function redraw(xScale,yScale,functions,dimensions,data) {
 
 
-        let candleWidth = (dimensions.width / data.length) - 4;
+        let candleWidth = (window.innerWidth > 640) ? ((dimensions.width / data.length) - 4) : ((dimensions.width / data.length) - 1);
 
         functions.line = d3.line()
             .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
@@ -54,7 +54,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("left", (d3.event.pageX - 205) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
                     .transition()
                     .duration(250)
@@ -76,8 +76,9 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("left", (d3.event.pageX - 205) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
+                    // .style('width', '400px')
                     .transition()
                     .duration(250)
                     .style("opacity", 1);

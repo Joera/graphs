@@ -10,6 +10,11 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xBand = d3.axisBottom(xScale.band);
 
+        axes.xBand
+            .tickFormat( (d,i) => {
+                return (window.innerWidth < 640) ? (i + 1) : d;
+            });
+
         svg.xAxis
             .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
             .call(axes.xBand);
@@ -18,6 +23,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
             let alternate_text = false;
 
+<<<<<<< HEAD
             d3.selectAll("g.x-axis g.tick text")
                 .attr("y", function () {
                     if (alternate_text) {
@@ -28,6 +34,21 @@ let ChartAxis = function ChartAxis(config,svg) {
                         return 10;
                     }
                 });
+=======
+            if(window.innerWidth > 640) {
+
+                d3.selectAll("g.x-axis g.tick text")
+                    .attr("y", function () {
+                        if (alternate_text) {
+                            alternate_text = false;
+                            return 26;
+                        } else {
+                            alternate_text = true;
+                            return 10;
+                        }
+                    });
+            }
+>>>>>>> master
         }
     }
 
@@ -62,8 +83,20 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.yLinear = d3.axisLeft(yScale.linear);
 
-        axes.yLinear
-            .ticks(5);
+        if(config.noTicksYAxis) {
+            axes.yLinear
+                .tickValues([]);
+        } else {
+            axes.yLinear
+                .ticks(5);
+        }
+
+        if(config.currencyLabels ) {
+            axes.yLinear
+                .tickFormat(function(d){
+                    return shortenCurrency(convertToCurrency(d));
+                });
+        }
 
         svg.yAxis
             .call(axes.yLinear);
@@ -74,8 +107,13 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.yLinear = d3.axisLeft(scales.stacked);
 
-        axes.yLinear
-            .ticks(5);
+        if(config.noTicksYAxis) {
+            axes.yLinear
+                .tickValues([]);
+        } else {
+            axes.yLinear
+                .ticks(5);
+        }
 
         svg.yAxis
             .call(axes.yLinear);

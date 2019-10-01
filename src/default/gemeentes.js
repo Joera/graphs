@@ -71,15 +71,13 @@ var gemeentes = function(element) {
             let property = 'schademeldingen';
             chartMap.draw(features);
             yScale = chartYScale.set(features);
-            //  chartLegend.drawDefault(dimensions);
-            // further drawing happens in function that can be repeated.
 
             redraw(property);
             // for example on window resize
             window.addEventListener("resize", redraw(property), false);
 
             for (let radio of radios) {
-                radio.addEventListener( 'click', () => {
+                radio.addEventListener( 'change', () => {
                     redraw(radio.value);
                 },false)
             }

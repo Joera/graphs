@@ -1,6 +1,6 @@
 var bedragen = function(element) {
 
-    let totalElement = document.querySelector('h2 span');
+    let totalElement = document.querySelector('h3    span');
 
     let colours = ['green','green','green','green','green'];
 
@@ -14,11 +14,11 @@ var bedragen = function(element) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = 0;
+    config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
-    config.padding.bottom = 30;
+    config.padding.bottom = 50;
     config.padding.left = 30;
     config.padding.right = 0;
     config.xParameter = 'status';  // name of first column with values of bands on x axis
@@ -57,37 +57,36 @@ var bedragen = function(element) {
 
             let data = [];
 
-            // data.push({
-            //     status: "Afgewezen",
-            //     totaal: json[0][filter]
-            //
-            // });
-
             data.push({
+                abbrev: "1",
                 status: "Vergoeding mijnbouwschade",
                 totaal: json['BEDRAG_SCHADEBEDRAG']
 
             });
 
             data.push({
+                abbrev: "2",
                 status: "Stuwmeerregeling",
                 totaal: json['BEDRAG_SMR']
 
             });
 
             data.push({
+                abbrev: "3",
                 status: "Vergoeding overige schades",
                 totaal: json['BEDRAG_GEVOLGSCHADE']
 
             });
 
             data.push({
+                abbrev: "4",
                 status: "Bijkomende kosten",
                 totaal: json['BEDRAG_BIJKOMENDE_KOSTEN']
 
             });
 
             data.push({
+                abbrev: "5",
                 status: "Wettelijke rente",
                 totaal: json['BEDRAG_WETTELIJKE_RENTE']
 
@@ -96,19 +95,34 @@ var bedragen = function(element) {
             return data;
         }
 
-        function draw(data) {
+        function legend(data) {
 
+            if (window.innerWidth < 640) {
+
+                data.forEach( (d,i) => {
+
+                    let text  = (i + 1) + '. ' + d[config.xParameter] + ' ';
+
+                    svg.layers.legend.append("text")
+                        .attr("class", "small-label")
+                        .attr("dy", i * 20)
+                        .text(text)
+                        .attr("width",dimensions.containerWidth)
+                        .style("opacity", 1);
+                });
+            }
+        }
+
+        function draw(data) {
             // with data we can init scales
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(data,config.yParameter);
 
             // width data we can draw items
             chartBar.draw(data, colours);
-
         }
 
         function redraw() {
-
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
@@ -116,7 +130,7 @@ var bedragen = function(element) {
             xScale = chartXScale.reset(dimensions,xScale);
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
-            chartAxis.redrawXBandAxis(dimensions,xScale,axes);
+            chartAxis.redrawXBandAxis(dimensions,xScale,axes,true);
             chartAxis.redrawYAxis(yScale,axes);
             // redraw data
             chartBar.redraw(dimensions,xScale,yScale);
@@ -127,6 +141,7 @@ var bedragen = function(element) {
             draw(data);
             redraw();
             totalElement.innerText = convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']);
+            legend(data);
 
         }
 

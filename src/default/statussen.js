@@ -15,7 +15,7 @@ var statussen  = function (element,filter) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = 0;
+    config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
@@ -55,7 +55,6 @@ var statussen  = function (element,filter) {
 
     function prepareData(json,muni) {
 
-        console.log(json);
 
         json = json.filter( j => j['_category'] === muni)[0];
 
@@ -97,6 +96,24 @@ var statussen  = function (element,filter) {
         return data;
     }
 
+    function legend(data) {
+
+        if (window.innerWidth < 640) {
+
+            data.forEach( (d,i) => {
+
+                let text  = (i + 1) + '. ' + d[config.xParameter] + ' ';
+
+                svg.layers.legend.append("text")
+                    .attr("class", "small-label")
+                    .attr("dy", i * 20)
+                    .text(text)
+                    .attr("width",dimensions.containerWidth)
+                    .style("opacity", 1);
+            });
+        }
+    }
+
     function draw(data) {
 
         // with data we can init scales
@@ -128,6 +145,7 @@ var statussen  = function (element,filter) {
         let data = prepareData(json,muni);
         draw(data);
         redraw();
+        legend(data);
     }
 
     url = "https://tcmg.publikaan.nl/api/gemeentes";

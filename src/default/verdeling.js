@@ -12,11 +12,11 @@ var verdeling = function(element) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = 0;
+    config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
-    config.padding.bottom = 30;
+    config.padding.bottom = 50;
     config.padding.left = 30;
     config.padding.right = 0;
     config.xParameter = 'status';  // name of first column with values of bands on x axis
@@ -85,6 +85,24 @@ var verdeling = function(element) {
             return data;
         }
 
+        function legend(data) {
+
+            if (window.innerWidth < 640) {
+
+                data.forEach( (d,i) => {
+
+                    let text  = (i + 1) + '. ' + d[config.xParameter] + ' ';
+
+                    svg.layers.legend.append("text")
+                        .attr("class", "small-label")
+                        .attr("dy", i * 20)
+                        .text(text)
+                        .attr("width",dimensions.containerWidth)
+                        .style("opacity", 1);
+                });
+            }
+        }
+
         function draw(data) {
 
             // with data we can init scales
@@ -115,6 +133,7 @@ var verdeling = function(element) {
             let data = prepareData(json,filter);
             draw(data);
             redraw();
+            legend(data);
         }
 
         run(json,'all');

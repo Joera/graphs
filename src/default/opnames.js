@@ -35,6 +35,8 @@ var opnames = function(element) {
     config.paddingInner = 3;
     config.paddingOuter = 6;
 
+    config.noTicksYAxis = true;
+
     let colours = {
 
         'schadeopnames': 'green',
@@ -81,6 +83,8 @@ var opnames = function(element) {
         let increments = false;
 
         function filterData(array,increments) {
+            //
+            // console.log(array);
 
             if(increments) {
                 for (let i = 0; i < array.length; i++) {
@@ -91,6 +95,8 @@ var opnames = function(element) {
                     array[i] = (array[i].slice(0,7) === 'nieuwe_') ? array[i].slice(7,array[i].length) : array[i];
                 }
             }
+
+
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[data.length - 1]).filter(key => array.indexOf(key) > -1));
@@ -119,8 +125,6 @@ var opnames = function(element) {
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(stackedData);
             chartStackedBars.draw(data,stackedData,colours);
-            //  chartLegend.drawDefault(dimensions);
-            // further drawing happens in function that can be repeated.
             redraw();
         }
 
@@ -130,19 +134,25 @@ var opnames = function(element) {
 
         for (let option of options) {
             option.addEventListener( 'click', () => {
+
+                if(increments && option.value.slice(0,7) !== 'nieuwe_' ) option.value = 'nieuwe_' + option.value;
+                
                 if (option.checked) {
                     propertyArray[propertyArray.length] = option.value;
                 } else {
                     let index = propertyArray.indexOf(option.value);
                     propertyArray.splice(index,1);
                 }
+
+
+
                 update(propertyArray,increments);
             }, false)
         }
 
         for (let radio of radios) {
 
-            radio.addEventListener( 'click', () => {
+            radio.addEventListener( 'change', () => {
                 increments = !increments;
                 update(propertyArray,increments)
             }, false)

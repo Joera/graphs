@@ -4,9 +4,11 @@ ul.radios {
   border-radius: 4px;
   margin-bottom: .5rem;
 
+
   li {
     position: relative;
     border: none;
+    cursor: pointer;
 
 
     &:not(:last-of-type) {
@@ -25,6 +27,7 @@ ul.radios {
     label {
       display: block;
       padding: 3px .5rem 3px .5rem;
+      cursor: pointer;
     }
 
     input:checked + label {
@@ -32,4 +35,6 @@ ul.radios {
       color: white;
     }
   }
+
+
 }

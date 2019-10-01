@@ -6,6 +6,8 @@ li.checkbox {
 
   margin-bottom: .5rem;
   margin-right: .5rem;
+  cursor: pointer;
+
 
   input {
     position: absolute;
@@ -14,11 +16,13 @@ li.checkbox {
     top: 0;
     bottom: 0;
     opacity: 0;
+
   }
 
   label {
     display: block;
     padding: 3px .5rem 3px .5rem;
+    cursor: pointer;
   }
 
   input:checked + label {

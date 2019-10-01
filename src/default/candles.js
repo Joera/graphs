@@ -65,7 +65,6 @@ var candles = function(element) {
         //     }
         // });
 
-        console.log(data);
 
         function draw() {
 

@@ -18,12 +18,12 @@
     }
   }
 
-  div.container {
+  div.container:not(.map-input-container) {
     width: 100vw;
-    height: calc(100vh - 31px - 180px);
+    height: calc(100vh - 31px - 50px);
 
     @media (min-width: $breakpoint-sm) {
-      height: calc(100vh - 31px - 160px);
+      height: calc(100vh - 31px - 60px);
     }
   }
 }

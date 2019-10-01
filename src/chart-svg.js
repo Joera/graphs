@@ -19,6 +19,10 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
             .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')')
             .attr('width', (dimensions.containerWidth - config.margin.left - config.margin.right))
             .attr('height', (dimensions.containerHeight - config.margin.top - config.margin.bottom));
+
+        svg.layers.legend
+            .attr('transform', 'translate(' + config.padding.left + ',' + (dimensions.containerHeight - 10) + ')');
+
     }
 
     let layers = function layers() {

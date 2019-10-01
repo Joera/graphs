@@ -90,8 +90,6 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.series)
             .attr("class", (d,i) => {
 
-                console.log(d.key);
-
                 return "stackGroup " + colours[d.key];
             });
 
@@ -152,11 +150,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.dateLabelsEnter)
             .text(function(d) {
 
-                if (window.innerWidth < 900) {
+                // if (window.innerWidth < 900) {
                     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'numeric', day: 'numeric'});
-                } else {
-                    return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
-                }
+                // } else {
+                //     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
+                // }
             })
             .attr('transform', function(d) {
 
