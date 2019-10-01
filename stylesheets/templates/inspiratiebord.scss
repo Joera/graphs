@@ -47,6 +47,16 @@
       }
     }
 
+    section#status-actueel {
+
+      grid-column: 3;
+      grid-row: 3;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
 
     section#map {
 
