@@ -93,23 +93,32 @@ var pieChartSum = function(element) {
 
                 data.forEach( (d,i) => {
 
-                    let text  = d['status'] + ': ' + convertToCurrency(d['totaal']);
-
-                    svg.layers.legend.append("rect")
+                    svg.layers.legend.append("text")
                         .attr("class", "small-label")
-                        .attr("y", ((data.length - 1) * 20) + 6)
-                        .attr("height",.5)
-                        .attr("width",300)
-                        .style("opacity", 1)
-                        .style("fill","black");
+                        .attr("dy", (i * 20) + 2)
+                        .text(d['status'] + ':')
+                        .attr("width",dimensions.containerWidth)
+                        .style("opacity", 1);
 
                     svg.layers.legend.append("text")
                         .attr("class", "small-label")
-                        .attr("dy", (i * 20) + 1)
-                        .text(text)
+                        .attr("dx", 300)
+                        .attr("dy", (i * 20) + 2)
+                        .text(convertToCurrency(d['totaal']))
                         .attr("width",dimensions.containerWidth)
-                        .style("opacity", 1);
+                        .style("opacity", 1)
+                        .style("text-anchor", "end");
+
                 });
+
+
+            svg.layers.legend.append("rect")
+                .attr("class", "small-label")
+                .attr("y", ((data.length - 1) * 20) + 6)
+                .attr("height",.5)
+                .attr("width",300)
+                .style("opacity", 1)
+                .style("fill","black");
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
