@@ -70,7 +70,7 @@ var gemeentes = function(element) {
 
             let property = 'schademeldingen';
             chartMap.draw(features);
-            yScale = chartYScale.set(features);
+            yScale = chartYScale.set(features,property);
 
             redraw(property);
             // for example on window resize
