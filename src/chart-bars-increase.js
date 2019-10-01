@@ -98,7 +98,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         if(config.dataArrayLength) {
 
-            barWidth = (dimensions.width / config.dataArrayLength) - 8;
+            barWidth = (dimensions.width / config.dataArrayLength) - 12;
         }
 
         // if(window.innerWidth < 600) {
