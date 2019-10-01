@@ -39,6 +39,7 @@ module.exports = function() {
             './src/chart-area.js',
             './src/chart-sankey.js',
             './src/chart-map.js',
+            './src/chart-pie.js',
 
             // './src/tcmg-charts.js',
 
@@ -53,7 +54,8 @@ module.exports = function() {
             './src/default/candles.js',
             './src/default/statussen.js',
             './src/default/statussen-stroommodel.js',
-            './src/default/statussen-stroommodel_ii.js'
+            './src/default/statussen-stroommodel_ii.js',
+            './src/default/pie-chart-sum.js'
 
 
             ])
