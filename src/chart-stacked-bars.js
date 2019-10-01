@@ -68,13 +68,13 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,colours) {
+    let redraw = function redraw(dimensions,xScale,yScale,colours,smallMultiple) {
 
         let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
         let xOffset;
 
-        if(window.innerWidth < 900) {
+        if(window.innerWidth < 900 || smallMultiple) {
             barWidth = 48;
         }
 

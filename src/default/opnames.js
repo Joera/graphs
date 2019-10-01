@@ -115,7 +115,7 @@ var opnames = function(element,smallMultiple) {
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
             chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
-            chartStackedBars.redraw(dimensions,xScale,yScale,colours);
+            chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
 
         }
 
