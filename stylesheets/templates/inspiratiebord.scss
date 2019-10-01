@@ -58,6 +58,16 @@
       }
     }
 
+    section#besluiten {
+
+      grid-column: 4;
+      grid-row: 3;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
 
     section#map {
 

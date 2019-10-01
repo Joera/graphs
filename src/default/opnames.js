@@ -1,4 +1,4 @@
-var opnames = function(element) {
+var opnames = function(element,smallMultiple) {
 
     let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
@@ -12,7 +12,7 @@ var opnames = function(element) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = 15;
+    config.margin.top = smallMultiple? 15 : 30;
     config.margin.bottom = 0;
     config.margin.left = 30;
     config.margin.right = 0;
