@@ -29,9 +29,10 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .attr("class","arc")
             .style("fill", function(d,i) { return colours(i); });
 
-        svg.arcLabel = svg.arcGroup.append("text")
+        svg.arcLabel = svg.arcGroup
+            .append("text")
             .attr("dy", ".35em")
-            .text(function(d) { return d['status']; });
+            .text( (d) => {  console.log(d); return d['status']; });
 
     }
 

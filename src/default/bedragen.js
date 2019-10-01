@@ -51,8 +51,6 @@ var bedragen = function(element) {
 
         function prepareData(json,filter) {
 
-            console.log(json);
-
             json = json.filter( j => j['_category'] === filter)[0];
 
             let data = [];
