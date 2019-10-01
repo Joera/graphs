@@ -17,7 +17,7 @@ var opnames = function(element) {
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = 30;
-    config.padding.bottom = (window.innerWidth  > 760) ? 30 : 0;
+    config.padding.bottom = 30;
     config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
