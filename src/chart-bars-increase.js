@@ -221,7 +221,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             // })
             .attr('transform', function(d) {
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + ',' +
+                return 'translate(' + xScale.band(d[config.xParameter]) + ',' +
                     yScale.linear(d[property]) + (barWidth / 2)
                     + ')';
             })
