@@ -31,7 +31,7 @@ var meldingen = function(element,customConfig) {
     config.xParameter = '_date';
    // config.minWidth = 460;
 
-    config.paddingInner = 3;
+    config.paddingInner = 0;
     config.paddingOuter = 0;
 
     config.dataArrayLength = 4;
