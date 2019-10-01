@@ -113,7 +113,7 @@ var pieChartSum = function(element) {
 
             svg.layers.legend.append("rect")
                 .attr("class", "small-label")
-                .attr("y", ((data.length - 1) * 20) + 6)
+                .attr("y", ((data.length - 1) * 20) + 8)
                 .attr("height",.5)
                 .attr("width",300)
                 .style("opacity", 1)
@@ -121,7 +121,7 @@ var pieChartSum = function(element) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", data.length * 20)
+                .attr("dy", (data.length * 20) + 2)
                 .text('Totaal:')
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1);
@@ -129,7 +129,7 @@ var pieChartSum = function(element) {
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dx", 300)
-                .attr("dy", (data.length * 20))
+                .attr("dy", (data.length * 20) + 2)
                 .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
