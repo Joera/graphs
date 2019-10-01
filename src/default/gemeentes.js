@@ -59,7 +59,9 @@ var gemeentes = function(element) {
                 feature.properties = Object.assign({}, feature.properties, gemeenteData);
             });
 
-            function redraw(property) {
+            function redraw(features, property) {
+
+                yScale = chartYScale.set(features,property);
 
                 // on redraw chart gets new dimensions
                 dimensions = chartDimensions.get(dimensions);
@@ -70,15 +72,15 @@ var gemeentes = function(element) {
 
             let property = 'schademeldingen';
             chartMap.draw(features);
-            yScale = chartYScale.set(features,property);
 
-            redraw(property);
+
+            redraw(features, property);
             // for example on window resize
-            window.addEventListener("resize", redraw(property), false);
+            window.addEventListener("resize", redraw(features, property), false);
 
             for (let radio of radios) {
                 radio.addEventListener( 'change', () => {
-                    redraw(radio.value);
+                    redraw(features,radio.value);
                 },false)
             }
 
