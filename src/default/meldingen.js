@@ -32,7 +32,7 @@ var meldingen = function(element,customConfig) {
    // config.minWidth = 460;
 
     config.paddingInner = 3;
-    config.paddingOuter = 6;
+    config.paddingOuter = 0;
 
     config.dataArrayLength = 4;
 
