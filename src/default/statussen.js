@@ -1,4 +1,4 @@
-var statussen  = function (element,filter) {
+var statussen  = function (element,smallMultiple) {
 
 
     let municipalitySelect = document.querySelector('select.municipalities');
@@ -15,10 +15,10 @@ var statussen  = function (element,filter) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
+    config.margin.bottom = (window.innerWidth > 640 || smallMultiple) ? 0 : 75;
     config.margin.left = 30;
     config.margin.right = 0;
-    config.padding.top = 30;
+    config.padding.top = (smallMultiple) ? 30 : 15;
     config.padding.bottom = 50;
     config.padding.left = 30;
     config.padding.right = 0;
@@ -33,7 +33,7 @@ var statussen  = function (element,filter) {
     // x-axis
     // config.minWidth = 460;
     config.xParameter = 'status';
-    config.paddingInner = [0.5];
+    config.paddingInner = [0.25];
     config.paddingOuter = [0.25];
 
     let colours = ['orange','green','darkblue','blue','green'];
@@ -54,7 +54,6 @@ var statussen  = function (element,filter) {
     chartAxis.drawYAxis();
 
     function prepareData(json,muni) {
-
 
         json = json.filter( j => j['_category'] === muni)[0];
 
@@ -92,13 +91,12 @@ var statussen  = function (element,filter) {
 
         });
 
-
         return data;
     }
 
     function legend(data) {
 
-        if (window.innerWidth < 640) {
+        if (window.innerWidth < 640 || smallMultiple) {
 
             data.forEach( (d,i) => {
 

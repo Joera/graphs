@@ -1,4 +1,4 @@
-var meldingen = function(element,customConfig) {
+var meldingen = function(element,smallMultiple) {
 
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
@@ -34,7 +34,9 @@ var meldingen = function(element,customConfig) {
     config.paddingInner = 0;
     config.paddingOuter = .1;
 
-    config.dataArrayLength = 4;
+    if(smallMultiple) {
+        config.dataArrayLength = 4;
+    }
 
     let colours = ['green','orange'];
 
