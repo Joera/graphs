@@ -22,7 +22,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         if (alternateTicks) {
 
             let alternate_text = false;
-            if(window.innerWidth > 640 && (!smallMultiple || smallMultiple !== undefined)) {
+            if(window.innerWidth > 640 && (!smallMultiple || smallMultiple === undefined)) {
 
                 d3.selectAll("g.x-axis g.tick text")
                     .attr("y", function () {
