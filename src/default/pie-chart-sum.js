@@ -25,6 +25,9 @@ var pieChartSum = function(element) {
     // config.yParameter = 'totaal';  // is being set in type function
     config.currencyLabels = true;
 
+
+    config.maxHeight = 300;
+
     config.colours = d3.scaleOrdinal()
         .range([green,orange,blue,darkblue]);
 

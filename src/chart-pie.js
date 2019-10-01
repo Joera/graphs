@@ -46,6 +46,10 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         let radius = dimensions.containerWidth / 4;
 
+        if(radius > (config.maxHeight / 2)) {
+            radius = config.maxHeight / 2;
+        }
+
         let labelArc = d3.arc()
             .outerRadius(radius - 40)
             .innerRadius(radius - 40);
