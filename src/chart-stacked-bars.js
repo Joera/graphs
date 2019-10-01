@@ -110,7 +110,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     return barWidth; //scales.band.bandwidth();
                 }
             })
-            .attr("clip-path", "url(#clip)")
+            // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
             .attr("y", function(d) { return yScale.stacked(d[1]); })
