@@ -15,7 +15,7 @@ var statussen  = function (element,smallMultiple) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = (window.innerWidth > 640 || smallMultiple) ? 0 : 75;
+    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 75 : 0;
     config.margin.left = 30;
     config.margin.right = 0;
     config.padding.top = (smallMultiple) ? 15 : 30;
