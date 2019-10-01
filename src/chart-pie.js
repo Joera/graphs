@@ -29,20 +29,20 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .attr("class","arc")
             .style("fill", function(d,i) { return colours(i); });
 
-        svg.arcLabel = svg.arcGroup
-            .append("text")
-            .attr("class","small-label")
-            .attr("dy", ".35em")
-            .text( (d) => {  console.log(d); return d.data['status'] + ': ' + d.data['totaal']; })
-            .style("stroke","none")
-            .style("fill","black");
+        // svg.arcLabel = svg.arcGroup
+        //     .append("text")
+        //     .attr("class","small-label")
+        //     .attr("dy", ".35em")
+        //     .text( (d) => {  console.log(d); return d.data['status'] + ': ' + d.data['totaal']; })
+        //     .style("stroke","none")
+        //     .style("fill","black");
 
     }
 
     let redraw = function redraw(dimensions) {
 
         svg.layers.data
-            .attr("transform", "translate(" + (dimensions.containerWidth / 2)+ "," + (dimensions.containerHeight / 2) + ")");
+            .attr("transform", "translate(0," + (dimensions.containerHeight / 2) + ")");
 
         let radius = dimensions.containerWidth / 4;
 
@@ -57,8 +57,8 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         svg.arcPath
             .attr("d", arc);
 
-        svg.arcLabel
-            .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+        // svg.arcLabel
+        //     .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
 
     }
 
