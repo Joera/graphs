@@ -130,7 +130,7 @@ var pieChartSum = function(element) {
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dx", 300)
-                .attr("dy", (i * 20) + 2)
+                .attr("dy", (data.length * 20)
                 .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
