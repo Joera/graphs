@@ -26,7 +26,7 @@ var pieChartSum = function(element) {
     config.currencyLabels = true;
 
     config.colours = d3.scaleOrdinal()
-        .range(["#98abc5", "#8a89a6", "#7b6888"]);
+        .range([green,orange,blue,darkblue]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
