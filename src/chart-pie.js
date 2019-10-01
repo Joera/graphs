@@ -26,6 +26,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcPath = svg.arcGroup
             .append("path")
+            .attr("class","arc")
             .style("fill", function(d,i) { return colours(i); });
 
         svg.arcLabel = svg.arcGroup.append("text")
