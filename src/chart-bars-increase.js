@@ -224,7 +224,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr('transform', function(d) {
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2)) + ',' +
-                    (yScale.linear(d[property]) + (barWidth / 2))
+                    (yScale.linear(d[property]) + (barWidth / 2) + 6)
                     + ')';
             })
             .attr('fill-opacity', 0)
