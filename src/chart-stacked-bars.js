@@ -79,7 +79,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         }
 
         if(smallMultiple) {
-            barWidth = 24;
+            barWidth = 28;
         }
 
         svg.defs
