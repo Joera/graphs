@@ -20,10 +20,17 @@
 
   div.container:not(.map-input-container) {
     width: 100vw;
-    height: calc(100vh - 31px - 50px);
+    height: calc(100vh - 80px);
 
     @media (min-width: $breakpoint-sm) {
-      height: calc(100vh - 31px - 60px);
+      height: calc(100vh - 90px);
+    }
+
+    &.extra-room-bottom {
+      @media (max-width: $breakpoint-sm) {
+        height: calc(100vh - 120px);
+      }
+
     }
   }
 }
