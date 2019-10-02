@@ -43,34 +43,29 @@ var pieChartHerkomst = function(element,smallMultiple) {
             let data = [];
 
             data.push({
-                status: "Vergoeding mijnbouwschade",
-                totaal: json['BEDRAG_SCHADEBEDRAG']
+                status: "Aannemersvariant",
+                totaal: json['OPNAME_AANNEMERSVARIANT']
 
             });
 
             data.push({
-                status: "Stuwmeerregeling",
-                totaal: json['BEDRAG_SMR']
+                status: "CVW 2000",
+                totaal: json['OPNAMES_CVW2000']
 
             });
 
             data.push({
-                status: "Vergoeding overige schades",
-                totaal: json['BEDRAG_GEVOLGSCHADE']
+                status: "Wwoncorporaties",
+                totaal: json['OPNAMES_WOCO']
 
             });
 
             data.push({
-                status: "Bijkomende kosten",
-                totaal: json['BEDRAG_BIJKOMENDE_KOSTEN']
+                status: "regulier",
+                totaal: json['OPNAMES_REGULIER']
 
             });
 
-            data.push({
-                status: "Wettelijke rente",
-                totaal: json['BEDRAG_WETTELIJKE_RENTE']
-
-            });
 
             return data;
         }
