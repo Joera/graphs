@@ -17,6 +17,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         svg.areaLabels = svg.series
             .append('text')
+            .attr('class','small-label')
             .datum(function(d) { return d; })
             .attr('x', 0)
             .attr('dx', '-10px')
