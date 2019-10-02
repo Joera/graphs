@@ -43,28 +43,28 @@ var pieChartHerkomst = function(element,smallMultiple) {
             let data = [];
 
             data.push({
-                status: "Aannemersvariant",
-                totaal: json['OPNAME_AANNEMERSVARIANT']
+                status: "Historie",
+                totaal: json['HISTORIE']
 
             });
 
-            data.push({
-                status: "CVW 2000",
-                totaal: json['OPNAMES_CVW2000']
-
-            });
-
-            data.push({
-                status: "Woonncorporaties",
-                totaal: json['OPNAMES_WOCO']
-
-            });
-
-            data.push({
-                status: "regulier",
-                totaal: json['OPNAMES_REGULIER']
-
-            });
+            // data.push({
+            //     status: "CVW 2000",
+            //     totaal: json['OPNAMES_CVW2000']
+            //
+            // });
+            //
+            // data.push({
+            //     status: "Woonncorporaties",
+            //     totaal: json['OPNAMES_WOCO']
+            //
+            // });
+            //
+            // data.push({
+            //     status: "regulier",
+            //     totaal: json['OPNAMES_REGULIER']
+            //
+            // });
 
 
             return data;
