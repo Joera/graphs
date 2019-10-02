@@ -46,23 +46,25 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             radius = config.maxHeight / 2;
         }
 
+        let arc, labelArc;
+
         if(smallMultiple) {
 
-            let labelArc = d3.arc()
+            labelArc = d3.arc()
                 .outerRadius(radius - 0)
                 .innerRadius(radius - 0);
 
-            let arc = d3.arc()
+            arc = d3.arc()
                 .outerRadius(radius - 0)
                 .innerRadius(10);
 
         } else {
 
-            let labelArc = d3.arc()
+            labelArc = d3.arc()
                 .outerRadius(radius - 40)
                 .innerRadius(radius - 40);
 
-            let arc = d3.arc()
+            arc = d3.arc()
                 .outerRadius(radius - 10)
                 .innerRadius(30);
         }
