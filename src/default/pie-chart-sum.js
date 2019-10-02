@@ -80,7 +80,7 @@ var pieChartSum = function(element,smallMultiple) {
             // if (window.innerWidth < 640) {
 
             svg.layers.legend
-                .attr('transform', 'translate(' + (dimensions.containerWidth / 2) + ',' + (dimensions.containerHeight / 2) + ')');
+                .attr('transform', 'translate(' + 200 + ',' + (dimensions.containerHeight / 2) + ')');
 
                 data.forEach( (d,i) => {
 
