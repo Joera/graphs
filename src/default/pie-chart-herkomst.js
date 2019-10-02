@@ -98,7 +98,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
                         .attr("class", "small-label")
                         .attr("dx", 200)
                         .attr("dy", (i * 20) + 2)
-                        .text(convertToCurrency(d['totaal']))
+                        .text(d['totaal'])
                         .attr("width", dimensions.containerWidth)
                         .style("opacity", 1)
                         .style("text-anchor", "end");
@@ -125,7 +125,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
                 .attr("class", "small-label")
                 .attr("dx", 200)
                 .attr("dy", (data.length * 20) + 2)
-                .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
+                .text(json.filter( j => j['_category'] === filter)[0]['MELDING'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
