@@ -44,6 +44,7 @@ module.exports = function() {
             // './src/tcmg-charts.js',
 
             './src/default/opnames.js',
+            './src/default/aos-meldingen.js',
             './src/default/meldingen.js',
             './src/default/weekverloop.js',
             './src/default/gemeentes.js',
