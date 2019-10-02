@@ -37,8 +37,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
     let redraw = function redraw(dimensions,smallMultiple) {
 
-        svg.layers.data
-            .attr("transform", "translate(" + (dimensions.containerWidth / 4)+ "," + (dimensions.containerHeight / 2) + ")");
+
 
 
 
@@ -48,9 +47,8 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             radius = 60;
 
-            if(radius > (config.maxHeight / 2)) {
-                radius = config.maxHeight / 2;
-            }
+            svg.layers.data
+                .attr("transform", "translate(" + 0 + "," + ((dimensions.containerHeight / 2) - (radius / 2)) + ")");
 
             labelArc = d3.arc()
                 .outerRadius(radius - 0)
@@ -61,6 +59,9 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
                 .innerRadius(10);
 
         } else {
+
+            svg.layers.data
+                .attr("transform", "translate(" + (dimensions.containerWidth / 4)+ "," + (dimensions.containerHeight / 2) + ")");
 
             radius = dimensions.containerWidth / 4;
 
