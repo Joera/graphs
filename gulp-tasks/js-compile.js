@@ -56,7 +56,8 @@ module.exports = function() {
             './src/default/statussen.js',
             './src/default/statussen-stroommodel.js',
             './src/default/statussen-stroommodel_ii.js',
-            './src/default/pie-chart-sum.js'
+            './src/default/pie-chart-sum.js',
+            './src/default/pie-chart-herkomst.js'
 
 
             ])
