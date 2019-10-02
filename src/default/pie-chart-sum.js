@@ -1,4 +1,4 @@
-var pieChartSum = function(element) {
+var pieChartSum = function(element,smallMultiple) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -146,7 +146,7 @@ var pieChartSum = function(element) {
 
             dimensions = chartDimensions.get(dimensions);
             chartSVG.redraw(dimensions);
-            chartPie.redraw(dimensions);
+            chartPie.redraw(dimensions,smallMultiple);
         }
 
         function run(json,filter) {

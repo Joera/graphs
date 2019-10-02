@@ -35,7 +35,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
     }
 
-    let redraw = function redraw(dimensions) {
+    let redraw = function redraw(dimensions,smallMultiple) {
 
         svg.layers.data
             .attr("transform", "translate(" + (dimensions.containerWidth / 4)+ "," + (dimensions.containerHeight / 2) + ")");
@@ -46,13 +46,26 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             radius = config.maxHeight / 2;
         }
 
-        let labelArc = d3.arc()
-            .outerRadius(radius - 40)
-            .innerRadius(radius - 40);
+        if(smallMultiple) {
 
-        let arc = d3.arc()
-            .outerRadius(radius - 10)
-            .innerRadius(30);
+            let labelArc = d3.arc()
+                .outerRadius(radius - 0)
+                .innerRadius(radius - 0);
+
+            let arc = d3.arc()
+                .outerRadius(radius - 0)
+                .innerRadius(10);
+
+        } else {
+
+            let labelArc = d3.arc()
+                .outerRadius(radius - 40)
+                .innerRadius(radius - 40);
+
+            let arc = d3.arc()
+                .outerRadius(radius - 10)
+                .innerRadius(30);
+        }
 
         svg.arcPath
             .attr("d", arc);
