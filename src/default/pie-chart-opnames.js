@@ -1,4 +1,4 @@
-var pieChartHerkomst = function(element,smallMultiple) {
+var pieChartOpnames = function(element,smallMultiple) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -125,7 +125,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
                 .attr("class", "small-label")
                 .attr("dx", 200)
                 .attr("dy", (data.length * 20) + 2)
-                .text(json.filter( j => j['_category'] === filter)[0]['MELDING'])
+                .text(json.filter( j => j['_category'] === filter)[0]['OPNAMES'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");

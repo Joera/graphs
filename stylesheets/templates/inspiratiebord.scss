@@ -134,6 +134,16 @@
       }
     }
 
+    section#opnames {
+
+      grid-column: 5 / span 1;
+      grid-row: 6;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
 
     section#map {
 
