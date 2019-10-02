@@ -1,4 +1,4 @@
-var aos_meldingen = function(element,smallMultiple) {
+var aosMeldingen = function(element,smallMultiple) {
 
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
