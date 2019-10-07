@@ -22,6 +22,8 @@ var thousands = function(number) {
 
 var convertToCurrency = function(number) {
 
+    number = Math.ceil(number);
+
     return number.toLocaleString('nl-NL', {style: 'currency', currency: 'EUR', minimumFractionDigits: 0 });
 }
 
