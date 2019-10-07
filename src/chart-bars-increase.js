@@ -105,7 +105,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         //     barWidth = 16;
         // }
 
-        let minValue = (d3.max(dataArray, d => d[property]) > 20000) ? config.minValue : 900;
+        let minValue = (d3.max(dataArray, d => d[property]) > 20000) ? config.minValue : 0;
 
         svg.layers.data.append("defs").append("clipPath")
             .attr("id", "clip")
