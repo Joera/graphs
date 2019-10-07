@@ -90,6 +90,13 @@ var pieChartOpnames = function(element,smallMultiple) {
 
             }
 
+            if (window.innerWidth < 480) {
+
+                legendX = 120;
+                legendY = 110;
+
+            }
+
 
 
             // if (window.innerWidth < 640) {
