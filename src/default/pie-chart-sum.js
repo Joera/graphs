@@ -98,8 +98,9 @@ var pieChartSum = function(element,smallMultiple) {
 
             if (window.innerWidth < 480) {
 
-                legendX = 120;
+                legendX = 88;
                 legendY = 110;
+                legendWidth = 250;
 
             }
 
