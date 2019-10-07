@@ -81,6 +81,7 @@ var pieChartSum = function(element,smallMultiple) {
 
             let legendX = 360;
             let legendY = 180;
+            let legendWidth = smallMultiple ? 200 : 260
 
             if(smallMultiple) {
 
@@ -125,7 +126,7 @@ var pieChartSum = function(element,smallMultiple) {
 
                     svg.layers.legend.append("text")
                         .attr("class", "small-label")
-                        .attr("dx", 260)
+                        .attr("dx", legendWidth)
                         .attr("dy", (i * 20) + 2)
                         .text(convertToCurrency(d['totaal']))
                         .attr("width", dimensions.containerWidth)
@@ -139,7 +140,7 @@ var pieChartSum = function(element,smallMultiple) {
                 .attr("class", "small-label")
                 .attr("y", ((data.length - 1) * 20) + 8)
                 .attr("height",.5)
-                .attr("width",260)
+                .attr("width",legendWidth)
                 .style("opacity", 1)
                 .style("fill","black");
 
@@ -152,7 +153,7 @@ var pieChartSum = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dx", 260)
+                .attr("dx", legendWidth)
                 .attr("dy", (data.length * 20) + 2)
                 .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
                 .attr("width",dimensions.containerWidth)
