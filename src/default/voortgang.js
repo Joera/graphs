@@ -44,7 +44,7 @@ var voortgang = function(element,smallMultiple) {
     chartAxis.drawXAxis();
     chartAxis.drawYAxis();
 
-    let url = 'https://tcmg.publikaan.nl/api/data';
+    let url = 'https://tcmg-hub.publikaan.nl/api/data';
 
     d3.json(url, function(error, json) {
         if (error) throw error;

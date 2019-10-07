@@ -32,7 +32,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
 
     let chartPie = ChartPie(config,svg,functions);
 
-    let url = 'https://tcmg.publikaan.nl/api/gemeentes';
+    let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
 
     d3.json(url, function(error, json) {
 

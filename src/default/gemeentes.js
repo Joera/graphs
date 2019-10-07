@@ -41,7 +41,7 @@ var gemeentes = function(element) {
 
         let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
 
-        let url = 'https://tcmg.publikaan.nl/api/gemeentes';
+        let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
 
         d3.json(url, function(error, json) {
             if (error) throw error;

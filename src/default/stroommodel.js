@@ -4,7 +4,7 @@ var stroommodel = function(element) {
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
     let colours = ['green','orange','blue'];
-    let url = "https://tcmg.publikaan.nl/api/flowchart?week=recent";
+    let url = "https://tcmg-hub.publikaan.nl/api/flowchart?week=recent";
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();

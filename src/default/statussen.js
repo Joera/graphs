@@ -146,7 +146,7 @@ var statussen  = function (element,smallMultiple) {
         legend(data);
     }
 
-    url = "https://tcmg.publikaan.nl/api/gemeentes";
+    url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
 
     d3.json(url, function (error, json) {
         if (error) throw error;
