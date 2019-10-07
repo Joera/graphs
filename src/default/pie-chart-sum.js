@@ -88,9 +88,9 @@ var pieChartSum = function(element,smallMultiple) {
                 legendY = 30;
             }
 
-            if (window.innerWidth < 640) {
+            if (window.innerWidth < 660) {
 
-                legendX = 300;
+                legendX = 260;
                 legendY = 120;
 
             }
@@ -132,7 +132,7 @@ var pieChartSum = function(element,smallMultiple) {
                 .attr("class", "small-label")
                 .attr("y", ((data.length - 1) * 20) + 8)
                 .attr("height",.5)
-                .attr("width",200)
+                .attr("width",260)
                 .style("opacity", 1)
                 .style("fill","black");
 
