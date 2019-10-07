@@ -36,7 +36,7 @@ var bedragen = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
 
@@ -50,8 +50,6 @@ var bedragen = function(element) {
     d3.json(url, function(error, json) {
 
         function prepareData(json,filter) {
-
-            console.log(json);
 
             json = json.filter( j => j['_category'] === filter)[0];
 

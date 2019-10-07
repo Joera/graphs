@@ -1,28 +1,39 @@
-let ChartXScale = function ChartXScale(config,dimensions,scale) {
+class ChartXScale {
 
-    let set = function set(data) {
+    constructor(config,dimensions,scale) {
 
-        let endDate = new Date();
-
-        scale.time = d3.scaleTime()
-            .domain([
-                d3.min(data, d => new Date(d[config.xParameter])),  //
-                d3.max(data, d => new Date(d[config.xParameter])),
-            ]);
-
-        scale.band = d3.scaleBand()
-            // what is domain when working with a stack?
-            .domain(data.map(d => d[config.xParameter]))
-            .paddingInner(config.paddingInner)
-            .paddingOuter(config.paddingOuter)
-            .align([0.5])
-        ;
-
-        return scale;
+        this.config = config;
+        this.dimensions = dimensions;
+        this.scale = scale;
+        this.data = false;
     }
 
 
-    let reset = function reset(dimensions,newScale) {
+    set(data) {
+
+        this.data = data;
+        let self = this;
+        let endDate = new Date();
+
+        this.scale.time = d3.scaleTime()
+            .domain([
+                d3.min(data, d => new Date(d[self.config.xParameter])),  //
+                d3.max(data, d => new Date(d[self.config.xParameter])),
+            ]);
+
+        this.scale.band = d3.scaleBand()
+            // what is domain when working with a stack?
+            .domain(data.map(d => d[self.config.xParameter]))
+            .paddingInner(self.config.paddingInner)
+            .paddingOuter(self.config.paddingOuter)
+            .align([0.5])
+        ;
+
+        return this.scale;
+    }
+
+
+    reset(dimensions,newScale) {
 
         newScale.time
             .range([0, dimensions.width]);
@@ -32,12 +43,6 @@ let ChartXScale = function ChartXScale(config,dimensions,scale) {
             .range([0, dimensions.width])
 
         return newScale;
-    }
-
-
-    return {
-        set : set,
-        reset : reset,
     }
 }
 

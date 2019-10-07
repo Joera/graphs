@@ -1,4 +1,4 @@
-var opnames = function(element) {
+var opnames = function(element,smallMultiple) {
 
     let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
@@ -12,12 +12,12 @@ var opnames = function(element) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = 0;
-    config.margin.bottom = 0;
-    config.margin.left = 30;
+    config.margin.top = 0
+    config.margin.bottom = 30;
+    config.margin.left = 0;
     config.margin.right = 0;
-    config.padding.top = 30;
-    config.padding.bottom = 30;
+    config.padding.top = smallMultiple ? 15 : 30;
+    config.padding.bottom = smallMultiple ? 30 : 45;
     config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
@@ -32,8 +32,8 @@ var opnames = function(element) {
     config.yParameter = 'opnames';
     // config.minWidth = 460;
     //
-    config.paddingInner = 3;
-    config.paddingOuter = 6;
+    config.paddingInner = 0;
+    config.paddingOuter = 0;
 
     config.noTicksYAxis = true;
 
@@ -55,7 +55,7 @@ var opnames = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
     let chartStackedBars = ChartStackedBars(config,svg);
@@ -76,7 +76,7 @@ var opnames = function(element) {
         } else if (window.innerWidth < 1200) {
             data = data.slice(data.length - 10,data.length);
         } else {
-            data = data.slice(data.length - 20,data.length);
+            data = data.slice(data.length - 24,data.length);
         }
 
         let propertyArray = ['schadeopnames'];
@@ -115,7 +115,7 @@ var opnames = function(element) {
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
             chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
-            chartStackedBars.redraw(dimensions,xScale,yScale,colours);
+            chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
 
         }
 

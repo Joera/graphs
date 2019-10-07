@@ -8,7 +8,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         // kun je dit meegeven als conditional
 
         if(config.minValue) {
-            minValue = (d3.max(data, d => d[property]) > 20000) ? config.minValue : 900;
+            minValue = d3.min(data, d => d[property]) *.75;
         } else {
             minValue = 0; //
         }

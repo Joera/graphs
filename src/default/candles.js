@@ -1,4 +1,4 @@
-var candles = function(element) {
+var candles = function(element,smallMultiple) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -10,10 +10,10 @@ var candles = function(element) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = 0;
+    config.margin.bottom = 30;
     config.margin.left = 30;
     config.margin.right = 0;
-    config.padding.top = 30;
+    config.padding.top = smallMultiple? 15 : 30;
     config.padding.bottom = 30;
     config.padding.left = 30;
     config.padding.right = 30;
@@ -34,7 +34,7 @@ var candles = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
     let chartLine = ChartLine(config,svg,functions,dimensions);

@@ -1,0 +1,158 @@
+#inspiratiebord {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .tick text, .small-label {
+    font-size: .6rem;
+  }
+
+  main {
+
+    display: grid;
+    grid-template-columns: auto 12rem repeat(2, 20rem) repeat(2, 16rem) auto;
+    grid-template-rows: 6rem 12rem 14rem repeat(4, 12rem);
+    grid-gap: 1rem;
+    justify-content: center;
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    aside {
+      grid-column: 2;
+      grid-row: 2 / span 4
+    }
+
+    section .container {
+
+      height: 100%;
+    }
+
+    section#bedragen {
+
+      grid-column: 3;
+      grid-row: 2;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#verdeling {
+
+      grid-column: 4;
+      grid-row: 2;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#schademeldingen {
+
+      grid-column: 3;
+      grid-row: 4;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#aosmeldingen {
+
+      grid-column: 4;
+      grid-row: 4;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#status-actueel {
+
+      grid-column: 3;
+      grid-row: 3;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#besluiten {
+
+      grid-column: 3 / span 2;
+      grid-row: 5;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#voortgang {
+
+      grid-column: 5 / span 2;
+      grid-row: 4;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#candles {
+
+      grid-column: 5 / span 2;
+      grid-row: 5;
+
+      svg {
+        overflow: visible;
+
+        path.line {
+          fill: transparent;
+        }
+      }
+    }
+
+    section#som {
+
+      grid-column: 3 / span 1;
+      grid-row: 6;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#herkomst {
+
+      grid-column: 4 / span 1;
+      grid-row: 6;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+    section#opnames {
+
+      grid-column: 5 / span 1;
+      grid-row: 6;
+
+      svg {
+        overflow: visible;
+      }
+    }
+
+
+    section#map {
+
+      grid-column: 5 / span 2;
+      grid-row: 2 / span 2;
+
+      .map-input-container svg {
+        margin: -300px 0 0 0;
+      }
+    }
+  }
+}

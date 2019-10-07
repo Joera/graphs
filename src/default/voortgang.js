@@ -1,4 +1,4 @@
-var voortgang = function(element) {
+var voortgang = function(element,smallMultiple) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -13,7 +13,7 @@ var voortgang = function(element) {
     config.margin.bottom = 0;
     config.margin.left = 30;
     config.margin.right = 0;
-    config.padding.top = 30;
+    config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
     config.padding.left = 30;
     config.padding.right = 0;
@@ -36,7 +36,7 @@ var voortgang = function(element) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
     let chartStackedArea = ChartStackedArea(config,svg,functions);

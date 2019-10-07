@@ -34,14 +34,24 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         ;
 
-        svg.difference = svg.layers.data.selectAll(".diff")
+        // svg.difference = svg.layers.data.selectAll(".diff")
+        //     .data(data);
+        //
+        // svg.difference.exit().remove()
+        //
+        // svg.differenceEnter = svg.difference
+        //     .enter().append("rect")
+        //     .attr("class", "diff blue")
+        // ;
+
+        svg.differenceCircle = svg.layers.data.selectAll(".diff")
             .data(data);
 
-        svg.difference.exit().remove()
+        svg.differenceCircle.exit().remove()
 
-        svg.differenceEnter = svg.difference
-            .enter().append("rect")
-            .attr("class", "diff blue")
+        svg.differenceCircleEnter = svg.differenceCircle
+            .enter().append("circle")
+            .attr("class", "diff white")
         ;
 
         svg.diffLabels = svg.layers.data.selectAll(".diffLabel")
@@ -52,11 +62,13 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.diffLabelsEnter = svg.diffLabels
             .enter()
             .append('text')
-            .attr('class','diffLabel small-label blue')
+            .attr('class','diffLabel small-label') // blue
             .attr('x', 0)
             .attr('dx', '0px')
-            .attr('dy', '-6px')
-            .style("text-anchor", "end")
+            .attr('dy', '0px')
+            .style("text-anchor", "middle")
+            // .attr('dy', '-6px')
+            // .style("text-anchor", "end")
 
         ;
 
@@ -67,7 +79,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr('class','dateLabel small-label')
             .attr('x', 0)
             .attr('dx', '0px')
-            .attr('dy', '22px')
+            .attr('dy', '15px')
             .style("text-anchor", "middle")
 
         ;
@@ -88,11 +100,16 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             barWidth = 48;
         }
 
+        if(config.dataArrayLength) {
+
+            barWidth = (dimensions.width / config.dataArrayLength) - 12;
+        }
+
         // if(window.innerWidth < 600) {
         //     barWidth = 16;
         // }
 
-        let minValue = (d3.max(dataArray, d => d[property]) > 20000) ? config.minValue : 900;
+        let minValue = d3.min(dataArray, d => d[property]) *.75;
 
         svg.layers.data.append("defs").append("clipPath")
             .attr("id", "clip")
@@ -121,7 +138,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .style("fill", function(d) {
                 if(property === 'aos_meldingen') {
                     return darkblue;
-                } else {
+                } else if(property === 'gegronde_aos') {
+                    return orange;
+                }
+                else {
                     return green;
                 }
             });
@@ -153,37 +173,51 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
-                    (yScale.linear(d[property]) - yOffset)
+                    (yScale.linear(d[property]) - yOffset + (barWidth / 4))
                     + ')';
             })
             .attr('fill-opacity', 1);
 
 
 
-        svg.difference
-            .merge(svg.differenceEnter)
-            .attr("y", function(d) { return yScale.linear(d[property]); })
-            .attr("height",0)
-            .attr("x", function(d) {
+        // svg.difference
+        //     .merge(svg.differenceEnter)
+        //     .attr("y", function(d) { return yScale.linear(d[property]); })
+        //     .attr("height",0)
+        //     .attr("x", function(d) {
+        //         return xScale.band(d[config.xParameter]) - 14;
+        //     })
+        //     .attr("width", function(d) {
+        //         return 10;
+        //     })
+        //     .attr("clip-path", "url(#clip)")
+        //     .transition()
+        //     .delay(250)
+        //     .duration(250)
+        //     .attr("height", function(d) {
+        //         return dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue);
+        //     })
+        // ;
 
-                return xScale.band(d[config.xParameter]) - 14;
+        svg.differenceCircle
+            .merge(svg.differenceCircleEnter)
+            .attr("cy", function(d) { return yScale.linear(d[property]) + (barWidth / 2); })
+            .attr("cx", function(d) {
+                return xScale.band(d[config.xParameter]) + (barWidth / 2);
             })
-            .attr("width", function(d) {
-
-                return 10;
-            })
-            .attr("clip-path", "url(#clip)")
+            .attr("r", (barWidth / 2) - 8)
+            .attr('fill-opacity', 0)
+            .style('fill','white')
             .transition()
             .delay(250)
             .duration(250)
-            .attr("height", function(d) {
-
-                return dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue);
-            })
-        ;
+            .attr('fill-opacity', 1);
 
 
-        svg.difference.exit().remove();
+
+
+
+        // svg.difference.exit().remove();
 
         svg.diffLabels
             .merge(svg.diffLabelsEnter)
@@ -191,12 +225,18 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 return '+' + thousands(d['nieuwe_' + property]);
             })
+            // .attr('transform', function(d) {
+            //
+            //     yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue)) + 11;
+            //
+            //     return 'translate(' + (xScale.band(d[config.xParameter]) - 20) + ',' +
+            //         (yScale.linear(d[property]) + yOffset)
+            //         + ')';
+            // })
             .attr('transform', function(d) {
 
-                yOffset = .5 * (dimensions.height - yScale.linear(d['nieuwe_' + property] + minValue)) + 11;
-
-                return 'translate(' + (xScale.band(d[config.xParameter]) - 20) + ',' +
-                    (yScale.linear(d[property]) + yOffset)
+                return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2)) + ',' +
+                    (yScale.linear(d[property]) + (barWidth / 2) + 4)
                     + ')';
             })
             .attr('fill-opacity', 0)

@@ -1,4 +1,4 @@
-var statussen  = function (element,filter) {
+var statussen  = function (element,smallMultiple) {
 
 
     let municipalitySelect = document.querySelector('select.municipalities');
@@ -15,10 +15,10 @@ var statussen  = function (element,filter) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
+    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 75 : 0;
     config.margin.left = 30;
     config.margin.right = 0;
-    config.padding.top = 30;
+    config.padding.top = smallMultiple? 15 : 30;
     config.padding.bottom = 50;
     config.padding.left = 30;
     config.padding.right = 0;
@@ -33,8 +33,8 @@ var statussen  = function (element,filter) {
     // x-axis
     // config.minWidth = 460;
     config.xParameter = 'status';
-    config.paddingInner = [0.5];
-    config.paddingOuter = [0.25];
+    config.paddingInner = [0.2];
+    config.paddingOuter = [0.2];
 
     let colours = ['orange','green','darkblue','blue','green'];
 
@@ -44,7 +44,7 @@ var statussen  = function (element,filter) {
 
     // create svg elements without data
     let chartSVG = ChartSVG(element, config, dimensions, svg);
-    let chartXScale = ChartXScale(config,dimensions,xScale);
+    let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config, svg);
     let chartBar = ChartBar(config, svg);
@@ -54,7 +54,6 @@ var statussen  = function (element,filter) {
     chartAxis.drawYAxis();
 
     function prepareData(json,muni) {
-
 
         json = json.filter( j => j['_category'] === muni)[0];
 
@@ -92,13 +91,12 @@ var statussen  = function (element,filter) {
 
         });
 
-
         return data;
     }
 
     function legend(data) {
 
-        if (window.innerWidth < 640) {
+        if (window.innerWidth < 640 || smallMultiple) {
 
             data.forEach( (d,i) => {
 
@@ -106,7 +104,7 @@ var statussen  = function (element,filter) {
 
                 svg.layers.legend.append("text")
                     .attr("class", "small-label")
-                    .attr("dy", i * 20)
+                    .attr("dy", i * 16)
                     .text(text)
                     .attr("width",dimensions.containerWidth)
                     .style("opacity", 1);
@@ -133,7 +131,7 @@ var statussen  = function (element,filter) {
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
-        chartAxis.redrawXBandAxis(dimensions, xScale, axes, true);
+        chartAxis.redrawXBandAxis(dimensions, xScale, axes, true, smallMultiple);
         chartAxis.redrawYAxis(yScale, axes);
         // redraw data
         chartBar.redraw(dimensions, xScale,yScale);

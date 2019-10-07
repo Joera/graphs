@@ -6,13 +6,13 @@ let ChartAxis = function ChartAxis(config,svg) {
             .attr('class', 'x-axis');
     }
 
-    let redrawXBandAxis = function redrawXAxis(dimensions,xScale,axes,alternateTicks) {
+    let redrawXBandAxis = function redrawXAxis(dimensions,xScale,axes,alternateTicks,smallMultiple) {
 
         axes.xBand = d3.axisBottom(xScale.band);
 
         axes.xBand
             .tickFormat( (d,i) => {
-                return (window.innerWidth < 640) ? (i + 1) : d;
+                return (window.innerWidth < 640 || smallMultiple) ? (i + 1) : d;
             });
 
         svg.xAxis
@@ -22,7 +22,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         if (alternateTicks) {
 
             let alternate_text = false;
-            if(window.innerWidth > 640) {
+            if(window.innerWidth > 640 && (!smallMultiple || smallMultiple === undefined)) {
 
                 d3.selectAll("g.x-axis g.tick text")
                     .attr("y", function () {

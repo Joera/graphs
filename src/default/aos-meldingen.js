@@ -1,4 +1,4 @@
-var meldingen = function(element,smallMultiple) {
+var aosMeldingen = function(element,smallMultiple) {
 
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
@@ -24,7 +24,7 @@ var meldingen = function(element,smallMultiple) {
 
   //  config.yParameter = 'meldingen';  // is being set in type function
     // config.fixedHeight = 160;
-    config.minValue = 26000;
+    config.minValue = 30000;
   //  config.maxValue = 30000;
 
 
@@ -68,11 +68,11 @@ var meldingen = function(element,smallMultiple) {
        if(config.dataArrayLength) {
            data = data.slice(data.length - config.dataArrayLength,data.length);
        } else if (window.innerWidth < 600) {
-            data = data.slice(data.length - 5,data.length);
+            data = data.slice(data.length - 3,data.length);
         } else if (window.innerWidth < 1200) {
-            data = data.slice(data.length - 9,data.length);
+            data = data.slice(data.length - 6,data.length);
         } else {
-            data = data.slice(data.length - 16,data.length);
+            data = data.slice(data.length - 12,data.length);
         }
 
         function redraw(property) {
@@ -99,7 +99,7 @@ var meldingen = function(element,smallMultiple) {
             redraw(property);
         }
 
-        let property = 'schademeldingen';
+        let property = 'aos_meldingen';
         update(property);
 
         window.addEventListener("resize", function() { redraw(property) }, false);

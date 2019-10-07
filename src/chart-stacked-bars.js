@@ -56,7 +56,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr('class','dateLabel small-label')
             .attr('x', 0)
             .attr('dx', config.padding.left)
-            .attr('dy', '52px')
+            .attr('dy', '30px')
             .style("text-anchor", "middle")
             .attr('fill-opacity', 0)
             .transition()
@@ -68,7 +68,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,colours) {
+    let redraw = function redraw(dimensions,xScale,yScale,colours,smallMultiple) {
 
         let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
@@ -78,9 +78,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             barWidth = 48;
         }
 
-        // if(window.innerWidth < 600) {
-        //     barWidth = 12;
-        // }
+        if(smallMultiple) {
+            barWidth = 30;
+        }
 
         svg.defs
             .attr("width", dimensions.width)
@@ -101,11 +101,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.barMerged = svg.barEnter
             .merge(svg.bar)
             .attr("x", function(d) {
-                if(config.xScale === 'time') {
-                    return xScale.xTime(new Date(d.data[config.xParameter]));
-                } else {
-                    return xScale.band(d.data[config.xParameter]);
-                }
+                return xScale.band(d.data[config.xParameter]);
             })
             .attr("width", function(d) {
                 if(config.xScale === 'time') {
@@ -114,7 +110,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     return barWidth; //scales.band.bandwidth();
                 }
             })
-            .attr("clip-path", "url(#clip)")
+            // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
             .attr("y", function(d) { return yScale.stacked(d[1]); })
@@ -158,9 +154,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr('transform', function(d) {
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2))  + ',' +
-                    dimensions.height
-                    + ')';
+                let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
+
+                return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2))  + ','
+                    + yOffset + ')';
             })
             ;
 

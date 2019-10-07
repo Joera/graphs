@@ -31,7 +31,17 @@ ul.radios {
     }
 
     input:checked + label {
-        background: $green;
+       background: $green;
+       color: white;
+     }
+
+    input[data-active-colour=darkblue]:checked + label {
+       background: $darkblue;
+       color: white;
+     }
+
+    input[data-active-colour=orange]:checked + label {
+      background: $orange;
       color: white;
     }
   }
