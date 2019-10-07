@@ -18,8 +18,7 @@
     }
   }
 
-  div.container:not(.map-input-container) {
-    width: 100vw;
+  div.container:not(.map-input-container), div.container:not(.pie-container) {
     height: calc(100vh - 80px);
 
     @media (min-width: $breakpoint-sm) {
