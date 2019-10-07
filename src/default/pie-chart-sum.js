@@ -43,7 +43,7 @@ var pieChartSum = function(element,smallMultiple) {
             let data = [];
 
             data.push({
-                status: "Vergoeding mijnbouwschade",
+                status: "Mijnbouwschade",
                 totaal: json['BEDRAG_SCHADEBEDRAG']
 
             });
@@ -81,7 +81,7 @@ var pieChartSum = function(element,smallMultiple) {
 
             let legendX = 360;
             let legendY = 180;
-            let legendWidth = smallMultiple ? 200 : 260
+            let legendWidth = 200;
 
             if(smallMultiple) {
 
@@ -98,9 +98,8 @@ var pieChartSum = function(element,smallMultiple) {
 
             if (window.innerWidth < 480) {
 
-                legendX = 88;
+                legendX = 120;
                 legendY = 110;
-                legendWidth = 250;
 
             }
 

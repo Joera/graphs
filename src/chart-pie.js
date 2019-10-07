@@ -41,7 +41,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         if(smallMultiple || window.innerWidth < 480) {
 
-            radius = 50;
+            radius = 48;
 
             svg.layers.data
                 .attr("transform", "translate(" + radius + "," + ((dimensions.containerHeight / 2) - (radius / 2)) + ")");
