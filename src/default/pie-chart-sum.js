@@ -118,7 +118,7 @@ var pieChartSum = function(element,smallMultiple) {
 
                     svg.layers.legend.append("text")
                         .attr("class", "small-label")
-                        .attr("dx", 200)
+                        .attr("dx", 240)
                         .attr("dy", (i * 20) + 2)
                         .text(convertToCurrency(d['totaal']))
                         .attr("width", dimensions.containerWidth)
