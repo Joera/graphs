@@ -134,7 +134,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .style("fill", function(d) {
                 if(property === 'aos_meldingen') {
                     return darkblue;
-                } else {
+                } else if(property === 'gegronde_aos') {
+                    return orange;
+                }
+                else {
                     return green;
                 }
             });
