@@ -74,10 +74,28 @@ var pieChartOpnames = function(element,smallMultiple) {
 
         function legend(data,filter) {
 
+            let legendX = 360;
+            let legendY = 180;
+
+            if(smallMultiple) {
+
+               legendX = 110;
+               legendY = 30;
+            }
+
+            if (window.innerWidth < 640) {
+
+                let legendX = 300;
+                let legendY = 120;
+
+            }
+
+
+
             // if (window.innerWidth < 640) {
 
             svg.layers.legend
-                .attr('transform', 'translate(' + 110 + ',' + 30 + ')');
+                .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
 
                 data.forEach( (d,i) => {
 
