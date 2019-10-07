@@ -118,7 +118,7 @@ var pieChartSum = function(element,smallMultiple) {
 
                     svg.layers.legend.append("text")
                         .attr("class", "small-label")
-                        .attr("dx", 240)
+                        .attr("dx", 260)
                         .attr("dy", (i * 20) + 2)
                         .text(convertToCurrency(d['totaal']))
                         .attr("width", dimensions.containerWidth)
@@ -145,7 +145,7 @@ var pieChartSum = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dx", 240)
+                .attr("dx", 260)
                 .attr("dy", (data.length * 20) + 2)
                 .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
                 .attr("width",dimensions.containerWidth)
