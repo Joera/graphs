@@ -61,12 +61,12 @@ var pieChartOpnames = function(element,smallMultiple) {
             });
 
             data.push({
-                status: "regulier",
+                status: "Regulier",
                 totaal: json['OPNAMES_REGULIER'] + json['OPNAMES_SMR']
 
             });
 
-          
+
 
 
             return data;
