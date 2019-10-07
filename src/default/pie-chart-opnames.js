@@ -55,7 +55,7 @@ var pieChartOpnames = function(element,smallMultiple) {
             });
 
             data.push({
-                status: "Woonncorporaties",
+                status: "Wooncorporaties",
                 totaal: json['OPNAMES_WOCO']
 
             });
@@ -65,10 +65,7 @@ var pieChartOpnames = function(element,smallMultiple) {
                 totaal: json['OPNAMES_REGULIER'] + json['OPNAMES_SMR']
 
             });
-
-
-
-
+            
             return data;
         }
 
