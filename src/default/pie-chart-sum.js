@@ -186,5 +186,11 @@ var pieChartSum = function(element,smallMultiple) {
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
+
+        if(municipalitySelect != null) {
+            municipalitySelect.addEventListener("change", function () {
+                run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
+            });
+        }
     });
 }
