@@ -72,7 +72,7 @@ var opnames = function(element,smallMultiple) {
         let data = json.reverse();
 
         if (window.innerWidth < 600) {
-            data = data.slice(data.length - 4,data.length);
+            data = data.slice(data.length - 5,data.length);
         } else if (window.innerWidth < 1200) {
             data = data.slice(data.length - 10,data.length);
         } else {
