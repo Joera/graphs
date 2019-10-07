@@ -18,7 +18,7 @@
     }
   }
 
-  div.container:not(.map-input-container), div.container:not(.pie-container) {
+  div.container:not(.no-bottom-container) {
     height: calc(100vh - 80px);
 
     @media (min-width: $breakpoint-sm) {
@@ -29,7 +29,6 @@
       @media (max-width: $breakpoint-sm) {
         height: calc(100vh - 170px);
       }
-
     }
   }
 }
