@@ -72,7 +72,7 @@ var pieChartOpnames = function(element,smallMultiple) {
         function legend(data,filter) {
 
             let legendX = 360;
-            let legendY = 180;
+            let legendY = 120;
 
             if(smallMultiple) {
 
