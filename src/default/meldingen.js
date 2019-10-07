@@ -68,11 +68,11 @@ var meldingen = function(element,smallMultiple) {
        if(config.dataArrayLength) {
            data = data.slice(data.length - config.dataArrayLength,data.length);
        } else if (window.innerWidth < 600) {
-            data = data.slice(data.length - 3,data.length);
+            data = data.slice(data.length - 5,data.length);
         } else if (window.innerWidth < 1200) {
-            data = data.slice(data.length - 6,data.length);
+            data = data.slice(data.length - 9,data.length);
         } else {
-            data = data.slice(data.length - 12,data.length);
+            data = data.slice(data.length - 16,data.length);
         }
 
         function redraw(property) {
