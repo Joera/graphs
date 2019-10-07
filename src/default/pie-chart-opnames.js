@@ -85,8 +85,8 @@ var pieChartOpnames = function(element,smallMultiple) {
 
             if (window.innerWidth < 640) {
 
-                let legendX = 300;
-                let legendY = 120;
+                legendX = 300;
+                legendY = 120;
 
             }
 
