@@ -25,9 +25,15 @@ ul.radios {
     }
 
     label {
+
       display: block;
-      padding: 3px .5rem 3px .5rem;
+      padding: 3px .125rem;
       cursor: pointer;
+
+
+      @media (min-width: $breakpoint-xxsm) {
+        padding: 3px .5rem 3px .5rem;
+      }
     }
 
     input:checked + label {

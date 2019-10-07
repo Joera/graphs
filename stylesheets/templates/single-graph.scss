@@ -38,3 +38,12 @@
 iframe {
   border: none;
 }
+
+
+#schademeldingen .selector  {
+
+  @media (max-width: $breakpoint-xxsm) {
+    margin-left: 0;
+    width: 100%;
+  }
+}
