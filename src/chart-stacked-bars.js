@@ -155,7 +155,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr('transform', function(d) {
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2))  + ',' +
-                    dimensions.height
+                    dimensions.height + 15
                     + ')';
             })
             ;
