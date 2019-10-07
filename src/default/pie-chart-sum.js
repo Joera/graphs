@@ -95,6 +95,13 @@ var pieChartSum = function(element,smallMultiple) {
 
             }
 
+            if (window.innerWidth < 480) {
+
+                legendX = 260;
+                legendY = 180;
+
+            }
+
 
             svg.layers.legend
                 .attr('transform', 'translate(' + legendX + ',' + legendY + ')');

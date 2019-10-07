@@ -39,7 +39,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         let radius, arc, labelArc;
 
-        if(smallMultiple) {
+        if(smallMultiple || window.innerWidth < 480) {
 
             radius = 50;
 
