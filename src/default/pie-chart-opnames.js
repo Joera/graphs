@@ -55,6 +55,12 @@ var pieChartOpnames = function(element,smallMultiple) {
             });
 
             data.push({
+                status: "Opnames stuwmeerregeling",
+                totaal: json['OPNAMES_SMR']
+
+            });
+
+            data.push({
                 status: "Woonncorporaties",
                 totaal: json['OPNAMES_WOCO']
 
