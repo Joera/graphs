@@ -54,11 +54,11 @@ var pieChartSum = function(element,smallMultiple) {
 
             });
 
-            data.push({
-                status: "Vergoeding overige schades",
-                totaal: json['BEDRAG_GEVOLGSCHADE']
-
-            });
+            // data.push({
+            //     status: "Vergoeding overige schades",
+            //     totaal: json['BEDRAG_GEVOLGSCHADE']
+            //
+            // });
 
             data.push({
                 status: "Bijkomende kosten",
@@ -145,7 +145,7 @@ var pieChartSum = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dx", 200)
+                .attr("dx", 240)
                 .attr("dy", (data.length * 20) + 2)
                 .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
                 .attr("width",dimensions.containerWidth)
