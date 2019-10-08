@@ -110,6 +110,10 @@ var pieChartSum = function(element,smallMultiple) {
             svg.layers.legend
                 .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
 
+
+                svg.layers.legend.selectAll('*')
+                    .remove();
+
                 data.forEach( (d,i) => {
 
                     svg.layers.legend.append("rect")
@@ -181,7 +185,6 @@ var pieChartSum = function(element,smallMultiple) {
             let data = prepareData(json,filter);
             draw(data);
             redraw();
-          //  totalElement.innerText = convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']);
             legend(data,filter);
 
         }
