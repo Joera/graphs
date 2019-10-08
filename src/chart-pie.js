@@ -15,26 +15,26 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .sort(null)
             .value(function(d) { return d['totaal']; });
 
-        svg.arcGroup = svg.layers.data.selectAll(".arc")
+        svg.arcGroup = svg.layers.data.selectAll(".arc_group")
             .data(pie(data))
 
         svg.arcGroupEnter = svg.arcGroup
             .enter()
             .append("g")
-            .attr("class", "arc");
+            .attr("class", "arc_group");
 
         svg.arcGroup.exit().remove();
 
-        svg.arcPath = svg.arcGroup.merge(svg.arcGroupEnter).selectAll("path")
+        svg.arcPath = svg.arcGroup.merge(svg.arcGroupEnter).selectAll(".arc")
             .data(function(d) { return d; });
-
-        svg.arcPath.exit().remove();
 
         svg.arcPathEnter = svg.arcPath
             .enter()
             .append("path")
             .attr("class","arc")
             .style("fill", function(d,i) { return config.colours(i); });
+
+        svg.arcPath.exit().remove();
 
 
     }
