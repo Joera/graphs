@@ -81,15 +81,11 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         svg.arcGroup
             .merge(svg.arcGroupEnter);
 
-        svg.arcPath
-            .merge(svg.arcPathEnter)
-            // .attr("d", arc);
-            .transition(500)
+        svg.arcPath = svg.arcGroup
+            .append("path")
+            .attr("class","arc")
+            .style("fill", function(d,i) { return config.colours(i); })
             .attr("d", arc);
-
-        // svg.arcLabel
-        //     .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
-
     }
 
     return {
