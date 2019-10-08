@@ -103,6 +103,9 @@ var pieChartOpnames = function(element,smallMultiple) {
             svg.layers.legend
                 .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
 
+                svg.layers.legend.selectAll('*')
+                    .remove();
+
                 data.forEach( (d,i) => {
 
                     svg.layers.legend.append("rect")
