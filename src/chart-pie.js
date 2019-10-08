@@ -17,13 +17,21 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcGroup = svg.layers.data.selectAll(".arc")
             .data(pie(data))
-            .enter().append("g")
+
+        svg.arcGroupEnter = svg.arcGroup
+            .enter()
+            .append("g")
             .attr("class", "arc");
+
+        svg.arcGroup.exit().remove();
 
         svg.arcPath = svg.arcGroup
             .append("path")
             .attr("class","arc")
             .style("fill", function(d,i) { return config.colours(i); });
+
+
+
 
         // svg.arcLabel = svg.arcGroup
         //     .append("text")
@@ -73,6 +81,9 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
                 .outerRadius(radius - 10)
                 .innerRadius(30);
         }
+
+        svg.arcGroup
+            .merge(svg.arcGroupEnter);
 
         svg.arcPath
             .attr("d", arc);
