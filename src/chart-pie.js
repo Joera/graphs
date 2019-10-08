@@ -13,33 +13,42 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         let pie = d3.pie()
             .sort(null)
-            .value(function(d) { console.log(d.value); return d['value']; });
+            .value(function(d) { return d['value']; });
 
-        svg.arcGroup = svg.layers.data.selectAll(".arc_group")
-            .data(pie(data))
+        svg.arcs = svg.layers.data.selectAll(".arc")
+            .data(pie(data), function(d){ return d.data.status; });
 
-        svg.arcGroupEnter = svg.arcGroup
-            .enter()
-            .append("g")
-            .attr("class", "arc_group");
+        svg.arcs
+            .transition()
+            .duration(1500)
+            .attrTween("d", arcTween);
 
-        svg.arcGroup.exit().remove();
 
-        svg.arcPath = svg.arcGroup.merge(svg.arcGroupEnter).selectAll(".arc");
-            // .data(function(d) { return d; });
 
-        svg.arcPathEnter = svg.arcPath
-            .enter()
-            .append("path")
-            .attr("class","arc")
-            .style("fill", function(d,i) { return config.colours(i); });
-
-        svg.arcPath.exit().remove();
+        // svg.arcGroupEnter = svg.arcGroup
+        //     .enter()
+        //     .append("g")
+        //     .attr("class", "arc_group");
+        //
+        // svg.arcGroup.exit().remove();
+        //
+        // svg.arcs = svg.arcGroup.merge(svg.arcGroupEnter).selectAll(".arc");
+        //     // .data(function(d) { return d; });
+        //
+        // svg.arcPathEnter = svg.arcPath
+        //     .enter()
+        //     .append("path")
+        //     .attr("class","arc")
+        //     .style("fill", function(d,i) { return config.colours(i); });
+        //
+        // svg.arcPath.exit().remove();
 
 
     }
 
     let redraw = function redraw(dimensions,smallMultiple) {
+
+
 
         let radius, arc, labelArc;
 
@@ -78,18 +87,34 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
                 .innerRadius(30);
         }
 
-        svg.arcGroup
-            .merge(svg.arcGroupEnter);
+        // svg.arcGroup
+        //     .merge(svg.arcGroupEnter);
+        //
+        // svg.arcPath = svg.arcGroupEnter
+        //     .append("path")
+        //     .attr("class","arc")
+        //     .style("fill", function(d,i) { return config.colours(i); })
+        //     .attr("d", arc);
 
-        svg.arcPath = svg.arcGroupEnter
-            .append("path")
-            .attr("class","arc")
-            .style("fill", function(d,i) { return config.colours(i); })
-            .attr("d", arc);
+        svg.arcs.enter().append("path")
+            .attr("class", "arc")
+            .attr("fill", function(d, i) { return config.colours(i); })
+            .attr("d", arc)
+            .each(function(d) { this._current = d; });
+    }
+
+    arcTween = function(a) {
+        console.log(this._current);
+        var i = d3.interpolate(this._current, a);
+        this._current = i(0);
+        return function(t) {
+            return arc(i(t));
+        };
     }
 
     return {
         draw: draw,
-        redraw: redraw
+        redraw: redraw,
+        arcTween: arcTween
     }
 }
