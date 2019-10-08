@@ -1,5 +1,7 @@
 var pieChartOpnames = function(element,smallMultiple) {
 
+    let municipalitySelect = document.querySelector('select.municipalities');
+
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
