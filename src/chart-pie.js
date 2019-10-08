@@ -25,21 +25,17 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcGroup.exit().remove();
 
-        svg.arcPath = svg.arcGroupEnter
+        svg.arcPath = svg.arcGroup.merge(svg.arcGroupEnter).selectAll("path")
+            .data(function(d) { return d; });
+
+        svg.arcPath.exit().remove();
+
+        svg.arcPathEnter = svg.arcPath
+            .enter()
             .append("path")
             .attr("class","arc")
             .style("fill", function(d,i) { return config.colours(i); });
 
-
-
-
-        // svg.arcLabel = svg.arcGroup
-        //     .append("text")
-        //     .attr("class","small-label")
-        //     .attr("dy", ".35em")
-        //     .text( (d) => {  console.log(d); return d.data['status'] + ': ' + d.data['totaal']; })
-        //     .style("stroke","none")
-        //     .style("fill","black");
 
     }
 
@@ -86,6 +82,9 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .merge(svg.arcGroupEnter);
 
         svg.arcPath
+            .merge(svg.arcPathEnter)
+            // .attr("d", arc);
+            .transition(500)
             .attr("d", arc);
 
         // svg.arcLabel
