@@ -11,6 +11,15 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
     let draw = function draw(data) {
 
+        function arcTween(a) {
+            console.log(this._current);
+            var i = d3.interpolate(this._current, a);
+            this._current = i(0);
+            return function(t) {
+                return arc(i(t));
+            };
+        }
+
         let pie = d3.pie()
             .sort(null)
             .value(function(d) { return d['value']; });
