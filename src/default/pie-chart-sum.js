@@ -135,7 +135,7 @@ var pieChartSum = function(element,smallMultiple) {
                         .attr("class", "small-label")
                         .attr("dx", legendWidth)
                         .attr("dy", (i * 20) + 2)
-                        .text(convertToCurrency(d['totaal']))
+                        .text(convertToCurrency(d['value']))
                         .attr("width", dimensions.containerWidth)
                         .style("opacity", 1)
                         .style("text-anchor", "end");
