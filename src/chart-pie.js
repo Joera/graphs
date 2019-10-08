@@ -25,8 +25,8 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcGroup.exit().remove();
 
-        svg.arcPath = svg.arcGroup.merge(svg.arcGroupEnter).selectAll(".arc")
-            .data(function(d) { return d; });
+        svg.arcPath = svg.arcGroup.merge(svg.arcGroupEnter).selectAll(".arc");
+            // .data(function(d) { return d; });
 
         svg.arcPathEnter = svg.arcPath
             .enter()
