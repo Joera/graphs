@@ -13,7 +13,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         let pie = d3.pie()
             .sort(null)
-            .value(function(d) { return d['totaal']; });
+            .value(function(d) { console.log(d.value); return d['value']; });
 
         svg.arcGroup = svg.layers.data.selectAll(".arc_group")
             .data(pie(data))

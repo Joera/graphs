@@ -46,25 +46,25 @@ var pieChartOpnames = function(element,smallMultiple) {
 
             data.push({
                 status: "Aannemersvariant",
-                totaal: json['OPNAME_AANNEMERSVARIANT']
+                value: json['OPNAME_AANNEMERSVARIANT']
 
             });
 
             data.push({
                 status: "CVW 2000",
-                totaal: json['OPNAMES_CVW2000']
+                value: json['OPNAMES_CVW2000']
 
             });
 
             data.push({
                 status: "Wooncorporaties",
-                totaal: json['OPNAMES_WOCO']
+                value: json['OPNAMES_WOCO']
 
             });
 
             data.push({
                 status: "Regulier",
-                totaal: json['OPNAMES_REGULIER'] + json['OPNAMES_SMR']
+                value: json['OPNAMES_REGULIER'] + json['OPNAMES_SMR']
 
             });
             

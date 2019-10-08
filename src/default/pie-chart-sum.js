@@ -47,13 +47,13 @@ var pieChartSum = function(element,smallMultiple) {
 
             data.push({
                 status: "Mijnbouwschade",
-                totaal: json['BEDRAG_SCHADEBEDRAG']
+                value: json['BEDRAG_SCHADEBEDRAG']
 
             });
 
             data.push({
                 status: "Stuwmeerregeling",
-                totaal: json['BEDRAG_SMR']
+                value: json['BEDRAG_SMR']
 
             });
 
@@ -65,13 +65,13 @@ var pieChartSum = function(element,smallMultiple) {
 
             data.push({
                 status: "Bijkomende kosten",
-                totaal: json['BEDRAG_BIJKOMENDE_KOSTEN']
+                value: json['BEDRAG_BIJKOMENDE_KOSTEN']
 
             });
 
             data.push({
                 status: "Wettelijke rente",
-                totaal: json['BEDRAG_WETTELIJKE_RENTE']
+                value: json['BEDRAG_WETTELIJKE_RENTE']
 
             });
 
