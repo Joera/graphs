@@ -95,7 +95,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcs
             .transition()
-            .duration(1500)
+            .duration(500)
             .attrTween("d", arcTween);
 
         // svg.arcGroup
