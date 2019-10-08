@@ -81,7 +81,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         svg.arcGroup
             .merge(svg.arcGroupEnter);
 
-        svg.arcPath = svg.arcGroup
+        svg.arcPath = svg.arcGroupEnter
             .append("path")
             .attr("class","arc")
             .style("fill", function(d,i) { return config.colours(i); })
