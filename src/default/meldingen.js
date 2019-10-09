@@ -106,7 +106,6 @@ var meldingen = function(element,smallMultiple) {
 
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
-                console.log(radio.value);
                 update(radio.value);
                 // document.querySelector('h2').innerText = radio.value.replace('_',' ');
             },false)
