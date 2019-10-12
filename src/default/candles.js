@@ -52,7 +52,7 @@ var candles = function(element,smallMultiple) {
         let neededColumns = ['schademeldingen','afgehandeld','in_behandeling','nieuwe_schademeldingen','nieuwe_afgehandeld','_date'];
         let data = trimColumns(json,neededColumns);
 
-        data = hasValue(data,'schademeldingen');
+        data = hasValue(data,'nieuwe_schademeldingen');
 
         data = data.slice(0,data.length - 2);
 
