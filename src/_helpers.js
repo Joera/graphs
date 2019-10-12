@@ -14,6 +14,14 @@ var trimColumns =  function(json,neededColumns) {
     return json;
 };
 
+var hasValue = function(array,value) {
+
+    return array.filter( (i) =>{
+
+        return i[value] !== null;
+    })
+}
+
 
 var thousands = function(number) {
 

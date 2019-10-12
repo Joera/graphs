@@ -55,6 +55,8 @@ var voortgang = function(element,smallMultiple) {
 
         let data = trimColumns(json,neededColumns);
 
+        data = hasValue(data,'afgehandeld');
+
         functions.stack = d3.stack()
         // do not stack DATUM
             .keys(Object.keys(data[0]).slice(2,4));
