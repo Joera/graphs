@@ -28,7 +28,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
     config.xParameter = '_date';
 
-    let colours = ['orange','green'];
+    let colours = ['blue','green','orange'];
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);
