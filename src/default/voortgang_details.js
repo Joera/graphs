@@ -63,7 +63,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         let stackedData = functions.stack(data);
 
-        console.log(stackedData);
+        console.log(Object.keys(data[0]).slice(1,4));
 
         function draw(data) {
 
