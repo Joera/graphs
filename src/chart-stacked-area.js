@@ -15,7 +15,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
 
         svg.areas = svg.seriesEnter.merge(svg.series).selectAll(".flow")
-            .data(function(d) { return d; });
+            .data(function(d) { return stackedData; });
 
         svg.areas.exit().remove();
 
