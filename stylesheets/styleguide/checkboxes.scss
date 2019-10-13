@@ -75,4 +75,31 @@ li.checkbox {
     //color: black;
   }
 
+  input#MINDER_DAN_12_JAAR:checked + label {
+    background: $darkblue;
+    border: 1px solid $darkblue;
+    //color: black;
+  }
+
+  input#TUSSEN_12_EN_1_JAAR:checked + label {
+    background: $blue;
+    border: 1px solid $blue;
+    //color: black;
+  }
+
+  input#TUSSEN_1_EN_2_JAAR:checked + label {
+    background: $green;
+    border: 1px solid $green;
+    //color: black;
+  }
+
+  input#LANGER_DAN_2JAAR:checked + label {
+    background: $orange;
+    border: 1px solid $orange;
+    //color: black;
+  }
+
+
+
+
 }
