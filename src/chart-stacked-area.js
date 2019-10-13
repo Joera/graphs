@@ -17,23 +17,12 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr("class", (d) => { return "stackedGroup " + d.key });
 
 
-        svg.areas = svg.series.selectAll(".flow")
+        svg.areas = svg.seriesEnter.merge(svg.series).selectAll(".flow")
             .data(function(d) { return stackedData; });
 
         svg.areas.exit().remove();
 
-        svg.areasEnter = svg.series.selectAll(".flow")
-            .data(function(d) { return stackedData; });
-
-        svg.areas
-            .enter()
-            .append("path")
-            .attr('class', (d,i) => {
-                return 'flow '; // + colours[d.key];
-            })
-
-
-        svg.areasEnter
+        svg.areasEnter = svg.areas
             .enter()
             .append("path")
             .attr('class', (d,i) => {
