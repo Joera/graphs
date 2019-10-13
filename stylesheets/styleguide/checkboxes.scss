@@ -26,7 +26,7 @@ li.checkbox {
     border-radius: 5px;
   }
 
-  input:not(checked) + label {
+  input:not(:checked) + label {
     border: 1px solid $grey;
   }
 
