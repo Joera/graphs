@@ -60,7 +60,8 @@ var voortgangDetails = function(element,smallMultiple) {
 
         data = hasValue(data,'MELDING_CVW');
 
-        let propertyArray = [];
+        let propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
+    ];
 
         function filterData(array) {
             //
@@ -68,7 +69,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[data.length - 1]).filter(key => array.indexOf(key) > -1));
-            
+
             return functions.stack(data);
         }
 
