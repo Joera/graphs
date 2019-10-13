@@ -64,7 +64,13 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         prevArea = area;
 
-        svg.areasEnter.merge(svg.areas)
+        svg.areas
+            // .attr('d', newArea)
+            .transition()
+            .duration(500)
+            .attr('d', area);
+
+        svg.areasEnter
             .attr('d', newArea)
             .transition()
             .duration(500)
