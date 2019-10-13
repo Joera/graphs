@@ -65,10 +65,10 @@ var voortgangDetails = function(element,smallMultiple) {
 
         console.log(stackedData);
 
-        function draw(data) {
+        function draw(data,stackedData) {
 
             xScale = chartXScale.set(data);
-            yScale = chartYScale.set(data,config.yParameter);
+            yScale = chartYScale.set(stackedData,config.yParameter);
         }
 
         function redraw() {
@@ -88,7 +88,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         chartStackedArea.draw(stackedData,colours);
         // further drawing happens in function that can be repeated.
-        draw(data);
+        draw(data,stackedData);
         redraw();
         // for example on window resize
         window.addEventListener("resize", redraw, false);
