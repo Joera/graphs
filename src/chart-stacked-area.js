@@ -52,7 +52,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('fill-opacity', 1);
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale) {
+    let redraw = function redraw(dimensions,xScale,yScale,colours) {
 
         let newArea = d3.area()
             .x(function(d) { return xScale.time(new Date(d.data._date)); })
