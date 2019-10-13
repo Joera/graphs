@@ -4,7 +4,7 @@ path {
   }
 
   &.orange {
-    fill: orange;
+    fill: $orange;
   }
 
   &.blue {
@@ -12,6 +12,6 @@ path {
   }
 
   &.darkblue {
-    fill: blue;
+    fill: $darkblue;
   }
 }
