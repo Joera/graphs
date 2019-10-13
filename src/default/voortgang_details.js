@@ -51,7 +51,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-        let neededColumns = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','_date'];
+        let neededColumns = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','afgehandeld','_date'];
 
         let data = trimColumns(json,neededColumns);
 
@@ -59,7 +59,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         functions.stack = d3.stack()
         // do not stack DATUM
-            .keys(Object.keys(data[0]).slice(0,3));
+            .keys(Object.keys(data[0]).slice(0,4));
 
         let stackedData = functions.stack(data);
 
