@@ -31,8 +31,6 @@ var voortgangDetails = function(element,smallMultiple) {
 
     config.xParameter = '_date';
 
-    let colours = ['green','blue','darkblue','orange'];
-
     let colours = {
 
         'MELDING_CVW': 'green',
