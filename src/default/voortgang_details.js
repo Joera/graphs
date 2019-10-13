@@ -1,5 +1,8 @@
 var voortgangDetails = function(element,smallMultiple) {
 
+
+    let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
+
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
@@ -57,16 +60,16 @@ var voortgangDetails = function(element,smallMultiple) {
 
         data = hasValue(data,'MELDING_CVW');
 
-        functions.stack = d3.stack()
-        // do not stack DATUM
-            .keys(Object.keys(data[0]).slice(0,4));
+        let propertyArray = [];
 
-        let stackedData = functions.stack(data);
+        function filterData(array) {
+            //
+            console.log(array);
 
-        function draw(data,stackedData) {
-
-            xScale = chartXScale.set(data);
-            yScale = chartYScale.set(stackedData,config.yParameter);
+            functions.stack = d3.stack()
+                .keys(Object.keys(data[data.length - 1]).filter(key => array.indexOf(key) > -1));
+            
+            return functions.stack(data);
         }
 
         function redraw() {
@@ -84,12 +87,33 @@ var voortgangDetails = function(element,smallMultiple) {
 
         }
 
-        chartStackedArea.draw(stackedData,colours);
-        // further drawing happens in function that can be repeated.
-        draw(data,stackedData);
-        redraw();
-        // for example on window resize
+        function update(propertyArray) {
+
+            let stackedData = filterData(propertyArray);
+            xScale = chartXScale.set(data);
+            yScale = chartYScale.set(stackedData,config.yParameter);
+            chartStackedArea.draw(stackedData,colours);
+            redraw();
+        }
+
+        update(propertyArray);
+
         window.addEventListener("resize", redraw, false);
+
+        for (let option of options) {
+            option.addEventListener( 'click', () => {
+
+                if (option.checked) {
+                    propertyArray[propertyArray.length] = option.value;
+                } else {
+                    let index = propertyArray.indexOf(option.value);
+                    propertyArray.splice(index,1);
+                }
+
+                update(propertyArray);
+
+            }, false)
+        }
 
     });
 }
