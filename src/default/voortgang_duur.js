@@ -67,7 +67,7 @@ var voortgangDuur = function(element,smallMultiple) {
         data = hasValue(data,'MINDER_DAN_12_JAAR');
 
         let propertyArray = ['MINDER_DAN_12_JAAR','TUSSEN_12_EN_1_JAAR','TUSSEN_1_EN_2_JAAR','LANGER_DAN_2JAAR'];
-
+        let stackedData = filterData(propertyArray);
 
         function filterData(array) {
             //
@@ -103,6 +103,7 @@ var voortgangDuur = function(element,smallMultiple) {
             redraw();
         }
 
+        chartStackedArea.init(stackedData);
         update(propertyArray);
 
         window.addEventListener("resize", redraw, false);
