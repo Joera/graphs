@@ -1,4 +1,4 @@
-var voortgang = function(element,smallMultiple) {
+var voortgangDetails = function(element,smallMultiple) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
