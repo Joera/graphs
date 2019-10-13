@@ -10,11 +10,13 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .data(stackedData);
 
 
-        svg.series.exit().remove();
+
 
         svg.seriesEnter = svg.series
             .enter().append("g")
             .attr("class", (d) => { return "stackedGroup " + d.key });
+
+        svg.series.exit().remove();
 
 
         svg.areas = svg.series.merge(svg.seriesEnter).selectAll(".flow")
