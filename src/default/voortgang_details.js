@@ -51,15 +51,15 @@ var voortgangDetails = function(element,smallMultiple) {
 
         //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-        let neededColumns = ['DATUM','afgehandeld','in_behandeling','_date'];
+        let neededColumns = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','_date'];
 
         let data = trimColumns(json,neededColumns);
 
-        data = hasValue(data,'afgehandeld');
+        data = hasValue(data,'MELDING_CVW');
 
         functions.stack = d3.stack()
         // do not stack DATUM
-            .keys(Object.keys(data[0]).slice(2,4));
+            .keys(Object.keys(data[0]).slice(1,5));
 
         let stackedData = functions.stack(data);
 
