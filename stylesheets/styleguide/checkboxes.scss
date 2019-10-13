@@ -48,5 +48,19 @@ li.checkbox {
     background: $darkblue;
   }
 
+  input#MELDING_NA_WESTERWIJTWERD:checked + label {
+    background: $orange;
+    //color: black;
+  }
+
+  input#MELDING_VOOR_WESTERWIJTWE:checked + label {
+    background: $darkblue;
+    //color: black;
+  }
+
+  input#MELDING_CVW:checked + label {
+    background: $blue;
+    //color: black;
+  }
 
 }
