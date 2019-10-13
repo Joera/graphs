@@ -1,5 +1,8 @@
 let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
+
+    let prevArea = false;
+
     let draw = function draw(stackedData,colours) {
 
 
@@ -54,7 +57,12 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .y0(function(d) { return yScale.stacked(d[0]); })
             .y1(function(d) { return yScale.stacked(d[1]); });
 
+        prevArea = area;
+
         svg.areasEnter.merge(svg.areas)
+
+            .transition()
+            .duration(500)
             .attr('d', area);
 
         svg.areaLabels
