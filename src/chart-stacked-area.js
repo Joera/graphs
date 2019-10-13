@@ -74,7 +74,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('d', area)
             .style('fill', (d) => {
                 return colours[d.key];
-            };
+            });
 
         // new areas
         svg.areasEnter
@@ -87,7 +87,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('d', area)
             .style('fill', (d) => {
                 return colours[d.key];
-            };
+            });
 
         svg.areaLabels
             .attr('transform', function(d) {
