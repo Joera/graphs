@@ -59,7 +59,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         functions.stack = d3.stack()
         // do not stack DATUM
-            .keys(Object.keys(data[0]).slice(1,5));
+            .keys(Object.keys(data[0]).slice(1,4));
 
         let stackedData = functions.stack(data);
 
