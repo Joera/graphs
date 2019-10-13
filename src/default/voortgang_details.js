@@ -61,7 +61,7 @@ var voortgangDetails = function(element,smallMultiple) {
         data = hasValue(data,'MELDING_CVW');
 
         let propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
-    ];
+    
 
         function filterData(array) {
             //
