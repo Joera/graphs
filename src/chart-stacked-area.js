@@ -25,9 +25,11 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
         svg.areasEnter = svg.areas
             .enter()
             .append("path")
-            .attr('class', (d,i) => { console.log(d.key);
+            .attr('class', (d,i) => {
                 return 'flow '; // + colours[d.key];
-            });
+            })
+
+        ;
 
         svg.areaLabels = svg.seriesEnter.merge(svg.series)
             .append('text')
@@ -69,7 +71,10 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             // .attr('d', newArea)
             .transition()
             .duration(200)
-            .attr('d', area);
+            .attr('d', area)
+            .style('fill', (d) => {
+                return colours[d.key];
+            };
 
         // new areas
         svg.areasEnter
@@ -79,7 +84,10 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
                 return i * 200
             })
             .duration(200)
-            .attr('d', area);
+            .attr('d', area)
+            .style('fill', (d) => {
+                return colours[d.key];
+            };
 
         svg.areaLabels
             .attr('transform', function(d) {
