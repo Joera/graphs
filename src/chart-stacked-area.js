@@ -80,7 +80,6 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
         svg.areasEnter
             .attr('d', newArea)
             .transition()
-            .delay(200)
             .duration(200)
             .attr('d', area)
             .style('fill', (d) => {
