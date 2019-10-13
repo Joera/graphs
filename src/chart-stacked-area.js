@@ -64,16 +64,19 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         prevArea = area;
 
+        // existing areas
         svg.areas
             // .attr('d', newArea)
             .transition()
-            .duration(500)
+            .duration(250)
             .attr('d', area);
 
+        // new areas
         svg.areasEnter
             .attr('d', newArea)
             .transition()
-            .duration(500)
+            .delay(250)
+            .duration(250)
             .attr('d', area);
 
         svg.areaLabels
