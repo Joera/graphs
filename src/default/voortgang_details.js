@@ -33,10 +33,10 @@ var voortgangDetails = function(element,smallMultiple) {
 
     let colours = {
 
-        'MELDING_CVW': 'green',
-        'MELDING_VOOR_WESTERWIJTWE': 'blue',
-        'MELDING_NA_WESTERWIJTWERD': 'darkblue',
-        'AFGEHANDELD_TOTAAL': 'orange',
+        'MELDING_CVW': 'blue',
+        'MELDING_VOOR_WESTERWIJTWE': 'darkblue',
+        'MELDING_NA_WESTERWIJTWERD': 'orange',
+        'AFGEHANDELD_TOTAAL': 'green',
     }
 
     // get dimensions from parent element
