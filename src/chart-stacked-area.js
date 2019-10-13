@@ -2,20 +2,26 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
     let draw = function draw(stackedData,colours) {
 
-        svg.series = svg.layers.data.selectAll(".serie")
-            .data(stackedData)
-            .enter().append("g")
-            .attr("class", (d) => { return "serie " + d.key });
-        // .attr("fill", function(d) { return z(d.key); })
 
-        svg.areas = svg.series
+        svg.series = svg.layers.data.selectAll(".stackedGroup")
+            .data(stackedData);
+
+
+        svg.series.exit().remove();
+
+        svg.seriesEnter = svg.series
+            .enter()
+            .enter().append("g")
+            .attr("class", (d) => { return "stackedGroup " + d.key });
+
+
+        svg.areas = svg.seriesEnter.merge(svg.series)
             .append("path")
-            // .attr("fill", "#ccc")
             .attr('class', (d,i) => {
                 return 'flow ' + colours[i];
             });
 
-        svg.areaLabels = svg.series
+        svg.areaLabels = svg.seriesEnter.merge(svg.series)
             .append('text')
             .attr('class','small-label')
             .datum(function(d) { return d; })
