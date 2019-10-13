@@ -37,34 +37,41 @@ li.checkbox {
 
   input#nulmetingen:checked + label {
     background: $orange;
+    border: 1px solid $orange;
     //color: black;
   }
 
   input#adviesrapporten:checked + label {
     background: $orange;
+    border: 1px solid $orange;
     //color: black;
   }
 
   input#besluiten_regulier:checked + label {
     background: $blue;
+    border: 1px solid $blue;
   }
 
   input#besluiten_stuwmeerregeling:checked + label {
     background: $darkblue;
+    border: 1px solid $darkblue;
   }
 
   input#MELDING_NA_WESTERWIJTWERD:checked + label {
     background: $orange;
+    border: 1px solid $orange;
     //color: black;
   }
 
   input#MELDING_VOOR_WESTERWIJTWE:checked + label {
     background: $darkblue;
+    border: 1px solid $darkblue;
     //color: black;
   }
 
   input#MELDING_CVW:checked + label {
     background: $blue;
+    border: 1px solid $blue;
     //color: black;
   }
 
