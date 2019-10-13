@@ -63,8 +63,6 @@ var voortgangDetails = function(element,smallMultiple) {
 
         let stackedData = functions.stack(data);
 
-        console.log(stackedData);
-
         function draw(data,stackedData) {
 
             xScale = chartXScale.set(data);
@@ -80,7 +78,7 @@ var voortgangDetails = function(element,smallMultiple) {
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes,true);
-            chartAxis.redrawYAxis(yScale,axes);
+            chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
             chartStackedArea.redraw(dimensions,xScale,yScale);
 
