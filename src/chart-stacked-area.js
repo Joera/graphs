@@ -3,21 +3,20 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
     let prevArea = false;
 
-    let draw = function draw(stackedData,colours) {
-
+    let init = function draw(stackedData) {
 
         svg.series = svg.layers.data.selectAll(".stackedGroup")
             .data(stackedData);
 
-
-
+        svg.series.exit().remove();
 
         svg.seriesEnter = svg.series
             .enter().append("g")
             .attr("class", (d) => { return "stackedGroup " + d.key });
 
-        svg.series.exit().remove();
+    }
 
+    let draw = function draw(stackedData,colours) {
 
         svg.areas = svg.series.merge(svg.seriesEnter).selectAll(".flow")
             .data(function(d) { return stackedData; });
@@ -106,6 +105,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
 
     return  {
+        init : init,
         draw : draw,
         redraw : redraw
     }

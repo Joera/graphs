@@ -67,7 +67,7 @@ var voortgangDetails = function(element,smallMultiple) {
         data = hasValue(data,'MELDING_CVW');
 
         let propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
-
+        let stackedData = filterData(propertyArray);
 
         function filterData(array) {
             //
@@ -96,13 +96,15 @@ var voortgangDetails = function(element,smallMultiple) {
 
         function update(propertyArray) {
 
-            let stackedData = filterData(propertyArray);
+            stackedData = filterData(propertyArray);
             xScale = chartXScale.set(data);
             yScale = chartYScale.set(stackedData,config.yParameter);
             chartStackedArea.draw(stackedData,colours);
             redraw();
         }
 
+
+        chartStackedArea.init(stackedData);
         update(propertyArray);
 
         window.addEventListener("resize", redraw, false);
