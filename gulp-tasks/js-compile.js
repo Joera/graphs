@@ -53,6 +53,7 @@ module.exports = function() {
             './src/default/verdeling.js',
             './src/default/voortgang.js',
             './src/default/voortgang_details.js',
+            './src/default/voortgang_duur.js',
             './src/default/candles.js',
             './src/default/statussen.js',
             './src/default/statussen-stroommodel.js',
