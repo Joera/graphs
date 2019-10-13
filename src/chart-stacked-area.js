@@ -25,8 +25,8 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
         svg.areasEnter = svg.areas
             .enter()
             .append("path")
-            .attr('class', (d,i) => { console.log(i);
-                return 'flow ' + colours[i];
+            .attr('class', (d,i) => {
+                return 'flow ' + colours[d.key];
             });
 
         svg.areaLabels = svg.seriesEnter.merge(svg.series)

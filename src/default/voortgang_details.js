@@ -33,6 +33,14 @@ var voortgangDetails = function(element,smallMultiple) {
 
     let colours = ['green','blue','darkblue','orange'];
 
+    let colours = {
+
+        'MELDING_CVW': 'green',
+        'MELDING_VOOR_WESTERWIJTWE': 'blue',
+        'MELDING_NA_WESTERWIJTWERD': 'darkblue',
+        'AFGEHANDELD_TOTAAL': 'orange',
+    }
+
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
