@@ -40,8 +40,8 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         let area = d3.area()
              .x(function(d) { return xScale.time(new Date(d.data._date)); })
-            .y0(function(d) { return yScale.linear(d[0]); })
-            .y1(function(d) { return yScale.linear(d[1]); });
+            .y0(function(d) { return yScale.stacked(d[0]); })
+            .y1(function(d) { return yScale.stacked(d[1]); });
 
         svg.areas
             .attr('d', area);
@@ -50,7 +50,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('transform', function(d) {
 
                 return 'translate(' + (dimensions.width - 30) + ',' +
-                    yScale.linear(
+                    yScale.stacked(
                         d[d.length - 1][0] + (
                             .5 * (d[d.length - 1][1])
                         )
