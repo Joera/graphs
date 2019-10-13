@@ -18,7 +18,7 @@ var voortgangDetails = function(element,smallMultiple) {
     config.margin.right = 0;
     config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
-    config.padding.left = 30;
+    config.padding.left = 60;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
@@ -61,7 +61,7 @@ var voortgangDetails = function(element,smallMultiple) {
         data = hasValue(data,'MELDING_CVW');
 
         let propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
-    
+
 
         function filterData(array) {
             //
