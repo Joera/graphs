@@ -15,13 +15,13 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
 
         svg.areas = svg.seriesEnter.merge(svg.series).selectAll(".flow")
-            .data(function(d) { console.log(d); return d; });
+            .data(function(d) { return d; });
 
         svg.areas.exit().remove();
 
         svg.areasEnter = svg.areas
             .append("path")
-            .attr('class', (d,i) => {
+            .attr('class', (d,i) => { console.log(i);
                 return 'flow ' + colours[i];
             });
 
