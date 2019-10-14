@@ -85,7 +85,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
             options.forEach( (option) => {
 
-                console.log(data[0]);
+                console.log(data[0][option.id]);
 
                 console.log(option.nextElementSibling.innerText);
 
