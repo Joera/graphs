@@ -86,6 +86,7 @@ var voortgang = function(element,smallMultiple) {
 
         }
 
+        chartStackedArea.init(stackedData);
         chartStackedArea.draw(stackedData,colours);
         // further drawing happens in function that can be repeated.
         draw(data);

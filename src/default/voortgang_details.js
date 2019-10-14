@@ -22,13 +22,10 @@ var voortgangDetails = function(element,smallMultiple) {
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
-
     config.yParameter = 'behandeling';  // is being set in type function
     // config.fixedHeight = 160;
     config.minValue = 0;
     // config.maxValue = 60000;
-
-
     config.xParameter = '_date';
 
     let colours = {
