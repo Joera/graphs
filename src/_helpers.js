@@ -21,7 +21,7 @@ var trimColumnsAndOrder =  function(json,neededColumns) {
 
     neededColumns.forEach( (nc) => {
 
-        console.log(json.find( prop => prop === nc));
+        console.log(json);
 
         newArray.push(json.find( prop => prop === nc));
     });
