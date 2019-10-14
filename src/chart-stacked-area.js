@@ -46,8 +46,8 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
                     return 'In behandeling';
                 } else if (d.key == 'afgehandeld') {
                     return 'Afgehandeld';
-                } else {
-                    return ''; //d.key;
+                } else { console.log(d);
+                    return d.key; //d.key;
                 }
             })
             .attr('fill-opacity', 1);
