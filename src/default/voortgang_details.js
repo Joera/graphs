@@ -81,7 +81,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         function legend() {
 
-            console.log(d);
+            console.log(data);
 
             options.forEach( () => {
 
