@@ -14,7 +14,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
     config.margin.top = 0;
     config.margin.bottom = 0;
-    config.margin.left = 30;
+    config.margin.left = 40;
     config.margin.right = 0;
     config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
