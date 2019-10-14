@@ -40,7 +40,7 @@
 
     height: calc(100vh - 130px);
 
-    @media (max-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-sm) {
       height: calc(100vh - 100px);
     }
   }
