@@ -19,7 +19,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
     let draw = function draw(stackedData,colours) {
 
         svg.areas = svg.series.merge(svg.seriesEnter).selectAll(".flow")
-            .data(function(d) { return stackedData; });
+            .data(function(d) { return d; });
 
         svg.areas.exit().remove();
 
