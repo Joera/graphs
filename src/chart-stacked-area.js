@@ -19,7 +19,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
     let draw = function draw(stackedData,colours) {
 
         svg.areas = svg.series.merge(svg.seriesEnter).selectAll(".flow")
-            .data(function(d) { return [d]; });
+            .data(function(d) { return stackedData; });
 
         svg.areas.exit().remove();
 
@@ -46,8 +46,6 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
                     return 'In behandeling';
                 } else if (d.key == 'afgehandeld') {
                     return 'Afgehandeld';
-                } else { console.log(d);
-                    return d.key + ': ' + d[0][1]; //d.key;
                 }
             })
             .attr('fill-opacity', 1);
