@@ -21,7 +21,7 @@
   div.container:not(.no-bottom-container) {
     height: calc(100vh - 80px);
 
-    @media (min-width: $breakpoint-xsm) {
+    @media (min-width: $breakpoint-sm) {
       height: calc(100vh - 90px);
     }
 
@@ -34,6 +34,14 @@
 
   div.container.no-bottom-container {
     height: calc(100vh - 3rem);
+  }
+
+  div.container.voortgang-details-container {
+    height: calc(100vh - 100px);
+  }
+
+  div.container.voortgang-duur-container {
+    height: calc(100vh - 160px);
   }
 }
 
