@@ -140,6 +140,7 @@ var voortgangDetails = function(element,smallMultiple) {
                         setCheckboxes(propertyArray);
                     } else if (propertyArray.indexOf('WERKVOORRAAD_IN_BEHANDELING') > -1) {
                         propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
+                        setCheckboxes(propertyArray);
                     }
 
                 } else {
