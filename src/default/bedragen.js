@@ -15,7 +15,7 @@ var bedragen = function(element) {
 
     config.margin.top = 0;
     config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
-    config.margin.left = 30;
+    config.margin.left = 40;
     config.margin.right = 0;
     config.padding.top = 30;
     config.padding.bottom = 50;
