@@ -24,7 +24,7 @@ var trimColumnsAndOrder =  function(json,neededColumns) {
 
         newObject = {};
         neededColumns.forEach( (nc) => {
-            newObject[nc] = obj.find( prop => prop === nc);
+            newObject[nc] = obj[nc];
         });
 
         newArray.push(newObject)
