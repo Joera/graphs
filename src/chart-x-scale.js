@@ -40,7 +40,7 @@ class ChartXScale {
 
         newScale.band
             // or does this
-            .range([dimensions.width])
+            .range([0,dimensions.width])
 
         return newScale;
     }
