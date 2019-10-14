@@ -60,9 +60,9 @@ var voortgangDuur = function(element,smallMultiple) {
 
         //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-        let neededColumns = ['MINDER_DAN_12_JAAR','TUSSEN_12_EN_1_JAAR','TUSSEN_1_EN_2_JAAR','LANGER_DAN_2JAAR','_date'];
+        let neededColumns = ['LANGER_DAN_2JAAR','TUSSEN_1_EN_2_JAAR','TUSSEN_12_EN_1_JAAR','MINDER_DAN_12_JAAR','_date'];
 
-        let data = trimColumns(json,neededColumns);
+        let data = trimColumnsAndOrder(json,neededColumns);
 
         data = hasValue(data,'MINDER_DAN_12_JAAR');
 
