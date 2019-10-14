@@ -136,6 +136,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
                     if (option.value === 'WERKVOORRAAD_IN_BEHANDELING' ) {
                         propertyArray = ['AFGEHANDELD_TOTAAL','WERKVOORRAAD_IN_BEHANDELING'];
+                        setCheckboxes(propertyArray);
                     }
 
                 } else {
@@ -144,6 +145,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
                     if (option.value === 'WERKVOORRAAD_IN_BEHANDELING' ) {
                         propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
+                        setCheckboxes(propertyArray);
                     }
                 }
 
