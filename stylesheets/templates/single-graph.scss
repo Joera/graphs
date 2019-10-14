@@ -37,7 +37,12 @@
   }
 
   div.container.voortgang-details-container {
-    height: calc(100vh - 100px);
+
+    height: calc(100vh - 130px);
+    
+    @media (max-width: $breakpoint-sm) {
+      height: calc(100vh - 100px);
+    }
   }
 
   div.container.voortgang-duur-container {
