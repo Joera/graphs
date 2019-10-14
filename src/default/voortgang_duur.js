@@ -79,6 +79,12 @@ var voortgangDuur = function(element,smallMultiple) {
             return functions.stack(data);
         }
 
+        function legend() {
+            options.forEach( (option) => {
+                option.nextElementSibling.innerText += ': ' + data[0][option.id];
+            })
+        }
+
         function redraw() {
             // on redraw chart gets new dimensions
             dimensions = chartDimensions.get(dimensions);
@@ -105,6 +111,7 @@ var voortgangDuur = function(element,smallMultiple) {
 
         chartStackedArea.init(stackedData);
         update(propertyArray);
+        legend();
 
         window.addEventListener("resize", redraw, false);
 
