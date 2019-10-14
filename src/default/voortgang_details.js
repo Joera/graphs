@@ -69,6 +69,18 @@ var voortgangDetails = function(element,smallMultiple) {
         let propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
         let stackedData = filterData(propertyArray);
 
+        function setCheckboxes(propertyArray) {
+
+            options.forEach( (option) => {
+
+                option.checked = false;
+
+                if (propertyArray.indexOf(option.id) > -1) {
+                    option.checked = true;
+                }
+            })
+        }
+
         function filterData(array) {
             //
             console.log(array);
