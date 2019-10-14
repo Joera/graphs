@@ -29,7 +29,7 @@ var trimColumnsAndOrder =  function(json,neededColumns) {
 
         newArray.push(newObject)
 
-    }
+    });
 
     return newArray;
 }
