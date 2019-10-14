@@ -60,7 +60,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         //       let neededColumns = ['date','aos','besluiten','inbehandeling','meldingen','opnames'];
 
-        let neededColumns = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL','_date'];
+        let neededColumns = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL','WERKVOORRAAD_IN_BEHANDELING','_date'];
 
         let data = trimColumns(json,neededColumns);
 
