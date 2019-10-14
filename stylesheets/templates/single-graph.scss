@@ -38,7 +38,11 @@
 
   div.container.voortgang-details-container {
 
-    height: calc(100vh - 130px);
+    height: calc(100vh - 200px);
+
+    @media (min-width: $breakpoint-xsm) {
+      height: calc(100vh - 130px);
+    }
 
     @media (min-width: $breakpoint-sm) {
       height: calc(100vh - 100px);
