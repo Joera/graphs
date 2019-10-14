@@ -57,6 +57,12 @@ li.checkbox {
     border: 1px solid $darkblue;
   }
 
+  input#LANGER_DAN_2JAAR:checked + label {
+    background: $orange;
+    border: 1px solid $orange;
+    //color: black;
+  }
+
   input#MELDING_NA_WESTERWIJTWERD:checked + label {
     background: $orange;
     border: 1px solid $orange;
@@ -93,7 +99,7 @@ li.checkbox {
     //color: black;
   }
 
-  input#LANGER_DAN_2JAAR:checked + label {
+  input#WERKVOORRAAD_IN_BEHANDELING:checked + label {
     background: $orange;
     border: 1px solid $orange;
     //color: black;
