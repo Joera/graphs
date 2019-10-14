@@ -21,7 +21,7 @@
   div.container:not(.no-bottom-container) {
     height: calc(100vh - 80px);
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-xsm) {
       height: calc(100vh - 90px);
     }
 
