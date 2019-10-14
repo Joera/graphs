@@ -14,6 +14,18 @@ var trimColumns =  function(json,neededColumns) {
     return json;
 };
 
+
+var trimColumnsAndOrder =  function(json,neededColumns) {
+
+    let newArray = [];
+
+    neededColumns.forEach( (nc) => {
+        newArray.push(json.find( prop => prop === nc));
+    });
+
+    return newArray
+}
+
 var hasValue = function(array,value) {
 
     return array.filter( (i) =>{

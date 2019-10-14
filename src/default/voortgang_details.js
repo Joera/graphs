@@ -63,7 +63,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         let neededColumns = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL','WERKVOORRAAD_IN_BEHANDELING','_date'];
 
-        let data = trimColumns(json,neededColumns);
+        let data = trimColumnsAndOrder(json,neededColumns);
 
         data = hasValue(data,'MELDING_CVW');
 
