@@ -18,15 +18,20 @@ var trimColumns =  function(json,neededColumns) {
 var trimColumnsAndOrder =  function(json,neededColumns) {
 
     let newArray = [];
+    let newObject;
 
-    neededColumns.forEach( (nc) => {
+    json.forEach( (obj,i) => {
 
-        console.log(json);
+        newObject = {};
+        neededColumns.forEach( (nc) => {
+            newObject[nc] = obj.find( prop => prop === nc);
+        });
 
-        newArray.push(json.find( prop => prop === nc));
-    });
+        newArray.push(newObject)
 
-    return newArray
+    }
+
+    return newArray;
 }
 
 var hasValue = function(array,value) {
