@@ -121,9 +121,18 @@ var voortgangDetails = function(element,smallMultiple) {
 
                 if (option.checked) {
                     propertyArray[propertyArray.length] = option.value;
+
+                    if (option.value === 'WERKVOORRAAD_IN_BEHANDELING' ) {
+                        propertyArray = ['AFGEHANDELD_TOTAAL','WERKVOORRAAD_IN_BEHANDELING'];
+                    }
+
                 } else {
                     let index = propertyArray.indexOf(option.value);
                     propertyArray.splice(index,1);
+
+                    if (option.value === 'WERKVOORRAAD_IN_BEHANDELING' ) {
+                        propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
+                    }
                 }
 
                 update(propertyArray);
