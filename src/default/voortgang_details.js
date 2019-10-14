@@ -83,7 +83,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
             console.log(data);
 
-            options.forEach( () => {
+            options.forEach( (option) => {
 
                 console.log(option.nextElementSibling.innerText);
 
