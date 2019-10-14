@@ -29,7 +29,7 @@ let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
 
         svg.layers.data = svg.body.append('g')
             .attr('class', 'data')
-            .attr('transform', 'translate(' + config.padding.left + ',' + config.padding.top + ')');
+            .attr('transform', 'translate(' + config.margin.left + ',' + config.padding.top + ')');
         svg.layers.axes = svg.body.append('g')
             .attr('class', 'axes');
         svg.layers.legend = svg.body.append('g')

@@ -36,7 +36,7 @@ class ChartXScale {
     reset(dimensions,newScale) {
 
         newScale.time
-            .range([10, dimensions.width]);
+            .range([0, dimensions.width]);
 
         newScale.band
             // or does this
