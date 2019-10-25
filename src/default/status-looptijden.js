@@ -102,7 +102,7 @@ var statusLooptijden  = function (element,smallMultiple) {
         functions.stack = d3.stack()
             .keys(Object.keys(data[data.length - 1]));
 
-        let stackedData = functions.stack(data).shift();
+        let stackedData = functions.stack(data);
 
         return { data, stackedData }
 
