@@ -95,31 +95,31 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 return "stackGroup " + colours[d.key];
             });
 
-        // svg.barEnter
-        //     .attr("height", function(d) {
-        //         return dimensions.height
-        //     })
-        //
-        // svg.barMerged = svg.barEnter
-        //     .merge(svg.bar)
-        //     .attr("x", function(d) {
-        //         return xScale.band(d.data[config.xParameter]);
-        //     })
-        //     .attr("width", function(d) {
-        //         if(config.xScale === 'time') {
-        //             return dimensions.width / dataArray.length;
-        //         } else {
-        //             return barWidth; //scales.band.bandwidth();
-        //         }
-        //     })
-        //     // .attr("clip-path", "url(#clip)")
-        //     .transition()
-        //     .duration(500)
-        //     .attr("y", function(d) { return yScale.stacked(d[1]); })
-        //     .attr("height", function(d) {
-        //         return yScale.stacked(d[0]) - yScale.stacked(d[1]);
-        //     })
-        //    ;
+        svg.barEnter
+            .attr("height", function(d) {
+                return dimensions.height
+            })
+
+        svg.barMerged = svg.barEnter
+            .merge(svg.bar)
+            .attr("x", function(d) {
+                return xScale.band(d.data[config.xParameter]);
+            })
+            .attr("width", function(d) {
+                if(config.xScale === 'time') {
+                    return dimensions.width / dataArray.length;
+                } else {
+                    return barWidth; //scales.band.bandwidth();
+                }
+            })
+            // .attr("clip-path", "url(#clip)")
+            .transition()
+            .duration(500)
+            .attr("y", function(d) { return yScale.stacked(d[1]); })
+            .attr("height", function(d) {
+                return yScale.stacked(d[0]) - yScale.stacked(d[1]);
+            })
+           ;
 
         // svg.barLabels
         //     .merge(svg.barLabelsEnter)
