@@ -91,6 +91,8 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let redrawYAxisStacked = function redrawYAxisStacked(scales,axes) {
 
+        console.log('fff');
+
         axes.yLinear = d3.axisLeft(scales.stacked);
 
         if(config.noTicksYAxis) {
