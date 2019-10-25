@@ -37,7 +37,7 @@ var statusLooptijden  = function (element,smallMultiple) {
     config.paddingOuter = [0.2];
 
     config.dateLabels = false;
-    
+
     let colours = {
 
         'totaal': 'green',
