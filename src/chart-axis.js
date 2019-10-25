@@ -16,7 +16,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             });
 
         svg.xAxis
-            .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
+            .attr("transform", "translate(" + config.padding.left + "," + (dimensions.height + config.padding.top) + ")")  //
             .call(axes.xBand);
 
         if (alternateTicks) {
