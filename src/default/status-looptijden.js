@@ -68,7 +68,7 @@ var statusLooptijden  = function (element,smallMultiple) {
         data.push({
             status: "Ontvangst en analyse",
             totaal: json['ONTVANGST'],
-            extra: 1000
+            extra: 5000
 
         });
 
@@ -83,7 +83,7 @@ var statusLooptijden  = function (element,smallMultiple) {
         data.push({
             status: "Schade-opname uitgevoerd, adviesrapport opleveren",
             totaal: json['OPLEV_SCHADERAPPORT'],
-            extra: 1000
+            extra: 3000
 
         });
 
@@ -91,14 +91,14 @@ var statusLooptijden  = function (element,smallMultiple) {
         data.push({
             status: "Adviesrapport opgeleverd, besluit voorbereiden",
             totaal: json['VOORBER_CIE'],
-            extra: 1000
+            extra: 7000
 
         });
 
         data.push({
             status: "Besluit genomen",
             totaal: json['BESCHIKT'],
-            extra: 1000
+            extra: 4000
 
         });
 
