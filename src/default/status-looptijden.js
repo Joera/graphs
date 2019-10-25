@@ -149,7 +149,7 @@ var statusLooptijden  = function (element,smallMultiple) {
         chartAxis.redrawXBandAxis(dimensions, xScale, axes, true, smallMultiple);
         chartAxis.redrawYAxisStacked(yScale, axes);
         // redraw data
-      //  chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
+        chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
     }
 
 
