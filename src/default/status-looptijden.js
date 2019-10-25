@@ -37,8 +37,12 @@ var statusLooptijden  = function (element,smallMultiple) {
     config.paddingOuter = [0.2];
 
     config.dateLabels = false;
+    
+    let colours = {
 
-    let colours = ['orange','green','darkblue','blue','green'];
+        'totaal': 'green',
+        'extra': 'orange',
+    }
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element, config);
