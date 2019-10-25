@@ -129,7 +129,7 @@ var statusLooptijden  = function (element,smallMultiple) {
         xScale = chartXScale.set(data);
         yScale = chartYScale.set(stackedData);
         // width data we can draw items
-        // chartStackedBars.draw(data,stackedData,colours);
+        chartStackedBars.draw(data,stackedData,colours);
     }
 
     function redraw() {
