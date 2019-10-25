@@ -84,6 +84,8 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             barWidth = 30;
         }
 
+        barWidth = 0;
+
         svg.defs
             .attr("width", dimensions.width)
             .attr("height", dimensions.height);
