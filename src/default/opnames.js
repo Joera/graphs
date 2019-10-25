@@ -37,6 +37,8 @@ var opnames = function(element,smallMultiple) {
 
     config.noTicksYAxis = true;
 
+    config.dateLabels = true;
+
     let colours = {
 
         'schadeopnames': 'green',
@@ -134,7 +136,7 @@ var opnames = function(element,smallMultiple) {
             option.addEventListener( 'click', () => {
 
                 if(increments && option.value.slice(0,7) !== 'nieuwe_' ) option.value = 'nieuwe_' + option.value;
-                
+
                 if (option.checked) {
                     propertyArray[propertyArray.length] = option.value;
                 } else {

@@ -46,24 +46,27 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         ;
 
-        svg.dateLabels = svg.layers.axes.selectAll(".dateLabel")
-            .data(data);
+        if(config.dateLabels) {
 
-        svg.dateLabelsEnter = svg.dateLabels
-            .enter()
-            .append('text')
-            .attr('class','dateLabel small-label')
-            .attr('x', 0)
-            .attr('dx', config.padding.left)
-            .attr('dy', '30px')
-            .style("text-anchor", "middle")
-            .attr('fill-opacity', 0)
-            .transition()
-            .delay(500)
-            .duration(500)
-            .attr('fill-opacity', 1)
+            svg.dateLabels = svg.layers.axes.selectAll(".dateLabel")
+                .data(data);
 
-        ;
+            svg.dateLabelsEnter = svg.dateLabels
+                .enter()
+                .append('text')
+                .attr('class', 'dateLabel small-label')
+                .attr('x', 0)
+                .attr('dx', config.padding.left)
+                .attr('dy', '30px')
+                .style("text-anchor", "middle")
+                .attr('fill-opacity', 0)
+                .transition()
+                .delay(500)
+                .duration(500)
+                .attr('fill-opacity', 1);
+
+        }
+
 
     }
 
@@ -141,24 +144,28 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .duration(500)
             .attr('fill-opacity', 1);
 
-        svg.dateLabels
-            .merge(svg.dateLabelsEnter)
-            .text(function(d) {
 
-                // if (window.innerWidth < 900) {
+        if(config.dateLabels) {
+
+            svg.dateLabels
+                .merge(svg.dateLabelsEnter)
+                .text(function (d) {
+
+                    // if (window.innerWidth < 900) {
                     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'numeric', day: 'numeric'});
-                // } else {
-                //     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
-                // }
-            })
-            .attr('transform', function(d) {
+                    // } else {
+                    //     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
+                    // }
+                })
+                .attr('transform', function (d) {
 
-                let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
+                    let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2))  + ','
-                    + yOffset + ')';
-            })
+                    return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2)) + ','
+                        + yOffset + ')';
+                })
             ;
+        }
 
     }
 

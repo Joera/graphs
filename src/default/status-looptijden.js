@@ -25,7 +25,7 @@ var statusLooptijden  = function (element,smallMultiple) {
     // name of first column with values of bands on x axis
 
     // y-axis
-    config.yParameter = 'totaal';
+    // config.yParameter = 'totaal';
     // config.minValue = 0;
     // config.maxValue = 10000;
     // config.fixedHeight = 200;
@@ -35,6 +35,8 @@ var statusLooptijden  = function (element,smallMultiple) {
     config.xParameter = 'status';
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
+
+    config.dateLabels = false;
 
     let colours = ['orange','green','darkblue','blue','green'];
 
