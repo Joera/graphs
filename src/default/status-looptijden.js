@@ -153,7 +153,7 @@ var statusLooptijden  = function (element,smallMultiple) {
         let { data , stackedData } = prepareData(json,muni);
         draw(data,stackedData);
         redraw();
-        legend(data);
+        // legend(data);
     }
 
     url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
