@@ -56,6 +56,7 @@ module.exports = function() {
             './src/default/voortgang_duur.js',
             './src/default/candles.js',
             './src/default/statussen.js',
+            './src/default/status_looptijden.js',
             './src/default/statussen-stroommodel.js',
             './src/default/statussen-stroommodel_ii.js',
             './src/default/pie-chart-sum.js',
