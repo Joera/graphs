@@ -109,7 +109,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 if(config.xScale === 'time') {
                     return dimensions.width / dataArray.length;
                 } else {
-                    return barWidth; //scales.band.bandwidth();
+                    return xScale.band.bandwidth();
                 }
             })
             // .attr("clip-path", "url(#clip)")
