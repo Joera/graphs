@@ -33,8 +33,8 @@ var statusLooptijden  = function (element,smallMultiple) {
     // x-axis
     // config.minWidth = 460;
     config.xParameter = 'status';
-    config.paddingInner = [0.2];
-    config.paddingOuter = [0.2];
+    config.paddingInner = [0.1];
+    config.paddingOuter = [0.1];
 
     config.dateLabels = false;
 
