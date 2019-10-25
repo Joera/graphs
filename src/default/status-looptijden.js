@@ -121,6 +121,8 @@ var statusLooptijden  = function (element,smallMultiple) {
 
     function draw(data, stackedData) {
 
+        console.log(stackedData);
+
         // with data we can init scales
         xScale = chartXScale.set(data);
         yScale = chartYScale.set(stackedData);
@@ -138,7 +140,7 @@ var statusLooptijden  = function (element,smallMultiple) {
         yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
         chartAxis.redrawXBandAxis(dimensions, xScale, axes, true, smallMultiple);
-        chartAxis.redrawYAxis(yScale, axes);
+        chartAxis.redrawYAxisStacked(yScale, axes);
         // redraw data
         chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
     }
