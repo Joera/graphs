@@ -136,7 +136,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
                 yOffset = ((yScale.stacked(d[1]) - yScale.stacked(start)) / 2) - 11;
 
-                return 'translate(' + (xScale.band(d.data[config.xParameter])',' +
+                return 'translate(' + (xScale.band(d.data[config.xParameter]) + ',' +
                     (yScale.stacked(d[1]) - yOffset)
                     + ')';
             })
