@@ -181,9 +181,17 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             // niet afgehandeld
 
+
+            svg.layers.legend.append("rect")
+                .attr("y", (i * 20) - 8)
+                .attr("height",12)
+                .attr("width",12)
+                .attr("fill", orange)
+                .style("opacity", 1);
+
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", ((completed.length + 2) * 20) + 2)
+                .attr("dy", ((completed.length + 1) * 20) + 2)
                 .attr("dx", 16)
                 .text('In behandeling:')
                 .attr("width",dimensions.containerWidth)
@@ -192,7 +200,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dx", 200)
-                .attr("dy", ((completed.length + 2) * 20) + 2)
+                .attr("dy", ((completed.length + 1) * 20) + 2)
                 .text(json.filter( j => j['_category'] === filter)[0]['BEZWAAR_IN_BEHANDELING'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
