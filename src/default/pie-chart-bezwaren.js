@@ -131,7 +131,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
                         .attr("y", (i * 20) - 8)
                         .attr("height",12)
                         .attr("width",12)
-                        .attr("fill", config.colours(i))
+                        .attr("fill", config.colours(i).shift())
                         .style("opacity", 1);
 
                     svg.layers.legend.append("text")
