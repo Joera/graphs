@@ -3,3 +3,10 @@
   stroke: white;
 
 }
+
+#bezwaren-pie-chart {
+
+  svg .data path:first-of-type {
+    translate(12px, -6px);
+  }
+}

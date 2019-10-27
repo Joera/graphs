@@ -70,7 +70,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             console.log(config.innerRadius);
 
-            innerRadius = config.innerRadius ? config.innerRadius : 30;
+            innerRadius = (config.innerRadius !== undefined) ? config.innerRadius : 30;
 
             console.log(innerRadius);
 
@@ -89,7 +89,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             arc = d3.arc()
                 .outerRadius(radius - 10)
-                .innerRadius(config.innerRadius);
+                .innerRadius(innerRadius);
         }
 
         function arcTween(a) {
