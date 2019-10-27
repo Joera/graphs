@@ -68,14 +68,19 @@ var statusLooptijden  = function (element,smallMultiple) {
         data.push({
             status: "Ontvangst en analyse",
             totaal: json['ONTVANGST'],
-            extra: 5000
-
+            minder_dan_half: json['MNDER_HALF_JAAR_ONTVANGST'],
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_ONTVANGST'],
+            tussen_een_en_twee: json['TUSSEN_1_2_JAAR_ONTVANGST'],
+            langer_dan_twee: json['LANGER_2_JAAR_ONTVANGST']
         });
 
         data.push({
             status: "Schade-opname wordt ingepland",
             totaal: json['PLANNING_OPNAME'],
-            extra: 1000
+            minder_dan_half: json['MNDER_HALF_JAAR_PLANNING'],
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
+            tussen_een_en_twee: json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
+            langer_dan_twee: json['LANGER_2_JAAR_PLANNING_OPNAME']
 
         });
 
@@ -83,7 +88,10 @@ var statusLooptijden  = function (element,smallMultiple) {
         data.push({
             status: "Schade-opname uitgevoerd, adviesrapport opleveren",
             totaal: json['OPLEV_SCHADERAPPORT'],
-            extra: 3000
+            minder_dan_half: json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
+            tussen_een_en_twee: json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
+            langer_dan_twee: json['LANGER_2_JAAR_OPLEV_SCHRAP']
 
         });
 
@@ -91,7 +99,20 @@ var statusLooptijden  = function (element,smallMultiple) {
         data.push({
             status: "Adviesrapport opgeleverd, besluit voorbereiden",
             totaal: json['VOORBER_CIE'],
-            extra: 7000
+            minder_dan_half: json['MINDER_HALF_JAAR_VOORBER_'],
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_VOORBER_CIE'],
+            tussen_een_en_twee: json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
+            langer_dan_twee: json['LANGER_2_JAAR_VOORBER_CIE']
+
+        });
+
+        data.push({
+            status: "Stuwmeerregeling",
+            totaal: json['BESCHIKT'],
+            minder_dan_half: json['MINDER_HALF_JAAR_STATUS_STUW'],
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_STATUS_STUW'],
+            tussen_een_en_twee: json['TUSSEN_1_2_JAAR_STATUS_STUW'],
+            langer_dan_twee: json['LANGER_2_JAAR_STATUS_STUW']
 
         });
 
@@ -104,7 +125,7 @@ var statusLooptijden  = function (element,smallMultiple) {
 
 
         functions.stack = d3.stack()
-            .keys(Object.keys(data[data.length - 1]).filter(key => key !== 'status'));
+            .keys(Object.keys(data[data.length - 1]).filter(key => ['status','totaal'].indexOf(key) < 0 ));
 
         let stackedData = functions.stack(data);
 

@@ -32,8 +32,8 @@ var opnames = function(element,smallMultiple) {
     config.yParameter = 'opnames';
     // config.minWidth = 460;
     //
-    config.paddingInner = 0;
-    config.paddingOuter = 0;
+    config.paddingInner = 0.02;
+    config.paddingOuter = 0.02;
 
     config.noTicksYAxis = true;
 
