@@ -89,7 +89,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             arc = d3.arc()
                 .outerRadius(radius - 10)
-                .innerRadius(innerRadius);
+                .innerRadius(config.innerRadius);
         }
 
         function arcTween(a) {
