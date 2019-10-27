@@ -22,7 +22,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
 
     config.maxHeight = 300;
-    config.radius = 0;
+    config.innerRadius = 0;
 
     config.colours = d3.scaleOrdinal()
         .range([orange,blue,darkblue,grey,green,blue,darkblue]);

@@ -47,13 +47,15 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
     let redraw = function redraw(dimensions,smallMultiple) {
 
-        let radius, arc, labelArc;
+        let radius, arc, labelArc, innerRadius;
+
 
         if(smallMultiple || window.innerWidth < 480) {
 
             radius = 48;
+            innerRadius = 10;
 
-            svg.layers.data
+                svg.layers.data
                 .attr("transform", "translate(" + radius + "," + ((dimensions.containerHeight / 2) - (radius / 2)) + ")");
 
             labelArc = d3.arc()
@@ -62,14 +64,16 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             arc = d3.arc()
                 .outerRadius(radius - 0)
-                .innerRadius(10);
+                .innerRadius(innerRadius);
 
         } else {
+
+            innerRadius = config.innerRadius || 30;
 
             svg.layers.data
                 .attr("transform", "translate(" + (dimensions.containerWidth / 4)+ "," + (dimensions.containerHeight / 2) + ")");
 
-            radius = config.radius || dimensions.containerWidth / 4;
+            radius = dimensions.containerWidth / 4;
 
             console.log(radius);
 
@@ -83,7 +87,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             arc = d3.arc()
                 .outerRadius(radius - 10)
-                .innerRadius(30);
+                .innerRadius(innerRadius);
         }
 
         function arcTween(a) {
