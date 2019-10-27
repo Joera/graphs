@@ -165,7 +165,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                     return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ','
                         + yOffset + ')';
-                })  
+                })
             ;
         }
 
