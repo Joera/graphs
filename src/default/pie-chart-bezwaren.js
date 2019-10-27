@@ -64,19 +64,19 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             data.push({
                 status: "Ongegrond",
-                value: json['BEZWAAR_ONGEGROND'];
+                value: json['BEZWAAR_ONGEGROND']
 
             });
 
             data.push({
                 status: "Doorgezet schaderapport",
-                value: json['BEZWAAR_DOORGEZET_SCHADEP'];
+                value: json['BEZWAAR_DOORGEZET_SCHADEP']
 
             });
 
             data.push({
                 status: "Niet ontvankelijk",
-                value: json['BEZWAAR_NIET_ONTVANKELIJK'];
+                value: json['BEZWAAR_NIET_ONTVANKELIJK']
 
             });
 
