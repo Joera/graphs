@@ -68,6 +68,8 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         } else {
 
+            console.log(config.innerRadius);
+
             innerRadius = config.innerRadius || 30;
 
             console.log(innerRadius);
@@ -76,8 +78,6 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
                 .attr("transform", "translate(" + (dimensions.containerWidth / 4)+ "," + (dimensions.containerHeight / 2) + ")");
 
             radius = dimensions.containerWidth / 4;
-
-            console.log(radius);
 
             if(radius > (config.maxHeight / 2)) {
                 radius = config.maxHeight / 2;

@@ -87,10 +87,6 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             });
 
-
-
-
-            
             return data;
         }
 
@@ -109,7 +105,6 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
                 legendX = 300;
                 legendY = 120;
-
             }
 
             if (window.innerWidth < 480) {
