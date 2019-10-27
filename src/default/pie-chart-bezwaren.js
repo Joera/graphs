@@ -123,7 +123,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
                 data.forEach( (d,i) => {
 
-                    if (i === data.length) return;
+                    if (i === data.length - 1) return;
 
                     svg.layers.legend.append("rect")
                         .attr("y", (i * 20) - 8)
