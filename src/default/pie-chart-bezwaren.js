@@ -183,7 +183,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
 
             svg.layers.legend.append("rect")
-                .attr("y", (i * 20) - 8)
+                .attr("y", ((completed.length + 1) * 20) + 2)
                 .attr("height",12)
                 .attr("width",12)
                 .attr("fill", orange)
