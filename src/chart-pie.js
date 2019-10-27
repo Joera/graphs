@@ -70,7 +70,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             console.log(config.innerRadius);
 
-            innerRadius = config.innerRadius || 30;
+            innerRadius = config.innerRadius ? config.innerRadius : 30;
 
             console.log(innerRadius);
 
