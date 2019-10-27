@@ -75,16 +75,18 @@ var pieChartBezwaren = function(element,smallMultiple) {
             });
 
             data.push({
+                status: "Doorgezet schaderapport",
+                value: json['BEZWAAR_DOORGEZET_SCHADEP']
+
+            });
+
+            data.push({
                 status: "In behandeling",
                 value: json['BEZWAAR_IN_BEHANDELING']
 
             });
 
-            data.push({
-                status: "Doorgezet schaderapport",
-                value: json['BEZWAAR_DOORGEZET_SCHADEP']
 
-            });
             
             return data;
         }
