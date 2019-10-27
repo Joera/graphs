@@ -45,12 +45,6 @@ var pieChartBezwaren = function(element,smallMultiple) {
             let data = [];
 
             data.push({
-                status: "In behandeling",
-                value: json['BEZWAAR_IN_BEHANDELING']
-
-            });
-
-            data.push({
                 status: "Gegrond",
                 value: json['BEZWAAR_GEGROND']
 
@@ -85,6 +79,12 @@ var pieChartBezwaren = function(element,smallMultiple) {
                 value: json['BEZWAAR_INGETROKKEN']
 
             });
+
+            data.push({
+                status: "In behandeling",
+                value: json['BEZWAAR_IN_BEHANDELING']
+
+            });
             
             return data;
         }
@@ -111,10 +111,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
                 legendX = 120;
                 legendY = 110;
-
             }
-
-
 
             // if (window.innerWidth < 640) {
 
