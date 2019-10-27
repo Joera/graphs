@@ -18,13 +18,13 @@ var pieChartBezwaren = function(element,smallMultiple) {
     config.padding.right = 0;
     // config.xParameter = 'status';  // name of first column with values of bands on x axis
     // config.yParameter = 'totaal';  // is being set in type function
-    config.currencyLabels = true;
+    // config.currencyLabels = true;
 
 
     config.maxHeight = 300;
 
     config.colours = d3.scaleOrdinal()
-        .range([green,darkblue,blue,orange,grey]);
+        .range([orange,green,darkblue,blue,grey,green,darkblue,blue]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
@@ -126,6 +126,8 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
                 data.forEach( (d,i) => {
 
+                    if (i === 0) return;
+
                     svg.layers.legend.append("rect")
                         .attr("y", (i * 20) - 8)
                         .attr("height",12)
@@ -172,7 +174,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
                 .attr("class", "small-label")
                 .attr("dx", 200)
                 .attr("dy", (data.length * 20) + 2)
-                .text(json.filter( j => j['_category'] === filter)[0]['OPNAMES'])
+                .text(json.filter( j => j['_category'] === filter)[0]['BEZWAAR_AFGEHANDELD'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
