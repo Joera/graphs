@@ -121,7 +121,9 @@ var pieChartBezwaren = function(element,smallMultiple) {
                 svg.layers.legend.selectAll('*')
                     .remove();
 
-                data.forEach( (d,i) => {
+                let completed = data.filter( (d) => { return d['status'] !== 'In behandeling'})
+
+                completed.forEach( (d,i) => {
 
                     if (i === data.length - 1) return;
 
@@ -154,7 +156,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             svg.layers.legend.append("rect")
                 .attr("class", "small-label")
-                .attr("y", ((data.length - 1) * 20) + 8)
+                .attr("y", ((completed.length - 1) * 20) + 8)
                 .attr("height",.5)
                 .attr("width",200)
                 .style("opacity", 1)
@@ -162,7 +164,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", (data.length * 20) + 2)
+                .attr("dy", (completed.length * 20) + 2)
                 .text('Totaal afgehandeld:')
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1);
@@ -170,7 +172,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dx", 200)
-                .attr("dy", (data.length * 20) + 2)
+                .attr("dy", (completed.length * 20) + 2)
                 .text(json.filter( j => j['_category'] === filter)[0]['BEZWAAR_AFGEHANDELD'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
