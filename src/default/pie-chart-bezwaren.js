@@ -202,7 +202,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
             .attr("class", "small-label")
             .attr("dx", 200)
             .attr("dy", ((completed.length + 1.5) * 20) + 2)
-            .text(json.filter( j => j['_category'] === filter)[0]['BEZWAAR_IN_BEHANDELING'])
+            .text(data.filter( j => j['_category'] === filter)[0]['BEZWAAR_IN_BEHANDELING'])
             .attr("width",dimensions.containerWidth)
             .style("opacity", 1)
             .style("text-anchor", "end");
