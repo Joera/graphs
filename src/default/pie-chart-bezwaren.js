@@ -183,7 +183,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", (completed.length * 20) + 2)
+                .attr("dy", ((completed.length + 2) * 20) + 2)
                 .text('In behandeling:')
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1);
