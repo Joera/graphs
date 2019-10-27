@@ -69,7 +69,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             svg.layers.data
                 .attr("transform", "translate(" + (dimensions.containerWidth / 4)+ "," + (dimensions.containerHeight / 2) + ")");
 
-            radius = dimensions.containerWidth / 4;
+            radius = config.radius || dimensions.containerWidth / 4;
 
             if(radius > (config.maxHeight / 2)) {
                 radius = config.maxHeight / 2;
