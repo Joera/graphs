@@ -24,7 +24,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
     config.maxHeight = 300;
 
     config.colours = d3.scaleOrdinal()
-        .range([blue,green,darkblue,blue,grey,green,orange]);
+        .range([blue,darkblue,grey,green,blue,darkblue,orange]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
