@@ -24,7 +24,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
     config.maxHeight = 300;
 
     config.colours = d3.scaleOrdinal()
-        .range([blue,darkblue,grey,green,blue,darkblue,orange]);
+        .range([orange,blue,darkblue,grey,green,blue,darkblue]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
@@ -43,6 +43,12 @@ var pieChartBezwaren = function(element,smallMultiple) {
             json = json.filter( j => j['_category'] === filter)[0];
 
             let data = [];
+
+            data.push({
+                status: "In behandeling",
+                value: json['BEZWAAR_IN_BEHANDELING']
+
+            });
 
             data.push({
                 status: "Gegrond",
@@ -80,11 +86,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             });
 
-            data.push({
-                status: "In behandeling",
-                value: json['BEZWAAR_IN_BEHANDELING']
 
-            });
 
 
             
