@@ -71,6 +71,8 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
             radius = config.radius || dimensions.containerWidth / 4;
 
+            console.log(radius);
+
             if(radius > (config.maxHeight / 2)) {
                 radius = config.maxHeight / 2;
             }
