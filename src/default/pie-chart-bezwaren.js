@@ -164,7 +164,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", (completed.length * 20) + 2)
+                .attr("dy", (completed.length * 20) + 4)
                 // .attr("dx", 16)
                 .text('Totaal afgehandeld:')
                 .attr("width",dimensions.containerWidth)
@@ -173,7 +173,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dx", 200)
-                .attr("dy", (completed.length * 20) + 2)
+                .attr("dy", (completed.length * 20) + 4)
                 .text(json.filter( j => j['_category'] === filter)[0]['BEZWAAR_AFGEHANDELD'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
@@ -183,7 +183,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
 
             svg.layers.legend.append("rect")
-                .attr("y", ((completed.length + 2) * 20) - 8)
+                .attr("y", ((completed.length + 1) * 20) - 8)
                 .attr("height",12)
                 .attr("width",12)
                 .attr("fill", orange)
@@ -191,7 +191,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", ((completed.length + 2) * 20) + 2)
+                .attr("dy", ((completed.length + 1) * 20) + 2)
                 .attr("dx", 16)
                 .text('In behandeling:')
                 .attr("width",dimensions.containerWidth)
