@@ -27,6 +27,9 @@ var pieChartBezwaren = function(element,smallMultiple) {
     config.colours = d3.scaleOrdinal()
         .range([orange,blue,darkblue,grey,green,blue,darkblue]);
 
+    config.coloursLegend = d3.scaleOrdinal()
+        .range([blue,darkblue,grey,green,blue,darkblue]);
+
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
@@ -131,7 +134,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
                         .attr("y", (i * 20) - 8)
                         .attr("height",12)
                         .attr("width",12)
-                        .attr("fill", config.colours(i))
+                        .attr("fill", config.coloursLegend(i))
                         .style("opacity", 1);
 
                     svg.layers.legend.append("text")
@@ -183,7 +186,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
 
             svg.layers.legend.append("rect")
-                .attr("y", ((completed.length + 1) * 20) - 8)
+                .attr("y", ((completed.length + 1.5) * 20) - 8)
                 .attr("height",12)
                 .attr("width",12)
                 .attr("fill", orange)
@@ -191,7 +194,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
 
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", ((completed.length + 1) * 20) + 2)
+                .attr("dy", ((completed.length + 1.5) * 20) + 2)
                 .attr("dx", 16)
                 .text('In behandeling:')
                 .attr("width",dimensions.containerWidth)
@@ -200,7 +203,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dx", 200)
-                .attr("dy", ((completed.length + 2) * 20) + 2)
+                .attr("dy", ((completed.length + 1.5) * 20) + 2)
                 .text(json.filter( j => j['_category'] === filter)[0]['BEZWAAR_IN_BEHANDELING'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
