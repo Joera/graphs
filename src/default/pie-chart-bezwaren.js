@@ -163,7 +163,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
             svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dy", (data.length * 20) + 2)
-                .text('Totaal:')
+                .text('Totaal afgehandeld:')
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1);
 
