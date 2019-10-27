@@ -178,6 +178,15 @@ var pieChartBezwaren = function(element,smallMultiple) {
                 .style("opacity", 1)
                 .style("text-anchor", "end");
 
+            svg.layers.legend.append("text")
+                .attr("class", "small-label")
+                .attr("dx", 200)
+                .attr("dy", ((completed.length + 3) * 20) + 2)
+                .text(json.filter( j => j['_category'] === filter)[0]['BEZWAAR_IN_BEHANDELING'])
+                .attr("width",dimensions.containerWidth)
+                .style("opacity", 1)
+                .style("text-anchor", "end");
+
             // }
         }
 
