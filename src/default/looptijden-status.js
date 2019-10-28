@@ -143,13 +143,13 @@ var looptijdenStatus  = function (element,smallMultiple) {
         }
     }
 
-    function draw(data, stackedData) {
+    function draw(data, stackedData,notNormalizedData) {
 
         // with data we can init scales
         xScale = chartXScale.set(stackedData);
         yScale = chartYScale.set(data);
         // width data we can draw items
-        chartStackedBarsNormalized.draw(data,stackedData,colours);
+        chartStackedBarsNormalized.draw(data,stackedData,notNormalizedData);
     }
 
     function redraw(notNormalizedData) {
@@ -166,7 +166,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         // redraw data
         chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple,notNormalizedData);
     }
-    
+
     function run(json, muni) {
 
         let { data , stackedData, notNormalizedData } = prepareData(json,muni);
