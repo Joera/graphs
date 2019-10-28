@@ -128,6 +128,8 @@ var statusLooptijden  = function (element,smallMultiple) {
 
         let stackedData = functions.stack(data);
 
+        console.log(stackedData);
+
         return { data, stackedData }
 
     }
