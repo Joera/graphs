@@ -130,12 +130,14 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .merge(svg.barLabelsEnter)
             .text(function(d,i) {
 
-                // hier niet het percentage
-                let item = notNormalizedData[i].filter( (j) => {
-                    return j.data.status === d.data.status;
-                });
+                console.log(data);
 
-                console.log(item);
+                // hier niet het percentage
+                // let item = data[i].filter( (j) => {
+                //     return j.data.status === d.data.status;
+                // });
+                //
+                // console.log(item);
                 return ''; // item[i][1] - item[i][0];
 
             })
