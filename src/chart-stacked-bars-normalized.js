@@ -45,7 +45,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 // console.log(data);
 
                 // hier niet het percentage
-                let item = data[i].filter( (j) => {
+                let item = data.filter( (j) => {
                     return j.status === d.data.status;
                 });
                 //
