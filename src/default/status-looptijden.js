@@ -40,8 +40,10 @@ var statusLooptijden  = function (element,smallMultiple) {
 
     let colours = {
 
-        'totaal': 'green',
-        'extra': 'orange',
+        'langer_dan_twee': 'orange',
+        'tussen_een_en_twee': 'green',
+        'tussen_half_en_een': 'blue',
+        'minder_dan_half': 'darkblue'
     }
 
     // get dimensions from parent element
