@@ -51,7 +51,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
         // if(config.dateLabels) {
         //
             svg.dateLabels = svg.layers.axes.selectAll(".dateLabel")
-                .data(data);
+                .data(stackedData);
 
             svg.dateLabelsEnter = svg.dateLabels
                 .enter()
@@ -165,7 +165,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .attr('transform', function (d) {
 
                 console.log(d);
-                
+
                 return 'translate(30' + (yScale.band(d.data[config.yParameter]) - 30) + ')';
             })
         ;
