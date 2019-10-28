@@ -159,16 +159,19 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .merge(svg.dateLabelsEnter)
             .text(function (d,i) {
 
-                console.log(d[i].data['status']);
+        
 
-                return d[i].data['status'];
+                if(i < 4) {
+                    return d[i].data['status'];
+                }
 
             })
             .attr('transform', function (d,i) {
 
-                console.log(d);
 
-                return 'translate(30' + (yScale.band(d[i].data['status']) - 30) + ')';
+                if(i < 4) {
+                    return 'translate(30' + (yScale.band(d[i].data['status']) - 30) + ')';
+                }
             })
         ;
 
