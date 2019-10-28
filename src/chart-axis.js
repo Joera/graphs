@@ -70,7 +70,7 @@ let ChartAxis = function ChartAxis(config,svg) {
                 .ticks(5);
         }
 
-        svg.yAxis
+        svg.xAxis
             .call(axes.xLinear);
 
     }
