@@ -62,7 +62,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
     // let chartStackedBars = ChartStackedBars(config,svg,functions);
     //  let chartBlocks = ChartBlocks(config,svg,functions);
     chartAxis.drawXAxis();
-    chartAxis.drawYAxis();
+  //  chartAxis.drawYAxis();
 
     function prepareData(json,muni) {
 
@@ -162,7 +162,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
         chartAxis.redrawXAxisStackedNormalized(xScale, axes);
-        chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
+     //   chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
         // redraw data
         chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple,notNormalizedData);
     }
