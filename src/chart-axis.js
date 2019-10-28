@@ -62,13 +62,8 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         axes.xLinear = d3.axisTop(scales.stackedNormalized);
 
-        if(config.noTicksYAxis) {
-            axes.xLinear
-                .tickValues([]);
-        } else {
-            axes.xLinear
-                .ticks(5);
-        }
+        axes.xLinear
+            .ticks(10, "%");
 
         svg.xAxis
             .attr("transform", "translate(" + config.margin.left + "," + config.padding.top + ")")  //
