@@ -118,8 +118,7 @@ var statusLooptijden  = function (element,smallMultiple) {
 
         data.push({
             status: "Besluit genomen",
-            totaal: json['BESCHIKT'],
-            extra: 4000
+            totaal: json['BESCHIKT']
 
         });
 
@@ -181,6 +180,7 @@ var statusLooptijden  = function (element,smallMultiple) {
     function run(json, muni) {
 
         let { data , stackedData } = prepareData(json,muni);
+        console.log(stackedData);
         draw(data,stackedData);
         redraw();
         // legend(data);
@@ -190,14 +190,15 @@ var statusLooptijden  = function (element,smallMultiple) {
 
     d3.json(url, function (error, json) {
         if (error) throw error;
-        run(json,'all');
+        run(json, 'all');
 
-        window.addEventListener("resize", redraw, false);
+    }
 
-        if(municipalitySelect != null) {
-            municipalitySelect.addEventListener("change", function () {
-                run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
-            });
-        }
+    window.addEventListener("resize", redraw, false);
+
+    if (municipalitySelect != null) {
+        municipalitySelect.addEventListener("change", function () {
+        run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
     });
+
 }
