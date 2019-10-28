@@ -164,11 +164,11 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 return d[0][i].data['status'];
 
             })
-            .attr('transform', function (d) {
+            .attr('transform', function (d,i) {
 
                 console.log(d);
 
-                return ''; // 'translate(30' + (yScale.band(d.data['status']) - 30) + ')';
+                return 'translate(30' + (yScale.band(d[0][i].data['status']) - 30) + ')';
             })
         ;
 
