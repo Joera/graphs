@@ -113,7 +113,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("x", function(d) { return xScale.stackedNormalized(d[1]); })
+            .attr("x", function(d) { return xScale.stackedNormalized(d[0]); })
             .attr("width", function(d) {
                 return xScale.stackedNormalized(d[1]) - xScale.stackedNormalized(d[0]);
             })
