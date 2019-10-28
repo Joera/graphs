@@ -108,7 +108,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let redrawYBandAxis = function redrawYBandAxis(dimensions,yScale,axes,alternateTicks,smallMultiple) {
 
-        axes.yBand = d3.axisBottom(yScale.band);
+        axes.yBand = d3.axisLeft(yScale.band);
 
         axes.yBand
             .tickFormat( (d,i) => {
