@@ -141,11 +141,11 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             })
             .attr('transform', function(d) {
 
-                yOffset = dimensions.height / (2 * dataArray.length)  - 11;
+              //  yOffset = dimensions.height / (2 * dataArray.length);
                 let start = (d[1] < config.minValue) ? config.minValue : d[1];
                 xOffset = ((xScale.stackedNormalized(d[0]) - xScale.stackedNormalized(start)) / 2);
 
-                return 'translate(' + (xScale.stackedNormalized(d[0]) - xOffset) + ',' + (yScale.band(d.data[config.xParameter]) + ( yScale.band.bandwidth() / 2)) +')';
+                return 'translate(' + (xScale.stackedNormalized(d[0]) - xOffset) + ',' + (yScale.band(d.data[config.xParameter]) + ( yScale.band.bandwidth() / 2)) + 11 +')';
 
             })
             .attr('fill-opacity', 0)
@@ -158,7 +158,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
         svg.dateLabels
             .merge(svg.dateLabelsEnter)
             .text(function (d) {
-                
+
                 return d['status'];
 
             })
