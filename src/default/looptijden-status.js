@@ -109,14 +109,19 @@ var looptijdenStatus  = function (element,smallMultiple) {
         });
 
 
-        functions.stack = d3.stack()
-        // )     .order(d3.stackOrderNone
+        functions.normalizedStack = d3.stack()
             .offset(d3.stackOffsetExpand)
             .keys(Object.keys(data[0]).filter(key => {
                 return ['status'].indexOf(key) < 0
             } ));
 
-        let stackedData = functions.stack(data);
+        functions.stack = d3.stack()
+            .keys(Object.keys(data[0]).filter(key => {
+                return ['status'].indexOf(key) < 0
+            } ));
+
+        let stackedData = functions.normalizedStack(data);
+        let notNormalizedData = functions.stack(data);
         console.log(stackedData);
         return { data, stackedData }
     }
@@ -162,7 +167,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         chartAxis.redrawXAxisStackedNormalized(xScale, axes);
         chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
         // redraw data
-        chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple);
+        chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple,notNormalizedData);
     }
 
 

@@ -70,7 +70,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,colours,smallMultiple) {
+    let redraw = function redraw(dimensions,xScale,yScale,colours,smallMultiple,notNormalizedData) {
 
         let barWidth = xScale.band.bandwidth();
         let yOffset;
@@ -121,9 +121,11 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabels
             .merge(svg.barLabelsEnter)
-            .text(function(d) {
+            .text(function(d,i) {
                 // if(thousands(d[0] - d[1]) > 0) {
-                    return thousands(d[1] - d[0]);
+
+                // hier niet het percentage
+                    return notNormalizedData[i][1] - notNormalizedData[i][0];
                 // }
             })
             .attr('transform', function(d) {
