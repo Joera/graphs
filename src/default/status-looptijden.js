@@ -116,7 +116,11 @@ var statusLooptijden  = function (element,smallMultiple) {
 
         data.push({
             status: "Besluit genomen",
-            totaal: json['BESCHIKT']
+            totaal: json['BESCHIKT'],
+            langer_dan_twee: 0,
+            tussen_een_en_twee: 0,
+            tussen_half_en_een: 0,
+            minder_dan_half: json['BESCHIKT']
 
         });
 
