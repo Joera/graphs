@@ -19,7 +19,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
     config.margin.left = 0;
     config.margin.right = 0;
     config.padding.top = smallMultiple? 15 : 30;
-    config.padding.bottom = 30;
+    config.padding.bottom = 0;
     config.padding.left = 0;
     config.padding.right = 40;
     // name of first column with values of bands on x axis
