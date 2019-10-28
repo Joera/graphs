@@ -50,9 +50,9 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 });
                 //
                 console.log(item);
-                return 'kip'; // item[i][1] - item[i][0];
+                return ''; // item[i][1] - item[i][0];
 
-            })
+            })  
             .attr('class','barLabel small-label white')
             .attr('x', 0)
             .attr('dx', '0px')
