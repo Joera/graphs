@@ -7,6 +7,12 @@
 #bezwaren-pie-chart {
 
   svg .data path:first-of-type {
-    transform: translate(12px, -6px);
+
+    transform: translate(6px, -3px);
+
+    @media (min-width: $breakpoint-xxsm) {
+
+      transform: translate(12px, -6px);
+    }
   }
 }
