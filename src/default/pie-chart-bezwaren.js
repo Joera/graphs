@@ -28,7 +28,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
         .range([orange,blue,darkblue,grey,green,blue,darkblue]);
 
     config.coloursLegend = d3.scaleOrdinal()
-        .range([blue,darkblue,grey,green,blue,darkblue]);
+        .range([blue,darkblue,grey,green,yellow,darkblue]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
@@ -83,7 +83,7 @@ var pieChartBezwaren = function(element,smallMultiple) {
         });
 
         data.push({
-            status: "Doorgezet schaderapport",
+            status: "Naar schadeprocedure",
             value: json['BEZWAAR_DOORGEZET_SCHADEP']
 
         });
