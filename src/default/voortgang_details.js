@@ -80,8 +80,6 @@ var voortgangDetails = function(element,smallMultiple) {
         }
 
         function filterData(array) {
-            //
-            console.log(array);
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[data.length - 1]).filter(key => array.indexOf(key) > -1));

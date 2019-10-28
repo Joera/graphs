@@ -122,7 +122,6 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
         let stackedData = functions.normalizedStack(data);
         let notNormalizedData = functions.stack(data);
-        console.log(stackedData);
         return { data, stackedData, notNormalizedData }
     }
 
@@ -145,8 +144,6 @@ var looptijdenStatus  = function (element,smallMultiple) {
     }
 
     function draw(data, stackedData) {
-
-        console.log(stackedData);
 
         // with data we can init scales
         xScale = chartXScale.set(stackedData);
@@ -174,7 +171,6 @@ var looptijdenStatus  = function (element,smallMultiple) {
     function run(json, muni) {
 
         let { data , stackedData, notNormalizedData } = prepareData(json,muni);
-        console.log(stackedData);
         draw(data,stackedData);
         redraw(notNormalizedData);
         // legend(data);
