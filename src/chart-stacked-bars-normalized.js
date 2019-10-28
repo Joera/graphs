@@ -161,7 +161,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
            ;
 
         svg.barLabels
-            .merge(svg.barLabelsEnter)
+            // .merge(svg.barLabelsEnter)
             .attr('transform', function(d) {
 
               //  yOffset = dimensions.height / (2 * dataArray.length);
