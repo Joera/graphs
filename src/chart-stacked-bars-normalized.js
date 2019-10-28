@@ -33,7 +33,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .attr("class", "bar")
             ;
 
-        svg.barLabels = svg.seriesEnter.merge(svg.series).selectAll(".barLabel")
+        svg.barLabels = svg.barEnter.merge(svg.bar).selectAll(".barLabel")
             .data(function(d) { return d; });
 
         svg.barLabels.exit().remove();
@@ -42,24 +42,26 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append('text')
             .text(function(d,i) {
 
-                // console.log(d);
+                console.log(d);
 
                 // hier niet het percentage
-                let item = data.filter( (j) => {
-                    return j.status === d.data.status;
-                });
-
-                console.log(item);
+                // let item = data.filter( (j) => {
+                //     return j.status === d.data.status;
+                // });
+                //
+                // console.log(item);
 
                //  hij loopt door de statussen
 
                 // console.log(i);
 
-                if (d.data.status === 'Langer dan twee jaar' && i === 0) {
-                    return item[0]['ontvangst'];
-                } else {
-                    return ''; // item[i][1] - item[i][0];
-                }
+                // if (d.data.status === 'Langer dan twee jaar' && i === 0) {
+                //     return item[0]['ontvangst'];
+                // } else {
+                //     return ''; // item[i][1] - item[i][0];
+                // }
+
+                return '';
 
             })  
             .attr('class','barLabel small-label white')
