@@ -71,6 +71,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         }
 
         svg.xAxis
+            .attr("transform", "translate(" + config.margin.left + "," + config.padding.top + ")")  //
             .call(axes.xLinear);
 
     }
