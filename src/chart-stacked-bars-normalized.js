@@ -49,6 +49,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                     return j.status === d.data.status;
                 });
 
+                console.log(i);
+
                 if (i === 4 || i === 7 || i === 10) {
                     return item[0]['ontvangst'];
                 }
