@@ -51,8 +51,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 console.log(i);
 
-                if (i === 4 || i === 7 || i === 10) {
-                    return item[0]['ontvangst'];
+                if (i === 0) {
+                    return item[i]['ontvangst'];
                 }
                 //
                 console.log(item);
