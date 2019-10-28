@@ -48,6 +48,10 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 let item = data.filter( (j) => {
                     return j.status === d.data.status;
                 });
+
+                if (i < 4) {
+                    return item[0]['ontvangst'];
+                }
                 //
                 console.log(item);
                 return ''; // item[i][1] - item[i][0];
