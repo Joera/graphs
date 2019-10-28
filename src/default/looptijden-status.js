@@ -107,21 +107,16 @@ var looptijdenStatus  = function (element,smallMultiple) {
         });
 
 
-
-        console.log(data);
-
-
         functions.stack = d3.stack()
+            .order(d3.stackOrderNone)
+            .offset(d3.stackOffsetExpand)
             .keys(Object.keys(data[0]).filter(key => {
                 return ['status'].indexOf(key) < 0
             } ));
 
         let stackedData = functions.stack(data);
-
         console.log(stackedData);
-
         return { data, stackedData }
-
     }
 
     function legend(data) {
