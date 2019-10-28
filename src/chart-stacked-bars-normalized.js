@@ -38,13 +38,15 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabels.exit().remove();
 
+        let j = 0;
+
         svg.barLabelsEnter = svg.barLabels.enter()
             .append('text')
             .text(function(d,i) {
 
                 if(i == 0) {
 
-                    console.log(notNormalizedData[i]);
+                    console.log(notNormalizedData[i][j]);
 
                 }
 
@@ -64,6 +66,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 // } else {
                     return ''; // item[i][1] - item[i][0];
              //   }
+
+                j++;
 
             })  
             .attr('class','barLabel small-label white')
