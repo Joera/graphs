@@ -182,14 +182,15 @@ var looptijdenStatus  = function (element,smallMultiple) {
         if (error) throw error;
         run(json, 'all');
 
+        if (municipalitySelect != null) {
+            municipalitySelect.addEventListener("change", function () {
+                run(json, municipalitySelect.options[municipalitySelect.selectedIndex].value);
+            });
+        }
     });
 
     window.addEventListener("resize", redraw, false);
 
-    if (municipalitySelect != null) {
-        municipalitySelect.addEventListener("change", function () {
-            run(json, municipalitySelect.options[municipalitySelect.selectedIndex].value);
-        });
-    }
+
 
 }

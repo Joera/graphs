@@ -233,13 +233,15 @@ var pieChartBezwaren = function(element,smallMultiple) {
     d3.json(url, function(error, json) {
 
         run(json, 'all');
+
+        if(municipalitySelect != null) {
+            municipalitySelect.addEventListener("change", function () {
+                run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
+            });
+        }
     });
 
     window.addEventListener("resize", redraw, false);
 
-    if(municipalitySelect != null) {
-        municipalitySelect.addEventListener("change", function () {
-            run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
-        });
-    }
+
 }
