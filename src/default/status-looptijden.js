@@ -122,6 +122,8 @@ var statusLooptijden  = function (element,smallMultiple) {
 
         });
 
+        console.log(data);
+
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[data.length - 1]).filter(key => ['status','totaal'].indexOf(key) < 0 ));
