@@ -25,10 +25,10 @@ var pieChartBezwaren = function(element,smallMultiple) {
     config.innerRadius = 0;
 
     config.colours = d3.scaleOrdinal()
-        .range([orange,yellow,darkblue,grey,green,blue,darkblue]);
+        .range([orange,yellow,blue,darkblue,grey,green,darkblue]);
 
     config.coloursLegend = d3.scaleOrdinal()
-        .range([yellow,darkblue,grey,green,blue,darkblue]);
+        .range([yellow,blue,darkblue,grey,green,darkblue]);
 
     let chartDimensions = ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
