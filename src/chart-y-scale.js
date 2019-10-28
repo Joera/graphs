@@ -19,8 +19,6 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 config.maxValue || d3.max(data, d => d[property])
             ]).nice();
 
-
-
         let arrayOfCumulatedValues = [];
 
         for (let p = 0; p < data.length; p++) {
@@ -40,6 +38,9 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             ])
             .nice();
 
+        scale.stackedNormalized = d3.scaleLinear();
+
+
      //   let mapMax =
 
         scale.map = d3.scaleLinear()
@@ -53,7 +54,6 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         return scale;
 
-
     }
 
 
@@ -65,7 +65,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         newScale.stacked
             .range([(config.fixedHeight || dimensions.height), 0]);
 
-
+        newScale.stackedNormalized
+            .range([(config.fixedHeight || dimensions.height), 0]);
 
         return newScale;
     }

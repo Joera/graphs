@@ -56,7 +56,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config, svg);
-    let chartStackedBars = ChartStackedBars(config,svg);
+    let chartStackedBarsNormalized = ChartStackedBarsNormalized(config,svg);
     // let chartStackedBars = ChartStackedBars(config,svg,functions);
     //  let chartBlocks = ChartBlocks(config,svg,functions);
     chartAxis.drawXAxis();
@@ -150,7 +150,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         xScale = chartXScale.set(data);
         yScale = chartYScale.set(stackedData);
         // width data we can draw items
-        chartStackedBars.draw(data,stackedData,colours);
+        chartStackedBarsNormalized.draw(data,stackedData,colours);
     }
 
     function redraw() {
@@ -165,7 +165,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         chartAxis.redrawXBandAxis(dimensions, xScale, axes, true, smallMultiple);
         chartAxis.redrawYAxisStacked(yScale, axes);
         // redraw data
-        chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
+        chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple);
     }
 
 

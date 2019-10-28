@@ -34,6 +34,7 @@ module.exports = function() {
             './src/chart-bar.js',
             './src/chart-bars-increase.js',
             './src/chart-stacked-bars.js',
+            './src/chart-stacked-bars-normalized.js',
             './src/chart-stacked-area.js',
             './src/chart-blocks.js',
             './src/chart-area.js',
