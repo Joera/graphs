@@ -166,7 +166,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
 
-                return 'translate(' + (yScale.band(d[config.xParameter]) - 50) + ',30)';
+                return 'translate(30' + (yScale.band(d[config.yParameter]) - 30) + ')';
             })
         ;
 
