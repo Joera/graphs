@@ -115,7 +115,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .duration(500)
             .attr("x", function(d) { return xScale.stackedNormalized(d[1]); })
             .attr("width", function(d) {
-                return xScale.stackedNormalized(d[0]) - xScale.stackedNormalized(d[1]);
+                return xScale.stackedNormalized(d[1]) - xScale.stackedNormalized(d[0]);
             })
            ;
 
