@@ -21,7 +21,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
     config.padding.top = smallMultiple? 15 : 30;
     config.padding.bottom = 50;
     config.padding.left = 0;
-    config.padding.right = 0;
+    config.padding.right = 40;
     // name of first column with values of bands on x axis
 
     // y-axis
