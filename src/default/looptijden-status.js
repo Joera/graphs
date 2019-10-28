@@ -110,7 +110,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
 
         functions.stack = d3.stack()
-            .order(d3.stackOrderNone)
+        // )     .order(d3.stackOrderNone
             .offset(d3.stackOffsetExpand)
             .keys(Object.keys(data[0]).filter(key => {
                 return ['status'].indexOf(key) < 0
