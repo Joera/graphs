@@ -16,7 +16,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
     config.margin.top = 0;
     config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 75 : 0;
-    config.margin.left = 40;
+    config.margin.left = 0;
     config.margin.right = 0;
     config.padding.top = smallMultiple? 15 : 30;
     config.padding.bottom = 50;
