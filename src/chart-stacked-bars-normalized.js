@@ -48,7 +48,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 //
                     console.log(d.data.status);
 
-                    let c = notNormalizedData[i].filter( (j) => {
+                    let item = notNormalizedData[i].filter( (j) => {
                         return j.status === d.data.status;
                     });
 
