@@ -60,7 +60,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 .attr('x', 0)
                 .attr('dx', config.padding.left)
                 .attr('dy', '30px')
-                .style("text-anchor", "middle")
+                .style("text-anchor", "start")
                 .attr('fill-opacity', 0)
                 .transition()
                 .delay(500)
@@ -170,7 +170,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
 
                 if(i < 4) {
-                    return 'translate(' + 30 + ',' + (yScale.band(d[i].data['status']) - 30) + ')';
+                    return 'translate(' + 30 + ',' + (yScale.band(d[i].data['status']) - 10) + ')';
                 }
             })
         ;
