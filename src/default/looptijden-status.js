@@ -140,10 +140,6 @@ var looptijdenStatus  = function (element,smallMultiple) {
                     .attr("width",dimensions.containerWidth)
                     .style("opacity", 1);
             });
-        } else {
-
-
-
         }
     }
 
