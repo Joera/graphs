@@ -135,8 +135,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                     return j.data.status === d.data.status;
                 });
 
-              //  console.log(item);
-                return item[0][1] - item[0][0];
+              //      console.log(item);
+                return item[i][1] - item[i][0];
 
             })
             .attr('transform', function(d) {
