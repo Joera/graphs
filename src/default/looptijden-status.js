@@ -144,8 +144,8 @@ var looptijdenStatus  = function (element,smallMultiple) {
         console.log(stackedData);
 
         // with data we can init scales
-        xScale = chartXScale.set(data);
-        yScale = chartYScale.set(stackedData);
+        xScale = chartXScale.set(stackedData);
+        yScale = chartYScale.set(data);
         // width data we can draw items
         chartStackedBarsNormalized.draw(data,stackedData,colours);
     }
