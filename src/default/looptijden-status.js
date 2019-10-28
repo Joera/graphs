@@ -170,9 +170,9 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let { data , stackedData, notNormalizedData } = prepareData(json,muni);
-        draw(data,stackedData);
-        redraw(notNormalizedData);
+        let { data , stackedData } = prepareData(json,muni);
+        draw(data,stackedData,notNormalizedData);
+        redraw();
         // legend(data);
     }
 
