@@ -82,7 +82,7 @@ var statusLooptijden  = function (element,smallMultiple) {
             langer_dan_twee: json['LANGER_2_JAAR_PLANNING_OPNAME'],
             tussen_een_en_twee: json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
             tussen_half_en_een: json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
-            minder_dan_half: json['MNDER_HALF_JAAR_PLANNING']
+            minder_dan_half: json['MINDER_HALF_JAAR_PLANNING']
         });
 
 
