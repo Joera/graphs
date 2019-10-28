@@ -106,36 +106,36 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
-    let redrawYBandAxis = function redrawYBandAxis(dimensions,xScale,axes,alternateTicks,smallMultiple) {
+    let redrawYBandAxis = function redrawYBandAxis(dimensions,yScale,axes,alternateTicks,smallMultiple) {
 
-        axes.xBand = d3.axisBottom(xScale.band);
+        axes.yBand = d3.axisBottom(yScale.band);
 
-        axes.xBand
+        axes.yBand
             .tickFormat( (d,i) => {
                 return (window.innerWidth < 640 || smallMultiple) ? (i + 1) : d;
             });
 
-        svg.xAxis
+        svg.yAxis
             .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
-            .call(axes.xBand);
+            .call(axes.yBand);
 
-        if (alternateTicks) {
-
-            let alternate_text = false;
-            if(window.innerWidth > 640 && (!smallMultiple || smallMultiple === undefined)) {
-
-                d3.selectAll("g.x-axis g.tick text")
-                    .attr("y", function () {
-                        if (alternate_text) {
-                            alternate_text = false;
-                            return 26;
-                        } else {
-                            alternate_text = true;
-                            return 10;
-                        }
-                    });
-            }
-        }
+        // if (alternateTicks) {
+        //
+        //     let alternate_text = false;
+        //     if(window.innerWidth > 640 && (!smallMultiple || smallMultiple === undefined)) {
+        //
+        //         d3.selectAll("g.y-axis g.tick text")
+        //             .attr("y", function () {
+        //                 if (alternate_text) {
+        //                     alternate_text = false;
+        //                     return 26;
+        //                 } else {
+        //                     alternate_text = true;
+        //                     return 10;
+        //                 }
+        //             });
+        //     }
+        // }
     }
 
     return {
