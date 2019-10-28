@@ -40,6 +40,19 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabelsEnter = svg.barLabels.enter()
             .append('text')
+            .text(function(d,i) {
+
+                console.log(data);
+
+                // hier niet het percentage
+                // let item = data[i].filter( (j) => {
+                //     return j.data.status === d.data.status;
+                // });
+                //
+                // console.log(item);
+                return 'kip'; // item[i][1] - item[i][0];
+
+            })
             .attr('class','barLabel small-label white')
             .attr('x', 0)
             .attr('dx', '0px')
@@ -128,19 +141,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabels
             .merge(svg.barLabelsEnter)
-            .text(function(d,i) {
-
-                console.log(data);
-
-                // hier niet het percentage
-                // let item = data[i].filter( (j) => {
-                //     return j.data.status === d.data.status;
-                // });
-                //
-                // console.log(item);
-                return ''; // item[i][1] - item[i][0];
-
-            })
             .attr('transform', function(d) {
 
               //  yOffset = dimensions.height / (2 * dataArray.length);
