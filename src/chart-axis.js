@@ -60,7 +60,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let redrawXAxisStackedNormalized = function redrawXAxisStackedNormalized(scales,axes) {
 
-        axes.xLinear = d3.axisBottom(scales.stackedNormalized);
+        axes.xLinear = d3.axisTop(scales.stackedNormalized);
 
         if(config.noTicksYAxis) {
             axes.xLinear
