@@ -51,6 +51,12 @@ var pieChartOpnames = function(element,smallMultiple) {
             });
 
             data.push({
+                status: "Schade-opnemers",
+                value: json['OPNAMES_OPNEMERSVARIANT']
+
+            });
+
+            data.push({
                 status: "CVW 2000",
                 value: json['OPNAMES_CVW2000']
 

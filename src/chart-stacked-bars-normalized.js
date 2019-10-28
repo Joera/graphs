@@ -122,18 +122,15 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
         svg.barLabels
             .merge(svg.barLabelsEnter)
             .text(function(d,i) {
-                // if(thousands(d[0] - d[1]) > 0) {
 
-               // console.log(d.data.status);
+                // hier niet het percentage
                 let item = notNormalizedData[i].filter( (j) => {
                     return j.data.status === d.data.status;
                 });
 
                 console.log(item);
+                return item[0][1] - item[0][0];
 
-                // hier niet het percentage
-                    return notNormalizedData[i][1] - notNormalizedData[i][0];
-                // }
             })
             .attr('transform', function(d) {
 
