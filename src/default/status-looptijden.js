@@ -68,52 +68,48 @@ var statusLooptijden  = function (element,smallMultiple) {
         data.push({
             status: "Ontvangst en analyse",
             totaal: json['ONTVANGST'],
-            minder_dan_half: json['MNDER_HALF_JAAR_ONTVANGST'],
-            tussen_half_en_een: json['HALF_JAAR_1JAAR_ONTVANGST'],
+            langer_dan_twee: json['LANGER_2_JAAR_ONTVANGST'],
             tussen_een_en_twee: json['TUSSEN_1_2_JAAR_ONTVANGST'],
-            langer_dan_twee: json['LANGER_2_JAAR_ONTVANGST']
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_ONTVANGST'],
+            minder_dan_half: json['MNDER_HALF_JAAR_ONTVANGST']
         });
 
         data.push({
             status: "Schade-opname wordt ingepland",
             totaal: json['PLANNING_OPNAME'],
-            minder_dan_half: json['MNDER_HALF_JAAR_PLANNING'],
-            tussen_half_en_een: json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
+            langer_dan_twee: json['LANGER_2_JAAR_PLANNING_OPNAME'],
             tussen_een_en_twee: json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
-            langer_dan_twee: json['LANGER_2_JAAR_PLANNING_OPNAME']
-
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
+            minder_dan_half: json['MNDER_HALF_JAAR_PLANNING']
         });
 
 
         data.push({
             status: "Schade-opname uitgevoerd, adviesrapport opleveren",
             totaal: json['OPLEV_SCHADERAPPORT'],
-            minder_dan_half: json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
-            tussen_half_en_een: json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
+            langer_dan_twee: json['LANGER_2_JAAR_OPLEV_SCHRAP'],
             tussen_een_en_twee: json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
-            langer_dan_twee: json['LANGER_2_JAAR_OPLEV_SCHRAP']
-
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
+            minder_dan_half: json['MINDER_HALF_JAAR_OPLEV_SCHRAP']
         });
 
 
         data.push({
             status: "Adviesrapport opgeleverd, besluit voorbereiden",
             totaal: json['VOORBER_CIE'],
-            minder_dan_half: json['MINDER_HALF_JAAR_VOORBER_'],
-            tussen_half_en_een: json['HALF_JAAR_1JAAR_VOORBER_CIE'],
+            langer_dan_twee: json['LANGER_2_JAAR_VOORBER_CIE'],
             tussen_een_en_twee: json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
-            langer_dan_twee: json['LANGER_2_JAAR_VOORBER_CIE']
-
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_VOORBER_CIE'],
+            minder_dan_half: json['MINDER_HALF_JAAR_VOORBER_']
         });
 
         data.push({
             status: "Stuwmeerregeling",
             totaal: json['BESCHIKT'],
-            minder_dan_half: json['MINDER_HALF_JAAR_STATUS_STUW'],
-            tussen_half_en_een: json['HALF_JAAR_1JAAR_STATUS_STUW'],
+            langer_dan_twee: json['LANGER_2_JAAR_STATUS_STUW'],
             tussen_een_en_twee: json['TUSSEN_1_2_JAAR_STATUS_STUW'],
-            langer_dan_twee: json['LANGER_2_JAAR_STATUS_STUW']
-
+            tussen_half_en_een: json['HALF_JAAR_1JAAR_STATUS_STUW'],
+            minder_dan_half: json['MINDER_HALF_JAAR_STATUS_STUW']
         });
 
         data.push({
