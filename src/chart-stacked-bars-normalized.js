@@ -145,7 +145,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 let start = (d[1] < config.minValue) ? config.minValue : d[1];
                 xOffset = ((xScale.stackedNormalized(d[0]) - xScale.stackedNormalized(start)) / 2);
 
-                return 'translate(' + (xScale.stackedNormalized(d[0]) - xOffset) + ',' + (yScale.band(d.data[config.xParameter]) + ( yScale.band.bandwidth() / 2)) + 11 +')';
+                return 'translate(' + (xScale.stackedNormalized(d[0]) - xOffset) + ',' + ((yScale.band(d.data[config.xParameter]) + ( yScale.band.bandwidth() / 2)) + 11 ) +')';
 
             })
             .attr('fill-opacity', 0)
