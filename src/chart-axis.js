@@ -133,7 +133,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             });
 
         svg.yAxis
-            .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
+            // .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
             .call(axes.yBand);
 
         // if (alternateTicks) {
