@@ -44,7 +44,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append('text')
             .text(function(d,i) {
 
-
+                console.log(j);
 
                     console.log(notNormalizedData); // [j][i][1]);
 
