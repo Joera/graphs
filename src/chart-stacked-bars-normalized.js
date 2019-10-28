@@ -46,9 +46,9 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .text(function(d,i) {
 
                 //
-                // console.log(i);
+                console.log(i);
 
-                    console.log(notNormalizedData[i][0][1]); // [j][i][1]);
+                    console.log(notNormalizedData); // [j][i][1]);
 
 
 
@@ -66,7 +66,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 // if (d.data.status === 'Langer dan twee jaar' && i === 0) {
                 //     return item[0]['ontvangst'];
                 // } else {
-                    return notNormalizedData[i][0][1]; // item[i][1] - item[i][0];
+                    return ''; notNormalizedData[i][0][1]; // item[i][1] - item[i][0];
              //   }
 
 
