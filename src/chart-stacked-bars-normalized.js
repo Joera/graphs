@@ -20,9 +20,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .enter()
             .append("g");
 
-        svg.seriesLabel = svg.series
-            .append("text")
-            .text('hoi');
+
 
         svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
             .data(function(d) { return d; });
@@ -50,8 +48,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         ;
 
-        if(config.dateLabels) {
-
+        // if(config.dateLabels) {
+        //
             svg.dateLabels = svg.layers.axes.selectAll(".dateLabel")
                 .data(data);
 
@@ -68,8 +66,13 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 .delay(500)
                 .duration(500)
                 .attr('fill-opacity', 1);
+        //
+        // }
 
-        }
+        // svg.seriesLabel = svg.seriesEnter.merge(svg.series)
+        //     .append("text")
+        //     .attr("class", "seriesLabel")
+        //     .text('hoi');
 
 
     }
@@ -150,6 +153,23 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .delay(500)
             .duration(500)
             .attr('fill-opacity', 1);
+
+
+        svg.dateLabels
+            .merge(svg.dateLabelsEnter)
+            .text(function (d) {
+                
+                return d['status'];
+
+            })
+            .attr('transform', function (d) {
+
+                let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
+
+                return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ','
+                    + yOffset + ')';
+            })
+        ;
 
 
 
