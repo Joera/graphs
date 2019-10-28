@@ -170,7 +170,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
 
                 if(i < 4) {
-                    return 'translate(' + 30 + ',' + (yScale.band(d[i].data['status']) - 10) + ')';
+                    return 'translate(' + config.margin.left + ',' + (yScale.band(d[i].data['status']) - 10) + ')';
                 }
             })
         ;
