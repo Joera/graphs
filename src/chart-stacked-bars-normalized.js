@@ -157,7 +157,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.dateLabels
             .merge(svg.dateLabelsEnter)
-            .text(function (d) {
+            .text(function (d,i) {
 
                 return d['status'];
 
@@ -166,8 +166,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ','
-                    + yOffset + ')';
+                return 'translate(' + (yScale.band(d[config.xParameter]) - 50) + ',30)';
             })
         ;
 
