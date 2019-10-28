@@ -42,12 +42,16 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append('text')
             .text(function(d,i) {
 
-                console.log(notNormalizedData[i * 5]);
+                if(i == 0) {
+
+                    console.log(notNormalizedData[i * 5]);
+
+                }
 
                 // hier niet het percentage
-                let item = data.filter( (j) => {
-                    return j.status === d.data.status;
-                });
+                // let item = data.filter( (j) => {
+                //     return j.status === d.data.status;
+                // });
 
                 // console.log(item);
 
