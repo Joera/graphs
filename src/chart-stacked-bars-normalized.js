@@ -21,19 +21,20 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append("g");
 
 
-
-        svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
+        svg.barGroup = svg.seriesEnter.merge(svg.series).selectAll("g")
             .data(function(d) { return d; });
 
-        svg.bar.exit().remove();
+        // svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
+        //     .data(function(d) { return d; });
 
-        svg.barEnter = svg.bar
-            .enter()
+        // svg.bar.exit().remove();
+
+        svg.bar = svg.barGroup
             .append("rect")
             .attr("class", "bar")
             ;
 
-        svg.barLabels = svg.barEnter.merge(svg.bar)
+        svg.barLabels = svg.barGroup
             .append('text')
             .text(function(d,i) {
 
