@@ -124,6 +124,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .text(function(d,i) {
                 // if(thousands(d[0] - d[1]) > 0) {
 
+                console.log(notNormalizedData);
+
                 // hier niet het percentage
                     return notNormalizedData[i][1] - notNormalizedData[i][0];
                 // }
