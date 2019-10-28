@@ -37,6 +37,8 @@ class ChartXScale {
 
     reset(dimensions,newScale) {
 
+        let self = this;
+
         newScale.time
             .range([0, dimensions.width]);
 
@@ -45,7 +47,7 @@ class ChartXScale {
             .range([0,dimensions.width]);
 
         newScale.stackedNormalized
-            .range([(config.fixedHeight || dimensions.height), 0]);
+            .range([(self.config.fixedHeight || dimensions.height), 0]);
 
         return newScale;
     }
