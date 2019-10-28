@@ -21,13 +21,20 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append("g");
 
 
-        svg.barGroup = svg.seriesEnter.merge(svg.series).selectAll("g")
+        svg.barGroup = svg.seriesEnter.merge(svg.series)
+            .selectAll("g")
             .data(function(d) { return d; });
 
         // svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
         //     .data(function(d) { return d; });
 
-        // svg.bar.exit().remove();
+        svg.barGroup.exit().remove();
+
+
+        svg.barGroupEnter = svg.barGroup
+            .enter()
+            .append("g");
+
 
         svg.bar = svg.barGroup
             .append("rect")
@@ -128,13 +135,16 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 return "stackGroup " + colours[d.key];
             });
 
-        svg.barEnter
+        svg.barGroupMerged = svg.barGroupEnter
+            .merge(svg.barGroup);
+
+        svg.bar
             .attr("height", function(d) {
                 return dimensions.height
             })
 
-        svg.barMerged = svg.barEnter
-            .merge(svg.bar)
+        svg.bar
+
             .attr("y", function(d) {
                 return yScale.band(d.data[config.xParameter]);
             })
