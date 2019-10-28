@@ -126,7 +126,7 @@ var statusLooptijden  = function (element,smallMultiple) {
 
 
         functions.stack = d3.stack()
-            .keys(Object.keys(data[data.length - 1]).filter(key => ['status','totaal'].indexOf(key) < 0 ));
+            .keys(Object.keys(data[0]));
 
         let stackedData = functions.stack(data);
 
