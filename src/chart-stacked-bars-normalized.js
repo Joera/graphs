@@ -161,18 +161,14 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .merge(svg.dateLabelsEnter)
             .text(function (d,i) {
 
-
-
                 if(i < 4) {
                     return d[i].data['status'];
                 }
-
             })
             .attr('transform', function (d,i) {
 
-
                 if(i < 4) {
-                    return 'translate(' + config.margin.left + ',' + (yScale.band(d[i].data['status']) - 10) + ')';
+                    return 'translate(' + config.margin.left + ',' + (yScale.band(d[i].data['status']) - 7) + ')';
                 }
             })
         ;
