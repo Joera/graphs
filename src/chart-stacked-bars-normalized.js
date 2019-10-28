@@ -159,7 +159,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .merge(svg.dateLabelsEnter)
             .text(function (d,i) {
 
-                console.log(d);
+                console.log(d[i].data['status']);
 
                 return d[i].data['status'];
 
