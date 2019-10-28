@@ -20,6 +20,10 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .enter()
             .append("g");
 
+        svg.seriesLabel = svg.series
+            .append("text")
+            .text('hoi');
+
         svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
             .data(function(d) { return d; });
 
