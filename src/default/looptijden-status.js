@@ -38,7 +38,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
     config.dateLabels = false;
 
-    config.fixedHeight = 240;
+    config.fixedHeight = 280;
 
     let colours = {
 
