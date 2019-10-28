@@ -58,6 +58,23 @@ let ChartAxis = function ChartAxis(config,svg) {
             .call(axes.xTime);
     }
 
+    let redrawXAxisStackedNormalized = function redrawXAxisStackedNormalized(scales,axes) {
+
+        axes.xLinear = d3.axisBottom(scales.stackedNormalized);
+
+        if(config.noTicksYAxis) {
+            axes.xLinear
+                .tickValues([]);
+        } else {
+            axes.xLinear
+                .ticks(5);
+        }
+
+        svg.yAxis
+            .call(axes.xLinear);
+
+    }
+
     let drawYAxis = function drawYAxis() {
 
         svg.yAxis = svg.layers.axes.append("g")
@@ -146,6 +163,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         redrawYAxis : redrawYAxis,
         // drawInputYAxis : drawInputYAxis,
         // redrawInputYAxis : redrawInputYAxis,
+        redrawXAxisStackedNormalized : redrawXAxisStackedNormalized,
         redrawYAxisStacked : redrawYAxisStacked,
         redrawYBandAxis : redrawYBandAxis
     }
