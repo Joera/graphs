@@ -166,8 +166,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         // redraw data
         chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple,notNormalizedData);
     }
-
-
+    
     function run(json, muni) {
 
         let { data , stackedData, notNormalizedData } = prepareData(json,muni);
