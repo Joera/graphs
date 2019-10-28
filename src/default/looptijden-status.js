@@ -123,7 +123,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         let stackedData = functions.normalizedStack(data);
         let notNormalizedData = functions.stack(data);
         console.log(stackedData);
-        return { data, stackedData }
+        return { data, stackedData, notNormalizedData }
     }
 
     function legend(data) {
@@ -155,7 +155,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         chartStackedBarsNormalized.draw(data,stackedData,colours);
     }
 
-    function redraw() {
+    function redraw(notNormalizedData) {
 
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
@@ -173,10 +173,10 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let { data , stackedData } = prepareData(json,muni);
+        let { data , stackedData, notNormalizedData } = prepareData(json,muni);
         console.log(stackedData);
         draw(data,stackedData);
-        redraw();
+        redraw(notNormalizedData);
         // legend(data);
     }
 
