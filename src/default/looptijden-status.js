@@ -38,6 +38,8 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
     config.dateLabels = false;
 
+    config.fixedHeight = 300;
+
     let colours = {
 
         'ontvangst': 'orange',

@@ -108,11 +108,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 return yScale.band(d.data[config.xParameter]);
             })
             .attr("height", function(d) {
-                if(config.yScale === 'time') {
-                    return dimensions.height / dataArray.length;
-                } else {
                     return yScale.band.bandwidth();
-                }
             })
             // .attr("clip-path", "url(#clip)")
             .transition()
