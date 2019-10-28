@@ -168,7 +168,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 console.log(d);
 
-                return 'translate(30' + (yScale.band(d.data['status']) - 30) + ')';
+                return 'kip'; // 'translate(30' + (yScale.band(d.data['status']) - 30) + ')';
             })
         ;
 
