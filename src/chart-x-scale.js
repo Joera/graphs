@@ -29,6 +29,8 @@ class ChartXScale {
             .align([0.5])
         ;
 
+        this.scale.stackedNormalized = d3.scaleLinear();
+
         return this.scale;
     }
 
@@ -40,7 +42,10 @@ class ChartXScale {
 
         newScale.band
             // or does this
-            .range([0,dimensions.width])
+            .range([0,dimensions.width]);
+
+        newScale.stackedNormalized
+            .range([(config.fixedHeight || dimensions.height), 0]);
 
         return newScale;
     }

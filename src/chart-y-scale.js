@@ -52,6 +52,12 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             })])
             .range([0.3,1]);
 
+        scale.band = d3.scaleBand()
+            .domain(data.map(d => d[config.xParameter]))
+            .paddingInner(config.paddingInner)
+            .paddingOuter(config.paddingOuter)
+            .align([0.5])
+
         return scale;
 
     }
@@ -67,6 +73,9 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         newScale.stackedNormalized
             .range([(config.fixedHeight || dimensions.height), 0]);
+
+        newScale.band
+            .range([0,dimensions.width])
 
         return newScale;
     }

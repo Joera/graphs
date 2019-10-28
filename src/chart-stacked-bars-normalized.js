@@ -104,22 +104,22 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barMerged = svg.barEnter
             .merge(svg.bar)
-            .attr("x", function(d) {
-                return xScale.band(d.data[config.xParameter]);
+            .attr("y", function(d) {
+                return yScale.band(d.data[config.xParameter]);
             })
-            .attr("width", function(d) {
-                if(config.xScale === 'time') {
-                    return dimensions.width / dataArray.length;
+            .attr("height", function(d) {
+                if(config.yScale === 'time') {
+                    return dimensions.height / dataArray.length;
                 } else {
-                    return xScale.band.bandwidth();
+                    return yScale.band.bandwidth();
                 }
             })
             // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) { return yScale.stackedNormalized(d[1]); })
-            .attr("height", function(d) {
-                return yScale.stackedNormalized(d[0]) - yScale.stackedNormalized(d[1]);
+            .attr("x", function(d) { return xScale.stackedNormalized(d[1]); })
+            .attr("width", function(d) {
+                return xScale.stackedNormalized(d[0]) - xScale.stackedNormalized(d[1]);
             })
            ;
 
@@ -132,12 +132,12 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             })
             .attr('transform', function(d) {
 
-                xOffset = dimensions.width / (2 * dataArray.length);
+                yOffset = dimensions.height / (2 * dataArray.length);
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
-                yOffset = ((yScale.stackedNormalized(d[1]) - yScale.stackedNormalized(start)) / 2) - 11;
+                xOffset = ((xScale.stackedNormalized(d[1]) - xScale.stackedNormalized(start)) / 2) - 11;
 
-                return 'translate(' + (xScale.band(d.data[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
-                    (yScale.stackedNormalized(d[1]) - yOffset)
+                return 'translate(' + (yScale.band(d.data[config.xParameter]) + ( yScale.band.bandwidth() / 2)) + ',' +
+                    (xScale.stackedNormalized(d[1]) - xOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
