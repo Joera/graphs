@@ -160,7 +160,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
         yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
         chartAxis.redrawXBandAxis(dimensions, xScale, axes, true, smallMultiple);
-        chartAxis.redrawYAxisStacked(yScale, axes);
+        chartAxis.redrawYBandAxis(yScale, axes);
         // redraw data
         chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple);
     }

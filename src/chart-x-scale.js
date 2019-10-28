@@ -47,7 +47,7 @@ class ChartXScale {
             .range([0,dimensions.width]);
 
         newScale.stackedNormalized
-            .range([(self.config.fixedHeight || dimensions.height), 0]);
+            .range([dimensions.width, 0]);
 
         return newScale;
     }

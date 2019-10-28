@@ -106,6 +106,38 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
+    let redrawYBandAxis = function redrawYBandAxis(dimensions,xScale,axes,alternateTicks,smallMultiple) {
+
+        axes.xBand = d3.axisBottom(xScale.band);
+
+        axes.xBand
+            .tickFormat( (d,i) => {
+                return (window.innerWidth < 640 || smallMultiple) ? (i + 1) : d;
+            });
+
+        svg.xAxis
+            .attr("transform", "translate(" + config.margin.left + "," + (dimensions.height + config.padding.top) + ")")  //
+            .call(axes.xBand);
+
+        if (alternateTicks) {
+
+            let alternate_text = false;
+            if(window.innerWidth > 640 && (!smallMultiple || smallMultiple === undefined)) {
+
+                d3.selectAll("g.x-axis g.tick text")
+                    .attr("y", function () {
+                        if (alternate_text) {
+                            alternate_text = false;
+                            return 26;
+                        } else {
+                            alternate_text = true;
+                            return 10;
+                        }
+                    });
+            }
+        }
+    }
+
     return {
         drawXAxis : drawXAxis,
         redrawXBandAxis : redrawXBandAxis,
@@ -115,6 +147,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         // drawInputYAxis : drawInputYAxis,
         // redrawInputYAxis : redrawInputYAxis,
         redrawYAxisStacked : redrawYAxisStacked,
+        redrawYBandAxis : redrawYBandAxis
     }
 }
 

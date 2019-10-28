@@ -46,7 +46,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         scale.map = d3.scaleLinear()
             .domain([0, d3.max(data, d => {
 
-                if(d.properties && d.properties[property] !== undefined) {
+                if (d.properties && d.properties[property] !== undefined) {
                     return d.properties[property];
                 }
             })])
@@ -75,7 +75,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .range([(config.fixedHeight || dimensions.height), 0]);
 
         newScale.band
-            .range([0,dimensions.width])
+            .range([0,dimensions.height])
 
         return newScale;
     }
