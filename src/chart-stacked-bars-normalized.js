@@ -44,6 +44,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .attr("class", "bar")
             ;
 
+        svg.bar.exit().remove();
+
         svg.barLabels = svg.barGroupEnter.merge(svg.barGroup)
             .append('text')
             .attr('class','barLabel small-label white')
@@ -51,8 +53,9 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .attr('dx', '0px')
             .attr('dy', '-6px')
             .style("text-anchor", "middle")
-
         ;
+
+        svg.barLabels.exit().remove();
 
         // if(config.dateLabels) {
         //
@@ -85,19 +88,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
     let redraw = function redraw(dimensions,xScale,yScale,colours,smallMultiple) {
 
-        let barWidth = xScale.band.bandwidth();
         let yOffset;
         let xOffset;
-
-        if(window.innerWidth < 900) {
-            barWidth = 48;
-        }
-
-        if(smallMultiple) {
-            barWidth = 30;
-        }
-
-        barWidth = 0;
 
         svg.defs
             .attr("width", dimensions.width)
@@ -112,11 +104,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barGroupMerged = svg.barGroupEnter
             .merge(svg.barGroup);
-
-        svg.bar
-            .attr("height", function(d) {
-                return dimensions.height
-            })
 
         svg.bar
 
@@ -136,7 +123,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
            ;
 
         svg.barLabels
-            // .merge(svg.barLabelsEnter)
+            .merge(svg.barLabelsEnter)
             .text(function(d,i) {
                 
                 if (this.parentNode.parentNode.classList.contains('ontvangst')) {
