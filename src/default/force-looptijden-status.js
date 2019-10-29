@@ -151,7 +151,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         xScale = chartXScale.set(stackedData);
         yScale = chartYScale.set(data);
         // width data we can draw items
-        chartStackedBarsNormalized.draw(data,stackedData,notNormalizedData);
+        chartStackedBars.draw(data,stackedData);
     }
 
     function redraw() {
@@ -166,7 +166,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         chartAxis.redrawXAxisStackedNormalized(xScale, axes);
      //   chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
         // redraw data
-        chartStackedBarsNormalized.redraw(dimensions,xScale,yScale,colours,smallMultiple,notNormalizedData);
+        chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
     }
 
     function run(json, muni) {
