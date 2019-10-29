@@ -138,57 +138,27 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
         svg.barLabels
             // .merge(svg.barLabelsEnter)
             .text(function(d,i) {
-
-                // we go back to original data
-                // let group = data.filter( (e) => {
-                //     return e.status === d.data.status
-                // })[0];
-
-
+                
                 if (this.parentNode.parentNode.classList.contains('ontvangst')) {
 
                     return d.data['ontvangst']
 
-
                 } else if (this.parentNode.parentNode.classList.contains('planning_opname')) {
 
                     return d.data['planning_opname']
+
+                } else if (this.parentNode.parentNode.classList.contains('opleveren_schaderapport')) {
+
+                    return d.data['opleveren_schaderapport']
+
+                } else if (this.parentNode.parentNode.classList.contains('voorbereiden_commissie')) {
+
+                    return d.data['voorbereiden_commissie']
+
+                } else if (this.parentNode.parentNode.classList.contains('stuwmeer')) {
+
+                    return d.data['stuwmeer']
                 }
-
-
-
-
-
-
-                // if(i === 0) {
-                //     console.log(d);
-                // }
-
-                // let items = notNormalizedData[i].filter( (j) => {
-                //   //  console.log(j)
-                //     return j.data.status === d.data.status;
-                // });
-
-                // console.log(items);
-                //  console.log(items[0][1]); // [j][i][1]);
-
-
-
-                // hier niet het percentage
-
-
-                // console.log(item);
-
-                //  hij loopt door de statussen
-
-                // console.log(i);
-
-                // if (d.data.status === 'Langer dan twee jaar' && i === 0) {
-                //     return item[0]['ontvangst'];
-                // } else {
-                return ''; // items[0][1]; //  notNormalizedData[i][0][1]; // item[i][1] - item[i][0];
-                //   }
-
 
             })
             .attr('transform', function(d) {
