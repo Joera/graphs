@@ -160,9 +160,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .data( d => {
 
                 console.log(Object.entries(d));
-
-
-                return Object.entries(d);
+                
+                return Object.entries(d).filter( e => { return e[0] !== 'status'});
 
             });
 
