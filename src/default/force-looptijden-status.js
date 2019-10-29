@@ -149,9 +149,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         // with data we can init scales
         xScale = chartXScale.set(data);
-        // yScale = chartYScale.set(data);
-        // width data we can draw items
-        // chartStackedBars.draw(data,stackedData);
 
         svg.group = svg.layers.data.selectAll('g')
             .data(data);
@@ -162,7 +159,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .enter()
             .append("g");
 
-        svg.circles = svg.groupEnter.merge(svg.group)
+        svg.circles = svg.groupEnter.merge(svg.group).selectAll("circle")
             .data(function(d) { return d; });
 
 
