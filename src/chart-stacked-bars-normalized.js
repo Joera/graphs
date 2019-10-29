@@ -52,11 +52,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append('text')
             .text(function(d,i) {
 
-                // how can i get de group?
-                // toch
-
-
-
+                // we go back to original data 
                 let group = data.filter( (e) => {
                     return e.status === d.data.status
                 })[0]
