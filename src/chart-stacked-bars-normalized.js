@@ -46,64 +46,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabels = svg.barGroupEnter.merge(svg.barGroup)
             .append('text')
-            .text(function(d,i) {
-
-                // we go back to original data
-                let group = data.filter( (e) => {
-                    return e.status === d.data.status
-                })[0];
-
-
-                console.log(
-
-                    this.parentNode.parentNode.classList
-
-                );
-
-                if (this.parentNode.parentNode.classList.contains('ontvangst')) {
-
-                    console.log(
-                        'hi'
-
-                    );
-                }
-
-
-
-
-
-
-            // if(i === 0) {
-            //     console.log(d);
-            // }
-
-                    // let items = notNormalizedData[i].filter( (j) => {
-                    //   //  console.log(j)
-                    //     return j.data.status === d.data.status;
-                    // });
-
-              // console.log(items);
-                //  console.log(items[0][1]); // [j][i][1]);
-
-
-
-                // hier niet het percentage
-
-
-                // console.log(item);
-
-               //  hij loopt door de statussen
-
-                // console.log(i);
-
-                // if (d.data.status === 'Langer dan twee jaar' && i === 0) {
-                //     return item[0]['ontvangst'];
-                // } else {
-                    return ''; // items[0][1]; //  notNormalizedData[i][0][1]; // item[i][1] - item[i][0];
-             //   }
-
-
-            })  
             .attr('class','barLabel small-label white')
             .attr('x', 0)
             .attr('dx', '0px')
@@ -195,6 +137,64 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabels
             // .merge(svg.barLabelsEnter)
+            .text(function(d,i) {
+
+                // we go back to original data
+                let group = data.filter( (e) => {
+                    return e.status === d.data.status
+                })[0];
+
+
+                console.log(
+
+                    this.parentNode.parentNode.classList
+
+                );
+
+                if (this.parentNode.parentNode.classList.contains('ontvangst')) {
+
+                    console.log(
+                        'hi'
+
+                    );
+                }
+
+
+
+
+
+
+                // if(i === 0) {
+                //     console.log(d);
+                // }
+
+                // let items = notNormalizedData[i].filter( (j) => {
+                //   //  console.log(j)
+                //     return j.data.status === d.data.status;
+                // });
+
+                // console.log(items);
+                //  console.log(items[0][1]); // [j][i][1]);
+
+
+
+                // hier niet het percentage
+
+
+                // console.log(item);
+
+                //  hij loopt door de statussen
+
+                // console.log(i);
+
+                // if (d.data.status === 'Langer dan twee jaar' && i === 0) {
+                //     return item[0]['ontvangst'];
+                // } else {
+                return ''; // items[0][1]; //  notNormalizedData[i][0][1]; // item[i][1] - item[i][0];
+                //   }
+
+
+            })
             .attr('transform', function(d) {
 
               //  yOffset = dimensions.height / (2 * dataArray.length);
