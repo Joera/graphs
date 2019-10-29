@@ -145,7 +145,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function draw(data, stackedData) {
 
-        console.log(stackedData);
+        console.log(data);
 
         // with data we can init scales
         xScale = chartXScale.set(stackedData);
@@ -162,7 +162,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .enter()
             .append("g")
             .attr("transform", (d) => {
-                 return "translate(" + xScale.band(d) + ")"
+                console.log(d);
+                 return "translate(" + xScale.band(d.status) + ")"
             });
 
 
