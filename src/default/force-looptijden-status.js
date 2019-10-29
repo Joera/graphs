@@ -160,11 +160,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.groupEnter = svg.group
             .enter()
-            .append("g")
-            .attr("transform", (d) => {
-                console.log(d);
-                 return "translate(" + xScale.band(d.status) + ")"
-            });
+            .append("g");
+
 
 
             // .selectAll("circle");
@@ -183,6 +180,14 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
+
+        xScale = chartXScale.reset(dimensions,xScale);
+        
+        svg.groupEnter.merge(svg.group)
+        .attr("transform", (d) => {
+                console.log(d);
+                return "translate(" + xScale.band(d.status) + ",0)"
+            });
     }
 
     function run(json, muni) {
