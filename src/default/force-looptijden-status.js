@@ -162,8 +162,11 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .enter()
             .append("g");
 
-        svg.circles = svg.groupEnter
-            .data( (d) => { return d; })
+        svg.circles = svg.groupEnter.merge(svg.group)
+            .data(function(d) { return d; });
+
+
+        svg.circlesEnter = svg.circles
             .enter()
             .append("circle");
 
