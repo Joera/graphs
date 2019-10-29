@@ -53,7 +53,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                         return j.key === d.data.status;
                     });
 
-                 console.log(items[0][1]); // [j][i][1]);
+                console.log(items[0]);
+                //  console.log(items[0][1]); // [j][i][1]);
 
 
 
