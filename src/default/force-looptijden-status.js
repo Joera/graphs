@@ -214,7 +214,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         force
             .nodes(data)
-            .force('circle')
+            .force('.circle')
             //.links(json.links)
         ;
 
