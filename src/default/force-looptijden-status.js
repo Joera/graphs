@@ -205,7 +205,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 return "translate(" + xScale.band(d.status) + ",0)"
             });
 
-        svg.circles
+        svg.circlesEnter.merge(svg.circles)
             .attr("r", (d) =>{ return 40; }) // scale for radius
         //     .style("fill", (d) => { return blue; }); // scale for colour
 
