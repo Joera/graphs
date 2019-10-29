@@ -28,16 +28,14 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
             });
 
-        // svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
-        //     .data(function(d) { return d; });
-
         svg.barGroup.exit().remove();
-
 
         svg.barGroupEnter = svg.barGroup
             .enter()
             .append("g");
 
+
+        // dit moet beter kunnen!
         d3.selectAll(".bar").remove();
         d3.selectAll(".barLabel").remove();
 
@@ -59,8 +57,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabels.exit().remove();
 
-        // if(config.dateLabels) {
-        //
             svg.dateLabels = svg.layers.axes.selectAll(".dateLabel")
                 .data(stackedData);
 
@@ -77,15 +73,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 .delay(500)
                 .duration(500)
                 .attr('fill-opacity', 1);
-        //
-        // }
-
-        // svg.seriesLabel = svg.seriesEnter.merge(svg.series)
-        //     .append("text")
-        //     .attr("class", "seriesLabel")
-        //     .text('hoi');
-
-
     }
 
     let redraw = function redraw(dimensions,xScale,yScale,colours,smallMultiple) {
@@ -115,7 +102,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .attr("height", function(d) {
                     return yScale.band.bandwidth();
             })
-            // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
             .attr("x", function(d) { return xScale.stackedNormalized(d[0]); })
@@ -130,23 +116,24 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 
                 if (this.parentNode.parentNode.classList.contains('ontvangst')) {
 
-                    return d.data['ontvangst']
+                    if (d.data['ontvangst'] > 0) return d.data['ontvangst']
+
 
                 } else if (this.parentNode.parentNode.classList.contains('planning_opname')) {
 
-                    return d.data['planning_opname']
+                    if (d.data['planning_opname'] > 0) return d.data['planning_opname']
 
                 } else if (this.parentNode.parentNode.classList.contains('opleveren_schaderapport')) {
 
-                    return d.data['opleveren_schaderapport']
+                    if (d.data['opleveren_schaderapport'] > 0) return d.data['opleveren_schaderapport']
 
                 } else if (this.parentNode.parentNode.classList.contains('voorbereiden_commissie')) {
 
-                    return d.data['voorbereiden_commissie']
+                    if (d.data['voorbereiden_commissie'] > 0) return d.data['voorbereiden_commissie']
 
                 } else if (this.parentNode.parentNode.classList.contains('stuwmeer')) {
 
-                    return d.data['stuwmeer']
+                    if (d.data['stuwmeer'] > 0)  return d.data['stuwmeer']
                 }
 
             })
