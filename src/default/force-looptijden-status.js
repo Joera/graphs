@@ -202,13 +202,12 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
-                console.log(d);
                 return "translate(" + xScale.band(d.status) + ",0)"
             });
 
-        svg.circles
-            .attr("r", (d) =>{ return 40; }) // scale for radius
-            .style("fill", (d) => { return blue; }); // scale for colour
+        // svg.circles
+        //     .attr("r", (d) =>{ return 40; }) // scale for radius
+        //     .style("fill", (d) => { return blue; }); // scale for colour
 
          //   .call(force.drag);
     }
