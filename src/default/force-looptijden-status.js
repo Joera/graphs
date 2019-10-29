@@ -148,7 +148,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         console.log(data);
 
         // with data we can init scales
-        xScale = chartXScale.set(stackedData);
+        xScale = chartXScale.set(data);
         // yScale = chartYScale.set(data);
         // width data we can draw items
         // chartStackedBars.draw(data,stackedData);
