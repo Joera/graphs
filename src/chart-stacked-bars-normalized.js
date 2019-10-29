@@ -46,17 +46,22 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barLabels = svg.barGroupEnter.merge(svg.barGroup)
             .append('text')
-            .text(function(d,i,groupIndex) {
+            .text(function(d,i) {
 
                 // we go back to original data
                 let group = data.filter( (e) => {
                     return e.status === d.data.status
-                })[0]
+                })[0];
 
 
                 console.log(
 
-                    groupIndex,
+                    this
+                );
+
+
+                console.log(
+
                     group['ontvangst']
                 );
 
