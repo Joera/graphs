@@ -45,7 +45,10 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append('text')
             .text(function(d,i) {
 
-                //
+                // how can i get de group?
+                // toch
+
+
             console.log(i);
 
             if(i === 0) {
