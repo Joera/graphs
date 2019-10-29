@@ -42,14 +42,28 @@ text.header {
 ul.legend.horizontal {
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
+
+
+  @media (min-width: $breakpoint-xsm) {
+
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
 
   li {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     margin-right: 1rem;
+
+    @media (min-width: $breakpoint-xsm) {
+
+      width: calc(50% - 2rem);
+
+    }
 
     > span {
       width: 1rem;
