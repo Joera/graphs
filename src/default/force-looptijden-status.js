@@ -185,6 +185,15 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function redraw() {
 
+
+        // var force = d3.layout.force()
+        //     .nodes(nodes)
+        //     .size([x.rangeBand(), height])
+        //     .gravity(.2)
+        //     .charge(0)
+        //     .on("tick", tick)
+        //     .start();
+
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
