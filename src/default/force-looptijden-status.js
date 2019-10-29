@@ -58,7 +58,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config, svg);
-    let chartStackedBarsNormalized = ChartStackedBarsNormalized(config,svg);
+    let chartStackedBars = ChartStackedBars(config,svg);
     // let chartStackedBars = ChartStackedBars(config,svg,functions);
     //  let chartBlocks = ChartBlocks(config,svg,functions);
     chartAxis.drawXAxis();
