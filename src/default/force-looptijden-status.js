@@ -164,8 +164,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     //    svg.circles.exit().remove();
 
-        svg.circlesEnter = svg.circles
-            .enter()
+      svg.circles
             .append("circle");
 
 
