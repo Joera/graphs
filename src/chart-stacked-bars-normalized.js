@@ -24,10 +24,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
         svg.barGroup = svg.seriesEnter.merge(svg.series)
             .selectAll("g")
             .data(function(d) {
-
-                d.test = 'yo';
-                d.parent = data;
-
                 return d;
 
             });
