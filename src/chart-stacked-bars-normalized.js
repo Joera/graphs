@@ -64,7 +64,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 console.log(
 
-                    group
+                    group[i]
                     );
 
 
