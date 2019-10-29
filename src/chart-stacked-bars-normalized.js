@@ -23,7 +23,14 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
         svg.barGroup = svg.seriesEnter.merge(svg.series)
             .selectAll("g")
-            .data(function(d) { return d; });
+            .data(function(d) {
+
+                d.test = 'yo';
+                d.parent = data;
+
+                return d;
+
+            });
 
         // svg.bar = svg.seriesEnter.merge(svg.series).selectAll("rect")
         //     .data(function(d) { return d; });
@@ -49,11 +56,11 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 // toch
 
 
-            console.log(i);
+            console.log(d);
 
-            if(i === 0) {
-                console.log(d);
-            }
+            // if(i === 0) {
+            //     console.log(d);
+            // }
 
                     // let items = notNormalizedData[i].filter( (j) => {
                     //   //  console.log(j)
