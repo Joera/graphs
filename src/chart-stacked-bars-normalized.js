@@ -56,7 +56,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 console.log(
 
-                    this.parentNode
+                    this.parentNode.classList
                 );
 
 
@@ -159,7 +159,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .merge(svg.series)
             .attr("class", (d,i) => {
 
-                return "stackGroup " + colours[d.key];
+                return "stackGroup " + colours[d.key] + " " + d.key;
             });
 
         svg.barGroupMerged = svg.barGroupEnter
