@@ -56,7 +56,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 console.log(
 
-                    this.parentNode.parentNode.classList
+                    this.parentNode.parentNode.classList.contains('ontvangst')
 
                 );
 
