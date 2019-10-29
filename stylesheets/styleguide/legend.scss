@@ -50,6 +50,7 @@ ul.legend.horizontal {
 
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 
   }
 
@@ -84,6 +85,10 @@ ul.legend.horizontal {
 
       &.green {
         background: $green;
+      }
+
+      &.grey {
+        background: $grey;
       }
     }
   }
