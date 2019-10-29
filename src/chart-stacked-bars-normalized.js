@@ -46,14 +46,14 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .text(function(d,i) {
 
                 //
-                    console.log(d.data.status);
+                   // console.log(d.data.status);
 
                     let item = notNormalizedData[i].filter( (j) => {
-                        console.log(j)
+                        // console.log(j)
                         return j.data.status === d.data.status;
                     });
 
-                    console.log(item); // [j][i][1]);
+                    console.log(item[1]); // [j][i][1]);
 
 
 
