@@ -56,7 +56,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 console.log(
 
-                    this.parentNode.classList
+                    this.parentNode
                 );
 
 
