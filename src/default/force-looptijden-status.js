@@ -153,19 +153,21 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.group.exit().remove();
 
-        svg.groupEnter = svg.group
-            .enter()
+        svg.groupEnter = svg.group.enter()
             .append("g");
 
-        svg.circles = svg.group.selectAll(".circle")
+        svg.circles = svg.groupEnter.merge(svg.group).selectAll(".circle")
             .data(function(d) { console.log(d); return d; });
 
         svg.circles.exit().remove();
 
-        svg.circlesEnter = svg.circles
-            .enter()
+        svg.circlesEnter = svg.circles.enter()
             .append("circle")
             .attr("class","circle");
+
+
+        svg.barLabelsEnter = svg.barLabels.enter()
+            .append('text')
 
 
 
