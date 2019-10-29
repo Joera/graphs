@@ -162,6 +162,14 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .enter()
             .append("g");
 
+        svg.circles = svg.GroupEnter
+            .enter()
+            .append("circle");
+
+
+
+
+
 
 
             // .selectAll("circle");
@@ -182,12 +190,18 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         chartSVG.redraw(dimensions);
 
         xScale = chartXScale.reset(dimensions,xScale);
-        
+
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
                 console.log(d);
                 return "translate(" + xScale.band(d.status) + ",0)"
             });
+
+        svg.circles
+            .attr("r", (d) =>{ return 40; }) // scale for radius
+            .style("fill", (d) => { return blue; }); // scale for colour
+
+         //   .call(force.drag);
     }
 
     function run(json, muni) {
