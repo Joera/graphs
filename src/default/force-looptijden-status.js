@@ -149,9 +149,26 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         // with data we can init scales
         xScale = chartXScale.set(stackedData);
-        yScale = chartYScale.set(data);
+        // yScale = chartYScale.set(data);
         // width data we can draw items
-        chartStackedBars.draw(data,stackedData);
+        // chartStackedBars.draw(data,stackedData);
+
+        svg.groups = svg.append("g")
+            .data(stackedData)
+            .attr("transform", (d) => {
+                 return "translate(" + xScale.band(d) + ")"
+            });
+
+
+            // .selectAll("circle");
+            //
+            //
+            //
+            // .data(nodes)
+            // .enter().append("circle")
+            // .attr("r", function(d) { return d.radius; })
+            // .style("fill", function(d) { return d.color; })
+            // .call(force.drag);
     }
 
     function redraw() {
@@ -159,14 +176,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
-        // new dimensions mean new scales
-        xScale = chartXScale.reset(dimensions,xScale);
-        yScale = chartYScale.reset(dimensions,yScale);
-        // new scales mean new axis
-        chartAxis.redrawXAxisStackedNormalized(xScale, axes);
-     //   chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
-        // redraw data
-        chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
     }
 
     function run(json, muni) {
