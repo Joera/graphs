@@ -143,13 +143,16 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 // let group = data.filter( (e) => {
                 //     return e.status === d.data.status
                 // })[0];
-                
+
 
                 if (this.parentNode.parentNode.classList.contains('ontvangst')) {
 
-                    console.log(
-                        d.data['ontvangst']
-                    );
+                    return d.data['ontvangst']
+
+
+                } else if (this.parentNode.parentNode.classList.contains('planning_opname')) {
+
+                    return d.data['planning_opname']
                 }
 
 
