@@ -25,6 +25,12 @@
       height: calc(100vh - 90px);
     }
 
+    &.room-bottom {
+      @media (max-width: $breakpoint-sm) {
+        height: calc(100vh - 140px);
+      }
+    }
+
     &.extra-room-bottom {
       @media (max-width: $breakpoint-sm) {
         height: calc(100vh - 170px);
