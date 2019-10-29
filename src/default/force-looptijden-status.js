@@ -153,8 +153,13 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         // width data we can draw items
         // chartStackedBars.draw(data,stackedData);
 
-        svg.groups = svg.layers.data.selectAll('g')
-            .data(stackedData)
+        svg.group = svg.layers.data.selectAll('g')
+            .data(data);
+
+        svg.group.exit().remove();
+
+        svg.groupEnter = svg.group
+            .enter()
             .append("g")
             .attr("transform", (d) => {
                  return "translate(" + xScale.band(d) + ")"
