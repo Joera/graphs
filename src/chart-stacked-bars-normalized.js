@@ -56,7 +56,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 // toch
 
 
-            console.log(d);
+            console.log(data);
 
             // if(i === 0) {
             //     console.log(d);
