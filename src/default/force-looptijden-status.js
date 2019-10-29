@@ -159,8 +159,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         svg.circles = svg.groupEnter.merge(svg.group).selectAll(".circle")
             .data( d => {
 
-                console.log(Object.entries(d));
-                
                 return Object.entries(d).filter( e => { return e[0] !== 'status'});
 
             });
@@ -169,7 +167,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.circlesEnter = svg.circles.enter()
             .append("circle")
-            .attr("class","circle");
+            .attr("class","circle")
+            .style("fill", function(d) { return blue; })
 
 
 
@@ -180,7 +179,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             // .data(nodes)
             // .enter().append("circle")
             // .attr("r", function(d) { return d.radius; })
-            // .style("fill", function(d) { return d.color; })
+            //
             // .call(force.drag);
     }
 
@@ -206,11 +205,12 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 return "translate(" + xScale.band(d.status) + ",0)"
             });
 
-        // svg.circles
-        //     .attr("r", (d) =>{ return 40; }) // scale for radius
+        svg.circles
+            .attr("r", (d) =>{ return 40; }) // scale for radius
         //     .style("fill", (d) => { return blue; }); // scale for colour
 
          //   .call(force.drag);
+        ;
     }
 
     function run(json, muni) {
