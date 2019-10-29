@@ -145,8 +145,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function draw(data, stackedData) {
 
-
-
         // with data we can init scales
         xScale = chartXScale.set(data);
 
@@ -160,11 +158,12 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .append("g");
 
         svg.circles = svg.groupEnter.merge(svg.group).selectAll("circle")
-            .data(function(d) {return d; });
+            .data(function(d) { return d; });
 
     //    svg.circles.exit().remove();
 
-      svg.circles
+        svg.circlesEnter = svg.circles
+            .enter()
             .append("circle");
 
 
