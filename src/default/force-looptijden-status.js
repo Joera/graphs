@@ -109,20 +109,20 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         });
 
 
-        functions.normalizedStack = d3.stack()
-            .offset(d3.stackOffsetExpand)
-            .keys(Object.keys(data[0]).filter(key => {
-                return ['status'].indexOf(key) < 0
-            } ));
+        // functions.normalizedStack = d3.stack()
+        //     .offset(d3.stackOffsetExpand)
+        //     .keys(Object.keys(data[0]).filter(key => {
+        //         return ['status'].indexOf(key) < 0
+        //     } ));
 
         functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => {
                 return ['status'].indexOf(key) < 0
             } ));
 
-        let stackedData = functions.normalizedStack(data);
-        let notNormalizedData = functions.stack(data);
-        return { data, stackedData, notNormalizedData }
+     //   let stackedData = functions.normalizedStack(data);
+        let stackedData = functions.stack(data);
+        return { data, stackedData }
     }
 
     function legend(data) {
@@ -143,7 +143,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         }
     }
 
-    function draw(data, stackedData,notNormalizedData) {
+    function draw(data, stackedData) {
+
+        console.log(stackedData);
 
         // with data we can init scales
         xScale = chartXScale.set(stackedData);
@@ -152,7 +154,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         chartStackedBarsNormalized.draw(data,stackedData,notNormalizedData);
     }
 
-    function redraw(notNormalizedData) {
+    function redraw() {
 
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
@@ -169,8 +171,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let { data , stackedData, notNormalizedData } = prepareData(json,muni);
-        draw(data,stackedData,notNormalizedData);
+        let { data , stackedData } = prepareData(json,muni);
+        draw(data,stackedData);
         redraw();
         // legend(data);
     }
