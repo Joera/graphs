@@ -194,13 +194,12 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         xScale = chartXScale.reset(dimensions,xScale);
 
-        var force = d3.layout.force()
-            .nodes(data)
-            .size([xScale.band(), height])
-            .gravity(.2)
-            .charge(0)
-            // .on("tick", tick)
-            .start();
+        var force = d3.forceSimulation()
+            .force("charge", d3.forceManyBody().strength(-700).distanceMin(100).distanceMax(1000))
+            .force("link", d3.forceLink().id(function(d) { return d[1] }))
+            .force("center", d3.forceCenter(dimensions.width / 2, dimensions.height / 2))
+            .force("y", d3.forceY(0.001))
+            .force("x", d3.forceX(0.001));
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
@@ -211,7 +210,15 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .attr("r", (d) =>{ return 40; }) // scale for radius
         //     .style("fill", (d) => { return blue; }); // scale for colour
 
-           .call(force.drag);
+           ;
+
+        force
+            .nodes(data)
+            .force('circle')
+            //.links(json.links)
+        ;
+
+
 
     }
 
