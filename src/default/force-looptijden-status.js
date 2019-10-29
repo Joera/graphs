@@ -186,19 +186,21 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     function redraw() {
 
 
-        // var force = d3.layout.force()
-        //     .nodes(nodes)
-        //     .size([x.rangeBand(), height])
-        //     .gravity(.2)
-        //     .charge(0)
-        //     .on("tick", tick)
-        //     .start();
+
 
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
 
         xScale = chartXScale.reset(dimensions,xScale);
+
+        var force = d3.layout.force()
+            .nodes(data)
+            .size([xScale.band(), height])
+            .gravity(.2)
+            .charge(0)
+            // .on("tick", tick)
+            .start();
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
@@ -209,8 +211,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .attr("r", (d) =>{ return 40; }) // scale for radius
         //     .style("fill", (d) => { return blue; }); // scale for colour
 
-         //   .call(force.drag);
-        ;
+           .call(force.drag);
+
     }
 
     function run(json, muni) {
