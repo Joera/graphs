@@ -39,14 +39,14 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .append("g");
 
 
-        svg.bar = svg.barGroupEnter.merge(svg.barGroup)
+        svg.bar = svg.barGroupEnter
             .append("rect")
             .attr("class", "bar")
             ;
 
         svg.bar.exit().remove();
 
-        svg.barLabels = svg.barGroup
+        svg.barLabels = svg.barGroupEnter
             .append('text')
             .attr('class','barLabel small-label white')
             .attr('x', 0)
