@@ -155,7 +155,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.groupEnter = svg.group
             .enter()
-            .append("g");
+            .append("g")
+            .append("circle");
 
         svg.circles = svg.groupEnter.merge(svg.group).selectAll("circle")
             .data(function(d) { console.log(d); return d; });
@@ -164,7 +165,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.circlesEnter = svg.circles
             .enter()
-            .append("circle");
+
 
 
 
