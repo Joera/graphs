@@ -40,7 +40,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
 
         svg.bar = svg.barGroup.merge(svg.barGroupEnter)
-            .enter()
             .append("rect")
             .attr("class", "bar")
             ;
@@ -124,7 +123,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
            ;
 
         svg.barLabels
-    
+
             .text(function(d,i) {
                 
                 if (this.parentNode.parentNode.classList.contains('ontvangst')) {
