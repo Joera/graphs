@@ -47,7 +47,10 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 //
             console.log(i);
-            console.log(d.data);
+
+            if(i === 0) {
+                console.log(d.data['ontvangst']);
+            }
 
                     // let items = notNormalizedData[i].filter( (j) => {
                     //   //  console.log(j)
