@@ -38,8 +38,8 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
             .enter()
             .append("g");
 
-
-        svg.bar.remove()
+        d3.selectAll(".bar").remove();
+        d3.selectAll(".barLabel").remove();
 
         svg.bar = svg.barGroup.merge(svg.barGroupEnter)
             .append("rect")
