@@ -56,6 +56,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                 console.log(
 
+                    d.data.status,
                     group['ontvangst']
                 );
 
