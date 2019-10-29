@@ -165,16 +165,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .append("circle")
             .attr("class","circle");
 
-
-        svg.barLabelsEnter = svg.barLabels.enter()
-            .append('text')
-
-
-
-
-
-
-
+        
 
             // .selectAll("circle");
             //
