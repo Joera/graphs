@@ -69,7 +69,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 // if (d.data.status === 'Langer dan twee jaar' && i === 0) {
                 //     return item[0]['ontvangst'];
                 // } else {
-                    return item[0][1]; //  notNormalizedData[i][0][1]; // item[i][1] - item[i][0];
+                    return items[0][1]; //  notNormalizedData[i][0][1]; // item[i][1] - item[i][0];
              //   }
 
 
