@@ -118,7 +118,6 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
 
                     if (d.data['ontvangst'] > 0) return d.data['ontvangst']
 
-
                 } else if (this.parentNode.parentNode.classList.contains('planning_opname')) {
 
                     if (d.data['planning_opname'] > 0) return d.data['planning_opname']
