@@ -14,7 +14,7 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
             .attr("class", "barGroup")
             ;
 
-        svg.bar = svg.barGroup.selectAll(".bar")
+        svg.bar = svg.barGroup.merge(svg.barGroupEnter).selectAll(".bar")
             .data( function(d) { return d });
         
         svg.bar.exit().remove();
