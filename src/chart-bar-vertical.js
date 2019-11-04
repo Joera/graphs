@@ -35,26 +35,16 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
 
         svg.bar
             .merge(svg.barEnter)
-            .attr("x", function(d) {
-
-                    return xScale.linear(d);
-            })
-            .attr("y", function(d) { return dimensions.height; })
+            .attr("x", 0)
+            .attr("y", function(d,i) { return yScale.band(i) })
             .attr("height", 0)
             .attr("width", function(d) {
 
-                if (config.xParameter === '_date') {
-
-                    return 60;
-                } else {
-
-                    return xScale.band.bandwidth()
-                }
-
+                    return xScale.linear()
             })
             .transition()
             .duration(500)
-            .attr("y", function(d) { return config.margin.top + yScale.band(d); })
+            .attr("y", function(d,i) { return config.margin.top + yScale.band(1); })
             .attr("height", function(d) { return dimensions.height - yScale.band(d); })
 
         ;
