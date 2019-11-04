@@ -67,21 +67,19 @@ var specialsShareCompleted  = function (element,smallMultiple) {
 
         json = json.filter( j => j['_category'] === muni)[0];
 
-        console.log(json);
-
         let data = [];
 
         data.push({
             status: "Schademeldingen",
 
-            data : {
-                totaal: json['MELDING'],
-                specials: json['SPECIALS_MELDINGEN'],
-                agro: json['SPECIALS_MELDINGEN_AGRO'],
-                erfgoed: json['SPECIALS_MELDINGEN_ERFGOED'],
-                bedrijven: json['SPECIALS_MELDINGEN_BEDRIJF'],
-                overig: json['SPECIALS_MELDINGEN_OVERIG_EN_AOS']
-            }
+            data : [
+                { totaal: json['MELDING'] },
+                { specials: json['SPECIALS_MELDINGEN'] },
+                { agro: json['SPECIALS_MELDINGEN_AGRO'] },
+                { erfgoed: json['SPECIALS_MELDINGEN_ERFGOED'] },
+                { bedrijven: json['SPECIALS_MELDINGEN_BEDRIJF'] },
+                { overig: json['SPECIALS_MELDINGEN_OVERIG_EN_AOS']}
+            ]
         });
         //
         // data.push({
@@ -132,7 +130,6 @@ var specialsShareCompleted  = function (element,smallMultiple) {
         //
         // });
 
-        console.log(data);
 
         //
         // functions.stack = d3.stack()
