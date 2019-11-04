@@ -36,16 +36,16 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
         svg.bar
             .merge(svg.barEnter)
             .attr("x", 0)
-            .attr("y", function(d,i) { return yScale.band(i) })
-            .attr("height", 0)
-            .attr("width", function(d) {
-
-                    return xScale.linear()
-            })
-            .transition()
-            .duration(500)
-            .attr("y", function(d,i) { return config.margin.top + yScale.band(1); })
-            .attr("height", function(d) { return dimensions.height - yScale.band(d); })
+            // .attr("y", function(d,i) { return yScale.band(i) })
+            // .attr("height", 0)
+            // .attr("width", function(d) {
+            //
+            //         return xScale.linear()
+            // })
+            // .transition()
+            // .duration(500)
+            // .attr("y", function(d,i) { return config.margin.top + yScale.band(1); })
+            // .attr("height", function(d) { return dimensions.height - yScale.band(d); })
 
         ;
 
