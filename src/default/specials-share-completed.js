@@ -32,7 +32,7 @@ var specialsShareCompleted  = function (element,smallMultiple) {
 
     // x-axis
     // config.minWidth = 460;
-    config.xParameter = 'status';
+    config.yParameter = 'status';
     config.paddingInner = [0.25];
     config.paddingOuter = [0.25];
 
@@ -40,10 +40,12 @@ var specialsShareCompleted  = function (element,smallMultiple) {
 
     let colours = {
 
-        'langer_dan_twee': 'orange',
-        'tussen_een_en_twee': 'green',
-        'tussen_half_en_een': 'blue',
-        'minder_dan_half': 'darkblue'
+        'totaal' : 'grey',
+        'specials': 'orange',
+        'agro': 'green',
+        'erfgoed': 'blue',
+        'bedrijven': 'darkblue',
+        'overig': 'yellow'
     }
 
     // get dimensions from parent element
