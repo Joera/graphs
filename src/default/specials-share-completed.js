@@ -73,12 +73,15 @@ var specialsShareCompleted  = function (element,smallMultiple) {
 
         data.push({
             status: "Schademeldingen",
-            totaal: json['MELDING'],
-            specials: json['SPECIALS_MELDINGEN'],
-            agro: json['SPECIALS_MELDINGEN_AGRO'],
-            erfgoed: json['SPECIALS_MELDINGEN_ERFGOED'],
-            bedrijven: json['SPECIALS_MELDINGEN_BEDRIJF'],
-            overig: json['SPECIALS_MELDINGEN_OVERIG_EN_AOS']
+
+            data : {
+                totaal: json['MELDING'],
+                specials: json['SPECIALS_MELDINGEN'],
+                agro: json['SPECIALS_MELDINGEN_AGRO'],
+                erfgoed: json['SPECIALS_MELDINGEN_ERFGOED'],
+                bedrijven: json['SPECIALS_MELDINGEN_BEDRIJF'],
+                overig: json['SPECIALS_MELDINGEN_OVERIG_EN_AOS']
+            }
         });
         //
         // data.push({
