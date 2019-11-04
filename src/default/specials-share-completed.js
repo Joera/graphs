@@ -55,7 +55,7 @@ var specialsShareCompleted  = function (element,smallMultiple) {
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config, svg);
-    let chartStackedBars = ChartStackedBars(config,svg);
+    let chartBarVertical = ChartBarVertical(config,svg);
     // let chartStackedBars = ChartStackedBars(config,svg,functions);
     //  let chartBlocks = ChartBlocks(config,svg,functions);
     chartAxis.drawXAxis();
@@ -128,17 +128,17 @@ var specialsShareCompleted  = function (element,smallMultiple) {
 
         console.log(data);
 
+        //
+        // functions.stack = d3.stack()
+        //     .keys(Object.keys(data[0]).filter(key => {
+        //         return ['status','totaal'].indexOf(key) < 0
+        //     } ));
+        //
+        // let stackedData = functions.stack(data);
 
-        functions.stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(key => {
-                return ['status','totaal'].indexOf(key) < 0
-            } ));
+        // console.log(stackedData);
 
-        let stackedData = functions.stack(data);
-
-        console.log(stackedData);
-
-        return { data, stackedData }
+        return data;
 
     }
 
@@ -160,15 +160,13 @@ var specialsShareCompleted  = function (element,smallMultiple) {
         }
     }
 
-    function draw(data, stackedData) {
-
-        console.log(stackedData);
+    function draw(data) {
 
         // with data we can init scales
         xScale = chartXScale.set(data);
-        yScale = chartYScale.set(stackedData);
+        yScale = chartYScale.set(data);
         // width data we can draw items
-        chartStackedBars.draw(data,stackedData,colours);
+        chartBarVertical.draw(data,colours);
     }
 
     function redraw() {
@@ -180,10 +178,10 @@ var specialsShareCompleted  = function (element,smallMultiple) {
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
-        chartAxis.redrawXBandAxis(dimensions, xScale, axes, true, smallMultiple);
-        chartAxis.redrawYAxisStacked(yScale, axes);
+        chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
+        chartAxis.redrawXLinearAxis(xScale, axes);
         // redraw data
-        chartStackedBars.redraw(dimensions,xScale,yScale,colours,smallMultiple);
+        chartBarVertical.redraw(dimensions,xScale,yScale,colours,smallMultiple);
     }
 
 

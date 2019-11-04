@@ -38,6 +38,15 @@ let ChartAxis = function ChartAxis(config,svg) {
         }
     }
 
+    let redrawXLinearAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
+
+        axes.xLinear = d3.axisTop(scales.linear);
+
+        svg.xAxis
+            .attr("transform", "translate(" + config.padding.left + "," + 0 + ")")  //
+            .call(axes.xLinear);
+    }
+
     let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
 
         axes.xTime = d3.axisBottom(scales.time);
@@ -154,6 +163,7 @@ let ChartAxis = function ChartAxis(config,svg) {
     return {
         drawXAxis : drawXAxis,
         redrawXBandAxis : redrawXBandAxis,
+        redrawXLinearAxis : redrawXLinearAxis,
         redrawXTimeAxis : redrawXTimeAxis,
         drawYAxis : drawYAxis,
         redrawYAxis : redrawYAxis,

@@ -15,6 +15,12 @@ class ChartXScale {
         let self = this;
         let endDate = new Date();
 
+        this.scale.linear = d3.scaleLinear()
+            .domain([
+                d3.min(data, d => self.config.xParameter),  //
+                d3.max(data, d => self.config.xParameter)
+            ]);
+
         this.scale.time = d3.scaleTime()
             .domain([
                 d3.min(data, d => new Date(d[self.config.xParameter])),  //
@@ -40,6 +46,9 @@ class ChartXScale {
         let self = this;
 
         newScale.time
+            .range([0, dimensions.width]);
+
+        newScale.linear
             .range([0, dimensions.width]);
 
         newScale.band
