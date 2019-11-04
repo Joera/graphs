@@ -26,7 +26,7 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
 
                 console.log(d);
 
-                return "bar  " + colours[d[config.yParameter]]; // + sluggify(d.status) + "
+                return "bar  " + colours[Object.keys(d)[0]]; // + sluggify(d.status) + "
             });
 
         // svg.barLabels = svg.layers.data.selectAll(".barLabel")
