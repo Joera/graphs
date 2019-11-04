@@ -185,9 +185,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function redraw() {
 
-
-
-
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
@@ -195,11 +192,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         xScale = chartXScale.reset(dimensions,xScale);
 
         var force = d3.forceSimulation()
-            .force("charge", d3.forceManyBody().strength(-700).distanceMin(100).distanceMax(1000))
-            .force("link", d3.forceLink().id(function(d) { return d[1] }))
-            .force("center", d3.forceCenter(dimensions.width / 2, dimensions.height / 2))
-            .force("y", d3.forceY(0.001))
-            .force("x", d3.forceX(0.001));
+            .nodes(Object.entries.data[0])
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
