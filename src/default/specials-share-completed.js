@@ -67,16 +67,17 @@ var specialsShareCompleted  = function (element,smallMultiple) {
 
         console.log(json);
 
-        // let data = [];
+        let data = [];
 
-        // data.push({
-        //     status: "Ontvangst en analyse",
-        //     totaal: json['ONTVANGST'],
-        //     langer_dan_twee: json['LANGER_2_JAAR_ONTVANGST'],
-        //     tussen_een_en_twee: json['TUSSEN_1_2_JAAR_ONTVANGST'],
-        //     tussen_half_en_een: json['HALF_JAAR_1JAAR_ONTVANGST'],
-        //     minder_dan_half: json['MNDER_HALF_JAAR_ONTVANGST']
-        // });
+        data.push({
+            status: "Schademeldingen",
+            totaal: json['MELDING'],
+            specials: json['SPECIALS_MELDINGEN'],
+            agro: json['SPECIALS_MELDINGEN_AGRO'],
+            erfgoed: json['SPECIALS_MELDINGEN_ERFGOED'],
+            bedrijven: json['SPECIALS_MELDINGEN_BEDRIJF'],
+            overig: json['SPECIALS_MELDINGEN_OVERIG_EN_AOS']
+        });
         //
         // data.push({
         //     status: "Schade-opname wordt ingepland",
@@ -187,9 +188,8 @@ var specialsShareCompleted  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let { data , stackedData } = prepareData(json,muni);
-        console.log(stackedData);
-        draw(data,stackedData);
+        let data = prepareData(json,muni);
+        draw(data);
         redraw();
         // legend(data);
     }
