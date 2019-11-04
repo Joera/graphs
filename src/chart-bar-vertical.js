@@ -48,15 +48,19 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
 
     let redraw = function redraw(dimensions,xScale,yScale) {
 
+        barHeight = 32;
+        barSpacing = 4;
+
+
         svg.bar
             .merge(svg.barEnter)
             .attr("x", 0)
-            // .attr("y", function(d,i) { return yScale.band(i) })
-            // .attr("height", 0)
-            // .attr("width", function(d) {
-            //
-            //         return xScale.linear()
-            // })
+            .attr("y", function(d,i) { return (i *  barHeight) + (i * barSpacing)})
+            .attr("height", barHeight)
+            .attr("width", function(d) {
+
+                    return xScale.linear(Object.values(d)[0])
+            })
             // .transition()
             // .duration(500)
             // .attr("y", function(d,i) { return config.margin.top + yScale.band(1); })
