@@ -38,7 +38,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         }
     }
 
-    let redrawXLinearAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
+    let redrawXLinearAxis = function redrawXAxis(scales,axes) {
 
         axes.xLinear = d3.axisTop(scales.linear);
 
