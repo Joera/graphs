@@ -59,7 +59,7 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
             .attr("height", barHeight)
             .attr("width", function(d) {
 
-                    return xScale.linear(Object.values(d)[0])
+                    return 200; // xScale.linear(Object.values(d)[0])
             })
             // .transition()
             // .duration(500)
