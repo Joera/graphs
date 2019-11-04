@@ -57,14 +57,12 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
             .attr("x", 0)
             .attr("y", function(d,i) { return (i *  barHeight) + (i * barSpacing)})
             .attr("height", barHeight)
+            .attr("width", 0)
+            .transition()
+            .duration(500)
             .attr("width", function(d) {
-
-                    return 200; // xScale.linear(Object.values(d)[0])
+                return 200; // xScale.linear(Object.values(d)[0])
             })
-            // .transition()
-            // .duration(500)
-            // .attr("y", function(d,i) { return config.margin.top + yScale.band(1); })
-            // .attr("height", function(d) { return dimensions.height - yScale.band(d); })
 
         ;
 
