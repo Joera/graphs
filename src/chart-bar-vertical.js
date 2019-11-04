@@ -15,7 +15,7 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
             ;
 
         svg.bar = svg.barGroup.merge(svg.barGroupEnter).selectAll(".bar")
-            .data( function(d) { return d });
+            .data( function(d) {    console.log(d); return d });
         
         svg.bar.exit().remove();
 
@@ -24,7 +24,7 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
             .append("rect")
             .attr("class", function(d,i) {
 
-                console.log(d);
+
 
                 return "bar  " + colours[d[config.yParameter]]; // + sluggify(d.status) + "
             });
