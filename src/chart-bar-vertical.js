@@ -26,7 +26,7 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
 
                 console.log(d);
 
-                return "bar  " + colours[Object.keys(d)[0]]; // + sluggify(d.status) + "
+                return "bar " + colours[Object.keys(d)[0]]; // + sluggify(d.status) + "
             });
 
         // svg.barLabels = svg.layers.data.selectAll(".barLabel")
@@ -48,8 +48,8 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
 
     let redraw = function redraw(dimensions,xScale,yScale) {
 
-        barHeight = 32;
-        barSpacing = 4;
+        let barHeight = 32;
+        let barSpacing = 4;
 
 
         svg.bar
