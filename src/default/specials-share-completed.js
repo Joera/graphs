@@ -181,7 +181,7 @@ var specialsShareCompleted  = function (element,smallMultiple) {
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
         // new scales mean new axis
-        chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
+     //   chartAxis.redrawYBandAxis(dimensions, yScale, axes, true, smallMultiple);
         chartAxis.redrawXLinearAxis(xScale, axes);
         // redraw data
         chartBarVertical.redraw(dimensions,xScale,yScale,colours,smallMultiple);
