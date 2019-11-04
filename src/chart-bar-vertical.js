@@ -2,8 +2,20 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
 
     let draw = function draw(data,colours) {
 
-        svg.bar = svg.layers.data.selectAll(".bar")
+
+        svg.barGroup = svg.layers.data.selectAll(".barGroup")
             .data(data);
+
+        svg.barGroup.exit().remove();
+
+        svg.barGroupEnter = svg.barGroup
+            .enter()
+            .append("g")
+            .attr("class", "barGroup")
+            ;
+
+        svg.bar = svg.barGroup.selectAll(".bar")
+            .data( function(d) { return d });
         
         svg.bar.exit().remove();
 
@@ -11,6 +23,9 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
             .enter()
             .append("rect")
             .attr("class", function(d,i) {
+
+                console.log(d);
+
                 return "bar  " + colours[d[config.yParameter]]; // + sluggify(d.status) + "
             });
 
