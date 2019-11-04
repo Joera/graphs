@@ -54,7 +54,7 @@ let ChartBarVertical = function ChartBarVertical(config,svg) {
 
         svg.bar
             .merge(svg.barEnter)
-            .attr("x", 120)
+            .attr("x", config.padding.left)
             .attr("y", function(d,i) { return (i *  barHeight) + (i * barSpacing)})
             .attr("height", barHeight)
             .attr("width", 0)
