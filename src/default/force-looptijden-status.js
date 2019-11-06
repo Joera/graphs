@@ -155,7 +155,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 value : json['MINDER_HALF_JAAR_STATUS_STUW']
             }
         ]);
-        
+
 
         // functions.normalizedStack = d3.stack()
         //     .offset(d3.stackOffsetExpand)
