@@ -185,7 +185,11 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         svg.circlesEnter = svg.circles.enter()
             .append("circle")
             .attr("class","circle")
-            .style("fill", function(d) { return blue; })
+            .style("fill", function(d) {
+
+                return colours[d.key];
+
+            })
 
         for (let group of data) {
             simulation[group[0].value] = d3.forceSimulation()
@@ -228,7 +232,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
            ;
 
-
         let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
         let forceStrength = 0.03;
 
@@ -244,7 +247,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         }
 
         data.forEach( (group,i) => {
-
 
             let groupWidth = dimensions.width / data.length;
 
