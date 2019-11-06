@@ -61,33 +61,33 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         data.push({
             status: "Ontvangst en analyse",
-            totaal: json['ONTVANGST']
+            totaal: json['SPECIALS_ONTVANGST']
 
         });
 
         data.push({
             status: "Schade-opname wordt ingepland",
-            totaal: json['PLANNING_OPNAME']
+            totaal: json['SPECIALS_PLANNING_OPNAME']
 
         });
 
 
         data.push({
             status: "Schade-opname uitgevoerd, adviesrapport opleveren",
-            totaal: json['OPLEV_SCHADERAPPORT']
+            totaal: json['SPECIALS_OPLEV_SCHADERAPP']
 
         });
 
 
         data.push({
             status: "Adviesrapport opgeleverd, besluit voorbereiden",
-            totaal: json['VOORBER_CIE']
+            totaal: json['SPECIALS_VOORBER_CIE']
 
         });
 
         data.push({
             status: "Besluit genomen",
-            totaal: json['BESCHIKT']
+            totaal: json['SPECIALS_BESCHIKT']
 
         });
 
