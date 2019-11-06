@@ -29,7 +29,7 @@ class ChartXScale {
 
         this.scale.band = d3.scaleBand()
             // what is domain when working with a stack?
-            .domain(data.map(d => d[self.config.xParameter]))
+            .domain(data) /// where was data.map(d => d[self.config.xParameter]) used?
             .paddingInner(self.config.paddingInner)
             .paddingOuter(self.config.paddingOuter)
             .align([0.5])
