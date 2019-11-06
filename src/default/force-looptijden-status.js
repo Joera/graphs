@@ -42,11 +42,11 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     let colours = {
 
-        'ontvangst': 'orange',
-        'planning_opname': 'green',
-        'opleveren_schaderapport': 'blue',
-        'voorbereiden_commissie': 'darkblue',
-        'stuwmeer': 'grey'
+        'ontvangst': orange,
+        'planning_opname': green,
+        'opleveren_schaderapport': blue,
+        'voorbereiden_commissie': darkblue,
+        'stuwmeer': grey
     };
 
     let simulation = {};
