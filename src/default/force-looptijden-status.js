@@ -173,6 +173,16 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .style("fill", function(d) { return blue; })
 
 
+        let simulation = {};
+
+        for (let group of data) {
+            simulation[group.status] = forceSimulation()
+                .velocityDecay(0.2);
+        }
+
+        console.log(simulation);
+
+
 
             // .selectAll("circle");
             //
@@ -193,8 +203,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         xScale = chartXScale.reset(dimensions,xScale);
 
-        var force = d3.forceSimulation()
-            .nodes(data)
+
+
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
@@ -207,11 +217,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
            ;
 
-        force
-            .nodes(data)
-            .force('.circle')
-            //.links(json.links)
-        ;
+
 
 
 
