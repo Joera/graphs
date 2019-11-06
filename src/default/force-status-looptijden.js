@@ -299,7 +299,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('dx', groupWidth / 2);
 
         let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
-        let forceStrength = 0.03;
+        let forceStrength = 0.1;
 
 
         function charge(d) {
