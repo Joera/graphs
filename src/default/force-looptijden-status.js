@@ -234,7 +234,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
 
         function charge(d) {
-            return -forceStrength * Math.pow(yScale.radius(d.value), 2.0);
+            return -forceStrength * Math.pow(yScale.radius(d.value), 1.0);
         }
 
         function ticked() {
