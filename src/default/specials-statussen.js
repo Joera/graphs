@@ -119,12 +119,19 @@ var specialsStatussen  = function (element,smallMultiple) {
         data.forEach( (m) => {
 
             console.log(m['SPECIALS_MELDINGEN']);
-            // console.log(m['_category']);
 
-            let option = document.createElement('option');
-            option.value = m['_category'];
-            option.innerText = m['GEMEENTE'];
-            municipalitySelect.appendChild(option)
+            if(m['SPECIALS_MELDINGEN'] > 24) {
+
+                let option = document.createElement('option');
+                option.value = m['_category'];
+                option.innerText = m['GEMEENTE'];
+                if(m['_category'] === 'all') {
+                    option.selected = true;
+                }
+
+
+                municipalitySelect.appendChild(option)
+            }
 
         })
     }
