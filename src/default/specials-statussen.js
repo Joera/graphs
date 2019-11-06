@@ -116,20 +116,20 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         console.log(data);
 
+
+        let option = document.createElement('option');
+        option.value = 'all';
+        option.innerText = 'Alle gemeenten';
+        option.selected = true;
+        municipalitySelect.appendChild(option)
+
         data.forEach( (m) => {
 
-            console.log(m['SPECIALS_MELDINGEN']);
+            if(m['SPECIALS_MELDINGEN'] > 24 && m['_category'] !== 'all') {
 
-            if(m['SPECIALS_MELDINGEN'] > 24) {
-
-                let option = document.createElement('option');
+                option = document.createElement('option');
                 option.value = m['_category'];
                 option.innerText = m['GEMEENTE'];
-                if(m['_category'] === 'all') {
-                    option.selected = true;
-                }
-
-
                 municipalitySelect.appendChild(option)
             }
 
