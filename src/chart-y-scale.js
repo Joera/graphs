@@ -30,12 +30,12 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         }
 
 
+        // dit doen voor je data naar scale stuurt
         let array_two = [];
 
-        for (let p = 0; p < data.length; p++) {
+        for (let group of data) {
 
-
-            for (let prop of data[p]) {
+            for (let prop of group) {
 
                 console.log(prop);
 
