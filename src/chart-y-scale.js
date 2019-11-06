@@ -29,7 +29,18 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             }
         }
 
-        console.log(arrayOfCumulatedValues);
+
+        let array_two = [];
+
+        for (let p = 0; p < data.length; p++) {
+            for (let i = 0; i < data[p].length; i++) {
+                console.log(data[p][i]);
+                // for (let e = 0; e < data.length; e++) {
+                //     arrayOfCumulatedValues.push(data[e][i][1]);
+                // }
+            }
+        }
+
 
         scale.stacked = d3.scaleLinear()
             .domain([
@@ -42,8 +53,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         scale.radius = d3.scaleLinear()
             .domain([
-                d3.min(arrayOfCumulatedValues),  //
-                d3.max(arrayOfCumulatedValues)
+                d3.min(array_two),  //
+                d3.max(array_two)
             ]).nice();
 
 
