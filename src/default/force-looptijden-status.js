@@ -72,45 +72,25 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         let data = [];
 
-        data.push([
-            {   key : 'status',
-                value : "Langer dan twee jaar"
-            },
-            {   key : 'ontvangst',
-                value : json['LANGER_2_JAAR_ONTVANGST'],
-            },
-            {   key : 'planning_opname',
-                value : json['LANGER_2_JAAR_PLANNING_OPNAME'],
-            },
-            {   key : 'opleveren_schaderapport',
-                value : json['LANGER_2_JAAR_OPLEV_SCHRAP'],
-            },
-            {   key : 'voorbereiden_commissie',
-                value : json['LANGER_2_JAAR_VOORBER_CIE'],
-            },
-            {   key : 'stuwmeer',
-                value : json['LANGER_2_JAAR_STATUS_STUW']
-            }
-        ]);
 
         data.push([
             {   key : 'status',
-                value : "Tussen een en twee jaar"
+                value : "Minder dan een half jaar"
             },
             {   key : 'ontvangst',
-                value : json['TUSSEN_1_2_JAAR_ONTVANGST'],
+                value : json['MNDER_HALF_JAAR_ONTVANGST'],
             },
             {   key : 'planning_opname',
-                value : json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
+                value : json['MINDER_HALF_JAAR_PLANNING'],
             },
             {   key : 'opleveren_schaderapport',
-                value : json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
+                value : json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'voorbereiden_commissie',
-                value : json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
+                value : json['MINDER_HALF_JAAR_VOORBER_'],
             },
             {   key : 'stuwmeer',
-                value : json['TUSSEN_1_2_JAAR_STATUS_STUW']
+                value : json['MINDER_HALF_JAAR_STATUS_STUW']
             }
         ]);
 
@@ -137,24 +117,51 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
-                value : "Minder dan een half jaar"
+                value : "Tussen een en twee jaar"
             },
             {   key : 'ontvangst',
-                value : json['MNDER_HALF_JAAR_ONTVANGST'],
+                value : json['TUSSEN_1_2_JAAR_ONTVANGST'],
             },
             {   key : 'planning_opname',
-                value : json['MINDER_HALF_JAAR_PLANNING'],
+                value : json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
             },
             {   key : 'opleveren_schaderapport',
-                value : json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
+                value : json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'voorbereiden_commissie',
-                value : json['MINDER_HALF_JAAR_VOORBER_'],
+                value : json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
             },
             {   key : 'stuwmeer',
-                value : json['MINDER_HALF_JAAR_STATUS_STUW']
+                value : json['TUSSEN_1_2_JAAR_STATUS_STUW']
             }
         ]);
+
+
+
+        data.push([
+            {   key : 'status',
+                value : "Langer dan twee jaar"
+            },
+            {   key : 'ontvangst',
+                value : json['LANGER_2_JAAR_ONTVANGST'],
+            },
+            {   key : 'planning_opname',
+                value : json['LANGER_2_JAAR_PLANNING_OPNAME'],
+            },
+            {   key : 'opleveren_schaderapport',
+                value : json['LANGER_2_JAAR_OPLEV_SCHRAP'],
+            },
+            {   key : 'voorbereiden_commissie',
+                value : json['LANGER_2_JAAR_VOORBER_CIE'],
+            },
+            {   key : 'stuwmeer',
+                value : json['LANGER_2_JAAR_STATUS_STUW']
+            }
+        ]);
+
+
+
+
 
 
         // functions.normalizedStack = d3.stack()
