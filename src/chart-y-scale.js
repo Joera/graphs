@@ -40,6 +40,12 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         scale.stackedNormalized = d3.scaleLinear();
 
+        scale.radius = d3.scaleLinear()
+            .domain([
+                d3.max(data, d => d.map(data.map(d => Object.values(d)[0]))),
+                d3.max(data, d => d.map(data.map(d => Object.values(d)[0])))
+            ]).nice();
+
 
      //   let mapMax =
 
@@ -75,7 +81,10 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .range([(config.fixedHeight || dimensions.height), 0]);
 
         newScale.band
-            .range([0,dimensions.height])
+            .range([0,dimensions.height]);
+
+        newScale.radius
+            .range([0, (dimensions.width / 6)]);
 
         return newScale;
     }

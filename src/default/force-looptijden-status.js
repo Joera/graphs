@@ -202,7 +202,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             });
 
         svg.circlesEnter.merge(svg.circles)
-            .attr("r", (d) => { console.log(d); return d[1]; }) // scale for radius
+            .attr("r", (d) => { return yScale.radius(d[1]); }) // scale for radius
         //     .style("fill", (d) => { return blue; }); // scale for colour
 
            ;
