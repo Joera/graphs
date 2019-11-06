@@ -47,7 +47,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         'opleveren_schaderapport': 'blue',
         'voorbereiden_commissie': 'darkblue',
         'stuwmeer': 'grey'
-    }
+    };
+
+    let simulation = {};
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element, config);
@@ -185,16 +187,12 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .attr("class","circle")
             .style("fill", function(d) { return blue; })
 
-
-        let simulation = {};
-
         for (let group of data) {
             simulation[group[0].value] = d3.forceSimulation()
                 .velocityDecay(0.2)
                 .nodes(group.filter( (prop) => prop.key !== 'status'));
         }
 
-        console.log(simulation);
 
 
 
@@ -231,6 +229,31 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         //     .style("fill", (d) => { return blue; }); // scale for colour
 
            ;
+
+
+        let center = {x: dimensions.width / 2, y: dimensions.height / 2};
+        let forceStrength = 0.03;
+
+
+        function charge(d) {
+            return -forceStrength * Math.pow(d.value, 2.0);
+        }
+
+        function ticked() {
+            svg.circlesEnter.merge(svg.circles)
+                .attr('cx', function (d) { return d.x; })
+                .attr('cy', function (d) { return d.y; });
+        }
+
+        for (let group of data) {
+
+            simulation[group[0].value]
+                .velocityDecay(0.2)
+                .force('x', d3.forceX().strength(forceStrength).x(center.x))
+                .force('y', d3.forceY().strength(forceStrength).y(center.y))
+                .force('charge', d3.forceManyBody().strength(charge))
+                .on('tick', ticked);
+        }
 
 
 
