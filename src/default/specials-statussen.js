@@ -118,7 +118,7 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         data.forEach( (m) => {
 
-            // console.log(m['GEMEENTE']);
+            console.log(m['SPECIALS_MELDINGEN']);
             // console.log(m['_category']);
 
             let option = document.createElement('option');
