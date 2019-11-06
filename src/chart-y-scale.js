@@ -29,7 +29,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             }
         }
 
-        // console.log(arrayOfCumulatedValues);
+        console.log(arrayOfCumulatedValues);
 
         scale.stacked = d3.scaleLinear()
             .domain([
@@ -42,8 +42,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         scale.radius = d3.scaleLinear()
             .domain([
-                d3.min(data.map(d => Object.values(d)[0])),  //
-                d3.max(data.map(d => Object.values(d)[0]))
+                d3.min(arrayOfCumulatedValues),  //
+                d3.max(arrayOfCumulatedValues)
             ]).nice();
 
 
