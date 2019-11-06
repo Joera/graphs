@@ -181,6 +181,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 .velocityDecay(0.2);
 
 
+            console.log(group);
+
+
             simulation[group.status]
                 .nodes(group);
         }
