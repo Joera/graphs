@@ -49,7 +49,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         scale.stackedNormalized = d3.scaleLinear();
 
-        scale.radius = d3.scaleLog()
+        scale.radius = d3.scalePow()
             .domain([
                 d3.min(array_two),  //
                 d3.max(array_two)
