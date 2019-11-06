@@ -185,7 +185,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
 
             simulation[group.status]
-                .nodes(Object.values(group));
+                .nodes(Object.values(group).filter( (prop) => prop[0] !== 'status'));
         }
 
         console.log(simulation);
