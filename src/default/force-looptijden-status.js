@@ -134,16 +134,28 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 value : json['HALF_JAAR_1JAAR_STATUS_STUW']
             }
         ]);
-        
-        // data.push({
-        //     status: "Minder dan een half jaar",
-        //     ontvangst: json['MNDER_HALF_JAAR_ONTVANGST'],
-        //     planning_opname: json['MINDER_HALF_JAAR_PLANNING'],
-        //     opleveren_schaderapport: json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
-        //     voorbereiden_commissie: json['MINDER_HALF_JAAR_VOORBER_'],
-        //     stuwmeer: json['MINDER_HALF_JAAR_STATUS_STUW']
-        // });
 
+        data.push([
+            {   key : 'status',
+                value : "Minder dan een half jaar"
+            },
+            {   key : 'ontvangst',
+                value : json['MNDER_HALF_JAAR_ONTVANGST'],
+            },
+            {   key : 'planning_opname',
+                value : json['MINDER_HALF_JAAR_PLANNING'],
+            },
+            {   key : 'opleveren_schaderapport',
+                value : json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
+            },
+            {   key : 'voorbereiden_commissie',
+                value : json['MINDER_HALF_JAAR_VOORBER_'],
+            },
+            {   key : 'stuwmeer',
+                value : json['MINDER_HALF_JAAR_STATUS_STUW']
+            }
+        ]);
+        
 
         // functions.normalizedStack = d3.stack()
         //     .offset(d3.stackOffsetExpand)
