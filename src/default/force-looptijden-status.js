@@ -190,14 +190,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         for (let group of data) {
             simulation[group[0].value] = d3.forceSimulation()
-                .velocityDecay(0.2);
-
-
-            console.log(group.filter( (prop) => prop.key !== 'status'));
-
-
-            // simulation[group.status]
-            //     .nodes(Object.values(group).filter( (prop) => prop[0] !== 'status'));
+                .velocityDecay(0.2)
+                .nodes(group.filter( (prop) => prop.key !== 'status'));
         }
 
         console.log(simulation);
