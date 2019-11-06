@@ -200,8 +200,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function draw(data) {
 
-        console.log(data);
 
+        console.log(data.map( (d) => d[0].value));
         // with data we can init scales
         xScale = chartXScale.set(data.map( (d) => d[0].value));
         yScale = chartYScale.set(data)
@@ -265,7 +265,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
 
-                console.log(d[0].value)
                 return "translate(" + xScale.band(d[0].value) + ",0)"
                //  return "translate(0,0)"
             });
