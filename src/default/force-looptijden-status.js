@@ -174,7 +174,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         svg.circles = svg.groupEnter.merge(svg.group).selectAll(".circle")
             .data( d => {
 
-                return Object.entries(d).filter( e => { return e[0] !== 'status'});
+                return d.filter( e => { return e.key !== 'status'});
 
             });
 
@@ -233,7 +233,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             });
 
         svg.circlesEnter.merge(svg.circles)
-            .attr("r", (d) => { return yScale.radius(d[1]); }) // scale for radius
+            .attr("r", (d) => { return yScale.radius(d.value); }) // scale for radius
         //     .style("fill", (d) => { return blue; }); // scale for colour
 
            ;
