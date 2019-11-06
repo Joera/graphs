@@ -116,12 +116,15 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         console.log(data);
 
-        let options = [];
-
         data.forEach( (m) => {
 
-            console.log(m['GEMEENTE']);
-            console.log(m['_category']);
+            // console.log(m['GEMEENTE']);
+            // console.log(m['_category']);
+
+            let option = document.createElement('option');
+            option.value = m['_category'];
+            option.innerText = m['GEMEENTE'];
+            municipalitySelect.appendChild(option)
 
         })
     }
