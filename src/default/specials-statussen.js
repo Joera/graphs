@@ -125,7 +125,7 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         data.forEach( (m) => {
 
-            if(m['SPECIALS_MELDINGEN'] > 24 && m['_category'] !== 'all') {
+            if(m['SPECIALS_MELDINGEN'] > 24 && m['_category'] !== 'all' && m['_category'] !== '') {
 
                 option = document.createElement('option');
                 option.value = m['_category'];
