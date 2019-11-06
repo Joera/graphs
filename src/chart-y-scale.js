@@ -35,9 +35,12 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         for (let group of data) {
 
+
+            console.log(group);
+
             for (let prop of group) {
 
-                console.log(prop);
+
 
                 // for (let e = 0; e < data.length; e++) {
                 //     arrayOfCumulatedValues.push(data[e][i][1]);
