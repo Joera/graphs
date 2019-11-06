@@ -229,7 +229,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
            ;
 
 
-        let center = {x: dimensions.width / 2, y: dimensions.height / 2};
+        let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
         let forceStrength = 0.03;
 
 
@@ -243,7 +243,12 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 .attr('cy', function (d) { return d.y; });
         }
 
-        for (let group of data) {
+        data.forEach( (group,i) => {
+
+
+            let groupWidth = dimensions.width / data.length;
+
+            center = {x: (i * groupWidth / 2), y: dimensions.height / 2};
 
             simulation[group[0].value]
                 .velocityDecay(0.2)
@@ -251,7 +256,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('charge', d3.forceManyBody().strength(charge))
                 .on('tick', ticked);
-        }
+        });
 
 
 
