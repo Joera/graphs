@@ -313,7 +313,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
          //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
 
-            center = {x: (groupWidth / 2) , y: dimensions.height / 2};
+            center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
             simulation[group[0].value]
                 .velocityDecay(0.2)
