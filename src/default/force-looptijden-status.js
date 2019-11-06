@@ -149,6 +149,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         // with data we can init scales
         xScale = chartXScale.set(data);
+        yScale = chartYScale.set(data)
 
         svg.group = svg.layers.data.selectAll('g')
             .data(data);
@@ -202,6 +203,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         chartSVG.redraw(dimensions);
 
         xScale = chartXScale.reset(dimensions,xScale);
+        yScale = chartYScale.reset(dimensions,yScale);
 
 
 
