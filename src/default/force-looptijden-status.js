@@ -70,43 +70,55 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         let data = [];
 
-        data.push({
-            status: "Langer dan twee jaar",
-            ontvangst: json['LANGER_2_JAAR_ONTVANGST'],
-            planning_opname: json['LANGER_2_JAAR_PLANNING_OPNAME'],
-            opleveren_schaderapport: json['LANGER_2_JAAR_OPLEV_SCHRAP'],
-            voorbereiden_commissie: json['LANGER_2_JAAR_VOORBER_CIE'],
-            stuwmeer: json['LANGER_2_JAAR_STATUS_STUW']
-        });
+        data.push([
+            {   key : 'status',
+                value : "Langer dan twee jaar"
+            },
+            {   key : 'ontvangst',
+                value : json['LANGER_2_JAAR_ONTVANGST'],
+            },
+            {   key : 'planning_opname',
+                value : json['LANGER_2_JAAR_PLANNING_OPNAME'],
+            },
+            {   key : 'opleveren_schaderapport',
+                value : json['LANGER_2_JAAR_OPLEV_SCHRAP'],
+            },
+            {   key : 'voorbereiden_commissie',
+                value : json['LANGER_2_JAAR_VOORBER_CIE'],
+            },
+            {   key : 'stuwmeer',
+                value : json['LANGER_2_JAAR_STATUS_STUW']
+            }
+        ]);
 
-        data.push({
-            status: "Tussen een en twee jaar",
-            ontvangst: json['TUSSEN_1_2_JAAR_ONTVANGST'],
-            planning_opname: json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
-            opleveren_schaderapport: json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
-            voorbereiden_commissie: json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
-            stuwmeer: json['TUSSEN_1_2_JAAR_STATUS_STUW']
-        });
-
-
-        data.push({
-            status: "Tussen half jaar en een jaar",
-            ontvangst: json['HALF_JAAR_1JAAR_ONTVANGST'],
-            planning_opname: json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
-            opleveren_schaderapport: json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
-            voorbereiden_commissie: json['HALF_JAAR_1JAAR_VOORBER_CIE'],
-            stuwmeer: json['HALF_JAAR_1JAAR_STATUS_STUW']
-        });
-
-
-        data.push({
-            status: "Minder dan een half jaar",
-            ontvangst: json['MNDER_HALF_JAAR_ONTVANGST'],
-            planning_opname: json['MINDER_HALF_JAAR_PLANNING'],
-            opleveren_schaderapport: json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
-            voorbereiden_commissie: json['MINDER_HALF_JAAR_VOORBER_'],
-            stuwmeer: json['MINDER_HALF_JAAR_STATUS_STUW']
-        });
+        // data.push({
+        //     status: "Tussen een en twee jaar",
+        //     ontvangst: json['TUSSEN_1_2_JAAR_ONTVANGST'],
+        //     planning_opname: json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
+        //     opleveren_schaderapport: json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
+        //     voorbereiden_commissie: json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
+        //     stuwmeer: json['TUSSEN_1_2_JAAR_STATUS_STUW']
+        // });
+        //
+        //
+        // data.push({
+        //     status: "Tussen half jaar en een jaar",
+        //     ontvangst: json['HALF_JAAR_1JAAR_ONTVANGST'],
+        //     planning_opname: json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
+        //     opleveren_schaderapport: json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
+        //     voorbereiden_commissie: json['HALF_JAAR_1JAAR_VOORBER_CIE'],
+        //     stuwmeer: json['HALF_JAAR_1JAAR_STATUS_STUW']
+        // });
+        //
+        //
+        // data.push({
+        //     status: "Minder dan een half jaar",
+        //     ontvangst: json['MNDER_HALF_JAAR_ONTVANGST'],
+        //     planning_opname: json['MINDER_HALF_JAAR_PLANNING'],
+        //     opleveren_schaderapport: json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
+        //     voorbereiden_commissie: json['MINDER_HALF_JAAR_VOORBER_'],
+        //     stuwmeer: json['MINDER_HALF_JAAR_STATUS_STUW']
+        // });
 
 
         // functions.normalizedStack = d3.stack()
@@ -181,7 +193,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 .velocityDecay(0.2);
 
 
-            console.log(Object.values(group).filter( (prop) => prop[0] !== 'status'));
+            console.log(Object.values(group).filter( (prop) => Numberprop[0] !== 'status'));
 
 
             // simulation[group.status]
