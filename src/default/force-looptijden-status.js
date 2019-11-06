@@ -93,16 +93,27 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             }
         ]);
 
-        // data.push({
-        //     status: "Tussen een en twee jaar",
-        //     ontvangst: json['TUSSEN_1_2_JAAR_ONTVANGST'],
-        //     planning_opname: json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
-        //     opleveren_schaderapport: json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
-        //     voorbereiden_commissie: json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
-        //     stuwmeer: json['TUSSEN_1_2_JAAR_STATUS_STUW']
-        // });
-        //
-        //
+        data.push([
+            {   key : 'status',
+                value : "Tussen een en twee jaar"
+            },
+            {   key : 'ontvangst',
+                value : json['TUSSEN_1_2_JAAR_ONTVANGST'],
+            },
+            {   key : 'planning_opname',
+                value : json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
+            },
+            {   key : 'opleveren_schaderapport',
+                value : json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
+            },
+            {   key : 'voorbereiden_commissie',
+                value : json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
+            },
+            {   key : 'stuwmeer',
+                value : json['TUSSEN_1_2_JAAR_STATUS_STUW']
+            }
+        ]);
+        
         // data.push({
         //     status: "Tussen half jaar en een jaar",
         //     ontvangst: json['HALF_JAAR_1JAAR_ONTVANGST'],
