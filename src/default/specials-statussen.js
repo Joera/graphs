@@ -126,7 +126,7 @@ var specialsStatussen  = function (element,smallMultiple) {
         data.forEach( (m) => {
 
             if(m['_category'] !== 'all' && m['_category'] !== '' &&
-                m['SPECIALS_MELDINGEN'] > 24 &&
+                m['SPECIALS_MELDINGEN'] > 24  // &&
                 // m['SPECIALS_ONTVANGST'] > 24 &&
                 // m['SPECIALS_PLANNING_OPNAME'] > 24 &&
                 // m['SPECIALS_OPLEV_SCHADERAPP'] > 24 &&
