@@ -264,7 +264,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
-                return "translate(" + xScale.band(d.status) + ",0)"
+               //  return "translate(" + xScale.band(d.status) + ",0)"
+                return "translate(0,0)"
             });
 
         svg.circlesEnter.merge(svg.circles)
