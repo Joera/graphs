@@ -193,7 +193,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 .velocityDecay(0.2);
 
 
-            console.log(Object.values(group).filter( (prop) => Numberprop[0] !== 'status'));
+            console.log(group.filter( (prop) => prop.key !== 'status'));
 
 
             // simulation[group.status]

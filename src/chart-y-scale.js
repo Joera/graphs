@@ -34,8 +34,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         let array_two = [];
 
         for (let group of data) {
-            for (let prop of Object.values(group)) {
-                if (Number.isInteger(prop)) array_two.push(prop);
+            for (let prop of group) {
+                if (Number.isInteger(prop.value)) array_two.push(prop.value);
             }
         }
 
