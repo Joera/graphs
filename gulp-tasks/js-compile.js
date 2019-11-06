@@ -67,7 +67,8 @@ module.exports = function() {
             './src/default/pie-chart-herkomst.js',
             './src/default/pie-chart-opnames.js',
             './src/default/pie-chart-bezwaren.js',
-            './src/default/specials-share-completed.js'
+            './src/default/specials-share-completed.js',
+            './src/default/specials-statussen.js'
 
 
             ])
