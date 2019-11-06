@@ -93,7 +93,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .range([0,dimensions.height]);
 
         newScale.radius
-            .range([10, (dimensions.width / 10)]);
+            .range([6, (dimensions.width / 8)]);
 
         return newScale;
     }
