@@ -21,7 +21,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     config.padding.top = smallMultiple? 15 : 30;
     config.padding.bottom = 0;
     config.padding.left = 0;
-    config.padding.right = 40;
+    config.padding.right = 0;
     // name of first column with values of bands on x axis
 
     // y-axis
