@@ -129,14 +129,14 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         //         return ['status'].indexOf(key) < 0
         //     } ));
 
-        functions.stack = d3.stack()
-            .keys(Object.keys(data[0]).filter(key => {
-                return ['status'].indexOf(key) < 0
-            } ));
+        // functions.stack = d3.stack()
+        //     .keys(Object.keys(data[0]).filter(key => {
+        //         return ['status'].indexOf(key) < 0
+        //     } ));
 
      //   let stackedData = functions.normalizedStack(data);
-        let stackedData = functions.stack(data);
-        return { data, stackedData }
+     //    let stackedData = functions.stack(data);
+        return data;
     }
 
     function legend(data) {
@@ -207,7 +207,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             // .call(force.drag);
     }
 
-    function redraw() {
+    function redraw(data) {
 
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
@@ -215,8 +215,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
-
-
 
 
         svg.groupEnter.merge(svg.group)
@@ -263,9 +261,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let { data , stackedData } = prepareData(json,muni);
-        draw(data,stackedData);
-        redraw();
+        let data = prepareData(json,muni);
+        draw(data);
+        redraw(data);
         // legend(data);
     }
 
