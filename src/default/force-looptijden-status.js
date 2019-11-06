@@ -203,7 +203,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         console.log(data);
 
         // with data we can init scales
-        xScale = chartXScale.set(data);
+        xScale = chartXScale.set(data.map( (d) => d[0].value));
         yScale = chartYScale.set(data)
 
         svg.group = svg.layers.data.selectAll('g')
