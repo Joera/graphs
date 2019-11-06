@@ -192,7 +192,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         xScale = chartXScale.reset(dimensions,xScale);
 
         var force = d3.forceSimulation()
-            .nodes(Object.entries.data[0])
+            .nodes(data)
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
