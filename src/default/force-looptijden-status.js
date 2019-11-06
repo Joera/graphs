@@ -33,12 +33,12 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     // x-axis
     // config.minWidth = 460;
     config.xParameter = 'status';
-    config.paddingInner = [0.5];
-    config.paddingOuter = [0.5];
+    config.paddingInner = [0.25];
+    config.paddingOuter = [0];
 
     config.dateLabels = false;
 
-    config.fixedHeight = 260;
+
 
     let colours = {
 
