@@ -115,6 +115,15 @@ var specialsStatussen  = function (element,smallMultiple) {
     function muniDropdown(data) {
 
         console.log(data);
+
+        let options = [];
+
+        data.forEach( (m) => {
+
+            console.log(m['GEMEENTE']);
+            console.log(m['_category']);
+
+        })
     }
 
     function draw(data) {
