@@ -127,11 +127,11 @@ var specialsStatussen  = function (element,smallMultiple) {
 
             if(m['_category'] !== 'all' && m['_category'] !== '' &&
                 m['SPECIALS_MELDINGEN'] > 24 &&
-                m['SPECIALS_ONTVANGST'] > 24 &&
-                m['SPECIALS_PLANNING_OPNAME'] > 24 &&
-                m['SPECIALS_OPLEV_SCHADERAPP'] > 24 &&
-                m['SPECIALS_VOORBER_CIE'] > 24 &&
-                m['SPECIALS_BESCHIKT'] > 24
+                // m['SPECIALS_ONTVANGST'] > 24 &&
+                // m['SPECIALS_PLANNING_OPNAME'] > 24 &&
+                // m['SPECIALS_OPLEV_SCHADERAPP'] > 24 &&
+                // m['SPECIALS_VOORBER_CIE'] > 24 &&
+                // m['SPECIALS_BESCHIKT'] > 24
 
 
         ) {
