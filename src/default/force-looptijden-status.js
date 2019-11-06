@@ -198,14 +198,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         }
     }
 
-    function headers(data) {
-
-        data.forEach( (d,i) => {
-
-
-        });
-    }
-
     function draw(data) {
 
 
@@ -252,7 +244,10 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
             .attr("class","header")
             .text( d => {
                 return d[0].value
-            });
+            })
+            .attr('dy', '0')
+            .style("text-anchor", "middle")
+       ;
 
 
 
@@ -274,6 +269,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
 
+        let groupWidth = dimensions.width / data.length;
+
+
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
 
@@ -291,6 +289,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
            ;
 
+        svg.headers
+            .attr('dx', groupWidth / 2);
+
         let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
         let forceStrength = 0.03;
 
@@ -307,7 +308,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         data.forEach( (group,i) => {
 
-            let groupWidth = dimensions.width / data.length;
 
             console.log(groupWidth);
 
