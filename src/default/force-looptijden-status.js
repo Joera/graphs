@@ -113,17 +113,28 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 value : json['TUSSEN_1_2_JAAR_STATUS_STUW']
             }
         ]);
+
+        data.push([
+            {   key : 'status',
+                value : "Tussen half jaar en een jaar"
+            },
+            {   key : 'ontvangst',
+                value : json['HALF_JAAR_1JAAR_ONTVANGST'],
+            },
+            {   key : 'planning_opname',
+                value : json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
+            },
+            {   key : 'opleveren_schaderapport',
+                value : json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
+            },
+            {   key : 'voorbereiden_commissie',
+                value : json['HALF_JAAR_1JAAR_VOORBER_CIE'],
+            },
+            {   key : 'stuwmeer',
+                value : json['HALF_JAAR_1JAAR_STATUS_STUW']
+            }
+        ]);
         
-        // data.push({
-        //     status: "Tussen half jaar en een jaar",
-        //     ontvangst: json['HALF_JAAR_1JAAR_ONTVANGST'],
-        //     planning_opname: json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
-        //     opleveren_schaderapport: json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
-        //     voorbereiden_commissie: json['HALF_JAAR_1JAAR_VOORBER_CIE'],
-        //     stuwmeer: json['HALF_JAAR_1JAAR_STATUS_STUW']
-        // });
-        //
-        //
         // data.push({
         //     status: "Minder dan een half jaar",
         //     ontvangst: json['MNDER_HALF_JAAR_ONTVANGST'],
