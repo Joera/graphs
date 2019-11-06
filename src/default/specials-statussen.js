@@ -114,9 +114,6 @@ var specialsStatussen  = function (element,smallMultiple) {
 
     function muniDropdown(data) {
 
-        console.log(data);
-
-
         let option = document.createElement('option');
         option.value = 'all';
         option.innerText = 'Alle gemeenten';

@@ -75,7 +75,8 @@ let ChartBar = function ChartBar(config,svg) {
                     return convertToCurrency(d.totaal);
 
                 } else {
-                    return d.totaal;
+                    
+                    return d.totaal ? d.totaal : '< 25';
                 }
 
 
