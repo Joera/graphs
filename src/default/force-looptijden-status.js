@@ -253,9 +253,17 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         }
 
 
+        svg.headers = svg.groupEnter.merge(svg.group)
+            .append("text")
+            .attr("class","header")
+            .text( d => {
+                return d[0].value
+            });
 
 
-            // .selectAll("circle");
+
+
+        // .selectAll("circle");
             //
             //
             //
