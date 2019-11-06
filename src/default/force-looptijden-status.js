@@ -189,7 +189,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         let simulation = {};
 
         for (let group of data) {
-            simulation[group.status] = d3.forceSimulation()
+            simulation[group[0].value] = d3.forceSimulation()
                 .velocityDecay(0.2);
 
 
