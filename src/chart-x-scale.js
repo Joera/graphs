@@ -17,8 +17,8 @@ class ChartXScale {
 
         this.scale.linear = d3.scaleLinear()
             .domain([
-                d3.min(data.map(d => Object.values(d)[0])),  //
-                d3.max(data.map(d => Object.values(d)[0]))
+                    d3.min(data.map(d => Object.values(d)[0])),  //
+                    d3.max(data.map(d => Object.values(d)[0]))
             ]);
 
         this.scale.time = d3.scaleTime()

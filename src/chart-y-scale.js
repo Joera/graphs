@@ -70,7 +70,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .range([0.3,1]);
 
         scale.band = d3.scaleBand()
-            .domain(data.map(d => { console.log(d); return d[config.xParameter]   }))
+            .domain(data.map(d => { return d[config.xParameter]   }))
             .paddingInner(config.paddingInner)
             .paddingOuter(config.paddingOuter)
             .align([0.5])
