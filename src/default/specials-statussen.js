@@ -112,6 +112,11 @@ var specialsStatussen  = function (element,smallMultiple) {
         }
     }
 
+    function muniDropdown(data) {
+
+        console.log(data);
+    }
+
     function draw(data) {
 
         // with data we can init scales
@@ -150,6 +155,7 @@ var specialsStatussen  = function (element,smallMultiple) {
 
     d3.json(url, function (error, json) {
         if (error) throw error;
+        muniDropdown(json);
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
