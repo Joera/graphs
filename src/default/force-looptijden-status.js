@@ -284,7 +284,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
             let groupWidth = dimensions.width / data.length;
 
-            center = {x: (i * groupWidth) + groupWidth / 2 , y: dimensions.height / 2};
+            console.log(groupWidth);
+
+            center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
 
             simulation[group[0].value]
                 .velocityDecay(0.2)
@@ -293,11 +295,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
                 .force('charge', d3.forceManyBody().strength(charge))
                 .on('tick', ticked);
         });
-
-
-
-
-
     }
 
     function run(json, muni) {
