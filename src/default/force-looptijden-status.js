@@ -264,8 +264,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
-               //  return "translate(" + xScale.band(d.status) + ",0)"
-                return "translate(0,0)"
+                return "translate(" + xScale.band(d.status) + ",0)"
+               //  return "translate(0,0)"
             });
 
         svg.circlesEnter.merge(svg.circles)
@@ -294,7 +294,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
             console.log(groupWidth);
 
-            center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
+         //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
+
+            center = {x: (groupWidth / 2) , y: dimensions.height / 2};
 
             simulation[group[0].value]
                 .velocityDecay(0.2)
