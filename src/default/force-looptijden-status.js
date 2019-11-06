@@ -34,7 +34,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     // config.minWidth = 460;
     config.xParameter = 'status';
     config.paddingInner = [0.25];
-    config.paddingOuter = [0];
+    config.paddingOuter = [0.25];
 
     config.dateLabels = false;
 
