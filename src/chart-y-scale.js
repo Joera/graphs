@@ -34,17 +34,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         let array_two = [];
 
         for (let group of data) {
-
-
-            console.log(group);
-
             for (let prop of Object.values(group)) {
-
-                console.log(prop);
-
-                // for (let e = 0; e < data.length; e++) {
-                //     arrayOfCumulatedValues.push(data[e][i][1]);
-                // }
+                if (Number.isInteger(prop)) array_two.push(prop);
             }
         }
 
