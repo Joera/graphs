@@ -143,7 +143,9 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         }
     }
 
-    function draw(data, stackedData) {
+    function draw(data) {
+
+        console.log(data);
 
         // with data we can init scales
         xScale = chartXScale.set(data);
