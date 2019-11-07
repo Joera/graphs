@@ -317,8 +317,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                     .force('charge', d3.forceManyBody().strength(cluster))
                     .on('tick', ticked);
 
-            },1000)
-            
+            },3000)
+
         });
     }
 
