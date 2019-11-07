@@ -136,7 +136,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         ;
 
         function cluster(d) {
-            return -forceStrength * Math.pow(yScale.radius(d.value) * 2, 1);
+            return -forceStrength * Math.pow(yScale.radius(d.value), config.radiusOffset);
         }
 
         function ticked() {
@@ -154,9 +154,9 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
                 // .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('center', d3.forceCenter(center.x,center.y))
                .force('charge', d3.forceManyBody().strength(cluster))
-              //   .force('collide', d3.forceCollide().radius(function(d) {
-              //       return yScale.radius(d.value)
-              //   }))
+                .force('collide', d3.forceCollide().radius(function(d) {
+                    return yScale.radius(d.value)
+                }))
                 .on('tick', ticked);
         });
     }
