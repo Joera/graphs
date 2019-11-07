@@ -317,8 +317,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         draw(data, flattenedData);
         redraw(data);
         // legend(data);
-
-        window.addEventListener("resize", redraw(data), false);
     }
 
     url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
@@ -332,6 +330,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 run(json, municipalitySelect.options[municipalitySelect.selectedIndex].value);
             });
         }
+
+        window.addEventListener("resize", redraw(json), false);
     });
 
 
