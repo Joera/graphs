@@ -261,7 +261,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             })
-            .on('end', onEnd);
+            .on('start', onEnd);
 
         svg.circlesEnter.merge(svg.circles)
             .attr("r", (d) => { return yScale.radius(d.value); }) // scale for radius
