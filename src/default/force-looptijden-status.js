@@ -160,6 +160,17 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         ]);
 
 
+        let flattenedData = [];
+
+        for (let group of data) {
+            for (let prop of group) {
+                if (Number.isInteger(prop.value)) flattenedData.push(prop.value);
+            }
+        }
+
+        return { data, flattenedData };
+
+
 
 
 
@@ -177,7 +188,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
      //   let stackedData = functions.normalizedStack(data);
      //    let stackedData = functions.stack(data);
-        return data;
     }
 
     function legend(data) {
@@ -326,7 +336,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let data = prepareData(json,muni);
+        let { data, flattenedData } = prepareData(json,muni);
+        draw(data, flattenedData);
         draw(data);
         redraw(data);
         // legend(data);
