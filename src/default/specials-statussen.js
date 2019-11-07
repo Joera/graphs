@@ -91,6 +91,9 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         });
 
+
+        console.log(data);
+
         return data;
     }
 
