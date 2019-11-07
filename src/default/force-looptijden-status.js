@@ -62,63 +62,81 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
+                name : "Minder dan een half jaar",
                 value : "Minder dan een half jaar"
             },
             {   key : 'ontvangst',
+                name: 'Ontvangst en analyse',
                 value : json['MNDER_HALF_JAAR_ONTVANGST'],
             },
             {   key : 'planning_opname',
+                name : 'Schade-opname wordt ingepland',
                 value : json['MINDER_HALF_JAAR_PLANNING'],
             },
             {   key : 'opleveren_schaderapport',
+                name : 'Schade-opname uitgevoerd, adviesrapport opleveren',
                 value : json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'voorbereiden_commissie',
+                name: 'Adviesrapport opgeleverd, besluit voorbereiden',
                 value : json['MINDER_HALF_JAAR_VOORBER_'],
             },
             {   key : 'stuwmeer',
+                name: 'Stuwmeerregeling',
                 value : json['MINDER_HALF_JAAR_STATUS_STUW']
             }
         ]);
 
         data.push([
             {   key : 'status',
+                name : "Tussen half jaar en een jaar",
                 value : "Tussen half jaar en een jaar"
             },
             {   key : 'ontvangst',
+                name: 'Ontvangst en analyse',
                 value : json['HALF_JAAR_1JAAR_ONTVANGST'],
             },
             {   key : 'planning_opname',
+                name : 'Schade-opname wordt ingepland',
                 value : json['HALF_JAAR_1JAAR_PLANNING_OPNAME'],
             },
             {   key : 'opleveren_schaderapport',
+                name : 'Schade-opname uitgevoerd, adviesrapport opleveren',
                 value : json['HALF_JAAR_1JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'voorbereiden_commissie',
+                name: 'Adviesrapport opgeleverd, besluit voorbereiden',
                 value : json['HALF_JAAR_1JAAR_VOORBER_CIE'],
             },
             {   key : 'stuwmeer',
+                name: 'Stuwmeerregeling',
                 value : json['HALF_JAAR_1JAAR_STATUS_STUW']
             }
         ]);
 
         data.push([
             {   key : 'status',
+                name : "Tussen een en twee jaar",
                 value : "Tussen een en twee jaar"
             },
             {   key : 'ontvangst',
+                name: 'Ontvangst en analyse',
                 value : json['TUSSEN_1_2_JAAR_ONTVANGST'],
             },
             {   key : 'planning_opname',
+                name : 'Schade-opname wordt ingepland',
                 value : json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
             },
             {   key : 'opleveren_schaderapport',
+                name : 'Schade-opname uitgevoerd, adviesrapport opleveren',
                 value : json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'voorbereiden_commissie',
+                name: 'Adviesrapport opgeleverd, besluit voorbereiden',
                 value : json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
             },
             {   key : 'stuwmeer',
+                name: 'Stuwmeerregeling',
                 value : json['TUSSEN_1_2_JAAR_STATUS_STUW']
             }
         ]);
@@ -127,21 +145,27 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
+                name : "Langer dan twee jaar",
                 value : "Langer dan twee jaar"
             },
             {   key : 'ontvangst',
+                name: 'Ontvangst en analyse',
                 value : json['LANGER_2_JAAR_ONTVANGST'],
             },
             {   key : 'planning_opname',
+                name : 'Schade-opname wordt ingepland',
                 value : json['LANGER_2_JAAR_PLANNING_OPNAME'],
             },
             {   key : 'opleveren_schaderapport',
+                name : 'Schade-opname uitgevoerd, adviesrapport opleveren',
                 value : json['LANGER_2_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'voorbereiden_commissie',
+                name: 'Adviesrapport opgeleverd, besluit voorbereiden',
                 value : json['LANGER_2_JAAR_VOORBER_CIE'],
             },
             {   key : 'stuwmeer',
+                name: 'Stuwmeerregeling',
                 value : json['LANGER_2_JAAR_STATUS_STUW']
             }
         ]);
