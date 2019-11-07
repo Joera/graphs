@@ -29,6 +29,8 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     config.dateLabels = false;
 
+    config.radiusOffset = 2.4;
+
     let colours = {
 
         'ontvangst': orange,

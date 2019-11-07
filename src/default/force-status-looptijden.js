@@ -29,6 +29,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
+    config.radiusOffset = 2;
+
     config.dateLabels = false;
 
     let colours = {
