@@ -227,7 +227,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('width',1)
             .style('fill','#ccc');
 
-        svg.circleGroup.exit().remove();
+        svg.circleGroups.exit().remove();
 
         svg.circleGroupsEnter = svg.circleGroups.enter()
             .append("g")
