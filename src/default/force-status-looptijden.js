@@ -214,11 +214,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.groupEnter = svg.group.enter()
             .append("g");
 
-        svg.circleGroup = svg.groupEnter.merge(svg.group).selectAll(".circleGroup")
+        svg.circleGroups = svg.groupEnter.merge(svg.group).selectAll(".circleGroup")
             .data( d => {
 
                 console.log(d);
-                
+
                 return d.filter( e => { return e.key !== 'status'});
             });
 
@@ -229,11 +229,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.circleGroup.exit().remove();
 
-        svg.circleGroupEnter = svg.circleGroup.enter()
+        svg.circleGroupsEnter = svg.circleGroups.enter()
             .append("g")
             .attr("class","circleGroup");
 
-        svg.circles = svg.circleGroupEnter.merge(svg.circleGroup)
+        svg.circles = svg.circleGroupsEnter.merge(svg.circleGroups)
             .append("circle")
             .attr("class","circle")
             .style("fill", function(d) {
