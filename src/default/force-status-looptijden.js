@@ -198,6 +198,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         xScale = chartXScale.set(data.map( (d) => d[0].value));
         yScale = chartYScale.set(flattenedData) // = radius !!
 
+        console.log(data.length);
+
         svg.headerGroup = svg.layers.underData.selectAll('g')
             .data(data);
 
@@ -216,8 +218,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.circleGroup = svg.groupEnter.merge(svg.group).selectAll(".circleGroup")
             .data( d => {
-
-                console.log(d);
                 return d.filter( e => { return e.key !== 'status'});
             });
 
