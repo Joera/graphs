@@ -242,21 +242,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             })
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
             .style("text-anchor", "middle")
-
-
-
-
-
-
-        // .selectAll("circle");
-            //
-            //
-            //
-            // .data(nodes)
-            // .enter().append("circle")
-            // .attr("r", function(d) { return d.radius; })
-            //
-            // .call(force.drag);
     }
 
     function redraw(data) {
@@ -267,16 +252,13 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         let groupWidth = dimensions.width / data.length;
 
-
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
 
 
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
-
                 return "translate(" + xScale.band(d[0].value) + ",0)"
-               //  return "translate(0,0)"
             });
 
         svg.circlesEnter.merge(svg.circles)
@@ -335,6 +317,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         draw(data, flattenedData);
         redraw(data);
         // legend(data);
+
+        window.addEventListener("resize", redraw(data), false);
     }
 
     url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
@@ -350,7 +334,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
     });
 
-    window.addEventListener("resize", redraw, false);
+
 
 
 
