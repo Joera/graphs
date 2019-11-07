@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<style>
+
+
+</style>
+
+
+<script src="/assets/scripts/d3.min.js"></script>
+<script src="/assets/scripts/main.js"></script>
+
+
+<body class="single-graph">
+<main>
+
+    <!--<h2>Actueel aantal dossiers per status</h2>-->
+
+    <select class="municipalities">
+        <option value="all">Alle gemeenten</option>
+        <option value="aa-en-hunze">Aa en Hunze</option>
+        <option value="appingedam">Appingedam</option>
+        <option value="assen">Assen</option>
+        <option value="delfzijl">Delfzijl</option>
+        <option value="emmen">Emmen</option>
+        <option value="groningen">Groningen</option>
+        <option value="het-hogeland">Het Hogeland</option>
+        <option value="loppersum">Loppersum</option>
+        <option value="midden-groningen">Midden-Groningen</option>
+        <option value="noordenveld">Noordenveld</option>
+        <option value="oldambt">Oldambt</option>
+        <option value="pekela">Pekela</option>
+        <option value="stadskanaal">Stadskanaal</option>
+        <option value="tynaarlo">Tynaarlo</option>
+        <option value="veendam">Veendam</option>
+        <option value="westerkwartier">Westerkwartier</option>
+        <option value="westerwolde">Westerwolde</option>
+
+    </select>
+
+    <div id="container" class="container room-bottom"></div>
+
+    <ul class="legend horizontal">
+        <li class="small-label"><span class="circle orange"></span>Agro</li>
+        <li class="small-label"><span class="circle blue"></span>Erfgoed</li>
+        <li class="small-label"><span class="circle green"></span>Bedrijven</li>
+        <li class="small-label"><span class="circle darkblue"></span>Overig</li>
+    </ul>
+
+</main>
+</body>
+
+
+<script>
+    forceSpecials('#container');
+</script>
+
+
+</html>
