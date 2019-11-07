@@ -234,14 +234,12 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             });
 
         svg.circlesText = svg.circlesEnter.merge(svg.circles)
-            .data( d => {
-                return yScale.radius(d.value) > .25;
-            });
+            .data( data.filter((d) => yScale.radius(d.value) > .25);
 
         svg.circlesText.exit().remove();
 
 
-        svg.circlesTextEnter = svg.circlesText.enter()
+        svg.circlesText
             .append("text")
             .text( (d) => {
                     console.log('yo');
