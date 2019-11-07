@@ -81,7 +81,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         let groupWidth = dimensions.width / data.length;
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
-        let forceStrength = 0.05;
+        let forceStrength = 0.025;
 
         svg.groupEnter.merge(svg.group)
             .attr("transform", (d) => {
@@ -149,8 +149,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         data.forEach( (group,i) => {
 
             simulation[group[0].value]
-                .velocityDecay(0.7)
-                //
+                .velocityDecay(0.5)
                 // .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('center', d3.forceCenter(center.x,center.y))
                // .force('charge', d3.forceManyBody().strength(cluster))
