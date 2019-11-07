@@ -64,6 +64,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
+                name : 'Ontvangst en analyse',
                 value : "ontvangst"
             },
             {   key : 'minder_dan_een_half_jaar',
@@ -83,7 +84,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
-                name : 'Status',
+                name : 'Schade-opname wordt ingepland',
                 value : "planning_opname"
             },
             {   key : 'minder_dan_een_half_jaar',
@@ -102,6 +103,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
+                name : 'Schade-opname uitgevoerd, adviesrapport opleveren',
                 value : "opleveren_schaderapport"
             },
             {   key : 'minder_dan_een_half_jaar',
@@ -122,6 +124,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
+                name: 'Adviesrapport opgeleverd, besluit voorbereiden',
                 value : "voorbereiden_commissie"
             },
             {   key : 'minder_dan_een_half_jaar',
@@ -140,6 +143,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
+                name: 'Stuwmeerregeling',
                 value : "stuwmeerregeling"
             },
             {   key : 'minder_dan_een_half_jaar',
@@ -229,9 +233,12 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .append("text")
             .attr("class","header")
             .text( d => {
-                return d[0].value
+                return d[0].name
             })
-            .attr('dy', '0')
+            .attr('dy', (d,i) => {
+
+                return (i % 2 == 0) ? 16 : 0;
+            })
             .style("text-anchor", "middle")
        ;
 
