@@ -214,7 +214,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.groupEnter = svg.group.enter()
             .append("g");
 
-        svg.circles = svg.groupEnter.merge(svg.group).selectAll(".circle")
+        svg.circleGroup = svg.groupEnter.merge(svg.group).selectAll(".circleGroup")
             .data( d => {
                 return d.filter( e => { return e.key !== 'status'});
             });
@@ -224,16 +224,21 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('width',1)
             .style('fill','#ccc');
 
-        svg.circles.exit().remove();
+        svg.circleGroup.exit().remove();
 
-        svg.circlesEnter = svg.circles.enter()
+        svg.circleGroupEnter = svg.circleGroup.enter()
+            .append("g")
+            .attr("class","circleGroup");
+
+        svg.circles = svg.circleGroupEnter.merge(svg.circleGroup)
             .append("circle")
             .attr("class","circle")
             .style("fill", function(d) {
                 return colours[d.key];
             });
 
-        svg.circlesText = svg.circlesEnter.merge(svg.circles);
+
+        svg.circlesText = svg.circleGroupEnter.merge(svg.circleGroup);
             // .data( data.filter((d) => yScale.radius(d.value) > .25));
 
         // svg.circlesText.exit().remove();
