@@ -266,6 +266,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         chartSVG.redraw(dimensions);
 
         let groupWidth = dimensions.width / data.length;
+        let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
+        let forceStrength = 0.01;
 
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
@@ -281,8 +283,9 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             });
 
         svg.circlesEnter.merge(svg.circles)
-            .attr("r", (d) => { return yScale.radius(d.value); }) // scale for radius
-        //     .style("fill", (d) => { return blue; }); // scale for colour
+            .attr("r", (d) => { return yScale.radius(d.value); })
+            .attr('x', center.x)
+            .attr('y', center.y);
 
            ;
 
@@ -296,8 +299,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('x', groupWidth / 2)
         ;
 
-        let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
-        let forceStrength = 0.01;
+
 
 
         function cluster(d) {
@@ -311,11 +313,12 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 .attr('cy', function (d) { return d.y; });
         }
 
+
         data.forEach( (group,i) => {
 
          //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
 
-            center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
+
 
             // start[group[0].value]
             //     .velocityDecay(0.5)
@@ -323,9 +326,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             //     .force('y', d3.forceY().strength(forceStrength).y(center.y))
             //     .on('tick', ticked);
 
-            svg.circlesEnter.merge(svg.circles)
-                .attr('x', center.x)
-                .attr('y', center.y);
+
 
             // setTimeout( ()=> {
 
