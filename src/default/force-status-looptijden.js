@@ -29,7 +29,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
-    config.radiusOffset = 1.2;
+    config.radiusOffset = 1.6;
     config.radiusFactor = 8;
 
     config.dateLabels = false;
