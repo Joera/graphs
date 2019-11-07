@@ -1,5 +1,9 @@
 let ChartCircles = function ChartCircles(config,svg,colours) {
 
+
+    let start = {};
+    let simulation = {};
+
     let draw = function draw(data) {
 
         svg.headerGroup = svg.layers.underData.selectAll('.headerGroup')

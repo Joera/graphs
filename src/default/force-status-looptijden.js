@@ -39,8 +39,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         'langer_dan_twee_jaar': darkblue
     };
 
-    let start = {};
-    let simulation = {};
+
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element, config);
