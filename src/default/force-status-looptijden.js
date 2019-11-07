@@ -242,7 +242,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
-            .data( data.filter((d) => { console.log(d);  return yScale.radius(d.value) > .25 }));
+            .data( (d) => { console.log(d);  return yScale.radius(d.value) > .25 }));
 
         // svg.circlesText.exit().remove();
 
