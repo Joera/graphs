@@ -297,6 +297,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('y', center.y);
            ;
 
+        svg.circlesEnterText
+            .attr('x', center.x)
+            .attr('y', center.y);
+
+
         svg.headers
             .attr('dx', groupWidth / 2);
 
