@@ -282,7 +282,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         ;
 
         let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
-        let forceStrength = 0.5;
+        let forceStrength = 0.05;
 
 
         function cluster(d) {
@@ -319,7 +319,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                     .force('charge', d3.forceManyBody().strength(cluster))
                     .on('tick', ticked);
 
-            },500)
+            },250)
 
         });
     }
