@@ -299,6 +299,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
             console.log(d);
 
+            console.log('hi');
+
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
             simulation[d[0].value]
