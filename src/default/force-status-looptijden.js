@@ -229,8 +229,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             })
 
         for (let group of data) {
+
+
+
             simulation[group[0].value] = d3.forceSimulation()
-                .velocityDecay(0.2)
+                .velocityDecay(0.5)
                 .nodes(group.filter( (prop) => prop.key !== 'status'));
         }
 
@@ -258,10 +261,9 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         svg.groupEnter.merge(svg.group)
-            .attr("transform", (d) => {
+        .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
-            })
-            .on('start', onEnd);
+            });
 
         svg.circlesEnter.merge(svg.circles)
             .attr("r", (d) => { return yScale.radius(d.value); }) // scale for radius
@@ -290,35 +292,25 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
 
         function ticked() {
+
             svg.circlesEnter.merge(svg.circles)
                 .attr('cx', function (d) { return d.x; })
                 .attr('cy', function (d) { return d.y; });
         }
 
+        data.forEach( (group,i) => {
 
-        function onEnd() {
-
-            console.log('hi');
+         //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
 
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
-            simulation[d[0].value]
+            simulation[group[0].value]
                 .velocityDecay(0.2)
                 .force('x', d3.forceX().strength(forceStrength).x(center.x))
                 .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('charge', d3.forceManyBody().strength(cluster))
                 .on('tick', ticked);
-        }
-
-
-
-
-        // data.forEach( (group,i) => {
-        //
-        //  //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
-        //
-        //
-        // });
+        });
     }
 
     function run(json, muni) {
