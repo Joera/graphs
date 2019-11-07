@@ -44,6 +44,8 @@ ul.legend.horizontal {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  max-width: 400px;
+  margin: 0 auto;
 
 
   @media (min-width: $breakpoint-xsm) {
@@ -71,6 +73,10 @@ ul.legend.horizontal {
       width: 1rem;
       height: 1rem;
       margin-right: .25rem;
+
+      &.circle {
+        border-radius: 50%;
+      }
 
       &.orange {
         background: $orange;
