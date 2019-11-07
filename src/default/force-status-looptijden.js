@@ -192,6 +192,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
     }
 
+    let popup = function popup(d) {
+
+        return d.value;
+    }
+
     function draw(data,flattenedData) {
 
         // with data we can init scales
@@ -314,6 +319,21 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.circles
             .attr("r", (d) => { return yScale.radius(d.value); })
+            .on("mouseover", function(d) {
+
+                svg.tooltip
+                    .html(popup(d))
+                    .style("left", (d3.event.pageX - 205) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })
             // .attr('x', center.x)
             // .attr('y', center.y);
            ;
