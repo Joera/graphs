@@ -309,15 +309,15 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             //     .on('tick', ticked);
 
             svg.circlesEnter.merge(svg.circles)
-                .attr('cx', center.x)
-                .attr('cy', center.y);
+                .attr('x', center.x)
+                .attr('y', center.y);
 
             setTimeout( ()=> {
 
                 simulation[group[0].value]
                     .velocityDecay(0.2)
-                    // .force('x', d3.forceX().strength(forceStrength).x(center.x))
-                    // .force('y', d3.forceY().strength(forceStrength).y(center.y))
+                    .force('x', d3.forceX().strength(forceStrength).x(center.x))
+                    .force('y', d3.forceY().strength(forceStrength).y(center.y))
                     .force('charge', d3.forceManyBody().strength(cluster))
                     .on('tick', ticked);
 
