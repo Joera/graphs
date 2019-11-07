@@ -258,9 +258,10 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         svg.groupEnter.merge(svg.group)
-        .attr("transform", (d) => {
+            .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
-            });
+            })
+            .on('end', onEnd);
 
         svg.circlesEnter.merge(svg.circles)
             .attr("r", (d) => { return yScale.radius(d.value); }) // scale for radius
@@ -295,7 +296,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
 
 
-        function onEnd(d) {
+        function onEnd() {
 
             console.log('hi');
 
@@ -310,8 +311,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
 
 
-        svg.groupEnter.merge(svg.group)
-            .on('end', onEnd);
+
 
         // data.forEach( (group,i) => {
         //
