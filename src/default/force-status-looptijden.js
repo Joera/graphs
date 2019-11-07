@@ -130,8 +130,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             }
         ]);
 
-
-
         data.push([
             {   key : 'status',
                 name: 'Adviesrapport opgeleverd, besluit voorbereiden',

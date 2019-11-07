@@ -51,24 +51,15 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
                 return colours[d.key];
             });
 
-
-        // svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
-        //     .data( (d) => { console.log(d);  return  });
-
-        // svg.circlesText.exit().remove();
-
-
         svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
             .append("text")
+            .attr("class","small-label")
             .attr("text-anchor","middle")
             .style("fill","black")
-
-
         ;
 
 
         for (let group of data) {
-
             simulation[group[0].value] = d3.forceSimulation()
                 .velocityDecay(0.25)
                 .nodes(group.filter( (prop) => prop.key !== 'status'));
@@ -83,7 +74,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             })
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
             .style("text-anchor", "middle");
-
 
     }
 
@@ -166,8 +156,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
                 .on('tick', ticked);
         });
     }
-
-
 
     return {
         draw: draw,
