@@ -370,7 +370,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         svg.headers_lines
-            .attr('height', (d,i) => (i % 2 == 0) ? 104 : 80)
+            .attr('height', (d,i) => (i % 2 == 0) ? (dimensions.height / 2) : (dimensions.height / 2) - 24)
             .attr('y', (d,i) => (i % 2 == 0) ? 6 : 30)
             .attr('x', groupWidth / 2)
         ;
