@@ -286,7 +286,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         function cluster(d) {
-            return -forceStrength * Math.pow(yScale.radius(d.value), 2);
+            return -forceStrength * Math.pow(yScale.radius(d.value), 1.4);
         }
 
         function ticked() {
@@ -303,14 +303,12 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
             start[group[0].value]
-                .velocityDecay(0.0001)
+                .velocityDecay(0.5)
                 .force('x', d3.forceX().strength(forceStrength).x(center.x))
                 .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .on('tick', ticked);
 
             setTimeout( ()=> {
-
-                start[group[0].value].stop();
 
                 simulation[group[0].value]
                     .velocityDecay(0.2)
@@ -319,7 +317,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                     .force('charge', d3.forceManyBody().strength(cluster))
                     .on('tick', ticked);
 
-            },250)
+            },500)
 
         });
     }
