@@ -236,6 +236,15 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return colours[d.key];
 
             })
+            .append("text")
+            .text( (d) => {
+                return d.value;
+            })
+            .attr("text-anchor","middle")
+
+
+            ;
+
 
         for (let group of data) {
 
