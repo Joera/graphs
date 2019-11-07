@@ -310,7 +310,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
             setTimeout( ()=> {
 
-                console.log('f');
+                start[group[0].value].stop();
 
                 simulation[group[0].value]
                     .velocityDecay(0.2)
