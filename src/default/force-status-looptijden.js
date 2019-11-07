@@ -295,7 +295,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
 
 
-        function onEnd() {
+        function onEnd(d) {
 
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
