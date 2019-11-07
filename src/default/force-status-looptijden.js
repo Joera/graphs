@@ -302,7 +302,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             });
 
-        svg.circlesEnter.merge(svg.circles)
+        svg.circles
             .attr("r", (d) => { return yScale.radius(d.value); })
             .attr('x', center.x)
             .attr('y', center.y);
