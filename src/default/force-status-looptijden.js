@@ -219,9 +219,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.circleGroups = svg.groupEnter.merge(svg.group)
             .selectAll(".circleGroup")
             .data( d => {
-
-                console.log(d);
-
                 return d.filter( e => { return e.key !== 'status'});
             });
 
@@ -253,7 +250,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.circlesText
             .append("text")
             .text( (d) => {
-                    console.log('yo');
                     return d.value;
             })
             .attr("text-anchor","middle")
@@ -308,10 +304,15 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             });
 
+
+        svg.circleGroupsEnter.merge(svg.circleGroups)
+            .attr("transform", (d) => { return "translate(" + center.x + "," + center.y + ")" })
+        ;
+
         svg.circles
             .attr("r", (d) => { return yScale.radius(d.value); })
-            .attr('x', center.x)
-            .attr('y', center.y);
+            // .attr('x', center.x)
+            // .attr('y', center.y);
            ;
 
         // svg.circlesText
