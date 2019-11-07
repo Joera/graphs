@@ -237,7 +237,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             })
             .attr('dy', (d,i) => {
 
-                return (i % 2 == 0) ? 24 : 0;
+                return (i % 2 == 0) ? 0 : 24;
             })
             .style("text-anchor", "middle")
        ;
