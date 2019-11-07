@@ -219,7 +219,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
                 console.log(d);
 
-                return d; // .filter( e => { return e.key !== 'status'});
+                return d.filter( e => { return e.key !== 'status'});
             });
 
         svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
@@ -354,12 +354,12 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
             // setTimeout( ()=> {
 
-                simulation[group[0].value]
-                    .velocityDecay(0.2)
-                    .force('x', d3.forceX().strength(forceStrength).x(center.x))
-                    .force('y', d3.forceY().strength(forceStrength).y(center.y))
-                    .force('charge', d3.forceManyBody().strength(cluster))
-                    .on('tick', ticked);
+                // simulation[group[0].value]
+                //     .velocityDecay(0.2)
+                //     .force('x', d3.forceX().strength(forceStrength).x(center.x))
+                //     .force('y', d3.forceY().strength(forceStrength).y(center.y))
+                //     .force('charge', d3.forceManyBody().strength(cluster))
+                //     .on('tick', ticked);
 
             // },250)
 
