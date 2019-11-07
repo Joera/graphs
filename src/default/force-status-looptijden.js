@@ -332,7 +332,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         function ticked() {
 
-            svg.circleGroupEnter.merge(svg.circleGroup)
+            svg.circleGroupsEnter.merge(svg.circleGroups)
                 .attr("transform", (d) => { return "translate(" + d.x + "," + d.y + ")" })
               ;
         }
