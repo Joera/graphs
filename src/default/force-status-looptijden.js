@@ -90,12 +90,15 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : "planning_opname"
             },
             {   key : 'minder_dan_een_half_jaar',
+                name: 'Minder dan een half jaar',
                 value : json['MINDER_HALF_JAAR_PLANNING'],
             },
             {   key : 'tussen_half_jaar_en_een_jaar',
+                name: 'Tussen een half jaar en jaar',
                 value : json['MINDER_HALF_JAAR_PLANNING'],
             },
             {   key : 'tussen_een_en_twee_jaar',
+                name: 'Tussen een jaar en twee jaar',
                 value : json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
             },
             {   key : 'langer_dan_twee_jaar',
@@ -109,15 +112,19 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : "opleveren_schaderapport"
             },
             {   key : 'minder_dan_een_half_jaar',
+                name: 'Minder dan een half jaar',
                 value : json['MINDER_HALF_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'tussen_half_jaar_en_een_jaar',
+                name: 'Tussen een half jaar en jaar',
                 value : json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'tussen_een_en_twee_jaar',
+                name: 'Tussen een jaar en twee jaar',
                 value : json['TUSSEN_1_2_JAAR_OPLEV_SCHRAP'],
             },
             {   key : 'langer_dan_twee_jaar',
+                name: 'Langer dan twee jaar',
                 value : json['LANGER_2_JAAR_OPLEV_SCHRAP'],
             }
         ]);
@@ -130,15 +137,19 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : "voorbereiden_commissie"
             },
             {   key : 'minder_dan_een_half_jaar',
+                name: 'Minder dan een half jaar',
                 value : json['MINDER_HALF_JAAR_VOORBER_'],
             },
             {   key : 'tussen_half_jaar_en_een_jaar',
+                name: 'Tussen een half jaar en jaar',
                 value : json['HALF_JAAR_1JAAR_VOORBER_CIE'],
             },
             {   key : 'tussen_een_en_twee_jaar',
+                name: 'Tussen een jaar en twee jaar',
                 value : json['TUSSEN_1_2_JAAR_VOORBER_CIE'],
             },
             {   key : 'langer_dan_twee_jaar',
+                name: 'Langer dan twee jaar',
                 value : json['LANGER_2_JAAR_VOORBER_CIE'],
             }
         ]);
@@ -149,15 +160,19 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : "stuwmeerregeling"
             },
             {   key : 'minder_dan_een_half_jaar',
+                name: 'Minder dan een half jaar',
                 value : json['MINDER_HALF_JAAR_STATUS_STUW'],
             },
             {   key : 'tussen_half_jaar_en_een_jaar',
+                name: 'Tussen een half jaar en jaar',
                 value : json['HALF_JAAR_1JAAR_STATUS_STUW'],
             },
             {   key : 'tussen_een_en_twee_jaar',
+                name: 'Tussen een jaar en twee jaar',
                 value : json['TUSSEN_1_2_JAAR_STATUS_STUW'],
             },
             {   key : 'langer_dan_twee_jaar',
+                name: 'Langer dan twee jaar',
                 value : json['LANGER_2_JAAR_STATUS_STUW'],
             }
         ]);
@@ -194,7 +209,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
     let popup = function popup(d) {
 
-        return d.value;
+        return d.name + '<br/>' + d.value;
     }
 
     function draw(data,flattenedData) {
@@ -323,8 +338,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX - 205) + "px")
-                    .style("top", (d3.event.pageY - 5) + "px")
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY) + "px")
                     .transition()
                     .duration(250)
                     .style("opacity", 1);
