@@ -42,6 +42,7 @@ module.exports = function() {
             './src/chart-sankey.js',
             './src/chart-map.js',
             './src/chart-pie.js',
+            './src/chart-circles.js',
 
             // './src/tcmg-charts.js',
 
