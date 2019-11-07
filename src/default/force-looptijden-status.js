@@ -211,7 +211,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     function draw(data,flattenedData) {
 
 
-        console.log(data.map( (d) => d[0].value));
+     //   console.log(data.map( (d) => d[0].value));
         // with data we can init scales
         xScale = chartXScale.set(data.map( (d) => d[0].value));
         yScale = chartYScale.set(flattenedData) // = radius !!
@@ -338,7 +338,6 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
         let { data, flattenedData } = prepareData(json,muni);
         draw(data, flattenedData);
-        draw(data);
         redraw(data);
         // legend(data);
     }
