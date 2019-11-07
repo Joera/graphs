@@ -312,7 +312,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 .attr('x', center.x)
                 .attr('y', center.y);
 
-            setTimeout( ()=> {
+            // setTimeout( ()=> {
 
                 simulation[group[0].value]
                     .velocityDecay(0.2)
@@ -321,7 +321,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                     .force('charge', d3.forceManyBody().strength(cluster))
                     .on('tick', ticked);
 
-            },250)
+            // },250)
 
         });
     }
