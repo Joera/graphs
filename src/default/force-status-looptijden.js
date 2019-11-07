@@ -240,6 +240,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.circlesText.exit().remove();
 
+        console.log('yoyo');
+
         svg.circlesTextEnter = svg.circlesText.enter()
             .append("text")
             .text( (d) => {
