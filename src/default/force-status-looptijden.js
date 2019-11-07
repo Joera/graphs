@@ -233,8 +233,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return colours[d.key];
             });
 
-        svg.circlesText = svg.groupEnter.merge(svg.group).selectAll("text")
+        svg.circlesText = svg.groupEnter.merge(svg.group)
+            .selectAll("text")
             .data( d => {
+
+                console.log('co');
                 return d.filter( e => { return e.key !== 'status' && yScale.radius(e.value) > .25 });
             });
 
