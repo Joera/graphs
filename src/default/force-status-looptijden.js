@@ -214,8 +214,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.groupEnter = svg.group.enter()
             .append("g");
 
-
-
         svg.circles = svg.groupEnter.merge(svg.group).selectAll(".circle")
             .data( d => {
                 return d.filter( e => { return e.key !== 'status'});
@@ -235,16 +233,17 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return colours[d.key];
             });
 
-        svg.circlesEnterText = svg.circles.enter()
+        svg.circlesText = svg.groupEnter.merge(svg.group).selectAll("text")
+            .data( d => {
+                return d.filter( e => { return e.key !== 'status' && yScale.radius(e.value) > .5 });
+            });
+
+        svg.circlesText.exit().remove();
+
+        svg.circlesTextEnter = svg.circlesText.enter()
             .append("text")
             .text( (d) => {
-
-
-                console.log(yScale.radius(d.value));
-
-                if (yScale.radius(d.value) > .5) {
                     return d.value;
-                }
             })
             .attr("text-anchor","middle")
 
@@ -297,17 +296,12 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             });
 
-        svg.circlesEnter.merge(svg.circles)
+        svg.circlesTextEnter.merge(svg.circlesText)
             .attr("r", (d) => { return yScale.radius(d.value); })
             .attr('x', center.x)
             .attr('y', center.y);
            ;
-
-        svg.circlesEnterText
-            .attr('x', center.x)
-            .attr('y', center.y);
-
-
+           
         svg.headers
             .attr('dx', groupWidth / 2);
 
