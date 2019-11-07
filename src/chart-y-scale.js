@@ -31,13 +31,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
 
         // dit doen voor je data naar scale stuurt
-        let array_two = [];
 
-        for (let group of data) {
-            for (let prop of group) {
-                if (Number.isInteger(prop.value)) array_two.push(prop.value);
-            }
-        }
 
 
         scale.stacked = d3.scaleLinear()
@@ -51,10 +45,9 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
         scale.radius = d3.scalePow()
             .domain([
-                d3.min(array_two),  //
-                d3.max(array_two)
+                d3.min(data),  //
+                d3.max(data)
             ]).nice();
-
 
      //   let mapMax =
 

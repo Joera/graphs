@@ -24,21 +24,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
-    // y-axis
-    // config.yParameter = 'totaal';
-    // config.minValue = 0;
-    // config.maxValue = 10000;
-    // config.fixedHeight = 200;
-
-    // x-axis
-    // config.minWidth = 460;
     config.xParameter = 'status';
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
     config.dateLabels = false;
-
-
 
     let colours = {
 
@@ -77,7 +67,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : "ontvangst"
             },
             {   key : 'minder_dan_een_half_jaar',
-                value : json['MNDER_HALF_JAAR_ONTVANGST'],
+                value : json['MINDER_HALF_JAAR_ONTVANGST'],
             },
             {   key : 'tussen_half_jaar_en_een_jaar',
                 value : json['HALF_JAAR_1JAAR_ONTVANGST'],
@@ -93,6 +83,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         data.push([
             {   key : 'status',
+                name : 'Status',
                 value : "planning_opname"
             },
             {   key : 'minder_dan_een_half_jaar',
@@ -166,24 +157,15 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         ]);
 
 
+        let flattenedData = [];
 
+        for (let group of data) {
+            for (let prop of group) {
+                if (Number.isInteger(prop.value)) array_two.push(prop.value);
+            }
+        }
 
-
-
-        // functions.normalizedStack = d3.stack()
-        //     .offset(d3.stackOffsetExpand)
-        //     .keys(Object.keys(data[0]).filter(key => {
-        //         return ['status'].indexOf(key) < 0
-        //     } ));
-
-        // functions.stack = d3.stack()
-        //     .keys(Object.keys(data[0]).filter(key => {
-        //         return ['status'].indexOf(key) < 0
-        //     } ));
-
-     //   let stackedData = functions.normalizedStack(data);
-     //    let stackedData = functions.stack(data);
-        return data;
+        return { data, flattenedData };
     }
 
     function legend(data) {
@@ -204,13 +186,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
     }
 
-    function draw(data) {
-
-
-        console.log(data.map( (d) => d[0].value));
+    function draw(data,flattenedData) {
+        
         // with data we can init scales
         xScale = chartXScale.set(data.map( (d) => d[0].value));
-        yScale = chartYScale.set(data)
+        yScale = chartYScale.set(flattenedData) // = radius !!
 
         svg.group = svg.layers.data.selectAll('g')
             .data(data);
@@ -332,8 +312,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let data = prepareData(json,muni);
-        draw(data);
+        let { data, flattenedData } = prepareData(json,muni);
+        draw(data, flattenedData);
         redraw(data);
         // legend(data);
     }
