@@ -70,15 +70,19 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : "ontvangst"
             },
             {   key : 'minder_dan_een_half_jaar',
+                name: 'Minder dan een half jaar',
                 value : json['MNDER_HALF_JAAR_ONTVANGST'],
             },
             {   key : 'tussen_half_jaar_en_een_jaar',
+                name: 'Tussen een half jaar en jaar',
                 value : json['HALF_JAAR_1JAAR_ONTVANGST'],
             },
             {   key : 'tussen_een_en_twee_jaar',
+                name: 'Tussen een jaar en twee jaar',
                 value : json['TUSSEN_1_2_JAAR_ONTVANGST'],
             },
             {   key : 'langer_dan_twee_jaar',
+                name: 'Langer dan twee jaar',
                 value : json['LANGER_2_JAAR_ONTVANGST'],
             }
 
@@ -102,6 +106,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : json['TUSSEN_1_2_JAAR_PLANNING_OPNAME'],
             },
             {   key : 'langer_dan_twee_jaar',
+                name: 'Langer dan twee jaar',
                 value : json['LANGER_2_JAAR_PLANNING_OPNAME'],
             }
         ]);
