@@ -235,7 +235,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return colours[d.key];
             });
 
-        svg.circlesEnter = svg.circles.enter()
+        svg.circlesEnterText = svg.circles.enter()
             .append("text")
             .text( (d) => {
                 return d.value;
@@ -293,7 +293,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.circlesEnter.merge(svg.circles)
             .attr("r", (d) => { return yScale.radius(d.value); })
-         
+
 
            ;
 
