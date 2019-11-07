@@ -296,9 +296,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         data.forEach( (group,i) => {
 
-
-            console.log(groupWidth);
-
          //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
 
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
