@@ -153,7 +153,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
                 // .force('x', d3.forceX().strength(forceStrength).x(center.x))
                 // .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('center', d3.forceCenter(center.x,center.y))
-               .force('charge', d3.forceManyBody().strength(cluster))
+               // .force('charge', d3.forceManyBody().strength(cluster))
                 .force('collide', d3.forceCollide().radius(function(d) {
                     return yScale.radius(d.value)
                 }))
