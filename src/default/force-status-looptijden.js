@@ -214,7 +214,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.headers_lines = svg.groupEnter.merge(svg.group)
             .append("rect")
             .attr('width',1)
-            .style('fill','black');
+            .style('fill','#ddd');
 
         svg.circles.exit().remove();
 
@@ -290,7 +290,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         svg.headers_lines
-            .attr('height', (d,i) => (i % 2 == 0) ? 80 : 60)
+            .attr('height', (d,i) => (i % 2 == 0) ? 120 : 80)
             .attr('y', (d,i) => (i % 2 == 0) ? 6 : 30)
             .attr('x', groupWidth / 2)
 
