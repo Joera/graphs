@@ -44,24 +44,17 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .append("g")
             .attr("class","circleGroup");
 
-        svg.circles = svg.circleGroupsEnter.merge(svg.circleGroups);
+        svg.circleGroupsEnter.merge(svg.circleGroups).selectAll('.circle').remove();
+        svg.circleGroupsEnter.merge(svg.circleGroups).selectAll('.small-label').remove();
 
-        svg.circles.exit().remove();
-
-        svg.circles
+        svg.circles = svg.circleGroupsEnter.merge(svg.circleGroups)
             .append("circle")
             .attr("class","circle")
             .style("fill", function(d) {
                 return colours[d.key];
             });
 
-
-
-        svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups);
-
-        svg.circlesText.exit().remove();
-
-        svg.circlesText
+        svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
             .append("text")
             .attr("class","small-label")
             .attr("text-anchor","middle")
