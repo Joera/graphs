@@ -67,7 +67,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 value : "ontvangst"
             },
             {   key : 'minder_dan_een_half_jaar',
-                value : json['MINDER_HALF_JAAR_ONTVANGST'],
+                value : json['MNDER_HALF_JAAR_ONTVANGST'],
             },
             {   key : 'tussen_half_jaar_en_een_jaar',
                 value : json['HALF_JAAR_1JAAR_ONTVANGST'],
