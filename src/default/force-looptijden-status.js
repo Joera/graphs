@@ -208,13 +208,13 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
         }
     }
 
-    function draw(data) {
+    function draw(data,flattenedData) {
 
 
         console.log(data.map( (d) => d[0].value));
         // with data we can init scales
         xScale = chartXScale.set(data.map( (d) => d[0].value));
-        yScale = chartYScale.set(data)
+        yScale = chartYScale.set(flattenedData) // = radius !!
 
         svg.group = svg.layers.data.selectAll('g')
             .data(data);
