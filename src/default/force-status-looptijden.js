@@ -239,7 +239,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         ({ data, flattenedData } = prepareData(json,muni));
         draw(data, flattenedData);
-        redraw(data);
+        redraw(data,dimensions,yScale,xScale,smallMultiple);
         // legend(data);
     }
 
