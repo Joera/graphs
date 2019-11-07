@@ -238,7 +238,10 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.circlesEnterText = svg.circles.enter()
             .append("text")
             .text( (d) => {
-                return d.value;
+
+                if (yScale.radius(d.value) > 60) {
+                    return d.value;
+                }
             })
             .attr("text-anchor","middle")
 
