@@ -286,7 +286,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         function cluster(d) {
-            return -forceStrength * Math.pow(yScale.radius(d.value), 2);
+            return -forceStrength * Math.pow(yScale.radius(d.value), 2.2);
         }
 
         function ticked() {
@@ -317,7 +317,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                     .force('charge', d3.forceManyBody().strength(cluster))
                     .on('tick', ticked);
 
-            },3000)
+            },500)
 
         });
     }
