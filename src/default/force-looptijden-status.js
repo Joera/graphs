@@ -29,7 +29,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
 
     config.dateLabels = false;
 
-    config.radiusOffset = 1.8;
+    config.radiusOffset = 1.6;
     config.radiusFactor = 11;
 
     let colours = {
