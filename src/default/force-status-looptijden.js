@@ -198,6 +198,14 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         xScale = chartXScale.set(data.map( (d) => d[0].value));
         yScale = chartYScale.set(flattenedData) // = radius !!
 
+        svg.headerGroup = svg.layers.underData.selectAll('g')
+            .data(data);
+
+        svg.headerGroup.exit().remove();
+
+        svg.headerGroupEnter = svg.headerGroup.enter()
+            .append("g");
+
         svg.group = svg.layers.data.selectAll('g')
             .data(data);
 
@@ -206,12 +214,14 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.groupEnter = svg.group.enter()
             .append("g");
 
+
+
         svg.circles = svg.groupEnter.merge(svg.group).selectAll(".circle")
             .data( d => {
                 return d.filter( e => { return e.key !== 'status'});
             });
 
-        svg.headers_lines = svg.groupEnter.merge(svg.group)
+        svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
             .append("rect")
             .attr('width',1)
             .style('fill','#ccc');
@@ -239,7 +249,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         }
 
 
-        svg.headers = svg.groupEnter.merge(svg.group)
+        svg.headers = svg.headerGroupEnter.merge(svg.headerGroup)
             .append("text")
             .attr("class","header")
             .text( d => {
