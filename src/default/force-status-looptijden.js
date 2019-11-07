@@ -246,6 +246,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                     return d.value;
             })
             .attr("text-anchor","middle")
+            .style("fill","black")
 
 
             ;
