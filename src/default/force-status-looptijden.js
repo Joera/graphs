@@ -217,9 +217,9 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         svg.circleGroups = svg.groupEnter.merge(svg.group).selectAll(".circleGroup")
             .data( d => {
 
-                return d;
+                console.log(d);
 
-       
+                return d; // .filter( e => { return e.key !== 'status'});
             });
 
         svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
