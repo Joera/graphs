@@ -297,14 +297,16 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         function onEnd(d) {
 
+            console.log(d);
+
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
-            simulation[d[0].value]
-                .velocityDecay(0.2)
-                .force('x', d3.forceX().strength(forceStrength).x(center.x))
-                .force('y', d3.forceY().strength(forceStrength).y(center.y))
-                .force('charge', d3.forceManyBody().strength(cluster))
-                .on('tick', ticked);
+            // simulation[d[0].value]
+            //     .velocityDecay(0.2)
+            //     .force('x', d3.forceX().strength(forceStrength).x(center.x))
+            //     .force('y', d3.forceY().strength(forceStrength).y(center.y))
+            //     .force('charge', d3.forceManyBody().strength(cluster))
+            //     .on('tick', ticked);
         }
 
 
