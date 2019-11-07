@@ -296,12 +296,17 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             });
 
-        svg.circlesTextEnter.merge(svg.circlesText)
+        svg.circlesEnter.merge(svg.circles)
             .attr("r", (d) => { return yScale.radius(d.value); })
             .attr('x', center.x)
             .attr('y', center.y);
            ;
-           
+
+        svg.circlesTextEnter.merge(svg.circlesText)
+            .attr('x', center.x)
+            .attr('y', center.y);
+
+
         svg.headers
             .attr('dx', groupWidth / 2);
 
