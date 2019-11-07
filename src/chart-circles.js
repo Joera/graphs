@@ -84,7 +84,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     }
 
-    let redraw = function redraw(dimensions,yScale,smallMultiple) {
+    let redraw = function redraw(data,dimensions,yScale,smallMultiple) {
 
         let groupWidth = dimensions.width / data.length;
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
