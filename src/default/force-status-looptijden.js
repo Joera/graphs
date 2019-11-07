@@ -221,7 +221,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         // with data we can init scales
         xScale = chartXScale.set(data.map( (d) => d[0].value));
         yScale = chartYScale.set(flattenedData) // = radius !!
-        chartCircles.set(data);
+        chartCircles.draw(data);
     }
 
     function redraw() {
