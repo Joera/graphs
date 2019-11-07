@@ -136,7 +136,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         ;
 
         function cluster(d) {
-            return -forceStrength * Math.pow(yScale.radius(d.value), config.radiusOffset);
+            return -forceStrength * Math.pow(yScale.radius(d.value), 1);
         }
 
         function ticked() {
