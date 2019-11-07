@@ -271,6 +271,11 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         yScale = chartYScale.reset(dimensions,yScale);
 
         svg.groupEnter.merge(svg.group)
+            .attr("transform", (d) => {
+                return "translate(" + xScale.band(d[0].value) + ",0)"
+            });
+
+        svg.headerGroupEnter.merge(svg.headerGroup)
         .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             });
