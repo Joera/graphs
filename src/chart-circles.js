@@ -3,8 +3,11 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     let start = {};
     let simulation = {};
+    let dataLength;
 
     let draw = function draw(data) {
+
+         = data.length;
 
         svg.headerGroup = svg.layers.underData.selectAll('.headerGroup')
             .data(data);
@@ -28,7 +31,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .selectAll(".circleGroup")
             .data( d => {
                 return d.filter( e => { return e.key !== 'status'});
-            });
+            });dataLength
 
         svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
             .append("rect")
@@ -84,9 +87,9 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     }
 
-    let redraw = function redraw(data,dimensions,yScale,xScale,smallMultiple) {
+    let redraw = function redraw(dimensions,yScale,xScale,smallMultiple) {
 
-        let groupWidth = dimensions.width / data.length;
+        let groupWidth = dimensions.width / dataLength;
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
         let forceStrength = 0.05;
 
@@ -94,7 +97,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             });
-
+        
         svg.headerGroupEnter.merge(svg.headerGroup)
             .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
