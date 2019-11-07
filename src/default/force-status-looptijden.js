@@ -239,7 +239,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .append("text")
             .text( (d) => {
 
-                if (yScale.radius(d.value) > 60) {
+                if (yScale.radius(d.value) > 40) {
                     return d.value;
                 }
             })
