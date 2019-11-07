@@ -237,10 +237,12 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             })
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
             .style("text-anchor", "middle")
-            // .append("rect")
-            // .attr('width',1)
-            // .attr('height', 20 )
-            // .style('fill','black')
+
+        svg.headers_lines = svg.groupEnter.merge(svg.group)
+            .append("rect")
+            .attr('width',1)
+            .attr('height', 20 )
+            .style('fill','black')
        ;
 
 
