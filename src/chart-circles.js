@@ -7,7 +7,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     let draw = function draw(data) {
 
-         = data.length;
+        dataLength = data.length;
 
         svg.headerGroup = svg.layers.underData.selectAll('.headerGroup')
             .data(data);
@@ -97,7 +97,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
             });
-        
+
         svg.headerGroupEnter.merge(svg.headerGroup)
             .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
