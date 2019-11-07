@@ -44,8 +44,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .append("g")
             .attr("class","circleGroup");
 
-        svg.circles.remove();
-
         svg.circles = svg.circleGroupsEnter.merge(svg.circleGroups);
 
         svg.circles.exit().remove();
