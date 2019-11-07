@@ -323,9 +323,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('x', groupWidth / 2)
         ;
 
-
-
-
         function cluster(d) {
             return -forceStrength * Math.pow(yScale.radius(d.value), 2);
         }
@@ -333,8 +330,8 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         function ticked() {
 
             svg.circleGroupEnter.merge(svg.circleGroup)
-                .attr('cx', function (d) { return d.x; })
-                .attr('cy', function (d) { return d.y; });
+                .attr("transform", (d) => { return "translate(" + d.x + "," + d.y + ")" })
+              ;
         }
 
 
