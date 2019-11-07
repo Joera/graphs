@@ -44,12 +44,16 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .append("g")
             .attr("class","circleGroup");
 
+        svg.circles.remove();
+
         svg.circles = svg.circleGroupsEnter.merge(svg.circleGroups)
             .append("circle")
             .attr("class","circle")
             .style("fill", function(d) {
                 return colours[d.key];
             });
+
+        svg.circlesText.remove();
 
         svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
             .append("text")
