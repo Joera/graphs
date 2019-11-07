@@ -52,7 +52,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config, svg);
 
-    let chartCircles = ChartCircles(config,svg);
+    let chartCircles = ChartCircles(config,svg,colours);
     chartAxis.drawXAxis();
 
     function prepareData(json,muni) {
