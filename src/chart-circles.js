@@ -7,25 +7,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     let draw = function draw(d) {
 
-        ///////////////////////////////////////////////////////////////////////////
-        ///////////////////////////// Create filter ///////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////
-
-        //SVG filter for the gooey effect
-        //Code taken from http://tympanus.net/codrops/2015/03/10/creative-gooey-effects/
-        var defs = svg.layers.data.append("defs");
-        var filter = defs.append("filter").attr("id","gooeyCodeFilter");
-        filter.append("feGaussianBlur")
-            .attr("in","SourceGraphic")
-            .attr("stdDeviation","10")
-            //to fix safari: http://stackoverflow.com/questions/24295043/svg-gaussian-blur-in-safari-unexpectedly-lightens-image
-            .attr("color-interpolation-filters","sRGB")
-            .attr("result","blur");
-        filter.append("feColorMatrix")
-            .attr("in","blur")
-            .attr("mode","matrix")
-            .attr("values","1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9")
-            .attr("result","gooey");
 
         data = d;
 
@@ -46,7 +27,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         svg.groupEnter = svg.group.enter()
             .append("g")
             .attr("class","group")
-            // .style("filter", "url(#gooeyCodeFilter)")
+
         ;
 
         svg.circleGroups = svg.groupEnter.merge(svg.group)
@@ -107,6 +88,10 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         let groupWidth = dimensions.width / data.length;
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
         let forceStrength = 0.025;
+
+        let popup = function popup(d) {
+            return d.name + '<br/>' + d.value;
+        }
 
         svg.groupEnter.merge(svg.group)
             .attr("transform", (d) => {

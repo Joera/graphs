@@ -209,9 +209,7 @@ var forceSpecials  = function (element,smallMultiple) {
         }
     }
 
-    let popup = function popup(d) {
-        return d.name + '<br/>' + d.value;
-    }
+
 
     function draw(data,flattenedData) {
 
