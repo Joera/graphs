@@ -293,8 +293,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.circlesEnter.merge(svg.circles)
             .attr("r", (d) => { return yScale.radius(d.value); })
-            .attr('x', center.x)
-            .attr('y', center.y);
+         
 
            ;
 
