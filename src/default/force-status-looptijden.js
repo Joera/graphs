@@ -241,7 +241,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             });
 
 
-        svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups);
+        svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
             .data( data.filter((d) => yScale.radius(d.value) > .25));
 
         // svg.circlesText.exit().remove();
