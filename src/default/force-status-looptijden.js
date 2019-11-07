@@ -241,16 +241,19 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             });
 
 
-        svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
-            .data( (d) => { console.log(d);  return yScale.radius(d.value) > .25 });
+        // svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
+        //     .data( (d) => { console.log(d);  return  });
 
         // svg.circlesText.exit().remove();
 
 
-        svg.circlesText
+        svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
             .append("text")
             .text( (d) => {
+
+                if(yScale.radius(d.value) > .25) {
                     return d.value;
+                }
             })
             .attr("text-anchor","middle")
             .style("fill","black")
