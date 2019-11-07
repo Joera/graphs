@@ -161,7 +161,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         for (let group of data) {
             for (let prop of group) {
-                if (Number.isInteger(prop.value)) array_two.push(prop.value);
+                if (Number.isInteger(prop.value)) flattenedData.push(prop.value);
             }
         }
 
@@ -187,7 +187,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
     }
 
     function draw(data,flattenedData) {
-        
+
         // with data we can init scales
         xScale = chartXScale.set(data.map( (d) => d[0].value));
         yScale = chartYScale.set(flattenedData) // = radius !!
