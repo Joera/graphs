@@ -3,11 +3,11 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     let start = {};
     let simulation = {};
-    let dataLength;
+    let data;
 
-    let draw = function draw(data) {
+    let draw = function draw(d) {
 
-        dataLength = data.length;
+        data = d;
 
         svg.headerGroup = svg.layers.underData.selectAll('.headerGroup')
             .data(data);
@@ -89,7 +89,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     let redraw = function redraw(dimensions,yScale,xScale,smallMultiple) {
 
-        let groupWidth = dimensions.width / dataLength;
+        let groupWidth = dimensions.width / data.length;
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
         let forceStrength = 0.05;
 
