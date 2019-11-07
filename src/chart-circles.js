@@ -31,7 +31,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .selectAll(".circleGroup")
             .data( d => {
                 return d.filter( e => { return e.key !== 'status'});
-            });dataLength
+            });
 
         svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
             .append("rect")
