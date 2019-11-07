@@ -286,7 +286,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         function cluster(d) {
-            return -forceStrength * Math.pow(yScale.radius(d.value), 2.2);
+            return -forceStrength * Math.pow(yScale.radius(d.value), 2);
         }
 
         function ticked() {
