@@ -46,7 +46,8 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         svg.groupEnter = svg.group.enter()
             .append("g")
             .attr("class","group")
-            .style("filter", "url(#gooeyCodeFilter)");
+            // .style("filter", "url(#gooeyCodeFilter)")
+        ;
 
         svg.circleGroups = svg.groupEnter.merge(svg.group)
             .selectAll(".circleGroup")
