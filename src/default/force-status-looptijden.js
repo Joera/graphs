@@ -232,14 +232,14 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
 
-        chartCircles.redraw(data,dimensions,yScale,smallMultiple);
+        chartCircles.redraw(data,dimensions,yScale,xScale,smallMultiple);
     }
 
     function run(json, muni) {
 
         ({ data, flattenedData } = prepareData(json,muni));
         draw(data, flattenedData);
-        redraw(data,dimensions,yScale,xScale,smallMultiple);
+        redraw(data);
         // legend(data);
     }
 
