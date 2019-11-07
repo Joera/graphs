@@ -232,10 +232,10 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .append("circle")
             .attr("class","circle")
             .style("fill", function(d) {
-
                 return colours[d.key];
+            });
 
-            })
+        svg.circlesEnter = svg.circles.enter()
             .append("text")
             .text( (d) => {
                 return d.value;
