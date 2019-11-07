@@ -39,6 +39,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         'langer_dan_twee_jaar': darkblue
     };
 
+    let start = {};
     let simulation = {};
 
     // get dimensions from parent element
@@ -207,9 +208,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.circles = svg.groupEnter.merge(svg.group).selectAll(".circle")
             .data( d => {
-
                 return d.filter( e => { return e.key !== 'status'});
-
             });
 
         svg.headers_lines = svg.groupEnter.merge(svg.group)
@@ -230,7 +229,9 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         for (let group of data) {
 
-
+            start[group[0].value] = d3.forceSimulation()
+                .velocityDecay(0.01)
+                .nodes(group.filter( (prop) => prop.key !== 'status'));
 
             simulation[group[0].value] = d3.forceSimulation()
                 .velocityDecay(0.5)
@@ -259,7 +260,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
 
-
         svg.groupEnter.merge(svg.group)
         .attr("transform", (d) => {
                 return "translate(" + xScale.band(d[0].value) + ",0)"
@@ -279,8 +279,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('height', (d,i) => (i % 2 == 0) ? 104 : 80)
             .attr('y', (d,i) => (i % 2 == 0) ? 6 : 30)
             .attr('x', groupWidth / 2)
-
-
         ;
 
         let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
@@ -304,12 +302,23 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
-            simulation[group[0].value]
-                .velocityDecay(0.2)
+            start[group[0].value]
+                .velocityDecay(0.02)
                 .force('x', d3.forceX().strength(forceStrength).x(center.x))
                 .force('y', d3.forceY().strength(forceStrength).y(center.y))
-                .force('charge', d3.forceManyBody().strength(cluster))
                 .on('tick', ticked);
+
+            setTimeout( ()=> {
+
+                simulation[group[0].value]
+                    .velocityDecay(0.2)
+                    .force('x', d3.forceX().strength(forceStrength).x(center.x))
+                    .force('y', d3.forceY().strength(forceStrength).y(center.y))
+                    .force('charge', d3.forceManyBody().strength(cluster))
+                    .on('tick', ticked);
+
+            },1000)
+            
         });
     }
 
