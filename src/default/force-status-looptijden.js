@@ -5,6 +5,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
     let url;
     let data = {};
+    let flattenedData;
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
@@ -244,7 +245,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .style("text-anchor", "middle")
     }
 
-    function redraw(data) {
+    function redraw() {
 
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
@@ -313,9 +314,9 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
     function run(json, muni) {
 
-        let { data, flattenedData } = prepareData(json,muni);
+        ({ data, flattenedData } = prepareData(json,muni));
         draw(data, flattenedData);
-        redraw(data);
+        redraw();
         // legend(data);
     }
 
@@ -331,7 +332,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             });
         }
 
-        window.addEventListener("resize", redraw(json), false);
+        window.addEventListener("resize", redraw(5), false);
     });
 
 
