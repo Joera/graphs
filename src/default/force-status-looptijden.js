@@ -284,7 +284,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         let forceStrength = 0.1;
 
 
-        function charge(d) {
+        function cluster(d) {
             return -forceStrength * Math.pow(yScale.radius(d.value), 2);
         }
 
@@ -294,19 +294,26 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                 .attr('cy', function (d) { return d.y; });
         }
 
-        data.forEach( (group,i) => {
 
-         //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
+        svg.groupEnter.merge(svg.group)
+            .each('end', (d,i) => {
 
-            center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
+                center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
-            simulation[group[0].value]
-                .velocityDecay(0.2)
-                .force('x', d3.forceX().strength(forceStrength).x(center.x))
-                .force('y', d3.forceY().strength(forceStrength).y(center.y))
-                .force('charge', d3.forceManyBody().strength(charge))
-                .on('tick', ticked);
-        });
+                simulation[d[0].value]
+                    .velocityDecay(0.2)
+                    .force('x', d3.forceX().strength(forceStrength).x(center.x))
+                    .force('y', d3.forceY().strength(forceStrength).y(center.y))
+                    .force('charge', d3.forceManyBody().strength(cluster))
+                    .on('tick', ticked);
+            })
+
+        // data.forEach( (group,i) => {
+        //
+        //  //   center = {x: ((i * groupWidth) + (groupWidth / 2)) , y: dimensions.height / 2};
+        //
+        //
+        // });
     }
 
     function run(json, muni) {
