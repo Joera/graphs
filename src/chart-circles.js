@@ -30,7 +30,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         svg.circleGroups = svg.groupEnter.merge(svg.group)
             .selectAll(".circleGroup")
             .data( d => {
-                return d.filter( e => { return e.key !== 'status'});
+                return d.filter( e => { return e.key !== 'status' && e.value > 0});
             });
 
         svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
