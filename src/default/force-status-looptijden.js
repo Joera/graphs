@@ -282,7 +282,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         ;
 
         let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
-        let forceStrength = 0.1;
+        let forceStrength = 0.5;
 
 
         function cluster(d) {
