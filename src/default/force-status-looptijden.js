@@ -292,7 +292,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         let groupWidth = dimensions.width / data.length;
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
-        let forceStrength = 0.01;
+        let forceStrength = 0.05;
 
         xScale = chartXScale.reset(dimensions,xScale);
         yScale = chartYScale.reset(dimensions,yScale);
@@ -362,7 +362,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             // setTimeout( ()=> {
 
                 simulation[group[0].value]
-                    .velocityDecay(0.2)
+                    .velocityDecay(0.5)
                     .force('x', d3.forceX().strength(forceStrength).x(center.x))
                     .force('y', d3.forceY().strength(forceStrength).y(center.y))
                     .force('charge', d3.forceManyBody().strength(cluster))
