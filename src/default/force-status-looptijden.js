@@ -302,11 +302,15 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
 
-            start[group[0].value]
-                .velocityDecay(0.5)
-                .force('x', d3.forceX().strength(forceStrength).x(center.x))
-                .force('y', d3.forceY().strength(forceStrength).y(center.y))
-                .on('tick', ticked);
+            // start[group[0].value]
+            //     .velocityDecay(0.5)
+            //     .force('x', d3.forceX().strength(forceStrength).x(center.x))
+            //     .force('y', d3.forceY().strength(forceStrength).y(center.y))
+            //     .on('tick', ticked);
+
+            svg.circlesEnter.merge(svg.circles)
+                .attr('cx', center.x)
+                .attr('cy', center.y);
 
             setTimeout( ()=> {
 
@@ -317,7 +321,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
                     .force('charge', d3.forceManyBody().strength(cluster))
                     .on('tick', ticked);
 
-            },5000)
+            },250)
 
         });
     }
