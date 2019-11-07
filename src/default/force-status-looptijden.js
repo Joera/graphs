@@ -238,12 +238,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
             .style("text-anchor", "middle")
 
-        svg.headers_lines = svg.groupEnter.merge(svg.group)
-            .append("rect")
-            .attr('width',1)
-            .attr('height', 20 )
-            .style('fill','black')
-       ;
+
 
 
 
@@ -287,6 +282,17 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         svg.headers
             .attr('dx', groupWidth / 2);
+
+
+        svg.headers_lines = svg.groupEnter.merge(svg.group)
+            .append("rect")
+            .attr('width',1)
+            .attr('height', (d,i) => (i % 2 == 0) ? 60 : 40)
+            .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
+            .attr('dx', groupWidth / 2)
+            .style('fill','black')
+
+        ;
 
         let center; //  = {x: dimensions.width / 2, y: dimensions.height / 2};
         let forceStrength = 0.1;
