@@ -129,6 +129,9 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         svg.circlesText
             .text( (d) => {
+
+                console.log(yScale.radius(d.value));
+
                 if(yScale.radius(d.value) > .25) {
                     return d.value;
                 }
