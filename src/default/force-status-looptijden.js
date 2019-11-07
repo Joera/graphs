@@ -332,7 +332,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
             });
         }
 
-        window.addEventListener("resize", redraw(5), false);
+        window.addEventListener("resize", redraw, false);
     });
 
 
