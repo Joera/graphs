@@ -132,7 +132,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
                 console.log(yScale.radius(d.value));
 
-                if(yScale.radius(d.value) > .25) {
+                if(yScale.radius(d.value) > 50) {
                     return d.value;
                 }
             });
