@@ -297,8 +297,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
         function onEnd(d) {
 
-            console.log(d);
-
             console.log('hi');
 
             center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
@@ -313,7 +311,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
         svg.groupEnter.merge(svg.group)
-            .on('end', onEnd)
+            .on('end', onEnd);
 
         // data.forEach( (group,i) => {
         //
