@@ -125,7 +125,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("width", function(d) {
 
-                return barWidth;
+                return xScale.bandwidth();
             })
             .attr("clip-path", "url(#clip)")
             .attr("y", function(d) { return dimensions.height; })
@@ -159,7 +159,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
+                return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.bandwidth() / 2)) + ',' +
                     dimensions.height
                     + ')';
             })

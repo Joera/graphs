@@ -84,7 +84,7 @@ var meldingen = function(element,smallMultiple) {
             yScale = chartYScale.reset(dimensions,yScale);
             // new scales mean new axis
 
-            chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
+            chartAxis.redrawXBandAxis(dimensions,xScale,axes,false);
             chartAxis.redrawYAxis(yScale,axes);
             // redraw data
             chartBarsIncrease.redraw(dimensions,xScale,yScale,property);
