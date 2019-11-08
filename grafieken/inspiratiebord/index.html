@@ -204,16 +204,21 @@
     let openPage = function openPage(pageName) {
 
         for (let page of pages) {
-            page.style.display = (page.id === pageName) ? 'grid' : 'none';
 
-            for (let vis of [].slice.call(page.querySelectorAll('article'))) {
+            if (page.id === pageName) {
 
-                console.log(vis);
+                page.style.display = 'grid';
 
-                console.log(vis.getAttribute('data-script'));
+                for (let vis of [].slice.call(page.querySelectorAll('article'))) {
 
-                vis.getAttribute('data-script')(this.querySelector('.container'));
+                    console.log(vis);
+                    console.log(vis.getAttribute('data-script'));
+                    vis.getAttribute('data-script')(this.querySelector('.container'));
+                }
 
+            } else {
+
+                page.style.display = 'none';
             }
         }
     }
