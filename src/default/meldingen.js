@@ -112,7 +112,7 @@ var meldingen = function(element,smallMultiple) {
         });
     }
 
-    window.addEventListener("resize", () => redraw(property), false);
+    element.addEventListener("resize", () => redraw(property), false);
 
     for (let radio of radios) {
         radio.addEventListener( 'change', () => redraw(radio.value),false);

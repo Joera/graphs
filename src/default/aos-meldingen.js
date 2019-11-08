@@ -56,18 +56,15 @@ var aosMeldingen = function(element,smallMultiple) {
     chartAxis.drawYAxis();
 
     let url = 'https://tcmg-hub.publikaan.nl/api/data';
+    let property = 'aos_meldingen';
 
-    d3.json(url, function(error, json) {
-        if (error) throw error;
+    function prepareData(json,property)  {
 
+        let data = json.reverse()
 
-        // remove data entry from wednesday
-       let data = json.reverse();
-
-
-       if(config.dataArrayLength) {
-           data = data.slice(data.length - config.dataArrayLength,data.length);
-       } else if (window.innerWidth < 600) {
+        if(config.dataArrayLength) {
+            data = data.slice(data.length - config.dataArrayLength,data.length);
+        } else if (window.innerWidth < 600) {
             data = data.slice(data.length - 3,data.length);
         } else if (window.innerWidth < 1200) {
             data = data.slice(data.length - 6,data.length);
@@ -75,41 +72,57 @@ var aosMeldingen = function(element,smallMultiple) {
             data = data.slice(data.length - 12,data.length);
         }
 
-        function redraw(property) {
-            // on redraw chart gets new dimensions
-            dimensions = chartDimensions.get(dimensions);
-            chartSVG.redraw(dimensions);
-            // new dimensions mean new scales
-            xScale = chartXScale.reset(dimensions,xScale);
-            yScale = chartYScale.reset(dimensions,yScale);
-            // new scales mean new axis
+        return data;
+    }
 
-            chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
-            chartAxis.redrawYAxis(yScale,axes);
-            // redraw data
-            chartBarsIncrease.redraw(dimensions,xScale,yScale,property);
+    function redraw(property) {
+        // on redraw chart gets new dimensions
+        dimensions = chartDimensions.get(dimensions);
+        chartSVG.redraw(dimensions);
+        // new dimensions mean new scales
+        xScale = chartXScale.reset(dimensions,xScale);
+        yScale = chartYScale.reset(dimensions,yScale);
+        // new scales mean new axis
 
-        }
+        chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
+        chartAxis.redrawYAxis(yScale,axes);
+        // redraw data
+        chartBarsIncrease.redraw(dimensions,xScale,yScale,property);
 
-        function update(property) {
+    }
 
-            xScale = chartXScale.set(data.map(d => d[config.xParameter]));
-            yScale = chartYScale.set(data,property);
-            chartBarsIncrease.draw(data,colours,property);
-            redraw(property);
-        }
+    function draw(data) {
 
-        let property = 'aos_meldingen';
-        update(property);
+        xScale = chartXScale.set(data.map(d => d[config.xParameter]));
+        yScale = chartYScale.set(data,property);
+        chartBarsIncrease.draw(data,colours,property);
+    }
 
-        window.addEventListener("resize", function() { redraw(property) }, false);
+    function run(json) {
 
-        for (let radio of radios) {
-            radio.addEventListener( 'click', () => {
-                update(radio.value);
-                // document.querySelector('h2').innerText = radio.value.replace('_',' ');
-            },false)
-        }
+        let data = prepareData(json,property);
+        draw(data);
+        redraw(property);
+        // legend(data);
+    }
 
-    });
+
+    if (globalData.weeks) {
+
+        run(globalData.weeks)
+
+    } else {
+
+        d3.json(url, function(error, json) {
+            if (error) throw error;
+            globalData.weeks = json;
+            run(json);
+        });
+    }
+
+    element.addEventListener("resize", () => redraw(property), false);
+
+    for (let radio of radios) {
+        radio.addEventListener( 'change', () => redraw(radio.value),false);
+    }
 }
