@@ -18,7 +18,7 @@
       height: 100vh;
       display: grid;
       grid-template-columns: auto 12rem 48rem auto;
-      grid-template-rows: 2rem 2rem calc(100% - 6rem) 2rem;
+      grid-template-rows: 2rem 4rem calc(100% - 8rem) 2rem;
       justify-content: center;
 
     }
