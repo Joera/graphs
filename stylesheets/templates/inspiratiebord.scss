@@ -11,11 +11,14 @@
   main {
 
 
+
+
     @media (min-width : $breakpoint-md) {
 
+      height: 100vh;
       display: grid;
       grid-template-columns: auto 12rem 48rem auto;
-      grid-template-rows: 6rem 3rem auto;
+      grid-template-rows: 2rem 2rem calc(100% - 4rem) 2rem;
       justify-content: center;
 
     }
@@ -24,7 +27,7 @@
 
       display: grid;
       grid-template-columns: auto 12rem 80rem auto;
-      grid-template-rows: 6rem 3rem auto;
+      grid-template-rows: 6rem 2rem auto;
       justify-content: center;
 
     }
