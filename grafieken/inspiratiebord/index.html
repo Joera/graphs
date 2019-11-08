@@ -203,10 +203,16 @@
 
     let openPage = function openPage(pageName) {
 
-        console.log(pageName);
-
         for (let page of pages) {
             page.style.display = (page.id === pageName) ? 'grid' : 'none';
+
+            for (let vis of [].slice.call(page.querySelectorAll('article'))) {
+
+                console.log(vis.getAttribute('data-script'));
+
+                vis.getAttribute('data-script')(this.querySelector('.container'));
+
+            }
         }
     }
 
