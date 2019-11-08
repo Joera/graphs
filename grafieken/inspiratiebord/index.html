@@ -100,6 +100,10 @@
             <div class="container"></div>
         </article>
 
+        <article id="map-meldingen" data-script="gemeenten" data-property="meldingen">
+            <div class="map-input-container container"></div>
+        </article>
+
     </section>
 
     <section id="schade-opnames" class="page">
@@ -213,7 +217,7 @@
                 page.style.display = 'grid';
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
-                    window[vis.getAttribute('data-script')](vis.querySelector('.container'),true);
+                    window[vis.getAttribute('data-script')](vis.querySelector('.container'),true,vis.getAttribute('data-property'));
                 }
 
             } else {

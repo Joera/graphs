@@ -1,4 +1,4 @@
-var gemeentes = function(element) {
+var gemeentes = function(element,smallMultiple,property) {
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
