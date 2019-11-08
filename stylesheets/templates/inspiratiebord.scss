@@ -73,9 +73,15 @@
         article {
 
           width: auto;
+          height: auto;
 
-          &:empty {
-            background: #dedede;
+          .container {
+
+            height: 100%;
+
+            &:empty {
+              background: #dedede;
+            }
           }
         }
     }
