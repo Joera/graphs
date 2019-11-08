@@ -244,11 +244,14 @@
     li {
 
       color: $grey;
-      display: inline;
+
       padding: .125rem 0;
 
-
-      &.active {
+      span {
+        display: inline;
+      }
+      
+      &.active span {
 
         color: black;
         border-bottom: 1px solid black;
