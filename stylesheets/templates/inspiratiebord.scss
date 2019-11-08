@@ -16,7 +16,6 @@
       display: grid;
       grid-template-columns: auto 12rem 60rem auto;
       grid-template-rows: 6rem 3rem auto;
-      grid-gap: 1rem;
       justify-content: center;
 
     }
@@ -26,7 +25,6 @@
       display: grid;
       grid-template-columns: auto 12rem 80rem auto;
       grid-template-rows: 6rem 3rem auto;
-      grid-gap: 1rem;
       justify-content: center;
 
     }
@@ -65,6 +63,22 @@
 
       grid-column: 3;
       grid-row: 2;
+
+      display: grid;
+      grid-template-columns: repeat(8,1fr);
+      grid-template-rows: repeat(8,1fr);
+      grid-gap: 1rem;
+
+        #map {
+
+          grid-column: 7 / span 2;
+          grid-row: 1 / span 2;
+
+          .map-input-container svg {
+            margin: -300px 0 0 0;
+          }
+
+        }
     }
 
     section#meldingen {
@@ -216,14 +230,7 @@
     //}
     //
     //
-    //section#map {
-    //
-    //  grid-column: 5 / span 2;
-    //  grid-row: 2 / span 2;
-    //
-    //  .map-input-container svg {
-    //    margin: -300px 0 0 0;
-    //  }
+
     //}
   }
 }
