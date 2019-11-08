@@ -60,15 +60,29 @@
         }
     }
 
-    section#deze-week {
+    section.page {
 
       grid-column: 3;
       grid-row: 3;
 
-      display: grid;
+      display: none;
       grid-template-columns: repeat(8,1fr);
       grid-template-rows: repeat(8,1fr);
       grid-gap: 1rem;
+
+        article {
+
+          width: auto;
+
+          &:empty {
+            background: #dedede;
+          }
+        }
+    }
+
+    section#deze-week {
+
+        display: grid;
 
         #schademeldingen {
 
@@ -104,10 +118,6 @@
 
     section#meldingen {
 
-      grid-column: 3;
-      grid-row: 2;
-      display: none;
-
       #schademeldingen {
 
         grid-column: 1 / span 4;
@@ -132,23 +142,16 @@
 
     section#schade-opnames {
 
-      grid-column: 3;
-      grid-row: 2;
-      display: none;
+
     }
 
     section#voortgang {
 
-       grid-column: 3;
-       grid-row: 2;
-       display: none;
+
      }
 
     section#schadevergoedingen {
 
-      grid-column: 3;
-      grid-row: 2;
-      display: none;
     }
 
     //section .container {
