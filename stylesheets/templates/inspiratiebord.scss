@@ -74,6 +74,26 @@
       grid-template-rows: repeat(8,1fr);
       grid-gap: 1rem;
 
+        #schademeldingen {
+
+          grid-column: 1 / span 2;
+          grid-row: 1;
+
+          svg {
+            overflow: visible;
+          }
+        }
+
+        #aosmeldingen {
+
+          grid-column: 3 / span 2;
+          grid-row: 1;
+
+          svg {
+            overflow: visible;
+          }
+        }
+
         #map {
 
           grid-column: 5 / span 4;
@@ -140,25 +160,7 @@
     //  }
     //}
     //
-    //section#schademeldingen {
-    //
-    //  grid-column: 3;
-    //  grid-row: 4;
-    //
-    //  svg {
-    //    overflow: visible;
-    //  }
-    //}
-    //
-    //section#aosmeldingen {
-    //
-    //  grid-column: 4;
-    //  grid-row: 4;
-    //
-    //  svg {
-    //    overflow: visible;
-    //  }
-    //}
+
     //
     //section#status-actueel {
     //
@@ -250,7 +252,7 @@
       span {
         display: inline;
       }
-      
+
       &.active span {
 
         color: black;
