@@ -208,6 +208,8 @@
 
             for (let vis of [].slice.call(page.querySelectorAll('article'))) {
 
+                console.log(vis);
+
                 console.log(vis.getAttribute('data-script'));
 
                 vis.getAttribute('data-script')(this.querySelector('.container'));
