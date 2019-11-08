@@ -35,7 +35,7 @@
 <main>
 
     <aside>
-        <ul>
+        <ul id="muni-select">
             <li data-value="all" class="active"><span>Alle gemeenten</span></li>
             <li data-value="aa-en-hunze"><span>Aa en Hunze</span></li>
             <li data-value="appingedam"><span>Appingedam</span></li>
@@ -59,26 +59,17 @@
 
     <section id="menu">
         <ul>
-            <li class="active"><span>Overzicht</span></li>
-            <li><span>Meldingen</span></li>
-            <li><span>Schade-opnames</span></li>
-            <li><span>Voortgang</span></li>
-            <li><span>Schadevergoedingen</span></li>
+            <li class="active" data-nav="deze-week"><span>Deze week</span></li>
+            <li data-nav="voortgang"><span>Voortgang</span></li>
+            <li data-nav="meldingen"><span>Meldingen</span></li>
+            <li data-nav="schade-opnames"><span>Schade-opnames</span></li>
+            <li data-nav="schadevergoedingen"><span>Schadevergoedingen</span></li>
         </ul>
     </section>
 
-    <section id="overzicht">
+    <section id="deze-week" class="page">
 
 
-        <article id="schademeldingen">
-        <h3>Schademeldingen</h3>
-        <div class="container"></div>
-        </article>
-
-        <article id="aosmeldingen">
-        <h3>AOS meldingen</h3>
-        <div class="container"></div>
-        </article>
 
 
         <article id="map">
@@ -87,25 +78,41 @@
 
     </section>
 
-    <section id="meldingen">
+    <section id="voortgang" class="page">
+
+
+        <article id="schademeldingen">
+            <h3>Schademeldingen</h3>
+            <div class="container"></div>
+        </article>
+
+        <article id="aosmeldingen">
+            <h3>AOS meldingen</h3>
+            <div class="container"></div>
+        </article>
 
 
 
     </section>
 
-    <section id="schade-opnames">
+    <section id="meldingen" class="page">
 
 
 
     </section>
 
-    <section id="voortgang">
+    <section id="schade-opnames" class="page">
 
-
+        <article id="taart-opnames">
+            <h3>Soort opname</h3>
+            <div class="container"></div>
+        </article>
 
     </section>
 
-    <section id="schadevergoedingen">
+
+
+    <section id="schadevergoedingen" class="page">
 
 
 
@@ -177,6 +184,7 @@
     gemeentes('.map-input-container');
     meldingen('#schademeldingen .container', true);
     aosMeldingen('#aosmeldingen .container', true);
+    pieChartOpnames('#taart-opnames');
     // statussen('#status-actueel .container', true);
     // opnames('#besluiten .container', true);
     // voortgang('#voortgang .container', true);
@@ -184,6 +192,30 @@
     // pieChartSum('#som .container',true);
     // pieChartHerkomst('#herkomst .container',true);
     // pieChartOpnames('#opnames .container', true);
+
+    let municipalityOptions = [].slice.call(document.querySelectorAll('ul#muni-select'));
+    let menuOptions = [].slice.call(document.querySelectorAll('#menu ul'));
+    let pages = [].slice.call(document.querySelectorAll('#menu ul'));
+
+    let openPage = function openPage(page) {
+
+        for (let page of pages) {
+
+            page.style.display = 'none';
+        }
+
+        pages.filter( (p) => p.id === page).style.display = 'block';
+
+    }
+
+
+    menuOptions.forEach( (o) => {
+
+        o.addEventListener( 'click', () => {
+
+            openPage(o.getAttribute('data-nav'));
+        });
+    });
 
 
 </script>
