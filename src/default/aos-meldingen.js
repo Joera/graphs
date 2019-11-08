@@ -35,7 +35,7 @@ var aosMeldingen = function(element,smallMultiple) {
     config.paddingOuter = 0;
 
     if(smallMultiple) {
-        config.dataArrayLength = 6;
+        config.dataArrayLength = 7;
     }
 
     let colours = ['green','orange'];
