@@ -10,11 +10,28 @@
 
   main {
 
-    display: grid;
-    grid-template-columns: auto 12rem 80rem auto;
-    grid-template-rows: 6rem 3rem auto;
-    grid-gap: 1rem;
-    justify-content: center;
+
+    @media (min-width : $breakpoint-md) {
+
+      display: grid;
+      grid-template-columns: auto 12rem 60rem auto;
+      grid-template-rows: 6rem 3rem auto;
+      grid-gap: 1rem;
+      justify-content: center;
+
+    }
+
+    @media (min-width : $breakpoint-lg) {
+
+      display: grid;
+      grid-template-columns: auto 12rem 80rem auto;
+      grid-template-rows: 6rem 3rem auto;
+      grid-gap: 1rem;
+      justify-content: center;
+
+    }
+
+
 
     h3 {
       font-size: 1rem;
