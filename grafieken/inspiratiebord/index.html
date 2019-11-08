@@ -213,7 +213,7 @@
                 page.style.display = 'grid';
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
-                    window[vis.getAttribute('data-script')](page.querySelector('.container'));
+                    window[vis.getAttribute('data-script')](vis.querySelector('.container'));
                 }
 
             } else {
