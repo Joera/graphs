@@ -125,7 +125,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("width", function(d) {
 
-                return xScale.bandwidth();
+                return xScale.band.bandwidth();
             })
             .attr("clip-path", "url(#clip)")
             .attr("y", function(d) { return dimensions.height; })
