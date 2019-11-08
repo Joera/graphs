@@ -244,6 +244,8 @@
     li {
 
       color: $grey;
+      display: inline;
+      padding: .125rem 0;
 
 
       &.active {
