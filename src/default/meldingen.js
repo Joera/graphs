@@ -49,7 +49,7 @@ var meldingen = function(element,smallMultiple,property) {
     chartAxis.drawYAxis();
 
     let url = 'https://tcmg-hub.publikaan.nl/api/data';
-    let property = 'schademeldingen';
+    if (!property) { property = 'schademeldingen' }
 
     function prepareData(json,property)  {
 

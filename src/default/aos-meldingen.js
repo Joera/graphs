@@ -56,7 +56,7 @@ var aosMeldingen = function(element,smallMultiple,property) {
     chartAxis.drawYAxis();
 
     let url = 'https://tcmg-hub.publikaan.nl/api/data';
-    let property = 'aos_meldingen';
+    if (!property) { property = 'aos_meldingen' }
 
     function prepareData(json,property)  {
 

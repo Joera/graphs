@@ -1,5 +1,7 @@
 var gemeentes = function(element,smallMultiple,property) {
 
+    let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
+
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
@@ -35,41 +37,55 @@ var gemeentes = function(element,smallMultiple,property) {
 
     let chartMap = ChartMap(config,svg,dimensions);
 
-    let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
+    function prepareData(json,property)  {
 
-    d3.json("/assets/geojson/topojson.json", function (error, mapData) {
+        features.forEach( (feature) => {
 
-        let features = topojson.feature(mapData, mapData.objects.gemeenten).features;
+            let gemeenteData = json.find( (g) => {
+                return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
+            });
 
-        let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
+            for (let key in gemeenteData) {
+                gemeenteData[sluggify(key)] = gemeenteData[key];
+            }
+
+            feature.properties = Object.assign({}, feature.properties, gemeenteData);
+        });
+    }
+
+    function redraw(features, property) {
+
+        yScale = chartYScale.set(features,property);
+        // on redraw chart gets new dimensions
+        dimensions = chartDimensions.get(dimensions);
+        chartSVG.redraw(dimensions);
+        // redraw data
+        chartMap.redraw(dimensions,property,yScale);
+    }
+
+    let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
+    if(!property) { property = 'schademeldingen' }
+
+
+    if(!globalData.mapFeatures) {
+
+        d3.json("/assets/geojson/topojson.json", function (error, mapData) {
+            globalData.mapFeatures = topojson.feature(mapData, mapData.objects.gemeenten).features;
+        });
+    } else {
+
+
+
+    }
+
+
 
         d3.json(url, function(error, json) {
             if (error) throw error;
 
-            features.forEach( (feature) => {
+            f
 
-                let gemeenteData = json.find( (g) => {
-                    return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
-                });
 
-                for (let key in gemeenteData) {
-                    gemeenteData[sluggify(key)] = gemeenteData[key];
-                }
-
-                feature.properties = Object.assign({}, feature.properties, gemeenteData);
-            });
-
-            function redraw(features, property) {
-
-                yScale = chartYScale.set(features,property);
-                // on redraw chart gets new dimensions
-                dimensions = chartDimensions.get(dimensions);
-                chartSVG.redraw(dimensions);
-                // redraw data
-                chartMap.redraw(dimensions,property,yScale);
-            }
-
-            let property = 'schademeldingen';
             chartMap.draw(features);
 
             redraw(features, property);
