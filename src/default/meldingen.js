@@ -93,7 +93,7 @@ var meldingen = function(element,smallMultiple) {
 
         function update(property) {
 
-            xScale = chartXScale.set(data);
+            xScale = chartXScale.set(data.map(d => d[config.xParameter]));
             yScale = chartYScale.set(data,property);
             chartBarsIncrease.draw(data,colours,property);
             redraw(property);
