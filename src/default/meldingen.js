@@ -19,17 +19,10 @@ var meldingen = function(element,smallMultiple) {
     config.padding.bottom = 15;
     config.padding.left = 30;
     config.padding.right = 0;
-    // name of first column with values of bands on x axis
 
-
-  //  config.yParameter = 'meldingen';  // is being set in type function
-    // config.fixedHeight = 160;
     config.minValue = 26000;
-  //  config.maxValue = 30000;
-
 
     config.xParameter = '_date';
-   // config.minWidth = 460;
 
     config.paddingInner = 0;
     config.paddingOuter = 0;
@@ -56,18 +49,15 @@ var meldingen = function(element,smallMultiple) {
     chartAxis.drawYAxis();
 
     let url = 'https://tcmg-hub.publikaan.nl/api/data';
+    let property = 'schademeldingen';
 
-    d3.json(url, function(error, json) {
-        if (error) throw error;
+    function prepareData(json,property)  {
 
+        let data = json.reverse();
 
-        // remove data entry from wednesday
-       let data = json.reverse();
-
-
-       if(config.dataArrayLength) {
-           data = data.slice(data.length - config.dataArrayLength,data.length);
-       } else if (window.innerWidth < 600) {
+        if(config.dataArrayLength) {
+            data = data.slice(data.length - config.dataArrayLength,data.length);
+        } else if (window.innerWidth < 600) {
             data = data.slice(data.length - 5,data.length);
         } else if (window.innerWidth < 1200) {
             data = data.slice(data.length - 9,data.length);
@@ -75,41 +65,57 @@ var meldingen = function(element,smallMultiple) {
             data = data.slice(data.length - 16,data.length);
         }
 
-        function redraw(property) {
-            // on redraw chart gets new dimensions
-            dimensions = chartDimensions.get(dimensions);
-            chartSVG.redraw(dimensions);
-            // new dimensions mean new scales
-            xScale = chartXScale.reset(dimensions,xScale);
-            yScale = chartYScale.reset(dimensions,yScale);
-            // new scales mean new axis
+        return data;
+    }
 
-            chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
-            chartAxis.redrawYAxis(yScale,axes);
-            // redraw data
-            chartBarsIncrease.redraw(dimensions,xScale,yScale,property);
 
-        }
+    function redraw(property) {
+        // on redraw chart gets new dimensions
+        dimensions = chartDimensions.get(dimensions);
+        chartSVG.redraw(dimensions);
+        // new dimensions mean new scales
+        xScale = chartXScale.reset(dimensions,xScale);
+        yScale = chartYScale.reset(dimensions,yScale);
+        // new scales mean new axis
 
-        function update(property) {
+        chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
+        chartAxis.redrawYAxis(yScale,axes);
+        // redraw data
+        chartBarsIncrease.redraw(dimensions,xScale,yScale,property);
+    }
 
-            xScale = chartXScale.set(data.map(d => d[config.xParameter]));
-            yScale = chartYScale.set(data,property);
-            chartBarsIncrease.draw(data,colours,property);
-            redraw(property);
-        }
+    function draw(data) {
 
-        let property = 'schademeldingen';
-        update(property);
+        xScale = chartXScale.set(data.map(d => d[config.xParameter]));
+        yScale = chartYScale.set(data,property);
+        chartBarsIncrease.draw(data,colours,property);
+    }
 
-        window.addEventListener("resize", function() { redraw(property) }, false);
+    function run(json) {
 
-        for (let radio of radios) {
-            radio.addEventListener( 'change', () => {
-                update(radio.value);
-                // document.querySelector('h2').innerText = radio.value.replace('_',' ');
-            },false)
-        }
+        let data = prepareData(json,property);
+        draw(data);
+        redraw(property);
+        // legend(data);
+    }
 
-    });
+    if (globalData.weeks) {
+
+        run(globalData.weeks)
+
+    } else {
+
+        d3.json(url, function(error, json) {
+            if (error) throw error;
+            globalData.weeks = json;
+            run(json);
+        });
+    }
+
+    window.addEventListener("resize", () => redraw(property), false);
+
+    for (let radio of radios) {
+        radio.addEventListener( 'change', () => redraw(radio.value),false);
+    }
+
 }
