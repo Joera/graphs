@@ -32,10 +32,10 @@ var aosMeldingen = function(element,smallMultiple) {
    // config.minWidth = 460;
 
     config.paddingInner = 0;
-    config.paddingOuter = .1;
+    config.paddingOuter = 0;
 
     if(smallMultiple) {
-        config.dataArrayLength = 4;
+        config.dataArrayLength = 6;
     }
 
     let colours = ['green','orange'];

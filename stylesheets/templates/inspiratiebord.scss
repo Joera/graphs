@@ -10,9 +10,6 @@
 
   main {
 
-
-
-
     @media (min-width : $breakpoint-md) {
 
       height: 100vh;
@@ -29,7 +26,6 @@
       grid-template-columns: auto 12rem 80rem auto;
       grid-template-rows: 6rem 2rem auto;
       justify-content: center;
-
     }
 
 
