@@ -206,14 +206,7 @@
         console.log(pageName);
 
         for (let page of pages) {
-
-            console.log(page.id);
-
-            if(page.id === pageName) {
-                page.style.display = 'block';
-            } else {
-                page.style.display = 'none';
-            }
+            page.style.display = (page.id === pageName) ? 'block' : 'none';
         }
     }
 
