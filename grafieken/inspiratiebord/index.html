@@ -201,17 +201,20 @@
     let menuOptions = [].slice.call(document.querySelectorAll('#menu ul li'));
     let pages = [].slice.call(document.querySelectorAll('section.page'));
 
-    let openPage = function openPage(page) {
+    let openPage = function openPage(pageName) {
 
-        console.log(page);
+        console.log(pageName);
 
         for (let page of pages) {
 
-            page.style.display = 'none';
+            console.log(p.id)
+
+            if(page.id === pageName) {
+                page.style.display = 'block';
+            } else {
+                page.style.display = 'none';
+            }
         }
-
-        pages.filter( (p) => p.id === page).style.display = 'block';
-
     }
 
 
