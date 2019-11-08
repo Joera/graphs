@@ -11,8 +11,8 @@
   main {
 
     display: grid;
-    grid-template-columns: auto 12rem repeat(2, 20rem) repeat(2, 16rem) auto;
-    grid-template-rows: 6rem 12rem 14rem repeat(4, 12rem);
+    grid-template-columns: auto 12rem 96rem auto;
+    grid-template-rows: 6rem 3rem auto;
     grid-gap: 1rem;
     justify-content: center;
 
@@ -25,134 +25,188 @@
       grid-row: 2 / span 4
     }
 
-    section .container {
-
-      height: 100%;
-    }
-
-    section#bedragen {
+    section#menu {
 
       grid-column: 3;
       grid-row: 2;
 
-      svg {
-        overflow: visible;
-      }
+        ul {
+          display: flex;
+          flex-direction: row;
+
+            li {
+              margin-right: 1.5rem;
+
+              &:last-of-type {
+                margin: 0;
+              }
+            }
+        }
     }
 
-    section#verdeling {
+    section#overzicht {
 
-      grid-column: 4;
+      grid-column: 3;
       grid-row: 2;
-
-      svg {
-        overflow: visible;
-      }
     }
 
-    section#schademeldingen {
+    section#meldingen {
 
       grid-column: 3;
-      grid-row: 4;
-
-      svg {
-        overflow: visible;
-      }
+      grid-row: 2;
+      display: none;
     }
 
-    section#aosmeldingen {
 
-      grid-column: 4;
-      grid-row: 4;
-
-      svg {
-        overflow: visible;
-      }
-    }
-
-    section#status-actueel {
+    section#schade-opnames {
 
       grid-column: 3;
-      grid-row: 3;
-
-      svg {
-        overflow: visible;
-      }
-    }
-
-    section#besluiten {
-
-      grid-column: 3 / span 2;
-      grid-row: 5;
-
-      svg {
-        overflow: visible;
-      }
+      grid-row: 2;
+      display: none;
     }
 
     section#voortgang {
 
-      grid-column: 5 / span 2;
-      grid-row: 4;
+       grid-column: 3;
+       grid-row: 2;
+       display: none;
+     }
 
-      svg {
-        overflow: visible;
-      }
+    section#schadevergoedingen {
+
+      grid-column: 3;
+      grid-row: 2;
+      display: none;
     }
 
-    section#candles {
-
-      grid-column: 5 / span 2;
-      grid-row: 5;
-
-      svg {
-        overflow: visible;
-
-        path.line {
-          fill: transparent;
-        }
-      }
-    }
-
-    section#som {
-
-      grid-column: 3 / span 1;
-      grid-row: 6;
-
-      svg {
-        overflow: visible;
-      }
-    }
-
-    section#herkomst {
-
-      grid-column: 4 / span 1;
-      grid-row: 6;
-
-      svg {
-        overflow: visible;
-      }
-    }
-
-    section#opnames {
-
-      grid-column: 5 / span 1;
-      grid-row: 6;
-
-      svg {
-        overflow: visible;
-      }
-    }
-
-
-    section#map {
-
-      grid-column: 5 / span 2;
-      grid-row: 2 / span 2;
-
-      .map-input-container svg {
-        margin: -300px 0 0 0;
-      }
-    }
+    //section .container {
+    //
+    //  height: 100%;
+    //}
+    //
+    //section#bedragen {
+    //
+    //  grid-column: 3;
+    //  grid-row: 2;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#verdeling {
+    //
+    //  grid-column: 4;
+    //  grid-row: 2;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#schademeldingen {
+    //
+    //  grid-column: 3;
+    //  grid-row: 4;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#aosmeldingen {
+    //
+    //  grid-column: 4;
+    //  grid-row: 4;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#status-actueel {
+    //
+    //  grid-column: 3;
+    //  grid-row: 3;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#besluiten {
+    //
+    //  grid-column: 3 / span 2;
+    //  grid-row: 5;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#voortgang {
+    //
+    //  grid-column: 5 / span 2;
+    //  grid-row: 4;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#candles {
+    //
+    //  grid-column: 5 / span 2;
+    //  grid-row: 5;
+    //
+    //  svg {
+    //    overflow: visible;
+    //
+    //    path.line {
+    //      fill: transparent;
+    //    }
+    //  }
+    //}
+    //
+    //section#som {
+    //
+    //  grid-column: 3 / span 1;
+    //  grid-row: 6;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#herkomst {
+    //
+    //  grid-column: 4 / span 1;
+    //  grid-row: 6;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //section#opnames {
+    //
+    //  grid-column: 5 / span 1;
+    //  grid-row: 6;
+    //
+    //  svg {
+    //    overflow: visible;
+    //  }
+    //}
+    //
+    //
+    //section#map {
+    //
+    //  grid-column: 5 / span 2;
+    //  grid-row: 2 / span 2;
+    //
+    //  .map-input-container svg {
+    //    margin: -300px 0 0 0;
+    //  }
+    //}
   }
 }
