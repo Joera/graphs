@@ -159,7 +159,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.bandwidth() / 2)) + ',' +
+                return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
                     dimensions.height
                     + ')';
             })
@@ -201,9 +201,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.differenceCircle
             .merge(svg.differenceCircleEnter)
-            .attr("cy", function(d) { return yScale.linear(d[property]) + (barWidth / 2); })
+            .attr("cy", function(d) { return yScale.linear(d[property]) + (xScale.band.bandwidth() / 2); })
             .attr("cx", function(d) {
-                return xScale.band(d[config.xParameter]) + (barWidth / 2);
+                return xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2);
             })
             .attr("r", (barWidth / 2) - 8)
             .attr('fill-opacity', 0)
@@ -235,8 +235,8 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             // })
             .attr('transform', function(d) {
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + (barWidth / 2)) + ',' +
-                    (yScale.linear(d[property]) + (barWidth / 2) + 4)
+                return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ',' +
+                    (yScale.linear(d[property]) + (xScale.band.bandwidth() / 2) + 4)
                     + ')';
             })
             .attr('fill-opacity', 0)
