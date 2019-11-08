@@ -77,27 +77,25 @@ var gemeentes = function(element,smallMultiple,property) {
 
 
     }
+    
+    d3.json(url, function(error, json) {
+        if (error) throw error;
+
+        f
 
 
+        chartMap.draw(features);
 
-        d3.json(url, function(error, json) {
-            if (error) throw error;
+        redraw(features, property);
+        // for example on window resize
+        window.addEventListener("resize", redraw(features, property), false);
 
-            f
+        for (let radio of radios) {
+            radio.addEventListener( 'change', () => {
+                redraw(features,radio.value);
+            },false)
+        }
 
-
-            chartMap.draw(features);
-
-            redraw(features, property);
-            // for example on window resize
-            window.addEventListener("resize", redraw(features, property), false);
-
-            for (let radio of radios) {
-                radio.addEventListener( 'change', () => {
-                    redraw(features,radio.value);
-                },false)
-            }
-
-        });
     });
+
 }
