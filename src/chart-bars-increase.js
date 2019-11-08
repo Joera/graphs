@@ -172,8 +172,8 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
-                return 'translate(' + (xScale.band(d[config.xParameter]) + ( barWidth / 2)) + ',' +
-                    (yScale.linear(d[property]) - yOffset + (barWidth / 4))
+                return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
+                    (yScale.linear(d[property]) - yOffset + (xScale.band.bandwidth() / 4))
                     + ')';
             })
             .attr('fill-opacity', 1);
@@ -205,7 +205,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("cx", function(d) {
                 return xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2);
             })
-            .attr("r", (barWidth / 2) - 8)
+            .attr("r", (xScale.band.bandwidth() / 2) - 8)
             .attr('fill-opacity', 0)
             .style('fill','white')
             .transition()
@@ -259,7 +259,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
                 })
                 .attr('transform', function(d) {
 
-                        xOffset = barWidth / 2;
+                        xOffset = xScale.band.bandwidth() / 2;
 
                         return 'translate(' + (xScale.band(d[config.xParameter]) + xOffset)  + ',' +
                             dimensions.height
