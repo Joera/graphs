@@ -41,6 +41,22 @@
     aside {
       grid-column: 2;
       grid-row: 3;
+
+        ul {
+
+          li {
+
+            color: $grey;
+
+
+            &.active {
+
+              color: black;
+              border-bottom: 1px solid black;
+            }
+
+          }
+        }
     }
 
     section#menu {
