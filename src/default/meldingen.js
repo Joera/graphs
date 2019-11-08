@@ -35,7 +35,7 @@ var meldingen = function(element,smallMultiple) {
     config.paddingOuter = .1;
 
     if(smallMultiple) {
-        config.dataArrayLength = 4;
+        config.dataArrayLength = 8;
     }
 
     let colours = ['green','orange'];
