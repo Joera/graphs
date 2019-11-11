@@ -186,7 +186,7 @@ var pieChartSpecials = function(element,smallMultiple) {
         }
 
         function run(json,filter) {
-            muniDropdown(json);
+
             let data = prepareData(json,filter);
             draw(data);
             redraw();
@@ -195,6 +195,7 @@ var pieChartSpecials = function(element,smallMultiple) {
 
         }
 
+        muniDropdown(json);
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
