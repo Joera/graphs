@@ -1,10 +1,10 @@
 var meldingen = function(element,smallMultiple,property) {
 
-    if(typeof element === 'string') {
-        console.log('hi');
-        element = document.getElementById(element)
-        console.log(element);
-    }
+    // if(typeof element === 'string') {
+    //     console.log('hi');
+    //     element = document.getElementById(element)
+    //     console.log(element);
+    // }
 
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
@@ -118,7 +118,7 @@ var meldingen = function(element,smallMultiple,property) {
         });
     }
 
-    element.addEventListener("resize", () => redraw(property), false);
+    window.addEventListener("resize", () => redraw(property), false);
 
     for (let radio of radios) {
         radio.addEventListener( 'change', () => redraw(radio.value),false);
