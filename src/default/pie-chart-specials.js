@@ -152,17 +152,20 @@ var pieChartSpecials = function(element,smallMultiple) {
             // }
         }
 
-        function muniDropdown(data) {
+        function muniDropdown(munis) {
 
             let option = document.createElement('option');
             option.value = 'all';
             option.innerText = 'Alle gemeenten';
             option.selected = true;
-            municipalitySelect.appendChild(option)
+            municipalitySelect.appendChild(option);
 
-            data.forEach( (m) => {
+            console.log(data);
 
-                if(m['_category'] !== 'all' && m['_category'] !== ''
+            munis.forEach( (m) => {
+
+                if(m['_category'] !== 'all' && m['_category'] !== '' &&
+                    m['SPECIALS_MELDINGEN'] > 24
                 ) {
                     option = document.createElement('option');
                     option.value = m['_category'];
@@ -185,8 +188,8 @@ var pieChartSpecials = function(element,smallMultiple) {
         }
 
         function run(json,filter) {
+            muniDropdown(json);
             let data = prepareData(json,filter);
-            muniDropdown(data);
             draw(data);
             redraw();
           //  totalElement.innerText = convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']);
