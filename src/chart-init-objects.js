@@ -1,4 +1,4 @@
-let globalData;
+let globalData = {};
 
 let ChartObjects = function ChartObjects() {
 
