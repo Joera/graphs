@@ -1,5 +1,9 @@
 var meldingen = function(element,smallMultiple,property) {
 
+    if(typeof element === 'string') {
+        element = document.getElementById(element)
+    }
+
     let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
     let chartObjects = ChartObjects();
