@@ -51,6 +51,9 @@ var gemeentes = function(element,smallMultiple,property) {
 
             feature.properties = Object.assign({}, feature.properties, gemeenteData);
         });
+
+
+        return globalData.mapFeatures;
     }
 
 
