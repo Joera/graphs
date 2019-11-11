@@ -163,7 +163,7 @@ var pieChartSpecials = function(element,smallMultiple) {
             munis.forEach( (m) => {
 
                 if(m['_category'] !== 'all' && m['_category'] !== '' &&
-                    m['SPECIALS_MELDINGEN'] > 24
+                    m['SPECIALS_MELDINGEN'] > 24 && m['SPECIALS_WERKVOORRAAD_IN_BEH'] > 24 && m['SPECIALS_AFGEHANDELD_TOTAAL'] > 24
                 ) {
                     option = document.createElement('option');
                     option.value = m['_category'];
