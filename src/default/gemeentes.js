@@ -107,19 +107,19 @@ var gemeentes = function(element,smallMultiple,property) {
     }
 
 
-    // if (!globalData.mapFeatures) {
-    //
-    //     d3.json("/assets/geojson/topojson.json", function (error, mapData) {
-    //         globalData.mapFeatures = topojson.feature(mapData, mapData.objects.gemeenten).features;
-    //         getData();
-    //     });
-    //
-    //     setListeners();
-    //
-    // } else {
-    //
-    //     setListeners();
-    // }
+    if (!globalData.mapFeatures) {
+
+        d3.json("/assets/geojson/topojson.json", function (error, mapData) {
+            globalData.mapFeatures = topojson.feature(mapData, mapData.objects.gemeenten).features;
+            getData();
+        });
+
+        setListeners();
+
+    } else {
+
+        setListeners();
+    }
 
 
 
