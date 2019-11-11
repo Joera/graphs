@@ -115,35 +115,35 @@ var specialsStatussen  = function (element,smallMultiple) {
         }
     }
 
-    // function muniDropdown(data) {
-    //
-    //     let option = document.createElement('option');
-    //     option.value = 'all';
-    //     option.innerText = 'Alle gemeenten';
-    //     option.selected = true;
-    //     municipalitySelect.appendChild(option)
-    //
-    //     data.forEach( (m) => {
-    //
-    //         if(m['_category'] !== 'all' && m['_category'] !== '' &&
-    //             m['SPECIALS_MELDINGEN'] > 24  // &&
-    //             // m['SPECIALS_ONTVANGST'] > 24 &&
-    //             // m['SPECIALS_PLANNING_OPNAME'] > 24 &&
-    //             // m['SPECIALS_OPLEV_SCHADERAPP'] > 24 &&
-    //             // m['SPECIALS_VOORBER_CIE'] > 24 &&
-    //             // m['SPECIALS_BESCHIKT'] > 24
-    //
-    //
-    //     ) {
-    //
-    //             option = document.createElement('option');
-    //             option.value = m['_category'];
-    //             option.innerText = m['GEMEENTE'];
-    //             municipalitySelect.appendChild(option)
-    //         }
-    //
-    //     })
-    // }
+    function muniDropdown(data) {
+
+        let option = document.createElement('option');
+        option.value = 'all';
+        option.innerText = 'Alle gemeenten';
+        option.selected = true;
+        municipalitySelect.appendChild(option)
+
+        data.forEach( (m) => {
+
+            if(m['_category'] !== 'all' && m['_category'] !== '' &&
+                m['SPECIALS_MELDINGEN'] > 24  // &&
+                // m['SPECIALS_ONTVANGST'] > 24 &&
+                // m['SPECIALS_PLANNING_OPNAME'] > 24 &&
+                // m['SPECIALS_OPLEV_SCHADERAPP'] > 24 &&
+                // m['SPECIALS_VOORBER_CIE'] > 24 &&
+                // m['SPECIALS_BESCHIKT'] > 24
+
+
+        ) {
+
+                option = document.createElement('option');
+                option.value = m['_category'];
+                option.innerText = m['GEMEENTE'];
+                municipalitySelect.appendChild(option)
+            }
+
+        })
+    }
 
     function draw(data) {
 
@@ -174,6 +174,7 @@ var specialsStatussen  = function (element,smallMultiple) {
     function run(json, muni) {
 
         let data = prepareData(json,muni);
+        muniDropdown(data);
         draw(data);
         redraw();
         legend(data);
@@ -186,6 +187,12 @@ var specialsStatussen  = function (element,smallMultiple) {
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
+
+        if (municipalitySelect != null) {
+            municipalitySelect.addEventListener("change", function () {
+                run(json, municipalitySelect.options[municipalitySelect.selectedIndex].value);
+            });
+        }
 
     });
 }

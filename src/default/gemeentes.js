@@ -53,6 +53,13 @@ var gemeentes = function(element,smallMultiple,property) {
         });
     }
 
+
+    function draw(features) {
+
+
+        chartMap.draw(features);
+    }
+
     function redraw(features, property) {
 
         yScale = chartYScale.set(features,property);
@@ -66,36 +73,45 @@ var gemeentes = function(element,smallMultiple,property) {
     let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
     if(!property) { property = 'schademeldingen' }
 
+    function run(json) {
 
-    if(!globalData.mapFeatures) {
+        let features = prepareData(json);
+        draw(features);
+        redraw(features, property);
+    }
+
+
+    if (!globalData.mapFeatures) {
 
         d3.json("/assets/geojson/topojson.json", function (error, mapData) {
             globalData.mapFeatures = topojson.feature(mapData, mapData.objects.gemeenten).features;
+            getData();
         });
+
     } else {
 
 
-
     }
-    
-    d3.json(url, function(error, json) {
-        if (error) throw error;
 
-        f
+    if (!globalData.municipalities) {
 
+        d3.json(url, function(error, json) {
+            if (error) throw error
+            globalData.municipalities = json;
+            run(json)
+        });
 
-        chartMap.draw(features);
+    } else {
 
-        redraw(features, property);
-        // for example on window resize
-        window.addEventListener("resize", redraw(features, property), false);
+        run(globalData.municipalities)
+    }
 
-        for (let radio of radios) {
-            radio.addEventListener( 'change', () => {
-                redraw(features,radio.value);
-            },false)
-        }
+    // for example on window resize
+    window.addEventListener("resize", redraw(features, property), false);
 
-    });
-
+    for (let radio of radios) {
+        radio.addEventListener( 'change', () => {
+            redraw(features,radio.value);
+        },false)
+    }
 }
