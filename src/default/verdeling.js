@@ -106,7 +106,7 @@ var verdeling = function(element) {
         function draw(data) {
 
             // with data we can init scales
-            xScale = chartXScale.set(data);
+            xScale = chartXScale.set(data.map( d => d[config.xParameter]));
             yScale = chartYScale.set(data,config.yParameter);
 
             // width data we can draw items
