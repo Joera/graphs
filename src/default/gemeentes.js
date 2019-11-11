@@ -80,6 +80,8 @@ var gemeentes = function(element,smallMultiple,property) {
         let features = prepareData(json);
         chartMap.draw(features);
         redraw(features, property);
+
+        setListeners(features,property);
     }
 
     function getData() {
@@ -91,17 +93,18 @@ var gemeentes = function(element,smallMultiple,property) {
             });
 
         } else {
+            
             run(globalData.municipalities,property)
         }
     }
 
-    function setListeners() {
+    function setListeners(features,property) {
 
-        window.addEventListener("resize", redraw(globalData.mapFeatures, property), false);
+        window.addEventListener("resize", redraw(features, property), false);
 
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
-                redraw(globalData.mapFeatures,radio.value);
+                redraw(features,radio.value);
             },false)
         }
     }
@@ -114,13 +117,11 @@ var gemeentes = function(element,smallMultiple,property) {
             getData();
         });
 
-        setListeners();
+    }  else {
 
-    } else {
+        getData();
 
-        setListeners();
     }
-
 
 
     // for example on window resize
