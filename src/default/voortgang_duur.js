@@ -70,8 +70,6 @@ var voortgangDuur = function(element,smallMultiple) {
         let stackedData = filterData(propertyArray);
 
         function filterData(array) {
-            //
-            console.log(array);
 
             functions.stack = d3.stack()
                 .keys(Object.keys(data[data.length - 1]).filter(key => array.indexOf(key) > -1));
