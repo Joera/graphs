@@ -78,7 +78,7 @@ var meldingen = function(element,smallMultiple,property) {
     function redraw(data,property) {
 
         yScale = chartYScale.set(data,property);
-        
+
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
