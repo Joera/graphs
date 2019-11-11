@@ -66,6 +66,8 @@ var gemeentes = function(element,smallMultiple,property) {
 
     function redraw(features, property) {
 
+        console.log(property);
+
         yScale = chartYScale.set(features,property);
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
@@ -97,6 +99,17 @@ var gemeentes = function(element,smallMultiple,property) {
         }
     }
 
+    function setListeners() {
+
+        window.addEventListener("resize", redraw(globalData.mapFeatures, property), false);
+
+        for (let radio of radios) {
+            radio.addEventListener( 'change', () => {
+                redraw(globalData.mapFeatures,radio.value);
+            },false)
+        }
+    }
+
 
     if (!globalData.mapFeatures) {
 
@@ -105,17 +118,11 @@ var gemeentes = function(element,smallMultiple,property) {
             getData();
         });
 
+        setListeners();
+
     } else {
 
-
-        window.addEventListener("resize", redraw(features, property), false);
-
-        for (let radio of radios) {
-            radio.addEventListener( 'change', () => {
-                redraw(features,radio.value);
-            },false)
-        }
-
+        setListeners();
     }
 
 
