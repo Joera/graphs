@@ -127,27 +127,25 @@ var specialsStatussen  = function (element,smallMultiple) {
 
             if(m['_category'] !== 'all' && m['_category'] !== '' &&
                 m['SPECIALS_MELDINGEN'] > 24
+            ) {
 
+               if (
+                    m['SPECIALS_ONTVANGST'] < 25 &&
+                    m['SPECIALS_PLANNING_OPNAME'] < 25 &&
+                    m['SPECIALS_OPLEV_SCHADERAPP'] < 25 &&
+                    m['SPECIALS_VOORBER_CIE'] < 25 &&
+                    m['SPECIALS_BESCHIKT'] < 25
+               ) {
+                   return;
+               }
 
-        ) {
+                    option = document.createElement('option');
+                    option.value = m['_category'];
+                    option.innerText = m['GEMEENTE'];
+                    municipalitySelect.appendChild(option)
+                }
 
-           if (
-                m['SPECIALS_ONTVANGST'] < 25 &&
-                m['SPECIALS_PLANNING_OPNAME'] < 25 &&
-                m['SPECIALS_OPLEV_SCHADERAPP'] < 25 &&
-                m['SPECIALS_VOORBER_CIE'] < 25 &&
-                m['SPECIALS_BESCHIKT'] < 25
-           ) {
-               return;
-           }
-
-                option = document.createElement('option');
-                option.value = m['_category'];
-                option.innerText = m['GEMEENTE'];
-                municipalitySelect.appendChild(option)
-            }
-
-        })
+            })
     }
 
     function draw(data) {
