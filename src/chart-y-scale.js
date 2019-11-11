@@ -2,6 +2,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
     let set = function set(data,property) {
 
+        console.log('prop:' + property);
+
         let endDate = new Date();
         let minValue;
 
@@ -28,11 +30,6 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 }
             }
         }
-
-
-        // dit doen voor je data naar scale stuurt
-
-
 
         scale.stacked = d3.scaleLinear()
             .domain([

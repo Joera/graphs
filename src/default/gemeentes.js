@@ -59,9 +59,7 @@ var gemeentes = function(element,smallMultiple,property) {
 
     function draw(features) {
 
-        console.log(features);
 
-        chartMap.draw(features);
     }
 
     function redraw(features, property) {
@@ -79,10 +77,10 @@ var gemeentes = function(element,smallMultiple,property) {
     let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
     if(!property) { property = 'schademeldingen' }
 
-    function run(json) {
+    function run(json,property) {
 
         let features = prepareData(json);
-        draw(features);
+        chartMap.draw(features);
         redraw(features, property);
     }
 
@@ -91,11 +89,11 @@ var gemeentes = function(element,smallMultiple,property) {
             d3.json(url, function(error, json) {
                 if (error) throw error
                 globalData.municipalities = json;
-                run(json)
+                run(json,property)
             });
 
         } else {
-            run(globalData.municipalities)
+            run(globalData.municipalities,property)
         }
     }
 
