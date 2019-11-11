@@ -56,7 +56,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .range([0.3,1]);
 
         scale.band = d3.scaleBand()
-            .domain(data)
+            .domain(data.map(d => { return d[config.xParameter]   }))
             .paddingInner(config.paddingInner)
             .paddingOuter(config.paddingOuter)
             .align([0.5])

@@ -26,7 +26,7 @@ var meldingen = function(element,smallMultiple,property) {
     config.padding.left = 30;
     config.padding.right = 0;
 
-    config.minValue = 26000;
+    // config.minValue = 26000;
 
     config.xParameter = '_date';
 
@@ -75,10 +75,10 @@ var meldingen = function(element,smallMultiple,property) {
     }
 
 
-    function redraw(data,property) {
+    function redraw(property) {
 
         // minvalue changes!
-        yScale = chartYScale.set(data,property);
+
 
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
@@ -96,6 +96,7 @@ var meldingen = function(element,smallMultiple,property) {
 
     function draw(data) {
 
+        yScale = chartYScale.set(data,property);
         xScale = chartXScale.set(data.map(d => d[config.xParameter]));
 
         chartBarsIncrease.draw(data,colours,property);
