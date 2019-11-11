@@ -75,9 +75,7 @@ var meldingen = function(element,smallMultiple,property) {
     }
 
 
-    function redraw(data,property) {
-
-
+    function redraw(property) {
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
@@ -96,7 +94,6 @@ var meldingen = function(element,smallMultiple,property) {
 
         xScale = chartXScale.set(data.map(d => d[config.xParameter]));
         yScale = chartYScale.set(data,property);
-
         chartBarsIncrease.draw(data,colours,property);
     }
 
@@ -106,12 +103,6 @@ var meldingen = function(element,smallMultiple,property) {
         draw(data);
         redraw(property);
         // legend(data);
-
-        window.addEventListener("resize", () => redraw(data,property), false);
-
-        for (let radio of radios) {
-            radio.addEventListener( 'change', () => redraw(data,radio.value),false);
-        }
     }
 
     if (globalData.weeks) {
@@ -127,6 +118,10 @@ var meldingen = function(element,smallMultiple,property) {
         });
     }
 
+    window.addEventListener("resize", () => redraw(property), false);
 
+    for (let radio of radios) {
+        radio.addEventListener( 'change', () => redraw(radio.value),false);
+    }
 
 }

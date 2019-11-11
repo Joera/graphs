@@ -8,7 +8,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         // kun je dit meegeven als conditional
 
         if(config.minValue) {
-            minValue = 0; //d3.min(data, d => d[property]) *.75;
+            minValue = d3.min(data, d => d[property]) *.75;
         } else {
             minValue = 0; //
         }
@@ -28,6 +28,11 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
                 }
             }
         }
+
+
+        // dit doen voor je data naar scale stuurt
+
+
 
         scale.stacked = d3.scaleLinear()
             .domain([
