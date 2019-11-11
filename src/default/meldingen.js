@@ -103,6 +103,12 @@ var meldingen = function(element,smallMultiple,property) {
         draw(data);
         redraw(property);
         // legend(data);
+
+        window.addEventListener("resize", () => redraw(property), false);
+
+        for (let radio of radios) {
+            radio.addEventListener( 'change', () => redraw(radio.value),false);
+        }
     }
 
     if (globalData.weeks) {
@@ -118,10 +124,6 @@ var meldingen = function(element,smallMultiple,property) {
         });
     }
 
-    window.addEventListener("resize", () => redraw(property), false);
 
-    for (let radio of radios) {
-        radio.addEventListener( 'change', () => redraw(radio.value),false);
-    }
 
 }
