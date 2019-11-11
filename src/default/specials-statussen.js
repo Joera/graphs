@@ -174,7 +174,7 @@ var specialsStatussen  = function (element,smallMultiple) {
     function run(json, muni) {
 
         let data = prepareData(json,muni);
-        muniDropdown(data);
+        muniDropdown(json);
         draw(data);
         redraw();
         legend(data);
