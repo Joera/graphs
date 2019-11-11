@@ -174,7 +174,7 @@ var specialsStatussen  = function (element,smallMultiple) {
     function run(json, muni) {
 
         let data = prepareData(json,muni);
-        muniDropdown(json);
+
         draw(data);
         redraw();
         legend(data);
@@ -184,6 +184,7 @@ var specialsStatussen  = function (element,smallMultiple) {
 
     d3.json(url, function (error, json) {
         if (error) throw error;
+        muniDropdown(json);
         run(json,'all');
 
         window.addEventListener("resize", redraw, false);
