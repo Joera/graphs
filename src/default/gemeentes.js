@@ -93,7 +93,7 @@ var gemeentes = function(element,smallMultiple,property) {
             });
 
         } else {
-            
+
             run(globalData.municipalities,property)
         }
     }

@@ -76,6 +76,10 @@ var meldingen = function(element,smallMultiple,property) {
 
 
     function redraw(property) {
+
+        // minvalue changes!
+        yScale = chartYScale.set(data,property);
+
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
@@ -93,7 +97,7 @@ var meldingen = function(element,smallMultiple,property) {
     function draw(data) {
 
         xScale = chartXScale.set(data.map(d => d[config.xParameter]));
-        yScale = chartYScale.set(data,property);
+
         chartBarsIncrease.draw(data,colours,property);
     }
 
