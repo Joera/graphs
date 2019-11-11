@@ -1,5 +1,6 @@
 'use strict';
 
+let globalData;
 
 
 var TCMGCharts = function TCMGCharts() {
