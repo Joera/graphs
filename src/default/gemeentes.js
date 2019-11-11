@@ -80,6 +80,19 @@ var gemeentes = function(element,smallMultiple,property) {
         redraw(features, property);
     }
 
+    function getData() {
+        if (!globalData.municipalities) {
+            d3.json(url, function(error, json) {
+                if (error) throw error
+                globalData.municipalities = json;
+                run(json)
+            });
+
+        } else {
+            run(globalData.municipalities)
+        }
+    }
+
 
     if (!globalData.mapFeatures) {
 
@@ -91,27 +104,18 @@ var gemeentes = function(element,smallMultiple,property) {
     } else {
 
 
+        window.addEventListener("resize", redraw(features, property), false);
+
+        for (let radio of radios) {
+            radio.addEventListener( 'change', () => {
+                redraw(features,radio.value);
+            },false)
+        }
+
     }
 
-    if (!globalData.municipalities) {
 
-        d3.json(url, function(error, json) {
-            if (error) throw error
-            globalData.municipalities = json;
-            run(json)
-        });
-
-    } else {
-
-        run(globalData.municipalities)
-    }
 
     // for example on window resize
-    window.addEventListener("resize", redraw(features, property), false);
 
-    for (let radio of radios) {
-        radio.addEventListener( 'change', () => {
-            redraw(features,radio.value);
-        },false)
-    }
 }
