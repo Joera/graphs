@@ -1,3 +1,5 @@
+let globalData;
+
 let ChartObjects = function ChartObjects() {
 
     let config = function config() {
