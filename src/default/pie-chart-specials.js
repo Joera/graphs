@@ -44,7 +44,6 @@ var pieChartSpecials = function(element,smallMultiple) {
 
             let data = [];
 
-
             data.push({
                 status: "Afgehandelde specials",
                 value: json['SPECIALS_AFGEHANDELD_TOTAAL']
@@ -54,9 +53,7 @@ var pieChartSpecials = function(element,smallMultiple) {
             data.push({
                 status: "Specials in behandeling",
                 value: json['SPECIALS_WERKVOORRAAD_IN_BEH']
-
             });
-
 
             return data;
         }
@@ -83,10 +80,7 @@ var pieChartSpecials = function(element,smallMultiple) {
 
                 legendX = 120;
                 legendY = 110;
-
             }
-
-
 
             // if (window.innerWidth < 640) {
 
@@ -163,7 +157,7 @@ var pieChartSpecials = function(element,smallMultiple) {
             munis.forEach( (m) => {
 
                 if(m['_category'] !== 'all' && m['_category'] !== '' &&
-                    m['SPECIALS_MELDINGEN'] > 24 && m['SPECIALS_WERKVOORRAAD_IN_BEH'] > 24 && m['SPECIALS_AFGEHANDELD_TOTAAL'] > 24
+                    m['SPECIALS_MELDINGEN'] > 24
                 ) {
                     option = document.createElement('option');
                     option.value = m['_category'];
