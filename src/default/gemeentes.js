@@ -56,6 +56,7 @@ var gemeentes = function(element,smallMultiple,property) {
 
     function draw(features) {
 
+        console.log(features);
 
         chartMap.draw(features);
     }
