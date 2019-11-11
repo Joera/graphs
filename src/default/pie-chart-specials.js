@@ -162,8 +162,7 @@ var pieChartSpecials = function(element,smallMultiple) {
 
             data.forEach( (m) => {
 
-                if(m['_category'] !== 'all' && m['_category'] !== '' &&
-                    m['SPECIALS_MELDINGEN'] > 24
+                if(m['_category'] !== 'all' && m['_category'] !== ''
                 ) {
                     option = document.createElement('option');
                     option.value = m['_category'];
