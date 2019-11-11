@@ -26,7 +26,7 @@ var meldingen = function(element,smallMultiple,property) {
     config.padding.left = 30;
     config.padding.right = 0;
 
-    // config.minValue = 26000;
+    config.minValue = 26000;
 
     config.xParameter = '_date';
 
@@ -76,10 +76,6 @@ var meldingen = function(element,smallMultiple,property) {
 
 
     function redraw(property) {
-
-        // minvalue changes!
-
-
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
@@ -96,9 +92,8 @@ var meldingen = function(element,smallMultiple,property) {
 
     function draw(data) {
 
-        yScale = chartYScale.set(data,property);
         xScale = chartXScale.set(data.map(d => d[config.xParameter]));
-
+        yScale = chartYScale.set(data,property);
         chartBarsIncrease.draw(data,colours,property);
     }
 
@@ -106,7 +101,7 @@ var meldingen = function(element,smallMultiple,property) {
 
         let data = prepareData(json,property);
         draw(data);
-        redraw(data,property);
+        redraw(property);
         // legend(data);
     }
 
@@ -123,7 +118,7 @@ var meldingen = function(element,smallMultiple,property) {
         });
     }
 
-  //  window.addEventListener("resize", () => redraw(property), false);
+    window.addEventListener("resize", () => redraw(property), false);
 
     for (let radio of radios) {
         radio.addEventListener( 'change', () => redraw(radio.value),false);
