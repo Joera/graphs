@@ -64,8 +64,6 @@ var gemeentes = function(element,smallMultiple,property) {
 
     function redraw(features, property) {
 
-        console.log(property);
-
         yScale = chartYScale.set(features,property);
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);

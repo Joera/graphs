@@ -107,14 +107,14 @@ var meldingen = function(element,smallMultiple,property) {
 
     if (globalData.weeks) {
 
-        run(globalData.weeks)
+        // run(globalData.weeks)
 
     } else {
 
         d3.json(url, function(error, json) {
             if (error) throw error;
             globalData.weeks = json;
-            run(json);
+            // run(json);
         });
     }
 
