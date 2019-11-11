@@ -160,8 +160,6 @@ var pieChartSpecials = function(element,smallMultiple) {
             option.selected = true;
             municipalitySelect.appendChild(option);
 
-            console.log(data);
-
             munis.forEach( (m) => {
 
                 if(m['_category'] !== 'all' && m['_category'] !== '' &&
