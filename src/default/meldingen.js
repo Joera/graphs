@@ -75,7 +75,7 @@ var meldingen = function(element,smallMultiple,property) {
     }
 
 
-    function redraw(property) {
+    function redraw(data,property) {
 
         // minvalue changes!
         yScale = chartYScale.set(data,property);
@@ -105,7 +105,7 @@ var meldingen = function(element,smallMultiple,property) {
 
         let data = prepareData(json,property);
         draw(data);
-        redraw(property);
+        redraw(data,property);
         // legend(data);
     }
 
@@ -122,7 +122,7 @@ var meldingen = function(element,smallMultiple,property) {
         });
     }
 
-    window.addEventListener("resize", () => redraw(property), false);
+  //  window.addEventListener("resize", () => redraw(property), false);
 
     for (let radio of radios) {
         radio.addEventListener( 'change', () => redraw(radio.value),false);
