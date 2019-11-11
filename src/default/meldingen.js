@@ -101,7 +101,7 @@ var meldingen = function(element,smallMultiple,property) {
 
         let data = prepareData(json,property);
         draw(data);
-        redraw(property);
+        redraw(data,property);
         // legend(data);
 
         window.addEventListener("resize", () => redraw(data,property), false);
