@@ -44,11 +44,6 @@ var pieChartSpecials = function(element,smallMultiple) {
 
             let data = [];
 
-            data.push({
-                status: "Specials in behandeling",
-                value: json['SPECIALS_WERKVOORRAAD_IN_BEH']
-
-            });
 
             data.push({
                 status: "Afgehandelde specials",
@@ -56,8 +51,13 @@ var pieChartSpecials = function(element,smallMultiple) {
 
             });
 
+            data.push({
+                status: "Specials in behandeling",
+                value: json['SPECIALS_WERKVOORRAAD_IN_BEH']
 
-            
+            });
+
+
             return data;
         }
 
@@ -144,7 +144,7 @@ var pieChartSpecials = function(element,smallMultiple) {
                 .attr("class", "small-label")
                 .attr("dx", 200)
                 .attr("dy", (data.length * 20) + 2)
-                .text(json.filter( j => j['_category'] === filter)[0]['OPNAMES'])
+                .text(json.filter( j => j['_category'] === filter)[0]['SPECIALS_MELDINGEN'])
                 .attr("width",dimensions.containerWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
