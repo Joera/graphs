@@ -39,7 +39,7 @@ var gemeentes = function(element,smallMultiple,property) {
 
     function prepareData(json,property)  {
 
-        features.forEach( (feature) => {
+        globalData.mapFeatures.forEach( (feature) => {
 
             let gemeenteData = json.find( (g) => {
                 return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
