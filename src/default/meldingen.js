@@ -75,7 +75,7 @@ var meldingen = function(element,smallMultiple,property) {
     }
 
 
-    function redraw(property) {
+    function redraw(data,property) {
         // on redraw chart gets new dimensions
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
@@ -104,10 +104,10 @@ var meldingen = function(element,smallMultiple,property) {
         redraw(property);
         // legend(data);
 
-        window.addEventListener("resize", () => redraw(property), false);
+        window.addEventListener("resize", () => redraw(data,property), false);
 
         for (let radio of radios) {
-            radio.addEventListener( 'change', () => redraw(radio.value),false);
+            radio.addEventListener( 'change', () => redraw(data,radio.value),false);
         }
     }
 
