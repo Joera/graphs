@@ -8,7 +8,7 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         // kun je dit meegeven als conditional
 
         if(config.minValue) {
-            minValue = d3.min(data, d => d[property]) *.75;
+            minValue = 0; //d3.min(data, d => d[property]) *.75;
         } else {
             minValue = 0; //
         }
@@ -55,12 +55,12 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             })])
             .range([0.3,1]);
 
-        // scale.band = d3.scaleBand()
-        //     .domain(data.map(d => { return d[config.xParameter]   }))
-        //     .paddingInner(config.paddingInner)
-        //     .paddingOuter(config.paddingOuter)
-        //     .align([0.5])
-        //
+        scale.band = d3.scaleBand()
+            .domain(data.map(d => { return d[config.xParameter]   }))
+            .paddingInner(config.paddingInner)
+            .paddingOuter(config.paddingOuter)
+            .align([0.5])
+
         return scale;
 
     }
@@ -77,8 +77,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         newScale.stackedNormalized
             .range([(config.fixedHeight || dimensions.height), 0]);
 
-        // newScale.band
-        //     .range([0,dimensions.height]);
+        newScale.band
+            .range([0,dimensions.height]);
 
         newScale.radius
             .range([6, (dimensions.width / config.radiusFactor)]);
