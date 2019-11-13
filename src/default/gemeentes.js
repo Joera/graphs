@@ -100,27 +100,30 @@ var gemeentes = function(element,dataMapping,property) {
     }
 
     function createDropdown() {
+        
+        if(dropdown) {
 
-        dataMapping.forEach( (mapping,i) => {
+            dataMapping.forEach((mapping, i) => {
 
-            let li = document.createElement('li');
-            let input = document.createElement('input');
-            input.type = 'radio';
-            input.name = 'property';
-            input.id = mapping.column;
-            input.value = mapping.column;
-            input.checked = (i < 1) ? true : false;
-            li.appendChild(input);
+                let li = document.createElement('li');
+                let input = document.createElement('input');
+                input.type = 'radio';
+                input.name = 'property';
+                input.id = mapping.column;
+                input.value = mapping.column;
+                input.checked = (i < 1) ? true : false;
+                li.appendChild(input);
 
-            let label = document.createElement('label');
-            label.innerText = mapping.label;
-            label.htmlFor = mapping.column;
+                let label = document.createElement('label');
+                label.innerText = mapping.label;
+                label.htmlFor = mapping.column;
 
-            li.appendChild(label);
+                li.appendChild(label);
 
-            dropdown.appendChild(li);
-        });
+                dropdown.appendChild(li);
+            });
 
+        }
     }
 
     function setListeners(features,property) {
