@@ -104,6 +104,8 @@ var gemeentes = function(element,dataMapping,property) {
 
         dataMapping.forEach( (mapping,i) => {
 
+            console.log('hvjhvjv');
+
             let li = document.createElement('li');
             let input = document.createElement('input');
             input.type = 'radio';
