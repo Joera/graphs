@@ -150,7 +150,7 @@
         grid-column: 5 / span 4;
         grid-row: 1 / span 4;
 
-        .map-input-container svg {
+        .container svg {
           margin: -300px 0 0 0;
         }
       }
@@ -275,6 +275,16 @@
     //
 
     //}
+  }
+
+  .map {
+
+
+
+    .container {
+
+      height: 100%;
+    }
   }
 
   ul {
