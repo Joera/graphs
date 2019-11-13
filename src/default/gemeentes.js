@@ -79,10 +79,12 @@ var gemeentes = function(element,dataMapping) {
     function run(json,property) {
 
         let features = prepareData(json);
+        createDropdown();
+        setListeners(features,property);
         chartMap.draw(features);
         redraw(features, property);
 
-        setListeners(features,property);
+
     }
 
     function getData() {
