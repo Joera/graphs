@@ -70,9 +70,6 @@
 
     <section id="deze-week" class="page">
 
-
-
-
         <article id="map" class="map">
             <div class="container"></div>
         </article>
@@ -80,10 +77,6 @@
     </section>
 
     <section id="voortgang" class="page">
-
-
-
-
 
 
     </section>
@@ -217,6 +210,8 @@
                 page.style.display = 'grid';
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
+
+                    console.log(window[vis.getAttribute('data-script')](vis.querySelector('.container'),true,vis.getAttribute('data-property')));
                     window[vis.getAttribute('data-script')](vis.querySelector('.container'),true,vis.getAttribute('data-property'));
                 }
 
