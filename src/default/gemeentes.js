@@ -1,7 +1,6 @@
 var gemeentes = function(element,dataMapping,property) {
 
     let dropdown = document.querySelector('.map-selector ul');
-    let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
@@ -125,6 +124,9 @@ var gemeentes = function(element,dataMapping,property) {
     }
 
     function setListeners(features,property) {
+
+
+        let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
         window.addEventListener("resize", redraw(features, property), false);
 
