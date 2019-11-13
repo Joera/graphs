@@ -109,7 +109,8 @@ var gemeentes = function(element,dataMapping,property) {
             input.type = 'radio';
             input.name = 'property';
             input.id = mapping.column;
-            input.checked = (i === 1) ? true : false;
+            input.value = mapping.column;
+            input.checked = (i < 1) ? true : false;
             li.appendChild(input);
 
             let label = document.createElement('label');
