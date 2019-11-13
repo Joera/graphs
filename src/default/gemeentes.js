@@ -1,5 +1,6 @@
-var gemeentes = function(element,smallMultiple,property) {
+var gemeentes = function(element,dataMapping) {
 
+    let dropdpown = document.querySelectorAll('.map-selector ul');
     let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
     let chartObjects = ChartObjects();
@@ -96,6 +97,29 @@ var gemeentes = function(element,smallMultiple,property) {
 
             run(globalData.municipalities,property)
         }
+    }
+
+    function createDropdown() {
+
+        dataMapping.forEach( (mapping,i) => {
+
+
+            let li = document.createElement('li');
+            let input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'property';
+            input.id = mapping.column;
+            input.checked = (i === 1) ? true : false;
+            li.appendChild(input);
+
+            let label = document.createElement('label');
+            label.for = mapping.column;
+
+            li.appendChild(label);
+
+            dropdown.appendChild(li);
+        });
+
     }
 
     function setListeners(features,property) {
