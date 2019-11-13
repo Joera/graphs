@@ -128,6 +128,8 @@ var gemeentes = function(element,dataMapping,property) {
 
         window.addEventListener("resize", redraw(features, property), false);
 
+        console.log('ff');
+
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
                 console.log(radio.value);
