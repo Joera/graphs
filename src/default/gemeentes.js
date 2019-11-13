@@ -1,4 +1,4 @@
-var gemeentes = function(element,dataMapping) {
+var gemeentes = function(element,dataMapping,property) {
 
     let dropdpown = document.querySelectorAll('.map-selector ul');
     let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
@@ -74,7 +74,6 @@ var gemeentes = function(element,dataMapping) {
     }
 
     let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
-    if(!property) { property = 'schademeldingen' }
 
     function run(json,property) {
 
