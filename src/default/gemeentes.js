@@ -78,12 +78,12 @@ var gemeentes = function(element,dataMapping,property) {
     function run(json,property) {
 
         let features = prepareData(json);
-        createDropdown();
-        setListeners(features,property);
+
         chartMap.draw(features);
         redraw(features, property);
 
-
+        createDropdown();
+        setListeners(features,property);
     }
 
     function getData() {
@@ -103,7 +103,6 @@ var gemeentes = function(element,dataMapping,property) {
     function createDropdown() {
 
         dataMapping.forEach( (mapping,i) => {
-
 
             let li = document.createElement('li');
             let input = document.createElement('input');
