@@ -115,7 +115,8 @@ var gemeentes = function(element,dataMapping,property) {
             li.appendChild(input);
 
             let label = document.createElement('label');
-            label.for = mapping.column;
+            label.innerText = mapping.label;
+            label.htmlFor = mapping.column;
 
             li.appendChild(label);
 
