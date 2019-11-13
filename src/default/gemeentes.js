@@ -100,7 +100,7 @@ var gemeentes = function(element,dataMapping,property) {
     }
 
     function createDropdown() {
-        
+
         if(dropdown) {
 
             dataMapping.forEach((mapping, i) => {
