@@ -1,6 +1,6 @@
 var gemeentes = function(element,dataMapping,property) {
 
-    let dropdpown = document.querySelectorAll('.map-selector ul');
+    let dropdown = document.querySelectorAll('.map-selector ul');
     let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
     let chartObjects = ChartObjects();
