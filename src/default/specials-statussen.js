@@ -29,17 +29,9 @@ var specialsStatussen  = function (element,smallMultiple) {
     config.padding.bottom = 50;
     config.padding.left = 30;
     config.padding.right = 0;
-    // name of first column with values of bands on x axis
 
-    // y-axis
-    config.yParameter = 'totaal';
-    // config.minValue = 0;
-    // config.maxValue = 10000;
-    // config.fixedHeight = 200;
-
-    // x-axis
-    // config.minWidth = 460;
-    config.xParameter = 'status';
+    config.xParameter = 'key';
+    config.yParameter = 'value';
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
