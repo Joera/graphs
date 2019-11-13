@@ -1,5 +1,12 @@
 var specialsStatussen  = function (element,smallMultiple) {
 
+    let dataMapping = [
+        { "Ontvangst en analyse" : "SPECIALS_ONTVANGST" },
+        { "Schade-opname wordt ingepland" : "SPECIALS_PLANNING_OPNAME" },
+        { "Schade-opname uitgevoerd, adviesrapport opleveren" : "SPECIALS_OPLEV_SCHADERAPP" },
+        { "Besluit genomen" : "SPECIALS_BESCHIKT" }
+    ]
+
 
     let municipalitySelect = document.querySelector('select.municipalities');
 
@@ -59,37 +66,44 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         let data = [];
 
-        data.push({
-            status: "Ontvangst en analyse",
-            totaal: json['SPECIALS_ONTVANGST']
+        for (let mapping of dataMapping) {
+            data.push({
+                key: Object.keys(mapping)[0],
+                value: json[Object.values(mapping)[0]]
+            });
+        }
 
-        });
-
-        data.push({
-            status: "Schade-opname wordt ingepland",
-            totaal: json['SPECIALS_PLANNING_OPNAME']
-
-        });
-
-
-        data.push({
-            status: "Schade-opname uitgevoerd, adviesrapport opleveren",
-            totaal: json['SPECIALS_OPLEV_SCHADERAPP']
-
-        });
-
-
-        data.push({
-            status: "Adviesrapport opgeleverd, besluit voorbereiden",
-            totaal: json['SPECIALS_VOORBER_CIE']
-
-        });
-
-        data.push({
-            status: "Besluit genomen",
-            totaal: json['SPECIALS_BESCHIKT']
-
-        });
+        // data.push({
+        //     status: "Ontvangst en analyse",
+        //     totaal: json['SPECIALS_ONTVANGST']
+        //
+        // });
+        //
+        // data.push({
+        //     status: "Schade-opname wordt ingepland",
+        //     totaal: json['SPECIALS_PLANNING_OPNAME']
+        //
+        // });
+        //
+        //
+        // data.push({
+        //     status: "Schade-opname uitgevoerd, adviesrapport opleveren",
+        //     totaal: json['SPECIALS_OPLEV_SCHADERAPP']
+        //
+        // });
+        //
+        //
+        // data.push({
+        //     status: "Adviesrapport opgeleverd, besluit voorbereiden",
+        //     totaal: json['SPECIALS_VOORBER_CIE']
+        //
+        // });
+        //
+        // data.push({
+        //     status: "Besluit genomen",
+        //     totaal: json['SPECIALS_BESCHIKT']
+        //
+        // });
 
 
         console.log(data);
