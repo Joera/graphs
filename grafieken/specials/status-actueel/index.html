@@ -25,10 +25,24 @@
 <script>
 
     const dataMapping = [
-        { "Ontvangst en analyse" : "SPECIALS_ONTVANGST" },
-        { "Schade-opname wordt ingepland" : "SPECIALS_PLANNING_OPNAME" },
-        { "Schade-opname uitgevoerd, adviesrapport opleveren" : "SPECIALS_OPLEV_SCHADERAPP" },
-        { "Besluit genomen" : "SPECIALS_BESCHIKT" }
+
+        {   label : "Ontvangst en analyse",
+            column : "SPECIALS_ONTVANGST",
+            colour : "orange"
+        },
+        {
+            label: "Schade-opname wordt ingepland",
+            column: "SPECIALS_PLANNING_OPNAME",
+            colour: "green"
+        },
+        {   label : "Schade-opname uitgevoerd, adviesrapport opleveren",
+            column : "SPECIALS_OPLEV_SCHADERAPP",
+            colour : "darkblue"
+        },
+        {   label : "Besluit genomen",
+            column : "SPECIALS_BESCHIKT",
+            colour: "blue"
+        }
     ];
 
     specialsStatussen('#container', dataMapping);

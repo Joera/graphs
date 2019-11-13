@@ -30,7 +30,6 @@ var specialsStatussen  = function (element,dataMapping,smallMultiple) {
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
-    let colours = ['orange','green','darkblue','blue','green'];
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element, config);
@@ -58,43 +57,11 @@ var specialsStatussen  = function (element,dataMapping,smallMultiple) {
             console.log(mapping);
 
             data.push({
-                key: Object.keys(mapping)[0],
-                value: json[Object.values(mapping)[0]]
+                key: mapping.label,
+                value: json[mapping.column],
+                colour: mapping.colour
             });
         }
-
-        // data.push({
-        //     status: "Ontvangst en analyse",
-        //     totaal: json['SPECIALS_ONTVANGST']
-        //
-        // });
-        //
-        // data.push({
-        //     status: "Schade-opname wordt ingepland",
-        //     totaal: json['SPECIALS_PLANNING_OPNAME']
-        //
-        // });
-        //
-        //
-        // data.push({
-        //     status: "Schade-opname uitgevoerd, adviesrapport opleveren",
-        //     totaal: json['SPECIALS_OPLEV_SCHADERAPP']
-        //
-        // });
-        //
-        //
-        // data.push({
-        //     status: "Adviesrapport opgeleverd, besluit voorbereiden",
-        //     totaal: json['SPECIALS_VOORBER_CIE']
-        //
-        // });
-        //
-        // data.push({
-        //     status: "Besluit genomen",
-        //     totaal: json['SPECIALS_BESCHIKT']
-        //
-        // });
-
 
         console.log(data);
 
@@ -158,7 +125,7 @@ var specialsStatussen  = function (element,dataMapping,smallMultiple) {
         xScale = chartXScale.set(data.map(d => d[config.xParameter]));
         yScale = chartYScale.set(data,config.yParameter);
         // width data we can draw items
-        chartBar.draw(data, colours);
+        chartBar.draw(data, data.map( (d) => d.colour);
 
     }
 
