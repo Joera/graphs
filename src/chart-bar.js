@@ -72,11 +72,11 @@ let ChartBar = function ChartBar(config,svg) {
 
                 if(config.currencyLabels) {
 
-                    return convertToCurrency(d.totaal);
+                    return convertToCurrency(d[config.yParameter]);
 
                 } else {
 
-                    return d.totaal ? d.totaal : '< 25';
+                    return d[config.yParameter] ? d[config.yParameter] : '< 25';
                 }
 
 

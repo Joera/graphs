@@ -6,11 +6,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css">
 
-<style>
-
-
-</style>
-
+<style></style>
 
 <script src="/assets/scripts/d3.min.js"></script>
 <script src="/assets/scripts/main.js"></script>
@@ -26,9 +22,16 @@
 </main>
 </body>
 
-
 <script>
-    specialsStatussen('#container');
+
+    const dataMapping = [
+        { "Ontvangst en analyse" : "SPECIALS_ONTVANGST" },
+        { "Schade-opname wordt ingepland" : "SPECIALS_PLANNING_OPNAME" },
+        { "Schade-opname uitgevoerd, adviesrapport opleveren" : "SPECIALS_OPLEV_SCHADERAPP" },
+        { "Besluit genomen" : "SPECIALS_BESCHIKT" }
+    ];
+
+    specialsStatussen('#container', dataMapping);
 </script>
 
 

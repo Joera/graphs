@@ -1,11 +1,6 @@
-var specialsStatussen  = function (element,smallMultiple) {
+var specialsStatussen  = function (element,dataMapping,smallMultiple) {
 
-    let dataMapping = [
-        { "Ontvangst en analyse" : "SPECIALS_ONTVANGST" },
-        { "Schade-opname wordt ingepland" : "SPECIALS_PLANNING_OPNAME" },
-        { "Schade-opname uitgevoerd, adviesrapport opleveren" : "SPECIALS_OPLEV_SCHADERAPP" },
-        { "Besluit genomen" : "SPECIALS_BESCHIKT" }
-    ]
+
 
 
     let municipalitySelect = document.querySelector('select.municipalities');
