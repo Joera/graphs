@@ -67,6 +67,9 @@ var specialsStatussen  = function (element,smallMultiple) {
         let data = [];
 
         for (let mapping of dataMapping) {
+
+            console.log(mapping);
+
             data.push({
                 key: Object.keys(mapping)[0],
                 value: json[Object.values(mapping)[0]]
