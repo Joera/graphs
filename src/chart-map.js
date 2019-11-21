@@ -72,7 +72,10 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             })
             .attr("fill-opacity", function (d, i) {
 
-                console.log(d.properties[property]);
+                console.log(d.properties);
+                console.log(property);
+
+             //   console.log(d.properties[property]);
 
                 if(d.properties[property] > 0) {
                     return yScale.map(d.properties[property]);
