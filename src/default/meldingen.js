@@ -59,9 +59,19 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
     function prepareData(json,property)  {
 
-        console.log(json);
+        let neededColumns = ['_date','_category'];
 
-        let data = json.sort(function(a, b) {
+        neededColumns.push(dataMapping.map( (c) => c.column ));
+
+        console.log(neededColumns);
+
+        let data = json.filter( (i) => {
+
+            console.log(i);
+
+            return;
+
+        }).sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
         });
 
