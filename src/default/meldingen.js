@@ -37,7 +37,7 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
         config.dataArrayLength = 7;
     }
 
-    let colours = ['green','orange'];
+    let colours = dataMapping.map( (p) => p.colour);
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(elementID,config);
@@ -58,6 +58,8 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
     if (!property) { property = 'schademeldingen' }
 
     function prepareData(json,property)  {
+
+        console.log(json);
 
         let data = json.reverse();
 
