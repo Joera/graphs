@@ -71,19 +71,18 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
             let weekData = Object.keys(week).filter((i) => {
 
-                console.log(i);
-
-                return;
+                return neededColumns.indexOf(i) > -1;
 
             });
 
             data.push(weekData);
-
         }
 
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
         });
+
+        console.log(data);
 
         let minBarWidth = 50;
 
