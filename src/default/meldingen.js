@@ -59,6 +59,8 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
     function prepareData(json,property)  {
 
+        console.log(json);
+
         let neededColumns = ['_date','_category'].concat(dataMapping.map( (c) => c.column ));
 
         let data = [];
@@ -82,6 +84,8 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
         let elWidth = d3.select(elementID).node().getBoundingClientRect().width;
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
+
+        console.log(data);
 
         return data;
     }
