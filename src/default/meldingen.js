@@ -69,7 +69,7 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
             console.log(week);
 
-            let weekData = week.filter((i) => {
+            let weekData = Object.keys(week).filter((i) => {
 
                 console.log(i);
 
