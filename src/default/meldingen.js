@@ -59,19 +59,27 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
     function prepareData(json,property)  {
 
-        let neededColumns = ['_date','_category'];
-
-        neededColumns.push(dataMapping.map( (c) => c.column ));
+        let neededColumns = ['_date','_category'].concat(dataMapping.map( (c) => c.column ));
 
         console.log(neededColumns);
 
-        let data = json.filter( (i) => {
+        let data = [];
 
-            console.log(i);
+        for (let week in json) {
 
-            return;
+            let weekData = week.filter((i) => {
 
-        }).sort(function(a, b) {
+                console.log(i);
+
+                return;
+
+            });
+
+            data.push(weekData);
+
+        }
+
+        data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
         });
 
