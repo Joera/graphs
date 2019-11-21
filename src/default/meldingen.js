@@ -67,7 +67,7 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
 
         for (let week of json) {
-            
+
             let o = {};
 
             for (let p of Object.entries(week))  {
