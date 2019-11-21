@@ -61,7 +61,9 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
         console.log(json);
 
-        let data = json.reverse();
+        let data = json.sort(function(a, b) {
+            return new Date(a._date) - new Date(b._date);
+        });
 
         let minBarWidth = 50;
 
