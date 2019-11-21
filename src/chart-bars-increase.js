@@ -16,11 +16,10 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.barEnter = svg.bar
             .enter()
             .append("rect")
-            .attr("class", "bar")
-            .style("fill", function(d) {
-
-                return colours[0];
+            .attr("class", function(d) {
+                return 'bar ' + colours[0];
             });
+
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data);
