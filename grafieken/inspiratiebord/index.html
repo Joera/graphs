@@ -68,8 +68,8 @@
         <ul>
             <li class="active" data-nav="deze-week"><span>Vorige week</span></li>
             <li data-nav="voortgang"><span>Voortgang</span></li>
-            <li data-nav="meldingen"><span>Schade-meldingen</span></li>
-            <li data-nav="meldingen"><span>AOS-meldingen</span></li>
+            <li data-nav="schade-meldingen"><span>Schade-meldingen</span></li>
+            <li data-nav="aos-meldingen"><span>AOS-meldingen</span></li>
             <li data-nav="schade-opnames"><span>Schade-opnames</span></li>
             <li data-nav="schadevergoedingen"><span>Schadevergoedingen</span></li>
             <li data-nav="stuwmeerregeleing"><span>Stuwmeerregeling</span></li>
@@ -89,19 +89,27 @@
 
     </section>
 
-    <section id="meldingen" class="page">
+    <section id="schade-meldingen" class="page">
 
         <article id="schademeldingen" data-script="meldingen">
             <h3>Schademeldingen</h3>
             <div class="container"></div>
         </article>
 
-        <article id="aosmeldingen" data-script="aosMeldingen">
+        <article id="map-schade-meldingen" class="map" data-script="gemeentes" data-property="schademeldingen">
+            <div class="container"></div>
+        </article>
+
+    </section>
+
+    <section id="aos-meldingen" class="page">
+
+        <article id="aosmeldingen" data-script="meldingen">
             <h3>AOS meldingen</h3>
             <div class="container"></div>
         </article>
 
-        <article id="map-meldingen" class="map" data-script="gemeentes" data-property="schademeldingen">
+        <article id="map-aos-meldingen" class="map" data-script="gemeentes" data-property="schademeldingen">
             <div class="container"></div>
         </article>
 
@@ -188,12 +196,20 @@
 
     const dataMapping = {
 
-        'map-meldingen' : [
+        'map-schade-meldingen' : [
 
             {
                 label: 'Schademeldingen',
                 column: 'schademeldingen',
                 colour: 'orange'
+            }
+        ],
+        'map-aos-meldingen' : [
+
+            {
+                label: 'AOS meldingen',
+                column: 'schademeldingen',
+                colour: 'blue'
             }
         ]
 
