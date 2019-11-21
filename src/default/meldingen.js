@@ -65,19 +65,20 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
         let data = [];
 
+
         for (let week of json) {
 
-            console.log(week);
+            for (let p of Object.entries(week))  {
 
-            let weekData = Object.entries(week).filter((i) => {
+                let o = {};
 
-                console.log(i);
+                if (neededColumns.indexOf(p[0]) > -1 ) {
 
-                return neededColumns.indexOf(i) > -1;
+                      o[p[0]] = p[1];
+                }
+            }
 
-            });
-
-            data.push(weekData);
+            data.push(o);
         }
 
         data.sort(function(a, b) {
