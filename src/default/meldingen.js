@@ -69,7 +69,9 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
             console.log(week);
 
-            let weekData = Object.keys(week).filter((i) => {
+            let weekData = Object.entries(week).filter((i) => {
+
+                console.log(i);
 
                 return neededColumns.indexOf(i) > -1;
 
