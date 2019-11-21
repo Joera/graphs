@@ -93,6 +93,8 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
     function redraw(data,property) {
 
+        console.log(property);
+
         yScale = chartYScale.set(data,property);
 
         // on redraw chart gets new dimensions
