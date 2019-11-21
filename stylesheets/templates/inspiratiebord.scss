@@ -38,6 +38,10 @@
       grid-column: 2;
       grid-row: 3;
 
+      #muni-select {
+        margin-top: -.25rem;
+      }
+
 
     }
 
@@ -50,7 +54,6 @@
         ul {
           display: flex;
           flex-direction: row;
-          margin-top: -5rem;
 
             li {
               margin-right: 2rem;
