@@ -16,7 +16,11 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
         svg.barEnter = svg.bar
             .enter()
             .append("rect")
-            .attr("class", "bar");
+            .attr("class", "bar")
+            .style("fill", function(d) {
+
+                return colours[0];
+            });
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data);
@@ -134,17 +138,8 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr("y", function(d) { return yScale.linear(d[property]); })
             .attr("height", function(d) {
                 return dimensions.height - yScale.linear(d[property]);
-            })
-            .style("fill", function(d) {
-                if(property === 'aos_meldingen') {
-                    return darkblue;
-                } else if(property === 'gegronde_aos') {
-                    return orange;
-                }
-                else {
-                    return green;
-                }
             });
+
 
         svg.barLabels
             .merge(svg.barLabelsEnter)

@@ -61,22 +61,15 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
         let neededColumns = ['_date','_category'].concat(dataMapping.map( (c) => c.column ));
 
-        console.log(neededColumns);
-
         let data = [];
 
-
         for (let week of json) {
-
             let o = {};
-
             for (let p of Object.entries(week))  {
-
                 if (neededColumns.indexOf(p[0]) > -1 ) {
                       o[p[0]] = p[1];
                 }
             }
-
             data.push(o);
         }
 
@@ -84,23 +77,11 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
             return new Date(a._date) - new Date(b._date);
         });
 
-        console.log(data);
-
         let minBarWidth = 50;
 
         let elWidth = d3.select(elementID).node().getBoundingClientRect().width;
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
-
-        // if(config.dataArrayLength) {
-        //     data = data.slice(data.length - config.dataArrayLength,data.length);
-        // } else if (window.innerWidth < 600) {
-        //     data = data.slice(data.length - 5,data.length);
-        // } else if (window.innerWidth < 1200) {
-        //     data = data.slice(data.length - 9,data.length);
-        // } else {
-        //     data = data.slice(data.length - 16,data.length);
-        // }
 
         return data;
     }
