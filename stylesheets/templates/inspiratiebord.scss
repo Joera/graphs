@@ -132,9 +132,19 @@
         }
     }
 
-    section#schade-meldingen {
+    section#meldingen {
 
       #schademeldingen {
+
+        grid-column: 1 / span 4;
+        grid-row: 1 / span 2;
+
+        svg {
+          overflow: visible;
+        }
+      }
+
+      #bars-aos-meldingen {
 
         grid-column: 1 / span 4;
         grid-row: 1 / span 2;
@@ -167,15 +177,7 @@
 
     section#aos-meldingen {
 
-      #bars-aos-meldingen {
 
-        grid-column: 1 / span 4;
-        grid-row: 1 / span 2;
-
-        svg {
-          overflow: visible;
-        }
-      }
 
       #map-aos-meldingen {
 

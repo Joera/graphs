@@ -68,8 +68,7 @@
         <ul>
             <li class="active" data-nav="deze-week"><span>Vorige week</span></li>
             <li data-nav="voortgang"><span>Voortgang</span></li>
-            <li data-nav="schade-meldingen"><span>Schade-meldingen</span></li>
-            <li data-nav="aos-meldingen"><span>AOS-meldingen</span></li>
+            <li data-nav="meldingen"><span>Meldingen</span></li>
             <li data-nav="schade-opnames"><span>Schade-opnames</span></li>
             <li data-nav="schadevergoedingen"><span>Schadevergoedingen</span></li>
             <li data-nav="stuwmeerregeleing"><span>Stuwmeerregeling</span></li>
@@ -89,10 +88,15 @@
 
     </section>
 
-    <section id="schade-meldingen" class="page">
+    <section id="meldingen" class="page">
 
-        <article id="schademeldingen" data-script="meldingen" data-property="schademeldingen">
+        <article id="bars-schade-meldingen" data-script="meldingen" data-property="schademeldingen">
             <h3>Schademeldingen</h3>
+            <div class="container"></div>
+        </article>
+
+        <article id="bars-aos-meldingen" data-script="meldingen" data-property="aos_meldingen">
+            <h3>AOS meldingen</h3>
             <div class="container"></div>
         </article>
 
@@ -102,18 +106,6 @@
 
     </section>
 
-    <section id="aos-meldingen" class="page">
-
-        <article id="bars-aos-meldingen" data-script="meldingen" data-property="aos_meldingen">
-            <h3>AOS meldingen</h3>
-            <div class="container"></div>
-        </article>
-
-        <article id="map-aos-meldingen" class="map" data-script="gemeentes" data-property="totaal-verleend">
-            <div class="container"></div>
-        </article>
-
-    </section>
 
     <section id="schade-opnames" class="page">
 
@@ -196,7 +188,7 @@
 
     const dataMapping = {
 
-        'schademeldingen' : [
+        'bars-schade-meldingen' : [
 
             {
                 label: 'Schademeldingen',
@@ -204,7 +196,7 @@
                 colour: 'orange'
             },
             {
-                label: 'AOS meldingen',
+                label: '',
                 column: 'nieuwe_schademeldingen',
                 colour: 'orange'
             }
@@ -225,7 +217,7 @@
                 colour: 'blue'
             },
             {
-                label: 'AOS meldingen',
+                label: '',
                 column: 'nieuwe_aos_meldingen',
                 colour: 'blue'
             }
