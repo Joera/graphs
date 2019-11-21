@@ -63,7 +63,7 @@ var meldingen = function(element,dataMapping,property,smallMultiple) {
 
         let minBarWidth = 50;
 
-        console.log(Math.floor(element.innerWidth / minBarWidth));
+        console.log(element.innerWidth);
 
         data = data.slice(data.length - Math.floor(element.innerWidth / minBarWidth),data.length);
 
