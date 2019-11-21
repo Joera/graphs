@@ -65,7 +65,7 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
         let data = [];
 
-        for (let week in json) {
+        for (let week of json) {
 
             let weekData = week.filter((i) => {
 
