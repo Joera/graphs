@@ -39,23 +39,26 @@ var gemeentes = function(element,dataMapping,property) {
 
     function prepareData(json,property)  {
 
-        globalData.mapFeatures.forEach( (feature) => {
+        console.log(property);
+        console.log(json);
 
-            let gemeenteData = json.find( (g) => {
-                return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
-            });
+        // json.forEach( (feature) => {
+        //
+        //
+        //
+        //     let gemeenteData = json.find( (g) => {
+        //         return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
+        //     });
+        //
+        //     for (let key in gemeenteData) {
+        //         gemeenteData[sluggify(key)] = gemeenteData[key];
+        //     }
+        //
+        //     feature.properties = Object.assign({}, feature.properties, gemeenteData);
+        // });
 
-            for (let key in gemeenteData) {
-                gemeenteData[sluggify(key)] = gemeenteData[key];
-            }
 
-            feature.properties = Object.assign({}, feature.properties, gemeenteData);
-        });
-
-
-        console.log(globalData.mapFeatures);
-
-        return globalData.mapFeatures;
+        return json;
     }
 
 
@@ -74,31 +77,17 @@ var gemeentes = function(element,dataMapping,property) {
         chartMap.redraw(dimensions,property,yScale,colours);
     }
 
-    let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
+    let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
 
-    function run(json,property) {
+    function run(geoData,property) {
 
-        let features = prepareData(json);
+        let features = prepareData(geoData,property);
 
         chartMap.draw(features);
         redraw(features, property);
 
         createDropdown();
         setListeners(features,property);
-    }
-
-    function getData() {
-        if (!globalData.municipalities) {
-            d3.json(url, function(error, json) {
-                if (error) throw error
-                globalData.municipalities = json;
-                run(json,property)
-            });
-
-        } else {
-
-            run(globalData.municipalities,property)
-        }
     }
 
     function createDropdown() {
@@ -143,18 +132,16 @@ var gemeentes = function(element,dataMapping,property) {
         }
     }
 
+    if (!globalData.geoData) {
+        d3.json(url, function(error, json) {
 
-    if (!globalData.mapFeatures) {
-
-        d3.json("/assets/geojson/topojson.json", function (error, mapData) {
-            globalData.mapFeatures = topojson.feature(mapData, mapData.objects.gemeenten).features;
-            getData();
+            globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
+            run(globalData.geoData,property)
         });
 
-    }  else {
+    } else {
 
-        getData();
-
+        run(globalData.geoData,property)
     }
 
 
