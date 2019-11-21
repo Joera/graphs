@@ -93,7 +93,7 @@
             <div class="container"></div>
         </article>
 
-        <article id="map-meldingen" class="map" data-script="gemeenten" data-property="meldingen">
+        <article id="map-meldingen" class="map" data-script="gemeenten" data-property="schademeldingen">
             <div class="container"></div>
         </article>
 
@@ -211,7 +211,10 @@
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
 
-                    console.log(window[vis.getAttribute('data-script')](vis.querySelector('.container'),true,vis.getAttribute('data-property')));
+                    // clear html in containers
+                    vis.querySelector('.container').innerHTML = '';
+
+                    // uniformize props in function
                     window[vis.getAttribute('data-script')](vis.querySelector('.container'),true,vis.getAttribute('data-property'));
                 }
 
