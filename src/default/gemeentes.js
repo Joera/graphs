@@ -39,8 +39,10 @@ var gemeentes = function(element,dataMapping,property) {
 
     function prepareData(json,property)  {
 
-        console.log(property);
-        console.log(json);
+        // console.log(property);
+        // console.log(json);
+
+        // willen we hier nog filteren .. of is een object in geheugen ?
 
         // json.forEach( (feature) => {
         //
