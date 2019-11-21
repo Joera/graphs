@@ -24,7 +24,7 @@
 
       display: grid;
       grid-template-columns: auto 12rem 80rem auto;
-      grid-template-rows: 6rem 2rem auto;
+      grid-template-rows: 4rem 2rem auto;
       justify-content: center;
     }
 
@@ -45,6 +45,7 @@
 
       grid-column: 3;
       grid-row: 2;
+      padding-bottom: 3rem;
 
         ul {
           display: flex;
