@@ -214,8 +214,8 @@
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
-                    // uniformize props in function
-                    window[vis.getAttribute('data-script')](vis.querySelector('.container'),true,vis.getAttribute('data-property'));
+                    // uniformize props in function --> window[method](el,smallMultiple,property)
+                    window[vis.getAttribute('data-script')](vis.querySelector('.container'),false,vis.getAttribute('data-property'));
                 }
 
             } else {
