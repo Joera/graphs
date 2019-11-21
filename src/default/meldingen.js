@@ -63,9 +63,9 @@ var meldingen = function(element,dataMapping,property,smallMultiple) {
 
         let minBarWidth = 50;
 
-        console.log(element.innerWidth);
+        let elWidth = d3.select(element).node().getBoundingClientRect().width;
 
-        data = data.slice(data.length - Math.floor(element.innerWidth / minBarWidth),data.length);
+        data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
         // if(config.dataArrayLength) {
         //     data = data.slice(data.length - config.dataArrayLength,data.length);
