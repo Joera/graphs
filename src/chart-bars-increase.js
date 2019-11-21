@@ -170,7 +170,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
             //    xOffset = dimensions.width / (2 * dataArray.length);
 
-                yOffset = 10; // for centered ->  ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
+                yOffset = 0; // for centered ->  ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
                 // return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
                 //     (yScale.linear(d[property]) - yOffset + (xScale.band.bandwidth() / 4))
