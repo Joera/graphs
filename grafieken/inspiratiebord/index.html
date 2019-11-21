@@ -59,7 +59,7 @@
 
     <section id="menu">
         <ul>
-            <li class="active" data-nav="deze-week"><span>Deze week</span></li>
+            <li class="active" data-nav="deze-week"><span>Vorige week</span></li>
             <li data-nav="voortgang"><span>Voortgang</span></li>
             <li data-nav="meldingen"><span>Meldingen</span></li>
             <li data-nav="schade-opnames"><span>Schade-opnames</span></li>
@@ -178,26 +178,40 @@
 
 <script>
 
-    // let globalData = {};
+    const dataMapping = {
 
-    // bedragen('#bedragen .container', true);
-    // verdeling('#verdeling .container', true);
-  //  gemeentes('#map-meldingen .map-container');
+        'map-meldingen' : [
 
-    // meldingen('#schademeldingen .container', true);
-    // aosMeldingen('#aosmeldingen .container', true);
-    // pieChartOpnames('#taart-opnames');
+            {
+                label: 'Schademeldingen',
+                column: 'schademeldingen',
+                colour: 'orange'
+            }
+        ]
+
+    }
+
+        // let globalData = {};
+
+        // bedragen('#bedragen .container', true);
+        // verdeling('#verdeling .container', true);
+        //  gemeentes('#map-meldingen .map-container');
+
+        // meldingen('#schademeldingen .container', true);
+        // aosMeldingen('#aosmeldingen .container', true);
+        // pieChartOpnames('#taart-opnames');
 
 
-    // statussen('#status-actueel .container', true);
-    // opnames('#besluiten .container', true);
-    // voortgang('#voortgang .container', true);
-    // candles('#candles .container', true);
-    // pieChartSum('#som .container',true);
-    // pieChartHerkomst('#herkomst .container',true);
-    // pieChartOpnames('#opnames .container', true);
+        // statussen('#status-actueel .container', true);
+        // opnames('#besluiten .container', true);
+        // voortgang('#voortgang .container', true);
+        // candles('#candles .container', true);
+        // pieChartSum('#som .container',true);
+        // pieChartHerkomst('#herkomst .container',true);
+        // pieChartOpnames('#opnames .container', true);
 
-    let municipalityOptions = [].slice.call(document.querySelectorAll('ul#muni-select li'));
+        let
+    } municipalityOptions = [].slice.call(document.querySelectorAll('ul#muni-select li'));
     let menuOptions = [].slice.call(document.querySelectorAll('#menu ul li'));
     let pages = [].slice.call(document.querySelectorAll('section.page'));
 
@@ -214,8 +228,8 @@
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
-                    // uniformize props in function --> window[method](el,smallMultiple,property)
-                    window[vis.getAttribute('data-script')](vis.querySelector('.container'),false,vis.getAttribute('data-property'));
+                    // uniformize props in function --> window[method](el,dataMapping,property,smallMultiple)
+                    window[vis.getAttribute('data-script')](vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'));
                 }
 
             } else {

@@ -1,4 +1,4 @@
-var meldingen = function(element,smallMultiple,property) {
+var meldingen = function(element,dataMapping,property,smallMultiple) {
 
     // if(typeof element === 'string') {
     //     console.log('hi');
