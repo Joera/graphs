@@ -71,7 +71,7 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                 }
             })
             .attr("fill-opacity", function (d, i) {
-                
+
 
              //   console.log(d.properties[property]);
 
