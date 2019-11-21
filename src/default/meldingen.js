@@ -59,8 +59,6 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
     function prepareData(json,property)  {
 
-        console.log(json);
-
         let neededColumns = ['_date','_category'].concat(dataMapping.map( (c) => c.column ));
 
         let data = [];
@@ -85,15 +83,11 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
-        console.log(data);
-
         return data;
     }
 
 
     function redraw(data,property) {
-
-        console.log(property);
 
         yScale = chartYScale.set(data,property);
 

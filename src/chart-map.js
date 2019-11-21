@@ -58,14 +58,14 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .attr("text-anchor", "middle");
     }
 
-    let redraw = function redraw(dimensions,property,yScale) {
+    let redraw = function redraw(dimensions,property,yScale,colours) {
 
         svg.map
             .merge(svg.map)
             .attr("fill", function (d, i) {
 
                 if (d.properties[property] > 0) {
-                    return 'orange';
+                    return colours[0];
                 } else {
                     return '#eee';
                 }

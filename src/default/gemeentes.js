@@ -24,14 +24,14 @@ var gemeentes = function(element,dataMapping,property) {
 
     dimensions = chartDimensions.get(dimensions);
 
-   //
-
     if (window.innerWidth < 600) {
 
         Object.keys(dimensions).map(function(key, index) {
             dimensions[key] *= 1.25;
         });
     }
+
+    let colours = dataMapping.map( (p) => p.colour);
 
     chartSVG.redraw(dimensions);
 
@@ -53,6 +53,8 @@ var gemeentes = function(element,dataMapping,property) {
         });
 
 
+        console.log(globalData.mapFeatures);
+
         return globalData.mapFeatures;
     }
 
@@ -69,7 +71,7 @@ var gemeentes = function(element,dataMapping,property) {
         dimensions = chartDimensions.get(dimensions);
         chartSVG.redraw(dimensions);
         // redraw data
-        chartMap.redraw(dimensions,property,yScale);
+        chartMap.redraw(dimensions,property,yScale,colours);
     }
 
     let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
