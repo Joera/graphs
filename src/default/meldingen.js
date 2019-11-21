@@ -1,4 +1,4 @@
-var meldingen = function(element,dataMapping,property,smallMultiple) {
+var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
     // if(typeof element === 'string') {
     //     console.log('hi');
@@ -40,11 +40,11 @@ var meldingen = function(element,dataMapping,property,smallMultiple) {
     let colours = ['green','orange'];
 
     // get dimensions from parent element
-    let chartDimensions = ChartDimensions(element,config);
+    let chartDimensions = ChartDimensions(elementID,config);
     dimensions = chartDimensions.get(dimensions);
 
     // create svg elements without data
-    let chartSVG = ChartSVG(element,config,dimensions,svg);
+    let chartSVG = ChartSVG(elementID,config,dimensions,svg);
     let chartXScale =  new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
@@ -63,7 +63,7 @@ var meldingen = function(element,dataMapping,property,smallMultiple) {
 
         let minBarWidth = 50;
 
-        let elWidth = d3.select(element).node().getBoundingClientRect().width;
+        let elWidth = d3.select(elementID).node().getBoundingClientRect().width;
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
