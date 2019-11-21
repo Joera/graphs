@@ -67,13 +67,12 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
 
 
         for (let week of json) {
+            
+            let o = {};
 
             for (let p of Object.entries(week))  {
 
-                let o = {};
-
                 if (neededColumns.indexOf(p[0]) > -1 ) {
-
                       o[p[0]] = p[1];
                 }
             }
