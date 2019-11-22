@@ -85,6 +85,14 @@
             <div class="container"></div>
         </article>
 
+        <article id="map-nieuwe-opnames" class="map" data-script="gemeentes" data-property="nieuwe_OPNAMES">
+            <div class="container"></div>
+        </article>
+
+        <article id="map-nieuwe-besluiten" class="map" data-script="gemeentes" data-property="nieuwe_BESCHIKT">
+            <div class="container"></div>
+        </article>
+
     </section>
 
     <section id="voortgang" class="page">
@@ -190,14 +198,34 @@
 
 <script>
 
+
+
     const dataMapping = {
 
         'map-nieuwe-meldingen' : [
 
             {
-                label: 'Schademeldingen',
+                label: 'Schade-meldingen',
                 column: 'nieuwe_MELDING',
                 colour: 'orange'
+            }
+        ],
+
+        'map-nieuwe-opnames' : [
+
+            {
+                label: 'Schade-opnames',
+                column: 'nieuwe_OPNAMES',
+                colour: 'green'
+            }
+        ],
+
+        'map-nieuwe-besluiten' : [
+
+            {
+                label: 'Besluiten',
+                column: 'nieuwe_BESCHIKT',
+                colour: 'blue'
             }
         ],
 

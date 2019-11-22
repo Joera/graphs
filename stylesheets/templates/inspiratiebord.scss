@@ -109,6 +109,26 @@
             overflow: visible;
           }
         }
+
+        #map-nieuwe-opnames {
+
+          grid-column: 3 / span 2;
+          grid-row: 1 / span 2;
+
+          svg {
+            overflow: visible;
+          }
+        }
+
+        #map-nieuwe-besluiten {
+
+          grid-column: 5 / span 2;
+          grid-row: 1 / span 2;
+
+          svg {
+            overflow: visible;
+          }
+        }
     }
 
     section#meldingen {
