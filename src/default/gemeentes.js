@@ -79,7 +79,7 @@ var gemeentes = function(element,dataMapping,property) {
         chartMap.redraw(dimensions,property,yScale,colours);
     }
 
-    let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
+
 
     function run(geoData,property) {
 
@@ -134,9 +134,10 @@ var gemeentes = function(element,dataMapping,property) {
         }
     }
 
+    let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
+
     if (!globalData.geoData) {
         d3.json(url, function(error, json) {
-
             globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
             run(globalData.geoData,property)
         });

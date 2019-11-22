@@ -96,11 +96,11 @@
         }
     }
 
-    section#deze-week {
+    section#vorige-week {
 
         display: grid;
 
-        #schademeldingen {
+        #map-nieuwe-meldingen {
 
           grid-column: 1 / span 4;
           grid-row: 1 / span 2;
@@ -108,27 +108,6 @@
           svg {
             overflow: visible;
           }
-        }
-
-        #aosmeldingen {
-
-          grid-column: 1 / span 4;
-          grid-row: 3 / span 2;
-
-          svg {
-            overflow: visible;
-          }
-        }
-
-        #map {
-
-          grid-column: 5 / span 4;
-          grid-row: 1 / span 4;
-
-          .map-input-container svg {
-            margin: -300px 0 0 0;
-          }
-
         }
     }
 
