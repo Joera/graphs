@@ -14,12 +14,21 @@ class Cijfers {
     init() {
 
         let self = this;
-        let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
 
-        d3.json(url, function (error, json) {
-            if (error) throw error;
-            self.run(json, 'all');
-        });
+
+        if (globalData.gemeentes) {
+
+            self.run(globalData.gemeentes, 'all');
+
+        } else {
+
+            let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
+
+            d3.json(url, function (error, json) {
+                if (error) throw error;
+                self.run(json, 'all');
+            });
+        }
     }
 
     run(data,category) {
