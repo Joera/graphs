@@ -59,7 +59,7 @@ class Gemeentes {
 
         this.chartSVG.redraw(this.dimensions);
 
-        this.chartMap = ChartMap(this.config,this.svg,dimensions,this.smallMultiple);
+        this.chartMap = ChartMap(this.config,this.svg,this.dimensions,this.smallMultiple);
     }
 
     prepareData(json,property)  {
@@ -76,7 +76,7 @@ class Gemeentes {
 
         this.yScale = this.chartYScale.set(features,property);
         // on redraw chart gets new dimensions
-        this.dimensions = chartDimensions.get(this.dimensions);
+        this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG.redraw(this.dimensions);
         // redraw data
         this.chartMap.redraw(this.dimensions,property,this.yScale,this.colours);
