@@ -390,8 +390,12 @@
 
                     console.log(vis.getAttribute('data-property'));
 
+                    // instantiate class
+                    // let graph = new Gemeente(vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'),true);
+                   //  graph.init();
+
                     // uniformize props in function --> window[method](el,dataMapping,property,smallMultiple)
-                    window[vis.getAttribute('data-script')](vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'),true);
+             //       window[vis.getAttribute('data-script')](vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'),true);
                 }
 
             } else {

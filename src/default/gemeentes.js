@@ -1,102 +1,103 @@
-var gemeentes = function(element,dataMapping,property,smallMultiple) {
+class Gemeentes {
 
-    let dropdown = document.querySelector('.map-selector ul');
 
-    let chartObjects = ChartObjects();
-    let config = chartObjects.config();
-    let dimensions = chartObjects.dimensions();
-    let yScale = chartObjects.yScale();
-    let svg = chartObjects.svg();
+    constructor(element, dataMapping, property, smallMultiple) {
 
-    config.margin.top = 0;
-    config.padding.left = 0;
-    config.padding.bottom = 0;
-    config.margin.bottom = 0;
+        this.element = element;
+        this.dataMapping = dataMapping;
+        this.property = property;
+        this.smallMultiple = smallMultiple;
 
- //   config.fixedHeight = 360;
- //   config.fixedHeight = 360;
+        this.dropdown = document.querySelector('.map-selector ul');
 
-    let chartDimensions = ChartDimensions(element,config);
-    dimensions = chartDimensions.get(dimensions);
+        this.chartObjects = ChartObjects();
+        this.config = chartObjects.config();
+        this.dimensions = chartObjects.dimensions();
+        this.yScale = chartObjects.yScale();
+        this.svg = chartObjects.svg();
 
-    let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartYScale = ChartYScale(config,dimensions,yScale);
+        this.config.margin.top = 0;
+        this.config.padding.left = 0;
+        this.config.padding.bottom = 0;
+        this.config.margin.bottom = 0;
 
-    dimensions = chartDimensions.get(dimensions);
+        this.init();
 
-    if (window.innerWidth < 600) {
+        let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
 
-        Object.keys(dimensions).map(function(key, index) {
-            dimensions[key] *= 1.25;
-        });
+        if (!globalData.geoData) {
+
+            console.log('noData');
+            d3.json(url, function(error, json) {
+                globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
+                this.run(globalData.geoData,property)
+            });
+
+        } else {
+
+            console.log('hasData');
+            this.run(globalData.geoData,property)
+        }
     }
 
-    let colours = dataMapping.map( (p) => p.colour);
+    init() {
 
-    chartSVG.redraw(dimensions);
+        let chartDimensions = ChartDimensions(this.element,this.config);
+        this.dimensions = chartDimensions.get(this.dimensions);
 
-    let chartMap = ChartMap(config,svg,dimensions,smallMultiple);
+        this.chartSVG = ChartSVG(this.element,this.config,this.dimensions,this.svg);
+        this.chartYScale = ChartYScale(this.config,this.dimensions,this.yScale);
 
-    function prepareData(json,property)  {
+        if (window.innerWidth < 600) {
 
-        // console.log(property);
-        // console.log(json);
+            Object.keys(this.dimensions).map(function(key, index) {
+                this.dimensions[key] *= 1.25;
+            });
+        }
 
-        // willen we hier nog filteren .. of is een object in geheugen ?
+        this.colours = this.dataMapping.map( (p) => p.colour);
 
-        // json.forEach( (feature) => {
-        //
-        //
-        //
-        //     let gemeenteData = json.find( (g) => {
-        //         return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
-        //     });
-        //
-        //     for (let key in gemeenteData) {
-        //         gemeenteData[sluggify(key)] = gemeenteData[key];
-        //     }
-        //
-        //     feature.properties = Object.assign({}, feature.properties, gemeenteData);
-        // });
+        this.chartSVG.redraw(this.dimensions);
 
+        this.chartMap = ChartMap(this.config,this.svg,dimensions,this.smallMultiple);
+    }
+
+    prepareData(json,property)  {
 
         return json;
     }
 
-
-    function draw(features) {
+    draw(features) {
 
 
     }
 
-    function redraw(features, property) {
+    redraw(features, property) {
 
-        yScale = chartYScale.set(features,property);
+        this.yScale = this.chartYScale.set(features,property);
         // on redraw chart gets new dimensions
-        dimensions = chartDimensions.get(dimensions);
-        chartSVG.redraw(dimensions);
+        this.dimensions = chartDimensions.get(this.dimensions);
+        this.chartSVG.redraw(this.dimensions);
         // redraw data
-        chartMap.redraw(dimensions,property,yScale,colours);
+        this.chartMap.redraw(this.dimensions,property,this.yScale,this.colours);
     }
 
+    run(geoData,property) {
 
+        let features = this.prepareData(geoData,property);
 
-    function run(geoData,property) {
+        this.chartMap.draw(features);
+        this.redraw(features, property);
 
-        let features = prepareData(geoData,property);
-
-        chartMap.draw(features);
-        redraw(features, property);
-
-        createDropdown();
-        setListeners(features,property);
+        this.createDropdown();
+        this.setListeners(features,property);
     }
 
-    function createDropdown() {
+    createDropdown() {
 
-        if(dropdown) {
+        if(this.dropdown) {
 
-            dataMapping.forEach((mapping, i) => {
+            this.dataMapping.forEach((mapping, i) => {
 
                 let li = document.createElement('li');
                 let input = document.createElement('input');
@@ -113,14 +114,15 @@ var gemeentes = function(element,dataMapping,property,smallMultiple) {
 
                 li.appendChild(label);
 
-                dropdown.appendChild(li);
+                this.dropdown.appendChild(li);
             });
 
         }
     }
 
-    function setListeners(features,property) {
+    setListeners(features,property) {
 
+        let self = this;
 
         let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
@@ -128,26 +130,21 @@ var gemeentes = function(element,dataMapping,property,smallMultiple) {
 
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
-                console.log(radio.value);
-                redraw(features,radio.value);
+                self.redraw(features,radio.value);
             },false)
         }
     }
 
-    let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
+    run(geoData,property) {
 
-    if (!globalData.geoData) {
-        d3.json(url, function(error, json) {
-            globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
-            run(globalData.geoData,property)
-        });
+        let features = this.prepareData(geoData,property);
 
-    } else {
-
-        run(globalData.geoData,property)
+        this.chartMap.draw(features);
+        this.redraw(features, property);
+        this.createDropdown();
+        this.setListeners(features,property);
     }
-
-
-    // for example on window resize
-
 }
+
+
+
