@@ -126,7 +126,7 @@ class Gemeentes {
 
         let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
-        window.addEventListener("resize", redraw(features, property), false);
+        window.addEventListener("resize", self.redraw(features, property), false);
 
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
