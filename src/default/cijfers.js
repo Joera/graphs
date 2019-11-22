@@ -18,7 +18,7 @@ var cijfers = function(element,dataMapping,property,smallMultiple) {
     }
 
 
-    url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
+    let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
 
     d3.json(url, function (error, json) {
         if (error) throw error;
