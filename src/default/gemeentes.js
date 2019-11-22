@@ -1,4 +1,4 @@
-var gemeentes = function(element,dataMapping,property) {
+var gemeentes = function(element,dataMapping,property,smallMultiple) {
 
     let dropdown = document.querySelector('.map-selector ul');
 
@@ -35,7 +35,7 @@ var gemeentes = function(element,dataMapping,property) {
 
     chartSVG.redraw(dimensions);
 
-    let chartMap = ChartMap(config,svg,dimensions);
+    let chartMap = ChartMap(config,svg,dimensions,smallMultiple);
 
     function prepareData(json,property)  {
 
