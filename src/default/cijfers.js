@@ -34,8 +34,7 @@ class Cijfers {
     run(data,category) {
 
         // console.log(data.find( (d) => d['_category'] === category));
-
-        console.log(this.dataMapping);
+        let count = data.find( (d) => d['_category'] === category)[this.property];
 
         let div = document.createElement('div');
 
@@ -43,22 +42,31 @@ class Cijfers {
         number.classList.add('number');
         number.style.backgroundColor =  this.dataMapping[0].colour;
 
-        number.innerText = data.find( (d) => d['_category'] === category)[this.property];
+        number.innerText = count;
 
         div.appendChild(number);
 
-        this.element.appendChild(div);
+
 
 
         if(this.dataMapping[1]) {
+
+            let gem = Math.round(data.find((d) => d['_category'] === category)[this.dataMapping[1].column]);
+
             let average = document.createElement('span');
             average.classList.add('average');
-            average.innerText = 'gem: ' + Math.round(data.find((d) => d['_category'] === category)[this.dataMapping[1].column]);
+            average.innerText = 'gem: ' + gem;
             this.element.appendChild(average);
+
+            let diff = document.createElement('span');
+            diff.classList.add('diff');
+            diff.innerText = (count - gem);
+
+            div.appendChild(diff);
         }
 
 
-
+        this.element.appendChild(div);
 
     }
 
