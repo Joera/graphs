@@ -3,7 +3,7 @@ var cijfers = function(element,dataMapping,property,smallMultiple) {
 
     function run(data,category) {
 
-        console.log(data);
+        console.log(data.find( (d) => d['_category'] === category));
 
         let div = document.createElement('div');
 
