@@ -33,6 +33,8 @@ class Cijfers {
 
     run(data,category) {
 
+        let average;
+
         // console.log(data.find( (d) => d['_category'] === category));
         let count = data.find( (d) => d['_category'] === category)[this.property];
 
@@ -48,7 +50,7 @@ class Cijfers {
 
             let gem = Math.round(data.find((d) => d['_category'] === category)[this.dataMapping[1].column]);
 
-            let average = document.createElement('span');
+            average = document.createElement('span');
             average.classList.add('average');
             average.innerText = 'gem: ' + gem;
 
