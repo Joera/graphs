@@ -67,7 +67,10 @@ class Cijfers {
 
         div.appendChild(number);
         this.element.appendChild(div);
-        this.element.appendChild(average);
+
+        if(this.dataMapping[1]) {
+            this.element.appendChild(average);
+        }
 
 
     }
