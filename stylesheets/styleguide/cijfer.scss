@@ -1,5 +1,14 @@
 article.cijfer {
 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  h3  {
+
+  }
+
   .container {
 
     display: flex;
