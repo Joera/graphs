@@ -146,12 +146,6 @@
 
           grid-column: 1 / span 2;
           grid-row: 3 / span 2;
-          height: calc((100vw - 200px ) / 4 );
-
-          svg {
-            overflow: visible;
-            margin-top: -5vw;
-          }
         }
 
         #map-nieuwe-opnames {
@@ -159,36 +153,28 @@
           grid-column: 3 / span 2;
           grid-row: 3 / span 2;
           height: calc((100vw - 200px ) / 4 );
-
-          svg {
-            overflow: visible;
-            margin-top: -5vw;
-          }
         }
 
         #map-nieuwe-besluiten {
 
           grid-column: 5 / span 2;
           grid-row: 3 / span 2;
-          height: calc((100vw - 200px ) / 4 );
-
-          svg {
-            overflow: visible;
-            margin-top: -5vw;
-          }
         }
 
         #map-nieuwe-afgehandeld {
 
           grid-column: 7 / span 2;
           grid-row: 3 / span 2;
+        }
+
+        .mini-map {
+
           height: calc((100vw - 200px ) / 4 );
 
           svg {
             overflow: visible;
             margin-top: -5vw;
           }
-
         }
     }
 
