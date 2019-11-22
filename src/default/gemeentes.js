@@ -57,7 +57,7 @@ class Gemeentes {
         } else {
 
             console.log('hasData');
-            this.run(globalData.geoData,property)
+            this.run(globalData.geoData,this.property)
         }
     }
 
