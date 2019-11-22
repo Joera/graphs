@@ -8,6 +8,7 @@ class ChartDimensions {
 
     get(dimensions) {
 
+        this.dimensions = dimensions;
 
         if (this.config.fixedWidth) {
 
