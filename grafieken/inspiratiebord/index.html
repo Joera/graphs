@@ -96,6 +96,11 @@
             <div class="container"></div>
         </article>
 
+        <article id="map-nieuwe-afgehandeld" class="map" data-script="gemeentes" data-property="nieuwe_AFGEHANDELD_TOTAAL">
+            <h3>Afgehandeld totaal</h3>
+            <div class="container"></div>
+        </article>
+
     </section>
 
     <section id="voortgang" class="page">
@@ -229,6 +234,15 @@
                 label: 'Besluiten',
                 column: 'nieuwe_BESCHIKT',
                 colour: blue
+            }
+        ],
+
+        'map-nieuwe-afgehandeld' : [
+
+            {
+                label: 'Afgehandelde schade-meldingen',
+                column: 'nieuwe_AFGEHANDELD_TOTAAL',
+                colour: darkblue
             }
         ],
 
