@@ -57,7 +57,7 @@ class Cijfers {
 
             let diff = document.createElement('span');
             diff.classList.add('diff');
-            diff.innerText = (count - gem);
+            diff.innerText = (count - gem) / gem + '%';
 
             number.appendChild(diff);
         }
