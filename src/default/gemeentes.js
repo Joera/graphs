@@ -76,6 +76,8 @@ class Gemeentes {
         this.yScale = this.chartYScale.set(features,property);
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
+
+        console.log(this.dimensions);
         this.chartSVG.redraw(this.dimensions);
         // redraw data
         this.chartMap.redraw(this.dimensions,property,this.yScale,this.colours);
