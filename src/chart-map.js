@@ -36,7 +36,7 @@ let ChartMap = function ChartMap(config,svg,dimensions,smallMultiple) {
             .attr("stroke", "#fff")
             ;
 
-        if (smallMultiple) {
+        if (!smallMultiple) {
 
             svg.values = svg.layers.data.selectAll(".value")
                 .data(features)
@@ -113,7 +113,7 @@ let ChartMap = function ChartMap(config,svg,dimensions,smallMultiple) {
                     .style("opacity", 0);
             });
 
-        if (smallMultiple) {
+        if (!smallMultiple) {
 
             svg.values
                 .text(function (d) {

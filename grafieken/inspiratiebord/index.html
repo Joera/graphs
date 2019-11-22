@@ -387,7 +387,7 @@
 
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
-                    
+
                     let graph = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), true);
                     graph.init();
 
