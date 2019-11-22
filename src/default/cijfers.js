@@ -1,31 +1,48 @@
-var cijfers = function(element,dataMapping,property,smallMultiple) {
+class cijfers {
 
 
-    function run(data,category) {
+    constructor(element,dataMapping,property,smallMultiple) {
+
+        this.element = element;
+        this.dataMapping = dataMapping;
+        this.property = property;
+        this.smallMultiple = smallMultiple;
+
+
+    }
+
+    init() {
+
+        let self = this;
+        let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
+
+        d3.json(url, function (error, json) {
+            if (error) throw error;
+            self.run(json, 'all');
+        });
+    }
+
+    run(data,category) {
 
         // console.log(data.find( (d) => d['_category'] === category));
 
-        console.log(dataMapping);
+        console.log(this.dataMapping);
 
         let div = document.createElement('div');
 
         let number = document.createElement('span');
         number.classList.add('number');
-      //  number.style.backgroundColor =  dataMapping[0].colour;
+        number.style.backgroundColor =  this.dataMapping[0].colour;
 
         number.innerText = data.find( (d) => d['_category'] === category)[property];
 
         div.appendChild(number);
 
-        element.appendChild(div);
+        this.element.appendChild(div);
     }
 
 
-    let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
 
-    d3.json(url, function (error, json) {
-        if (error) throw error;
-        run(json,'all');
 
      //   window.addEventListener("resize", redraw, false);
 
@@ -34,6 +51,7 @@ var cijfers = function(element,dataMapping,property,smallMultiple) {
         //         run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
         //     });
         // }
-    });
+
+
 
 }
