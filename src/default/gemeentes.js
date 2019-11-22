@@ -28,7 +28,7 @@ class Gemeentes {
 
         this.chartDimensions = new ChartDimensions(this.element,this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
-        this.chartSVG = ChartSVG(this.element,this.config,this.dimensions,this.svg);
+        this.chartSVG = new ChartSVG(this.element,this.config,this.dimensions,this.svg);
         this.chartYScale = ChartYScale(this.config,this.dimensions,this.yScale);
 
         if (window.innerWidth < 600) {
