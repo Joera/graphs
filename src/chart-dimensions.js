@@ -1,42 +1,46 @@
-let ChartDimensions = function ChartDimensions(element,config) {
+class ChartDimensions {
 
-    let get = function get(dimensions) {
+    constructor(element,config) {
+
+        this.element = element;
+        this.config = config;
+    }
+
+    get(dimensions) {
 
 
-        if (config.fixedWidth) {
+        if (this.config.fixedWidth) {
 
-            dimensions.containerWidth = config.fixedWidth + config.padding.left + config.padding.right;
-            dimensions.width = config.fixedWidth;
+            this.dimensions.containerWidth = this.config.fixedWidth + this.config.padding.left + this.config.padding.right;
+            this.dimensions.width = this.config.fixedWidth;
 
-        } else if (config.minWidth && d3.select(element).node().getBoundingClientRect().width < config.minWidth) {
+        } else if (this.config.minWidth && d3.select(this.element).node().getBoundingClientRect().width < this.config.minWidth) {
 
-            dimensions.containerWidth = config.minWidth + config.padding.left + config.padding.right;
-            dimensions.width = config.minWidth;
+            this.dimensions.containerWidth = this.config.minWidth + this.config.padding.left + this.config.padding.right;
+            this.dimensions.width = this.config.minWidth;
 
         } else {
 
-            dimensions.containerWidth = d3.select(element).node().getBoundingClientRect().width - config.margin.left - config.margin.right;
-            dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
+            this.dimensions.containerWidth = d3.select(this.element).node().getBoundingClientRect().width - this.config.margin.left - this.config.margin.right;
+            this.dimensions.width = dimensions.containerWidth - this.config.padding.left - this.config.padding.right;
         }
 
 
 
 
-        if(config.fixedHeight){
-            dimensions.containerHeight = config.fixedHeight + config.padding.top + config.padding.bottom;
-            dimensions.height = config.fixedHeight
-        } else if(config.blocks) {
-            dimensions.containerHeight = (config.maxValue / 100) + config.padding.top + config.padding.bottom;
-            dimensions.height = (config.maxValue / 100);
+        if(this.config.fixedHeight){
+            this.dimensions.containerHeight = this.config.fixedHeight + this.config.padding.top + this.config.padding.bottom;
+            this.dimensions.height = this.config.fixedHeight
+        } else if(this.config.blocks) {
+            this.dimensions.containerHeight = (this.config.maxValue / 100) + this.config.padding.top + this.config.padding.bottom;
+            this.dimensions.height = (this.config.maxValue / 100);
         } else {
-            dimensions.containerHeight = d3.select(element).node().getBoundingClientRect().height - config.margin.top - config.margin.bottom;
-            dimensions.height = dimensions.containerHeight - config.padding.top - config.padding.bottom;
+            this.dimensions.containerHeight = d3.select(this.element).node().getBoundingClientRect().height - this.config.margin.top - this.config.margin.bottom;
+            this.dimensions.height = this.dimensions.containerHeight - this.config.padding.top - this.config.padding.bottom;
         }
 
-        return dimensions;
+        return this.dimensions;
     }
 
-    return {
-        get : get
-    }
+
 }

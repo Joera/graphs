@@ -26,7 +26,7 @@ class Gemeentes {
 
     init() {
 
-        this.chartDimensions = ChartDimensions(this.element,this.config);
+        this.chartDimensions = new ChartDimensions(this.element,this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG = ChartSVG(this.element,this.config,this.dimensions,this.svg);
         this.chartYScale = ChartYScale(this.config,this.dimensions,this.yScale);
@@ -47,16 +47,12 @@ class Gemeentes {
         let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
 
         if (!globalData.geoData) {
-
-            console.log('noData');
             d3.json(url, function(error, json) {
                 globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
                 this.run(globalData.geoData,this.property)
             });
 
         } else {
-
-            console.log('hasData');
             this.run(globalData.geoData,this.property)
         }
     }
