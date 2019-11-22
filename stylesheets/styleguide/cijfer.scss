@@ -1,8 +1,12 @@
 article.cijfer {
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 
   span.number {
 
