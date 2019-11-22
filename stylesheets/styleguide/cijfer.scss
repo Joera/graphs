@@ -20,6 +20,10 @@ article.cijfer {
 
   span.number {
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 3.2rem;
     letter-spacing: -5px;
     width: 7rem;
