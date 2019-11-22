@@ -3,14 +3,14 @@ var cijfers = function(element,dataMapping,property,smallMultiple) {
 
     function run(data,category) {
 
-        console.log(data.find( (d) => d['_category'] === category));
+        // console.log(data.find( (d) => d['_category'] === category));
 
         let div = document.createElement('div');
 
         let number = document.createElement('span');
         number.classList.add('number');
 
-        number.innerText = '42';
+        number.innerText = data.find( (d) => d['_category'] === category)[property];
 
         div.appendChild(number);
 
