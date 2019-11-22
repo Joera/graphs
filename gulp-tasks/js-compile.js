@@ -73,6 +73,7 @@ module.exports = function() {
             './src/default/specials-share-completed.js',
             './src/default/specials-statussen.js',
             './src/default/force-specials.js'
+            './src/default/cijfers.js'
 
 
             ])
