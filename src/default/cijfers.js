@@ -1,9 +1,36 @@
 var cijfers = function(element,dataMapping,property,smallMultiple) {
 
-    let div = document.createElement('div');
 
-    div.innerText = '42';
+    function run(data,category) {
 
-    element.appendChild(div);
+        console.log(data);
+
+        let div = document.createElement('div');
+
+        let number = document.createElement('span');
+        number.classList.add('number');
+
+        number.innerText = '42';
+
+        div.appendChild(number);
+
+        element.appendChild(div);
+    }
+
+
+    url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
+
+    d3.json(url, function (error, json) {
+        if (error) throw error;
+        run(json,'all');
+
+        window.addEventListener("resize", redraw, false);
+
+        // if(municipalitySelect != null) {
+        //     municipalitySelect.addEventListener("change", function () {
+        //         run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
+        //     });
+        // }
+    });
 
 }
