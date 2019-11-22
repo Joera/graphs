@@ -84,7 +84,24 @@
         <article id="cijfer-nieuwe-meldingen" class="map" data-script="cijfers" data-property="nieuwe_MELDING">
             <h3>Schade-meldingen</h3>
             <div class="container"></div>
+            <!-- strava grafiek met eigen loopjes op segment -->
+        </article>
 
+        <article id="cijfer-nieuwe-opnames" class="map" data-script="cijfers" data-property="nieuwe_OPNAMES">
+            <h3>Schade-opnames</h3>
+            <div class="container"></div>
+            <!-- strava grafiek met eigen loopjes op segment -->
+        </article>
+
+        <article id="cijfer-nieuwe-besluiten" class="map" data-script="cijfers" data-property="nieuwe_BESCHIKT">
+            <h3>Besluiten</h3>
+            <div class="container"></div>
+            <!-- strava grafiek met eigen loopjes op segment -->
+        </article>
+
+        <article id="cijfer-nieuwe-afgehandeld" class="map" data-script="cijfers" data-property="nieuwe_AFGEHANDELD_TOTAAL">
+            <h3>Afgehandelde schademeldingen</h3>
+            <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
 
@@ -224,6 +241,33 @@
                 label: 'Schade-meldingen',
                 column: 'nieuwe_MELDING',
                 colour: orange
+            }
+        ],
+
+        'cijfer-nieuwe-opnames' : [
+
+            {
+                label: 'Schade-opnames',
+                column: 'nieuwe_OPNAMES',
+                colour: green
+            }
+        ],
+
+        'cijfer-nieuwe-besluiten' : [
+
+            {
+                label: 'Besluiten',
+                column: 'nieuwe_BESCHIKT',
+                colour: blue
+            }
+        ],
+
+        'cijfer-nieuwe-afgehandeld' : [
+
+            {
+                label: 'Afgehandelde schade-meldingen',
+                column: 'nieuwe_AFGEHANDELD_TOTAAL',
+                colour: darkblue
             }
         ],
 
