@@ -24,7 +24,7 @@ var cijfers = function(element,dataMapping,property,smallMultiple) {
         if (error) throw error;
         run(json,'all');
 
-        window.addEventListener("resize", redraw, false);
+     //   window.addEventListener("resize", redraw, false);
 
         // if(municipalitySelect != null) {
         //     municipalitySelect.addEventListener("change", function () {
