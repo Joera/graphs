@@ -48,11 +48,14 @@ class Cijfers {
         div.appendChild(number);
 
 
-        let average = document.createElement('span');
-        average.classList.add('average');
-        average.style.backgroundColor =  data.find( (d) => d['_category'] === category)[this.dataMapping[1].column];
+        if(this.dataMapping[1].column) {
+            let average = document.createElement('span');
+            average.classList.add('average');
+            average.style.backgroundColor = data.find((d) => d['_category'] === category)[this.dataMapping[1].column];
+            div.appendChild(average);
+        }
 
-        div.appendChild(average);
+
 
         this.element.appendChild(div);
     }
