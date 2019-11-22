@@ -44,7 +44,7 @@ class Cijfers {
 
         number.innerText = count;
 
-        div.appendChild(number);
+
 
 
 
@@ -56,17 +56,19 @@ class Cijfers {
             let average = document.createElement('span');
             average.classList.add('average');
             average.innerText = 'gem: ' + gem;
-            this.element.appendChild(average);
+
 
             let diff = document.createElement('span');
             diff.classList.add('diff');
             diff.innerText = (count - gem);
 
-            div.appendChild(diff);
+            number.appendChild(diff);
         }
 
-
+        div.appendChild(number);
         this.element.appendChild(div);
+        this.element.appendChild(average);
+
 
     }
 
