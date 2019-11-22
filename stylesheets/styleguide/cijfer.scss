@@ -1,15 +1,25 @@
-span.number {
+article.cijfer {
 
-    font-size: 5rem;
-  letter-spacing: -5px;
-
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #65A7C5;
+
+  span.number {
+
+    font-size: 5rem;
+    letter-spacing: -5px;
+
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #65A7C5;
 
 
+  }
 }
+
+
+
