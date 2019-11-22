@@ -42,8 +42,8 @@ class Gemeentes {
 
     init() {
 
-        let chartDimensions = ChartDimensions(this.element,this.config);
-        this.dimensions = chartDimensions.get(this.dimensions);
+        this.chartDimensions = ChartDimensions(this.element,this.config);
+        this.dimensions = this.chartDimensions.get(this.dimensions);
 
         this.chartSVG = ChartSVG(this.element,this.config,this.dimensions,this.svg);
         this.chartYScale = ChartYScale(this.config,this.dimensions,this.yScale);
