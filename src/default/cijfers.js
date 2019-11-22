@@ -44,11 +44,6 @@ class Cijfers {
 
         number.innerText = count;
 
-
-
-
-
-
         if(this.dataMapping[1]) {
 
             let gem = Math.round(data.find((d) => d['_category'] === category)[this.dataMapping[1].column]);
