@@ -52,7 +52,7 @@ class Gemeentes {
             console.log('noData');
             d3.json(url, function(error, json) {
                 globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
-                this.run(globalData.geoData,property)
+                this.run(globalData.geoData,this.property)
             });
 
         } else {
