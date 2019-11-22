@@ -63,6 +63,8 @@ let ChartMap = function ChartMap(config,svg,dimensions,smallMultiple) {
 
     let redraw = function redraw(dimensions,property,yScale,colours) {
 
+        console.log(property);
+
         svg.map
             .merge(svg.map)
             .attr("fill", function (d, i) {
