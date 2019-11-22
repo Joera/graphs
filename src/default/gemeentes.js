@@ -21,8 +21,6 @@ class Gemeentes {
         this.config.padding.bottom = 0;
         this.config.margin.bottom = 0;
 
-        this.init();
-
         let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
 
         if (!globalData.geoData) {
