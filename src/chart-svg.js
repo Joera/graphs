@@ -33,7 +33,7 @@ class ChartSVG {
             .attr('height', (dimensions.containerHeight - this.config.margin.top - this.config.margin.bottom));
 
         this.svg.layers.legend
-            .attr('transform', 'translate(' + config.padding.left + ',' + (dimensions.containerHeight - 10) + ')');
+            .attr('transform', 'translate(' + this.config.padding.left + ',' + (dimensions.containerHeight - 10) + ')');
 
     }
 
