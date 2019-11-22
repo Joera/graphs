@@ -1,3 +1,6 @@
+
+// moet dit dan toch een class zijn?
+
 let ChartMap = function ChartMap(config,svg,dimensions,smallMultiple) {
 
     let projection = d3.geoMercator()
