@@ -1,4 +1,4 @@
-class cijfers {
+class Cijfers {
 
 
     constructor(element,dataMapping,property,smallMultiple) {
