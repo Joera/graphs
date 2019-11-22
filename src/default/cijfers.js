@@ -56,7 +56,7 @@ class Cijfers {
 
             average = document.createElement('span');
             average.classList.add('average');
-            average.innerText = 'gem: ' + gem;
+            average.innerText = gem;
 
 
             let diff = document.createElement('span');
