@@ -5,11 +5,13 @@ var cijfers = function(element,dataMapping,property,smallMultiple) {
 
         // console.log(data.find( (d) => d['_category'] === category));
 
+        console.log(dataMapping);
+
         let div = document.createElement('div');
 
         let number = document.createElement('span');
         number.classList.add('number');
-        number.style.backgroundColor =  dataMapping[0].colour;
+      //  number.style.backgroundColor =  dataMapping[0].colour;
 
         number.innerText = data.find( (d) => d['_category'] === category)[property];
 
