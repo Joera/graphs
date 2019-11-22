@@ -418,8 +418,16 @@
         });
     });
 
+    let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
 
-    openPage('vorige-week');
+    d3.json(url, function(error, json) {
+        globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
+        openPage('vorige-week');
+    });
+
+
+
+
 
 
 </script>
