@@ -51,7 +51,7 @@ class Cijfers {
         if(this.dataMapping[1]) {
             let average = document.createElement('span');
             average.classList.add('average');
-            average.innerText = Math.round(data.find((d) => d['_category'] === category)[this.dataMapping[1].column]);
+            average.innerText = 'gem: ' + Math.round(data.find((d) => d['_category'] === category)[this.dataMapping[1].column]);
             div.appendChild(average);
         }
 
