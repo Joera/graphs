@@ -33,7 +33,7 @@ class Cijfers {
 
     run(data,category) {
 
-        let average;
+        let average,label;
 
         // console.log(data.find( (d) => d['_category'] === category));
         let count = data.find( (d) => d['_category'] === category)[this.property];
@@ -49,6 +49,10 @@ class Cijfers {
         if(this.dataMapping[1]) {
 
             let gem = Math.round(data.find((d) => d['_category'] === category)[this.dataMapping[1].column]);
+
+            label = document.createElement('span');
+            label.classList.add('label');
+            label.innerText = 'gemiddelde laatste 8 weken';
 
             average = document.createElement('span');
             average.classList.add('average');
@@ -66,6 +70,7 @@ class Cijfers {
         this.element.appendChild(div);
 
         if(this.dataMapping[1]) {
+            this.element.appendChild(label);
             this.element.appendChild(average);
         }
 
