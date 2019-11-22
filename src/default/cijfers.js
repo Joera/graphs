@@ -34,7 +34,7 @@ class Cijfers {
         number.classList.add('number');
         number.style.backgroundColor =  this.dataMapping[0].colour;
 
-        number.innerText = data.find( (d) => d['_category'] === category)[property];
+        number.innerText = data.find( (d) => d['_category'] === category)[this.property];
 
         div.appendChild(number);
 
