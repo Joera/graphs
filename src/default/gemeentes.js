@@ -11,10 +11,10 @@ class Gemeentes {
         this.dropdown = document.querySelector('.map-selector ul');
 
         this.chartObjects = ChartObjects();
-        this.config = chartObjects.config();
-        this.dimensions = chartObjects.dimensions();
-        this.yScale = chartObjects.yScale();
-        this.svg = chartObjects.svg();
+        this.config = this.chartObjects.config();
+        this.dimensions = this.chartObjects.dimensions();
+        this.yScale = this.chartObjects.yScale();
+        this.svg = this.chartObjects.svg();
 
         this.config.margin.top = 0;
         this.config.padding.left = 0;
