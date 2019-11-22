@@ -391,7 +391,7 @@
                     console.log(vis.getAttribute('data-property'));
 
                     // instantiate class
-                    if(vis.getAttribute('data-script') === 'Gemeente') {
+                    if(vis.getAttribute('data-script') === 'Gemeentes') {
 
                         let graph = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), true);
                         graph.init();
