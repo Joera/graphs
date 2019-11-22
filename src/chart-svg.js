@@ -1,50 +1,58 @@
-let ChartSVG = function ChartSVG(element,config,dimensions,svg) {
+class ChartSVG {
 
 
-    let render = function render() {
+    constructor(element,config,dimensions,svg) {
 
-        svg.body = d3.select(element,config)
+        this.element = element;
+        this.config = config;
+        this.dimensions = dimensions;
+        this.svg = svg;
+
+        this.render();
+        this.layers();
+    }
+
+
+    render() {
+
+        this.svg.body = d3.select(this.element,this.config)
             .append('svg');
 
-        svg.main = svg.body.append('g');
+        this.svg.main = this.svg.body.append('g');
 
     }
 
-    let redraw = function redraw(dimensions) {
-        svg.body
+    redraw(dimensions) {
+        this.svg.body
             .attr('height', dimensions.containerHeight)
             .attr('width', dimensions.containerWidth);
 
-        svg.main
-            .attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')')
-            .attr('width', (dimensions.containerWidth - config.margin.left - config.margin.right))
-            .attr('height', (dimensions.containerHeight - config.margin.top - config.margin.bottom));
+        this.svg.main
+            .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.margin.top + ')')
+            .attr('width', (dimensions.containerWidth - this.config.margin.left - this.config.margin.right))
+            .attr('height', (dimensions.containerHeight - this.config.margin.top - this.config.margin.bottom));
 
-        svg.layers.legend
+        this.svg.layers.legend
             .attr('transform', 'translate(' + config.padding.left + ',' + (dimensions.containerHeight - 10) + ')');
 
     }
 
-    let layers = function layers() {
+    layers() {
 
-        svg.layers.underData = svg.body.append('g')
+        this.svg.layers.underData = this.svg.body.append('g')
             .attr('class', 'under_data')
-            .attr('transform', 'translate(' + config.margin.left + ',' + config.padding.top + ')');
-        svg.layers.data = svg.body.append('g')
+            .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.padding.top + ')');
+        this.svg.layers.data = this.svg.body.append('g')
             .attr('class', 'data')
-            .attr('transform', 'translate(' + config.margin.left + ',' + config.padding.top + ')');
-        svg.layers.axes = svg.body.append('g')
+            .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.padding.top + ')');
+        this.svg.layers.axes = this.svg.body.append('g')
             .attr('class', 'axes');
-        svg.layers.legend = svg.body.append('g')
+        this.svg.layers.legend = this.svg.body.append('g')
             .attr('class', 'legend');
     }
 
-    render();
-    layers();
 
-    return {
-        redraw, redraw
-    }
+
 }
 
 
