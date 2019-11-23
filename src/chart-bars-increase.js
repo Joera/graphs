@@ -2,7 +2,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let dataArray;
 
-    let draw = function draw(data,colour) {
+    let draw = function draw(data) {
 
         // slice count of columns on mobile
 
@@ -15,10 +15,8 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.barEnter = svg.bar
             .enter()
-            .append("rect")
-            .attr("class", function(d) {
-                return 'bar ' + colour;
-            });
+            .append("rect");
+
 
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
@@ -132,6 +130,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("clip-path", "url(#clip)")
             .attr("y", function(d) { return dimensions.height; })
+            .attr("class", function(d) {
+                return 'bar ' + colour;
+            })
             .transition()
             .duration(250)
             .attr("y", function(d) { return yScale.linear(d[property]); })

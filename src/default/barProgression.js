@@ -112,7 +112,7 @@ class BarProgression  {
 
     redraw(data,property) {
 
-        console.log(property);
+        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
 
         this.yScale = this.chartYScale.set(data,property);
 
@@ -127,16 +127,14 @@ class BarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartBarsIncrease.redraw(this.dimensions,this.xScale,this.yScale,property);
+        this.chartBarsIncrease.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
     }
 
     draw(data,property) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
-
-        this.chartBarsIncrease.draw(data,colour,property);
+        this.chartBarsIncrease.draw(data);
     }
 
     run(json,property) {
