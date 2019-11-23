@@ -31,10 +31,32 @@ class Cijfers {
 
     run(data,category) {
 
+
+        if (typeof this.dataMapping === 'object')  {
+            // multiple balletjes
+
+            for (let item of Object.entries(this.dataMapping)) {
+
+                single();
+            }
+
+        } else {
+            // single balletje
+                single();
+        }
+
+
+    }
+
+    single()  {
+
+
         let average,label;
 
         // console.log(data.find( (d) => d['_category'] === category));
         let count = data.find( (d) => d['_category'] === category)[this.property];
+
+        let miniContainer = document.createElement('div');
 
         let div = document.createElement('div');
 
@@ -65,14 +87,14 @@ class Cijfers {
         }
 
         div.appendChild(number);
-        this.element.appendChild(div);
+        miniContainer.appendChild(div);
 
         if(this.dataMapping[1]) {
-            this.element.appendChild(label);
-            this.element.appendChild(average);
+            miniContainer.appendChild(label);
+            miniContainer.appendChild(average);
         }
 
-
+        this.element.appendChild(miniContainer);
     }
 
 
