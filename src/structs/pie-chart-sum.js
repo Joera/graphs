@@ -179,6 +179,8 @@ class PieChartSum  {
 
      redraw() {
 
+        console.log(this;)
+
          this.dimensions = this.chartDimensions.get(this.dimensions);
          this.chartSVG.redraw(this.dimensions);
          this.chartPie.redraw(this.dimensions,this.smallMultiple);
