@@ -74,37 +74,14 @@ class PieChartSum  {
 
         let data = [];
 
-        console.log(this.dataMapping);
+       for (let map of this.dataMapping) {
 
-        // data.push({
-        //     status: "Mijnbouwschade",
-        //     value: json['BEDRAG_SCHADEBEDRAG']
-        //
-        // });
-        //
-        // data.push({
-        //     status: "Stuwmeerregeling",
-        //     value: json['BEDRAG_SMR']
-        //
-        // });
-        //
-        // // data.push({
-        // //     status: "Vergoeding overige schades",
-        // //     totaal: json['BEDRAG_GEVOLGSCHADE']
-        // //
-        // // });
-        //
-        // data.push({
-        //     status: "Bijkomende kosten",
-        //     value: json['BEDRAG_BIJKOMENDE_KOSTEN']
-        //
-        // });
-        //
-        // data.push({
-        //     status: "Wettelijke rente",
-        //     value: json['BEDRAG_WETTELIJKE_RENTE']
-        //
-        // });
+           data.push({
+               status: map.label,
+               value: json[map.column]
+
+           });
+       }
 
         return data;
     }
@@ -146,7 +123,7 @@ class PieChartSum  {
                 .attr("y", (i * 20) - 8)
                 .attr("height",12)
                 .attr("width",12)
-                .attr("fill", config.colours(i))
+                .attr("fill", this.config.colours(i))
                 .style("opacity", 1);
 
             this.svg.layers.legend.append("text")
@@ -154,7 +131,7 @@ class PieChartSum  {
                 .attr("dy", (i * 20) + 2)
                 .attr("dx",16)
                 .text(d['status'] + ':')
-                .attr("width", dimensions.containerWidth)
+                .attr("width", this.dimensions.containerWidth)
                 .style("opacity", 1);
 
             this.svg.layers.legend.append("text")
@@ -162,7 +139,7 @@ class PieChartSum  {
                 .attr("dx", legendWidth)
                 .attr("dy", (i * 20) + 2)
                 .text(convertToCurrency(d['value']))
-                .attr("width", dimensions.containerWidth)
+                .attr("width", this.dimensions.containerWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
 
@@ -187,7 +164,7 @@ class PieChartSum  {
             .attr("class", "small-label")
             .attr("dx", legendWidth)
             .attr("dy", (data.length * 20) + 2)
-            .text(convertToCurrency(json.filter( j => j['_category'] === filter)[0]['TOTAAL_VERLEEND']))
+            .text(convertToCurrency(json.filter( j => j['_category'] === this.segment)[0]['TOTAAL_VERLEEND']))
             .attr("width",this.dimensions.containerWidth)
             .style("opacity", 1)
             .style("text-anchor", "end");
