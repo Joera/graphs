@@ -73,9 +73,8 @@ class PieChartSum  {
         console.log(segmented);
 
         let data = [];
-        let mappings = this.dataMapping.splice(-1,1);
 
-       for (let map of mappings) {
+       for (let map of this.dataMapping) {
 
            data.push({
                status: map.label,
@@ -103,7 +102,6 @@ class PieChartSum  {
 
             legendX = 260;
             legendY = 180;
-
         }
 
         if (window.innerWidth < 480) {
@@ -118,7 +116,7 @@ class PieChartSum  {
          this.svg.layers.legend.selectAll('*')
             .remove();
 
-        data.forEach( (d,i) => {
+        data.pop().forEach( (d,i) => {
 
             this.svg.layers.legend.append("rect")
                 .attr("y", (i * 20) - 8)
