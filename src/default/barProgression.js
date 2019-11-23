@@ -45,7 +45,7 @@ class BarProgression  {
             this.config.dataArrayLength = 7;
         }
 
-        this.colours = this.dataMapping.map((p) => p.colour);
+
 
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
@@ -134,7 +134,9 @@ class BarProgression  {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        this.chartBarsIncrease.draw(data,this.colours,property);
+        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
+        
+        this.chartBarsIncrease.draw(data,colour,property);
     }
 
     run(json,property) {
