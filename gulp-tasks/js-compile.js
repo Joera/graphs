@@ -46,11 +46,10 @@ module.exports = function() {
 
             // './src/tcmg-charts.js',
 
-            './src/default/barProgression.js',
-            
+            './src/structs/bar-progression.js',
+
 
             './src/default/opnames.js',
-            './src/default/aos-meldingen.js',
 
             './src/default/weekverloop.js',
             './src/default/gemeentes.js',
