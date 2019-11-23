@@ -58,12 +58,11 @@ class Cijfers {
 
         let average,label;
 
-
-
         // console.log(data.find( (d) => d['_category'] === category));
         let count = this.data.find( (d) => d['_category'] === this.segment)[mapping[0].column];
 
-        let miniContainer = document.createElement('div');
+        let miniContainer = document.createElement('article');
+        miniContainer.classList.add('cijfer');
 
         let div = document.createElement('div');
 
