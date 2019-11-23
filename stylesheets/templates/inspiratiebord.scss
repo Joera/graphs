@@ -24,7 +24,7 @@
 
       display: grid;
       grid-template-columns: auto 14rem 78rem auto;
-      grid-template-rows: 2rem 6rem auto;
+      grid-template-rows: 3rem 5rem auto;
       justify-content: center;
     }
 
@@ -40,14 +40,12 @@
 
       #muni-select {
         margin-top: -.125rem;
-        background: rgb(238, 238, 238);
-        padding: .5rem;
+
+
       }
 
       #specials-select {
-        margin-top: 3rem;
-        background: rgb(238, 238, 238);
-        padding: .5rem;
+        margin-top: 2rem;
       }
 
 
@@ -376,11 +374,15 @@
 
   ul {
 
+
+
     li {
 
       color: $grey;
+      background: rgb(238, 238, 238);
       text-transform: uppercase;
-      padding: .125rem 0;
+      padding: .25rem .5rem;
+      line-height: 1.25;
       cursor : pointer;
 
       span {
