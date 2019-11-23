@@ -48,7 +48,23 @@
 
 
 <script>
-    meldingen('#container');
+
+    const dataMapping= [
+
+        {
+            label: 'Schademeldingen',
+            column: 'schademeldingen',
+            colour: 'orange'
+        },
+        {
+            label: '',
+            column: 'nieuwe_schademeldingen',
+            colour: 'orange'
+        }
+    ];
+
+    let meldingen = new MidTermIncrease();
+    meldingen.init('#container',dataMapping,'','all',false);
 </script>
 
 

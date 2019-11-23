@@ -1,65 +1,90 @@
-var meldingen = function(elementID,dataMapping,property,smallMultiple) {
+class MidTermIncrease  {
 
-    // if(typeof element === 'string') {
-    //     console.log('hi');
-    //     element = document.getElementById(element)
-    //     console.log(element);
-    // }
+    constructor(elementID,dataMapping,property,smallMultiple) {
 
-    let radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
+        this.elementID = elementID;
+        this.element = d3.select(elementID).node();
+        this.dataMapping = dataMapping;
+        this.property = property;
+        this.smallMultiple = smallMultiple;
 
-    let chartObjects = ChartObjects();
-    let config = chartObjects.config();
-    let dimensions = chartObjects.dimensions();
-    let svg = chartObjects.svg();
-    let xScale = chartObjects.xScale();
-    let yScale = chartObjects.yScale();
-    let axes = chartObjects.axes();
-    let functions = chartObjects.functions();
-
-    config.margin.top = 0;
-    config.margin.bottom = 0;
-    config.margin.left = 40;
-    config.margin.right = 0;
-    config.padding.top = 10;
-    config.padding.bottom = 15;
-    config.padding.left = 30;
-    config.padding.right = 0;
-
-    config.minValue = 26000;
-
-    config.xParameter = '_date';
-
-    config.paddingInner = 0;
-    config.paddingOuter = 0;
-
-    if(smallMultiple) {
-        config.dataArrayLength = 7;
     }
 
-    let colours = dataMapping.map( (p) => p.colour);
+    init() {
 
-    // get dimensions from parent element
-    let chartDimensions = ChartDimensions(elementID,config);
-    dimensions = chartDimensions.get(dimensions);
+        let self = this;
 
-    // create svg elements without data
-    let chartSVG = ChartSVG(elementID,config,dimensions,svg);
-    let chartXScale =  new ChartXScale(config,dimensions,xScale);
-    let chartYScale = ChartYScale(config,dimensions,yScale);
-    let chartAxis = ChartAxis(config,svg);
-    let chartBarsIncrease = ChartBarsIncrease(config,svg);
-    let chartLegend = ChartLegend(config,svg);
+        this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
-    chartAxis.drawXAxis();
-    chartAxis.drawYAxis();
+        let chartObjects = ChartObjects();
+        this.config = chartObjects.config();
+        this.dimensions = chartObjects.dimensions();
+        this.svg = chartObjects.svg();
+        this.xScale = chartObjects.xScale();
+        this.yScale = chartObjects.yScale();
+        this.axes = chartObjects.axes();
+        this.functions = chartObjects.functions();
 
-    let url = 'https://tcmg-hub.publikaan.nl/api/data';
-    if (!property) { property = 'schademeldingen' }
+        this.config.margin.top = 0;
+        this.config.margin.bottom = 0;
+        this.config.margin.left = 40;
+        this.config.margin.right = 0;
+        this.config.padding.top = 10;
+        this.config.padding.bottom = 15;
+        this.config.padding.left = 30;
+        this.config.padding.right = 0;
 
-    function prepareData(json,property)  {
+        this.config.minValue = 26000;
 
-        let neededColumns = ['_date','_category'].concat(dataMapping.map( (c) => c.column ));
+        this.config.xParameter = '_date';
+
+        this.config.paddingInner = 0;
+        this.config.paddingOuter = 0;
+
+        if (this.smallMultiple) {
+            this.config.dataArrayLength = 7;
+        }
+
+        this.colours = this.dataMapping.map((p) => p.colour);
+
+        // get dimensions from parent element
+        this.chartDimensions = new ChartDimensions(this.elementID, this.config);
+        this.dimensions = this.chartDimensions.get(this.dimensions);
+
+        // create svg elements without data
+        this.chartSVG = new ChartSVG(this.elementID, this.config, this.dimensions, this.svg);
+        this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
+        this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
+        this.chartAxis = ChartAxis(this.config, this.svg);
+        this.chartBarsIncrease = ChartBarsIncrease(this.config, this.svg);
+        this.chartLegend = ChartLegend(this.config, this.svg);
+
+        this.chartAxis.drawXAxis();
+        this.chartAxis.drawYAxis();
+
+        let url = 'https://tcmg-hub.publikaan.nl/api/data';
+        if (!property) {
+            property = 'schademeldingen'
+        }
+
+        if (globalData.weeks) {
+
+            this.run(globalData.weeks)
+
+        } else {
+
+            d3.json(url, function(error, json) {
+                if (error) throw error;
+                globalData.weeks = json;
+                self.run(json);
+            });
+        }
+
+    }
+
+    prepareData(json,property)  {
+
+        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
         let data = [];
 
@@ -87,58 +112,44 @@ var meldingen = function(elementID,dataMapping,property,smallMultiple) {
     }
 
 
-    function redraw(data,property) {
+    redraw(data,property) {
 
-        yScale = chartYScale.set(data,property);
+        this.yScale = this.chartYScale.set(data,property);
 
         // on redraw chart gets new dimensions
-        dimensions = chartDimensions.get(dimensions);
-        chartSVG.redraw(dimensions);
+        this.dimensions = this.chartDimensions.get(this.dimensions);
+        this.chartSVG.redraw(this.dimensions);
         // new dimensions mean new scales
-        xScale = chartXScale.reset(dimensions,xScale);
-        yScale = chartYScale.reset(dimensions,yScale);
+        this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
+        this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
         // new scales mean new axis
 
-        chartAxis.redrawXTimeAxis(dimensions,xScale,axes,false);
-        chartAxis.redrawYAxis(yScale,axes);
+        this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
+        this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        chartBarsIncrease.redraw(dimensions,xScale,yScale,property);
+        this.chartBarsIncrease.redraw(this.dimensions,this.xScale,this.yScale,property);
     }
 
-    function draw(data) {
+    draw(data,property) {
 
-        xScale = chartXScale.set(data.map(d => d[config.xParameter]));
+        this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        chartBarsIncrease.draw(data,colours,property);
+        this.chartBarsIncrease.draw(data,this.colours,property);
     }
 
-    function run(json) {
+    run(json,property) {
 
-        let data = prepareData(json,property);
-        draw(data);
-        redraw(data,property);
+        let self = this;
+
+        let data = this.prepareData(json,property);
+        this.draw(data,property);
+        this.redraw(data,property);
         // legend(data);
 
-        window.addEventListener("resize", () => redraw(data,property), false);
+        window.addEventListener("resize", () => self.redraw(data,property), false);
 
-        for (let radio of radios) {
-            radio.addEventListener( 'change', () => redraw(data,radio.value),false);
+        for (let radio of this.radios) {
+            radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
         }
     }
-
-    if (globalData.weeks) {
-
-        run(globalData.weeks)
-
-    } else {
-
-        d3.json(url, function(error, json) {
-            if (error) throw error;
-            globalData.weeks = json;
-            run(json);
-        });
-    }
-
-
-
 }
