@@ -7,6 +7,7 @@ class PieChartSum  {
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
+        this.segment = segment;
         this.smallMultiple = smallMultiple;
     }
 
@@ -50,14 +51,14 @@ class PieChartSum  {
 
         if (globalData.gemeentes) {
 
-            this.run(globalData.gemeentes,this.property)
+            this.run(globalData.gemeentes,this.segment)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
                 globalData.gemeentes = json;
-                self.run(json,self.property);
+                self.run(json,self.segment);
             });
         }
 
