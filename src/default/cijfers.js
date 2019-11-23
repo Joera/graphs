@@ -37,12 +37,12 @@ class Cijfers {
 
             for (let item of Object.entries(this.dataMapping)) {
 
-                single();
+                this.single();
             }
 
         } else {
             // single balletje
-                single();
+                this.single();
         }
 
 
