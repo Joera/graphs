@@ -3,7 +3,7 @@ class Cijfers {
 
     constructor(element,dataMapping,property,segment,smallMultiple) {
 
-        console.log(dataMapping);
+
 
         this.element = (typeof element === 'string') ? document.querySelector(element) : element;
         this.dataMapping = dataMapping;
@@ -53,7 +53,7 @@ class Cijfers {
 
         } else {
             // single balletje
-
+            console.log(self.dataMapping);
 
             this.element.appendChild(self.single(self.dataMapping));
         }
@@ -62,8 +62,6 @@ class Cijfers {
     }
 
     single(mapping)  {
-
-        console.log(mapping);
 
         let average,label;
 
