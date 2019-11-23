@@ -27,6 +27,7 @@ class Cijfers {
 
             d3.json(url, function (error, json) {
                 if (error) throw error;
+                globalData.gemeentes = json;
                 self.run(json, self.segment);
             });
         }

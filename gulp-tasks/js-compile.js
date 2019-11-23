@@ -47,9 +47,12 @@ module.exports = function() {
             // './src/tcmg-charts.js',
 
             './src/structs/bar-progression.js',
+            './src/structs/cijfers.js',
+            './src/structs/pie-chart-sum.js',
 
 
             './src/default/opnames.js',
+
 
             './src/default/weekverloop.js',
             './src/default/gemeentes.js',
@@ -67,15 +70,15 @@ module.exports = function() {
             './src/default/force-status-looptijden.js',
             './src/default/statussen-stroommodel.js',
             './src/default/statussen-stroommodel_ii.js',
-            './src/default/pie-chart-sum.js',
+
             './src/default/pie-chart-herkomst.js',
             './src/default/pie-chart-opnames.js',
             './src/default/pie-chart-bezwaren.js',
             './src/default/pie-chart-specials.js',
             './src/default/specials-share-completed.js',
             './src/default/specials-statussen.js',
-            './src/default/force-specials.js',
-            './src/default/cijfers.js'
+            './src/default/force-specials.js'
+
 
 
             ])
