@@ -41,20 +41,20 @@ class Cijfers {
 
             for (let item of Object.entries(this.dataMapping)) {
 
-                this.single();
+                this.single(item);
             }
 
         } else {
             // single balletje
-                this.single();
+                this.single(this.dataMapping);
         }
 
 
     }
 
-    single()  {
+    single(mapping)  {
 
-        console.log(this.dataMapping);
+        console.log(mapping);
 
         let average,label;
 
@@ -67,13 +67,13 @@ class Cijfers {
 
         let number = document.createElement('span');
         number.classList.add('number');
-        number.style.backgroundColor =  this.dataMapping[0].colour;
+        number.style.backgroundColor =  mapping[0].colour;
 
         number.innerText = count;
 
         if(this.dataMapping[1]) {
 
-            let gem = Math.round(data.find((d) => d['_category'] === this.segment)[this.dataMapping[1].column]);
+            let gem = Math.round(data.find((d) => d['_category'] === this.segment)[mapping[1].column]);
 
             label = document.createElement('span');
             label.classList.add('label');
@@ -94,7 +94,7 @@ class Cijfers {
         div.appendChild(number);
         miniContainer.appendChild(div);
 
-        if(this.dataMapping[1]) {
+        if(mapping[1]) {
             miniContainer.appendChild(label);
             miniContainer.appendChild(average);
         }
