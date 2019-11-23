@@ -396,14 +396,14 @@
       span {
         display: inline;
       }
-      
+
       &.active, &:hover  {
 
         background: $lightgrey;
 
         span {
 
-          //color: white;
+          color: black;
         //  border-bottom: 1px solid black;
 
         }
