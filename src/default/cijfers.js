@@ -49,9 +49,7 @@ class Cijfers {
             this.element.appendChild(self.single(self.dataMapping));
 
         } else {
-
-            this.element.innerHTML = '';
-
+            
             // multiple balletjes (website)
             for (let item of Object.values(this.dataMapping)) {
 
@@ -67,6 +65,7 @@ class Cijfers {
 
     redraw(data,newSegment) {
 
+        this.element.innerHTML = '';
         this.run(data,newSegment)
     }
 
