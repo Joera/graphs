@@ -391,7 +391,12 @@
         // pieChartHerkomst('#herkomst .container',true);
         // pieChartOpnames('#opnames .container', true);
 
+    let page = 'vorige-week';
+    let segment = 'all';
+
     let municipalityOptions = [].slice.call(document.querySelectorAll('ul#muni-select li'));
+    let specialOptions = [].slice.call(document.querySelectorAll('ul#specials-select li'));
+    let segmentOptions = municipalityOptions.concat(specialOptions);
     let menuOptions = [].slice.call(document.querySelectorAll('#menu ul li'));
     let pages = [].slice.call(document.querySelectorAll('section.page'));
 
@@ -408,12 +413,10 @@
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
-                    let graph = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), true);
+                    let graph = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), segment,true);
                     graph.init();
 
-
-
-                    // uniformize props in function --> window[method](el,dataMapping,property,smallMultiple)
+                    // uniformize props in function --> window[method](el,dataMapping,property,segment,smallMultiple)
              //       window[vis.getAttribute('data-script')](vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'),true);
                 }
 
@@ -422,6 +425,13 @@
                 page.style.display = 'none';
             }
         }
+    }
+
+    let changeSegment = function changeSegment(newSegment) {
+
+        segment = newSegment;
+
+
     }
 
 
@@ -433,6 +443,14 @@
         });
     });
 
+    segmentOptions.forEach( (o) => {
+
+        o.addEventListener( 'click', () => {
+
+            changeSegment(o.getAttribute('data-value'));
+        });
+    });
+
     d3.json('https://tcmg-hub.publikaan.nl/api/gemeenten', function(error, json) {
         if (error) throw error;
         globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
@@ -440,7 +458,7 @@
         d3.json('https://tcmg-hub.publikaan.nl/api/gemeentes', function (error, json) {
             if (error) throw error;
             globalData.gemeentes = json;
-            openPage('vorige-week');
+            openPage(page);
         });
     });
 

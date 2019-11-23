@@ -1,24 +1,22 @@
 class Cijfers {
 
 
-    constructor(element,dataMapping,property,smallMultiple) {
+    constructor(element,dataMapping,property,segment,smallMultiple) {
 
         this.element = element;
         this.dataMapping = dataMapping;
         this.property = property;
         this.smallMultiple = smallMultiple;
-
-
+        this.segment = segment;
     }
 
     init() {
 
         let self = this;
 
-
         if (globalData.gemeentes) {
 
-            self.run(globalData.gemeentes, 'all');
+            this.run(globalData.gemeentes,this.segment);
 
         } else {
 

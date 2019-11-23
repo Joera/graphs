@@ -1,7 +1,7 @@
 class Gemeentes {
 
 
-    constructor(element, dataMapping, property, smallMultiple) {
+    constructor(element, dataMapping, property, segment, smallMultiple) {
 
         this.element = element;
         this.dataMapping = dataMapping;
