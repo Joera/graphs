@@ -75,6 +75,8 @@ class Gemeentes {
 
         if (newProperty && newProperty != undefined) { this.property = newProperty }
 
+        console.log(this.property);
+
         this.yScale = this.chartYScale.set(this.features,this.property);
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
