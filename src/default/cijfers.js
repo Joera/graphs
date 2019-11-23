@@ -39,7 +39,7 @@ class Cijfers {
         if (typeof this.dataMapping === 'object')  {
             // multiple balletjes
 
-            for (let item of Object.entries(this.dataMapping)) {
+            for (let item of Object.values(this.dataMapping)) {
 
                 this.single(item);
             }
