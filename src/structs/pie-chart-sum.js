@@ -174,7 +174,7 @@ class PieChartSum  {
     }
 
     draw(data) {
-        this.chartPie.draw(data);
+        this.chartPie.draw(data.slice(0,data.length -1));
     }
 
      redraw() {
