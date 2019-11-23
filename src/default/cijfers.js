@@ -58,7 +58,7 @@ class Cijfers {
         let average,label;
 
         // console.log(data.find( (d) => d['_category'] === category));
-        let count = this.data.find( (d) => d['_category'] === segment)[this.property];
+        let count = this.data.find( (d) => d['_category'] === this.segment)[this.property];
 
         let miniContainer = document.createElement('div');
 
@@ -72,7 +72,7 @@ class Cijfers {
 
         if(this.dataMapping[1]) {
 
-            let gem = Math.round(data.find((d) => d['_category'] === segment)[this.dataMapping[1].column]);
+            let gem = Math.round(data.find((d) => d['_category'] === this.segment)[this.dataMapping[1].column]);
 
             label = document.createElement('span');
             label.classList.add('label');
