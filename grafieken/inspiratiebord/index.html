@@ -414,8 +414,8 @@
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
-                    graphs[dataMapping[vis.id]] = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), segment,true);
-                    graphs[dataMapping[vis.id]].init();
+                    graphs[vis.id] = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), segment,true);
+                    graphs[vis.id].init();
 
                     // uniformize props in function --> window[method](el,dataMapping,property,segment,smallMultiple)
              //       window[vis.getAttribute('data-script')](vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'),true);
@@ -435,7 +435,7 @@
         segment = newSegment;
 
 
-        for (let graph of graphs) {
+        for (let graph of Object.values(graphs)) {
 
             console.log(graph);
             // what do we do with data?
