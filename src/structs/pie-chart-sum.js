@@ -195,7 +195,7 @@ class PieChartSum  {
         this.redraw();
         this.legend(data,segment);
 
-        window.addEventListener("resize", self.redraw, false);
+        window.addEventListener("resize", function() { self.redraw() }, false);
 
         if(this.municipalitySelect != null) {
             this.municipalitySelect.addEventListener("change", function () {
