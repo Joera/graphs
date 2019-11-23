@@ -62,7 +62,7 @@
           flex-direction: row;
           margin-left: 4rem;
           background: rgb(238, 238, 238);
-          padding: .2rem .5rem;
+          //padding: .2rem .5rem;
 
             li {
               margin-right: 2rem;
@@ -389,7 +389,9 @@
         display: inline;
       }
 
-      &.active {
+
+
+      &.active, &:hover  {
 
         background: $grey;
 
