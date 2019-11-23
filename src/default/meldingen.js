@@ -1,4 +1,4 @@
-class MidTermIncrease  {
+class BarProgression  {
 
     constructor(elementID,dataMapping,property,smallMultiple) {
 
@@ -64,7 +64,7 @@ class MidTermIncrease  {
 
         let url = 'https://tcmg-hub.publikaan.nl/api/data';
 
-       
+
 
         if (globalData.weeks) {
 
