@@ -69,14 +69,14 @@ class Gemeentes {
 
     }
 
-    redraw(property) {
+    redraw() {
 
-        this.yScale = this.chartYScale.set(this.features,property);
+        this.yScale = this.chartYScale.set(this.features,this.property);
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG.redraw(this.dimensions);
         // redraw data
-        this.chartMap.redraw(this.dimensions,property,this.yScale,this.colours);
+        this.chartMap.redraw(this.dimensions,this.property,this.yScale,this.colours);
     }
 
     createDropdown() {
