@@ -6,6 +6,8 @@ class Gemeentes {
         this.element = element;
         this.dataMapping = dataMapping;
         this.property = property;
+        this.segment = segment;
+        this.features;
         this.smallMultiple = smallMultiple;
 
         this.dropdown = document.querySelector('.map-selector ul');
@@ -62,32 +64,19 @@ class Gemeentes {
         return json;
     }
 
-    draw(features) {
+    draw() {
 
 
     }
 
-    redraw(features, property) {
+    redraw(property) {
 
-        this.yScale = this.chartYScale.set(features,property);
+        this.yScale = this.chartYScale.set(this.features,property);
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
-
-        console.log(this.dimensions);
         this.chartSVG.redraw(this.dimensions);
         // redraw data
         this.chartMap.redraw(this.dimensions,property,this.yScale,this.colours);
-    }
-
-    run(geoData,property) {
-
-        let features = this.prepareData(geoData,property);
-
-        this.chartMap.draw(features);
-        this.redraw(features, property);
-
-        this.createDropdown();
-        this.setListeners(features,property);
     }
 
     createDropdown() {
@@ -117,29 +106,29 @@ class Gemeentes {
         }
     }
 
-    setListeners(features,property) {
+    setListeners(property) {
 
         let self = this;
 
         let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
-        window.addEventListener("resize", self.redraw(features, property), false);
+        window.addEventListener("resize", self.redraw(this.features, property), false);
 
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
-                self.redraw(features,radio.value);
+                self.redraw(self.features,radio.value);
             },false)
         }
     }
 
     run(geoData,property) {
 
-        let features = this.prepareData(geoData,property);
+        this.features = this.prepareData(geoData,property);
 
-        this.chartMap.draw(features);
-        this.redraw(features, property);
+        this.chartMap.draw();
+        this.redraw(property);
         this.createDropdown();
-        this.setListeners(features,property);
+        this.setListeners(property);
     }
 }
 

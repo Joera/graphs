@@ -393,6 +393,7 @@
 
     let page = 'vorige-week';
     let segment = 'all';
+    let graphs = [];
 
     let municipalityOptions = [].slice.call(document.querySelectorAll('ul#muni-select li'));
     let specialOptions = [].slice.call(document.querySelectorAll('ul#specials-select li'));
@@ -413,8 +414,8 @@
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
-                    let graph = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), segment,true);
-                    graph.init();
+                    graphs[dataMapping[vis.id]] = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), segment,true);
+                    graphs[dataMapping[vis.id]].init();
 
                     // uniformize props in function --> window[method](el,dataMapping,property,segment,smallMultiple)
              //       window[vis.getAttribute('data-script')](vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'),true);
@@ -430,6 +431,12 @@
     let changeSegment = function changeSegment(newSegment) {
 
         segment = newSegment;
+
+        for (let graph of graphs) {
+
+            // what do we do with data?
+            graph.redraw('',segment)
+        }
 
 
     }
