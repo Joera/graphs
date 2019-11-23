@@ -111,6 +111,8 @@ class BarProgression  {
 
     redraw(data,property) {
 
+        console.log(property);
+
         this.yScale = this.chartYScale.set(data,property);
 
         // on redraw chart gets new dimensions
