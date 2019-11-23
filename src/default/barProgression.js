@@ -5,7 +5,7 @@ class BarProgression  {
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
-        this.property = property;
+        this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
         this.smallMultiple = smallMultiple;
 
     }
@@ -63,19 +63,17 @@ class BarProgression  {
         this.chartAxis.drawYAxis();
 
         let url = 'https://tcmg-hub.publikaan.nl/api/data';
-
-
-
+        
         if (globalData.weeks) {
 
-            this.run(globalData.weeks)
+            this.run(globalData.weeks,this.property)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
                 globalData.weeks = json;
-                self.run(json);
+                self.run(json,self.property);
             });
         }
 
