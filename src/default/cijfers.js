@@ -51,7 +51,7 @@ class Cijfers {
 
         } else {
             // single balletje
-            this.element.appendChild(self.single(self.dataMapping));
+            this.element.appendChild(self.single(Object.values(self.dataMapping)));
         }
 
 
