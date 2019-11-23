@@ -106,7 +106,7 @@ class PieChartSum  {
 
         if (window.innerWidth < 480) {
 
-            legendX = 120;
+            legendX = 130;
             legendY = 110;
         }
 
