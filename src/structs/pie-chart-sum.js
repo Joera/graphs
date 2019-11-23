@@ -197,7 +197,7 @@ class PieChartSum  {
 
         if(this.municipalitySelect != null) {
             this.municipalitySelect.addEventListener("change", function () {
-                self.run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
+                self.run(json,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
             });
         }
 
