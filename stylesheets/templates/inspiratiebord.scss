@@ -67,6 +67,8 @@
             li {
 
               padding: .25rem 2rem;
+              border-right: none;
+              border-bottom: 1px solid $lightgrey;
 
               &:first-of-type {
                 padding-left: 0.5rem;
