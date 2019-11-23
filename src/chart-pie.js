@@ -56,7 +56,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             innerRadius = 10;
 
                 svg.layers.data
-                .attr("transform", "translate(" + radius + ",70)");
+                .attr("transform", "translate(" + radius + ",66)");
 
             labelArc = d3.arc()
                 .outerRadius(radius - 0)
