@@ -66,13 +66,15 @@ class PieChartSum  {
 
     prepareData(json,segment) {
 
-        console.log(segment);
-
-        let d = json.find( j => j['_category'] === segment);
 
 
+        let segmented = json.find( j => j['_category'] === segment);
+
+        console.log(segmented);
 
         let data = [];
+
+        console.log(this.dataMapping);
 
         // data.push({
         //     status: "Mijnbouwschade",
