@@ -74,7 +74,7 @@ class PieChartSum  {
 
         let data = [];
 
-       for (let map of this.dataMapping) {
+       for (let map of this.dataMapping.pop()) {
 
            data.push({
                status: map.label,
