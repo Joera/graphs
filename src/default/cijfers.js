@@ -38,22 +38,21 @@ class Cijfers {
 
         if(newSegment && newSegment != undefined) { this.segment = newSegment }
 
-        this.data = data;
+        if(data && data != undefined) { this.data = data; }
 
         console.log(this.dataMapping);
 
         if (Array.isArray(this.dataMapping))  {
-            // multiple balletjes
-            console.log('2');
-            // single balletje voor small multiples
+            // single balletje voor small multiples (dashboard)
             console.log(self.dataMapping);
 
             this.element.appendChild(self.single(self.dataMapping));
 
         } else {
 
-            console.log('1');
+            this.element.innerHTML = '';
 
+            // multiple balletjes (website)
             for (let item of Object.values(this.dataMapping)) {
 
                 let article = document.createElement('article');
@@ -64,6 +63,11 @@ class Cijfers {
         }
 
 
+    }
+
+    redraw(data,newSegment) {
+
+        this.run(data,newSegment)
     }
 
     single(mapping)  {
