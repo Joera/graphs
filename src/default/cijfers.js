@@ -34,7 +34,7 @@ class Cijfers {
 
     run(data,newSegment) {
 
-        let self= this;
+        let self = this;
 
         if(newSegment && newSegment != undefined) { this.segment = newSegment }
 
@@ -42,6 +42,8 @@ class Cijfers {
 
         if (typeof this.dataMapping === 'object')  {
             // multiple balletjes
+
+            console.log('1');
 
             for (let item of Object.values(this.dataMapping)) {
 
@@ -52,7 +54,9 @@ class Cijfers {
             }
 
         } else {
-            // single balletje
+
+            console.log('2');
+            // single balletje voor small multiples
             console.log(self.dataMapping);
 
             this.element.appendChild(self.single(self.dataMapping));
