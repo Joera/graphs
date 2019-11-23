@@ -87,7 +87,7 @@
       grid-row: 3;
       position: relative;
       display: none;
-      grid-template-columns: repeat(8,1fr);
+      grid-template-columns: 2rem repeat(8,1fr);
       grid-template-rows: 2rem repeat(8,1fr);
       grid-gap: 1rem;
       height: 100%;
