@@ -65,9 +65,11 @@ class PieChartSum  {
 
     prepareData(json,segment) {
 
-        json = json.find( j => j['_category'] === segment);
-
         console.log(json);
+
+        let d = json.find( j => j['_category'] === segment);
+
+       
 
         let data = [];
 
@@ -201,14 +203,14 @@ class PieChartSum  {
          this.chartPie.redraw(this.dimensions,this.smallMultiple);
     }
 
-    run(json,filter) {
+    run(json,segment) {
 
         let self = this;
 
-        let data = this.prepareData(json,filter);
+        let data = this.prepareData(json,segment);
         this.draw(data);
         this.redraw();
-        this.legend(data,filter);
+        this.legend(data,segment);
 
         window.addEventListener("resize", self.redraw, false);
 
