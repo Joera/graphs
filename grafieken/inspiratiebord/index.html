@@ -148,6 +148,11 @@
             <div class="container"></div>
         </article>
 
+        <article id="pie-toegekende-bedragen" class="pie" data-script="PieChartSum" data-property="">
+            <h3>Toegekende bedragen</h3>
+            <div class="container"></div>
+        </article>
+
     </section>
 
 
@@ -346,6 +351,34 @@
                 label: 'Schade-meldingen',
                 column: 'schademeldingen',
                 colour: 'orange'
+            }
+        ],
+        'pie-toegekende-bedragen' : [
+
+            {
+                label: 'Mijnbouwschade',
+                column: 'BEDRAG_SCHADEBEDRAG',
+                colour: 'green'
+            },
+            {
+                label: 'Stuwmeerregeling',
+                column: 'BEDRAG_SMR',
+                colour: 'darkblue'
+            },
+            {
+                label: 'Bijkomende kosten',
+                column: 'BEDRAG_BIJKOMENDE_KOSTEN',
+                colour: 'blue'
+            },
+            {
+                label: 'Wettelijke rente',
+                column: 'BEDRAG_WETTELIJKE_RENTE',
+                colour: 'orange'
+            },
+            {
+                label: 'Totaal',
+                column: 'TOTAAL_VERLEEND',
+                colour: 'yellow'
             }
         ],
         'bars-aos-meldingen' : [

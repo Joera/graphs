@@ -175,6 +175,12 @@
           grid-row: 3  / span 2;
         }
 
+        #pie-toegekende-bedragen {
+
+          grid-column: 2 / span 2;
+          grid-row: 5 / span 1;
+        }
+
         .mini-map {
 
           height: calc((100vw - 200px ) / 4 );
