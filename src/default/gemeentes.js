@@ -73,9 +73,7 @@ class Gemeentes {
 
     redraw(newProperty) {
 
-        if (newProperty && newProperty != undefined) { this.property = newProperty }
-
-        console.log(this.property);
+        if (newProperty && newProperty != undefined) { this.property = newProperty };
 
         this.yScale = this.chartYScale.set(this.features,this.property);
         // on redraw chart gets new dimensions
@@ -118,11 +116,11 @@ class Gemeentes {
 
         let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
-        window.addEventListener("resize", self.redraw(this.features, property), false);
+        window.addEventListener("resize", self.redraw(property), false);
 
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
-                self.redraw(self.features,radio.value);
+                self.redraw(radio.value);
             },false)
         }
     }
