@@ -15,7 +15,7 @@
       height: 100vh;
       display: grid;
       grid-template-columns: auto 14rem 46rem auto;
-      grid-template-rows: 3rem 4rem calc(100% - 8rem) 2rem;
+      grid-template-rows: 3rem 2rem calc(100% - 8rem) 2rem;
       justify-content: center;
 
     }
@@ -24,7 +24,7 @@
 
       display: grid;
       grid-template-columns: auto 14rem 78rem auto;
-      grid-template-rows: 3rem 5rem auto;
+      grid-template-rows: 3rem 2rem auto;
       justify-content: center;
     }
 
@@ -55,7 +55,7 @@
 
       grid-column: 3;
       grid-row: 2;
-      padding-bottom: 4rem;
+    //   padding-bottom: 4rem;
 
         ul {
           display: flex;
@@ -81,7 +81,7 @@
       position: relative;
       display: none;
       grid-template-columns: repeat(8,1fr);
-      grid-template-rows: repeat(8,1fr);
+      grid-template-rows: 3rem repeat(8,1fr);
       grid-gap: 1rem;
       height: 100%;
 
@@ -108,7 +108,7 @@
       #cijfer-nieuwe-meldingen {
 
         grid-column: 1 / span 2;
-        grid-row: 1 / span 1;
+        grid-row: 2 / span 1;
 
         svg {
           overflow: visible;
@@ -118,7 +118,7 @@
       #cijfer-nieuwe-opnames {
 
         grid-column: 3 / span 2;
-        grid-row: 1 / span 1;
+        grid-row: 2 / span 1;
 
         svg {
           overflow: visible;
@@ -128,7 +128,7 @@
       #cijfer-nieuwe-besluiten {
 
         grid-column: 5 / span 2;
-        grid-row: 1 / span 1;
+        grid-row: 2 / span 1;
 
         svg {
           overflow: visible;
@@ -138,7 +138,7 @@
       #cijfer-nieuwe-afgehandeld {
 
         grid-column: 7 / span 2;
-        grid-row: 1 / span 1;
+        grid-row: 2 / span 1;
 
         svg {
           overflow: visible;
@@ -150,26 +150,26 @@
       #map-nieuwe-meldingen {
 
           grid-column: 1 / span 2;
-          grid-row: 2 / span 2;
+          grid-row: 3 / span 2;
         }
 
         #map-nieuwe-opnames {
 
           grid-column: 3 / span 2;
-          grid-row: 2 / span 2;
+          grid-row: 3 / span 2;
           height: calc((100vw - 200px ) / 4 );
         }
 
         #map-nieuwe-besluiten {
 
           grid-column: 5 / span 2;
-          grid-row: 2 / span 2;
+          grid-row: 3 / span 2;
         }
 
         #map-nieuwe-afgehandeld {
 
           grid-column: 7 / span 2;
-          grid-row: 2 / span 2;
+          grid-row: 3  / span 2;
         }
 
         .mini-map {
