@@ -384,7 +384,7 @@
     li {
 
       color: $grey;
-      border-right: 1px solid rgb(238, 238, 238);
+      border-right: 1px solid $lightgrey ;
       text-transform: uppercase;
       padding: .25rem .5rem;
       line-height: 1.125;
@@ -398,11 +398,11 @@
 
       &.active, &:hover  {
 
-        background: $grey;
+        background: $lightgrey;
 
         span {
 
-          color: white;
+          //color: white;
         //  border-bottom: 1px solid black;
 
         }
