@@ -54,6 +54,7 @@ class Cijfers {
 
     single()  {
 
+        console.log(this.dataMapping);
 
         let average,label;
 
