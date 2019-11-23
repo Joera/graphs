@@ -32,6 +32,8 @@ class Cijfers {
 
     run(data,newSegment) {
 
+        let self= this;
+
         if(newSegment && newSegment != undefined) { this.segment = newSegment }
 
         this.data = data;
@@ -41,12 +43,15 @@ class Cijfers {
 
             for (let item of Object.values(this.dataMapping)) {
 
-                this.single(item);
+                let article = document.createElement('article');
+                article.classList.add('cijfer');
+                article.appendChild(this.single(item));
+                this.element.appendChild(article);
             }
 
         } else {
             // single balletje
-                this.single(this.dataMapping);
+            this.element.appendChild(self.single(self.dataMapping));
         }
 
 
@@ -61,8 +66,7 @@ class Cijfers {
         // console.log(data.find( (d) => d['_category'] === category));
         let count = this.data.find( (d) => d['_category'] === this.segment)[mapping[0].column];
 
-        let miniContainer = document.createElement('article');
-        miniContainer.classList.add('cijfer');
+        let miniContainer = document.createElement('div');
 
         let div = document.createElement('div');
 
@@ -100,7 +104,10 @@ class Cijfers {
             miniContainer.appendChild(average);
         }
 
-        this.element.appendChild(miniContainer);
+
+        return miniContainer;
+
+
     }
 
 
