@@ -65,11 +65,11 @@ class PieChartSum  {
 
     prepareData(json,segment) {
 
-        console.log(json);
+        console.log(segment);
 
         let d = json.find( j => j['_category'] === segment);
 
-       
+
 
         let data = [];
 
