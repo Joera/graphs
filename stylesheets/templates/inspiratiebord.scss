@@ -114,7 +114,7 @@
 
       #cijfer-nieuwe-meldingen {
 
-        grid-column: 1 / span 2;
+        grid-column: 2 / span 2;
         grid-row: 2 / span 1;
 
         svg {
@@ -124,7 +124,7 @@
 
       #cijfer-nieuwe-opnames {
 
-        grid-column: 3 / span 2;
+        grid-column: 4 / span 2;
         grid-row: 2 / span 1;
 
         svg {
@@ -134,7 +134,7 @@
 
       #cijfer-nieuwe-besluiten {
 
-        grid-column: 5 / span 2;
+        grid-column: 6 / span 2;
         grid-row: 2 / span 1;
 
         svg {
@@ -144,7 +144,7 @@
 
       #cijfer-nieuwe-afgehandeld {
 
-        grid-column: 7 / span 2;
+        grid-column: 8 / span 2;
         grid-row: 2 / span 1;
 
         svg {
@@ -156,26 +156,26 @@
 
       #map-nieuwe-meldingen {
 
-          grid-column: 1 / span 2;
+          grid-column: 2 / span 2;
           grid-row: 3 / span 2;
         }
 
         #map-nieuwe-opnames {
 
-          grid-column: 3 / span 2;
+          grid-column: 4 / span 2;
           grid-row: 3 / span 2;
           height: calc((100vw - 200px ) / 4 );
         }
 
         #map-nieuwe-besluiten {
 
-          grid-column: 5 / span 2;
+          grid-column: 6 / span 2;
           grid-row: 3 / span 2;
         }
 
         #map-nieuwe-afgehandeld {
 
-          grid-column: 7 / span 2;
+          grid-column: 8 / span 2;
           grid-row: 3  / span 2;
         }
 
@@ -194,7 +194,7 @@
 
       #bars-schade-meldingen {
 
-        grid-column: 1 / span 4;
+        grid-column: 2 / span 4;
         grid-row: 1 / span 2;
 
         svg {
