@@ -3,7 +3,7 @@ class Cijfers {
 
     constructor(element,dataMapping,property,segment,smallMultiple) {
 
-        this.element = element;
+        this.element = document.querySelector(element);
         this.dataMapping = dataMapping;
         this.property = property;
         this.smallMultiple = smallMultiple;
