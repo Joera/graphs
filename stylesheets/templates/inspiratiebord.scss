@@ -40,10 +40,14 @@
 
       #muni-select {
         margin-top: -.125rem;
+        background: rgb(238, 238, 238);
+        padding: .5rem;
       }
 
       #specials-select {
         margin-top: 3rem;
+        background: rgb(238, 238, 238);
+        padding: .5rem;
       }
 
 
@@ -59,6 +63,8 @@
           display: flex;
           flex-direction: row;
           margin-left: 4rem;
+          background: rgb(238, 238, 238);
+          padding: .2rem .5rem;
 
             li {
               margin-right: 2rem;
