@@ -103,7 +103,7 @@ class BarProgression  {
 
         let minBarWidth = 50;
 
-        let elWidth = d3.select(elementID).node().getBoundingClientRect().width;
+        let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
