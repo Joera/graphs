@@ -389,10 +389,16 @@
         display: inline;
       }
 
-      &.active span {
+      &.active {
 
-        color: black;
-        border-bottom: 1px solid black;
+        background: $grey;
+
+        span {
+
+          color: white;
+        //  border-bottom: 1px solid black;
+
+        }
       }
 
     }
