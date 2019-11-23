@@ -8,6 +8,7 @@ class Cijfers {
         this.property = property;
         this.smallMultiple = smallMultiple;
         this.segment = segment;
+        this.data;
     }
 
     init() {
@@ -31,6 +32,7 @@ class Cijfers {
 
     run(data,category) {
 
+        this.data = data;
 
         if (typeof this.dataMapping === 'object')  {
             // multiple balletjes
@@ -54,7 +56,7 @@ class Cijfers {
         let average,label;
 
         // console.log(data.find( (d) => d['_category'] === category));
-        let count = data.find( (d) => d['_category'] === category)[this.property];
+        let count = this.data.find( (d) => d['_category'] === category)[this.property];
 
         let miniContainer = document.createElement('div');
 
