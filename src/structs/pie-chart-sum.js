@@ -165,7 +165,7 @@ class PieChartSum  {
             .attr("class", "small-label")
             .attr("dx", legendWidth)
             .attr("dy", (data.length * 20) + 2)
-            .text(convertToCurrency(data['TOTAAL_VERLEEND']))
+            .text(convertToCurrency(data[data.length]['value']))
             .attr("width",this.dimensions.containerWidth)
             .style("opacity", 1)
             .style("text-anchor", "end");
