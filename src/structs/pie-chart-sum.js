@@ -96,6 +96,7 @@ class PieChartSum  {
 
             legendX = 110;
             legendY = 30;
+            legendWidth = 140;
         }
 
         if (window.innerWidth < 660) {
@@ -108,7 +109,7 @@ class PieChartSum  {
 
             legendX = 130;
             legendY = 110;
-            legendWidth = 140;
+
         }
 
         this.svg.layers.legend
