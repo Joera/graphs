@@ -125,7 +125,7 @@ class Gemeentes {
 
         this.features = this.prepareData(geoData,property);
 
-        this.chartMap.draw();
+        this.chartMap.draw(this.features);
         this.redraw(property);
         this.createDropdown();
         this.setListeners(property);
