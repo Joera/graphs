@@ -40,6 +40,8 @@ class Cijfers {
 
         this.data = data;
 
+        console.log(this.dataMapping);
+
         if (typeof this.dataMapping === 'object')  {
             // multiple balletjes
 
