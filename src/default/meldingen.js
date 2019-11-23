@@ -63,9 +63,8 @@ class MidTermIncrease  {
         this.chartAxis.drawYAxis();
 
         let url = 'https://tcmg-hub.publikaan.nl/api/data';
-        if (!property) {
-            property = 'schademeldingen'
-        }
+
+       
 
         if (globalData.weeks) {
 
