@@ -148,7 +148,7 @@ class PieChartSum  {
 
          this.svg.layers.legend.append("rect")
             .attr("class", "small-label")
-            .attr("y", ((data.length - 1) * 20) + 8)
+            .attr("y", ((data.length - 2) * 20) + 8)
             .attr("height",.5)
             .attr("width",legendWidth)
             .style("opacity", 1)
@@ -156,7 +156,7 @@ class PieChartSum  {
 
          this.svg.layers.legend.append("text")
             .attr("class", "small-label")
-            .attr("dy", (data.length * 20) + 2)
+            .attr("dy", ((data.length - 1) * 20) + 2)
             .text('Totaal:')
             .attr("width",this.dimensions.containerWidth)
             .style("opacity", 1);
@@ -164,8 +164,8 @@ class PieChartSum  {
          this.svg.layers.legend.append("text")
             .attr("class", "small-label")
             .attr("dx", legendWidth)
-            .attr("dy", (data.length * 20) + 2)
-            .text(convertToCurrency(data[data.length]['value']))
+            .attr("dy", ((data.length - 1) * 20) + 2)
+            .text(convertToCurrency(data[data.length - 1]['value']))
             .attr("width",this.dimensions.containerWidth)
             .style("opacity", 1)
             .style("text-anchor", "end");
