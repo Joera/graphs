@@ -28,6 +28,8 @@ class Gemeentes {
 
     init() {
 
+        let self = this;
+
         this.chartDimensions = new ChartDimensions(this.element,this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG = new ChartSVG(this.element,this.config,this.dimensions,this.svg);
@@ -51,7 +53,7 @@ class Gemeentes {
         if (!globalData.geoData) {
             d3.json(url, function(error, json) {
                 globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
-                this.run(globalData.geoData,this.property)
+                self.run(globalData.geoData,self.property)
             });
 
         } else {
