@@ -78,7 +78,7 @@ class PieChartSum  {
 
            data.push({
                status: map.label,
-               value: json[map.column]
+               value: segmented[map.column]
 
            });
        }
@@ -86,7 +86,7 @@ class PieChartSum  {
         return data;
     }
 
-     legend(data,filter) {
+     legend(data,segment) {
 
         let legendX = 360;
         let legendY = 180;
