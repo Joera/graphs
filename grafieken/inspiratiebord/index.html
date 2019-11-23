@@ -414,6 +414,9 @@
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
+
+                    console.log(dataMapping[vis.id]);
+
                     graphs[dataMapping[vis.id]] = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), segment,true);
                     graphs[dataMapping[vis.id]].init();
 
