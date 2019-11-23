@@ -20,29 +20,31 @@
 <body class="single-graph">
 <main>
 
-    <!--<h2>Schademeldingen</h2>-->
-    <!--<span></span>-->
     <div class="container"></div>
-
-    <!--<div class="selector">-->
-        <!--<ul class="properties radios">-->
-            <!--<li>-->
-                <!--<input type="radio" id="schademeldingen" name="property" value="schademeldingen" checked>-->
-                <!--<label for="schademeldingen">Schademeldingen</label>-->
-            <!--</li>-->
-            <!--<li>-->
-                <!--<input type="radio" id="aos_meldingen" name="property" value="aos_meldingen">-->
-                <!--<label for="aos_meldingen">AOS meldingen</label>-->
-            <!--</li>-->
-        <!--</ul>-->
-    <!--</div>-->
 
 </main>
 </body>
 
 
 <script>
-    aos_meldingen('.container');
+
+    const dataMapping = [
+
+        {
+            label: 'AOS meldingen',
+            column: 'aos_meldingen',
+            colour: 'darkblue'
+        },
+        {
+            label: '',
+            column: 'nieuwe_aos_meldingen',
+            colour: 'darkblue'
+        }
+    ];
+
+
+    let aosmeldingen = new BarProgression('#container',dataMapping,'','all',false);
+    aosmeldingen.init();
 </script>
 
 
