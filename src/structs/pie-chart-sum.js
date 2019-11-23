@@ -63,41 +63,43 @@ class PieChartSum  {
 
     }
 
-    prepareData(json,filter) {
+    prepareData(json,segment) {
 
-        json = json.filter( j => j['_category'] === filter)[0];
+        json = json.find( j => j['_category'] === segment);
+
+        console.log(json);
 
         let data = [];
 
-        data.push({
-            status: "Mijnbouwschade",
-            value: json['BEDRAG_SCHADEBEDRAG']
-
-        });
-
-        data.push({
-            status: "Stuwmeerregeling",
-            value: json['BEDRAG_SMR']
-
-        });
-
         // data.push({
-        //     status: "Vergoeding overige schades",
-        //     totaal: json['BEDRAG_GEVOLGSCHADE']
+        //     status: "Mijnbouwschade",
+        //     value: json['BEDRAG_SCHADEBEDRAG']
         //
         // });
-
-        data.push({
-            status: "Bijkomende kosten",
-            value: json['BEDRAG_BIJKOMENDE_KOSTEN']
-
-        });
-
-        data.push({
-            status: "Wettelijke rente",
-            value: json['BEDRAG_WETTELIJKE_RENTE']
-
-        });
+        //
+        // data.push({
+        //     status: "Stuwmeerregeling",
+        //     value: json['BEDRAG_SMR']
+        //
+        // });
+        //
+        // // data.push({
+        // //     status: "Vergoeding overige schades",
+        // //     totaal: json['BEDRAG_GEVOLGSCHADE']
+        // //
+        // // });
+        //
+        // data.push({
+        //     status: "Bijkomende kosten",
+        //     value: json['BEDRAG_BIJKOMENDE_KOSTEN']
+        //
+        // });
+        //
+        // data.push({
+        //     status: "Wettelijke rente",
+        //     value: json['BEDRAG_WETTELIJKE_RENTE']
+        //
+        // });
 
         return data;
     }
