@@ -73,7 +73,7 @@ class Cijfers {
 
         if(mapping[1]) {
 
-            let gem = Math.round(data.find((d) => d['_category'] === this.segment)[mapping[1].column]);
+            let gem = Math.round(this.data.find((d) => d['_category'] === this.segment)[mapping[1].column]);
 
             label = document.createElement('span');
             label.classList.add('label');
