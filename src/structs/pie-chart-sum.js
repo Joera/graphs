@@ -73,8 +73,9 @@ class PieChartSum  {
         console.log(segmented);
 
         let data = [];
+        let mappings = this.dataMapping.splice(-1,1);
 
-       for (let map of this.dataMapping.pop()) {
+       for (let map of mappings) {
 
            data.push({
                status: map.label,
