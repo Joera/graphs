@@ -134,11 +134,7 @@ class BarProgression  {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        let map = this.dataMapping.find((m) => m.column === property)['colour'];
-
-        console.log(map);
-
-        let colour = ['colour'];
+        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
 
         this.chartBarsIncrease.draw(data,colour,property);
     }

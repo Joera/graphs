@@ -2,7 +2,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let dataArray;
 
-    let draw = function draw(data,colours) {
+    let draw = function draw(data,colour) {
 
         // slice count of columns on mobile
 
@@ -17,7 +17,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .enter()
             .append("rect")
             .attr("class", function(d) {
-                return 'bar ' + colours[0];
+                return 'bar ' + colour;
             });
 
 
