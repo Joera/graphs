@@ -42,8 +42,15 @@ class Cijfers {
 
         console.log(this.dataMapping);
 
-        if (typeof this.dataMapping === 'object')  {
+        if (Array.isArray(this.dataMapping))  {
             // multiple balletjes
+            console.log('2');
+            // single balletje voor small multiples
+            console.log(self.dataMapping);
+
+            this.element.appendChild(self.single(self.dataMapping));
+
+        } else {
 
             console.log('1');
 
@@ -54,14 +61,6 @@ class Cijfers {
                 article.appendChild(this.single(item));
                 this.element.appendChild(article);
             }
-
-        } else {
-
-            console.log('2');
-            // single balletje voor small multiples
-            console.log(self.dataMapping);
-
-            this.element.appendChild(self.single(self.dataMapping));
         }
 
 
