@@ -87,7 +87,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,property) {
+    let redraw = function redraw(dimensions,xScale,yScale,property,colour) {
 
       //  let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
@@ -120,6 +120,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.bar
             .merge(svg.barEnter)
+            .attr("class", function(d) {
+                return 'bar ' + colour;
+            })
             .attr("x", function(d) {
 
                 return xScale.band(d[config.xParameter]);
@@ -130,9 +133,6 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             })
             .attr("clip-path", "url(#clip)")
             .attr("y", function(d) { return dimensions.height; })
-            .attr("class", function(d) {
-                return 'bar ' + colour;
-            })
             .transition()
             .duration(250)
             .attr("y", function(d) { return yScale.linear(d[property]); })
