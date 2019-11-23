@@ -71,7 +71,9 @@ class Gemeentes {
 
     }
 
-    redraw() {
+    redraw(newProperty) {
+
+        if (newProperty) { this.property = newProperty }
 
         this.yScale = this.chartYScale.set(this.features,this.property);
         // on redraw chart gets new dimensions
