@@ -3,6 +3,8 @@ class Cijfers {
 
     constructor(element,dataMapping,property,segment,smallMultiple) {
 
+        console.log(dataMapping);
+
         this.element = (typeof element === 'string') ? document.querySelector(element) : element;
         this.dataMapping = dataMapping;
         this.property = property;
@@ -51,7 +53,7 @@ class Cijfers {
 
         } else {
             // single balletje
-            console.log(self.dataMapping);
+
 
             this.element.appendChild(self.single(self.dataMapping));
         }
