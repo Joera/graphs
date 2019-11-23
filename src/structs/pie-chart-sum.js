@@ -118,7 +118,7 @@ class PieChartSum  {
 
         data.forEach( (d,i) => {
 
-            if (i === data.length) return;
+            if (i === data.length - 1) return;
 
             this.svg.layers.legend.append("rect")
                 .attr("y", (i * 20) - 8)
