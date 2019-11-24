@@ -83,7 +83,17 @@ class CijfersLine  {
 
     prepareData(json,property)  {
 
-        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
+        let neededColumns = ['_date', '_category'];
+
+
+        if (Array.isArray(this.dataMapping)) {
+            // single balletje voor small multiples (dashboard)
+
+            neededColumns = neededColumns.concat(this.dataMapping.map((c) => c.column));
+
+        } else {
+
+        }
 
         let data = [];
 
