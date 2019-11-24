@@ -11,6 +11,8 @@ class Cijfers {
         this.smallMultiple = smallMultiple;
         this.segment = segment;
         this.data;
+
+        console.log(this.dataMapping);
     }
 
     init() {
@@ -41,19 +43,7 @@ class Cijfers {
 
         if(data && data != undefined) { this.data = data; }
 
-        console.log(this.dataMapping);
-
-        if (Array.isArray(this.dataMapping))  {
-            // single balletje voor small multiples (dashboard)
-            console.log(self.dataMapping);
-
-            this.element.appendChild(self.single(self.dataMapping));
-
-        } else {
-
-
-        }
-
+        this.element.appendChild(self.single(self.dataMapping));
 
     }
 
