@@ -48,8 +48,6 @@ class Cijfers {
 
         let segmented = json.find( j => j['_category'] === segment);
 
-        console.log(segmented);
-
         let data = [];
 
         for (let map of this.dataMapping) {

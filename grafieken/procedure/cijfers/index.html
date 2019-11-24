@@ -138,6 +138,7 @@
         let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
 
         d3.json(url, function (error, json) {
+            console.log(json)
             if (error) throw error;
             globalData.gemeentes = json;
             loopClasses(globalData.gemeentes,'all');
