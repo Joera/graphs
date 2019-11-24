@@ -17,6 +17,8 @@ class Cijfers {
 
         let self = this;
 
+        console.log('yo');
+
         if (globalData.gemeentes) {
 
             this.run(globalData.gemeentes,this.segment);
@@ -35,7 +37,7 @@ class Cijfers {
 
     run(data,newSegment) {
 
-        console.log('yo');
+
 
         let self = this;
 
