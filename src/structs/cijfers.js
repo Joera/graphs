@@ -78,7 +78,7 @@ class Cijfers {
 
         let average,label;
 
-        console.log(mapping);
+        console.log(data);
 
         // console.log(data.find( (d) => d['_category'] === category));
         let count = data[0].value;
