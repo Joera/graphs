@@ -78,8 +78,10 @@ class Cijfers {
 
         let average,label;
 
+        console.log(mapping);
+
         // console.log(data.find( (d) => d['_category'] === category));
-        let count = data[mapping[0].column];
+        let count = data[0].value;
 
         let miniContainer = document.createElement('div');
 
@@ -93,7 +95,7 @@ class Cijfers {
 
         if(mapping[1]) {
 
-            let gem = Math.round(data[mapping[1].column]);
+            let gem = Math.round(data[1].value);
 
             label = document.createElement('span');
             label.classList.add('label');
