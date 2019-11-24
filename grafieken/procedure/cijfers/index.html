@@ -95,18 +95,19 @@
     let cijfers;
 
     // multiple balletjes (website)
-    for (let item of Object.values(dataMapping)) {
+    for (let i; i < dataMapping.length; i++) {
 
         console.log(item);
 
+
+
         let article = document.createElement('article');
         article.classList.add('cijfer');
-        article.id = '';
-        // article.appendChild(this.single(item));
+        article.id = Object.keys(dataMapping)[i];
         document.querySelector('.container').appendChild(article);
 
-        // cijfers = new Cijfers('.container', dataMapping, '', 'all', false)
-        // cijfers.init();
+        cijfers = new Cijfers('#' + Object.keys(dataMapping)[i], dataMapping[i], '', 'all', false)
+        cijfers.init();
     }
 
 
