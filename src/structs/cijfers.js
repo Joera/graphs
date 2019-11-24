@@ -63,11 +63,11 @@ class Cijfers {
     }
 
     run(data,newSegment) {
-        
+
         let segmentedData = this.prepareData(data,newSegment);
 
         this.element.innerHTML = '';
-        this.element.appendChild(self.single(segmentedData,Object.values(this.dataMapping)));
+        this.element.appendChild(this.single(segmentedData,Object.values(this.dataMapping)));
 
     }
 
