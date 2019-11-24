@@ -92,8 +92,26 @@
         ]
     }
 
-    let cijfers = new Cijfers('.container', dataMapping, '', 'all', false)
-    cijfers.init();
+    let cijfers;
+
+    // multiple balletjes (website)
+    for (let item of Object.values(this.dataMapping)) {
+
+        console.log(item);
+
+        let article = document.createElement('article');
+        article.classList.add('cijfer');
+        article.id = '';
+        // article.appendChild(this.single(item));
+        this.element.appendChild(article);
+
+        // cijfers = new Cijfers('.container', dataMapping, '', 'all', false)
+        // cijfers.init();
+    }
+
+
+
+
 
 </script>
 

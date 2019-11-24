@@ -10,7 +10,7 @@ class ChartXScale {
 
 
     set(data) {
-        
+
         let self = this;
         this.data = data;
 

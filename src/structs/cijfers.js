@@ -51,14 +51,7 @@ class Cijfers {
 
         } else {
 
-            // multiple balletjes (website)
-            for (let item of Object.values(this.dataMapping)) {
 
-                let article = document.createElement('article');
-                article.classList.add('cijfer');
-                article.appendChild(this.single(item));
-                this.element.appendChild(article);
-            }
         }
 
 

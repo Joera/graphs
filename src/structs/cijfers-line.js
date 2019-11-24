@@ -51,17 +51,7 @@ class CijfersLine  {
         this.dimensions = this.chartDimensions.get(this.dimensions);
 
         // create svg elements without data
-        this.chartSVG = new ChartSVG(this.elementID, this.config, this.dimensions, this.svg);
 
-        this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
-        this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
-
-
-        this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartLine = ChartRaggedLine(this.config, this.svg);
-
-        this.chartAxis.drawXAxis();
-        this.chartAxis.drawYAxis();
 
         let url = 'https://tcmg-hub.publikaan.nl/api/data';
 
@@ -79,6 +69,21 @@ class CijfersLine  {
             });
         }
 
+    }
+
+    initSingle() {
+
+        this.chartSVG = new ChartSVG(this.elementID, this.config, this.dimensions, this.svg);
+
+        this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
+        this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
+
+
+        this.chartAxis = ChartAxis(this.config, this.svg);
+        this.chartLine = ChartRaggedLine(this.config, this.svg);
+
+        this.chartAxis.drawXAxis();
+        this.chartAxis.drawYAxis();
     }
 
     prepareData(json,property)  {
@@ -216,6 +221,7 @@ class CijfersLine  {
             console.log(self.dataMapping);
 
             this.element.appendChild(self.singleNumber(self.dataMapping));
+            this.initSingle();
             let data = this.prepareData(json,this.dataMapping[0].column);
             this.draw(data,this.segment);
             this.redraw(data,this.segment);
