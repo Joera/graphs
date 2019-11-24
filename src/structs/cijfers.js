@@ -54,7 +54,9 @@ class Cijfers {
 
         if(data && data != undefined) { this.data = data; }
 
-        this.element.appendChild(self.single(data,Object.values(self.dataMapping)));
+        let segmentedData = self.prepareData(self.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
+
+        this.element.appendChild(self.single(segmentedData,Object.values(self.dataMapping)));
 
 
 
