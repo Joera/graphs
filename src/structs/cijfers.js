@@ -45,7 +45,7 @@ class Cijfers {
 
         if(this.municipalitySelect != null) {
             this.municipalitySelect.addEventListener("change", function () {
-                self.run(this.data,this.municipalitySelect.options[this.municipalitySelect.selectedIndex].value);
+                self.run(this.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
             });
         }
     }
