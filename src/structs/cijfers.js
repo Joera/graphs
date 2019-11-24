@@ -13,18 +13,32 @@ class Cijfers {
         this.data;
     }
 
-    init() {
+    init(data,segment) {
 
         let self = this;
-        if (globalData.gemeentes) {
+
+        if(data) {
+
+            this.run(data,segment)
+
+        } else if (globalData.gemeentes) {
+
             this.run(globalData.gemeentes,this.segment);
+
         } else {
+
             let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
             d3.json(url, function (error, json) {
                 console.log('1');
                 if (error) throw error;
                 globalData.gemeentes = json;
                 self.run(json, self.segment);
+            });
+        }
+
+        if (this.municipalitySelect != null) {
+            this.municipalitySelect.addEventListener("change", function () {
+                self.run(data || globalData.gemeentes,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value)
             });
         }
     }
@@ -49,29 +63,12 @@ class Cijfers {
     }
 
     run(data,newSegment) {
+        
+        let segmentedData = this.prepareData(data,newSegment);
 
-        let self = this;
+        this.element.innerHTML = '';
+        this.element.appendChild(self.single(segmentedData,Object.values(this.dataMapping)));
 
-        if(newSegment && newSegment != undefined) { this.segment = newSegment }
-
-        if(data && data != undefined) { this.data = data; }
-
-        let segmentedData = self.prepareData(self.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
-
-        this.element.appendChild(self.single(segmentedData,Object.values(self.dataMapping)));
-
-
-
-    //  window.addEventListener("resize", redraw, false);
-
-        if(this.municipalitySelect != null) {
-            this.municipalitySelect.addEventListener("change", function () {
-                let segmentedData = self.prepareData(self.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
-
-                this.element.innerHTML = '';
-                this.element.appendChild(self.single(segmentedData,Object.values(self.dataMapping)));
-            });
-        }
     }
 
     redraw(data,newSegment) {
