@@ -92,19 +92,44 @@
         ]
     }
 
-    let cijfers;
+    var cijfers;
 
-    // multiple balletjes (website)
-    for (let i = 0; i < Object.keys(dataMapping).length; i++) {
+    var loopClasses = function(data,segment) {
 
-        let article = document.createElement('article');
-        article.classList.add('cijfer');
-        article.id = Object.keys(dataMapping)[i];
-        document.querySelector('.container').appendChild(article);
+        for (var i = 0; i < Object.keys(dataMapping).length; i++) {
 
-        cijfers = new Cijfers('#' + Object.keys(dataMapping)[i], Object.values(dataMapping)[i], '', 'all', false)
-        cijfers.init();
+            var article = document.createElement('article');
+            article.classList.add('cijfer');
+            article.id = Object.keys(dataMapping)[i];
+            document.querySelector('.container').appendChild(article);
+
+            cijfers = new Cijfers('#' + Object.keys(dataMapping)[i], Object.values(dataMapping)[i], '', 'all', false);
+            cijfers.run(data,segment);
+        }
     }
+
+
+    if (globalData.gemeentes) {
+
+        loopClasses.run(globalData.gemeentes,'all');
+        console.log('2');
+
+    } else {
+
+        let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
+
+        d3.json(url, function (error, json) {
+            console.log('1');
+            if (error) throw error;
+            globalData.gemeentes = json;
+            loopClasses.run(globalData.gemeentes,'all');
+
+        });
+    }
+
+
+
+
 
 
 
