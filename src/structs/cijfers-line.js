@@ -217,7 +217,7 @@ class CijfersLine  {
                 article.classList.add('cijfer');
                 article.appendChild(this.singleNumber(item));
                 this.element.appendChild(article);
-                let data = this.prepareData(json,this.segment);
+                let data = this.prepareData(item,this.segment);
                 this.draw(data,this.segment);
                 this.redraw(data,this.segment);
             }
