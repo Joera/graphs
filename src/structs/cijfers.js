@@ -29,7 +29,6 @@ class Cijfers {
 
             let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
             d3.json(url, function (error, json) {
-                console.log('1');
                 if (error) throw error;
                 globalData.gemeentes = json;
                 self.run(json, self.segment);
@@ -48,6 +47,8 @@ class Cijfers {
         console.log(segment);
 
         let segmented = json.find( j => j['_category'] === segment);
+
+        console.log(segmented);
 
         let data = [];
 
