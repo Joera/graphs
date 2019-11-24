@@ -35,6 +35,8 @@ class Cijfers {
 
     run(data,newSegment) {
 
+        console.log('yo');
+
         let self = this;
 
         if(newSegment && newSegment != undefined) { this.segment = newSegment }
@@ -52,8 +54,6 @@ class Cijfers {
     }
 
     single(mapping)  {
-
-        console.log(mapping);
 
         let average,label;
 
