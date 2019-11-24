@@ -17,17 +17,19 @@ class Cijfers {
 
         let self = this;
 
-        console.log('yo');
+
 
         if (globalData.gemeentes) {
 
             this.run(globalData.gemeentes,this.segment);
+            console.log('2');
 
         } else {
 
             let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
 
             d3.json(url, function (error, json) {
+                console.log('1');
                 if (error) throw error;
                 globalData.gemeentes = json;
                 self.run(json, self.segment);
