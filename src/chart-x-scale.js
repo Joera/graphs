@@ -10,9 +10,10 @@ class ChartXScale {
 
 
     set(data) {
-
-        this.data = data;
+        
         let self = this;
+        this.data = data;
+
         let endDate = new Date();
 
         this.scale.linear = d3.scaleLinear()
