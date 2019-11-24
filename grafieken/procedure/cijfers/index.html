@@ -112,18 +112,15 @@
     if (globalData.gemeentes) {
 
         loopClasses(globalData.gemeentes,'all');
-        console.log('2');
 
     } else {
 
         let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
 
         d3.json(url, function (error, json) {
-            console.log('1');
             if (error) throw error;
             globalData.gemeentes = json;
             loopClasses(globalData.gemeentes,'all');
-
         });
     }
 
