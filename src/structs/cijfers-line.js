@@ -1,10 +1,11 @@
 class CijfersLine  {
 
-    constructor(elementID,dataMapping,property,smallMultiple) {
+    constructor(elementID,dataMapping,property,segment,smallMultiple) {
 
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
+        this.segment = segment;
      //   this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
         this.smallMultiple = smallMultiple;
 
@@ -127,29 +128,109 @@ class CijfersLine  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartBarsIncrease.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
+        this.chartLine.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
     }
 
     draw(data,property) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        this.chartBarsIncrease.draw(data);
+        this.chartLine.draw(data);
     }
 
-    run(json,property) {
+    singleNumber(mapping)  {
+
+        let average,label;
+
+        // console.log(data.find( (d) => d['_category'] === category));
+        let count = this.data.find( (d) => d['_category'] === this.segment)[mapping[0].column];
+
+        let miniContainer = document.createElement('div');
+
+        let div = document.createElement('div');
+
+        let number = document.createElement('span');
+        number.classList.add('number');
+        number.style.backgroundColor =  mapping[0].colour;
+
+        number.innerText = count;
+
+        if(mapping[1]) {
+
+            let gem = Math.round(this.data.find((d) => d['_category'] === this.segment)[mapping[1].column]);
+
+            label = document.createElement('span');
+            label.classList.add('label');
+            label.innerText = 'gemiddelde laatste 8 weken';
+
+            average = document.createElement('span');
+            average.classList.add('average');
+            average.innerText = gem;
+
+
+            let diff = document.createElement('span');
+            diff.classList.add('diff');
+            diff.innerText = (((count - gem) / gem) * 100).toFixed(0) + '%';
+
+            number.appendChild(diff);
+        }
+
+        div.appendChild(number);
+        miniContainer.appendChild(div);
+
+        if(mapping[1]) {
+            miniContainer.appendChild(label);
+            miniContainer.appendChild(average);
+        }
+
+
+        return miniContainer;
+
+
+    }
+
+    run(json,newSegment) {
 
         let self = this;
 
-        let data = this.prepareData(json,property);
-        this.draw(data,property);
-        this.redraw(data,property);
+        if(newSegment && newSegment != undefined) { this.segment = newSegment }
+
+        if(data && data != undefined) { this.data = data; }
+
+        console.log(this.dataMapping);
+
+        if (Array.isArray(this.dataMapping))  {
+            // single balletje voor small multiples (dashboard)
+            console.log(self.dataMapping);
+
+            this.element.appendChild(self.singleNumber(self.dataMapping));
+            let data = this.prepareData(json,this.segment);
+            this.draw(data,this.segment);
+            this.redraw(data,this.segment);
+
+        } else {
+
+            // multiple balletjes (website)
+            for (let item of Object.values(this.dataMapping)) {
+
+                let article = document.createElement('article');
+                article.classList.add('cijfer');
+                article.appendChild(this.singleNumber(item));
+                this.element.appendChild(article);
+                let data = this.prepareData(json,this.segment);
+                this.draw(data,this.segment);
+                this.redraw(data,this.segment);
+            }
+        }
+
+
+
         // legend(data);
 
-        window.addEventListener("resize", () => self.redraw(data,property), false);
-
-        for (let radio of this.radios) {
-            radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
-        }
+        // window.addEventListener("resize", () => self.redraw(data,property), false);
+        //
+        // for (let radio of this.radios) {
+        //     radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
+        // }
     }
 }
