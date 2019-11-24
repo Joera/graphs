@@ -195,7 +195,7 @@ class CijfersLine  {
 
         if(newSegment && newSegment != undefined) { this.segment = newSegment }
 
-        if(data && data != undefined) { this.data = data; }
+        if(json && json != undefined) { this.data = json; }
 
         console.log(this.dataMapping);
 
