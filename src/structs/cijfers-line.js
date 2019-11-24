@@ -5,7 +5,7 @@ class CijfersLine  {
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
-        this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
+     //   this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
         this.smallMultiple = smallMultiple;
 
     }
