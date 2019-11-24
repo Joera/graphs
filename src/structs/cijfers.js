@@ -29,6 +29,23 @@ class Cijfers {
         }
     }
 
+    prepareData(json,segment) {
+
+        let segmented = json.find( j => j['_category'] === segment);
+
+        let data = [];
+
+        for (let map of this.dataMapping) {
+
+            data.push({
+                status: map.label,
+                value: segmented[map.column]
+            });
+        }
+
+        return data;
+    }
+
     run(data,newSegment) {
 
         let self = this;
@@ -45,7 +62,8 @@ class Cijfers {
 
         if(this.municipalitySelect != null) {
             this.municipalitySelect.addEventListener("change", function () {
-                self.run(this.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
+                let segmentedData = self.prepareData(self.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
+                self.single(segmentedData,self.dataMapping);
             });
         }
     }
@@ -56,12 +74,12 @@ class Cijfers {
         this.run(data,newSegment)
     }
 
-    single(mapping)  {
+    single(data,mapping)  {
 
         let average,label;
 
         // console.log(data.find( (d) => d['_category'] === category));
-        let count = this.data.find( (d) => d['_category'] === this.segment)[mapping[0].column];
+        let count = data[mapping[0].column];
 
         let miniContainer = document.createElement('div');
 
@@ -75,7 +93,7 @@ class Cijfers {
 
         if(mapping[1]) {
 
-            let gem = Math.round(this.data.find((d) => d['_category'] === this.segment)[mapping[1].column]);
+            let gem = Math.round(data[mapping[1].column]);
 
             label = document.createElement('span');
             label.classList.add('label');
