@@ -67,7 +67,9 @@ class Cijfers {
         if(this.municipalitySelect != null) {
             this.municipalitySelect.addEventListener("change", function () {
                 let segmentedData = self.prepareData(self.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
-                self.single(segmentedData,Object.values(self.dataMapping));
+
+                this.element.innerHTML = '';
+                this.element.appendChild(self.single(segmentedData,Object.values(self.dataMapping)));
             });
         }
     }
