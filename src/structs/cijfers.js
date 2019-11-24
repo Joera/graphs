@@ -54,7 +54,7 @@ class Cijfers {
 
         if(data && data != undefined) { this.data = data; }
 
-        this.element.appendChild(self.single(self.dataMapping));
+        this.element.appendChild(self.single(data,Object.values(self.dataMapping)));
 
 
 
@@ -63,7 +63,7 @@ class Cijfers {
         if(this.municipalitySelect != null) {
             this.municipalitySelect.addEventListener("change", function () {
                 let segmentedData = self.prepareData(self.data,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
-                self.single(segmentedData,self.dataMapping);
+                self.single(segmentedData,Object.values(self.dataMapping));
             });
         }
     }
