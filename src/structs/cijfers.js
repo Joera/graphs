@@ -3,7 +3,7 @@ class Cijfers {
 
     constructor(element,dataMapping,property,segment,smallMultiple) {
 
-
+        this.municipalitySelect = document.querySelector('select.municipalities');
 
         this.element = (typeof element === 'string') ? document.querySelector(element) : element;
         this.dataMapping = dataMapping;
@@ -16,18 +16,10 @@ class Cijfers {
     init() {
 
         let self = this;
-
-
-
         if (globalData.gemeentes) {
-
             this.run(globalData.gemeentes,this.segment);
-            console.log('2');
-
         } else {
-
             let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
-
             d3.json(url, function (error, json) {
                 console.log('1');
                 if (error) throw error;
@@ -39,8 +31,6 @@ class Cijfers {
 
     run(data,newSegment) {
 
-
-
         let self = this;
 
         if(newSegment && newSegment != undefined) { this.segment = newSegment }
@@ -49,6 +39,15 @@ class Cijfers {
 
         this.element.appendChild(self.single(self.dataMapping));
 
+
+
+    //  window.addEventListener("resize", redraw, false);
+
+        if(this.municipalitySelect != null) {
+            this.municipalitySelect.addEventListener("change", function () {
+                self.run(this.data,this.municipalitySelect.options[this.municipalitySelect.selectedIndex].value);
+            });
+        }
     }
 
     redraw(data,newSegment) {
@@ -111,13 +110,6 @@ class Cijfers {
 
 
 
-     //   window.addEventListener("resize", redraw, false);
-
-        // if(municipalitySelect != null) {
-        //     municipalitySelect.addEventListener("change", function () {
-        //         run(json,municipalitySelect.options[municipalitySelect.selectedIndex].value);
-        //     });
-        // }
 
 
 
