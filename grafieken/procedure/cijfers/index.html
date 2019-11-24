@@ -124,7 +124,7 @@
             document.querySelector('.container').appendChild(article);
 
             cijfers = new Cijfers('#' + Object.keys(dataMapping)[i], Object.values(dataMapping)[i], '', 'all', false);
-            cijfers.run(data,segment);
+            cijfers.init(data,segment);
         }
     }
 
