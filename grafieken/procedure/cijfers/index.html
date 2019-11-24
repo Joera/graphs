@@ -102,7 +102,7 @@
         article.id = Object.keys(dataMapping)[i];
         document.querySelector('.container').appendChild(article);
 
-        cijfers = new Cijfers('#' + Object.keys(dataMapping)[i], dataMapping[i], '', 'all', false)
+        cijfers = new Cijfers('#' + Object.keys(dataMapping)[i], Object.values(dataMapping)[i], '', 'all', false)
         cijfers.init();
     }
 
