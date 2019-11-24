@@ -11,8 +11,6 @@ class Cijfers {
         this.smallMultiple = smallMultiple;
         this.segment = segment;
         this.data;
-
-        console.log(this.dataMapping);
     }
 
     init() {
@@ -54,6 +52,8 @@ class Cijfers {
     }
 
     single(mapping)  {
+
+        console.log(mapping);
 
         let average,label;
 
