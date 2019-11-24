@@ -93,6 +93,7 @@ class CijfersLine  {
 
         } else {
 
+            neededColumns.push(property);
         }
 
         let data = [];
@@ -111,11 +112,6 @@ class CijfersLine  {
             return new Date(a._date) - new Date(b._date);
         });
 
-        let minBarWidth = 60;
-
-        let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
-
-        data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
         return data;
     }
@@ -216,7 +212,7 @@ class CijfersLine  {
             console.log(self.dataMapping);
 
             this.element.appendChild(self.singleNumber(self.dataMapping));
-            let data = this.prepareData(json,this.segment);
+            let data = this.prepareData(json,this.dataMapping[0].column);
             this.draw(data,this.segment);
             this.redraw(data,this.segment);
 
@@ -229,7 +225,7 @@ class CijfersLine  {
                 article.classList.add('cijfer');
                 article.appendChild(this.singleNumber(item));
                 this.element.appendChild(article);
-                let data = this.prepareData(item,this.segment);
+                let data = this.prepareData(json,item.column);
                 this.draw(data,this.segment);
                 this.redraw(data,this.segment);
             }
