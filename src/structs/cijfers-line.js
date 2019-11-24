@@ -88,11 +88,8 @@ class CijfersLine  {
 
         if (Array.isArray(this.dataMapping)) {
             // single balletje voor small multiples (dashboard)
-
             neededColumns = neededColumns.concat(this.dataMapping.map((c) => c.column));
-
         } else {
-
             neededColumns.push(property);
         }
 
@@ -119,7 +116,14 @@ class CijfersLine  {
 
     redraw(data,property) {
 
-        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
+        let colour = orange;
+
+        if (Array.isArray(this.dataMapping)) {
+            // single balletje voor small multiples (dashboard)
+            let colour = this.dataMapping.find((m) => m.column === property)['colour'];
+        } else {
+
+        }
 
         this.yScale = this.chartYScale.set(data,property);
 
