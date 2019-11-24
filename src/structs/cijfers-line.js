@@ -143,6 +143,8 @@ class CijfersLine  {
 
     draw(data,property) {
 
+        console.log(data);
+
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
         this.chartLine.draw(data);
