@@ -31,6 +31,7 @@ module.exports = function() {
             './src/chart-axis.js',
             './src/chart-legend.js',
             './src/chart-line.js',
+            './src/chart-ragged-line.js',
             './src/chart-bar.js',
             './src/chart-bar-vertical.js',
             './src/chart-bars-increase.js',
@@ -48,6 +49,7 @@ module.exports = function() {
 
             './src/structs/bar-progression.js',
             './src/structs/cijfers.js',
+            './src/structs/cijfers-line.js',
             './src/structs/pie-chart-sum.js',
 
 
