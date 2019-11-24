@@ -131,14 +131,14 @@ class CijfersLine  {
         this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG.redraw(this.dimensions);
         // new dimensions mean new scales
-        this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
-        this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
-        // new scales mean new axis
-
-        this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
-        this.chartAxis.redrawYAxis(this.yScale,this.axes);
-        // redraw data
-        this.chartLine.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
+        // this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
+        // this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
+        // // new scales mean new axis
+        //
+        // this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
+        // this.chartAxis.redrawYAxis(this.yScale,this.axes);
+        // // redraw data
+        // this.chartLine.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
     }
 
     draw(data,property) {
