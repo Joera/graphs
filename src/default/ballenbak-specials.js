@@ -187,6 +187,8 @@ var ballenbakSpecials  = function (element,smallMultiple) {
             }
         }
 
+        console.log(data);
+
         return { data, flattenedData };
     }
 
