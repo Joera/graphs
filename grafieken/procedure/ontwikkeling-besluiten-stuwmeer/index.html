@@ -37,18 +37,6 @@
     const dataMapping = [
 
         [
-            {
-                label: 'Nulmetingen',
-                column: 'nulmetingen',
-                colour: 'blue'
-            },
-            {
-                label: '',
-                column: 'nieuwe_nulmetingen',
-                colour: 'blue'
-            }
-        ],
-        [
 
             {
                 label: 'Besluiten',
@@ -60,9 +48,19 @@
                 column: 'nieuwe_besluiten_stuwmeerregeling',
                 colour: 'green'
             }
+        ],
+        [
+            {
+                label: 'Nulmetingen',
+                column: 'nulmetingen',
+                colour: 'blue'
+            },
+            {
+                label: '',
+                column: 'nieuwe_nulmetingen',
+                colour: 'blue'
+            }
         ]
-
-
     ];
 
     let besluitenStuwmeer = new MultiBarProgression('#container',dataMapping,'besluiten_stuwmeerregeling','all',false);
