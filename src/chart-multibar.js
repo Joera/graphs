@@ -3,8 +3,6 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
     let draw = function draw(data) {
 
-        console.log(data);
-
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data);
         
@@ -23,7 +21,10 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
         let offset;
 
+
+
         let popup = function popup(d) {
+            console.log(d);
             return d['_week'] + '<br/>' + d.property + '<br/>' + d[property];
         }
 
@@ -48,8 +49,6 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
         svg.bar
             .merge(svg.barEnter)
             .on("mouseover", function(d) {
-
-                console.log('yoy')
 
                 svg.tooltip
                     .html(popup(d))
