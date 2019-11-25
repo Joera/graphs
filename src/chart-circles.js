@@ -28,9 +28,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         svg.groupEnter = svg.group.enter()
             .append("g")
-            .attr("class","group")
-
-        ;
+            .attr("class","group");
 
         svg.circleGroups = svg.groupEnter.merge(svg.group)
             .selectAll(".circleGroup")
@@ -63,9 +61,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .append("text")
             .attr("class","small-label")
             .attr("text-anchor","middle")
-            .style("fill","black")
-        ;
-
+            .style("fill","black");
 
         for (let group of data) {
             simulation[group[0].value] = d3.forceSimulation()
@@ -73,12 +69,13 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
                 .nodes(group.filter( (prop) => prop.key !== 'status'));
         }
 
-
         svg.headers = svg.headerGroupEnter.merge(svg.headerGroup)
             .append("text")
             .attr("class","header")
-            .text( d => {
-                return d[0].name
+            .text( d,i => {
+
+                return (window.innerWidth < 640) ? (i + 1) : d[0].name
+                
             })
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
             .style("text-anchor", "middle");
