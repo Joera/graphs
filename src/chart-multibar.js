@@ -17,27 +17,15 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                 return "bar  " + d.colour + " " + d.property;  // + colours[i]; // + sluggify(d.status) + "
             });
-
-        // svg.barLabels = svg.layers.data.selectAll(".barLabel")
-        //     .data(data);
-        //
-        // svg.barLabels.exit().remove();
-        //
-        // svg.barLabelsEnter = svg.barLabels
-        //     .enter()
-        //     .append('text')
-        //     .attr('class','barLabel small-label')
-        //     .attr('x', 0)
-        //     .attr('dx', '0px')
-        //     .attr('dy', '-6px')
-        //     .style("text-anchor", "middle")
-        //
-        //     ;
     }
 
     let redraw = function redraw(dimensions,xScale,yScale,property) {
 
         let offset;
+
+        let popup = function popup(d) {
+            return d['_week'] + '<br/>' + d.property + '<br/>' + d[property];
+        }
 
         svg.bar
             .merge(svg.barEnter)
@@ -55,39 +43,24 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .transition()
             .duration(500)
             .attr("y", function(d) { return config.margin.top + yScale[config.yScaleType](d[d['property']]); })
-            .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); })  // add
+            .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); })
+            .on("mouseover", function(d) {
+
+                svg.tooltip
+                    .html(popup(d))
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })// add
 
         ;
-
-        // svg.barLabels
-        //     .merge(svg.barLabelsEnter)
-        //     .text(function(d) {
-        //
-        //         if(config.currencyLabels) {
-        //
-        //             return convertToCurrency(d[config.yParameter]);
-        //
-        //         } else {
-        //
-        //             return d[config.yParameter] ? d[config.yParameter] : '< 25';
-        //         }
-        //
-        //
-        //     })
-        //     .attr('transform', function(d) {
-        //
-        //
-        //             return 'translate(' + (xScale[config.xScaleType](new Date(d[config.xParameter]))) + 60 + ',' +
-        //                 yScale.linear(d[config.yParameter])
-        //                 + ')';
-        //
-        //
-        //     })
-        //     .attr('fill-opacity', 0)
-        //     .transition()
-        //     .delay(500)
-        //     .duration(500)
-        //     .attr('fill-opacity', 1)
     }
 
 
