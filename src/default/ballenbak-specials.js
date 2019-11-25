@@ -196,7 +196,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
 
             data.forEach( (d,i) => {
 
-                let text  = (i + 1) + '. ' + d[config.xParameter] + ' ';
+                let text  = (i + 1) + '. ' + d['name'] + ' ';
 
                 svg.layers.legend.append("text")
                     .attr("class", "small-label")
