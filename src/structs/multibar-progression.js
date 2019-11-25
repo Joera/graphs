@@ -106,6 +106,7 @@ class MultiBarProgression  {
                         }
 
                         o[p[0]] = p[1];
+                        o['colour'] = mapping[0].colour;
                     }
                 }
                 data.push(o);
