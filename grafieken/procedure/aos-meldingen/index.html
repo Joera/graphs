@@ -33,17 +33,27 @@
         {
             label: 'AOS meldingen',
             column: 'aos_meldingen',
-            colour: 'darkblue'
+            colour: 'orange'
         },
         {
             label: '',
             column: 'nieuwe_aos_meldingen',
-            colour: 'darkblue'
+            colour: 'orange'
+        },
+        {
+            label: 'AOS meldingen',
+            column: 'gegronde_aos',
+            colour: 'green'
+        },
+        {
+            label: '',
+            column: 'nieuwe_gegronde_aos',
+            colour: 'green'
         }
     ];
 
 
-    let aosmeldingen = new BarProgression('#container',dataMapping,'','all',false);
+    let aosmeldingen = new MultiBarProgression('#container',dataMapping,'aos_meldingen','all',false);
     aosmeldingen.init();
 </script>
 
