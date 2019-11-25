@@ -1,7 +1,7 @@
 var ballenbakSpecials  = function (element,smallMultiple) {
 
 
-    let municipalitySelect = document.querySelector('select.municipalities');
+  //  let municipalitySelect = document.querySelector('select.municipalities');
 
     let url;
     let data = {};
@@ -29,7 +29,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
-    config.radiusOffset = 1.8;
+    config.radiusOffset = 2;
     config.radiusFactor = 8;
 
     config.dateLabels = false;
@@ -209,12 +209,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
         }
     }
 
-    let popup = function popup(d) {
 
-        console.log(d);
-
-        return d.name + '<br/>' + d.value;
-    }
 
     function draw(data,flattenedData) {
 
@@ -241,7 +236,6 @@ var ballenbakSpecials  = function (element,smallMultiple) {
         ({ data, flattenedData } = prepareData(json,muni));
         draw(data, flattenedData);
         redraw();
-        // legend(data);
     }
 
     url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
@@ -250,11 +244,11 @@ var ballenbakSpecials  = function (element,smallMultiple) {
         if (error) throw error;
         run(json, 'all');
 
-        if (municipalitySelect != null) {
-            municipalitySelect.addEventListener("change", function () {
-                run(json, municipalitySelect.options[municipalitySelect.selectedIndex].value);
-            });
-        }
+        // if (municipalitySelect != null) {
+        //     municipalitySelect.addEventListener("change", function () {
+        //         run(json, municipalitySelect.options[municipalitySelect.selectedIndex].value);
+        //     });
+        // }
 
         window.addEventListener("resize", redraw, false);
     });
