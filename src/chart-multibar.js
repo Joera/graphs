@@ -1,4 +1,4 @@
-let ChartBar = function ChartBar(config,svg) {
+let ChartMultiBar = function ChartMultiBar(config,svg) {
 
 
     let flatten = function flatten(data) {
