@@ -53,17 +53,17 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             })
             .attr("y", function(d) { return dimensions.height; })
             .attr("height", 200)
-            // .attr("width", function(d) {
-            //
-            //     if (config.xParameter === '_date') {
-            //
-            //         return 60;
-            //     } else {
-            //
-            //         return xScale.band.bandwidth()
-            //     }
-            //
-            // })
+            .attr("width", function(d) {
+
+                if (config.xParameter === '_date') {
+
+                    return 30;
+                } else {
+
+                    return xScale.band.bandwidth()
+                }
+
+            })
             // .transition()
             // .duration(500)
             // .attr("y", function(d) { return config.margin.top + yScale.linear(d[d['property']]); })
