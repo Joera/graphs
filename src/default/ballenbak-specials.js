@@ -178,7 +178,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                 value : json['SPECIALS_STATUS_STUW_OVERIG_AOS'],
             }
         ]);
-        
+
         let flattenedData = [];
 
         for (let group of data) {
