@@ -39,7 +39,7 @@ var specialsStatussen  = function (element,smallMultiple) {
 
     // x-axis
     // config.minWidth = 460;
-    config.xParameter = 'key';
+    config.xParameter = 'status';
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
@@ -66,44 +66,44 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         let data = [];
 
-        for (let mapping of dataMapping) {
-            data.push({
-                key: Object.keys(mapping)[0],
-                value: json[Object.values(mapping)[0]]
-            });
-        }
+        // for (let mapping of dataMapping) {
+        //     data.push({
+        //         key: Object.keys(mapping)[0],
+        //         value: json[Object.values(mapping)[0]]
+        //     });
+        // }
 
-        // data.push({
-        //     status: "Ontvangst en analyse",
-        //     totaal: json['SPECIALS_ONTVANGST']
-        //
-        // });
-        //
-        // data.push({
-        //     status: "Schade-opname wordt ingepland",
-        //     totaal: json['SPECIALS_PLANNING_OPNAME']
-        //
-        // });
-        //
-        //
-        // data.push({
-        //     status: "Schade-opname uitgevoerd, adviesrapport opleveren",
-        //     totaal: json['SPECIALS_OPLEV_SCHADERAPP']
-        //
-        // });
-        //
-        //
-        // data.push({
-        //     status: "Adviesrapport opgeleverd, besluit voorbereiden",
-        //     totaal: json['SPECIALS_VOORBER_CIE']
-        //
-        // });
-        //
-        // data.push({
-        //     status: "Besluit genomen",
-        //     totaal: json['SPECIALS_BESCHIKT']
-        //
-        // });
+        data.push({
+            status: "Ontvangst en analyse",
+            totaal: json['SPECIALS_ONTVANGST']
+
+        });
+
+        data.push({
+            status: "Schade-opname wordt ingepland",
+            totaal: json['SPECIALS_PLANNING_OPNAME']
+
+        });
+
+
+        data.push({
+            status: "Schade-opname uitgevoerd, adviesrapport opleveren",
+            totaal: json['SPECIALS_OPLEV_SCHADERAPP']
+
+        });
+
+
+        data.push({
+            status: "Adviesrapport opgeleverd, besluit voorbereiden",
+            totaal: json['SPECIALS_VOORBER_CIE']
+
+        });
+
+        data.push({
+            status: "Besluit genomen",
+            totaal: json['SPECIALS_BESCHIKT']
+
+        });
 
 
         console.log(data);
