@@ -137,6 +137,8 @@ class MultiBarProgression  {
 
         data = data.slice(data.length - arrayLength,data.length);
 
+        consoel.log(data);
+
         return data;
     }
 
@@ -163,9 +165,7 @@ class MultiBarProgression  {
 
     draw(data,property) {
 
-
-
-        this.xScale = this.chartXScale.set(data.map(d => { console.log(d[this.config.xParameter]); return d[this.config.xParameter] }));
+        this.xScale = this.chartXScale.set(data.map(d => { return d[this.config.xParameter] }));
 
         // to loop here?
         this.chartMultiBars.draw(data);
