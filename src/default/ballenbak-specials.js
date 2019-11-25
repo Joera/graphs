@@ -30,7 +30,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
     config.paddingOuter = [0.2];
 
     config.radiusOffset = 2;
-    config.radiusFactor = 8;
+    config.radiusFactor = 5;
 
     config.dateLabels = false;
 
@@ -186,8 +186,6 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                 if (Number.isInteger(prop.value)) flattenedData.push(prop.value);
             }
         }
-
-        console.log(data);
 
         return { data, flattenedData };
     }
