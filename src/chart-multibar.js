@@ -43,7 +43,9 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .transition()
             .duration(500)
             .attr("y", function(d) { return config.margin.top + yScale[config.yScaleType](d[d['property']]); })
-            .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); })
+            .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); });
+
+        svg.bar
             .on("mouseover", function(d) {
 
                 svg.tooltip
