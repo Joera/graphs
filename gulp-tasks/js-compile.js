@@ -48,6 +48,7 @@ module.exports = function() {
             // './src/tcmg-charts.js',
 
             './src/structs/bar-progression.js',
+            './src/structs/multibar-progression.js',
             './src/structs/cijfers.js',
             './src/structs/cijfers-line.js',
             './src/structs/pie-chart-sum.js',
