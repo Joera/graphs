@@ -100,17 +100,28 @@ class MultiBarProgression  {
             for (let week of json) {
 
                 let o = {};
-                for (let p of Object.entries(week)) {
-                    if (neededColumns.indexOf(p[0]) > -1) {
+                // for (let p of Object.entries(week)) {
+                //     if (neededColumns.indexOf(p[0]) > -1) {
+                //
+                //         if (p[0].indexOf('nieuwe_') < 0) {
+                //             o['property'] = p[0];
+                //         }
+                //
+                //         o[p[0]] = p[1];
+                //         o['colour'] = mapping[0].colour;
+                //     }
+                // }
 
-                        if (p[0].indexOf('nieuwe_') < 0) {
-                            o['property'] = p[0];
-                        }
+                for (let column of neededColumns) {
 
-                        o[p[0]] = p[1];
-                        o['colour'] = mapping[0].colour;
+                    if (column.indexOf('nieuwe_') < 0) {
+                        o['property'] = column;
                     }
+
+                    o[column] = week.find((w) => w['_category'] === column);
+                    o['colour'] = mapping[0].colour;
                 }
+
                 data.push(o);
             }
         }
