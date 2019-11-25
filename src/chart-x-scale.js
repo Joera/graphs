@@ -17,7 +17,7 @@ class ChartXScale {
 
         this.scale.linear = d3.scaleLinear()
             .domain([
-                    d3.min(data.map(d => { console.log(d); return Object.values(d)[0] }),  //
+                    d3.min(data.map(d => { console.log(d); return Object.values(d)[0] })),  //
                     d3.max(data.map(d => Object.values(d)[0]))
             ]);
 
