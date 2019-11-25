@@ -24,11 +24,8 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
 
         let popup = function popup(d) {
-           
-
-            let date = new Date(d['_date']);
-            console.log(date);
-            return date.getDay() + '/' + date.getMonth() + '<br/>' + d.property + '<br/>' + d[d['property']];
+            
+            return moment(d['_date']).format()
         }
 
         svg.bar
