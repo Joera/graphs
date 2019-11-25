@@ -47,7 +47,7 @@ class ChartXScale {
         let self = this;
 
         newScale.time
-            .range([self.config.padding.left, dimensions.width + self.config.padding.right]);
+            .range([self.config.padding.left, dimensions.width]);
 
         newScale.linear
             .range([0, dimensions.width]);
