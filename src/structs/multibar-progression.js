@@ -118,7 +118,7 @@ class MultiBarProgression  {
                         o['property'] = column;
                     }
 
-                    o[column] = week.find((w) => w['_category'] === column);
+                    o[column] = Object.values(week).find((w) => w['_category'] === column);
                     o['colour'] = mapping[0].colour;
                 }
 
