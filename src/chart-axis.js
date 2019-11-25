@@ -55,7 +55,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             axes.xTime
                 .ticks(d3.timeWeek.every(1))
                 .tickFormat(function(date){
-                    return new Date(date); // (d3.timeYear(date) < date) ? localTime.format('%e/%m')(date) : localTime.format('%Y')(date);
+                    return date; // (d3.timeYear(date) < date) ? localTime.format('%e/%m')(date) : localTime.format('%Y')(date);
                 });
         } else {
             axes.xTime
