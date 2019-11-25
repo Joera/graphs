@@ -121,7 +121,9 @@ class MultiBarProgression  {
 
         let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
 
-        data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
+        let arrayLength = Math.floor(elWidth / minBarWidth) - 1;
+
+        data = data.slice(data.length - arrayLength,data.length);
 
         return data;
     }
