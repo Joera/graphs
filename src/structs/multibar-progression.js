@@ -112,13 +112,15 @@ class MultiBarProgression  {
                 //     }
                 // }
 
+                console.log(week)
+
                 for (let column of neededColumns) {
 
                     if (column.indexOf('nieuwe_') < 0) {
                         o['property'] = column;
                     }
 
-                    o[column] = Object.values(week).find((w) => w['_category'] === column);
+                    // o[column] = Object.values(week).find((w) => w['_category'] === column);
                     o['colour'] = mapping[0].colour;
                 }
 
