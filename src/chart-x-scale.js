@@ -50,7 +50,7 @@ class ChartXScale {
             .range([0, dimensions.width]);
 
         newScale.linear
-            .range([0, dimensions.width]);
+            .range([self.config.padding.left, dimensions.width - self.config.padding.right]);
 
         newScale.band
             // or does this
