@@ -93,7 +93,7 @@ class MultiBarProgression  {
         }
 
 
-        console.log(neededColumns);
+
 
         let data = [];
 
@@ -104,6 +104,7 @@ class MultiBarProgression  {
                       o[p[0]] = p[1];
                 }
             }
+            console.log(o);
             data.push(o);
         }
 
