@@ -34,7 +34,7 @@ class MultiBarProgression  {
         this.config.padding.top = 10;
         this.config.padding.bottom = 15;
         this.config.padding.left = 30;
-        this.config.padding.right = 0;
+        this.config.padding.right = 60;
 
         this.config.minValue = 0;
 
