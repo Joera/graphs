@@ -197,7 +197,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
             data.forEach( (d,i) => {
 
-                let text  = (i + 1) + '. ' + d[config.xParameter] + ' ';
+                let text  = (i + 1) + '. ' + d[0]['name'] + ' ';
 
                 svg.layers.legend.append("text")
                     .attr("class", "small-label")
@@ -241,7 +241,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
         ({ data, flattenedData } = prepareData(json,muni));
         draw(data, flattenedData);
         redraw();
-        // legend(data);
+        legend(data);
     }
 
     url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
