@@ -7,9 +7,6 @@ class MultiBarProgression  {
         this.dataMapping = dataMapping;
         this.property = property;
         this.smallMultiple = smallMultiple;
-
-        console.log(this.property);
-
     }
 
     init() {
