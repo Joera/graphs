@@ -40,6 +40,8 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                 if (config.xParameter === '_date') {
 
+                    console.log(d);
+
                     return xScale.time(new Date(d[config.xParameter]));
 
                 } else {
