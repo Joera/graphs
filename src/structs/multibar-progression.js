@@ -56,7 +56,7 @@ class MultiBarProgression  {
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartBarsIncrease = ChartBarsIncrease(this.config, this.svg);
+        this.chartMultiBars = ChartMultiBars(this.config, this.svg);
         this.chartLegend = ChartLegend(this.config, this.svg);
 
         this.chartAxis.drawXAxis();
@@ -85,29 +85,20 @@ class MultiBarProgression  {
         let neededColumns = ['_date','_category'];
 
         for (let mapping of this.dataMapping) {
-
             for (let property of mapping) {
-
                 neededColumns.push(property.column);
             }
         }
-
-
-
 
         let data = [];
 
         for (let week of json) {
             let o = {};
             for (let p of Object.entries(week))  {
-
-
-
                 if (neededColumns.indexOf(p[0]) > -1 ) {
                       o[p[0]] = p[1];
                 }
             }
-        //    console.log(o);
             data.push(o);
         }
 
@@ -120,8 +111,6 @@ class MultiBarProgression  {
         let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
-
-        console.log(data);
 
         return data;
     }
@@ -144,14 +133,16 @@ class MultiBarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartBarsIncrease.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
+        this.chartMultiBars.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
     }
 
     draw(data,property) {
 
-        this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
+        this.xScale = this.chartXScale.set(data[0].map(d => d[this.config.xParameter]));
 
-        this.chartBarsIncrease.draw(data);
+        // to loop here?
+
+        this.chartMultiBars.draw(data);
     }
 
     run(json,property) {
@@ -160,7 +151,7 @@ class MultiBarProgression  {
 
         let data = this.prepareData(json,property);
         this.draw(data,property);
-        this.redraw(data,property);
+      //  this.redraw(data,property);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
