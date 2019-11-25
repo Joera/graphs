@@ -36,10 +36,10 @@ var ballenbakSpecials  = function (element,smallMultiple) {
 
     let colours = {
 
-        'minder_dan_een_half_jaar': orange,
-        'tussen_half_jaar_en_een_jaar': green,
-        'tussen_een_en_twee_jaar': blue,
-        'langer_dan_twee_jaar': darkblue
+        'agro': green,
+        'erfgoed': yellow,
+        'mkb': blue,
+        'overig': orange
     };
 
 
@@ -80,8 +80,8 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                 name: 'Bedrijven',
                 value : json['SPECIALS_ONTVANGST_MKB'],
             },
-            {   key : 'Overig',
-                name: 'overig',
+            {   key : 'overig',
+                name: 'Overig',
                 value : json['SPECIALS_ONTVANGST_OVERIG_AOS'],
             }
 
@@ -94,7 +94,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
             },
             {   key : 'agro',
                 name: 'Agro',
-                value : json['SPECIALS_PLANNING_OPNAME_ERFGOED'],
+                value : json['SPECIALS_PLANNING_OPNAME_AGRO'],
             },
             {   key : 'erfgoed',
                 name: 'Erfgoed',
@@ -104,8 +104,8 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                 name: 'Bedrijven',
                 value : json['SPECIALS_PLANNING_OPNAME_MKB'],
             },
-            {   key : 'Overig',
-                name: 'overig',
+            {   key : 'overig',
+                name: 'Overig',
                 value : json['SPECIALS_PLAN_OPNAME_OVERIG_AOS'],
             }
         ]);
@@ -127,8 +127,8 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                 name: 'Bedrijven',
                 value : json['SPECIALS_OPLEV_SCHADERAPP_MKB'],
             },
-            {   key : 'Overig',
-                name: 'overig',
+            {   key : 'overig',
+                name: 'Overig',
                 value : json['SPECIALS_OPLV_SCHRAP_OVERIG_AOS'],
             }
         ]);
@@ -150,8 +150,8 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                 name: 'Bedrijven',
                 value : json['SPECIALS_VOORBER_CIE_MKB'],
             },
-            {   key : 'Overig',
-                name: 'overig',
+            {   key : 'overig',
+                name: 'Overig',
                 value : json['SPECIALS_VOORBER_CIE_OVERIG_AOS'],
             }
         ]);
@@ -173,8 +173,8 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                 name: 'Bedrijven',
                 value : json['SPECIALS_STATUS_STUWMEER_MKB'],
             },
-            {   key : 'Overig',
-                name: 'overig',
+            {   key : 'overig',
+                name: 'Overig',
                 value : json['SPECIALS_STATUS_STUW_OVERIG_AOS'],
             }
         ]);
