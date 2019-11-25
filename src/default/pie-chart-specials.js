@@ -1,4 +1,4 @@
-var pieChartSpecials = function(element,smallMultiple) {
+    var pieChartSpecials = function(element,smallMultiple) {
 
     let municipalitySelect = document.querySelector('select.municipalities');
 
