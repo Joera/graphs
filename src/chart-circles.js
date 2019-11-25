@@ -72,10 +72,10 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         svg.headers = svg.headerGroupEnter.merge(svg.headerGroup)
             .append("text")
             .attr("class","header")
-            .text( d,i => {
+            .text( (d,i) => {
 
                 return (window.innerWidth < 640) ? (i + 1) : d[0].name
-                
+
             })
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
             .style("text-anchor", "middle");
