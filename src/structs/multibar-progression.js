@@ -48,8 +48,6 @@ class MultiBarProgression  {
             this.config.dataArrayLength = 7;
         }
 
-
-
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
@@ -114,8 +112,6 @@ class MultiBarProgression  {
                 data.push(o);
             }
         }
-
-        console.log(data);
 
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
