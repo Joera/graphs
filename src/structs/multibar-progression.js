@@ -75,7 +75,6 @@ class MultiBarProgression  {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                console.log(json);
                 globalData.weeks = json;
                 self.run(json,self.property);
             });
@@ -99,17 +98,6 @@ class MultiBarProgression  {
             for (let week of json) {
 
                 let o = {};
-                // for (let p of Object.entries(week)) {
-                //     if (neededColumns.indexOf(p[0]) > -1) {
-                //
-                //         if (p[0].indexOf('nieuwe_') < 0) {
-                //             o['property'] = p[0];
-                //         }
-                //
-                //         o[p[0]] = p[1];
-                //         o['colour'] = mapping[0].colour;
-                //     }
-                // }
 
                 for (let column of neededColumns) {
 
@@ -136,8 +124,6 @@ class MultiBarProgression  {
         let arrayLength = 2 * Math.floor(elWidth / (2 * minBarWidth));
 
         data = data.slice(data.length - arrayLength,data.length);
-
-        consoel.log(data);
 
         return data;
     }
