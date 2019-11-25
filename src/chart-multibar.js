@@ -42,6 +42,8 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                     console.log(d);
 
+                    // kun je keuze voor scales variabel maken? time and band --> xScale[scaleType]()
+
                     return xScale.time(new Date(d[config.xParameter]));
 
                 } else {
