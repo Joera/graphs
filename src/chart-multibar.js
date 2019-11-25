@@ -12,6 +12,9 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .enter()
             .append("rect")
             .attr("class", function(d,i) {
+
+                console.log(d);
+
                 return "bar  ";  // + colours[i]; // + sluggify(d.status) + "
             });
 
@@ -40,10 +43,6 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                 if (config.xParameter === '_date') {
 
-                    console.log(d);
-
-                    // kun je keuze voor scales variabel maken? time and band --> xScale[scaleType]()
-
                     return xScale.time(new Date(d[config.xParameter]));
 
                 } else {
@@ -64,9 +63,9 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
                 }
 
             })
-            // .transition()
-            // .duration(500)
-            // .attr("y", function(d) { return config.margin.top + yScale.linear(d[d['property']]); })
+            .transition()
+            .duration(500)
+            .attr("y", function(d) { return config.margin.top + yScale.linear(d[d['property']]); })
             .attr("height", function(d) { return dimensions.height - yScale.linear(d[d['property']]); })  // add
 
         ;

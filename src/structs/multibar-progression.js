@@ -128,7 +128,7 @@ class MultiBarProgression  {
 
     redraw(data,property) {
 
-        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
+        let colour = blue; // this.dataMapping.find((m) => m.column === property)['colour'];
 
         this.yScale = this.chartYScale.set(data,property);
 
