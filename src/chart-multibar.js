@@ -43,33 +43,14 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .merge(svg.barEnter)
             .attr("x", function(d) {
 
-                if (config.xParameter === '_date') {
-
-                    // console.log(d);
-                    // console.log(property);
-
                     offset = (d.property === property) ? -30 : 0;
-
-                    return xScale.time(new Date(d[config.xParameter])) + offset;
-
-                } else {
-
-                    return xScale.band(d[config.xParameter]);
-                }
+                    return xScale[config.xScaleType](new Date(d[config.xParameter])) + offset;
             })
             .attr("y", function(d) { return dimensions.height; })
             .attr("height", 0)
             .attr("width", function(d) {
 
-                if (config.xParameter === '_date') {
-
                     return 30;
-
-                } else {
-
-                    return xScale.band.bandwidth()
-                }
-
             })
             .transition()
             .duration(500)
@@ -95,18 +76,12 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
         //     })
         //     .attr('transform', function(d) {
         //
-        //         if (config.xParameter === '_date') {
         //
-        //             return 'translate(' + (xScale.time(new Date(d[config.xParameter]))) + 60 + ',' +
+        //             return 'translate(' + (xScale[config.xScaleType](new Date(d[config.xParameter]))) + 60 + ',' +
         //                 yScale.linear(d[config.yParameter])
         //                 + ')';
         //
-        //         } else {
         //
-        //             return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ',' +
-        //                 yScale.linear(d[config.yParameter])
-        //                 + ')';
-        //         }
         //     })
         //     .attr('fill-opacity', 0)
         //     .transition()

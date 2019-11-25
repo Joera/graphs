@@ -39,6 +39,8 @@ class MultiBarProgression  {
         this.config.minValue = 0;
 
         this.config.xParameter = '_date';
+        this.config.xScaleType = 'time';
+        this.config.yScaleType = 'linear';
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
