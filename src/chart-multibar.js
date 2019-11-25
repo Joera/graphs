@@ -25,7 +25,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
         let popup = function popup(d) {
             console.log(d);
-            return d['_date'] + '<br/>' + d.property + '<br/>' + d[d[property]];
+            return new Date(d['_date']).getDay() + '/' + new Date(d['_date']).getMonth() + '<br/>' + d.property + '<br/>' + d[d['property']];
         }
 
         svg.bar
