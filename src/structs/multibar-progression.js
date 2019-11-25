@@ -45,7 +45,7 @@ class MultiBarProgression  {
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
 
-        this.config.barWidth = 14;
+        this.config.barWidth = 12;
 
         if (this.smallMultiple) {
             this.config.dataArrayLength = 7;
