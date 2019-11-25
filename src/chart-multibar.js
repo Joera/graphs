@@ -46,6 +46,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); });
 
         svg.bar
+            .merge(svg.barEnter)
             .on("mouseover", function(d) {
 
                 console.log('yoy')
