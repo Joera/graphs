@@ -43,8 +43,8 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                 if (config.xParameter === '_date') {
 
-                    console.log(d);
-                    console.log(property);
+                    // console.log(d);
+                    // console.log(property);
 
                     offset = (d.property === property) ? 0 : 30;
 
