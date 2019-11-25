@@ -25,7 +25,7 @@ class ChartXScale {
         this.scale.time = d3.scaleTime()
             .domain([
                 d3.min(data, d => d),  //
-                d3.max(data, d => d))
+                d3.max(data, d => d)
             ]);
 
         this.scale.band = d3.scaleBand()
