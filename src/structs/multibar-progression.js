@@ -109,11 +109,13 @@ class MultiBarProgression  {
                     o['colour'] = mapping[0].colour;
                 }
 
-                console.log(data);
+
 
                 data.push(o);
             }
         }
+
+        console.log(data);
 
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
