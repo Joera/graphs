@@ -15,7 +15,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
     let draw = function draw(data,colours) {
 
         svg.bar = svg.layers.data.selectAll(".bar")
-            .data(flatten(data));
+            .data(data);
         
         svg.bar.exit().remove();
 
