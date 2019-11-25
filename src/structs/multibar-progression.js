@@ -92,6 +92,9 @@ class MultiBarProgression  {
             }
         }
 
+
+        console.log(neededColumns);
+
         let data = [];
 
         for (let week of json) {
