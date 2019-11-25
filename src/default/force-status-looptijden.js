@@ -16,7 +16,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 75 : 0;
+    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 70 : 0;
     config.margin.left = 0;
     config.margin.right = 0;
     config.padding.top = smallMultiple? 15 : 30;
