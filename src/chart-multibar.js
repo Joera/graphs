@@ -48,7 +48,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
                     // console.log(d);
                     // console.log(property);
 
-                    offset = (d.property === property) ? 0 : 30;
+                    offset = (d.property === property) ? -30 : 0;
 
                     return xScale.time(new Date(d[config.xParameter])) + offset;
 
@@ -64,6 +64,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
                 if (config.xParameter === '_date') {
 
                     return 30;
+
                 } else {
 
                     return xScale.band.bandwidth()
