@@ -45,36 +45,36 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
     let redraw = function redraw(dimensions,xScale,yScale) {
 
-        svg.bar
-            .merge(svg.barEnter)
-            .attr("x", function(d) {
-
-                if (config.xParameter === '_date') {
-
-                    return xScale.time(new Date(d[config.xParameter]));
-
-                } else {
-
-                    return xScale.band(d[config.xParameter]);
-                }
-            })
-            .attr("y", function(d) { return dimensions.height; })
-            .attr("height", 0)
-            .attr("width", function(d) {
-
-                if (config.xParameter === '_date') {
-
-                    return 60;
-                } else {
-
-                    return xScale.band.bandwidth()
-                }
-
-            })
-            .transition()
-            .duration(500)
-            .attr("y", function(d) { return config.margin.top + yScale.linear(d[config.yParameter]); })
-            .attr("height", function(d) { return dimensions.height - yScale.linear(d[config.yParameter]); })
+        // svg.bar
+        //     .merge(svg.barEnter)
+        //     .attr("x", function(d) {
+        //
+        //         if (config.xParameter === '_date') {
+        //
+        //             return xScale.time(new Date(d[config.xParameter]));
+        //
+        //         } else {
+        //
+        //             return xScale.band(d[config.xParameter]);
+        //         }
+        //     })
+        //     .attr("y", function(d) { return dimensions.height; })
+        //     .attr("height", 0)
+        //     .attr("width", function(d) {
+        //
+        //         if (config.xParameter === '_date') {
+        //
+        //             return 60;
+        //         } else {
+        //
+        //             return xScale.band.bandwidth()
+        //         }
+        //
+        //     })
+        //     .transition()
+        //     .duration(500)
+        //     .attr("y", function(d) { return config.margin.top + yScale.linear(d[config.yParameter]); })
+        //     .attr("height", function(d) { return dimensions.height - yScale.linear(d[config.yParameter]); })
 
         ;
 
