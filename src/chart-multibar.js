@@ -52,7 +52,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
                 }
             })
             .attr("y", function(d) { return dimensions.height; })
-            .attr("height", 200)
+            .attr("height", 0)
             .attr("width", function(d) {
 
                 if (config.xParameter === '_date') {
@@ -67,7 +67,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             // .transition()
             // .duration(500)
             // .attr("y", function(d) { return config.margin.top + yScale.linear(d[d['property']]); })
-            // .attr("height", function(d) { return dimensions.height - yScale.linear(d[d['property']]); })  // add
+            .attr("height", function(d) { return dimensions.height - yScale.linear(d[d['property']]); })  // add
 
         ;
 
