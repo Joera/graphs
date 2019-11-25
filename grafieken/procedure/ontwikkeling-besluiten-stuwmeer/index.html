@@ -23,7 +23,10 @@
 
     <div id="container" class="container"></div>
 
-
+    <div class="legend">
+        <li class="small-label"><span class="circle blue"></span>Nulmetingen</li>
+        <li class="small-label"><span class="circle green"></span>Besluiten</li>
+    </div>
 
 </main>
 </body>
@@ -33,6 +36,18 @@
 
     const dataMapping = [
 
+        [
+            {
+                label: 'Nulmetingen',
+                column: 'nulmetingen',
+                colour: 'blue'
+            },
+            {
+                label: '',
+                column: 'nieuwe_nulmetingen',
+                colour: 'blue'
+            }
+        ],
         [
 
             {
@@ -45,19 +60,8 @@
                 column: 'nieuwe_besluiten_stuwmeerregeling',
                 colour: 'green'
             }
-        ],
-        [
-            {
-                label: 'Nulmetingen',
-                column: 'nulmetingen',
-                colour: 'blue'
-            },
-            {
-                label: '',
-                column: 'nieuwe_nulmetingen',
-                colour: 'blue'
-            }
         ]
+
 
     ];
 
