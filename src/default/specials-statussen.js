@@ -39,7 +39,7 @@ var specialsStatussen  = function (element,smallMultiple) {
 
     // x-axis
     // config.minWidth = 460;
-    config.xParameter = 'status';
+    config.xParameter = 'value';
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
@@ -165,7 +165,7 @@ var specialsStatussen  = function (element,smallMultiple) {
     function draw(data) {
 
         // with data we can init scales
-        xScale = chartXScale.set(data);
+        xScale = chartXScale.set(data.map(d => d[config.xParameter]));
         yScale = chartYScale.set(data,config.yParameter);
         // width data we can draw items
         chartBar.draw(data, colours);
