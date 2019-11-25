@@ -165,7 +165,7 @@ var specialsStatussen  = function (element,smallMultiple) {
     function draw(data) {
 
         // with data we can init scales
-        xScale = chartXScale.set(data.map(d => d[config.xParameter]));
+        xScale = chartXScale.set(data);
         yScale = chartYScale.set(data,config.yParameter);
         // width data we can draw items
         chartBar.draw(data, colours);
