@@ -34,7 +34,7 @@ class MultiBarProgression  {
         this.config.padding.left = 30;
         this.config.padding.right = 0;
 
-        this.config.minValue = 26000;
+        this.config.minValue = 0;
 
         this.config.xParameter = '_date';
 
