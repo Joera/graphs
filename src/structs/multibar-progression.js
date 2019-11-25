@@ -98,15 +98,17 @@ class MultiBarProgression  {
                 let o = {};
                 for (let p of Object.entries(week)) {
                     if (neededColumns.indexOf(p[0]) > -1) {
+
+                        if (p[0].indexOf('nieuwe_') < 0) {
+                            o['property'] = p[0];
+                        }
+
                         o[p[0]] = p[1];
                     }
                 }
                 data.push(o);
             }
         }
-
-        
-        console.log(data);
 
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
@@ -117,8 +119,6 @@ class MultiBarProgression  {
         let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
-
-
 
         return data;
     }
