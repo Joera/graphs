@@ -62,7 +62,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             })
             .transition()
             .duration(500)
-            .attr("y", function(d) { return console.log(d[d['property']]); config.margin.top + yScale.linear(d[d['property']]); })
+            .attr("y", function(d) { return config.margin.top + yScale.linear(d[d['property']]); })
             .attr("height", function(d) { return dimensions.height - yScale.linear(d[d['property']]); })  // add
 
         ;

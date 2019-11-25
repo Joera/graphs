@@ -106,8 +106,6 @@ class BarProgression  {
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
-        console.log(data);
-
         return data;
     }
 
