@@ -235,7 +235,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
         ({ data, flattenedData } = prepareData(json,muni));
         draw(data, flattenedData);
         redraw();
-        legend();
+        legend(data);
     }
 
     url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
