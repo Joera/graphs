@@ -5,12 +5,8 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         let endDate = new Date();
         let minValue;
 
-        // kun je dit meegeven als conditional
-
-        console.log(property);
-
         if(config.minValue) {
-            minValue = d3.min(data, d => { console.log(d); return d[property] *.75 });
+            minValue = d3.min(data, d => { return d[property] *.75 });
         } else {
             minValue = 0; //
         }
