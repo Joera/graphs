@@ -39,7 +39,7 @@ var specialsStatussen  = function (element,smallMultiple) {
 
     // x-axis
     // config.minWidth = 460;
-    config.xParameter = 'value';
+    config.xParameter = 'key';
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
