@@ -30,7 +30,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
     config.paddingOuter = [0.2];
 
     config.radiusOffset = 2;
-    config.radiusFactor = 5;
+    config.radiusFactor = 12;
 
     config.dateLabels = false;
 
