@@ -43,9 +43,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .merge(svg.barEnter)
             .attr("x", function(d,i) {
 
-
-                    console.log(i);
-                    offset = (d.property === property) ? -config.barWidth : 0;
+                    offset = (i % 2) ? -config.barWidth : 0;
                     return xScale[config.xScaleType](new Date(d[config.xParameter])) + offset;
             })
             .attr("y", function(d) { return dimensions.height; })
