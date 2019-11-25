@@ -144,7 +144,7 @@ class MultiBarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartMultiBars.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
+        this.chartMultiBars.redraw(this.dimensions,this.xScale,this.yScale,property);
     }
 
     draw(data,property) {
