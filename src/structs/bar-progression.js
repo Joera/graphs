@@ -8,6 +8,8 @@ class BarProgression  {
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
         this.smallMultiple = smallMultiple;
 
+
+
     }
 
     init() {
