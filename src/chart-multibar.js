@@ -1,17 +1,6 @@
 let ChartMultiBars = function ChartMultiBars(config,svg) {
 
 
-    let flatten = function flatten(data) {
-
-        let flattened = [];
-
-        for (let ar of data) {
-
-            flattened.push(ar);
-        }
-    }
-
-
     let draw = function draw(data,colours) {
 
         svg.bar = svg.layers.data.selectAll(".bar")

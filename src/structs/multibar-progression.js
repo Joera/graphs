@@ -82,25 +82,31 @@ class MultiBarProgression  {
 
     prepareData(json,property)  {
 
+        let data = [];
         let neededColumns = ['_date','_category'];
 
         for (let mapping of this.dataMapping) {
+
+            let neededColumns = ['_date','_category'];
+
             for (let property of mapping) {
                 neededColumns.push(property.column);
             }
-        }
 
-        let data = [];
+            for (let week of json) {
 
-        for (let week of json) {
-            let o = {};
-            for (let p of Object.entries(week))  {
-                if (neededColumns.indexOf(p[0]) > -1 ) {
-                      o[p[0]] = p[1];
+                let o = {};
+                for (let p of Object.entries(week)) {
+                    if (neededColumns.indexOf(p[0]) > -1) {
+                        o[p[0]] = p[1];
+                    }
                 }
+                data.push(o);
             }
-            data.push(o);
         }
+
+        
+        console.log(data);
 
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
@@ -112,7 +118,7 @@ class MultiBarProgression  {
 
         data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
-        console.log(data);
+
 
         return data;
     }
