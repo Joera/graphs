@@ -130,7 +130,7 @@ class MultiBarProgression  {
             return new Date(a._date) - new Date(b._date);
         });
 
-        let minBarWidth = 60;
+        let minBarWidth = 30;
 
         let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
 
