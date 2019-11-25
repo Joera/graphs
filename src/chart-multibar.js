@@ -13,9 +13,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .append("rect")
             .attr("class", function(d,i) {
 
-                console.log(d);
-
-                return "bar  ";  // + colours[i]; // + sluggify(d.status) + "
+                return "bar  " + d.colour;  // + colours[i]; // + sluggify(d.status) + "
             });
 
         // svg.barLabels = svg.layers.data.selectAll(".barLabel")
