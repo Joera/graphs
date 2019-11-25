@@ -16,7 +16,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
     let functions = chartObjects.functions();
 
     config.margin.top = 0;
-    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 75 : 0;
+    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 100 : 0;
     config.margin.left = 0;
     config.margin.right = 0;
     config.padding.top = smallMultiple? 15 : 30;
@@ -195,8 +195,6 @@ var ballenbakSpecials  = function (element,smallMultiple) {
         if (window.innerWidth < 640 || smallMultiple) {
 
             data.forEach( (d,i) => {
-
-                console.log(d);
 
                 let text  = (i + 1) + '. ' + d[0]['name'] + ' ';
 

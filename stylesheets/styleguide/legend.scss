@@ -51,6 +51,10 @@ ul.legend.horizontal {
     max-width: 600px;
   }
 
+  &.specials {
+    flex-direction: row;
+  }
+
 
   @media (min-width: $breakpoint-xsm) {
 
