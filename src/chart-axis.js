@@ -53,7 +53,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         if(ticks) {
             axes.xTime
-                .ticks(d3.timeMonth.every(1))
+                .ticks(d3.timeWeek.every(1))
                 .tickFormat(function(date){
                     return (d3.timeYear(date) < date) ? localTime.format('%b')(date) : localTime.format('%Y')(date);
                 });
