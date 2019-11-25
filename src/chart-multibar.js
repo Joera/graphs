@@ -48,6 +48,8 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
         svg.bar
             .on("mouseover", function(d) {
 
+                console.log('yoy')
+
                 svg.tooltip
                     .html(popup(d))
                     .style("left", (d3.event.pageX) + "px")
