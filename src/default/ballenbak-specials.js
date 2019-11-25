@@ -198,7 +198,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
 
                 console.log(d);
 
-                let text  = (i + 1) + '. ' + d['name'] + ' ';
+                let text  = (i + 1) + '. ' + d[0]['name'] + ' ';
 
                 svg.layers.legend.append("text")
                     .attr("class", "small-label")
