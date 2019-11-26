@@ -56,9 +56,15 @@ let ChartAxis = function ChartAxis(config,svg) {
                 .ticks(d3[config.xScaleTicks].every(1))
                 .tickFormat( function(date) {
 
-                    date = moment(date).add(1,'days')
+                    if (config.xScaleTicks === 'timeMonth') {
 
-                    return (d3.timeYear(date) < date) ? localTime.format('%e/%m')(date) : localTime.format('%Y')(date);
+                        return (d3.timeYear(date) < date) ? localTime.format('%b')(date) : localTime.format('%Y')(date);
+
+                    } else {
+
+                        date = moment(date).add(1, 'days')
+                        return (d3.timeYear(date) < date) ? localTime.format('%e/%m')(date) : localTime.format('%Y')(date);
+                    }
                 });
         } else {
             axes.xTime
