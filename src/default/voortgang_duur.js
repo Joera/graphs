@@ -18,7 +18,7 @@ var voortgangDuur = function(element,smallMultiple) {
     config.margin.right = 0;
     config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
-    config.padding.left = 30;
+    config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
@@ -94,7 +94,7 @@ var voortgangDuur = function(element,smallMultiple) {
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes,true);
             chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
-            chartStackedArea.redraw(dimensions,xScale,yScale,colours);
+        //    chartStackedArea.redraw(dimensions,xScale,yScale,colours);
 
         }
 
