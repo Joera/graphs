@@ -94,7 +94,7 @@ var voortgangDuur = function(element,smallMultiple) {
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes,true);
             chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
-        //    chartStackedArea.redraw(dimensions,xScale,yScale,colours);
+            chartStackedArea.redraw(dimensions,xScale,yScale,colours);
 
         }
 
