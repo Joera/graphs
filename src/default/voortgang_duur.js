@@ -31,6 +31,9 @@ var voortgangDuur = function(element,smallMultiple) {
 
     config.xParameter = '_date';
 
+    config.xScaleType = 'time';
+    config.xScaleTicks = 'timeMonth';
+
     let colours = {
 
         'MINDER_DAN_12_JAAR': darkblue,

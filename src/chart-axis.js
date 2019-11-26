@@ -47,13 +47,13 @@ let ChartAxis = function ChartAxis(config,svg) {
             .call(axes.xLinear);
     }
 
-    let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks) {
+    let redrawXTimeAxis = function redrawXAxis(dimensions,scales,axes,ticks,axisTimeScale) {
 
         axes.xTime = d3.axisBottom(scales.time);
 
         if(ticks) {
             axes.xTime
-                .ticks(d3.timeWeek.every(1))
+                .ticks(d3[config.xScaleTicks].every(1))
                 .tickFormat( function(date) {
 
                     date = moment(date).add(1,'days')
