@@ -14,7 +14,8 @@ class BandBars {
 
         let self = this;
 
-        this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
+        // this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
+        this.municipalitySelect = document.querySelector('select.municipalities');
 
         let chartObjects = ChartObjects();
         this.config = chartObjects.config();
@@ -137,8 +138,10 @@ class BandBars {
 
         window.addEventListener("resize", () => self.redraw(data), false);
 
-        for (let radio of this.radios) {
-            radio.addEventListener( 'change', () => self.run(json,radio.value),false);
+        if(this.municipalitySelect != null) {
+            this.municipalitySelect.addEventListener("change", function () {
+                self.run(json,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
+            });
         }
     }
 }
