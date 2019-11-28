@@ -98,6 +98,7 @@ class BandBars {
 
     redraw(data) {
 
+        console.log(data);
 
         this.yScale = this.chartYScale.set(data,this.config.yParameter);
 
@@ -131,10 +132,10 @@ class BandBars {
         this.redraw(data);
         // legend(data);
 
-        window.addEventListener("resize", () => self.redraw(data,property), false);
+        window.addEventListener("resize", () => self.redraw(data), false);
 
         for (let radio of this.radios) {
-            radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
+            radio.addEventListener( 'change', () => self.run(json,radio.value),false);
         }
     }
 }
