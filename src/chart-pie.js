@@ -11,37 +11,12 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
     let draw = function draw(data) {
 
-
-
         let pie = d3.pie()
             .sort(null)
             .value(function(d) { return d['value']; });
 
         svg.arcs = svg.layers.data.selectAll(".arc")
             .data(pie(data), function(d){ return d.data.status; });
-
-
-
-
-
-        // svg.arcGroupEnter = svg.arcGroup
-        //     .enter()
-        //     .append("g")
-        //     .attr("class", "arc_group");
-        //
-        // svg.arcGroup.exit().remove();
-        //
-        // svg.arcs = svg.arcGroup.merge(svg.arcGroupEnter).selectAll(".arc");
-        //     // .data(function(d) { return d; });
-        //
-        // svg.arcPathEnter = svg.arcPath
-        //     .enter()
-        //     .append("path")
-        //     .attr("class","arc")
-        //     .style("fill", function(d,i) { return config.colours(i); });
-        //
-        // svg.arcPath.exit().remove();
-
 
     }
 
@@ -113,7 +88,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcs.enter().append("path")
             .attr("class", "arc")
-            .attr("fill", function(d, i) { return config.colours(i); })
+            .attr("fill", function(d, i) { return d.colour })
             .attr("d", arc)
             .each(function(d) { this._current = d; });
     }

@@ -82,7 +82,8 @@ class PieChartSum  {
                 sum = (segmented[mapping.column] !== undefined) ? sum + segmented[mapping.column] : sum;
                 dataArray.push({
                     status: mapping.label,
-                    value: (!isNaN(segmented[mapping.column])) ? segmented[mapping.column] : sum
+                    value: (!isNaN(segmented[mapping.column])) ? segmented[mapping.column] : sum,
+                    colour: mapping.colour
                 });
             }
 
@@ -176,12 +177,7 @@ class PieChartSum  {
                  .attr("dx", legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 2)
                  .text( () => {
-
-
                          return convertToCurrency(data[1][0]['value'])
-
-
-
                  })
                  .attr("width", this.dimensions.containerWidth)
                  .style("opacity", 1)
