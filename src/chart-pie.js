@@ -88,7 +88,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcs.enter().append("path")
             .attr("class", "arc")
-            .attr("fill", function(d, i) { console.log(d); return d.colour })
+            .attr("fill", function(d, i) { console.log(d); return d.data.colour })
             .attr("d", arc)
             .each(function(d) { this._current = d; });
     }
