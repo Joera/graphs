@@ -45,7 +45,20 @@
         }
     ];
 
-    specialsStatussen('#container', dataMapping);
+    const config = {
+
+        smallMultiple : false,
+        currencyLabels : false,
+        xScaleType : 'band',
+        xScaleParameter : 'label'
+
+    }
+
+    // dit is er een met x scale band
+
+    let status_specials = new BandBars('#container',dataMapping,'ONTVANGST','all',config.smallMultiple);
+    status_specials.init();
+
 </script>
 
 
