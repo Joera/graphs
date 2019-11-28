@@ -9,11 +9,9 @@ class BarProgression  {
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
-        this.smallMultiple = config.smallMultiple;
         this.config = Object.assign(this.chartObjects.config(), config);
 
         console.log(this.config);
-
     }
 
     init() {
@@ -22,8 +20,6 @@ class BarProgression  {
 
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
-
-
         this.dimensions = this.chartObjects.dimensions();
         this.svg = this.chartObjects.svg();
         this.xScale = this.chartObjects.xScale();
@@ -31,27 +27,9 @@ class BarProgression  {
         this.axes = this.chartObjects.axes();
         this.functions = this.chartObjects.functions();
 
-        this.config.margin.top = 0;
-        this.config.margin.bottom = 0;
         this.config.margin.left = 40;
-        this.config.margin.right = 0;
         this.config.padding.top = 10;
         this.config.padding.bottom = 15;
-        this.config.padding.left = 0;
-        this.config.padding.right = 0;
-
-        this.config.minValue = 26000;
-
-        this.config.xParameter = '_date';
-
-        this.config.paddingInner = 0;
-        this.config.paddingOuter = 0;
-
-        if (this.smallMultiple) {
-            this.config.dataArrayLength = 7;
-        }
-
-
 
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
