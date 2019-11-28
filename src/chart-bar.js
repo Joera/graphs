@@ -10,9 +10,9 @@ let ChartBar = function ChartBar(config,svg) {
         svg.barEnter = svg.bar
             .enter()
             .append("rect")
-            .attr("class", function(d,i) {
-                return "bar  " + colours[i]; // + sluggify(d.status) + "
-            });
+            .attr("class", "bar")
+            .fill( (d) => d.colour)
+        ;
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data);
