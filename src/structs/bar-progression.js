@@ -3,7 +3,7 @@ class BarProgression  {
     constructor(elementID,dataMapping,property,config) {
 
 
-        let chartObjects = ChartObjects();
+        this.chartObjects = ChartObjects();
 
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
@@ -24,12 +24,12 @@ class BarProgression  {
 
 
 
-        this.dimensions = chartObjects.dimensions();
-        this.svg = chartObjects.svg();
-        this.xScale = chartObjects.xScale();
-        this.yScale = chartObjects.yScale();
-        this.axes = chartObjects.axes();
-        this.functions = chartObjects.functions();
+        this.dimensions = this.chartObjects.dimensions();
+        this.svg = this.chartObjects.svg();
+        this.xScale = this.chartObjects.xScale();
+        this.yScale = this.chartObjects.yScale();
+        this.axes = this.chartObjects.axes();
+        this.functions = this.chartObjects.functions();
 
         this.config.margin.top = 0;
         this.config.margin.bottom = 0;
