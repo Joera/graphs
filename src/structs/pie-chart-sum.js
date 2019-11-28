@@ -77,7 +77,7 @@ class PieChartSum  {
 
             for (let mapping of array) {
 
-                sum += segmented[mapping.column];
+                sum = sum + segmented[mapping.column];
 
                 dataArray.push({
                     status: mapping.label,
