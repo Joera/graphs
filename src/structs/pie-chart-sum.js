@@ -86,7 +86,6 @@ class PieChartSum  {
         }
 
         console.log(data);
-
         return data;
     }
 
