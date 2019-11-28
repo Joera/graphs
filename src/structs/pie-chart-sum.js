@@ -240,7 +240,6 @@ class PieChartSum  {
 
         } else {
 
-            console.log(data[0].length);
             this.chartPie.draw(data[0])
         }
     }
