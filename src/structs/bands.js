@@ -1,11 +1,12 @@
-class BarProgression  {
+class Bands  {
 
-    constructor(elementID,dataMapping,property,smallMultiple) {
+    constructor(elementID,dataMapping,property,segment,smallMultiple) {
 
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
+        this.segment = segment;
         this.smallMultiple = smallMultiple;
     }
 
@@ -33,18 +34,11 @@ class BarProgression  {
         this.config.padding.left = 0;
         this.config.padding.right = 0;
 
-        this.config.minValue = 26000;
-
-        this.config.xParameter = '_date';
+        this.config.xParameter = 'label';
+        this.config.yParameter = 'value';
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
-
-        if (this.smallMultiple) {
-            this.config.dataArrayLength = 7;
-        }
-
-
 
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
@@ -55,55 +49,48 @@ class BarProgression  {
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartBarsIncrease = ChartBarsIncrease(this.config, this.svg);
+        this.chartBar = ChartBar(this.config, this.svg);
         this.chartLegend = ChartLegend(this.config, this.svg);
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
 
-        let url = 'https://tcmg-hub.publikaan.nl/api/data';
+        let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
 
-        if (globalData.weeks) {
+        if (globalData.municipalities) {
 
-            this.run(globalData.weeks,this.property)
+            this.run(globalData.municipalities,this.property)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
                 console.log(json);
-                globalData.weeks = json;
-                self.run(json,self.property);
+                globalData.municipalities = json;
+                self.run(json,self.segment);
             });
         }
 
     }
 
-    prepareData(json,property)  {
-
-        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
+    prepareData(json,segment)  {
 
         let data = [];
 
-        for (let week of json) {
-            let o = {};
-            for (let p of Object.entries(week))  {
-                if (neededColumns.indexOf(p[0]) > -1 ) {
-                      o[p[0]] = p[1];
+        let segmented = json.filter( j => j['_category'] === segment);
+
+        for (let mapping of this.dataMapping) {
+
+            data.push(
+
+                {
+                    label:  mapping.label,
+                    colour: mapping.colour,
+                    value: segmented[mapping.column]
                 }
-            }
-            data.push(o);
+            )
         }
 
-        data.sort(function(a, b) {
-            return new Date(a._date) - new Date(b._date);
-        });
-
-        let minBarWidth = 60;
-
-        let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
-
-        data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
         return data;
     }
@@ -111,7 +98,6 @@ class BarProgression  {
 
     redraw(data,property) {
 
-        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
 
         this.yScale = this.chartYScale.set(data,property);
 
@@ -126,23 +112,23 @@ class BarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartBarsIncrease.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
+        this.chartBar.redraw(this.dimensions,this.xScale,this.yScale);
     }
 
     draw(data,property) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        this.chartBarsIncrease.draw(data);
+        this.chartBar.draw(data);
     }
 
-    run(json,property) {
+    run(json,segmnent) {
 
         let self = this;
 
-        let data = this.prepareData(json,property);
+        let data = this.prepareData(json,segmnent);
         this.draw(data,property);
-        this.redraw(data,property);
+        // this.redraw(data,property);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
