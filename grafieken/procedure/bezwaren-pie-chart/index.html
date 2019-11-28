@@ -52,7 +52,59 @@
 
 <script>
     //   var tcmgCharts = new TCMGCharts();
-    pieChartBezwaren('#container');
+
+    const dataMapping = [
+
+        [
+            {
+                label: 'In behandeling',
+                column: 'BEZWAAR_IN_BEHANDELING',
+                colour: 'yellow'
+            },
+            {
+                label: 'Gegrond',
+                column: 'BEZWAAR_GEGROND',
+                colour: 'blue'
+            },
+            {
+                label: 'Deels gegrond',
+                column: 'BEZWAAR_DEELS_GEGROND',
+                colour: 'green'
+            },
+            {
+                label: 'Ongegrond',
+                column: 'BEZWAAR_ONGEGROND',
+                colour: 'darkblue'
+            },
+            {
+                label: 'Niet ontvankelijk',
+                column: 'BEZWAAR_INGETROKKEN',
+                colour: 'grey'
+            },
+            {
+                label: 'Ingetrokken',
+                column: 'BEZWAAR_INGETROKKEN',
+                colour: 'darkblue'
+            },
+            {
+                label: 'Naar schadeprocedure',
+                column: 'BEZWAAR_DOORGEZET_SCHADEP',
+                colour: 'yellow'
+            }
+        ],
+        [
+            {
+                label: 'Totaal',
+                column: false
+            }
+
+        ]
+
+    ];
+
+    let bezwarenTaart = new PieChartSum('#container',dataMapping,'','all', false);
+    bezwarenTaart.init();
+
 </script>
 
 

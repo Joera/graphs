@@ -69,6 +69,8 @@ class PieChartSum  {
         let segmented = json.find( j => j['_category'] === segment);
 
         let data = [];
+
+        // when total column = false --> add sum of previous columns
         let sum = 0;
 
         for (let array of this.dataMapping) {
@@ -78,10 +80,6 @@ class PieChartSum  {
             for (let mapping of array) {
 
                 sum = (segmented[mapping.column] !== undefined) ? sum + segmented[mapping.column] : sum;
-                
-                console.log(segmented[mapping.column]);
-                console.log(sum);
-
                 dataArray.push({
                     status: mapping.label,
                     value: (!isNaN(segmented[mapping.column])) ? segmented[mapping.column] : sum
