@@ -103,7 +103,7 @@ class PieChartSum  {
                 });
             }
         });
-        
+
         return data;
     }
 

@@ -16,7 +16,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .value(function(d) { return d['value']; });
 
         svg.arcs = svg.layers.data.selectAll(".arc")
-            .data(pie(data), function(d){ return d.data.label; });
+            .data(pie(data), function(d){ return d.data[config.yParameter]; });
 
     }
 
@@ -86,7 +86,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcs.enter().append("path")
             .attr("class", "arc")
-            .attr("fill", function(d, i) { console.log(d); return d.data.colour })
+            .attr("fill", function(d, i) { return d.data.colour })
             .attr("d", arc)
             .each(function(d) { this._current = d; });
     }
