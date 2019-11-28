@@ -219,13 +219,19 @@ class PieChartSum  {
 
     draw(data) {
 
-        let clonedData = JSON.parse(JSON.stringify(data));
+        if(data[2] && data[2][0]) {
 
-        let parts = (clonedData[2] && clonedData[2][0]) ? clonedData[0].push(clonedData[2][0]) : clonedData[0];
+            let clonedData = JSON.parse(JSON.stringify(data));
+            this.chartPie.draw(clonedData[0].unshift(clonedData[2][0]));
 
-        console.log(parts);
+        } else {
+
+            this.chartPie.draw(data[0])
+        }
+
+        
         // first array in dataobject contains parts ... possible third array is accented part with sepatrate partt in legend
-     //   this.chartPie.draw(parts);
+     //   (parts);
     }
 
      redraw() {
