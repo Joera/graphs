@@ -1,7 +1,7 @@
 class PieChartSum  {
 
 
-    constructor(elementID,dataMapping,property,segment,smallMultiple) {
+    constructor(elementID,dataMapping,property,segment,smallMultiple,currency) {
 
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
@@ -9,6 +9,7 @@ class PieChartSum  {
         this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
         this.segment = segment;
         this.smallMultiple = smallMultiple;
+        this.currency = currency
     }
 
     init() {
@@ -134,7 +135,7 @@ class PieChartSum  {
                 .attr("y", (i * 20) - 8)
                 .attr("height",12)
                 .attr("width",12)
-                .attr("fill", this.config.colours(i))
+                .attr("fill", (d) => d.colour)
                 .style("opacity", 1);
 
             this.svg.layers.legend.append("text")
@@ -149,7 +150,7 @@ class PieChartSum  {
                 .attr("class", "small-label")
                 .attr("dx", legendWidth)
                 .attr("dy", (i * 20) + 2)
-                .text(convertToCurrency(d['value']))
+                .text( (d) => (this.currency) ? convertToCurrency(d['value']) : d['value'])
                 .attr("width", this.dimensions.containerWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
