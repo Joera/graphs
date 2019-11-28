@@ -179,9 +179,7 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("dx", legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 2)
-                 .text( () => {
-                         return convertToCurrency(data[1][0]['value'])
-                 })
+                 .text( (this.currency) ? convertToCurrency(d['value']) : d['value'])
                  .attr("width", this.dimensions.containerWidth)
                  .style("opacity", 1)
                  .style("text-anchor", "end");
