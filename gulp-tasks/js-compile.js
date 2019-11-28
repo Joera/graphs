@@ -54,6 +54,7 @@ module.exports = function() {
             './src/structs/cijfers.js',
             './src/structs/cijfers-line.js',
             './src/structs/pie-chart-sum.js',
+            './src/structs/band-bars.js',
 
             './src/default/opnames.js',
 

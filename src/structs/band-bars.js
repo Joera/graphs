@@ -1,4 +1,4 @@
-class Bands  {
+class BandBars {
 
     constructor(elementID,dataMapping,property,segment,smallMultiple) {
 
