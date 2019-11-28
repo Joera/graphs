@@ -93,13 +93,6 @@ class PieChartSum  {
             data.push(dataArray);
         });
 
-        if(data[2]) {
-
-            data[0].unshift(data[2][0]);
-            delete data[2];
-        }
-
-        console.log(data);
         return data;
     }
 
@@ -194,10 +187,41 @@ class PieChartSum  {
 
          }
 
+         if(data[2]) {
+
+             svg.layers.legend.append("rect")
+                 .attr("y", ((data[0].length + 1.5) * 20) - 8)
+                 .attr("height",12)
+                 .attr("width",12)
+                 .attr("fill", orange)
+                 .style("opacity", 1);
+
+             svg.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
+                 .attr("dx", 16)
+                 .text(data[2][0].label)
+                 .attr("width",dimensions.containerWidth)
+                 .style("opacity", 1);
+
+             svg.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dx", 200)
+                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
+                 .text( data[2][0].value)
+                 .attr("width",dimensions.containerWidth)
+                 .style("opacity", 1)
+                 .style("text-anchor", "end");
+         }
+
             // }
     }
 
     draw(data) {
+
+        if(data[2]) {
+            data[0].unshift(data[2][0]);
+        }
         // first array in dataobject contains
         this.chartPie.draw(data[0]);
     }
