@@ -72,13 +72,17 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             };
         }
 
+
+
         svg.arcs
             .transition()
             .duration(500)
             .attrTween("d", arcTween);
 
+        svg.arcs.remove();
+
         svg.arcs.enter().append("path")
-            .attr("class", "arc")
+            .attr("class", (d) => (d.accented) ? "arc accented" : "arc")
             .attr("fill", function(d, i) { return d.data.colour })
             .attr("d", arc)
             .each(function(d) { this._current = d; });
