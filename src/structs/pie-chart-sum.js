@@ -94,7 +94,7 @@ class PieChartSum  {
 
                     value = sum;
                 }
-                
+
                 dataArray.push({
                     label: mapping.label,
                     value: value,
@@ -103,10 +103,10 @@ class PieChartSum  {
                 });
             }
 
-
-
             data.push(dataArray);
         });
+
+        console.log(data);
 
         return data;
     }
