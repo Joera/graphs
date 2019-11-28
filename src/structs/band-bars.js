@@ -79,6 +79,8 @@ class BandBars {
 
         let segmented = json.filter( j => j['_category'] === segment);
 
+        console.log(segmented);
+
         for (let mapping of this.dataMapping) {
 
             data.push(
