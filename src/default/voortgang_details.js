@@ -63,7 +63,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         let data = trimColumnsAndOrder(json,neededColumns);
 
-        data = hasValue(data,'MELDING_CVW');
+            data = hasValue(data,'MELDING_CVW');
 
         let propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
         let stackedData = filterData(propertyArray);
@@ -110,6 +110,8 @@ var voortgangDetails = function(element,smallMultiple) {
         }
 
         function update(propertyArray) {
+
+            console.log(data);
 
             stackedData = filterData(propertyArray);
             xScale = chartXScale.set(data.map( (d) => d['._date'] ));
