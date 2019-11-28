@@ -27,6 +27,7 @@ var voortgangDetails = function(element,smallMultiple) {
     config.minValue = 0;
     // config.maxValue = 60000;
     config.xParameter = '_date';
+    config.xScaleTicks = 'timeMonth';
 
     let colours = {
 
