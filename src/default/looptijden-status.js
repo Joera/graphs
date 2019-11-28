@@ -50,8 +50,8 @@ var looptijdenStatus  = function (element,smallMultiple) {
     }
 
     // get dimensions from parent element
-    let chartDimensions = ChartDimensions(element, config);
-    dimensions = new chartDimensions.get(dimensions);
+    let chartDimensions = new ChartDimensions(element, config);
+    dimensions = chartDimensions.get(dimensions);
 
     // create svg elements without data
     let chartSVG = new ChartSVG(element, config, dimensions, svg);
