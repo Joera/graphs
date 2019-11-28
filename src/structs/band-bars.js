@@ -79,8 +79,6 @@ class BandBars {
 
         let segmented = json.find( j => j['_category'] === segment);
 
-        console.log(segmented);
-
         for (let mapping of this.dataMapping) {
 
             data.push(
@@ -99,8 +97,6 @@ class BandBars {
 
 
     redraw(data) {
-
-        console.log(data);
 
         this.yScale = this.chartYScale.set(data,this.config.yParameter);
 
@@ -126,8 +122,6 @@ class BandBars {
     }
 
     run(json,segment) {
-
-        console.log(segment);
 
         let self = this;
 
