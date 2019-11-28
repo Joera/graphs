@@ -96,10 +96,10 @@ class BandBars {
     }
 
 
-    redraw(data,property) {
+    redraw(data) {
 
 
-        this.yScale = this.chartYScale.set(data,property);
+        this.yScale = this.chartYScale.set(data,this.config.yParameter);
 
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
@@ -128,7 +128,7 @@ class BandBars {
 
         let data = this.prepareData(json,segment);
         this.draw(data);
-        // this.redraw(data,property);
+        this.redraw(data);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
