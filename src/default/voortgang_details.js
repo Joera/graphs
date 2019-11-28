@@ -114,7 +114,7 @@ var voortgangDetails = function(element,smallMultiple) {
             console.log(data);
 
             stackedData = filterData(propertyArray);
-            xScale = chartXScale.set(data.map( (d) => d['._date'] ));
+            xScale = chartXScale.set(data.map( (d) => d['_date'] ));
             yScale = chartYScale.set(stackedData,config.yParameter);
             chartStackedArea.draw(stackedData,colours);
             redraw();
