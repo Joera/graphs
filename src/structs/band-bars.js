@@ -77,7 +77,7 @@ class BandBars {
 
         let data = [];
 
-        let segmented = json.filter( j => j['_category'] === segment);
+        let segmented = json.find( j => j['_category'] === segment);
 
         console.log(segmented);
 
