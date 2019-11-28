@@ -29,11 +29,11 @@ var candles = function(element,smallMultiple) {
     config.xParameter = '_date';
     // config.minWidth = 460;
     // get dimensions from parent element
-    let chartDimensions = ChartDimensions(element,config);
+    let chartDimensions = new ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
     // create svg elements without data
-    let chartSVG = ChartSVG(element,config,dimensions,svg);
+    let chartSVG = new ChartSVG(element,config,dimensions,svg);
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
@@ -47,7 +47,6 @@ var candles = function(element,smallMultiple) {
 
     d3.json(url, function(error, json) {
         if (error) throw error;
-
 
         let neededColumns = ['schademeldingen','afgehandeld','in_behandeling','nieuwe_schademeldingen','nieuwe_afgehandeld','_date'];
         let data = trimColumns(json,neededColumns);
