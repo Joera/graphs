@@ -81,7 +81,7 @@ class PieChartSum  {
 
                 sum = (segmented[mapping.column] !== undefined) ? sum + segmented[mapping.column] : sum;
                 dataArray.push({
-                    status: mapping.label,
+                    label: mapping.label,
                     value: (!isNaN(segmented[mapping.column])) ? segmented[mapping.column] : sum,
                     colour: mapping.colour,
                     accented: (i > 1) ? true : false
@@ -141,7 +141,7 @@ class PieChartSum  {
                 .attr("class", "small-label")
                 .attr("dy", (i * 20) + 2)
                 .attr("dx",16)
-                .text(d['status'] + ':')
+                .text(d['label'] + ':')
                 .attr("width", this.dimensions.containerWidth)
                 .style("opacity", 1);
 
