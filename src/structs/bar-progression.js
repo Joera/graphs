@@ -10,7 +10,7 @@ class BarProgression  {
         this.dataMapping = dataMapping;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
         this.smallMultiple = config.smallMultiple;
-        this.config = {...chartObjects.config(), ...config }
+        this.config = bject.assign(chartObjects.config(), config);  
 
         console.log(this.config);
 
