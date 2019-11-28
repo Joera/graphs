@@ -70,14 +70,22 @@ class PieChartSum  {
 
         let data = [];
 
-       for (let map of this.dataMapping) {
+        for (let array of this.dataMapping) {
 
-           data.push({
-               status: map.label,
-               value: segmented[map.column]
+            let dataArray = [];
 
-           });
-       }
+            for (let mapping of array) {
+
+                dataArray.push({
+                    status: mapping.label,
+                    value: segmented[mapping.column]
+                });
+            }
+
+            data.push(dataArray);
+        }
+
+        console.log(data);
 
         return data;
     }
@@ -142,7 +150,7 @@ class PieChartSum  {
 
         });
 
-        // som van totaal 
+        // som van totaal
          if(data[1]) {
 
              this.svg.layers.legend.append("rect")
