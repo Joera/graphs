@@ -1,12 +1,19 @@
 class BarProgression  {
 
-    constructor(elementID,dataMapping,property,smallMultiple) {
+    constructor(elementID,dataMapping,property,config) {
+
+
+        let chartObjects = ChartObjects();
 
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
+        this.config = {...chartObjects.config(), ...config }
+
+        console.log(this.config);
+
     }
 
     init() {
@@ -15,8 +22,8 @@ class BarProgression  {
 
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
-        let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+
+
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();

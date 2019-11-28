@@ -79,9 +79,18 @@
         }
     ];
 
+    const config = {
+
+        smallMultiple : false,
+        currencyLabels : false,
+        xScaleType : 'band',
+        xScaleParameter : 'label'
+
+    }
+
     // dit is er een met x scale band
 
-    let status_actueel = new BarProgression('#container',dataMapping,'ONTVANGST','all',false);
+    let status_actueel = new BarProgression('#container',dataMapping,'ONTVANGST',config);
     status_actueel.init();
 
 </script>
