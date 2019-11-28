@@ -18,7 +18,7 @@ var voortgangDetails = function(element,smallMultiple) {
     config.margin.right = 0;
     config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
-    config.padding.left = 30;
+    config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
@@ -112,7 +112,7 @@ var voortgangDetails = function(element,smallMultiple) {
         function update(propertyArray) {
 
             stackedData = filterData(propertyArray);
-            xScale = chartXScale.set(data);
+            xScale = chartXScale.set(data.map( (d) => d['._date'] );
             yScale = chartYScale.set(stackedData,config.yParameter);
             chartStackedArea.draw(stackedData,colours);
             redraw();
