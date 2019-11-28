@@ -37,7 +37,7 @@ class BandBars {
         this.config.xParameter = 'label';
         this.config.yParameter = 'value';
 
-        this.config.paddingInner = 0;
+        this.config.paddingInner = 0.1;
         this.config.paddingOuter = 0;
 
         // get dimensions from parent element
