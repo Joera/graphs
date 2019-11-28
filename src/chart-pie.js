@@ -82,7 +82,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         svg.arcs.remove();
 
         svg.arcs.enter().append("path")
-            .attr("class", (d) => (d.accented) ? "arc accented" : "arc")
+            .attr("class", (d) => { console.log(d); return (d.accented) ? "arc accented" : "arc" })
             .attr("fill", function(d, i) { return d.data.colour })
             .attr("d", arc)
             .each(function(d) { this._current = d; });
