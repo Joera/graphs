@@ -102,6 +102,8 @@ class PieChartSum  {
                     accented: (i > 1) ? true : false
                 });
             }
+
+            data.push(dataArray);
         });
 
         return data;
