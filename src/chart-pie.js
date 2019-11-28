@@ -77,18 +77,9 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .duration(500)
             .attrTween("d", arcTween);
 
-        // svg.arcGroup
-        //     .merge(svg.arcGroupEnter);
-        //
-        // svg.arcPath = svg.arcGroupEnter
-        //     .append("path")
-        //     .attr("class","arc")
-        //     .style("fill", function(d,i) { return config.colours(i); })
-        //     .attr("d", arc);
-
         svg.arcs.enter().append("path")
             .attr("class", "arc")
-            .attr("fill", function(d, i) { console.log(d); return d.data.colour })
+            .attr("fill", function(d, i) { return d.data.colour })
             .attr("d", arc)
             .each(function(d) { this._current = d; });
     }
