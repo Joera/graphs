@@ -79,6 +79,9 @@ class PieChartSum  {
 
                 sum = sum + segmented[mapping.column];
 
+                console.log(segmented[mapping.column]);
+                console.log(sum);
+
                 dataArray.push({
                     status: mapping.label,
                     value: (!isNaN(segmented[mapping.column])) ? segmented[mapping.column] : sum
