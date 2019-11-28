@@ -218,9 +218,10 @@ class PieChartSum  {
     }
 
     draw(data) {
-        
-        // first array in dataobject contains
-        this.chartPie.draw((data[2]) ? data[0].unshift(data[2][0]) : data[0] );
+
+        let parts = (data[2]) ? data[0].unshift(data[2][0]) : data[0];
+        // first array in dataobject contains parts ... possible third array is accented part with sepatrate partt in legend
+        this.chartPie.draw(parts);
     }
 
      redraw() {
