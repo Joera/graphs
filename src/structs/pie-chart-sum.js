@@ -77,8 +77,8 @@ class PieChartSum  {
 
             for (let mapping of array) {
 
-                sum = sum + segmented[mapping.column];
-
+                sum = (segmented[mapping.column] !== undefined) ? sum + segmented[mapping.column] : sum;
+                
                 console.log(segmented[mapping.column]);
                 console.log(sum);
 
