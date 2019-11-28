@@ -28,7 +28,6 @@
         <option value="appingedam">Appingedam</option>
         <option value="assen">Assen</option>
         <option value="delfzijl">Delfzijl</option>
-        <option value="emmen">Emmen</option>
         <option value="groningen">Groningen</option>
         <option value="het-hogeland">Het Hogeland</option>
         <option value="loppersum">Loppersum</option>
@@ -54,34 +53,40 @@
 
 <script>
 
+    // with pie charts first array is parts
+    // second array is total
+
     const dataMapping = [
 
-        {
-            label: 'Mijnbouwschade',
-            column: 'BEDRAG_SCHADEBEDRAG',
-            colour: 'green'
-        },
-        {
-            label: 'Stuwmeerregeling',
-            column: 'BEDRAG_SMR',
-            colour: 'darkblue'
-        },
-        {
-            label: 'Bijkomende kosten',
-            column: 'BEDRAG_BIJKOMENDE_KOSTEN',
-            colour: 'blue'
-        },
-        {
-            label: 'Wettelijke rente',
-            column: 'BEDRAG_WETTELIJKE_RENTE',
-            colour: 'orange'
-        },
-        {
-            label: 'Totaal',
-            column: 'TOTAAL_VERLEEND',
-            colour: 'yellow'
-        }
-
+        [
+            {
+                label: 'Mijnbouwschade',
+                column: 'BEDRAG_SCHADEBEDRAG',
+                colour: 'green'
+            },
+            {
+                label: 'Stuwmeerregeling',
+                column: 'BEDRAG_SMR',
+                colour: 'darkblue'
+            },
+            {
+                label: 'Bijkomende kosten',
+                column: 'BEDRAG_BIJKOMENDE_KOSTEN',
+                colour: 'blue'
+            },
+            {
+                label: 'Wettelijke rente',
+                column: 'BEDRAG_WETTELIJKE_RENTE',
+                colour: 'orange'
+            }
+        ],
+        [
+            {
+                label: 'Totaal',
+                column: 'TOTAAL_VERLEEND',
+                colour: 'yellow'
+            }
+        ]
     ];
 
 

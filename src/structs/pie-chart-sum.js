@@ -65,12 +65,8 @@ class PieChartSum  {
     }
 
     prepareData(json,segment) {
-
-
-
+        
         let segmented = json.find( j => j['_category'] === segment);
-
-        console.log(segmented);
 
         let data = [];
 
@@ -118,9 +114,7 @@ class PieChartSum  {
          this.svg.layers.legend.selectAll('*')
             .remove();
 
-        data.forEach( (d,i) => {
-
-            if (i === data.length - 1) return;
+        data[0].forEach( (d,i) => {
 
             this.svg.layers.legend.append("rect")
                 .attr("y", (i * 20) - 8)
@@ -148,41 +142,46 @@ class PieChartSum  {
 
         });
 
-         this.svg.layers.legend.append("rect")
-            .attr("class", "small-label")
-            .attr("y", ((data.length - 2) * 20) + 8)
-            .attr("height",.5)
-            .attr("width",legendWidth)
-            .style("opacity", 1)
-            .style("fill","black");
+        // som van totaal 
+         if(data[1]) {
 
-         this.svg.layers.legend.append("text")
-            .attr("class", "small-label")
-            .attr("dy", ((data.length - 1) * 20) + 2)
-            .text('Totaal:')
-            .attr("width",this.dimensions.containerWidth)
-            .style("opacity", 1);
+             this.svg.layers.legend.append("rect")
+                 .attr("class", "small-label")
+                 .attr("y", ((data[0].length - 1) * 20) + 8)
+                 .attr("height", .5)
+                 .attr("width", legendWidth)
+                 .style("opacity", 1)
+                 .style("fill", "black");
 
-         this.svg.layers.legend.append("text")
-            .attr("class", "small-label")
-            .attr("dx", legendWidth)
-            .attr("dy", ((data.length - 1) * 20) + 2)
-            .text(convertToCurrency(data[data.length - 1]['value']))
-            .attr("width",this.dimensions.containerWidth)
-            .style("opacity", 1)
-            .style("text-anchor", "end");
+             this.svg.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dy", (data[0].length * 20) + 2)
+                 .text('Totaal:')
+                 .attr("width", this.dimensions.containerWidth)
+                 .style("opacity", 1);
+
+             this.svg.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dx", legendWidth)
+                 .attr("dy", ((data[0].length) * 20) + 2)
+                 .text(convertToCurrency(data[1][1]['value']))
+                 .attr("width", this.dimensions.containerWidth)
+                 .style("opacity", 1)
+                 .style("text-anchor", "end");
+
+         }
 
             // }
     }
 
     draw(data) {
-        this.chartPie.draw(data.slice(0,data.length -1));
+        // first array in dataobject contains
+        this.chartPie.draw(data[0]);
     }
 
      redraw() {
 
          this.dimensions = this.chartDimensions.get(this.dimensions);
-         console.log(this.dimensions);
          this.chartSVG.redraw(this.dimensions);
          this.chartPie.redraw(this.dimensions,this.smallMultiple);
     }
