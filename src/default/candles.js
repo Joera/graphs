@@ -69,7 +69,7 @@ var candles = function(element,smallMultiple) {
 
         function draw() {
 
-            xScale = chartXScale.set(data.map( d => d['_date']));
+            xScale = chartXScale.set(data.map( (d) => d['_date']));
             yScale = chartYScale.set(data,config.yParameter);
             chartLine.draw(data);
 
