@@ -79,7 +79,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .duration(500)
             .attrTween("d", arcTween);
 
-        svg.arcs.remove();
+        // svg.arcs.remove();
 
         svg.arcs.enter().append("path")
             .attr("class", (d) => { console.log(d); return (d.data.accented) ? "arc accented" : "arc" })
