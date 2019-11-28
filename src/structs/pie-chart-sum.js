@@ -81,7 +81,7 @@ class PieChartSum  {
 
                 dataArray.push({
                     status: mapping.label,
-                    value: (segmented[mapping.column]) ? segmented[mapping.column] : sum
+                    value: (!isNaN(segmented[mapping.column])) ? segmented[mapping.column] : sum
                 });
             }
 
