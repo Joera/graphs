@@ -11,7 +11,7 @@ let ChartBar = function ChartBar(config,svg) {
             .enter()
             .append("rect")
             .attr("class", "bar")
-            .fill( (d) => d.colour)
+            .attr("fill", (d) => d.colour)
         ;
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
