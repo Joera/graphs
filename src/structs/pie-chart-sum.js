@@ -94,12 +94,10 @@ class PieChartSum  {
 
                     value = sum;
                 }
-
-
-
+                
                 dataArray.push({
                     label: mapping.label,
-                    value: () ? segmented[mapping.column] : sum,
+                    value: value,
                     colour: mapping.colour,
                     accented: (i > 1) ? true : false
                 });
