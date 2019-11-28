@@ -201,7 +201,7 @@ class PieChartSum  {
                  .attr("dy", ((data[0].length + 1.5) * 20) + 2)
                  .attr("dx", 16)
                  .text(data[2][0].label)
-                 .attr("width",dimensions.containerWidth)
+                 .attr("width",this.dimensions.containerWidth)
                  .style("opacity", 1);
 
              this.svg.layers.legend.append("text")
@@ -209,7 +209,7 @@ class PieChartSum  {
                  .attr("dx", 200)
                  .attr("dy", ((data[0].length + 1.5) * 20) + 2)
                  .text( data[2][0].value)
-                 .attr("width",dimensions.containerWidth)
+                 .attr("width",this.dimensions.containerWidth)
                  .style("opacity", 1)
                  .style("text-anchor", "end");
          }
@@ -221,7 +221,7 @@ class PieChartSum  {
 
         let clonedData = JSON.parse(JSON.stringify(data));
 
-        let parts = (clonedData[2] && clonedData[2][0]) ? clonedData[0].unshift(clonedData[2][0]) : clonedData[0];
+        let parts = (clonedData[2] && clonedData[2][0]) ? clonedData[0].push(clonedData[2][0]) : clonedData[0];
 
         console.log(parts);
         // first array in dataobject contains parts ... possible third array is accented part with sepatrate partt in legend
