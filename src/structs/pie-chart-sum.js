@@ -102,12 +102,8 @@ class PieChartSum  {
                     accented: (i > 1) ? true : false
                 });
             }
-
-            data.push(dataArray);
         });
-
-        console.log(data);
-
+        
         return data;
     }
 

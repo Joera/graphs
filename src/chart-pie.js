@@ -24,7 +24,6 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         let radius, arc, labelArc, innerRadius;
 
-
         if(smallMultiple || window.innerWidth < 480) {
 
             radius = 48;
@@ -64,7 +63,6 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         }
 
         function arcTween(a) {
-            console.log(this._current);
             var i = d3.interpolate(this._current, a);
             this._current = i(0);
             return function(t) {
