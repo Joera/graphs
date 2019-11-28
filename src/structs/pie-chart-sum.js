@@ -91,6 +91,7 @@ class PieChartSum  {
             if(data[2]) {
 
                 data[0].concat(data[2]);
+                delete data[2];
             }
 
             data.push(dataArray);
