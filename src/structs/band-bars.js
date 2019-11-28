@@ -59,13 +59,12 @@ class BandBars {
 
         if (globalData.municipalities) {
 
-            this.run(globalData.municipalities,this.property)
+            this.run(globalData.municipalities,this.segment)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                console.log(json);
                 globalData.municipalities = json;
                 self.run(json,self.segment);
             });
@@ -126,6 +125,8 @@ class BandBars {
     }
 
     run(json,segment) {
+
+        console.log(segment);
 
         let self = this;
 
