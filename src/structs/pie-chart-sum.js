@@ -189,14 +189,14 @@ class PieChartSum  {
 
          if(data[2]) {
 
-             svg.layers.legend.append("rect")
+             this.svg.layers.legend.append("rect")
                  .attr("y", ((data[0].length + 1.5) * 20) - 8)
                  .attr("height",12)
                  .attr("width",12)
                  .attr("fill", orange)
                  .style("opacity", 1);
 
-             svg.layers.legend.append("text")
+             this.svg.layers.legend.append("text")
                  .attr("class", "small-label")
                  .attr("dy", ((data[0].length + 1.5) * 20) + 2)
                  .attr("dx", 16)
@@ -204,7 +204,7 @@ class PieChartSum  {
                  .attr("width",dimensions.containerWidth)
                  .style("opacity", 1);
 
-             svg.layers.legend.append("text")
+             this.svg.layers.legend.append("text")
                  .attr("class", "small-label")
                  .attr("dx", 200)
                  .attr("dy", ((data[0].length + 1.5) * 20) + 2)
@@ -218,12 +218,9 @@ class PieChartSum  {
     }
 
     draw(data) {
-
-        if(data[2]) {
-            data[0].unshift(data[2][0]);
-        }
+        
         // first array in dataobject contains
-        this.chartPie.draw(data[0]);
+        this.chartPie.draw((data[2]) ? data[0].unshift(data[2][0]) : data[0] );
     }
 
      redraw() {
