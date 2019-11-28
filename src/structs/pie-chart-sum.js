@@ -222,26 +222,20 @@ class PieChartSum  {
         if(data[2] && data[2][0]) {
 
             let clonedData = JSON.parse(JSON.stringify(data));
-
             clonedData[0].unshift(clonedData[2][0]);
-
             this.chartPie.draw(clonedData[0]);
 
         } else {
 
             this.chartPie.draw(data[0])
         }
-
-
-        // first array in dataobject contains parts ... possible third array is accented part with sepatrate partt in legend
-     //   (parts);
     }
 
      redraw() {
 
-         // this.dimensions = this.chartDimensions.get(this.dimensions);
-         // this.chartSVG.redraw(this.dimensions);
-         // this.chartPie.redraw(this.dimensions,this.smallMultiple);
+         this.dimensions = this.chartDimensions.get(this.dimensions);
+         this.chartSVG.redraw(this.dimensions);
+         this.chartPie.redraw(this.dimensions,this.smallMultiple);
     }
 
     run(json,segment) {
