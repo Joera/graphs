@@ -8,7 +8,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     let chartObjects = ChartObjects();
     let config = chartObjects.config();
     let dimensions = chartObjects.dimensions();
-    let svg = new chartObjects.svg();
+    let svg = chartObjects.svg();
     let xScale = chartObjects.xScale();
     let yScale = chartObjects.yScale();
     let axes = chartObjects.axes();
@@ -48,7 +48,7 @@ var forceLooptijdenStatus  = function (element,smallMultiple) {
     dimensions = chartDimensions.get(dimensions);
 
     // create svg elements without data
-    let chartSVG = ChartSVG(element, config, dimensions, svg);
+    let chartSVG = new ChartSVG(element, config, dimensions, svg);
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config, svg);
