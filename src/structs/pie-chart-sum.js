@@ -179,7 +179,7 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("dx", legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 2)
-                 .text( (this.currency) ? convertToCurrency(d['value']) : d['value'])
+                 .text( (this.currency) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
                  .attr("width", this.dimensions.containerWidth)
                  .style("opacity", 1)
                  .style("text-anchor", "end");
@@ -207,7 +207,7 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("dx", 200)
                  .attr("dy", ((data[0].length + 1.5) * 20) + 2)
-                 .text( data[2][0].value)
+                 .text( (this.currency) ? convertToCurrency(data[2][0]['value']) : data[2][0]['value'])
                  .attr("width",this.dimensions.containerWidth)
                  .style("opacity", 1)
                  .style("text-anchor", "end");
