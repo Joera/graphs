@@ -69,6 +69,7 @@ class PieChartSum  {
         let segmented = json.find( j => j['_category'] === segment);
 
         let data = [];
+        let sum = 0;
 
         for (let array of this.dataMapping) {
 
@@ -76,9 +77,11 @@ class PieChartSum  {
 
             for (let mapping of array) {
 
+                sum += segmented[mapping.column];
+
                 dataArray.push({
                     status: mapping.label,
-                    value: segmented[mapping.column]
+                    value: (segmented[mapping.column]) ? segmented[mapping.column] : sum
                 });
             }
 
@@ -171,7 +174,23 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("dx", legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 2)
-                 .text(convertToCurrency(data[1][0]['value']))
+                 .text( () => {
+
+                     if (data[1][0]['value']) {
+                         convertToCurrency(data[1][0]['value'])
+                     } else {
+
+                         let sum = 0;
+
+                         for
+
+
+
+
+                     }
+
+
+                 })
                  .attr("width", this.dimensions.containerWidth)
                  .style("opacity", 1)
                  .style("text-anchor", "end");
