@@ -18,6 +18,9 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         svg.arcs = svg.layers.data.selectAll(".arc")
             .data(pie(data), function(d){ return d.data.status; });
 
+
+        svg.arcs.remove();
+
     }
 
     let redraw = function redraw(dimensions,smallMultiple) {
@@ -73,7 +76,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         }
 
 
-        svg.arcs.remove();
+
 
         svg.arcs
             .transition()
