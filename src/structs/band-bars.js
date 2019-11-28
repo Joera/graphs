@@ -111,7 +111,7 @@ class BandBars {
         this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
         // new scales mean new axis
 
-        this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
+        this.chartAxis.redrawXBandAxis(this.dimensions, this.xScale, this.axes, true, this.smallMultiple);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
         this.chartBar.redraw(this.dimensions,this.xScale,this.yScale);
