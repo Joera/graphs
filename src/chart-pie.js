@@ -16,7 +16,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             .value(function(d) { return d['value']; });
 
         svg.arcs = svg.layers.data.selectAll(".arc")
-            .data(pie(data), function(d){ return d.data[config.yParameter]; });
+            .data(pie(data), function(d){ return d.data.label; });
 
     }
 
