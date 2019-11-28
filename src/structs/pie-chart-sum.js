@@ -135,7 +135,7 @@ class PieChartSum  {
                 .attr("y", (i * 20) - 8)
                 .attr("height",12)
                 .attr("width",12)
-                .attr("fill", (d) => d.colour)
+                .attr("fill", d.colour)
                 .style("opacity", 1);
 
             this.svg.layers.legend.append("text")
@@ -150,7 +150,7 @@ class PieChartSum  {
                 .attr("class", "small-label")
                 .attr("dx", legendWidth)
                 .attr("dy", (i * 20) + 2)
-                .text( (d) => (this.currency) ? convertToCurrency(d['value']) : d['value'])
+                .text( (this.currency) ? convertToCurrency(d['value']) : d['value'])
                 .attr("width", this.dimensions.containerWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
