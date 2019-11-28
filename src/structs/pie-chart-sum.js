@@ -73,7 +73,7 @@ class PieChartSum  {
         // when total column = false --> add sum of previous columns
         let sum = 0;
 
-        for (let array of this.dataMapping) {
+        this.dataMapping.forEach( (array,i) => {
 
             let dataArray = [];
 
@@ -83,12 +83,18 @@ class PieChartSum  {
                 dataArray.push({
                     status: mapping.label,
                     value: (!isNaN(segmented[mapping.column])) ? segmented[mapping.column] : sum,
-                    colour: mapping.colour
+                    colour: mapping.colour,
+                    accented: (i > 1) ? true : false
                 });
             }
 
+            if(data[2]) {
+
+                data[0].concat(data[2]);
+            }
+
             data.push(dataArray);
-        }
+        });
 
         console.log(data);
         return data;
