@@ -26,12 +26,12 @@ class BandBars {
         this.functions = chartObjects.functions();
 
         this.config.margin.top = 0;
-        this.config.margin.bottom = 0;
+        this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 75 : 0;
         this.config.margin.left = 40;
         this.config.margin.right = 0;
-        this.config.padding.top = 10;
-        this.config.padding.bottom = 15;
-        this.config.padding.left = 0;
+        this.config.padding.top = this.smallMultiple? 15 : 30;
+        this.config.padding.bottom = 50;
+        this.config.padding.left = 30;
         this.config.padding.right = 0;
 
         this.config.xParameter = 'label';
