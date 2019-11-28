@@ -71,22 +71,22 @@ class PieChartSum  {
         let data = [];
         let sum = 0;
 
-        for (let array of this.dataMapping) {
-
-            let dataArray = [];
-
-            for (let mapping of array) {
-
-                sum = sum + segmented[mapping.column];
-
-                dataArray.push({
-                    status: mapping.label,
-                    value: (segmented[mapping.column]) ? segmented[mapping.column] : sum
-                });
-            }
-
-            data.push(dataArray);
-        }
+        // for (let array of this.dataMapping) {
+        //
+        //     let dataArray = [];
+        //
+        //     for (let mapping of array) {
+        //
+        //         sum = sum + segmented[mapping.column];
+        //
+        //         dataArray.push({
+        //             status: mapping.label,
+        //             value: (segmented[mapping.column]) ? segmented[mapping.column] : sum
+        //         });
+        //     }
+        //
+        //     data.push(dataArray);
+        // }
 
         console.log(data);
         return data;
