@@ -27,6 +27,7 @@ var candles = function(element,smallMultiple) {
 
 
     config.xParameter = '_date';
+    config.xScaleTicks = 'timeMonth';
     // config.minWidth = 460;
     // get dimensions from parent element
     let chartDimensions = new ChartDimensions(element,config);
