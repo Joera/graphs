@@ -115,19 +115,19 @@ class BandBars {
         this.chartBar.redraw(this.dimensions,this.xScale,this.yScale);
     }
 
-    draw(data,property) {
+    draw(data) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
         this.chartBar.draw(data);
     }
 
-    run(json,segmnent) {
+    run(json,segment) {
 
         let self = this;
 
-        let data = this.prepareData(json,segmnent);
-        this.draw(data,property);
+        let data = this.prepareData(json,segment);
+        this.draw(data);
         // this.redraw(data,property);
         // legend(data);
 
