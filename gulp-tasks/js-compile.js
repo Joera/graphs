@@ -57,11 +57,12 @@ module.exports = function() {
             './src/structs/pie-chart-sum.js',
             './src/structs/band-bars.js',
             './src/structs/trend-line.js',
+            './src/structs/map.js',
 
             './src/default/opnames.js',
 
             './src/default/weekverloop.js',
-            './src/default/gemeentes.js',
+
             './src/default/stroommodel.js',
             './src/default/bedragen.js',
             './src/default/verdeling.js',

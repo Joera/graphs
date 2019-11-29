@@ -1,4 +1,4 @@
-class Gemeentes {
+class Map {
 
 
     constructor(element, dataMapping, property, segment, smallMultiple) {
