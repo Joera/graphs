@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<style>
+
+
+</style>
+
+
+<script src="/assets/scripts/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+<script src="/assets/scripts/moment.min.js"></script>
+<script src="/assets/scripts/main.js"></script>
+
+
+<body id="meldingen" class="single-graph">
+<main>
+
+    <div id="container" class="container"></div>
+
+    <!--<ul class="legend horizontal">-->
+        <!--<li class="small-label"><span class="orange"></span>Afgewezen schademeldingen</li>-->
+        <!--<li class="small-label"><span class="green"></span>Aantal besluiten op toegewezen schademeldingen</li>-->
+
+    <!--</ul>-->
+
+
+
+</main>
+</body>
+
+
+<script>
+
+    const dataMapping = [
+
+       [
+           {
+            label: 'Afgewezen schademeldingen',
+            column: 'AFW',
+            colour: orange
+            },
+           {
+               label: 'Aantal besluiten op toegewezen schademeldingen',
+               column: 'BEH',
+               colour: green
+           }
+        ]
+
+
+    ];
+
+    // let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
+    // besluiten.init();
+
+    let rejectedPie = new PieChartSum('#container',dataMapping,'AFW','all',false,false);
+    rejectedPie.init();
+
+</script>
+
+
+</html>
