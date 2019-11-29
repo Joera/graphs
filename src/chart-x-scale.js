@@ -24,7 +24,7 @@ class ChartXScale {
 
         this.scale.time = d3.scaleTime()
             .domain([
-                d3.min(data, d => { return new Date(d) }),  //
+                d3.min(data, d => { return new Date(moment(d).add(1,'week').format('dd-mm-YYYY')) }),  //
                 d3.max(data, d => new Date(d))
             ]);
 
