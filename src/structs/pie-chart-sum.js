@@ -24,14 +24,11 @@ class PieChartSum  {
         this.svg = chartObjects.svg();
         this.functions = chartObjects.functions();
 
-        this.config.margin.top = 0;
-        this.config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
-        this.config.margin.left = 200;
-        this.config.margin.right = 0;
-        this.config.padding.top = 30;
-        this.config.padding.bottom = 50;
-        this.config.padding.left = 30;
-        this.config.padding.right = 0;
+
+        this.config.margin.bottom = (window.innerWidth > 640) ? 50 : 1235;
+        this.config.margin.left = 230;
+        this.config.margin.top = 30;
+
 
         this.config.currencyLabels = true;
         this.config.maxHeight = 300;
