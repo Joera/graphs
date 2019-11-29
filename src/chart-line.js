@@ -27,7 +27,13 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
             .curve(d3.curveCardinal);
 
         svg.line
-            .attr("d", functions.line);
+            .attr("d", functions.line)
+            .attr("fill","none")
+            .attr("stroke", (d) => d.colour )
+            .attr("stroke-width",4)
+
+
+            ;
 
     }
 
