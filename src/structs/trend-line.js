@@ -37,6 +37,7 @@ class TrendLine {
         this.config.padding.right = 0;
 
         this.config.xParameter = '_date';
+        this.config.xScaleTicks = 'timeMonth';
         this.config.yParameter = 'value';
 
         this.config.paddingInner = 0.1;
@@ -112,7 +113,7 @@ class TrendLine {
         this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
         // new scales mean new axis
 
-        this.chartAxis.redrawXBandAxis(this.dimensions, this.xScale, this.axes, true, this.smallMultiple);
+        this.chartAxis.redrawXTimeAxis(this.dimensions, this.xScale, this.axes, true, this.smallMultiple);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
         this.chartLine.redraw(this.dimensions,this.xScale,this.yScale);
