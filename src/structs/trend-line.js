@@ -78,7 +78,7 @@ class TrendLine {
 
         let data = [];
 
-        // start Date 
+        // start Date
 
         // let segmented = json.find( j => j['_category'] === segment);
 
