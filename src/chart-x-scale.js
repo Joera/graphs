@@ -28,6 +28,8 @@ class ChartXScale {
                 d3.max(data, d => new Date(d))
             ]);
 
+        console.log(data);
+
         this.scale.band = d3.scaleBand()
             // what is domain when working with a stack?
             .domain(data) /// where was data.map(d => d[self.config.xParameter]) used?
