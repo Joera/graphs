@@ -28,15 +28,14 @@ class ChartXScale {
                 d3.max(data, d => new Date(d))
             ]);
 
-        console.log(data);
 
-        this.scale.band = d3.scaleBand()
-            // what is domain when working with a stack?
-            .domain(data) /// where was data.map(d => d[self.config.xParameter]) used?
-            .paddingInner(self.config.paddingInner)
-            .paddingOuter(self.config.paddingOuter)
-            .align([0.5])
-        ;
+        // this.scale.band = d3.scaleBand()
+        //     // what is domain when working with a stack?
+        //     .domain(data) /// where was data.map(d => d[self.config.xParameter]) used?
+        //     .paddingInner(self.config.paddingInner)
+        //     .paddingOuter(self.config.paddingOuter)
+        //     .align([0.5])
+        // ;
 
         this.scale.stackedNormalized = d3.scaleLinear();
 
@@ -54,9 +53,9 @@ class ChartXScale {
         newScale.linear
             .range([0, dimensions.width]);
 
-        newScale.band
-            // or does this
-            .range([0,dimensions.width]);
+        // newScale.band
+        //     // or does this
+        //     .range([0,dimensions.width]);
 
         newScale.stackedNormalized
             .range([0,dimensions.width]);
