@@ -35,17 +35,17 @@
 
         {
             label: 'Besluiten',
-            column: 'besluiten_regulier',
+            column: 'BESCHIKT',
             colour: 'blue'
         },
         {
             label: '',
-            column: 'nieuwe_besluiten_regulier',
+            column: 'nieuwe_BESCHIKT',
             colour: 'blue'
         }
     ];
 
-    let besluiten = new BarProgression('#container',dataMapping,'besluiten_regulier','all',false);
+    let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
     besluiten.init();
 </script>
 
