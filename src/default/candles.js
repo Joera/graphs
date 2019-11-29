@@ -38,7 +38,7 @@ var candles = function(element,smallMultiple) {
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
-    let chartLine = ChartLine(config,svg,functions,dimensions);
+    let chartLine = ChartCandles(config,svg,functions,dimensions);
     //   let chartStackedArea = ChartStackedArea(config,svg,functions);
 
     chartAxis.drawXAxis();
