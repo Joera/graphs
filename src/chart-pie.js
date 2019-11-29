@@ -64,7 +64,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
         }
 
         function arcTween(a) {
-            console.log(this._current);
+
             var i = d3.interpolate(this._current, a);
             this._current = i(0);
             return function(t) {
@@ -88,7 +88,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
 
         svg.arcs.enter().append("path")
             .attr("class", "arc")
-            .attr("fill", function(d, i) { console.log(d); return d.data.colour })
+            .attr("fill", function(d, i) { return d.data.colour })
             .attr("d", arc)
             .each(function(d) { this._current = d; });
     }
