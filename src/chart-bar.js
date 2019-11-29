@@ -10,9 +10,9 @@ let ChartBar = function ChartBar(config,svg) {
         svg.barEnter = svg.bar
             .enter()
             .append("rect")
-            .attr("class", function(d,i) {
-                return "bar  " + colours[i]; // + sluggify(d.status) + "
-            });
+            .attr("class", "bar")
+            .attr("fill", (d) => d.colour)
+        ;
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data);
@@ -72,11 +72,11 @@ let ChartBar = function ChartBar(config,svg) {
 
                 if(config.currencyLabels) {
 
-                    return convertToCurrency(d.totaal);
+                    return convertToCurrency(d[config.yParameter]);
 
                 } else {
 
-                    return d.totaal ? d.totaal : '< 25';
+                    return d[config.yParameter] ? d[config.yParameter] : '< 25';
                 }
 
 

@@ -1,129 +1,140 @@
-var gemeentes = function(element,smallMultiple,property) {
+class Gemeentes {
 
-    let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
 
-    let chartObjects = ChartObjects();
-    let config = chartObjects.config();
-    let dimensions = chartObjects.dimensions();
-    let yScale = chartObjects.yScale();
-    let svg = chartObjects.svg();
+    constructor(element, dataMapping, property, segment, smallMultiple) {
 
-    config.margin.top = 0;
-    config.padding.left = 0;
-    config.padding.bottom = 0;
-    config.margin.bottom = 0;
+        this.element = element;
+        this.dataMapping = dataMapping;
+        this.property = property;
+        this.segment = segment;
+        this.features;
+        this.smallMultiple = smallMultiple;
 
- //   config.fixedHeight = 360;
- //   config.fixedHeight = 360;
+        this.dropdown = document.querySelector('.map-selector ul');
 
-    let chartDimensions = ChartDimensions(element,config);
-    dimensions = chartDimensions.get(dimensions);
+        this.chartObjects = ChartObjects();
+        this.config = this.chartObjects.config();
+        this.dimensions = this.chartObjects.dimensions();
+        this.yScale = this.chartObjects.yScale();
+        this.svg = this.chartObjects.svg();
 
-    let chartSVG = ChartSVG(element,config,dimensions,svg);
-    let chartYScale = ChartYScale(config,dimensions,yScale);
+        this.config.margin.top = 0;
+        this.config.padding.left = 0;
+        this.config.padding.bottom = 0;
+        this.config.margin.bottom = 0;
 
-    dimensions = chartDimensions.get(dimensions);
 
-   //
-
-    if (window.innerWidth < 600) {
-
-        Object.keys(dimensions).map(function(key, index) {
-            dimensions[key] *= 1.25;
-        });
     }
 
-    chartSVG.redraw(dimensions);
+    init() {
 
-    let chartMap = ChartMap(config,svg,dimensions);
+        let self = this;
 
-    function prepareData(json,property)  {
+        this.chartDimensions = new ChartDimensions(this.element,this.config);
+        this.dimensions = this.chartDimensions.get(this.dimensions);
+        this.chartSVG = new ChartSVG(this.element,this.config,this.dimensions,this.svg);
+        this.chartYScale = ChartYScale(this.config,this.dimensions,this.yScale);
 
-        globalData.mapFeatures.forEach( (feature) => {
+        if (window.innerWidth < 600) {
 
-            let gemeenteData = json.find( (g) => {
-                return sluggify(g._category) == sluggify(feature.properties.gemeentenaam);
+            Object.keys(this.dimensions).map(function(key, index) {
+                this.dimensions[key] *= 1.25;
             });
+        }
 
-            for (let key in gemeenteData) {
-                gemeenteData[sluggify(key)] = gemeenteData[key];
-            }
+        this.colours = this.dataMapping.map( (p) => p.colour);
 
-            feature.properties = Object.assign({}, feature.properties, gemeenteData);
-        });
+        this.chartSVG.redraw(this.dimensions);
 
+        this.chartMap = ChartMap(this.config,this.svg,this.dimensions,this.smallMultiple);
 
-        return globalData.mapFeatures;
-    }
+        let url = 'https://tcmg-hub.publikaan.nl/api/gemeenten';
 
-
-    function draw(features) {
-
-
-    }
-
-    function redraw(features, property) {
-
-        yScale = chartYScale.set(features,property);
-        // on redraw chart gets new dimensions
-        dimensions = chartDimensions.get(dimensions);
-        chartSVG.redraw(dimensions);
-        // redraw data
-        chartMap.redraw(dimensions,property,yScale);
-    }
-
-    let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
-    if(!property) { property = 'schademeldingen' }
-
-    function run(json,property) {
-
-        let features = prepareData(json);
-        chartMap.draw(features);
-        redraw(features, property);
-
-        setListeners(features,property);
-    }
-
-    function getData() {
-        if (!globalData.municipalities) {
+        if (!globalData.geoData) {
             d3.json(url, function(error, json) {
-                if (error) throw error
-                globalData.municipalities = json;
-                run(json,property)
+                globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
+                self.run(globalData.geoData,self.property)
             });
 
         } else {
-
-            run(globalData.municipalities,property)
+            this.run(globalData.geoData,this.property)
         }
     }
 
-    function setListeners(features,property) {
+    prepareData(json,property)  {
 
-        window.addEventListener("resize", redraw(features, property), false);
+        return json;
+    }
+
+    draw() {
+
+
+    }
+
+    redraw(newProperty) {
+
+        if (newProperty && newProperty != undefined) { this.property = newProperty };
+
+        this.yScale = this.chartYScale.set(this.features,this.property);
+        // on redraw chart gets new dimensions
+        this.dimensions = this.chartDimensions.get(this.dimensions);
+        this.chartSVG.redraw(this.dimensions);
+        // redraw data
+        this.chartMap.redraw(this.dimensions,this.property,this.yScale,this.colours);
+    }
+
+    createDropdown() {
+
+        if(this.dropdown) {
+
+            this.dataMapping.forEach((mapping, i) => {
+
+                let li = document.createElement('li');
+                let input = document.createElement('input');
+                input.type = 'radio';
+                input.name = 'property';
+                input.id = mapping.column;
+                input.value = mapping.column;
+                input.checked = (i < 1) ? true : false;
+                li.appendChild(input);
+
+                let label = document.createElement('label');
+                label.innerText = mapping.label;
+                label.htmlFor = mapping.column;
+
+                li.appendChild(label);
+
+                this.dropdown.appendChild(li);
+            });
+
+        }
+    }
+
+    setListeners(property) {
+
+        let self = this;
+
+        let radios = [].slice.call(document.querySelectorAll('.map-selector ul li input[type=radio]'));
+
+        window.addEventListener("resize", self.redraw(property), false);
 
         for (let radio of radios) {
             radio.addEventListener( 'change', () => {
-                redraw(features,radio.value);
+                self.redraw(radio.value);
             },false)
         }
     }
 
+    run(geoData,property) {
 
-    if (!globalData.mapFeatures) {
+        this.features = this.prepareData(geoData,property);
 
-        d3.json("/assets/geojson/topojson.json", function (error, mapData) {
-            globalData.mapFeatures = topojson.feature(mapData, mapData.objects.gemeenten).features;
-            getData();
-        });
-
-    }  else {
-
-        getData();
-
+        this.chartMap.draw(this.features);
+        this.redraw(property);
+        this.createDropdown();
+        this.setListeners(property);
     }
-
-
-    // for example on window resize
-
 }
+
+
+

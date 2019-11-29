@@ -2,7 +2,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     let dataArray;
 
-    let draw = function draw(data,colours) {
+    let draw = function draw(data) {
 
         // slice count of columns on mobile
 
@@ -15,8 +15,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.barEnter = svg.bar
             .enter()
-            .append("rect")
-            .attr("class", "bar");
+            .append("rect");
+
+
 
         svg.barLabels = svg.layers.data.selectAll(".barLabel")
             .data(data);
@@ -86,7 +87,7 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,property) {
+    let redraw = function redraw(dimensions,xScale,yScale,property,colour) {
 
       //  let barWidth = 60; // scales.xBand.bandwidth() ||
         let yOffset;
@@ -119,6 +120,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
         svg.bar
             .merge(svg.barEnter)
+            .attr("class", function(d) {
+                return 'bar ' + colour;
+            })
             .attr("x", function(d) {
 
                 return xScale.band(d[config.xParameter]);
@@ -127,24 +131,15 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
 
                 return xScale.band.bandwidth();
             })
-            .attr("clip-path", "url(#clip)")
+            // .attr("clip-path", "url(#clip)")
             .attr("y", function(d) { return dimensions.height; })
             .transition()
             .duration(250)
             .attr("y", function(d) { return yScale.linear(d[property]); })
             .attr("height", function(d) {
                 return dimensions.height - yScale.linear(d[property]);
-            })
-            .style("fill", function(d) {
-                if(property === 'aos_meldingen') {
-                    return darkblue;
-                } else if(property === 'gegronde_aos') {
-                    return orange;
-                }
-                else {
-                    return green;
-                }
             });
+
 
         svg.barLabels
             .merge(svg.barLabelsEnter)
@@ -155,9 +150,9 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .attr('fill-opacity', 0)
             .attr('transform', function(d) {
 
-                xOffset = dimensions.width / (2 * dataArray.length);
+              //  xOffset = dimensions.width / (2 * dataArray.length);
 
-                yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
+           //     yOffset = -10; // for centered -> ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
                     dimensions.height
@@ -168,12 +163,16 @@ let ChartBarsIncrease = function ChartBarsIncrease(config,svg,functions) {
             .duration(500)
             .attr('transform', function(d) {
 
-                xOffset = dimensions.width / (2 * dataArray.length);
+            //    xOffset = dimensions.width / (2 * dataArray.length);
 
-                yOffset = ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
+                yOffset = 0; // for centered ->  ((yScale.linear(d[property]) - yScale.linear(minValue)) / 2) - 11;
+
+                // return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
+                //     (yScale.linear(d[property]) - yOffset + (xScale.band.bandwidth() / 4))
+                //     + ')';
 
                 return 'translate(' + (xScale.band(d[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
-                    (yScale.linear(d[property]) - yOffset + (xScale.band.bandwidth() / 4))
+                    (dimensions.height - yOffset)
                     + ')';
             })
             .attr('fill-opacity', 1);

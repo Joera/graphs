@@ -51,8 +51,49 @@
 
 
 <script>
-    //   var tcmgCharts = new TCMGCharts();
-    pieChartOpnames('#container');
+
+
+    const dataMapping = [
+
+        [
+            {
+                label: 'Aannemersvariant',
+                column: 'OPNAME_AANNEMERSVARIANT',
+                colour: green
+            },
+            {
+                label: 'Schade-opnemers',
+                column: 'OPNAMES_OPNEMERSVARIANT',
+                colour: darkblue
+            },
+            {
+                label: 'CVW 2000',
+                column: 'OPNAMES_CVW2000',
+                colour: blue
+            },
+            {
+                label: 'Wooncorporaties',
+                column: 'OPNAMES_WOCO',
+                colour: orange
+            },
+            {
+                label: 'Regulier',
+                column: ['OPNAMES_REGULIER','OPNAMES_SMR'],
+                colour: grey
+            }
+        ],
+        [
+            {
+                label: 'Totaal',
+                column: false
+            }
+
+        ]
+
+    ];
+
+    let opnameTaart = new PieChartSum('#container',dataMapping,'','all', false, false);
+    opnameTaart.init();
 </script>
 
 

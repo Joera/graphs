@@ -169,6 +169,9 @@ var pieChartOpnames = function(element,smallMultiple) {
         }
 
         function draw(data) {
+
+            console.log(data.length);
+
             chartPie.draw(data);
         }
 

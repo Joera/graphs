@@ -50,7 +50,49 @@
 
 
 <script>
-    statussen('#container');
+    const dataMapping = [
+
+        {
+            label: 'Ontvangst en analyse',
+            column: 'ONTVANGST',
+            colour: orange
+        },
+        {
+            label: 'Schade-opname wordt ingepland',
+            column: 'PLANNING_OPNAME',
+            colour: yellow
+        },
+        {
+            label: 'Schade-opname uitgevoerd, adviesrapport opleveren',
+            column: 'OPLEV_SCHADERAPPORT',
+            colour: green
+        },
+        {
+            label: 'Adviesrapport opgeleverd, besluit voorbereiden',
+            column: 'VOORBER_CIE',
+            colour:  blue
+        },
+        {
+            label: 'Besluit genomen',
+            column: 'BESCHIKT',
+            colour: darkblue
+        }
+    ];
+
+    const config = {
+
+        smallMultiple : false,
+        currencyLabels : false,
+        xScaleType : 'band',
+        xScaleParameter : 'label'
+
+    }
+
+    // dit is er een met x scale band
+
+    let status_actueel = new BandBars('#container',dataMapping,'ONTVANGST','all',config.smallMultiple);
+    status_actueel.init();
+
 </script>
 
 

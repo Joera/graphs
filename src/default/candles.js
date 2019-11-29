@@ -15,8 +15,8 @@ var candles = function(element,smallMultiple) {
     config.margin.right = 0;
     config.padding.top = smallMultiple? 15 : 30;
     config.padding.bottom = 30;
-    config.padding.left = 30;
-    config.padding.right = 30;
+    config.padding.left = 0;
+    config.padding.right = 0;
     // name of first column with values of bands on x axis
 
 
@@ -27,13 +27,14 @@ var candles = function(element,smallMultiple) {
 
 
     config.xParameter = '_date';
+    config.xScaleTicks = 'timeMonth';
     // config.minWidth = 460;
     // get dimensions from parent element
-    let chartDimensions = ChartDimensions(element,config);
+    let chartDimensions = new ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
     // create svg elements without data
-    let chartSVG = ChartSVG(element,config,dimensions,svg);
+    let chartSVG = new ChartSVG(element,config,dimensions,svg);
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
@@ -47,7 +48,6 @@ var candles = function(element,smallMultiple) {
 
     d3.json(url, function(error, json) {
         if (error) throw error;
-
 
         let neededColumns = ['schademeldingen','afgehandeld','in_behandeling','nieuwe_schademeldingen','nieuwe_afgehandeld','_date'];
         let data = trimColumns(json,neededColumns);
@@ -70,7 +70,7 @@ var candles = function(element,smallMultiple) {
 
         function draw() {
 
-            xScale = chartXScale.set(data);
+            xScale = chartXScale.set(data.map( (d) => d['_date']));
             yScale = chartYScale.set(data,config.yParameter);
             chartLine.draw(data);
 

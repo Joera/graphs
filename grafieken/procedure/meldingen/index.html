@@ -28,7 +28,7 @@
     <div class="selector">
         <ul class="properties radios">
             <li>
-                <input type="radio" id="schademeldingen" data-active-colour="green" name="property" value="schademeldingen" checked>
+                <input type="radio" id="schademeldingen" data-active-colour="orange" name="property" value="schademeldingen" checked>
                 <label for="schademeldingen">Schademeldingen</label>
             </li>
             <li>
@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <input type="radio" id="gegronde_aos" data-active-colour="orange" name="property" value="gegronde_aos">
+                <input type="radio" id="gegronde_aos" data-active-colour="green" name="property" value="gegronde_aos">
                 <label for="gegronde_aos">Gegronde AOS</label>
             </li>
         </ul>
@@ -48,7 +48,43 @@
 
 
 <script>
-    meldingen('#container');
+
+    const dataMapping = [
+
+        {
+            label: 'Schademeldingen',
+            column: 'schademeldingen',
+            colour: 'orange'
+        },
+        {
+            label: '',
+            column: 'nieuwe_schademeldingen',
+            colour: 'orange'
+        },
+        {
+            label: 'AOS meldingen',
+            column: 'aos_meldingen',
+            colour: 'darkblue'
+        },
+        {
+            label: '',
+            column: 'nieuwe_aos_meldingen',
+            colour: 'darkblue'
+        },
+        {
+            label: 'Gegronde AOS',
+            column: 'gegronde_aos',
+            colour: 'green'
+        },
+        {
+            label: '',
+            column: 'nieuwe_gegronde_aos',
+            colour: 'green'
+        }
+    ];
+
+    let meldingen = new BarProgression('#container',dataMapping,'schademeldingen','all',false);
+    meldingen.init();
 </script>
 
 

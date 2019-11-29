@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<style>
+
+
+</style>
+
+
+<script src="/assets/scripts/d3.min.js"></script>
+<script src="/assets/scripts/main.js"></script>
+
+
+<body class="single-graph">
+<main>
+
+    <select class="municipalities"></select>
+
+    <div id="container" class="cijfers container no-bottom-container">
+
+    </div>
+
+</main>
+</body>
+
+
+<script>
+
+
+    const dataMapping = {
+
+
+        'cijfer-nieuwe-meldingen': [
+
+            {
+                label: 'Schade-meldingen',
+                column: 'nieuwe_MELDING',
+                colour: orange
+            },
+            {
+                label: 'Schade-meldingen',
+                column: 'gem_MELDING',
+                colour: orange
+            }
+        ],
+
+        'cijfer-nieuwe-opnames': [
+
+            {
+                label: 'Schade-opnames',
+                column: 'nieuwe_OPNAMES',
+                colour: green
+            },
+            {
+                label: 'Schade-opnames',
+                column: 'gem_OPNAMES',
+                colour: green
+            }
+        ],
+
+        'cijfer-nieuwe-besluiten': [
+
+            {
+                label: 'Besluiten',
+                column: 'nieuwe_BESCHIKT',
+                colour: blue
+            },
+            {
+                label: 'Besluiten',
+                column: 'gem_BESCHIKT',
+                colour: blue
+            }
+        ],
+
+        'cijfer-nieuwe-afgehandeld': [
+
+            {
+                label: 'Afgehandelde schade-meldingen',
+                column: 'nieuwe_AFGEHANDELD_TOTAAL',
+                colour: darkblue
+            },
+            {
+                label: 'Afgehandelde schade-meldingen',
+                column: 'gem_AFGEHANDELD_TOTAAL',
+                colour: darkblue
+            }
+        ]
+    }
+
+    let cijfersLine = new CijfersLine('.container', dataMapping, '', 'all', false)
+    cijfersLine.init();
+
+</script>
+
+
+</html>

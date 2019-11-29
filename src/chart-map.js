@@ -1,4 +1,7 @@
-let ChartMap = function ChartMap(config,svg,dimensions) {
+
+// moet dit dan toch een class zijn?
+
+let ChartMap = function ChartMap(config,svg,dimensions,smallMultiple) {
 
     let projection = d3.geoMercator()
         .scale(1)
@@ -33,44 +36,52 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
             .attr("stroke", "#fff")
             ;
 
-        svg.values = svg.layers.data.selectAll(".value")
-            .data(features)
-            .enter()
-            .append("text")
-            .attr("class","value small-label")
-            .attr("x", function(d) {
+        if (!smallMultiple) {
 
-                if (sluggify(d.properties.gemeentenaam) === 'delfzijl') {
-                    return path.centroid(d)[0] + 20;
-                } else {
-                    return path.centroid(d)[0];
-                }
-            })
-            .attr("y", function(d) {
+            svg.values = svg.layers.data.selectAll(".value")
+                .data(features)
+                .enter()
+                .append("text")
+                .attr("class", "value small-label")
+                .attr("x", function (d) {
 
-                if (sluggify(d.properties.gemeentenaam) === 'delfzijl') {
-                    return path.centroid(d)[1] + 20;
-                } else {
-                    return path.centroid(d)[1];
-                }
+                    if (sluggify(d.properties.gemeentenaam) === 'delfzijl') {
+                        return path.centroid(d)[0] + 20;
+                    } else {
+                        return path.centroid(d)[0];
+                    }
+                })
+                .attr("y", function (d) {
 
-            })
-            .attr("text-anchor", "middle");
+                    if (sluggify(d.properties.gemeentenaam) === 'delfzijl') {
+                        return path.centroid(d)[1] + 20;
+                    } else {
+                        return path.centroid(d)[1];
+                    }
+
+                })
+                .attr("text-anchor", "middle");
+        }
     }
 
-    let redraw = function redraw(dimensions,property,yScale) {
+    let redraw = function redraw(dimensions,property,yScale,colours) {
+
+        // console.log(property);
 
         svg.map
             .merge(svg.map)
             .attr("fill", function (d, i) {
 
                 if (d.properties[property] > 0) {
-                    return 'orange';
+                    return colours[0];
                 } else {
                     return '#eee';
                 }
             })
             .attr("fill-opacity", function (d, i) {
+
+
+             //   console.log(d.properties[property]);
 
                 if(d.properties[property] > 0) {
                     return yScale.map(d.properties[property]);
@@ -102,23 +113,26 @@ let ChartMap = function ChartMap(config,svg,dimensions) {
                     .style("opacity", 0);
             });
 
-        svg.values
-            .text(function (d) {
+        if (!smallMultiple) {
 
-                if(d.properties[property] > 0) {
+            svg.values
+                .text(function (d) {
 
-                    if (property === 'TOTAAL_VERLEEND' || property === 'bedrag_stuwmeer') {
-                        return shortenCurrency(convertToCurrency(d.properties[property]));
+                    if (d.properties[property] > 0) {
 
-                    } else if (property === 'percentage_stuwmeer') {
+                        if (property === 'TOTAAL_VERLEEND' || property === 'bedrag_stuwmeer') {
+                            return shortenCurrency(convertToCurrency(d.properties[property]));
 
-                        return parseInt(d.properties[property]).toString() + '%';
-                    } else {
+                        } else if (property === 'percentage_stuwmeer') {
 
-                        return d.properties[property];
+                            return parseInt(d.properties[property]).toString() + '%';
+                        } else {
+
+                            return d.properties[property];
+                        }
                     }
-                }
-            });
+                });
+        }
 
 
     }

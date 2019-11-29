@@ -1,11 +1,6 @@
-var specialsStatussen  = function (element,smallMultiple) {
+var specialsStatussen  = function (element,dataMapping,smallMultiple) {
 
-    let dataMapping = [
-        { "Ontvangst en analyse" : "SPECIALS_ONTVANGST" },
-        { "Schade-opname wordt ingepland" : "SPECIALS_PLANNING_OPNAME" },
-        { "Schade-opname uitgevoerd, adviesrapport opleveren" : "SPECIALS_OPLEV_SCHADERAPP" },
-        { "Besluit genomen" : "SPECIALS_BESCHIKT" }
-    ]
+
 
 
     let municipalitySelect = document.querySelector('select.municipalities');
@@ -29,21 +24,12 @@ var specialsStatussen  = function (element,smallMultiple) {
     config.padding.bottom = 50;
     config.padding.left = 30;
     config.padding.right = 0;
-    // name of first column with values of bands on x axis
 
-    // y-axis
-    config.yParameter = 'totaal';
-    // config.minValue = 0;
-    // config.maxValue = 10000;
-    // config.fixedHeight = 200;
-
-    // x-axis
-    // config.minWidth = 460;
-    config.xParameter = 'status';
+    config.xParameter = 'key';
+    config.yParameter = 'value';
     config.paddingInner = [0.2];
     config.paddingOuter = [0.2];
 
-    let colours = ['orange','green','darkblue','blue','green'];
 
     // get dimensions from parent element
     let chartDimensions = ChartDimensions(element, config);
@@ -66,48 +52,15 @@ var specialsStatussen  = function (element,smallMultiple) {
 
         let data = [];
 
-        // for (let mapping of dataMapping) {
-        //     data.push({
-        //         key: Object.keys(mapping)[0],
-        //         value: json[Object.values(mapping)[0]]
-        //     });
-        // }
+        for (let mapping of dataMapping) {
 
-        data.push({
-            status: "Ontvangst en analyse",
-            totaal: json['SPECIALS_ONTVANGST']
-
-        });
-
-        data.push({
-            status: "Schade-opname wordt ingepland",
-            totaal: json['SPECIALS_PLANNING_OPNAME']
-
-        });
-
-
-        data.push({
-            status: "Schade-opname uitgevoerd, adviesrapport opleveren",
-            totaal: json['SPECIALS_OPLEV_SCHADERAPP']
-
-        });
-
-
-        data.push({
-            status: "Adviesrapport opgeleverd, besluit voorbereiden",
-            totaal: json['SPECIALS_VOORBER_CIE']
-
-        });
-
-        data.push({
-            status: "Besluit genomen",
-            totaal: json['SPECIALS_BESCHIKT']
-
-        });
-
-
-        console.log(data);
-
+            data.push({
+                key: mapping.label,
+                value: json[mapping.column],
+                colour: mapping.colour
+            });
+        }
+        
         return data;
     }
 
@@ -168,7 +121,7 @@ var specialsStatussen  = function (element,smallMultiple) {
         xScale = chartXScale.set(data.map(d => d[config.xParameter]));
         yScale = chartYScale.set(data,config.yParameter);
         // width data we can draw items
-        chartBar.draw(data, colours);
+        chartBar.draw(data, data.map( (d) => d.colour));
 
     }
 

@@ -4,9 +4,7 @@
 
 }
 
-#bezwaren-pie-chart {
-
-  svg .data path:first-of-type {
+path.arc.accented {
 
     transform: translate(6px, -3px);
 
@@ -15,4 +13,3 @@
       transform: translate(12px, -6px);
     }
   }
-}

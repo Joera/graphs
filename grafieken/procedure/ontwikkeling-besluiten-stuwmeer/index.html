@@ -17,14 +17,15 @@
 <script src="/assets/scripts/moment.min.js"></script>
 <script src="/assets/scripts/main.js"></script>
 
-<body class="single-graph">
+
+<body id="meldingen" class="single-graph">
 <main>
 
-    <div id="container" class="container"></div>
+    <div id="container" class="container room-bottom"></div>
 
     <ul class="legend horizontal">
-        <li class="small-label"><span class="orange"></span>AOS Meldingen</li>
-        <li class="small-label"><span class="green"></span>Gegronde AOS</li>
+        <li class="small-label"><span class="blue"></span>Besluiten</li>
+        <li class="small-label"><span class="darkblue"></span>Nulmetingen</li>
 
     </ul>
 
@@ -36,35 +37,35 @@
 
     const dataMapping = [
 
-       [
-           {
-            label: 'AOS meldingen',
-            column: 'aos_meldingen',
-            colour: 'orange'
+        [
+
+            {
+                label: 'Besluiten',
+                column: 'besluiten_stuwmeerregeling',
+                colour: 'blue'
             },
             {
                 label: '',
-                column: 'nieuwe_aos_meldingen',
-                colour: 'orange'
+                column: 'nieuwe_besluiten_stuwmeerregeling',
+                colour: 'blue'
             }
         ],
         [
             {
-                label: 'AOS meldingen',
-                column: 'gegronde_aos',
-                colour: 'green'
+                label: 'Nulmetingen',
+                column: 'nulmetingen',
+                colour: 'darkblue'
             },
             {
                 label: '',
-                column: 'nieuwe_gegronde_aos',
-                colour: 'green'
+                column: 'nieuwe_nulmetingen',
+                colour: 'darkblue'
             }
         ]
     ];
 
-
-    let aosmeldingen = new MultiBarProgression('#container',dataMapping,'aos_meldingen','all',false);
-    aosmeldingen.init();
+    let besluitenStuwmeer = new MultiBarProgression('#container',dataMapping,'besluiten_stuwmeerregeling','all',false);
+    besluitenStuwmeer.init();
 </script>
 
 

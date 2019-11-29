@@ -18,7 +18,7 @@ var voortgangDetails = function(element,smallMultiple) {
     config.margin.right = 0;
     config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
-    config.padding.left = 30;
+    config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
@@ -27,6 +27,7 @@ var voortgangDetails = function(element,smallMultiple) {
     config.minValue = 0;
     // config.maxValue = 60000;
     config.xParameter = '_date';
+    config.xScaleTicks = 'timeMonth';
 
     let colours = {
 
@@ -38,11 +39,11 @@ var voortgangDetails = function(element,smallMultiple) {
     }
 
     // get dimensions from parent element
-    let chartDimensions = ChartDimensions(element,config);
+    let chartDimensions = new ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
     // create svg elements without data
-    let chartSVG = ChartSVG(element,config,dimensions,svg);
+    let chartSVG = new ChartSVG(element,config,dimensions,svg);
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
@@ -62,7 +63,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
         let data = trimColumnsAndOrder(json,neededColumns);
 
-        data = hasValue(data,'MELDING_CVW');
+            data = hasValue(data,'MELDING_CVW');
 
         let propertyArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
         let stackedData = filterData(propertyArray);
@@ -111,7 +112,7 @@ var voortgangDetails = function(element,smallMultiple) {
         function update(propertyArray) {
 
             stackedData = filterData(propertyArray);
-            xScale = chartXScale.set(data);
+            xScale = chartXScale.set(data.map( (d) => d['_date'] ));
             yScale = chartYScale.set(stackedData,config.yParameter);
             chartStackedArea.draw(stackedData,colours);
             redraw();

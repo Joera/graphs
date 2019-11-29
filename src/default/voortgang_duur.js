@@ -18,7 +18,7 @@ var voortgangDuur = function(element,smallMultiple) {
     config.margin.right = 0;
     config.padding.top = smallMultiple ? 15 : 30;
     config.padding.bottom = 30;
-    config.padding.left = 30;
+    config.padding.left = 0;
     config.padding.right = 0;
     // name of first column with values of bands on x axis
 
@@ -31,6 +31,9 @@ var voortgangDuur = function(element,smallMultiple) {
 
     config.xParameter = '_date';
 
+    config.xScaleType = 'time';
+    config.xScaleTicks = 'timeMonth';
+
     let colours = {
 
         'MINDER_DAN_12_JAAR': darkblue,
@@ -40,11 +43,11 @@ var voortgangDuur = function(element,smallMultiple) {
     }
 
     // get dimensions from parent element
-    let chartDimensions = ChartDimensions(element,config);
+    let chartDimensions = new ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
 
     // create svg elements without data
-    let chartSVG = ChartSVG(element,config,dimensions,svg);
+    let chartSVG = new ChartSVG(element,config,dimensions,svg);
     let chartXScale = new ChartXScale(config,dimensions,xScale);
     let chartYScale = ChartYScale(config,dimensions,yScale);
     let chartAxis = ChartAxis(config,svg);
@@ -101,7 +104,7 @@ var voortgangDuur = function(element,smallMultiple) {
         function update(propertyArray) {
 
             let stackedData = filterData(propertyArray);
-            xScale = chartXScale.set(data);
+            xScale = chartXScale.set(data.map((e) => e['_date']));
             yScale = chartYScale.set(stackedData,config.yParameter);
             chartStackedArea.draw(stackedData,colours);
             redraw();
