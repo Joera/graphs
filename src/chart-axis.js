@@ -2,7 +2,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let drawXAxis = function drawXAxis() {
 
-        svg.xAxis = svg.layers.axes.append("g")
+        svg.xAxis = svg.layers.append("g")
             .attr('class', 'x-axis');
     }
 
@@ -91,7 +91,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     let drawYAxis = function drawYAxis() {
 
-        svg.yAxis = svg.layers.axes.append("g")
+        svg.yAxis = svg.layers.append("g")
             .attr('class', 'y-axis')
             .attr("transform", "translate(" + config.padding.left + "," + (config.padding.top) + ")");
     }
