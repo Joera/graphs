@@ -5,7 +5,9 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
         svg.defs = svg.layers.data.append("defs").append("clipPath")
             .attr("id", "clip")
-            .append("rect");
+            .append("rect")
+
+            ;
 
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data);
@@ -32,13 +34,15 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
         svg.defs
             .attr("width", dimensions.width)
-            .attr("height", dimensions.height);
+            .attr("height", dimensions.height)
+            .attr("transform", "translate(0,0)");
 
         svg.bar
             .merge(svg.barEnter)
             .attr("x", function(d,i) {
 
-                    offset = (i % 2) ? 0 : - (config.barWidth + 0);
+                offset = (i % 2) ? 0 : - (config.barWidth + 0);
+
                 return xScale[config.xScaleType](new Date(d[config.xParameter])) + offset;
             })
             .attr("y", function(d) { return dimensions.height; })
