@@ -28,7 +28,18 @@
 
 
 <script>
-      let gemBedrag = new TrendLine('/api/data','#container',);
+
+        const dataMapping = [
+
+            {
+                label: 'Percentage afwijzingen',
+                column:  'percentage_afwijzingen',
+                colour: orange
+            }
+
+      ]
+
+      let gemBedrag = new TrendLine('/api/data','#container',dataMapping,'percentage_afwijzingen','all',false);
       gemBedrag.init();
 </script>
 
