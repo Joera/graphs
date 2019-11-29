@@ -35,7 +35,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
         svg.defs
             .attr("width", dimensions.width)
             .attr("height", dimensions.height)
-            .attr("transform", "translate(0,0)");
+            .attr("transform", "translate(" + (config.padding.left + 10 ) + ",0)");
 
         svg.bar
             .merge(svg.barEnter)
