@@ -51,14 +51,14 @@ class ChartXScale {
             .range([self.config.padding.left, dimensions.width]);
 
         newScale.linear
-            .range([0, dimensions.width]);
+            .range([self.config.padding.left, dimensions.width]);
 
         newScale.band
             // or does this
-            .range([0,dimensions.width]);
+            .range([self.config.padding.left,dimensions.width]);
 
         newScale.stackedNormalized
-            .range([0,dimensions.width]);
+            .range([self.config.padding.left,dimensions.width]);
 
         return newScale;
     }
