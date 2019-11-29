@@ -106,6 +106,7 @@ class MultiBarProgression  {
 
                     o[column] = week[column];
                     o['colour'] = mapping[0].colour;
+                    o['label'] = mapping[0].label;
                 }
 
                 data.push(o);

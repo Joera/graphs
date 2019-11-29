@@ -23,7 +23,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
         let popup = function popup(d) {
 
-            return moment(d['_date']).format('DD/MM') + '<br/>' + d.property + '<br/>' + d[d['property']];
+            return moment(d['_date']).format('DD/MM') + '<br/>' + d.label + '<br/>' + d[d['property']];
         }
 
         svg.bar
