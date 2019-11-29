@@ -30,6 +30,7 @@ module.exports = function() {
             './src/chart-y-scale.js',
             './src/chart-axis.js',
             './src/chart-legend.js',
+            './src/chart-candles.js',
             './src/chart-line.js',
             './src/chart-ragged-line.js',
             './src/chart-bar.js',
