@@ -93,7 +93,7 @@ let ChartAxis = function ChartAxis(config,svg) {
 
         svg.yAxis = svg.layers.axes.append("g")
             .attr('class', 'y-axis')
-            .attr("transform", "translate(" + parseInt(config.margin.left) + "," + (config.margin.top + config.padding.top) + ")");
+            .attr("transform", "translate(" + 0 + "," + (config.padding.top) + ")");
     }
 
     let redrawYAxis = function redrawYAxis(yScale,axes) {
