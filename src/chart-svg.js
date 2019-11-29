@@ -48,7 +48,7 @@ class ChartSVG {
             .attr('transform', 'translate(' + (this.config.padding.left) + ',' + this.config.padding.top + ')');
         this.svg.layers.axes = this.svg.body.append('g')
             .attr('class', 'axes')
-            .attr('transform', 'translate(' + 0 + ',' + 0 + ')');
+            .attr('transform', 'translate(' + this.config.padding.left + ',' + this.config.padding.top + ')');
 
         this.svg.layers.legend = this.svg.body.append('g')
             .attr('class', 'legend');
