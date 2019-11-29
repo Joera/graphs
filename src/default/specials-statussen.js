@@ -60,7 +60,7 @@ var specialsStatussen  = function (element,dataMapping,smallMultiple) {
                 colour: mapping.colour
             });
         }
-        
+
         return data;
     }
 
