@@ -25,8 +25,8 @@ var verdeling = function(element) {
     config.minValue = 0;
     // config.maxValue = 6000;
     // config.xAlign = [0.5];
-    config.paddingInner = [0.5];
-    config.paddingOuter = [0.5];
+    config.paddingInner = [0.1];
+    config.paddingOuter = [0.1];
 
     let chartDimensions = new ChartDimensions(element,config);
     dimensions = chartDimensions.get(dimensions);
