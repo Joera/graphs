@@ -131,7 +131,7 @@ class TrendLine {
 
         let data = this.prepareData(json,segment);
         this.draw(data);
-        // this.redraw(data);
+        this.redraw(data);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data), false);
