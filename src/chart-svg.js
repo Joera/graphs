@@ -42,10 +42,10 @@ class ChartSVG {
 
         this.svg.layers.underData = this.svg.body.append('g')
             .attr('class', 'under_data')
-            .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.padding.top + ')');
+            .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.margin.top + ')');
         this.svg.layers.data = this.svg.body.append('g')
             .attr('class', 'data')
-            .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.padding.top + ')');
+            .attr('transform', 'translate(' + (this.config.margin.left + this.config.padding.left) + ',' + this.config.padding.top + ')');
         this.svg.layers.axes = this.svg.body.append('g')
             .attr('class', 'axes');
         this.svg.layers.legend = this.svg.body.append('g')

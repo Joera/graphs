@@ -3,6 +3,10 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
     let draw = function draw(data) {
 
+        svg.defs = svg.layers.data.append("defs").append("clipPath")
+            .attr("id", "clip")
+            .append("rect");
+
         svg.bar = svg.layers.data.selectAll(".bar")
             .data(data);
         
@@ -26,6 +30,10 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             return moment(d['_date']).format('DD/MM') + '<br/>' + d.label + '<br/>' + d[d['property']];
         }
 
+        svg.defs
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height);
+
         svg.bar
             .merge(svg.barEnter)
             .attr("x", function(d,i) {
@@ -39,6 +47,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                     return config.barWidth;
             })
+            .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
             .attr("y", function(d) { return config.margin.top + yScale[config.yScaleType](d[d['property']]); })
