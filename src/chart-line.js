@@ -18,12 +18,12 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
     }
 
-    let redraw = function redraw(xScale,yScale,functions,dimensions,data) {
+    let redraw = function redraw(xScale,yScale,functions) {
 
 
         functions.line = d3.line()
-            .x(function(d) { return 100; / * xScale.time(new Date(d[config.xParameter]));  */ })
-            .y(function(d) { return yScale.linear(d[config.yParameter]); })
+            .x( (d) =>{ return 100; }) //  / * xScale.time(new Date(d[config.xParameter]));  */
+            .y( (d) => { console.log(d); return yScale.linear(d[config.yParameter]); })
             .curve(d3.curveCardinal);
 
         svg.line
