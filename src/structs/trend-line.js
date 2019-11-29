@@ -38,7 +38,7 @@ class TrendLine {
 
         this.config.xParameter = '_date';
         this.config.xScaleTicks = 'timeMonth';
-        this.config.yParameter = 'value';
+        this.config.yParameter = 'percentage_afwijzingen';
 
         this.config.paddingInner = 0.1;
         this.config.paddingOuter = 0.1;
