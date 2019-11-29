@@ -27,14 +27,11 @@ class TrendLine {
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
 
-        this.config.margin.top = 0;
+
         this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 75 : 0;
-        this.config.margin.left = 0;
-        this.config.margin.right = 0;
-        this.config.padding.top = this.smallMultiple? 15 : 30;
+        this.config.margin.top = this.smallMultiple? 15 : 30;
         this.config.padding.bottom = 50;
         this.config.padding.left = 40;
-        this.config.padding.right = 0;
 
         this.config.xParameter = '_date';
         this.config.xScaleTicks = 'timeMonth';
