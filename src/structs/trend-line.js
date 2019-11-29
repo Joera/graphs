@@ -77,19 +77,23 @@ class TrendLine {
 
         let data = [];
 
-        let segmented = json.find( j => j['_category'] === segment);
+        // let segmented = json.find( j => j['_category'] === segment);
 
-        for (let mapping of this.dataMapping) {
+        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
-            data.push(
-
-                {
-                    label:  mapping.label,
-                    colour: mapping.colour,
-                    value: segmented[mapping.column]
+        for (let week of json) {
+            let o = {};
+            for (let p of Object.entries(week))  {
+                if (neededColumns.indexOf(p[0]) > -1 ) {
+                    o[p[0]] = p[1];
                 }
-            )
+            }
+            data.push(o);
         }
+
+        data.sort(function(a, b) {
+            return new Date(a['_date']) - new Date(b['_date']);
+        });
 
 
         return data;
