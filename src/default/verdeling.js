@@ -54,31 +54,36 @@ var verdeling = function(element) {
 
             data.push({
                 status: "Afgewezen",
-                totaal: json['AFW']
+                totaal: json['AFW'],
+                colour: darkblue
 
             });
 
             data.push({
                 status: "< €1K",
-                totaal: json['0_1000']
+                totaal: json['0_1000'],
+                colour: blue
 
             });
 
             data.push({
                 status: "€1K t/m €4K",
-                totaal: json['1000_4000']
+                totaal: json['1000_4000'],
+                colour: green
 
             });
 
             data.push({
                 status: "€4K t/m €10K",
-                totaal: json['4000_10000']
+                totaal: json['4000_10000'],
+                colour: yellow
 
             });
 
             data.push({
                 status: "> €10K",
-                totaal: json['MEER_DAN_10000']
+                totaal: json['MEER_DAN_10000'],
+                colour: orange
 
             });
 
