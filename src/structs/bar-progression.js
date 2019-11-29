@@ -71,7 +71,6 @@ class BarProgression  {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                console.log(json);
                 globalData.weeks = json;
                 self.run(json,self.property);
             });
