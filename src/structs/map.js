@@ -18,12 +18,6 @@ class Map {
         this.yScale = this.chartObjects.yScale();
         this.svg = this.chartObjects.svg();
 
-        this.config.margin.top = 0;
-        this.config.padding.left = 0;
-        this.config.padding.bottom = 0;
-        this.config.margin.bottom = 0;
-
-
     }
 
     init() {
