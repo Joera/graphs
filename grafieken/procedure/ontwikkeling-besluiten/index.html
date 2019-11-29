@@ -33,20 +33,42 @@
 
     const dataMapping = [
 
-        {
+       [
+           {
             label: 'Besluiten',
             column: 'BESCHIKT',
             colour: 'blue'
-        },
-        {
-            label: '',
-            column: 'nieuwe_BESCHIKT',
-            colour: 'blue'
-        }
+            },
+            {
+                label: '',
+                column: 'nieuwe_BESCHIKT',
+                colour: 'blue'
+            }
+        ],
+        [
+
+            {
+                label: 'Afgehandelde schademeldingen',
+                column: 'AFGEHANDELD_TOTAAL',
+                colour: 'green'
+            },
+            {
+                label: '',
+                column: 'nieuwe_AFGEHANDELD_TOTAAL',
+                colour: 'green'
+            }
+
+        ]
+
+
     ];
 
-    let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
+    // let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
+    // besluiten.init();
+
+    let besluiten = new MultiBarProgression('#container',dataMapping,'BESCHIKT','all',false);
     besluiten.init();
+
 </script>
 
 
