@@ -24,14 +24,11 @@ class BarProgression  {
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
 
-        this.config.margin.top = 0;
-        this.config.margin.bottom = 0;
-        this.config.margin.left = 40;
-        this.config.margin.right = 0;
-        this.config.padding.top = 10;
-        this.config.padding.bottom = 15;
-        this.config.padding.left = 0;
-        this.config.padding.right = 0;
+        this.config.margin.top = 10;
+        this.config.margin.bottom = 15;
+
+        this.config.padding.left = 40;
+
 
         this.config.minValue = 26000;
 
