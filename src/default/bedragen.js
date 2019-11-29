@@ -105,7 +105,7 @@ var bedragen = function(element) {
                         .attr("class", "small-label")
                         .attr("dy", i * 20)
                         .text(text)
-                        .attr("width",dimensions.containerWidth)
+                        .attr("width",dimensions.svgWidth)
                         .style("opacity", 1);
                 });
             }

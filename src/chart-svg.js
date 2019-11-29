@@ -18,23 +18,23 @@ class ChartSVG {
         this.svg.body = d3.select(this.element,this.config)
             .append('svg');
 
-        this.svg.main = this.svg.body.append('g');
+        // this.svg.main = this.svg.body.append('g');
 
     }
 
     redraw(dimensions) {
 
         this.svg.body
-            .attr('height', dimensions.containerHeight)
-            .attr('width', dimensions.containerWidth);
+            .attr('height', dimensions.svgHeight)
+            .attr('width', dimensions.svgWidth);
 
-        this.svg.main
-            .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.margin.top + ')')
-            .attr('width', (dimensions.containerWidth - this.config.margin.left - this.config.margin.right))
-            .attr('height', (dimensions.containerHeight - this.config.margin.top - this.config.margin.bottom));
+        // this.svg.main
+        //     .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.margin.top + ')')
+        //     .attr('width', (dimensions.svgWidth - this.config.margin.left - this.config.margin.right))
+        //     .attr('height', (dimensions.svgHeight - this.config.margin.top - this.config.margin.bottom));
 
         this.svg.layers.legend
-            .attr('transform', 'translate(' + this.config.padding.left + ',' + (dimensions.containerHeight - 10) + ')');
+            .attr('transform', 'translate(' + this.config.padding.left + ',' + (dimensions.svgHeight - 10) + ')');
 
     }
 
@@ -45,7 +45,7 @@ class ChartSVG {
             .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.margin.top + ')');
         this.svg.layers.data = this.svg.body.append('g')
             .attr('class', 'data')
-            .attr('transform', 'translate(' + (this.config.margin.left + this.config.padding.left) + ',' + this.config.padding.top + ')');
+            .attr('transform', 'translate(' + (this.config.padding.left) + ',' + this.config.padding.top + ')');
         this.svg.layers.axes = this.svg.body.append('g')
             .attr('class', 'axes');
         this.svg.layers.legend = this.svg.body.append('g')

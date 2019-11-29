@@ -23,10 +23,10 @@ let ChartObjects = function ChartObjects() {
     let dimensions = function dimensions() {
 
         return {
-            containerWidth: 0, // width of element minus config.margin
-            width : 0, // containerWidth minus config.padding
-            containerHeight: 0, // height of element minus config.margin
-            height : 0, // containerHeight minus config.padding
+            svgWidth: 0, // width of element minus config.margin
+            width : 0, // svgWidth minus config.padding
+            svgHeight: 0, // height of element minus config.margin
+            height : 0, // svgHeight minus config.padding
 
         }
 

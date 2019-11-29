@@ -91,7 +91,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
                         .attr("dy", (i * 20) + 2)
                         .attr("dx",16)
                         .text(d['status'] + ':')
-                        .attr("width", dimensions.containerWidth)
+                        .attr("width", dimensions.svgWidth)
                         .style("opacity", 1);
 
                     svg.layers.legend.append("text")
@@ -99,7 +99,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
                         .attr("dx", 200)
                         .attr("dy", (i * 20) + 2)
                         .text(d['totaal'])
-                        .attr("width", dimensions.containerWidth)
+                        .attr("width", dimensions.svgWidth)
                         .style("opacity", 1)
                         .style("text-anchor", "end");
 
@@ -118,7 +118,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
                 .attr("class", "small-label")
                 .attr("dy", (data.length * 20) + 2)
                 .text('Totaal:')
-                .attr("width",dimensions.containerWidth)
+                .attr("width",dimensions.svgWidth)
                 .style("opacity", 1);
 
             svg.layers.legend.append("text")
@@ -126,7 +126,7 @@ var pieChartHerkomst = function(element,smallMultiple) {
                 .attr("dx", 200)
                 .attr("dy", (data.length * 20) + 2)
                 .text(json.filter( j => j['_category'] === filter)[0]['MELDING'])
-                .attr("width",dimensions.containerWidth)
+                .attr("width",dimensions.svgWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
 

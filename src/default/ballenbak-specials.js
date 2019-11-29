@@ -202,7 +202,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
                     .attr("class", "small-label")
                     .attr("dy", i * 16)
                     .text(text)
-                    .attr("width",dimensions.containerWidth)
+                    .attr("width",dimensions.svgWidth)
                     .style("opacity", 1);
             });
         }

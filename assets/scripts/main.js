@@ -7893,10 +7893,10 @@ var ChartObjects = function ChartObjects() {
   var dimensions = function dimensions() {
 
     return {
-      containerWidth: 0, // width of element minus config.margin
-      width: 0, // containerWidth minus config.padding
-      containerHeight: 0, // height of element minus config.margin
-      height: 0 // containerHeight minus config.padding
+      svgWidth: 0, // width of element minus config.margin
+      width: 0, // svgWidth minus config.padding
+      svgHeight: 0, // height of element minus config.margin
+      height: 0 // svgHeight minus config.padding
 
     };
   };
@@ -7985,7 +7985,7 @@ var ChartDimensions = function ChartDimensions(element, config) {
     } else {
 
       dimensions.containerWidth = d3.select(element).node().getBoundingClientRect().width - config.margin.left - config.margin.right;
-      dimensions.width = dimensions.containerWidth - config.padding.left - config.padding.right;
+      dimensions.width = dimensions.svgWidth - config.padding.left - config.padding.right;
     }
 
     if (config.fixedHeight) {
@@ -7996,7 +7996,7 @@ var ChartDimensions = function ChartDimensions(element, config) {
       dimensions.height = config.maxValue / 100;
     } else {
       dimensions.containerHeight = d3.select(element).node().getBoundingClientRect().height - config.margin.top - config.margin.bottom;
-      dimensions.height = dimensions.containerHeight - config.padding.top - config.padding.bottom;
+      dimensions.height = dimensions.svgHeight - config.padding.top - config.padding.bottom;
     }
 
     return dimensions;
@@ -8016,9 +8016,9 @@ var ChartSVG = function ChartSVG(element, config, dimensions, svg) {
   };
 
   var redraw = function redraw(dimensions) {
-    svg.body.attr('height', dimensions.containerHeight).attr('width', dimensions.containerWidth);
+    svg.body.attr('height', dimensions.svgHeight).attr('width', dimensions.svgWidth);
 
-    svg.main.attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')').attr('width', dimensions.containerWidth - config.margin.left - config.margin.right).attr('height', dimensions.containerHeight - config.margin.top - config.margin.bottom);
+    svg.main.attr('transform', 'translate(' + config.margin.left + ',' + config.margin.top + ')').attr('width', dimensions.svgWidth - config.margin.left - config.margin.right).attr('height', dimensions.svgHeight - config.margin.top - config.margin.bottom);
   };
 
   var layers = function layers() {
@@ -9083,8 +9083,8 @@ var ChartMap = function ChartMap(config, svg, dimensions) {
   var path = d3.geoPath().projection(projection);
 
   var b = [[0.114, -1.101], [0.12022108488117365, -1.105]],
-      s = .15 / Math.max((b[1][0] - b[0][0]) / dimensions.containerWidth, (b[1][1] - b[0][1]) / dimensions.height),
-      t = [(dimensions.containerWidth - s * (b[1][0] + b[0][0])) / 2 + 60, (dimensions.height - s * (b[1][1] + b[0][1])) / 2 - 0];
+      s = .15 / Math.max((b[1][0] - b[0][0]) / dimensions.svgWidth, (b[1][1] - b[0][1]) / dimensions.height),
+      t = [(dimensions.svgWidth - s * (b[1][0] + b[0][0])) / 2 + 60, (dimensions.height - s * (b[1][1] + b[0][1])) / 2 - 0];
 
   projection.scale(s).translate(t);
 
