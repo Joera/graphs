@@ -78,6 +78,8 @@ class TrendLine {
 
         let data = [];
 
+        // start Date 
+
         // let segmented = json.find( j => j['_category'] === segment);
 
         let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
