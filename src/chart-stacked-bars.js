@@ -110,7 +110,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             })
             .attr("width", function(d) {
                 if(config.xParameter === '_date') {
-                    return dimensions.width / dataArray.length;
+                    return dimensions.width / dataArray.length + 1;
                 } else {
                     return xScale.band.bandwidth();
                 }

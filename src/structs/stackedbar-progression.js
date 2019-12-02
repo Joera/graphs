@@ -97,7 +97,7 @@ class StackedBarProgression  {
             return week[property] !== null && week[property] > 0;
 
         });
-        
+
 
         data = data.slice(1,data.length)
         //
@@ -108,7 +108,6 @@ class StackedBarProgression  {
         // data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
 
-        console.log(data);
 
         this.functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => {
