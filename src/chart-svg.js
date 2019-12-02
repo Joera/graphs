@@ -53,9 +53,6 @@ class ChartSVG {
         this.svg.layers.legend = this.svg.body.append('g')
             .attr('class', 'legend');
     }
-
-
-
 }
 
 

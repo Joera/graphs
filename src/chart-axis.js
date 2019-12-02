@@ -84,7 +84,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             .ticks(10, "%");
 
         svg.xAxis
-            .attr("transform", "translate(" + config.margin.left + "," + config.padding.top + ")")  //
+            .attr("transform", "translate(" + config.padding.left + "," + config.padding.top + ")")  //
             .call(axes.xLinear);
 
     }
@@ -127,7 +127,6 @@ let ChartAxis = function ChartAxis(config,svg) {
                 .tickFormat(function(d){
                     return d + '%';
                 });
-
         }
 
         svg.yAxis
@@ -162,18 +161,6 @@ let ChartAxis = function ChartAxis(config,svg) {
         svg.yAxis
             .attr("transform", "translate(" + config.margin.left + "," + config.padding.top + ")")  //
             .call(axes.yLinear);
-
-        // if(config.noTicksYAxis) {
-        //     axes.yLinear
-        //         .tickValues([]);
-        // } else {
-        //     axes.yLinear
-        //         .ticks(5);
-        // }
-        //
-        // svg.yAxis
-        //     .call(axes.yLinear);
-
     }
 
     let redrawYBandAxis = function redrawYBandAxis(dimensions,yScale,axes,alternateTicks,smallMultiple) {
