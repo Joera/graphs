@@ -159,7 +159,7 @@ let ChartAxis = function ChartAxis(config,svg) {
             .ticks(10, "%");
 
         svg.yAxis
-            .attr("transform", "translate(" + config.margin.left + "," + config.padding.top + ")")  //
+            .attr("transform", "translate(" + config.padding.left + "," + config.padding.top + ")")  //
             .call(axes.yLinear);
     }
 
