@@ -14,7 +14,7 @@ var voortgangDetails = function(element,smallMultiple) {
 
     config.padding.left = 40;
 
-    config.padding.top = smallMultiple ? 15 : 30;
+    config.padding.top = 15;
     config.margin.bottom = 30;
 
     // name of first column with values of bands on x axis
