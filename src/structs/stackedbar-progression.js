@@ -102,36 +102,15 @@ class StackedBarProgression  {
 
         data = data.slice(1,data.length);
 
-
-        // for (let map of this.dataMapping) {
-        //
-        //     sortedStack.push(stackedData.find( (group) => { return group.key === map.column }));
-        //     sortedStackNormalized.push(stackedDataNormalized.find( (group) => { return group.key === map.column }));
-        // }
-
-
         this.functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => {
                 return ['_date','_category','label','colour'].indexOf(key) < 0
             } ));
 
-        this.functions.normalizedStack = d3.stack()
-            .offset(d3.stackOffsetExpand)
-            .keys(Object.keys(data[0]).filter(key => {
-                return ['_date','_category','label','colour'].indexOf(key) < 0
-            } ));
-
         let stackedData = this.functions.stack(data);
-        let stackedDataNormalized = this.functions.stack(data);
 
-        if(config.yScaleType === 'stackedDataNormalized' ) {
+        return {data, stackedData}
 
-            return {data, stackedDataNormalized}
-
-        } else {
-
-            return {data, stackedData}
-        }
     }
 
 
