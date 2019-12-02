@@ -24,7 +24,7 @@ class MultiBarProgression  {
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
 
-        this.config.margin.top = 0;
+        this.config.padding.top = 20;
         this.config.padding.bottom = 40;
         this.config.padding.left = 40;
         this.config.padding.right = 20;
