@@ -48,7 +48,7 @@ class StackedBarProgression  {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartStackedBars = ChartStackedArea(this.config, this.svg);
-        this.chartStackedBars.init();
+
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
@@ -149,6 +149,7 @@ class StackedBarProgression  {
         let self = this;
 
         let { data, stackedData } = this.prepareData(json,property);
+        this.chartStackedBars.init(stackedData);
         this.draw(data,stackedData);
         this.redraw(stackedData,property);
         // legend(data);
