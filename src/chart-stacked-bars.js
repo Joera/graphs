@@ -139,7 +139,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 yOffset = ((yScale.stacked(d[1]) - yScale.stacked(start)) / 2) - 11;
 
                 return 'translate(' + (xScale.band(d.data[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
-                    (yScale.stacked(d[1]) - yOffset)
+                    (yScale.stacked(d[1]) + config.padding.top - yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
