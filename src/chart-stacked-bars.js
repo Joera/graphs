@@ -6,7 +6,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         .attr("id", "clip")
         .append("rect");
 
-    let draw = function draw(data,stackedData,colours) {
+    let draw = function draw(data,stackedData) {
 
         dataArray = data;
 

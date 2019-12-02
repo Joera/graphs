@@ -143,7 +143,7 @@ class StackedBarProgression  {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        this.chartStackedBars.draw(stackedData);
+        this.chartStackedBars.draw(data,stackedData);
     }
 
     run(json,property) {
@@ -152,7 +152,7 @@ class StackedBarProgression  {
 
         let { data, stackedData } = this.prepareData(json,property);
         this.draw(data,stackedData);
-        this.redraw(data,property);
+        // this.redraw(data,property);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
