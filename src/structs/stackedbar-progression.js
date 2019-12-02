@@ -102,7 +102,6 @@ class StackedBarProgression  {
 
         data = data.slice(1,data.length);
 
-        console.log(data);
 
         // for (let map of this.dataMapping) {
         //
@@ -122,10 +121,8 @@ class StackedBarProgression  {
                 return ['_date','_category','label','colour'].indexOf(key) < 0
             } ));
 
-        let stackedData = this.functions.normalizedStack(data);
+        let stackedData = this.functions.stack(data);
         let stackedDataNormalized = this.functions.stack(data);
-
-        console.log(stackedDataNormalized);
 
         if(config.yScaleType === 'stackedDataNormalized' ) {
 
