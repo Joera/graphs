@@ -86,8 +86,7 @@ let ChartBar = function ChartBar(config,svg) {
                 if (config.xParameter === '_date') {
 
                     return 'translate(' + (xScale.time(new Date(d[config.xParameter]))) + 60 + ',' +
-                        yScale.linear(d[config.yParameter])
-                        + ')';
+                        (yScale.linear(d[config.yParameter]) + config.padding.top)
 
                 } else {
 
