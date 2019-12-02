@@ -13,12 +13,9 @@ var verdeling = function(element) {
 
     config.margin.top = 0;
     config.margin.bottom = (window.innerWidth > 640) ? 0 : 75;
-    config.margin.left = 40;
-    config.margin.right = 0;
+    config.padding.left = 40;
     config.padding.top = 30;
     config.padding.bottom = 50;
-    config.padding.left = 30;
-    config.padding.right = 0;
     config.xParameter = 'status';  // name of first column with values of bands on x axis
     config.yParameter = 'totaal';  // is being set in type function
     // config.fixedHeight = 160;
