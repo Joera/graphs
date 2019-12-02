@@ -22,9 +22,10 @@
     <div id="container" class="container"></div>
 
     <ul class="legend horizontal">
-        <li class="small-label"><span class="orange"></span>Geen reactie</li>
+
         <li class="small-label"><span class="blue"></span>Akkoord</li>
         <li class="small-label"><span class="green"></span>Zienswijze ingediend</li>
+        <li class="small-label"><span class="orange"></span>Geen reactie</li>
     </ul>
 
 </main>
@@ -35,11 +36,7 @@
 
     const dataMapping = [
 
-        {
-            label: 'Geen reactie',
-            column: 'ADVIESRAPPORT_GEEN_REACTI',
-            colour: 'orange'
-        },
+
         {
             label: 'Akkoord',
             column: 'AKKOORD_ADVIESRAPPORT',
@@ -49,6 +46,11 @@
             label: 'Zienswijze ingediend',
             column: 'ZIENSWIJZE_ADVIESRAPPORT',
             colour: 'green'
+        },
+        {
+            label: 'Geen reactie',
+            column: 'ADVIESRAPPORT_GEEN_REACTI',
+            colour: 'orange'
         }
     ];
 
