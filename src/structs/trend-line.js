@@ -98,6 +98,8 @@ class TrendLine {
 
         data.filter( (week) => {
 
+            console.log(week);
+
             return week[this.property] > 0
         })
 
