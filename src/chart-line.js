@@ -14,8 +14,6 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
         svg.line = svg.layers.data.append("path")
             .data([data])
             .attr("class", "line");
-
-
     }
 
     let redraw = function redraw(xScale,yScale,functions) {
@@ -23,7 +21,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
         functions.line = d3.line()
             .x( (d) =>{ return xScale.time(new Date(d[config.xParameter])); }) //  / * ;  */
-            .y( (d) => { console.log(d); return yScale.linear(d[config.yParameter]); })
+            .y( (d) => { return yScale.linear(d[config.yParameter]); })
             .curve(d3.curveCardinal);
 
         svg.line
