@@ -54,7 +54,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) { return 20 + config.padding.top + yScale[config.yScaleType](d[d['property']]); })
+            .attr("y", function(d) { return config.padding.top + yScale[config.yScaleType](d[d['property']]); })
             .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); });
 
         svg.bar
@@ -63,7 +63,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX) + "px")
+                    .style("right", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY) + "px")
                     .transition()
                     .duration(250)
