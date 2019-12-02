@@ -131,7 +131,7 @@ class StackedBarProgression  {
         }
 
 
-        return { data, stackedData,stackedDataNormalized }
+        return { data, stackedData  }
     }
 
 
