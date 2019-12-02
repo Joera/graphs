@@ -94,10 +94,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.series = svg.seriesEnter
             .merge(svg.series)
             .attr("class", (d,i) => {
+                
 
-                console.log(d.key);
-
-                return "stackGroup " + dataMapping.find( (map) => { return map.column === d.key})['colour'];
+                return "stackGroup " + d.colour;
             });
 
         svg.barEnter
