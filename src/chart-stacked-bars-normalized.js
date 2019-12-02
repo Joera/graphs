@@ -66,7 +66,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
                 .attr('class', 'dateLabel small-label')
                 .attr('x', 0)
                 .attr('dx', config.padding.left)
-                .attr('dy', '0px')
+                .attr('dy', '2px')
                 .style("text-anchor", "start")
                 .attr('fill-opacity', 0)
                 .transition()
