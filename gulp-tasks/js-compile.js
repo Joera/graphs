@@ -54,6 +54,7 @@ module.exports = function() {
             './src/structs/band-bars.js',
             './src/structs/trend-line.js',
             './src/structs/map.js',
+            './src/structs/stackedarea.js',
 
             './src/default/voortgang_details.js',
             './src/default/voortgang_duur.js',
