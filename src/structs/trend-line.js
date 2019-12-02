@@ -96,11 +96,10 @@ class TrendLine {
             data.push(o);
         }
 
-        data.filter( (week) => {
+        data = data.filter( (week) => {
+            
 
-            console.log(this.property);
-
-            return week['percentage_afwijzingen'] > 0
+            return week[this.property] > 0
         })
 
         data.sort(function(a, b) {
