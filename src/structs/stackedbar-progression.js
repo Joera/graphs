@@ -38,6 +38,8 @@ class StackedBarProgression  {
             this.config.dataArrayLength = 7;
         }
 
+        console.log(this.config.padding.left);
+
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
