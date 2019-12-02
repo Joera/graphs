@@ -28,10 +28,6 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
         }
 
 
-        // dit doen voor je data naar scale stuurt
-
-
-
         scale.stacked = d3.scaleLinear()
             .domain([
                 minValue,
