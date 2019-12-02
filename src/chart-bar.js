@@ -91,7 +91,7 @@ let ChartBar = function ChartBar(config,svg) {
                 } else {
 
                     return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ',' +
-                        yScale.linear(d[config.yParameter])
+                        (yScale.linear(d[config.yParameter]) + config.padding.top)
                         + ')';
                 }
             })
