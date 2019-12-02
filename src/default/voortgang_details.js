@@ -12,14 +12,11 @@ var voortgangDetails = function(element,smallMultiple) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = 0;
-    config.margin.bottom = 0;
     config.margin.left = 40;
-    config.margin.right = 0;
+
     config.padding.top = smallMultiple ? 15 : 30;
-    config.padding.bottom = 30;
-    config.padding.left = 0;
-    config.padding.right = 0;
+    config.margin.bottom = 30;
+
     // name of first column with values of bands on x axis
 
     config.yParameter = 'behandeling';  // is being set in type function
