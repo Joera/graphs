@@ -33,14 +33,14 @@
         const dataMapping = [
 
             {
-                label: 'Percentage afwijzingen',
-                column:  'percentage_afwijzingen',
+                label: 'Gemiddeld bedrag van uitgekeerde schade',
+                column:  'gemiddeld_schadebedrag',
                 colour: orange
             }
 
       ]
 
-      let gemBedrag = new TrendLine('/api/data','#container',dataMapping,'percentage_afwijzingen','all',false,'');
+      let gemBedrag = new TrendLine('/api/data','#container',dataMapping,'gemiddeld_schadebedrag','all',false,'');
       gemBedrag.init();
 </script>
 
