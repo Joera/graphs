@@ -121,7 +121,7 @@ class StackedBarProgression  {
 
     redraw(stackedData) {
 
-        // let colour = this.dataMapping.find((m) => m.column === property)['colour'];
+        let colour = this.dataMapping.find((m) => m.column === this.property)['colour'];
 
         this.yScale = this.chartYScale.set(stackedData);
 
