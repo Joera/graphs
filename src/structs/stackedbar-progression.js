@@ -112,16 +112,8 @@ class StackedBarProgression  {
         let stackedData = this.functions.stack(data);
         let stackedDataNormalized = this.functions.normalized(data);
 
-        if (this.config.yScaleType === 'stackedNormalized') {
+        return { data, stackedData, stackedDataNormalized }
 
-
-            console.log(stackedDataNormalized);
-
-            return { data, stackedDataNormalized }
-
-        } else {
-            return { data, stackedData }
-        }
     }
 
 
@@ -162,12 +154,20 @@ class StackedBarProgression  {
 
         let self = this;
 
-        let { data, stackedData } = this.prepareData(json,property);
+        let { data, stackedData, stackedDataNormalized } = this.prepareData(json,property);
 
-        console.log(stackedData);
+        if (this.config.yScaleType === 'stackedNormalized') {
 
-        this.draw(data,stackedData);
-        this.redraw(stackedData,property);
+            this.draw(data,stackedDataNormalized);
+            this.redraw(stackedDataNormalized,property);
+
+        } else {
+
+            this.draw(data,stackedData);
+            this.redraw(stackedData,property);
+        }
+
+
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
