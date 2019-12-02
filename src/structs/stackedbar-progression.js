@@ -88,26 +88,16 @@ class StackedBarProgression  {
         }
 
         data.sort(function(a, b) {
-            return new Date(a._date) - new Date(b._date);
+            return new Date(a['_date']) - new Date(b['_date']);
         });
-
 
         data = data.filter( (week) => {
 
             return week[property] !== null && week[property] > 0;
-
         });
 
 
-        data = data.slice(1,data.length)
-        //
-        // let minBarWidth = 60;
-        //
-        // let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
-        //
-        // data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
-
-
+        data = data.slice(1,data.length);
 
         this.functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => {
@@ -120,12 +110,10 @@ class StackedBarProgression  {
                 return ['_date','_category'].indexOf(key) < 0
             } ));
 
+        let stackedData = this.functions.normalizedStack(data);
+        let stackedDataNormalized = this.functions.stack(data);
 
-
-            let stackedData = this.functions.normalizedStack(data);
-            let stackedDataNormalized = this.functions.stack(data);
-
-            console.log(stackedData);
+        console.log(sta)
 
         if(config.yScaleType === 'stackedDataNormalized' ) {
 
