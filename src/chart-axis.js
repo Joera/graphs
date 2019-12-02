@@ -115,6 +115,14 @@ let ChartAxis = function ChartAxis(config,svg) {
                 });
         }
 
+        if (config.yTickFormat === 'percentage') {
+            axes.yLinear
+                .tickFormat(function(d){
+                    return d + '%';
+                });
+
+        }
+
         svg.yAxis
             .call(axes.yLinear);
 

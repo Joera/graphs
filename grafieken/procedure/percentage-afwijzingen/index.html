@@ -38,9 +38,17 @@
                 colour: orange
             }
 
-      ]
+        ]
 
-      let gemBedrag = new TrendLine('/api/data','#container',dataMapping,'percentage_afwijzingen','all',false,'');
+        const config = {
+
+            xParameter: '_date',
+            xScaleTicks: 'timeMonth',
+            yParameter: 'percentage_afwijzingen',
+            yTickFormat: 'percentage'
+        };
+
+      let gemBedrag = new TrendLine('/api/data','#container',config,dataMapping,'percentage_afwijzingen','all',false,'');
       gemBedrag.init();
 </script>
 

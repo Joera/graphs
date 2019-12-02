@@ -1,14 +1,16 @@
 class TrendLine {
 
-    constructor(endpoint,elementID,dataMapping,property,segment,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,property,segment,smallMultiple) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
+        this.config = config;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
         this.segment = segment;
         this.smallMultiple = smallMultiple;
+
     }
 
     init() {
@@ -19,7 +21,7 @@ class TrendLine {
         this.municipalitySelect = document.querySelector('select.municipalities');
 
         let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+        // this.config = this.config.chartObjects.config();
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -32,10 +34,6 @@ class TrendLine {
         this.config.margin.top = this.smallMultiple? 15 : 30;
         this.config.padding.bottom = 50;
         this.config.padding.left = 40;
-
-        this.config.xParameter = '_date';
-        this.config.xScaleTicks = 'timeMonth';
-        this.config.yParameter = 'percentage_afwijzingen';
 
         this.config.paddingInner = 0.1;
         this.config.paddingOuter = 0.1;
