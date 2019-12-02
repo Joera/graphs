@@ -127,11 +127,11 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
         svg.barLabels
             .merge(svg.barLabelsEnter)
-            .text(function(d) {
-                if(thousands(d[1] - d[0]) > 0) {
-                    return thousands(d[1] - d[0]);
-                }
-            })
+            // .text(function(d) {
+            //     if(thousands(d[1] - d[0]) > 0) {
+            //         return thousands(d[1] - d[0]);
+            //     }
+            // })
             .attr('transform', function(d) {
 
                 xOffset = dimensions.width / (2 * dataArray.length);
