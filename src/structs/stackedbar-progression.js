@@ -38,8 +38,6 @@ class StackedBarProgression  {
             this.config.dataArrayLength = 7;
         }
 
-        console.log(this.config.padding.left);
-
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
@@ -50,7 +48,7 @@ class StackedBarProgression  {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartStackedBars = ChartStackedArea(this.config, this.svg);
-
+        this.chartStackedBars.init();
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
@@ -131,7 +129,6 @@ class StackedBarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
 
         if(config.yScaleType === 'stackedNormalized' ) {
-
             this.chartAxis.redrawYAxisStackedNormalized(this.yScale,this.axes);
         } else {
             this.chartAxis.redrawYAxisStacked(this.yScale,this.axes);
@@ -144,7 +141,6 @@ class StackedBarProgression  {
     draw(data,stackedData) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
-
         this.chartStackedBars.draw(data,stackedData);
     }
 
