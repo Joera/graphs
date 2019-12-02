@@ -41,14 +41,9 @@ module.exports = function() {
             './src/chart-stacked-bars.js',
             './src/chart-stacked-bars-normalized.js',
             './src/chart-stacked-area.js',
-        //    './src/chart-blocks.js',
-         //   './src/chart-area.js',
-            // './src/chart-sankey.js',
             './src/chart-map.js',
             './src/chart-pie.js',
             './src/chart-circles.js',
-
-            // './src/tcmg-charts.js',
 
             './src/structs/bar-progression.js',
             './src/structs/multibar-progression.js',
@@ -60,14 +55,6 @@ module.exports = function() {
             './src/structs/trend-line.js',
             './src/structs/map.js',
 
-            // './src/default/opnames.js',
-
-            // './src/default/weekverloop.js',
-
-            // './src/default/stroommodel.js',
-            // './src/default/bedragen.js',
-            // './src/default/verdeling.js',
-            // './src/default/voortgang.js',
             './src/default/voortgang_details.js',
             './src/default/voortgang_duur.js',
             './src/default/candles.js',
@@ -79,10 +66,6 @@ module.exports = function() {
             // './src/default/statussen-stroommodel.js',
             // './src/default/statussen-stroommodel_ii.js',
 
-            // './src/default/pie-chart-herkomst.js',
-            // './src/default/pie-chart-opnames.js',
-            // './src/default/pie-chart-bezwaren.js',
-            // './src/default/pie-chart-specials.js',
             './src/default/specials-share-completed.js',
             // './src/default/specials-statussen.js',
             './src/default/ballenbak-specials.js'
