@@ -89,6 +89,13 @@ class StackedBarProgression  {
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
         });
+
+
+        data.filter( (week) => {
+
+            return week[property] > 0;
+
+        });
         //
         // let minBarWidth = 60;
         //
@@ -101,7 +108,7 @@ class StackedBarProgression  {
 
         this.functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => {
-                return ['status','totaal'].indexOf(key) < 0
+                return ['_date',property].indexOf(key) < 0
             } ));
 
         let stackedData = this.functions.stack(data);
