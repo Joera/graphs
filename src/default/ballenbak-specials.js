@@ -15,7 +15,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = smallMultiple? 15 : 30;
+    config.padding.top = smallMultiple? 15 : 30;
     config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 70 : 0;
     // name of first column with values of bands on x axis
 
