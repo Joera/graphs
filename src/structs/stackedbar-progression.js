@@ -134,7 +134,7 @@ class StackedBarProgression  {
         // new scales mean new axis
 
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
-        this.chartAxis.redrawYAxis(this.yScale,this.axes);
+        this.chartAxis.redrawYAxisStacked(this.yScale,this.axes);
         // redraw data
         this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,this.property,colours);
     }
