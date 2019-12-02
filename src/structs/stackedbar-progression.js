@@ -117,13 +117,22 @@ class StackedBarProgression  {
 
         console.log(stackedDataNormalized);
 
+        let sortedStack = [];
+        let sortedStackNormalized = [];
+
+        for (let map of this.dataMapping) {
+
+            sortedStack.push(stackedData.find( (group) => { return group.key === map.column }));
+            sortedStackNormalized.push(stackedDataNormalized.find( (group) => { return group.key === map.column }));
+        }
+
         if(config.yScaleType === 'stackedDataNormalized' ) {
 
-            return {data, stackedDataNormalized}
+            return {data, sortedStackNormalized}
 
         } else {
 
-            return {data, stackedData}
+            return {data, sortedStack}
         }
     }
 
