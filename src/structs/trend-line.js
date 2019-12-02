@@ -75,6 +75,11 @@ class TrendLine {
 
         let data = [];
 
+        // json.filter( (week) {
+        //
+        //
+        // })
+
         // start Date
 
         // let segmented = json.find( j => j['_category'] === segment);
@@ -90,6 +95,11 @@ class TrendLine {
             }
             data.push(o);
         }
+
+        data.filter( (week) => {
+
+            return week[this.property] > 0
+        })
 
         data.sort(function(a, b) {
             return new Date(a['_date']) - new Date(b['_date']);
