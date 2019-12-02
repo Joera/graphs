@@ -91,7 +91,7 @@ class StackedBarProgression  {
         });
 
 
-        data.filter( (week) => {
+        data = data.filter( (week) => {
 
             return week[property] !== null;
 
