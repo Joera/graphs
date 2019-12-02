@@ -118,7 +118,7 @@ class StackedBarProgression  {
         this.functions.normalizedStack = d3.stack()
             .offset(d3.stackOffsetExpand)
             .keys(Object.keys(data[0]).filter(key => {
-                return ['status'].indexOf(key) < 0
+                return ['_date','_category'].indexOf(key) < 0
             } ));
 
         if(config.yScaleType === 'stackedNormalized' ) {
