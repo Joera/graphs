@@ -10,8 +10,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         data = d;
 
-        console.log(data);
-
         svg.headerGroup = svg.layers.underData.selectAll('.headerGroup')
             .data(data);
 

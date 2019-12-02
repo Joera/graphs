@@ -17,7 +17,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
 
     config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 70 : 0;
-    config.padding.top = smallMultiple? 15 : 45;
+    config.padding.top = smallMultiple? 15 : 30;
     // name of first column with values of bands on x axis
 
     config.xParameter = 'status';
