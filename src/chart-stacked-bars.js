@@ -94,7 +94,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
         svg.series = svg.seriesEnter
             .merge(svg.series)
             .attr("class", (d,i) => {
-                
+
 
                 return "stackGroup " + d.colour;
             });

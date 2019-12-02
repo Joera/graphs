@@ -113,7 +113,7 @@ class StackedBarProgression  {
 
         this.functions.stack = d3.stack()
             .keys(Object.keys(data[0]).filter(key => {
-                return ['_date','_category'].indexOf(key) < 0
+                return ['_date','_category','label','colour'].indexOf(key) < 0
             } ));
 
         this.functions.normalizedStack = d3.stack()
