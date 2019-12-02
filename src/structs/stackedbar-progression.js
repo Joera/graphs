@@ -76,6 +76,7 @@ class StackedBarProgression  {
         let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
         let data = [];
+        let stackedData;
 
         for (let week of json) {
             let o = {};
@@ -114,11 +115,23 @@ class StackedBarProgression  {
                 return ['_date','_category'].indexOf(key) < 0
             } ));
 
-        let stackedData = this.functions.stack(data);
+        this.functions.normalizedStack = d3.stack()
+            .offset(d3.stackOffsetExpand)
+            .keys(Object.keys(data[0]).filter(key => {
+                return ['status'].indexOf(key) < 0
+            } ));
 
-        console.log(stackedData);
+        if(config.yScaleType === 'stackedNormalized' ) {
 
-        return { data, stackedData }
+            stackedData = this.functions.normalizedStack(data);
+        } else {
+
+            stackedData = this.functions.stack(data);
+
+        }
+
+
+        return { data, stackedData,stackedDataNormalized }
     }
 
 
