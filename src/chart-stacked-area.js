@@ -14,7 +14,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .enter().append("g")
             .attr("class", (d) => {
 
-                return "stackGroup " + dataMapping.find( (map) => { return map.column === d.key})['colour'];
+                return "stackGroup";
             });
 
     }
@@ -35,28 +35,28 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         ;
 
-        svg.areaLabels = svg.seriesEnter.merge(svg.series)
-            .append('text')
-            .attr('class','small-label')
-            .datum(function(d) { return d; })
-            .attr('x', 0)
-            .attr('dx', '-10px')
-            .attr('dy', '6px')
-            .style("text-anchor", "end")
-            .text(function(d) {
-
-                console.log(d);
-
-                if (d.key == 'in_behandeling') {
-                    return 'In behandeling';
-                } else if (d.key == 'afgehandeld') {
-                    return 'Afgehandeld';
-                }
-            })
-            .attr('fill-opacity', 1);
+        // svg.areaLabels = svg.seriesEnter.merge(svg.series)
+        //     .append('text')
+        //     .attr('class','small-label')
+        //     .datum(function(d) { return d; })
+        //     .attr('x', 0)
+        //     .attr('dx', '-10px')
+        //     .attr('dy', '6px')
+        //     .style("text-anchor", "end")
+        //     .text(function(d) {
+        //
+        //         console.log(d);
+        //
+        //         if (d.key == 'in_behandeling') {
+        //             return 'In behandeling';
+        //         } else if (d.key == 'afgehandeld') {
+        //             return 'Afgehandeld';
+        //         }
+        //     })
+        //     .attr('fill-opacity', 1);
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,colours) {
+    let redraw = function redraw(dimensions,xScale,yScale,property,dataMapping,smallMultiple) {
 
         let newArea = d3.area()
             .x(function(d) { return xScale.time(new Date(d.data._date)); })
@@ -77,7 +77,7 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .duration(200)
             .attr('d', area)
             .style('fill', (d) => {
-                return colours[d.key];
+                return dataMapping.find( (map) => { return map.column === d.key})['colour'];
             });
 
         // new areas
@@ -88,20 +88,20 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .duration(200)
             .attr('d', area)
             .style('fill', (d) => {
-                return colours[d.key];
+                return dataMapping.find( (map) => { return map.column === d.key})['colour'];
             });
 
-        svg.areaLabels
-            .attr('transform', function(d) {
-
-                return 'translate(' + (dimensions.width - 30) + ',' +
-                    yScale.stacked(
-                        d[d.length - 1][0] + (
-                            .5 * (d[d.length - 1][1])
-                        )
-                    )
-                 + ')';
-            })
+        // svg.areaLabels
+        //     .attr('transform', function(d) {
+        //
+        //         return 'translate(' + (dimensions.width - 30) + ',' +
+        //             yScale.stacked(
+        //                 d[d.length - 1][0] + (
+        //                     .5 * (d[d.length - 1][1])
+        //                 )
+        //             )
+        //          + ')';
+        //     })
     }
 
 
