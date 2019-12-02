@@ -40,7 +40,14 @@
 
       ]
 
-      let gemBedrag = new TrendLine('/api/data','#container',dataMapping,'gemiddeld_schadebedrag','all',false,'');
+        const config = {
+
+            xParameter: '_date',
+            xScaleTicks: 'timeMonth',
+            yParameter: 'gemiddeld_schadebedrag',
+        };
+
+      let gemBedrag = new TrendLine('/api/data','#container',config,dataMapping,'gemiddeld_schadebedrag','all',false,'');
       gemBedrag.init();
 </script>
 
