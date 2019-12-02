@@ -113,10 +113,11 @@ class StackedBarProgression  {
         let stackedData = this.functions.normalizedStack(data);
         let stackedDataNormalized = this.functions.stack(data);
 
+        console.log(stackedDataNormalized);
 
         if(config.yScaleType === 'stackedDataNormalized' ) {
 
-            return {data, stackedData}
+            return {data, stackedDataNormalized}
 
         } else {
 
