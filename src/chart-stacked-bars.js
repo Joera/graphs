@@ -115,6 +115,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                     return xScale.band.bandwidth();
                 }
             })
+            .attr("y", function(d) { return config.padding.top; })
             // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
