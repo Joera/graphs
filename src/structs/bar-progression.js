@@ -24,7 +24,7 @@ class BarProgression  {
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
 
-        this.config.margin.top = 10;
+        this.config.padding.top = 20;
         this.config.margin.bottom = 15;
 
         this.config.padding.left = 40;
