@@ -22,7 +22,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
         functions.line = d3.line()
             .x( (d) =>{ return xScale.time(new Date(d[config.xParameter])); }) //  / * ;  */
             .y( (d) => { return yScale.linear(d[config.yParameter]); })
-            .curve(d3.curveStep;
+            .curve(d3.curveStep);
 
         svg.line
             .attr("d", functions.line)
