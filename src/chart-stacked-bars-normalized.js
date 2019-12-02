@@ -97,7 +97,7 @@ let ChartStackedBarsNormalized = function ChartStackedBarsNormalized(config,svg,
         svg.bar
 
             .attr("y", function(d) {
-                return yScale.band(d.data[config.xParameter]);
+                return yScale.band(d.data[config.xParameter]) + config.padding.top;
             })
             .attr("height", function(d) {
                     return yScale.band.bandwidth();
