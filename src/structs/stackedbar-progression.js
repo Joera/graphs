@@ -49,7 +49,6 @@ class StackedBarProgression  {
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartStackedBars = ChartStackedBars(this.config, this.svg);
 
-
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
 
@@ -97,7 +96,6 @@ class StackedBarProgression  {
             return week[property] !== null && week[property] > 0;
         });
 
-
         data = data.slice(1,data.length);
 
         this.functions.stack = d3.stack()
@@ -128,8 +126,7 @@ class StackedBarProgression  {
 
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
 
-        if(config.yScaleType === 'stackedNormalized' ) {
-
+        if (config.yScaleType === 'stackedNormalized' ) {
             this.chartAxis.redrawYAxisStackedNormalized(this.yScale,this.axes);
         } else {
             this.chartAxis.redrawYAxisStacked(this.yScale,this.axes);
