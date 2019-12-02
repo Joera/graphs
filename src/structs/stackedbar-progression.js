@@ -103,10 +103,22 @@ class StackedBarProgression  {
                 return ['_date','_category','label','colour'].indexOf(key) < 0
             } ));
 
+        this.functions.stackNormalized = d3.stack()
+            .offset(d3.stackOffsetExpand)
+            .keys(Object.keys(data[0]).filter(key => {
+                return ['_date','_category','label','colour'].indexOf(key) < 0
+            } ));
+
         let stackedData = this.functions.stack(data);
+        let stackedDataNormalized = this.functions.stack(data);
 
-        return {data, stackedData}
+        if (this.config.yScaleType === 'stackedNormalized') {
 
+            return { data, stackedDataNormalized }
+
+        } else {
+            return { data, stackedData }
+        }
     }
 
 
