@@ -110,7 +110,7 @@ class StackedBarProgression  {
             } ));
 
         let stackedData = this.functions.stack(data);
-        let stackedDataNormalized = this.functions.stack(data);
+        let stackedDataNormalized = this.functions.stackNormalized(data);
 
         if (this.config.yScaleType === 'stackedNormalized') {
 
