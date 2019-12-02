@@ -97,7 +97,7 @@ class TrendLine {
         }
 
         data = data.filter( (week) => {
-            
+
 
             return week[this.property] > 0
         })
