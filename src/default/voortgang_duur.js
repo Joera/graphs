@@ -1,4 +1,4 @@
-var voortgangDuur = function(element,smallMultiple) {
+var voortgangDuur = function(api,element,dataMapping,smallMultiple,property) {
 
 
     let options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
@@ -92,7 +92,7 @@ var voortgangDuur = function(element,smallMultiple) {
             chartAxis.redrawXTimeAxis(dimensions,xScale,axes,true);
             chartAxis.redrawYAxisStacked(yScale,axes);
             // redraw data
-            chartStackedArea.redraw(dimensions,xScale,yScale,colours);
+            chartStackedArea.redraw(dimensions,xScale,yScale,property,dataMapping);
 
         }
 

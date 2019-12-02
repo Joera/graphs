@@ -52,7 +52,27 @@
 
 <script>
 
-    voortgangDuur('#container');
+    const datamapping = [
+
+        {
+            column: 'MINDER_DAN_12_JAAR',
+            colour: darkblue
+        },
+        {
+            column: 'TUSSEN_12_EN_1_JAAR',
+            colour: blue
+        },
+        {
+            column: 'TUSSEN_1_EN_2_JAAR',
+            colour: green
+        },
+        {
+            column: 'LANGER_DAN_2JAAR',
+            colour: orange
+        }
+    ]
+
+    voortgangDuur('/api/data','#container',datamapping,'');
 </script>
 
 
