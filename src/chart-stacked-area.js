@@ -12,7 +12,10 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
 
         svg.seriesEnter = svg.series
             .enter().append("g")
-            .attr("class", (d) => { return "stackedGroup " + d.key });
+            .attr("class", (d) => {
+
+                return "stackGroup " + dataMapping.find( (map) => { return map.column === d.key})['colour'];
+            });
 
     }
 
@@ -41,6 +44,8 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
             .attr('dy', '6px')
             .style("text-anchor", "end")
             .text(function(d) {
+
+                console.log(d);
 
                 if (d.key == 'in_behandeling') {
                     return 'In behandeling';

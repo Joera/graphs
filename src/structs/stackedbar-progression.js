@@ -49,7 +49,7 @@ class StackedBarProgression  {
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartStackedBars = ChartStackedBars(this.config, this.svg);
+        this.chartStackedBars = ChartStackedArea(this.config, this.svg);
 
 
         this.chartAxis.drawXAxis();
