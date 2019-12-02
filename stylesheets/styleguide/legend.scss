@@ -60,9 +60,9 @@ ul.legend.horizontal {
   @media (min-width: $breakpoint-xsm) {
 
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-
+    max-width: none;
 
   }
 
@@ -75,7 +75,7 @@ ul.legend.horizontal {
 
     @media (min-width: $breakpoint-xsm) {
 
-      width: calc(50% - 2rem);
+      //width: calc(50% - 2rem);
 
     }
 
