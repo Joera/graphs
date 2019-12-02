@@ -119,11 +119,11 @@ class StackedBarProgression  {
     }
 
 
-    redraw(data,property) {
+    redraw(stackedData) {
 
-        let colour = this.dataMapping.find((m) => m.column === property)['colour'];
+        // let colour = this.dataMapping.find((m) => m.column === property)['colour'];
 
-        this.yScale = this.chartYScale.set(data,property);
+        this.yScale = this.chartYScale.set(stackedData);
 
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
@@ -152,7 +152,7 @@ class StackedBarProgression  {
 
         let { data, stackedData } = this.prepareData(json,property);
         this.draw(data,stackedData);
-        this.redraw(data,property);
+        this.redraw(stackedData,property);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
