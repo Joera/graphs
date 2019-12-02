@@ -15,7 +15,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
     let functions = chartObjects.functions();
 
 
-    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 75 : 0;
+    config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 50 : 0;
 
     config.margin.top = smallMultiple? 15 : 30;
     config.padding.top = 15;
