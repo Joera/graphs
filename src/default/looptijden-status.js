@@ -17,7 +17,7 @@ var looptijdenStatus  = function (element,smallMultiple) {
 
     config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 50 : 0;
 
-    config.margin.top = smallMultiple ? 45 : 60;
+    config.margin.top = 60;
     // name of first column with values of bands on x axis
 
     // y-axis
