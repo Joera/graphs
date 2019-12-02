@@ -16,7 +16,7 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
     let functions = chartObjects.functions();
 
 
-    config.padding.bottom = (window.innerWidth < 640 || smallMultiple) ? 70 : 45;
+    config.padding.bottom = (window.innerWidth < 640 || smallMultiple) ? 70 : 60;
     config.padding.top = smallMultiple? 15 : 30;
     // name of first column with values of bands on x axis
 
