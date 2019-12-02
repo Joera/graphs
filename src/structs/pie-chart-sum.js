@@ -25,9 +25,9 @@ class PieChartSum  {
         this.functions = chartObjects.functions();
 
 
-        this.config.margin.bottom = (window.innerWidth > 640) ? 50 : 1235;
+        this.config.margin.bottom = (window.innerWidth > 640) ? 50 : 125;
         this.config.margin.left = 230;
-        this.config.margin.top = 30;
+        this.config.padding.top = 30;
 
 
         this.config.currencyLabels = true;
