@@ -34,7 +34,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
         svg.defs
             .attr("width", dimensions.width)
-            .attr("height", dimensions.height)
+            .attr("height", config.padding.top + dimensions.height)
             .attr("transform", "translate(" + (config.padding.left + config.barWidth ) + ",0)");
 
         svg.bar
@@ -51,7 +51,7 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                     return config.barWidth;
             })
-            // .attr("clip-path", "url(#clip)")
+            .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
             .attr("y", function(d) { console.log(config.padding.top); return (config.padding.top + yScale[config.yScaleType](d[d['property']])); })
