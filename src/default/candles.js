@@ -10,7 +10,7 @@ var candles = function(element,smallMultiple) {
     let functions = chartObjects.functions();
 
     config.padding.top = smallMultiple? 15 : 30;
-    config.margin.bottom = 0;
+    config.padding.bottom = 30;
     config.padding.left = 40;
 
     // name of first column with values of bands on x axis
