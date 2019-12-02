@@ -14,14 +14,10 @@ var looptijdenStatus  = function (element,smallMultiple) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = 0;
+
     config.margin.bottom = (window.innerWidth < 640 || smallMultiple) ? 75 : 0;
-    config.margin.left = 0;
-    config.margin.right = 0;
-    config.padding.top = smallMultiple? 15 : 30;
-    config.padding.bottom = 0;
-    config.padding.left = 0;
-    config.padding.right = 40;
+
+    config.margin.top = smallMultiple? 15 : 30;
     // name of first column with values of bands on x axis
 
     // y-axis
