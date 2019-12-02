@@ -51,10 +51,10 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
 
                     return config.barWidth;
             })
-            .attr("clip-path", "url(#clip)")
+            // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) { console.log(config.padding.top); return (8 * config.padding.top + yScale[config.yScaleType](d[d['property']])); })
+            .attr("y", function(d) { console.log(config.padding.top); return (config.padding.top + yScale[config.yScaleType](d[d['property']])); })
             .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); });
 
         svg.bar
