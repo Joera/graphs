@@ -1,4 +1,4 @@
-class StackedBarProgression  {
+class StackedArea  {
 
     constructor(endpoint,elementID,config,dataMapping,property,smallMultiple) {
 
@@ -47,7 +47,7 @@ class StackedBarProgression  {
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartStackedBars = ChartStackedBars(this.config, this.svg);
+        this.chartStackedBars = ChartStackedArea(this.config, this.svg);
 
 
         this.chartAxis.drawXAxis();
@@ -129,7 +129,6 @@ class StackedBarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
 
         if(config.yScaleType === 'stackedNormalized' ) {
-
             this.chartAxis.redrawYAxisStackedNormalized(this.yScale,this.axes);
         } else {
             this.chartAxis.redrawYAxisStacked(this.yScale,this.axes);
@@ -142,7 +141,6 @@ class StackedBarProgression  {
     draw(data,stackedData) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
-
         this.chartStackedBars.draw(data,stackedData);
     }
 
@@ -151,6 +149,7 @@ class StackedBarProgression  {
         let self = this;
 
         let { data, stackedData } = this.prepareData(json,property);
+        this.chartStackedBars.init(stackedData);
         this.draw(data,stackedData);
         this.redraw(stackedData,property);
         // legend(data);
