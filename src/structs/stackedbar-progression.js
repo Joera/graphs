@@ -150,7 +150,14 @@ class StackedBarProgression  {
         // new scales mean new axis
 
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
-        this.chartAxis.redrawYAxisStacked(this.yScale,this.axes);
+
+        if(config.yScaleType === 'stackedNormalized' ) {
+
+            this.chartAxis.redrawYAxisStackedNormalized(this.yScale,this.axes);
+        } else {
+            this.chartAxis.redrawYAxisStacked(this.yScale,this.axes);
+        }
+
         // redraw data
         this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,this.property,colours);
     }
