@@ -115,6 +115,13 @@ let ChartAxis = function ChartAxis(config,svg) {
                 });
         }
 
+        if(config.yTickFormat === 'currency' ) {
+            axes.yLinear
+                .tickFormat(function(d){
+                    return convertToCurrency(d);
+                });
+        }
+
         if (config.yTickFormat === 'percentage') {
             axes.yLinear
                 .tickFormat(function(d){
