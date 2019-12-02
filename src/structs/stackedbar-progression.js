@@ -75,16 +75,17 @@ class StackedBarProgression  {
 
     prepareData(json,property)  {
 
-        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
-
         let data = [];
 
         for (let week of json) {
             let o = {};
-            for (let p of Object.entries(week))  {
-                if (neededColumns.indexOf(p[0]) > -1 ) {
-                      o[p[0]] = p[1];
-                }
+            for (let map of this.dataMapping)  {
+
+                o[map.column] = week[map.column];
+                o['_date'] = week['_date'];
+                o['_category'] = week['_category'];
+                o['label'] = map.label;
+                o['colour'] = map.colour;
             }
             data.push(o);
         }
