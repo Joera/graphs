@@ -112,7 +112,7 @@ class StackedBarProgression  {
 
         let stackedData = this.functions.normalizedStack(data);
         let stackedDataNormalized = this.functions.stack(data);
-        
+
 
         if(config.yScaleType === 'stackedDataNormalized' ) {
 
@@ -149,7 +149,7 @@ class StackedBarProgression  {
         }
 
         // redraw data
-        this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,this.property,colours);
+        this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,this.property,this.dataMapping);
     }
 
     draw(data,stackedData) {

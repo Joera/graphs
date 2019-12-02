@@ -71,7 +71,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,property,colours,smallMultiple) {
+    let redraw = function redraw(dimensions,xScale,yScale,property,dataMapping,smallMultiple) {
 
         let barWidth = xScale.band.bandwidth();
         let yOffset;
@@ -95,9 +95,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .merge(svg.series)
             .attr("class", (d,i) => {
 
-                console.log(d);
+                console.log(d.key);
 
-                return "stackGroup " + colours[i];
+                return "stackGroup " + dataMapping.find( (map) => { return map.column === d.key})['colour'];
             });
 
         svg.barEnter
