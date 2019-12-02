@@ -28,7 +28,7 @@ class StackedBarProgression  {
 
         this.config.padding.left = 40;
         this.config.padding.top = 10;
-        this.config.padding.bottom = 45;
+        this.config.padding.bottom = 15;
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
