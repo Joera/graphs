@@ -12,7 +12,7 @@ var voortgangDuur = function(element,smallMultiple) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = smallMultiple ? 15 : 30;
+    config.padding.top = smallMultiple ? 15 : 30;
     config.margin.bottom = 30;
     config.padding.left = 40;
     config.padding.right = 0;
@@ -23,7 +23,6 @@ var voortgangDuur = function(element,smallMultiple) {
     // config.fixedHeight = 160;
     config.minValue = 0;
     // config.maxValue = 60000;
-
 
     config.xParameter = '_date';
 
