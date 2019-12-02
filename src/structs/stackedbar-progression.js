@@ -97,6 +97,9 @@ class StackedBarProgression  {
             return week[property] !== null && week[property] > 0;
 
         });
+        
+
+        data = data.slice(1,data.length)
         //
         // let minBarWidth = 60;
         //
