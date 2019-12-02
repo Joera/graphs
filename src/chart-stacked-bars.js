@@ -119,9 +119,9 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) { return config.padding.top + yScale.stacked(d[1]); })
+            .attr("y", function(d) { return config.padding.top + yScale[config.yScaleType](d[1]); })
             .attr("height", function(d) {
-                return yScale.stackedNormalized(d[0]) - yScale.stackedNormalized(d[1]);
+                return yScale[config.yScaleType](d[0]) - yScale[config.yScaleType](d[1]);
             })
            ;
 
@@ -136,10 +136,10 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
 
                 xOffset = dimensions.width / (2 * dataArray.length);
                 let start = (d[0] < config.minValue) ? config.minValue : d[0];
-                yOffset = ((yScale.stacked(d[1]) - yScale.stacked(start)) / 2) - 11;
+                yOffset = ((yScale[config.yScaleType](d[1]) - yScale[config.yScaleType](start)) / 2) - 11;
 
                 return 'translate(' + (xScale.band(d.data[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
-                    (yScale.stacked(d[1]) + config.padding.top - yOffset)
+                    (yScale[config.yScaleType](d[1]) + config.padding.top - yOffset)
                     + ')';
             })
             .attr('fill-opacity', 0)
