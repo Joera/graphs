@@ -1,9 +1,11 @@
 class StackedBarProgression  {
 
-    constructor(elementID,dataMapping,property,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,property,smallMultiple) {
 
+        this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
+        this.config = config;
         this.dataMapping = dataMapping;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
         this.smallMultiple = smallMultiple;
@@ -16,7 +18,7 @@ class StackedBarProgression  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+        this.config = Object.assign(this.config,chartObjects.config();
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -24,18 +26,9 @@ class StackedBarProgression  {
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
 
-        this.config.margin.top = 0;
-        this.config.margin.bottom = 0;
-        this.config.margin.left = 40;
-        this.config.margin.right = 0;
+        this.config.padding.left = 40;
         this.config.padding.top = 10;
         this.config.padding.bottom = 15;
-        this.config.padding.left = 0;
-        this.config.padding.right = 0;
-
-        this.config.minValue = 26000;
-
-        this.config.xParameter = '_date';
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
@@ -43,8 +36,6 @@ class StackedBarProgression  {
         if (this.smallMultiple) {
             this.config.dataArrayLength = 7;
         }
-
-
 
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
@@ -55,13 +46,13 @@ class StackedBarProgression  {
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartBarsIncrease = ChartBarsIncrease(this.config, this.svg);
-        this.chartLegend = ChartLegend(this.config, this.svg);
+        this.chartStackedBars = ChartStackedBars(this.config, this.svg);
+
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
 
-        let url = 'https://tcmg-hub.publikaan.nl/api/data';
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
         if (globalData.weeks) {
 
@@ -98,14 +89,26 @@ class StackedBarProgression  {
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
         });
+        //
+        // let minBarWidth = 60;
+        //
+        // let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
+        //
+        // data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
 
-        let minBarWidth = 60;
 
-        let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
+        console.log(data);
 
-        data = data.slice(data.length - Math.floor(elWidth / minBarWidth),data.length);
+        this.functions.stack = d3.stack()
+            .keys(Object.keys(data[0]).filter(key => {
+                return ['status','totaal'].indexOf(key) < 0
+            } ));
 
-        return data;
+        let stackedData = this.functions.stack(data);
+
+        console.log(stackedData);
+
+        return { data, stackedData }
     }
 
 
@@ -126,22 +129,22 @@ class StackedBarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartBarsIncrease.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
+        this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
     }
 
-    draw(data,property) {
+    draw(data,stackedData) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        this.chartBarsIncrease.draw(data);
+        this.chartStackedBars.draw(stackedData);
     }
 
     run(json,property) {
 
         let self = this;
 
-        let data = this.prepareData(json,property);
-        this.draw(data,property);
+        let { data, stackedData } = this.prepareData(json,property);
+        this.draw(data,stackedData);
         this.redraw(data,property);
         // legend(data);
 
