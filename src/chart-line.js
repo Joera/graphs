@@ -28,7 +28,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
             .attr("d", functions.line)
             .attr("fill","none")
             .attr("stroke", orange )
-            .attr("stroke-width",1)
+            .attr("stroke-width",4)
 
 
             ;
