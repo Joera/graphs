@@ -109,7 +109,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
                 return xScale.band(d.data[config.xParameter]);
             })
             .attr("width", function(d) {
-                if(config.xScale === 'time') {
+                if(config.xParameter === '_date') {
                     return dimensions.width / dataArray.length;
                 } else {
                     return xScale.band.bandwidth();
@@ -118,57 +118,57 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             // .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) { return yScale.stacked(d[1]); })
+            .attr("y", function(d) { console.log(d[1]; return yScale.stacked(d[1]); })
             .attr("height", function(d) {
                 return yScale.stacked(d[0]) - yScale.stacked(d[1]);
             })
            ;
 
-        svg.barLabels
-            .merge(svg.barLabelsEnter)
-            .text(function(d) {
-                if(thousands(d[1] - d[0]) > 0) {
-                    return thousands(d[1] - d[0]);
-                }
-            })
-            .attr('transform', function(d) {
+        // svg.barLabels
+        //     .merge(svg.barLabelsEnter)
+        //     .text(function(d) {
+        //         if(thousands(d[1] - d[0]) > 0) {
+        //             return thousands(d[1] - d[0]);
+        //         }
+        //     })
+        //     .attr('transform', function(d) {
+        //
+        //         xOffset = dimensions.width / (2 * dataArray.length);
+        //         let start = (d[0] < config.minValue) ? config.minValue : d[0];
+        //         yOffset = ((yScale.stacked(d[1]) - yScale.stacked(start)) / 2) - 11;
+        //
+        //         return 'translate(' + (xScale.band(d.data[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
+        //             (yScale.stacked(d[1]) - yOffset)
+        //             + ')';
+        //     })
+        //     .attr('fill-opacity', 0)
+        //     .transition()
+        //     .delay(500)
+        //     .duration(500)
+        //     .attr('fill-opacity', 1);
 
-                xOffset = dimensions.width / (2 * dataArray.length);
-                let start = (d[0] < config.minValue) ? config.minValue : d[0];
-                yOffset = ((yScale.stacked(d[1]) - yScale.stacked(start)) / 2) - 11;
 
-                return 'translate(' + (xScale.band(d.data[config.xParameter]) + ( xScale.band.bandwidth() / 2)) + ',' +
-                    (yScale.stacked(d[1]) - yOffset)
-                    + ')';
-            })
-            .attr('fill-opacity', 0)
-            .transition()
-            .delay(500)
-            .duration(500)
-            .attr('fill-opacity', 1);
-
-
-        if(config.dateLabels) {
-
-            svg.dateLabels
-                .merge(svg.dateLabelsEnter)
-                .text(function (d) {
-
-                    // if (window.innerWidth < 900) {
-                    return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'numeric', day: 'numeric'});
-                    // } else {
-                    //     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
-                    // }
-                })
-                .attr('transform', function (d) {
-
-                    let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
-
-                    return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ','
-                        + yOffset + ')';
-                })
-            ;
-        }
+        // if(config.dateLabels) {
+        //
+        //     svg.dateLabels
+        //         .merge(svg.dateLabelsEnter)
+        //         .text(function (d) {
+        //
+        //             // if (window.innerWidth < 900) {
+        //             return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'numeric', day: 'numeric'});
+        //             // } else {
+        //             //     return new Date(d['_date']).toLocaleDateString('nl-NL', {month: 'long', day: 'numeric'});
+        //             // }
+        //         })
+        //         .attr('transform', function (d) {
+        //
+        //             let yOffset = smallMultiple ? dimensions.height : dimensions.height + 20;
+        //
+        //             return 'translate(' + (xScale.band(d[config.xParameter]) + (xScale.band.bandwidth() / 2)) + ','
+        //                 + yOffset + ')';
+        //         })
+        //     ;
+        // }
 
     }
 
