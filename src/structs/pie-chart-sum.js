@@ -25,13 +25,13 @@ class PieChartSum  {
         this.functions = chartObjects.functions();
 
 
-        this.config.margin.bottom = (window.innerWidth > 640) ? 0 : 100;
-
+        this.config.margin.bottom = (window.innerWidth > 640) ? 20 : 100;
+        this.config.margin.left = 230;
         this.config.padding.top = 40;
 
 
         this.config.currencyLabels = true;
-        this.config.maxHeight = 280;
+        this.config.maxHeight = 300;
 
         this.config.colours = d3.scaleOrdinal()
             .range([green,darkblue,blue,orange,grey]);
