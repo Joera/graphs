@@ -136,7 +136,7 @@ class StackedBarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
+       // this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
     }
 
     draw(data,stackedData) {
@@ -152,7 +152,7 @@ class StackedBarProgression  {
 
         let { data, stackedData } = this.prepareData(json,property);
         this.draw(data,stackedData);
-        // this.redraw(data,property);
+        this.redraw(data,property);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
