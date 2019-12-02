@@ -96,7 +96,7 @@ let ChartStackedBars = function ChartStackedBars(config,svg,functions) {
             .attr("class", (d,i) => {
 
                 console.log(d);
-                return "stackGroup ";
+                return "stackGroup " + d[0].data.colour;
             });
 
         svg.barEnter
