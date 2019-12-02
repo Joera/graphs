@@ -71,17 +71,18 @@ let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
         prevArea = area;
 
         // existing areas
-        svg.areas
-            // .attr('d', newArea)
-            .transition()
-            .duration(200)
-            .attr('d', area)
-            .style('fill', (d) => {
-                return dataMapping.find( (map) => { return map.column === d.key})['colour'];
-            });
+        // svg.areas
+        //     // .attr('d', newArea)
+        //     .transition()
+        //     .duration(200)
+        //     .attr('d', area)
+        //     .style('fill', (d) => {
+        //         return dataMapping.find( (map) => { return map.column === d.key})['colour'];
+        //     });
 
         // new areas
         svg.areasEnter
+            .merge(svg.areas)
             .attr('d', newArea)
             .transition()
             .delay(200)
