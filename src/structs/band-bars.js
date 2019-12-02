@@ -28,7 +28,7 @@ class BandBars {
 
 
         this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 125 : 50;
-        this.config.margin.top = this.smallMultiple? 15 : 30;
+        this.config.margin.top = this.smallMultiple? 30 : 45;
         this.config.padding.top = 0;
 
         this.config.padding.left = 40;
