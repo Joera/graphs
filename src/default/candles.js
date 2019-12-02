@@ -9,7 +9,7 @@ var candles = function(element,smallMultiple) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.top = smallMultiple? 15 : 30;
+    config.padding.top = smallMultiple? 15 : 30;
     config.margin.bottom = 30;
     config.padding.left = 40;
 
