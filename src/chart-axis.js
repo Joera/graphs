@@ -152,6 +152,30 @@ let ChartAxis = function ChartAxis(config,svg) {
 
     }
 
+    let redrawYAxisStackedNormalized = function redrawYAxisStacked(scales,axes) {
+
+        axes.yLinear = d3.axisLeft(scales.stackedNormalized);
+
+        axes.yLinear
+            .ticks(10, "%");
+
+        svg.yAxis
+            .attr("transform", "translate(" + config.margin.left + "," + config.padding.top + ")")  //
+            .call(axes.yLinear);
+
+        // if(config.noTicksYAxis) {
+        //     axes.yLinear
+        //         .tickValues([]);
+        // } else {
+        //     axes.yLinear
+        //         .ticks(5);
+        // }
+        //
+        // svg.yAxis
+        //     .call(axes.yLinear);
+
+    }
+
     let redrawYBandAxis = function redrawYBandAxis(dimensions,yScale,axes,alternateTicks,smallMultiple) {
 
         axes.yBand = d3.axisLeft(yScale.band);
@@ -195,6 +219,7 @@ let ChartAxis = function ChartAxis(config,svg) {
         // redrawInputYAxis : redrawInputYAxis,
         redrawXAxisStackedNormalized : redrawXAxisStackedNormalized,
         redrawYAxisStacked : redrawYAxisStacked,
+        redrawYAxisStackedNormalized: redrawYAxisStackedNormalized,
         redrawYBandAxis : redrawYBandAxis
     }
 }
