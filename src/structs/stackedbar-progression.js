@@ -101,6 +101,7 @@ class StackedBarProgression  {
 
         data = data.slice(1,data.length);
 
+        console.log(data);
 
         // for (let map of this.dataMapping) {
         //
