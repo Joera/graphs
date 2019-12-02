@@ -12,7 +12,7 @@ var voortgangDuur = function(element,smallMultiple) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.padding.top = smallMultiple ? 15 : 30;
+    config.padding.top = smallMultiple ? 0 : 15;
     config.margin.bottom = 30;
     config.padding.left = 40;
     config.padding.right = 0;
