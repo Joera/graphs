@@ -61,7 +61,7 @@ let ChartBar = function ChartBar(config,svg) {
             })
             .transition()
             .duration(500)
-            .attr("y", function(d) { return yScale.linear(d[config.yParameter]); })
+            .attr("y", function(d) { return yScale.linear(d[config.yParameter]) + config.padding.top; })
             .attr("height", function(d) { return dimensions.height - yScale.linear(d[config.yParameter]); })
 
         ;
