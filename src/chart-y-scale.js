@@ -70,10 +70,10 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             .range([dimensions.height, 0]);
 
         newScale.stacked
-            .range([(config.fixedHeight || dimensions.height), 0]);
+            .range([dimensions.height, 0]);
 
         newScale.stackedNormalized
-            .range([(config.fixedHeight || dimensions.height), 0]);
+            .range([dimensions.height, 0]);
 
         newScale.band
             .range([0,dimensions.height]);
