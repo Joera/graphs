@@ -39,7 +39,7 @@ let ChartCandles = function ChartLine(config,svg,dimensions) {
 
         functions.line = d3.line()
             .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
-            .y(function(d) { return yScale.linear(d[config.yParameter]); })
+            .y(function(d) { return config.padding.top  + yScale.linear(d[config.yParameter]); })
             .curve(d3.curveCardinal);
 
         svg.line
@@ -47,7 +47,7 @@ let ChartCandles = function ChartLine(config,svg,dimensions) {
 
         svg.candlesUp
             .attr('x',(d) => { return xScale.time(new Date(d[config.xParameter])); })
-            .attr('y',(d) => { return yScale.linear(d[config.yParameter]) - (yScale.linear(0) - yScale.linear(d['nieuwe_schademeldingen'])) })
+            .attr('y',(d) => { return config.padding.top  + yScale.linear(d[config.yParameter]) - (yScale.linear(0) - yScale.linear(d['nieuwe_schademeldingen'])) })
             .attr('width',candleWidth)
             .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d['nieuwe_schademeldingen'])  } )
             .on("mouseover", function(d) {
@@ -69,7 +69,7 @@ let ChartCandles = function ChartLine(config,svg,dimensions) {
 
         svg.candlesDown
             .attr('x',(d) => { return xScale.time(new Date(d[config.xParameter])); })
-            .attr('y',(d) => { return yScale.linear(d[config.yParameter]); })
+            .attr('y',(d) => { return config.padding.top  + yScale.linear(d[config.yParameter]); })
             .attr('width',candleWidth)
             .attr('height', (d) => { return yScale.linear(0) - yScale.linear(d['nieuwe_afgehandeld'])  } )
             .on("mouseover", function(d) {
