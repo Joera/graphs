@@ -108,7 +108,7 @@ let ChartAxis = function ChartAxis(config,svg) {
                 .ticks(5);
         }
 
-        if(config.currencyLabels ) {
+        if(config.currencyLabels || config.yTickFormat === 'currency' ) {
             axes.yLinear
                 .tickFormat(function(d){
                     return shortenCurrency(convertToCurrency(d));
