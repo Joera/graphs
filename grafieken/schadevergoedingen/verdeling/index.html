@@ -11,21 +11,9 @@
 
 <link rel="stylesheet" href="/assets/css/main.css">
 
-<style>
-
-
-</style>
-
-
-
-
-
-
-
 <body class="single-graph">
 <main>
 
-    <!--<h2>Vergoede schades</h2>-->
     <div id="container" class="container"></div>
 
 </main>
@@ -33,7 +21,49 @@
 
 
 <script>
-    verdeling('#container');
+
+    const dataMapping = [
+
+        {   label : "Afgewezen",
+            column : "AFW",
+            colour : darkblue
+        },
+        {
+            label: "< €1K",
+            column: "0_1000",
+            colour: green
+        },
+        {   label : "€1K t/m €4K",
+            column : "1000_4000",
+            colour : blue
+        },
+        {   label : "€4K t/m €10K",
+            column : "4000_10000",
+            colour: yellow
+        },
+        {   label : "> €10K",
+            column : "MEER_DAN_10000",
+            colour: orange
+        }
+    ];
+
+
+    const config = {
+
+        smallMultiple : false,
+        currencyLabels : false,
+        xScaleType : 'band',
+        xScaleParameter : 'label'
+
+    }
+
+    // dit is er een met x scale band
+
+    let status_specials = new BandBars('#container',dataMapping,'4000_10000','all',config.smallMultiple);
+    status_specials.init();
+
+
+
 </script>
 
 
