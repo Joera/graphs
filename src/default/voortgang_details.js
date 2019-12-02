@@ -12,9 +12,9 @@ var voortgangDetails = function(element,smallMultiple) {
     let axes = chartObjects.axes();
     let functions = chartObjects.functions();
 
-    config.margin.left = 40;
+    config.padding.left = 40;
 
-    config.padding.top = smallMultiple ? 15 : 30;
+    config.margin.top = smallMultiple ? 15 : 30;
     config.margin.bottom = 30;
 
     // name of first column with values of bands on x axis
