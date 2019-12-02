@@ -45,6 +45,7 @@
             xParameter: '_date',
             xScaleTicks: 'timeMonth',
             yParameter: 'gemiddeld_schadebedrag',
+            minValue: 5000
         };
 
       let gemBedrag = new TrendLine('/api/data','#container',config,dataMapping,'gemiddeld_schadebedrag','all',false,'');
