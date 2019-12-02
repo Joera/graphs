@@ -21,7 +21,7 @@ class TrendLine {
         this.municipalitySelect = document.querySelector('select.municipalities');
 
         let chartObjects = ChartObjects();
-        // this.config = this.config.chartObjects.config();
+        this.config = Object.assign(this.config, chartObjects.config());
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -34,6 +34,10 @@ class TrendLine {
         this.config.margin.top = this.smallMultiple? 15 : 30;
         this.config.padding.bottom = 50;
         this.config.padding.left = 40;
+        //
+        // this.config.xParameter = '_date';
+        // this.config.xScaleTicks = 'timeMonth';
+        // this.config.yParameter = 'percentage_afwijzingen';
 
         this.config.paddingInner = 0.1;
         this.config.paddingOuter = 0.1;
