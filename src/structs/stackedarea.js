@@ -172,6 +172,8 @@ class StackedArea  {
         for (let option of this.options) {
             option.addEventListener( 'click', () => {
 
+                console.log('click');
+
                 if (option.checked) {
                     this.columnArray[this.columnArray.length] = option.value;
                 } else {
