@@ -90,10 +90,10 @@
     const config = {
 
         yParameter : 'AFGEHANDELD_TOTAAL',  // is being set in type function
-        minValue : 0,
         xParameter : '_date',
         xScaleType : 'time',
-        xScaleTicks : 'timeMonth'
+        xScaleTicks : 'timeMonth',
+        customListener: true
     }
 
     voortgangDuur = new StackedArea('/api/data','#container', config, datamapping,'');

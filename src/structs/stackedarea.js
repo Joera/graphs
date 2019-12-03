@@ -59,7 +59,12 @@ class StackedArea  {
         if (globalData.weeks) {
 
             this.run(globalData.weeks)
-            self.setListeners(globalData.weeks);
+
+            if (this.config.customListener) {
+                self.customListeners(json);
+            } else {
+                self.setListeners(json);
+            }
 
         } else {
 
@@ -67,7 +72,13 @@ class StackedArea  {
                 if (error) throw error;
                 globalData.weeks = json;
                 self.run(json);
-                self.setListeners(json);
+
+                if (this.config.customListener) {
+                    self.customListeners(json);
+                } else {
+                    self.setListeners(json);
+                }
+
             });
         }
     }
@@ -88,6 +99,52 @@ class StackedArea  {
 
             }, false)
         }
+    }
+
+    customListeners(json) {
+
+
+        for (let option of this.options) {
+            option.addEventListener( 'click', () => {
+
+                if (option.checked) {
+                    this.columnArray[this.columnArray.length] = option.value;
+
+                    if (option.value === 'WERKVOORRAAD_IN_BEHANDELING' ) {
+                        this.columnArray = ['AFGEHANDELD_TOTAAL','WERKVOORRAAD_IN_BEHANDELING'];
+                        this.setCheckboxes(this.columnArray);
+                    } else if (this.columnArray.indexOf('WERKVOORRAAD_IN_BEHANDELING') > -1) {
+                        this.columnArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
+                        this.setCheckboxes(this.columnArray);
+                    }
+
+                } else {
+                    let index = this.columnArray.indexOf(option.value);
+                    this.columnArray.splice(index,1);
+
+                    if (option.value === 'WERKVOORRAAD_IN_BEHANDELING' ) {
+                        this.columnArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
+                        this.setCheckboxes(this.columnArray);
+                    }
+                }
+
+                this.run(json);
+
+            }, false)
+        }
+    }
+
+
+    setCheckboxes(propertyArray) {
+
+        this.options.forEach( (option) => {
+
+            option.checked = false;
+
+            if (this.columnArray.indexOf(option.id) > -1) {
+                option.checked = true;
+            }
+        })
     }
 
     prepareData(json)  {
