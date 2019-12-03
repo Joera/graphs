@@ -16,6 +16,15 @@ class Ballenbak {
 
         let self = this;
 
+        let colours = {
+
+            'agro': green,
+            'erfgoed': yellow,
+            'mkb': blue,
+            'overig': orange
+        };
+
+
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
@@ -76,13 +85,6 @@ class Ballenbak {
         let data = {};
         let flattenedData = [];
 
-        let colours = {
-
-            'agro': green,
-            'erfgoed': yellow,
-            'mkb': blue,
-            'overig': orange
-        };
 
         json = json.filter( j => j['_category'] === muni)[0];
 
