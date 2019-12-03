@@ -64,8 +64,20 @@
         ]
     ];
 
-    let besluitenStuwmeer = new MultiBarProgression('#container',dataMapping,'besluiten_stuwmeerregeling','all',false);
+    const config = {
+
+        smallMultiple : false,
+        minValue : 0,
+        xParameter :'_date',
+        xScaleType : 'time',
+        xScaleTicks :'timeMonth',
+        yScaleType : 'linear',
+        barWidth : 12
+    }
+
+    let besluitenStuwmeer = new MultiBarProgression('/api/data','#container',config,dataMapping,'besluiten_stuwmeerregeling','all');
     besluitenStuwmeer.init();
+    
 </script>
 
 
