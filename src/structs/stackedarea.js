@@ -7,7 +7,7 @@ class StackedArea  {
         this.element = d3.select(elementID).node();
         this.config = config;
         this.dataMapping = dataMapping;
-        this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
+     //   this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
         this.smallMultiple = smallMultiple;
     }
 
@@ -49,7 +49,7 @@ class StackedArea  {
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartStackedBars = ChartStackedArea(this.config, this.svg);
+        this.chartStackedArea = ChartStackedArea(this.config, this.svg);
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
@@ -58,7 +58,7 @@ class StackedArea  {
 
         if (globalData.weeks) {
 
-            this.run(globalData.weeks,this.property)
+            this.run(globalData.weeks)
 
         } else {
 
@@ -66,7 +66,7 @@ class StackedArea  {
                 if (error) throw error;
                 console.log(json);
                 globalData.weeks = json;
-                self.run(json,self.property);
+                self.run(json);
             });
         }
 
@@ -138,26 +138,26 @@ class StackedArea  {
         }
 
         // redraw data
-        this.chartStackedBars.redraw(this.dimensions,this.xScale,this.yScale,this.property,this.dataMapping);
+        this.chartStackedArea.redraw(this.dimensions,this.xScale,this.yScale,this.dataMapping);
     }
 
     draw(data,stackedData) {
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
-        this.chartStackedBars.draw(data,stackedData);
+        this.chartStackedArea.draw(data,stackedData);
     }
 
-    run(json,property) {
+    run(json) {
 
         let self = this;
 
-        let { data, stackedData } = this.prepareData(json,property);
-        this.chartStackedBars.init(stackedData);
+        let { data, stackedData } = this.prepareData(json);
+        this.chartStackedArea.init(stackedData);
         this.draw(data,stackedData);
-        this.redraw(stackedData,property);
+        this.redraw(stackedData);
         // legend(data);
 
-        window.addEventListener("resize", () => self.redraw(data,property), false);
+        window.addEventListener("resize", () => self.redraw(stackedData), false);
 
         for (let option of this.options) {
             option.addEventListener( 'click', () => {

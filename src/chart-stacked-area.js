@@ -34,7 +34,7 @@ let ChartStackedArea = function ChartStackedArea(config,svg,functions) {
         ;
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,property,dataMapping,smallMultiple) {
+    let redraw = function redraw(dimensions,xScale,yScale,dataMapping) {
 
         let newArea = d3.area()
             .x(function(d) { return xScale.time(new Date(d.data._date)); })
