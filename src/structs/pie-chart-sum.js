@@ -52,6 +52,7 @@ class PieChartSum  {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
+                console.log(json);
                 globalData.gemeentes = json;
                 self.run(json,self.segment);
             });
