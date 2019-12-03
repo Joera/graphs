@@ -161,7 +161,7 @@ class StackedArea  {
         let self = this;
 
         let { data, stackedData } = this.prepareData(json);
-        this.chartStackedArea.init(stackedData);
+        // this.chartStackedArea.init(stackedData);
         this.draw(data,stackedData);
         this.redraw(stackedData);
         // legend(data);
