@@ -85,13 +85,7 @@ class Ballenbak {
         let data = [];
         let flattenedData = [];
 
-
-        console.log(json);
-
         json = json.find( j => j['_category'] === muni);
-
-
-
 
         for (let group of this.dataMapping) {
             for (let o of group) {
@@ -130,6 +124,8 @@ class Ballenbak {
     }
 
     draw(data,flattenedData) {
+
+        console.log(data);
 
         // with data we can init scales
         this.xScale = this.chartXScale.set(data.map( (d) => d[0].value));
