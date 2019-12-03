@@ -79,9 +79,10 @@ class StackedArea  {
 
         for (let week of json) {
             let o = {};
+            let legit = true;
             for (let column of this.columnArray)  {
 
-                let legit = true;
+
 
                 mapping = this.dataMapping.find( (map) => map.column === column);
 
