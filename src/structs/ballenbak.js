@@ -64,7 +64,7 @@ class Ballenbak {
 
         this.chartAxis.drawXAxis();
 
-        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
         if (globalData.municipalities) {
 
@@ -149,7 +149,7 @@ class Ballenbak {
 
     run(json, muni) {
 
-        ({ data, flattenedData } = this.prepareData(json,muni));
+        let { data, flattenedData } = this.prepareData(json,muni);
         this.draw(data, flattenedData);
         this.redraw();
         this.legend(data);
