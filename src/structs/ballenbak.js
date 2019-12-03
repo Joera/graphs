@@ -86,10 +86,12 @@ class Ballenbak {
         let flattenedData = [];
 
 
+        console.log(json);
+
         json = json.find( j => j['_category'] === muni);
 
 
-        console.log(json);
+
 
         for (let group of this.dataMapping) {
             for (let o of group) {
