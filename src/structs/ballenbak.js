@@ -93,8 +93,8 @@ class Ballenbak {
 
         for (let group of this.dataMapping) {
             for (let o of group) {
-                
-                if (Number.isInteger(json[o.column] )) {
+
+                if (o.column && Number.isInteger(json[o.column] )) {
 
                     o.value = json[o.column];
                     flattenedData.push(json[o.column]);
