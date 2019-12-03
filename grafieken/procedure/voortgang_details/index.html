@@ -58,7 +58,47 @@
 
 <script>
 
-    voortgangDetails('#container');
+    const datamapping = [
+
+        {
+            label: 'Afgehandeld totaal',
+            column: 'AFGEHANDELD_TOTAAL',
+            colour: green
+        },
+        {
+            label: 'In behandeling (totaal)',
+            column: 'WERKVOORRAAD_IN_BEHANDELING',
+            colour: orange
+        },
+        {
+            label: 'Open meldingen CVW',
+            column: 'MELDING_CVW',
+            colour: blue
+        },
+        {
+            label: 'Open meldingen voor Westerwijtwerd',
+            column: 'MELDING_VOOR_WESTERWIJTWE',
+            colour: darkblue
+        },
+        {
+            label: 'Open meldingen na Westerwijtwerd',
+            column: 'MELDING_NA_WESTERWIJTWERD',
+            colour: yellow
+        }
+    ];
+
+    const config = {
+
+        yParameter : 'AFGEHANDELD_TOTAAL',  // is being set in type function
+        minValue : 0,
+        xParameter : '_date',
+        xScaleType : 'time',
+        xScaleTicks : 'timeMonth'
+    }
+
+    voortgangDuur = new StackedArea('/api/data','#container', config, datamapping,'');
+    voortgangDuur.init();
+
 </script>
 
 
