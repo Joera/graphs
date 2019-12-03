@@ -91,11 +91,13 @@
 
     const config = {
 
+        smallMultiple : false,
+        currencyLabels : true,
 
     }
 
 
-    let som = new PieChartSum('/api/gemeentes','#container',config, dataMapping,'','all', false,true);
+    let som = new PieChartSum('/api/gemeentes','#container',config, dataMapping,'','all');
     som.init();
 </script>
 

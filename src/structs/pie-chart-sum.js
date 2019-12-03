@@ -1,7 +1,7 @@
 class PieChartSum  {
 
 
-    constructor(endpoint,elementID,dataMapping,config,property,segment,smallMultiple,currency) {
+    constructor(endpoint,elementID,dataMapping,config,property,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
@@ -10,8 +10,8 @@ class PieChartSum  {
         this.dataMapping = dataMapping;
         this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
         this.segment = segment;
-        this.smallMultiple = smallMultiple;
-        this.currency = currency
+        this.smallMultiple = config.smallMultiple;
+
     }
 
     init() {
@@ -30,9 +30,6 @@ class PieChartSum  {
         this.config.margin.bottom = (window.innerWidth > 640) ? 20 : 100;
         this.config.margin.left = 230;
         this.config.padding.top = 40;
-
-
-        this.config.currencyLabels = true;
 
         this.config.colours = d3.scaleOrdinal()
             .range([green,darkblue,blue,orange,grey]);
@@ -164,7 +161,7 @@ class PieChartSum  {
                 .attr("class", "small-label")
                 .attr("dx", legendWidth)
                 .attr("dy", (i * 20) + 2)
-                .text( (this.currency) ? convertToCurrency(d['value']) : d['value'])
+                .text( (this.config.currencyLabels) ? convertToCurrency(d['value']) : d['value'])
                 .attr("width", this.dimensions.svgWidth)
                 .style("opacity", 1)
                 .style("text-anchor", "end");
@@ -193,7 +190,7 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("dx", legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 2)
-                 .text( (this.currency) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
+                 .text( (this.config.currencyLabels) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
                  .attr("width", this.dimensions.svgWidth)
                  .style("opacity", 1)
                  .style("text-anchor", "end");
@@ -221,7 +218,7 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("dx", 200)
                  .attr("dy", ((data[0].length + 1.5) * 20) + 2)
-                 .text( (this.currency) ? convertToCurrency(data[2][0]['value']) : data[2][0]['value'])
+                 .text( (this.config.currencyLabels) ? convertToCurrency(data[2][0]['value']) : data[2][0]['value'])
                  .attr("width",this.dimensions.svgWidth)
                  .style("opacity", 1)
                  .style("text-anchor", "end");
