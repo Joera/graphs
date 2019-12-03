@@ -1,10 +1,12 @@
 class PieChartSum  {
 
 
-    constructor(elementID,dataMapping,property,segment,smallMultiple,currency) {
+    constructor(endpoint,elementID,dataMapping,config,property,segment,smallMultiple,currency) {
 
+        this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
+        this.config = config;
         this.dataMapping = dataMapping;
         this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
         this.segment = segment;
@@ -19,7 +21,7 @@ class PieChartSum  {
         this.municipalitySelect = document.querySelector('select.municipalities');
 
         let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+        this.config = Object.assign(this.config,chartObjects.config());
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.functions = chartObjects.functions();
@@ -31,7 +33,6 @@ class PieChartSum  {
 
 
         this.config.currencyLabels = true;
-        this.config.maxHeight = 300;
 
         this.config.colours = d3.scaleOrdinal()
             .range([green,darkblue,blue,orange,grey]);
@@ -45,7 +46,7 @@ class PieChartSum  {
         this.chartPie = ChartPie(this.config,this.svg,this.functions);
 
 
-        let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
         if (globalData.gemeentes) {
 

@@ -89,8 +89,13 @@
         ]
     ];
 
+    const config = {
 
-    let som = new PieChartSum('#container',dataMapping,'','all', false,true);
+
+    }
+
+
+    let som = new PieChartSum('/api/gemeentes','#container',config, dataMapping,'','all', false,true);
     som.init();
 </script>
 
