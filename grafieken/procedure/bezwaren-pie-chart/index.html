@@ -105,7 +105,13 @@
 
     ];
 
-    let bezwarenTaart = new PieChartSum('#container',dataMapping,'','all', false, false);
+
+    const config = {
+
+        smallMultiple : false
+    }
+
+    let bezwarenTaart = new PieChartSum('api/gemeentes','#container',config,dataMapping,'all');
     bezwarenTaart.init();
 
 </script>
