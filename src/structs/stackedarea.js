@@ -16,6 +16,8 @@ class StackedArea  {
         let self = this;
 
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
+        this.options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
+        this.columnArray = this.dataMapping.map( (map) => map.column );
 
         let chartObjects = ChartObjects();
         this.config = Object.assign(this.config,chartObjects.config());
@@ -49,7 +51,6 @@ class StackedArea  {
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartStackedBars = ChartStackedArea(this.config, this.svg);
 
-
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
 
@@ -71,19 +72,22 @@ class StackedArea  {
 
     }
 
-    prepareData(json,property)  {
+    prepareData(json)  {
 
         let data = [];
+        let mapping;
 
         for (let week of json) {
             let o = {};
-            for (let map of this.dataMapping)  {
+            for (let column of this.columnArray)  {
 
-                o[map.column] = week[map.column];
+                mapping = this.dataMapping.find( (map) => map.column === column);
+
+                o[column] = week[column];
                 o['_date'] = week['_date'];
                 o['_category'] = week['_category'];
-                o['label'] = map.label;
-                o['colour'] = map.colour;
+                o['label'] = mapping.label;
+                o['colour'] = mapping.colour;
             }
             data.push(o);
         }
@@ -92,11 +96,10 @@ class StackedArea  {
             return new Date(a['_date']) - new Date(b['_date']);
         });
 
-        data = data.filter( (week) => {
-
-            return week[property] !== null && week[property] > 0;
-        });
-
+        // data = data.filter( (week) => {
+        //
+        //     return week[property] !== null && week[property] > 0;
+        // });
 
         data = data.slice(1,data.length);
 
@@ -156,8 +159,19 @@ class StackedArea  {
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
 
-        for (let radio of this.radios) {
-            radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
+        for (let option of this.options) {
+            option.addEventListener( 'click', () => {
+
+                if (option.checked) {
+                    this.columnArray[this.columnArray.length] = option.value;
+                } else {
+                    let index = this.columnArray.indexOf(option.value);
+                    this.columnArray.splice(index,1);
+                }
+
+                this.run(json);
+
+            }, false)
         }
     }
 }
