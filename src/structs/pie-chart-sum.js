@@ -1,14 +1,13 @@
 class PieChartSum  {
 
 
-    constructor(endpoint,elementID,dataMapping,config,property,segment) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.config = config;
         this.dataMapping = dataMapping;
-        this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
         this.segment = segment;
         this.smallMultiple = config.smallMultiple;
 
