@@ -55,10 +55,12 @@
 
     ];
 
-    // let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
-    // besluiten.init();
+    const config = {
 
-    let rejectedPie = new PieChartSum('#container',dataMapping,'AFW','all',false,false);
+        smallMultiple : false
+    };
+
+    let rejectedPie = new PieChartSum('/api/gemeentes','#container',config,dataMapping,'all');
     rejectedPie.init();
 
 </script>
