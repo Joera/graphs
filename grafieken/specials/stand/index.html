@@ -73,7 +73,12 @@
 
     ];
 
-    let stand = new PieChartSum('#container',dataMapping,'','all', false, false);
+    const config = {
+
+        smallMultiple : false
+    }
+
+    let stand = new PieChartSum('/api/gemeentes','#container',config, dataMapping,'all');
     stand.init();
 </script>
 
