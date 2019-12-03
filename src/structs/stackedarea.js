@@ -75,11 +75,13 @@ class StackedArea  {
 
         let data = [];
         let mapping;
-        let legit = true;
+
 
         for (let week of json) {
             let o = {};
             for (let column of this.columnArray)  {
+
+                let legit = true;
 
                 mapping = this.dataMapping.find( (map) => map.column === column);
 
@@ -90,10 +92,10 @@ class StackedArea  {
                 o['colour'] = mapping.colour;
 
                 console.log(o[column]);
-                //
-                // if (o[column] < 1 || o[column] === null) {
-                //     legit = false;
-                // }
+
+                if (o[column] === null) {
+                    legit = false;
+                }
             }
 
             if(legit) {
