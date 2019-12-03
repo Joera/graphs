@@ -88,16 +88,21 @@ class Ballenbak {
         json = json.find( j => j['_category'] === muni);
 
         for (let group of this.dataMapping) {
-            for (let o of group) {
 
-                if (o.column && Number.isInteger(json[o.column] )) {
+            let o = [];
 
-                    o.value = json[o.column];
-                    flattenedData.push(json[o.column]);
+            for (let p of group) {
+
+                if (p.column && Number.isInteger(json[p.column] )) {
+
+                    p.value = json[o.column];
+                    flattenedData.push(json[p.column]);
                 }
 
-                data.push(o);
+                o.push(p);
             }
+
+            data.push(o);
         }
 
         return { data, flattenedData };
