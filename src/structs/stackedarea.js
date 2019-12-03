@@ -17,7 +17,17 @@ class StackedArea  {
 
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
         this.options = [].slice.call(document.querySelectorAll('.selector li input[type=checkbox]'));
-        this.columnArray = this.dataMapping.map( (map) => map.column );
+
+        if (this.config.customListener) {
+
+            this.columnArray = ['MELDING_CVW','MELDING_VOOR_WESTERWIJTWE','MELDING_NA_WESTERWIJTWERD','AFGEHANDELD_TOTAAL'];
+
+        } else {
+
+            this.columnArray = this.dataMapping.map( (map) => map.column );
+        }
+
+
 
         let chartObjects = ChartObjects();
         this.config = Object.assign(this.config,chartObjects.config());
