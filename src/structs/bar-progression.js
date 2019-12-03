@@ -1,6 +1,6 @@
 class BarProgression  {
 
-    constructor(endpoint,elementID,dataMapping,property,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,property,smallMultiple) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
