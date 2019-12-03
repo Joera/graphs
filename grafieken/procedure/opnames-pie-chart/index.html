@@ -92,8 +92,14 @@
 
     ];
 
-    let opnameTaart = new PieChartSum('#container',dataMapping,'','all', false, false);
+    const config = {
+
+        smallMultiple : false
+    };
+
+    let opnameTaart = new PieChartSum('/api/gemeentes','#container',config,dataMapping,'all');
     opnameTaart.init();
+    
 </script>
 
 
