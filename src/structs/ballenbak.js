@@ -82,15 +82,25 @@ class Ballenbak {
 
     prepareData(json,muni)  {
 
-        let data = {};
+        let data = [];
         let flattenedData = [];
 
 
-        json = json.filter( j => j['_category'] === muni)[0];
+        json = json.find( j => j['_category'] === muni);
 
-        for (let group of data) {
-            for (let prop of group) {
-                if (Number.isInteger(prop.value)) flattenedData.push(prop.value);
+
+        console.log(json);
+
+        for (let group of this.dataMapping) {
+            for (let o of group) {
+
+                o.value = json[o.column];
+                data.push(o);
+
+                if (Number.isInteger(json[o.column] )) {
+
+                    flattenedData.push(json[o.column]);
+                }
             }
         }
 
