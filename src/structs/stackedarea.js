@@ -89,7 +89,7 @@ class StackedArea  {
                 o['label'] = mapping.label;
                 o['colour'] = mapping.colour;
 
-                if (o[column] < 1 || o[column] === null) {
+                if (o[column] > 0 || o[column] === null) {
                     legit = false;
                 }
             }
