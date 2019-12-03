@@ -95,9 +95,6 @@ class StackedArea  {
         let data = [];
         let mapping;
 
-
-        console.log(this.columnArray);
-
         for (let week of json) {
             let o = {};
             let legit = true;
