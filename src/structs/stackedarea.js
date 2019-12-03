@@ -59,6 +59,7 @@ class StackedArea  {
         if (globalData.weeks) {
 
             this.run(globalData.weeks)
+            self.setListeners(globalData.weeks);
 
         } else {
 
@@ -66,9 +67,27 @@ class StackedArea  {
                 if (error) throw error;
                 globalData.weeks = json;
                 self.run(json);
+                self.setListeners(json);
             });
         }
+    }
 
+    setListeners(json) {
+
+        for (let option of this.options) {
+            option.addEventListener( 'click', () => {
+
+                if (option.checked) {
+                    this.columnArray[this.columnArray.length] = option.value;
+                } else {
+                    let index = this.columnArray.indexOf(option.value);
+                    this.columnArray.splice(index,1);
+                }
+
+                this.run(json);
+
+            }, false)
+        }
     }
 
     prepareData(json)  {
@@ -169,21 +188,5 @@ class StackedArea  {
 
         window.addEventListener("resize", () => self.redraw(stackedData), false);
 
-        for (let option of this.options) {
-            option.addEventListener( 'click', () => {
-
-                console.log('click');
-
-                if (option.checked) {
-                    this.columnArray[this.columnArray.length] = option.value;
-                } else {
-                    let index = this.columnArray.indexOf(option.value);
-                    this.columnArray.splice(index,1);
-                }
-
-                this.run(json);
-
-            }, false)
-        }
     }
 }
