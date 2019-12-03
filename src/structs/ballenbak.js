@@ -141,7 +141,7 @@ class Ballenbak {
     redraw() {
 
         // on redraw chart gets new dimensions
-        this.dimensions = this.chartDimensions.get(dimensions);
+        this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG.redraw(this.dimensions);
 
         this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
