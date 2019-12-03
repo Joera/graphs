@@ -1,6 +1,6 @@
 class BarProgression  {
 
-    constructor(endpoint,elementID,dataMapping,config,property) {
+    constructor(endpoint,elementID,dataMapping,property,smallMultiple) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
@@ -8,7 +8,7 @@ class BarProgression  {
         this.config = config;
         this.dataMapping = dataMapping;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
-        this.smallMultiple = config.smallMultiple;
+        this.smallMultiple = smallMultiple;
     }
 
     init() {
@@ -28,6 +28,7 @@ class BarProgression  {
 
         this.config.padding.top = 20;
         this.config.margin.bottom = 15;
+
         this.config.padding.left = 40;
 
         this.config.paddingInner = 0;
