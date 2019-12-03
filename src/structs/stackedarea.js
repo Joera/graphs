@@ -77,6 +77,8 @@ class StackedArea  {
         let mapping;
 
 
+        console.log(this.columnArray);
+
         for (let week of json) {
             let o = {};
             let legit = true;
@@ -151,9 +153,6 @@ class StackedArea  {
     }
 
     draw(data,stackedData) {
-
-        console.log(data);
-
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
         this.chartStackedArea.draw(data,stackedData);
     }
