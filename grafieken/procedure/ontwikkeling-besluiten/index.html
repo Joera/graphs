@@ -80,10 +80,8 @@
         barWidth : 12
     }
 
-    // let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
-    // besluiten.init();
 
-    let besluiten = new MultiBarProgression('/api/gemeentes','#container',config,dataMapping,'AFGEHANDELD_TOTAAL','all',false);
+    let besluiten = new MultiBarProgression('/api/data','#container',config,dataMapping,'AFGEHANDELD_TOTAAL','all');
     besluiten.init();
 
 </script>
