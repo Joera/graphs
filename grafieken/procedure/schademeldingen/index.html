@@ -13,7 +13,6 @@
 
 
 <script src="/assets/scripts/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
 <script src="/assets/scripts/moment.min.js"></script>
 <script src="/assets/scripts/main.js"></script>
 
@@ -21,27 +20,8 @@
 <body id="meldingen" class="single-graph">
 <main>
 
-    <!--<h2>Schademeldingen</h2>-->
-    <!--<span></span>-->
     <div id="container" class="container"></div>
 
-    <!--<div class="selector">-->
-        <!--<ul class="properties radios">-->
-            <!--<li>-->
-                <!--<input type="radio" id="schademeldingen" data-active-colour="orange" name="property" value="schademeldingen" checked>-->
-                <!--<label for="schademeldingen">Schademeldingen</label>-->
-            <!--</li>-->
-            <!--<li>-->
-                <!--<input type="radio" id="aos_meldingen" data-active-colour="darkblue" name="property" value="aos_meldingen">-->
-                <!--<label for="aos_meldingen">AOS meldingen</label>-->
-            <!--</li>-->
-
-            <!--<li>-->
-                <!--<input type="radio" id="gegronde_aos" data-active-colour="green" name="property" value="gegronde_aos">-->
-                <!--<label for="gegronde_aos">Gegronde AOS</label>-->
-            <!--</li>-->
-        <!--</ul>-->
-    <!--</div>-->
 
 </main>
 </body>
@@ -63,7 +43,13 @@
         }
     ];
 
-    let schadeMeldingen = new BarProgression('#container',dataMapping,'schademeldingen','all',false);
+    const config = {
+
+            minValue : 26000,
+            xParameter : '_date'
+    }
+
+    let schadeMeldingen = new BarProgression('/api/data','#container',config,dataMapping,'schademeldingen','all');
     schadeMeldingen.init();
 </script>
 
