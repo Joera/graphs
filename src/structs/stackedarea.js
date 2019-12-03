@@ -103,12 +103,10 @@ class StackedArea  {
             return new Date(a['_date']) - new Date(b['_date']);
         });
 
-        data = data.filter( (week) => {
-
-            if()
-
-            return week[property] !== null && week[property] > 0;
-        });
+        // data = data.filter( (week) => {
+        //
+        //     return week[property] !== null && week[property] > 0;
+        // });
 
         data = data.slice(1,data.length);
 
