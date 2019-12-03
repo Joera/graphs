@@ -78,7 +78,7 @@ class StackedBarProgression  {
             let o = {};
             for (let map of this.dataMapping)  {
 
-                o[map.column] = week[map.column];
+                o[map.column] = (week[map.column] > -1) ? week[map.column] : 0;
                 o['_date'] = week['_date'];
                 o['_category'] = week['_category'];
                 o['label'] = map.label;

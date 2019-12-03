@@ -1,9 +1,11 @@
 class BandBars {
 
-    constructor(elementID,dataMapping,property,segment,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,property,segment,smallMultiple) {
 
+        this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
+        this.config = config;
         this.dataMapping = dataMapping;
         this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
         this.segment = segment;
@@ -18,14 +20,13 @@ class BandBars {
         this.municipalitySelect = document.querySelector('select.municipalities');
 
         let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+        this.config = Object.assign(this.config,chartObjects.config());
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
         this.yScale = chartObjects.yScale();
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
-
 
         this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 125 : 50;
         this.config.margin.top = this.smallMultiple? 30 : 45;
@@ -54,7 +55,7 @@ class BandBars {
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
 
-        let url = 'https://tcmg-hub.publikaan.nl/api/gemeentes';
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
         if (globalData.municipalities) {
 
@@ -68,7 +69,6 @@ class BandBars {
                 self.run(json,self.segment);
             });
         }
-
     }
 
     prepareData(json,segment)  {
@@ -88,7 +88,6 @@ class BandBars {
                 }
             )
         }
-
 
         return data;
     }

@@ -1,4 +1,4 @@
-let ChartStackedArea = function ChartStackedBars(config,svg,functions) {
+let ChartStackedArea = function ChartStackedArea(config,svg,functions) {
 
 
     let prevArea = false;
