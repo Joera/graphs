@@ -75,6 +75,7 @@ class StackedArea  {
 
         let data = [];
         let mapping;
+        let legit = true;
 
         for (let week of json) {
             let o = {};
@@ -87,18 +88,27 @@ class StackedArea  {
                 o['_category'] = week['_category'];
                 o['label'] = mapping.label;
                 o['colour'] = mapping.colour;
+
+                if (o[column] < 1 || o[column] === null) {
+                    legit = false;
+                }
             }
-            data.push(o);
+
+            if(legit) {
+                data.push(o);
+            }
         }
 
         data.sort(function(a, b) {
             return new Date(a['_date']) - new Date(b['_date']);
         });
 
-        // data = data.filter( (week) => {
-        //
-        //     return week[property] !== null && week[property] > 0;
-        // });
+        data = data.filter( (week) => {
+
+            if()
+
+            return week[property] !== null && week[property] > 0;
+        });
 
         data = data.slice(1,data.length);
 

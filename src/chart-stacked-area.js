@@ -1,6 +1,5 @@
 let ChartStackedArea = function ChartStackedArea(config,svg,functions) {
 
-
     let prevArea = false;
 
     let init = function draw(stackedData) {
