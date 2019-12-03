@@ -73,7 +73,7 @@ class StackedArea  {
                 globalData.weeks = json;
                 self.run(json);
 
-                if (this.config.customListener) {
+                if (self.config.customListener) {
                     self.customListeners(json);
                 } else {
                     self.setListeners(json);
