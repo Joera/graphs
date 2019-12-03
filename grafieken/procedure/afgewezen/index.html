@@ -54,10 +54,14 @@
 
     ];
 
-    // let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
-    // besluiten.init();
+    const config = {
 
-    let rejected = new BarProgression('#container',dataMapping,'AFW','all',false);
+        smallMultiple : false,
+        minValue : 26000,
+        xParameter : '_date'
+    }
+
+    let rejected = new BarProgression('/api/data','#container', config, dataMapping,'AFW','all');
     rejected.init();
 
 </script>
