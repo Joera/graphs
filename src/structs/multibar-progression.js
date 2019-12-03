@@ -1,12 +1,13 @@
 class MultiBarProgression  {
 
-    constructor(elementID,dataMapping,property,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,property) {
 
+        this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.property = property;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
     }
 
     init() {
@@ -29,19 +30,10 @@ class MultiBarProgression  {
         this.config.padding.left = 40;
         this.config.padding.right = 20;
 
-        this.config.minValue = 0;
-
-        this.config.xParameter = '_date';
-        this.config.xScaleType = 'time';
-        this.config.xScaleTicks ='timeMonth';
-        this.config.yScaleType = 'linear';
-
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
 
-        this.config.barWidth = 12;
-
-        if (this.smallMultiple) {
+        if (this.config.smallMultiple) {
             this.config.dataArrayLength = 7;
         }
 
@@ -60,7 +52,7 @@ class MultiBarProgression  {
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
 
-        let url = 'https://tcmg-hub.publikaan.nl/api/data';
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
         if (globalData.weeks) {
 
