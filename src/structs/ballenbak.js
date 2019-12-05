@@ -17,6 +17,7 @@ class Ballenbak {
         let self = this;
 
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
+        this.municipalitySelect = document.querySelector('select.municipalities');
 
         let chartObjects = ChartObjects();
         this.config = Object.assign(this.config,chartObjects.config());
@@ -152,8 +153,10 @@ class Ballenbak {
 
         window.addEventListener("resize", () => self.redraw(json, muni), false);
 
-        for (let radio of this.radios) {
-            radio.addEventListener( 'change', () => self.run(data,radio.value),false);
+        if(this.municipalitySelect != null) {
+            this.municipalitySelect.addEventListener("change", function () {
+                self.run(json,self.municipalitySelect.options[self.municipalitySelect.selectedIndex].value);
+            });
         }
     }
 
