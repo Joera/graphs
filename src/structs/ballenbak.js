@@ -140,6 +140,8 @@ class Ballenbak {
 
     run(json, muni) {
 
+        console.log('BBS');
+
         let self = this;
         let { data, flattenedData } = this.prepareData(json,muni);
         this.draw(data, flattenedData);
