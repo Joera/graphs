@@ -152,11 +152,8 @@ class Ballenbak {
         let self = this;
         let { data, flattenedData } = this.prepareData(json,muni);
         this.draw(data, flattenedData);
-        setTimeout(
-            () => {
-                self.redraw(self.dimensions,self.yScale,self.xScale,self.config.smallMultiple);
-            }
-        )
+
+        this.redraw(this.dimensions,this.yScale,this.xScale,this.config.smallMultiple);
 
         this.legend(data);
 
