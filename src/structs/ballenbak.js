@@ -97,7 +97,7 @@ class Ballenbak {
 
                     p.value = json[p.column];
                     flattenedData.push(json[p.column]);
-                }
+                } 
 
                 o.push(p);
             }
@@ -156,7 +156,6 @@ class Ballenbak {
         this.redraw(this.dimensions,this.yScale,this.xScale,this.config.smallMultiple);
 
         this.legend(data);
-
 
         window.addEventListener("resize", () => self.redraw(json, muni), false);
 

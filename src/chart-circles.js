@@ -61,7 +61,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .style("fill","black");
 
         for (let group of data) {
-            simulation[group[0].column] = d3.forceSimulation()
+            simulation[group[0].slug] = d3.forceSimulation()
                 .velocityDecay(0.25)
                 .nodes(group.filter( (prop) => prop.key !== 'status'));
         }
@@ -80,8 +80,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
     }
 
     let redraw = function redraw(dimensions,yScale,xScale,smallMultiple) {
-
-        console.log(data.length);
 
         let groupWidth = dimensions.width / data.length;
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
@@ -158,15 +156,15 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         data.forEach( (group,i) => {
 
-            simulation[group[0].column]
+            simulation[group[0].slug]
                 .velocityDecay(0.5)
                 // .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('center', d3.forceCenter(center.x,center.y))
                // .force('charge', d3.forceManyBody().strength(cluster))
-               //  .force('collide', d3.forceCollide().radius(function(d) {
-               //      return yScale.radius(d.value)
-               //  }))
-               //  .force('x', d3.forceX().strength(forceStrength).x(center.x))
+                .force('collide', d3.forceCollide().radius(function(d) {
+                    return yScale.radius(d.value)
+                }))
+                .force('x', d3.forceX().strength(forceStrength).x(center.x))
                 .on('tick', ticked);
         });
     }
