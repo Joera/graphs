@@ -16,15 +16,6 @@ class Ballenbak {
 
         let self = this;
 
-        let colours = {
-
-            'agro': green,
-            'erfgoed': yellow,
-            'mkb': blue,
-            'overig': orange
-        };
-
-
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
@@ -160,7 +151,7 @@ class Ballenbak {
         window.addEventListener("resize", () => self.redraw(json, muni), false);
 
         for (let radio of this.radios) {
-            radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
+            radio.addEventListener( 'change', () => self.run(data,radio.value),false);
         }
     }
 
