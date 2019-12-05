@@ -96,6 +96,7 @@ class Ballenbak {
                 if (p.column && Number.isInteger(json[p.column] )) {
 
                     p.value = json[p.column];
+                    console.log(p);
                     flattenedData.push(json[p.column]);
                 }
 
