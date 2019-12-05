@@ -35,7 +35,7 @@ var ballenbakSpecials  = function (element,smallMultiple) {
         'mkb': blue,
         'overig': orange
     };
-    
+
     // get dimensions from parent element
     let chartDimensions = new ChartDimensions(element, config);
     dimensions = chartDimensions.get(dimensions);

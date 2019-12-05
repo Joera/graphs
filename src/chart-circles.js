@@ -155,7 +155,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         data.forEach( (group,i) => {
 
-            simulation[group[0].value]
+            simulation[group[0].column]
                 .velocityDecay(0.5)
                 // .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('center', d3.forceCenter(center.x,center.y))
