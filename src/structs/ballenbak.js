@@ -97,7 +97,7 @@ class Ballenbak {
 
                     p.value = json[p.column];
                     flattenedData.push(json[p.column]);
-                } 
+                }
 
                 o.push(p);
             }
