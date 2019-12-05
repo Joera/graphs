@@ -85,7 +85,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
         let forceStrength = 0.025;
 
-        console.log(groupWidth);
+
 
         let popup = function popup(d) {
             return d.label + '<br/>' + d.value;
@@ -103,7 +103,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
 
         svg.circleGroupsEnter.merge(svg.circleGroups)
-            .attr("transform", (d) => { return "translate(" + center.x + "," + center.y + ")" })
+            .attr("transform", (d) => {  console.log(center); return "translate(" + center.x + "," + center.y + ")" })
         ;
 
         svg.circles
