@@ -62,9 +62,9 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .style("fill","black");
 
         for (let group of data) {
-            simulation[group[0].value] = d3.forceSimulation()
+            simulation[group[0].column] = d3.forceSimulation()
                 .velocityDecay(0.25)
-                .nodes(group.filter( (prop) => prop.key !== 'status'));
+                .nodes(group.filter( (prop) => prop.column !== 'status'));
         }
 
         svg.headers = svg.headerGroupEnter.merge(svg.headerGroup)
@@ -72,7 +72,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .attr("class","header")
             .text( (d,i) => {
 
-                return (window.innerWidth < 640) ? (i + 1) : d[0].name
+                return (window.innerWidth < 640) ? (i + 1) : d[0].label
 
             })
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)

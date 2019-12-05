@@ -101,7 +101,6 @@ class Ballenbak {
 
                 o.push(p);
             }
-
             data.push(o);
         }
 
