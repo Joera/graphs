@@ -92,12 +92,12 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         svg.groupEnter.merge(svg.group)
             .attr("transform", (d) => {
-                return "translate(" + xScale.band(d[0].value) + ", " + config.padding.top + ")"
+                return "translate(" + xScale.band(d[0].label) + ", " + config.padding.top + ")"
             });
 
         svg.headerGroupEnter.merge(svg.headerGroup)
             .attr("transform", (d) => {
-                return "translate(" + xScale.band(d[0].value) + "," + config.padding.top + ")"
+                return "translate(" + xScale.band(d[0].label) + "," + config.padding.top + ")"
             });
 
 
