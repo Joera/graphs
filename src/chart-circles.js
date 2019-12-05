@@ -62,7 +62,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .style("fill","black");
 
         for (let group of data) {
-            simulation[group[0].slug] = d3.forceSimulation()
+            simulation[group[0].key] = d3.forceSimulation()
                 .velocityDecay(0.25)
                 .nodes(group.filter( (prop) => prop.key !== 'status'));
         }
@@ -157,7 +157,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         data.forEach( (group,i) => {
 
-            simulation[group[0].slug]
+            simulation[group[0].key]
                 .velocityDecay(0.5)
                 // .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('center', d3.forceCenter(center.x,center.y))
