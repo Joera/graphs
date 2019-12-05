@@ -130,6 +130,7 @@ class Ballenbak {
 
     draw(data,flattenedData) {
 
+        console.log(data.map( (d) => d[0].label));
         console.log(data);
 
         // with data we can init scales
