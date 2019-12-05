@@ -95,7 +95,7 @@ class Ballenbak {
 
                 if (p.column && Number.isInteger(json[p.column] )) {
 
-                    p.value = json[o.column];
+                    p.value = json[p.column];
                     flattenedData.push(json[p.column]);
                 }
 
