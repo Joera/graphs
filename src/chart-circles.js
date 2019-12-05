@@ -152,7 +152,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         function ticked() {
 
             svg.circleGroupsEnter.merge(svg.circleGroups)
-                .attr("transform", (d) => { return "translate(" + d.x + "," + d.y + ")" })
+                .attr("transform", (d) => { console.log(d.x); return "translate(" + d.x + "," + d.y + ")" })
             ;
         }
 
