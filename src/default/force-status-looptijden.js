@@ -206,8 +206,6 @@ var forceStatusLooptijden  = function (element,smallMultiple) {
 
     let popup = function popup(d) {
 
-        console.log(d);
-
         return d.name + '<br/>' + d.value;
     }
 
