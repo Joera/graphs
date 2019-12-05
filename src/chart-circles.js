@@ -86,7 +86,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         let forceStrength = 0.025;
 
         let popup = function popup(d) {
-            return d.name + '<br/>' + d.value;
+            return d.label + '<br/>' + d.value;
         }
 
         svg.groupEnter.merge(svg.group)
@@ -148,7 +148,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         function ticked() {
 
             svg.circleGroupsEnter.merge(svg.circleGroups)
-                .attr("transform", (d) => { console.log(d); return "translate(" + d.x + "," + d.y + ")" })
+                .attr("transform", (d) => { return "translate(" + d.x + "," + d.y + ")" })
             ;
         }
 
