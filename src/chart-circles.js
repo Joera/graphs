@@ -64,7 +64,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         for (let group of data) {
             simulation[group[0].key] = d3.forceSimulation()
                 .velocityDecay(0.25)
-                .nodes(group.filter( (prop) => { return (prop.key !== 'status'  && prop.value > 0) } ));
+                .nodes(group.filter( (prop) => { return prop.key !== 'status' && prop.value > 0 } ));
         }
 
         svg.headers = svg.headerGroupEnter.merge(svg.headerGroup)
