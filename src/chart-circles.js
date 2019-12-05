@@ -7,7 +7,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     let draw = function draw(d) {
 
-
         data = d;
 
         svg.headerGroup = svg.layers.underData.selectAll('.headerGroup')
@@ -31,7 +30,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         svg.circleGroups = svg.groupEnter.merge(svg.group)
             .selectAll(".circleGroup")
             .data( d => {
-                return d.filter( e => { return e.key !== 'status' && e.value > 0});
+                return d.filter( e => { console.log(e); return e.key !== 'status' && e.value > 0});
             });
 
         svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
@@ -52,7 +51,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .append("circle")
             .attr("class","circle")
             .style("fill", function(d) {
-                return colours[d.key];
+                return d.colour;
             });
 
         svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)

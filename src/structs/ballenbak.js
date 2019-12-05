@@ -129,9 +129,6 @@ class Ballenbak {
 
     draw(data,flattenedData) {
 
-        console.log(data.map( (d) => d[0].label));
-        console.log(flattenedData);
-
         // with data we can init scales
         this.xScale = this.chartXScale.set(data.map( (d) => d[0].label));
         this.yScale = this.chartYScale.set(flattenedData) // = radius !!
