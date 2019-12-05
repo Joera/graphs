@@ -154,7 +154,7 @@ class Ballenbak {
         this.draw(data, flattenedData);
         setTimeout(
             () => {
-                self.redraw();
+                self.redraw(self.dimensions,self.yScale,self.xScale,self.config.smallMultiple);
             }
         )
 
