@@ -1,6 +1,6 @@
 class CijfersLine  {
 
-    constructor(endpoint,elementID,dataMapping,config,segment) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
@@ -51,7 +51,7 @@ class CijfersLine  {
         this.dimensions = this.chartDimensions.get(this.dimensions);
 
         // create svg elements without data
-        let url = 'https://tcmg-hub.publikaan.nl/api/data';
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
         if (globalData.weeks) {
 
