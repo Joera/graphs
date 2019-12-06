@@ -96,10 +96,12 @@
 
     for (var i = 0; i < Object.values(dataMapping).length; i++) {
 
-        console.log(Object.entries(dataMapping));
+        let map = {};
+        map[Object.entries(dataMapping)[i][0]] = Object.entries(dataMapping)[i][1];
 
 
-        let cijfersLine = new CijfersLine('/api/data','.container', config, dataMapping[i], 'all', false)
+
+        let cijfersLine = new CijfersLine('/api/data','.container', config, map, 'all', false)
         cijfersLine.init();
     }
 
