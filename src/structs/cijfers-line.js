@@ -55,15 +55,14 @@ class CijfersLine  {
 
         if (globalData.weeks) {
 
-            this.run(globalData.weeks,this.property)
+            this.run(globalData.weeks,this.segment)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                console.log(json);
                 globalData.weeks = json;
-                self.run(json,self.property);
+                self.run(json,self.segment);
             });
         }
 
