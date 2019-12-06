@@ -96,6 +96,9 @@
 
     for (var i = 0; i < Object.values(dataMapping).length; i++) {
 
+        console.log(dataMapping[i]);
+
+
         let cijfersLine = new CijfersLine('/api/data','.container', config, dataMapping[i], 'all', false)
         cijfersLine.init();
     }

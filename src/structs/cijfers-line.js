@@ -214,30 +214,30 @@ class CijfersLine  {
 
         console.log(this.dataMapping);
 
-        if (Array.isArray(this.dataMapping))  {
-            // single balletje voor small multiples (dashboard)
-            console.log(self.dataMapping);
-
-            this.element.appendChild(self.singleNumber(self.dataMapping));
-            this.initSingle();
-            let data = this.prepareData(json,this.dataMapping[0].column);
-            this.draw(data,this.segment);
-            this.redraw(data,this.segment);
-
-        } else {
-
-            // multiple balletjes (website)
-            for (let item of Object.values(this.dataMapping)) {
-
-                let article = document.createElement('article');
-                article.classList.add('cijfer');
-                article.appendChild(this.singleNumber(item));
-                this.element.appendChild(article);
-                let data = this.prepareData(json,item.column);
-                this.draw(data,this.segment);
-                this.redraw(data,this.segment);
-            }
-        }
+        // if (Array.isArray(this.dataMapping))  {
+        //     // single balletje voor small multiples (dashboard)
+        //     console.log(self.dataMapping);
+        //
+        //     this.element.appendChild(self.singleNumber(self.dataMapping));
+        //     this.initSingle();
+        //     let data = this.prepareData(json,this.dataMapping[0].column);
+        //     this.draw(data,this.segment);
+        //     this.redraw(data,this.segment);
+        //
+        // } else {
+        //
+        //     // multiple balletjes (website)
+        //     for (let item of Object.values(this.dataMapping)) {
+        //
+        //         let article = document.createElement('article');
+        //         article.classList.add('cijfer');
+        //         article.appendChild(this.singleNumber(item));
+        //         this.element.appendChild(article);
+        //         let data = this.prepareData(json,item.column);
+        //         this.draw(data,this.segment);
+        //         this.redraw(data,this.segment);
+        //     }
+        // }
 
 
 
