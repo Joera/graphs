@@ -1,13 +1,15 @@
 class CijfersLine  {
 
-    constructor(elementID,dataMapping,property,segment,smallMultiple) {
+    constructor(endpoint,elementID,dataMapping,config,segment) {
 
+        this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
+        this.config = config;
         this.dataMapping = dataMapping;
         this.segment = segment;
      //   this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
 
     }
 
@@ -18,7 +20,7 @@ class CijfersLine  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+        this.config = Object.assign(this.config,chartObjects.config());
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -44,15 +46,11 @@ class CijfersLine  {
             this.config.dataArrayLength = 7;
         }
 
-
-
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
 
         // create svg elements without data
-
-
         let url = 'https://tcmg-hub.publikaan.nl/api/data';
 
         if (globalData.weeks) {
