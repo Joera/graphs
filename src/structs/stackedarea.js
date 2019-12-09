@@ -68,7 +68,8 @@ class StackedArea  {
 
         if (globalData.weeks) {
 
-            this.run(globalData.weeks)
+            this.run(globalData.weeks);
+            this.legend(globalData.weeks);
 
             if (this.config.customListener) {
                 self.customListeners(json);
@@ -82,6 +83,7 @@ class StackedArea  {
                 if (error) throw error;
                 globalData.weeks = json;
                 self.run(json);
+                self.legend(globalData.weeks);
 
                 if (self.config.customListener) {
                     self.customListeners(json);
@@ -257,7 +259,7 @@ class StackedArea  {
         // this.chartStackedArea.init(stackedData);
         this.draw(data,stackedData);
         this.redraw(stackedData);
-        this.legend(data);
+
 
         window.addEventListener("resize", () => self.redraw(stackedData), false);
 
