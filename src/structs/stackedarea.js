@@ -144,6 +144,15 @@ class StackedArea  {
         }
     }
 
+    legend(data) {
+
+        console.log(data);
+
+        this.options.forEach( (option) => {
+            option.nextElementSibling.innerText += ': ' + data[0][option.id];
+        })
+    }
+
 
     setCheckboxes(propertyArray) {
 
@@ -248,7 +257,7 @@ class StackedArea  {
         // this.chartStackedArea.init(stackedData);
         this.draw(data,stackedData);
         this.redraw(stackedData);
-        // legend(data);
+        this.legend(data);
 
         window.addEventListener("resize", () => self.redraw(stackedData), false);
 
