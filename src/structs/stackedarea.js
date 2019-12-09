@@ -149,7 +149,7 @@ class StackedArea  {
         console.log(data);
 
         this.options.forEach( (option) => {
-            option.nextElementSibling.innerText += ': ' + data[0][option.id];
+            option.nextElementSibling.innerText += ': ' + data[data.length - 1][option.id];
         })
     }
 
