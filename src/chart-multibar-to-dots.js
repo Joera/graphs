@@ -21,6 +21,20 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
 
                 return "bar  " + d.colour + " " + d.property;  // + colours[i]; // + sluggify(d.status) + "
             });
+
+
+        svg.circles = svg.layers.data.selectAll(".circle")
+            .data(data.filter( (d) => { return d.timeframe === 'week' }));
+
+        svg.circles.exit().remove();
+
+        svg.circlesEnter = svg.circles
+            .enter()
+            .append("circle")
+            .attr("class", function(d,i) {
+
+                return "circle  " + d.colour + " " + d.property; 
+            });
     }
 
     let redraw = function redraw(dimensions,xScale,yScale,property) {
