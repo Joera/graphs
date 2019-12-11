@@ -66,14 +66,14 @@ class MultiBarWithIncrement  {
 
         if (globalData.weeks) {
 
-            this.run(globalData.weeks,this.property)
+            this.run(globalData.weeks,'totals')
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
                 globalData.weeks = json;
-                self.run(json,self.property);
+                self.run(json,'totals');
             });
         }
 
