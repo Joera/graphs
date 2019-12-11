@@ -85,7 +85,7 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
 
                 offset = (i % 2) ? 0 : - (config.barWidth + 0);
 
-                return xScale[config.xScaleType](new Date(d[config.xParameter])) + offset;
+                return xScale[config.xScaleType](new Date(d[config.xParameter]));
             })
             .attr("cy", function(d) { return dimensions.height; })
             .attr("clip-path", "url(#clip)")
