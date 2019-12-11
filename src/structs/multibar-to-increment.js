@@ -27,7 +27,7 @@ class MultiBarWithIncrement  {
         this.functions = chartObjects.functions();
 
         this.config.padding.top = 20;
-        this.config.padding.bottom = 60;
+        this.config.padding.bottom = 80;
         this.config.padding.left = 40;
         this.config.padding.right = 20;
 
@@ -58,6 +58,8 @@ class MultiBarWithIncrement  {
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartMultiBarsPlus = ChartMultiBarsToDots(this.config, this.svg);
         this.chartLegend = ChartLegend(this.config, this.svg);
+
+        this.chartSVG.tooltip.attr('width',this.config.tooltipWidth);
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
