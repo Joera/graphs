@@ -27,7 +27,7 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
 
 
         svg.circles = svg.layers.data.selectAll(".circle")
-            .data(data.filter( (d) => { return d.timeframe === 'week' }));
+            .data(data.filter( (d) => { return (d.timeframe === 'week' && d.value > 0) }));
 
         svg.circles.exit().remove();
 
