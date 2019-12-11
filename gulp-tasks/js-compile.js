@@ -36,6 +36,7 @@ module.exports = function() {
             './src/chart-ragged-line.js',
             './src/chart-bar.js',
             './src/chart-multibar.js',
+            './src/chart-multibar-to-dots.js',
             './src/chart-bar-vertical.js',
             './src/chart-bars-increase.js',
             './src/chart-stacked-bars.js',

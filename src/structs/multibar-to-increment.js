@@ -56,7 +56,7 @@ class MultiBarWithIncrement  {
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartMultiBars = ChartMultiBars(this.config, this.svg);
+        this.chartMultiBarsPlus = ChartMultiBarsToDots(this.config, this.svg);
         this.chartLegend = ChartLegend(this.config, this.svg);
 
         this.chartAxis.drawXAxis();
@@ -100,14 +100,9 @@ class MultiBarWithIncrement  {
 
                     console.log(timeframe);
 
-                    if (timeframe === 'totals' && column.indexOf('nieuwe_') < 0) {
+                    o['property'] = column;
 
-                        o['property'] = column;
-
-                    } else if (timeframe === 'week' && column.indexOf('nieuwe_') > -1) {
-
-                        o['property'] = column;
-                    }
+                    ol['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
 
                     o[column] = week[column];
                     o['colour'] = mapping[0].colour;
@@ -130,13 +125,11 @@ class MultiBarWithIncrement  {
 
         data = data.slice(data.length - arrayLength,data.length);
 
-        console.log(data);
-
         return data;
     }
 
 
-    redraw(data) {
+    redraw(data,timeframe) {
 
         let colour = blue; // this.dataMapping.find((m) => m.column === property)['colour'];
 
@@ -153,15 +146,14 @@ class MultiBarWithIncrement  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartMultiBars.redraw(this.dimensions,this.xScale,this.yScale,this.config.yParameter);
+        this.chartMultiBarsPlus.redraw(this.dimensions,this.xScale,this.yScale,this.config.yParameter);
     }
 
-    draw(data) {
+    draw(data,timeframe) {
 
         this.xScale = this.chartXScale.set(data.map(d => { return d[this.config.xParameter] }));
 
-        // to loop here?
-        this.chartMultiBars.draw(data);
+        this.chartMultiBarsPlus.draw(data);
     }
 
     setYParameter(timeframe) {
@@ -183,8 +175,8 @@ class MultiBarWithIncrement  {
         this.setYParameter(timeframe);
 
         let data = this.prepareData(json,timeframe);
-        this.draw(data);
-        this.redraw(data);
+        this.draw(data,timeframe);
+        this.redraw(data,timeframe);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data), false);
