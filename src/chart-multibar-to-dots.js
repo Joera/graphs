@@ -122,6 +122,24 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             })// add
 
         ;
+
+        svg.circles
+            .merge(svg.circlesEnter)
+            .on("mouseover", function(d) {
+
+                svg.tooltip
+                    .html(popup(d))
+                    .style("left", (d3.event.pageX - config.tooltipWidth) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })// add
     }
 
 
