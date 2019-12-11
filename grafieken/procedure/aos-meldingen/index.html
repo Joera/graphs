@@ -77,8 +77,20 @@
         ]
     ];
 
+    const config = {
 
-    let aosmeldingen = new MultiBarWithIncrement('#container',dataMapping,'aos_meldingen','all',false);
+        smallMultiple : false,
+        minValue : 0,
+        xParameter :'_date',
+        yParameter: 'aos_meldingen',
+        xScaleType : 'time',
+        xScaleTicks :'timeMonth',
+        yScaleType : 'linear',
+        barWidth : 12
+    }
+
+
+    let aosmeldingen = new MultiBarWithIncrement('/api/data','#container',config,dataMapping,'all');
     aosmeldingen.init();
 </script>
 

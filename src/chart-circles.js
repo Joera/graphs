@@ -7,7 +7,6 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
     let draw = function draw(d) {
 
-
         data = d;
 
         svg.headerGroup = svg.layers.underData.selectAll('.headerGroup')
@@ -31,7 +30,8 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         svg.circleGroups = svg.groupEnter.merge(svg.group)
             .selectAll(".circleGroup")
             .data( d => {
-                return d.filter( e => { return e.key !== 'status' && e.value > 0});
+                return d.slice(1,d.length);
+                // return d.filter( e => { return e.key !== 'status' && e.value > 0});
             });
 
         svg.headers_lines = svg.headerGroupEnter.merge(svg.headerGroup)
@@ -52,7 +52,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .append("circle")
             .attr("class","circle")
             .style("fill", function(d) {
-                return colours[d.key];
+                return d.colour;
             });
 
         svg.circlesText = svg.circleGroupsEnter.merge(svg.circleGroups)
@@ -62,9 +62,9 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .style("fill","black");
 
         for (let group of data) {
-            simulation[group[0].value] = d3.forceSimulation()
+            simulation[group[0].key] = d3.forceSimulation()
                 .velocityDecay(0.25)
-                .nodes(group.filter( (prop) => prop.key !== 'status'));
+                .nodes(group.filter( (prop) => { return prop.key !== 'status' && prop.value > 0 } ));
         }
 
         svg.headers = svg.headerGroupEnter.merge(svg.headerGroup)
@@ -72,7 +72,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             .attr("class","header")
             .text( (d,i) => {
 
-                return (window.innerWidth < 640) ? (i + 1) : d[0].name
+                return (window.innerWidth < 640) ? (i + 1) : d[0].label
 
             })
             .attr('dy', (d,i) => (i % 2 == 0) ? 0 : 24)
@@ -86,23 +86,25 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
         let center = {x: (groupWidth / 2) , y: ((dimensions.height / 2) + 20) };
         let forceStrength = 0.025;
 
+
+
         let popup = function popup(d) {
-            return d.name + '<br/>' + d.value;
+            return d.label + '<br/>' + d.value;
         }
 
         svg.groupEnter.merge(svg.group)
             .attr("transform", (d) => {
-                return "translate(" + xScale.band(d[0].value) + ", " + config.padding.top + ")"
+                return "translate(" + xScale.band(d[0].label) + ", " + config.padding.top + ")"
             });
 
         svg.headerGroupEnter.merge(svg.headerGroup)
             .attr("transform", (d) => {
-                return "translate(" + xScale.band(d[0].value) + "," + config.padding.top + ")"
+                return "translate(" + xScale.band(d[0].label) + "," + config.padding.top + ")"
             });
 
 
         svg.circleGroupsEnter.merge(svg.circleGroups)
-            .attr("transform", (d) => { return "translate(" + center.x + "," + center.y + ")" })
+            .attr("transform", (d) => {  return "translate(" + center.x + "," + center.y + ")" })
         ;
 
         svg.circles
@@ -155,7 +157,7 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         data.forEach( (group,i) => {
 
-            simulation[group[0].value]
+            simulation[group[0].key]
                 .velocityDecay(0.5)
                 // .force('y', d3.forceY().strength(forceStrength).y(center.y))
                 .force('center', d3.forceCenter(center.x,center.y))

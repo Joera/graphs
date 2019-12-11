@@ -69,10 +69,19 @@
 
     ];
 
-    // let besluiten = new BarProgression('#container',dataMapping,'BESCHIKT','all',false);
-    // besluiten.init();
+    const config = {
 
-    let besluiten = new MultiBarProgression('#container',dataMapping,'AFGEHANDELD_TOTAAL','all',false);
+        smallMultiple : false,
+        minValue : 0,
+        xParameter :'_date',
+        xScaleType : 'time',
+        xScaleTicks :'timeMonth',
+        yScaleType : 'linear',
+        barWidth : 12
+    }
+
+
+    let besluiten = new MultiBarProgression('/api/data','#container',config,dataMapping,'AFGEHANDELD_TOTAAL','all');
     besluiten.init();
 
 </script>

@@ -1,12 +1,14 @@
 class MultiBarWithIncrement  {
 
-    constructor(elementID,dataMapping,property,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
+        this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
+        this.config = config;
         this.dataMapping = dataMapping;
-        this.property = property;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
+        this.segment = segment;
     }
 
     init() {
@@ -16,7 +18,7 @@ class MultiBarWithIncrement  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+        this.config = Object.assign(this.config,chartObjects.config());
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -96,7 +98,12 @@ class MultiBarWithIncrement  {
 
                 for (let column of neededColumns) {
 
-                    if (column.indexOf('nieuwe_') < 0) {
+                    if (timeframe === 'totals' && column.indexOf('nieuwe_') < 0) {
+
+                        o['property'] = column;
+
+                    } else if (timeframe === 'week' && column.indexOf('nieuwe_') > -1) {
+
                         o['property'] = column;
                     }
 
@@ -153,16 +160,30 @@ class MultiBarWithIncrement  {
         this.chartMultiBars.draw(data);
     }
 
+    setYParameter(timeframe) {
+
+        if (timeframe === 'week' && this.config.yParameter.indexOf('nieuwe_') < 0) {
+
+            this.config.yParameter = 'nieuwe_' + this.config.yParameter;
+
+        } else if (timeframe === 'totals' && this.config.yParameter.indexOf('nieuwe_') > -1) {
+
+            this.config.yParameter = this.config.yParameter.substring(7);
+        }
+    }
+
     run(json,timeframe) {
 
         let self = this;
 
-        let data = this.prepareData(json,timeframe);
+        this.setYParameter(timeframe);
+
+        let data = this.prepareData(json);
         this.draw(data);
-       this.redraw(data,property);
+        this.redraw(data);
         // legend(data);
 
-        window.addEventListener("resize", () => self.redraw(data,property), false);
+        window.addEventListener("resize", () => self.redraw(data), false);
 
         for (let radio of this.radios) {
             radio.addEventListener( 'change', () => self.run(data,radio.value),false);

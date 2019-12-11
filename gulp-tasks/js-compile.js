@@ -56,9 +56,10 @@ module.exports = function() {
             './src/structs/trend-line.js',
             './src/structs/map.js',
             './src/structs/stackedarea.js',
+            './src/structs/ballenbak.js',
 
-            './src/default/voortgang_details.js',
-            './src/default/voortgang_duur.js',
+            // './src/default/voortgang_details.js',
+            // './src/default/voortgang_duur.js',
             './src/default/candles.js',
             // './src/default/statussen.js',
             // './src/default/status-looptijden.js',

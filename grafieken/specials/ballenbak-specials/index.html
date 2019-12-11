@@ -36,7 +36,154 @@
 
 
 <script>
-    ballenbakSpecials('#container');
+    
+    const dataMapping = [
+
+        [
+            {   key : 'ontvangst',
+                label : 'Ontvangst en analyse',
+                column : false
+            },
+            {   key : 'agro',
+                label: 'Agro',
+                column : 'SPECIALS_ONTVANGST_AGRO',
+                colour : green
+            },
+            {   key : 'erfgoed',
+                label: 'Erfgoed',
+                column : 'SPECIALS_ONTVANGST_ERFGOED',
+                colour : yellow
+            },
+            {   key : 'mkb',
+                label: 'Bedrijven',
+                column : 'SPECIALS_ONTVANGST_MKB',
+                colour : blue
+            },
+            {   key : 'overig',
+                label: 'Overig',
+                column : 'SPECIALS_ONTVANGST_OVERIG_AOS',
+                colour : orange
+            }
+        ],
+        [
+            {   key : 'opname',
+                label : 'Schade-opname wordt ingepland',
+                column : false,
+            },
+            {   key : 'agro',
+                label: 'Agro',
+                column : 'SPECIALS_PLANNING_OPNAME_AGRO',
+                colour : green
+            },
+            {   key : 'erfgoed',
+                label: 'Erfgoed',
+                column : 'SPECIALS_PLANNING_OPNAME_ERFGOED',
+                colour : yellow
+            },
+            {   key : 'mkb',
+                label: 'Bedrijven',
+                column : 'SPECIALS_PLANNING_OPNAME_MKB',
+                colour : blue
+            },
+            {   key : 'overig',
+                label: 'Overig',
+                column : 'SPECIALS_PLAN_OPNAME_OVERIG_AOS',
+                colour : orange
+            }
+        ],
+        [
+            {   key : 'rapport',
+                label : 'Schade-opname uitgevoerd, adviesrapport opleveren',
+                column : false,
+            },
+            {   key : 'agro',
+                label: 'Agro',
+                column : 'SPECIALS_OPLEV_SCHADERAPP_AGRO',
+                colour : green
+            },
+            {   key : 'erfgoed',
+                label: 'Erfgoed',
+                column : 'SPECIALS_OPLEV_SCHADERAP_ERFGOED',
+                colour : yellow
+            },
+            {   key : 'mkb',
+                label: 'Bedrijven',
+                column : 'SPECIALS_OPLEV_SCHADERAPP_MKB',
+                colour : blue
+            },
+            {   key : 'overig',
+                label: 'Overig',
+                column : 'SPECIALS_OPLV_SCHRAP_OVERIG_AOS',
+                colour : orange
+            }
+
+        ],
+        [
+            {   key : 'besluit',
+                label: 'Adviesrapport opgeleverd, besluit voorbereiden',
+                column : false
+            },
+            {   key : 'agro',
+                label: 'Agro',
+                column : 'SPECIALS_VOORBER_CIE_AGRO',
+                colour : green
+            },
+            {   key : 'erfgoed',
+                label: 'Erfgoed',
+                column : 'SPECIALS_VOORBER_CIE_ERFGOED',
+                colour : yellow
+            },
+            {   key : 'mkb',
+                label: 'Bedrijven',
+                column : 'SPECIALS_VOORBER_CIE_MKB',
+                colour : blue
+            },
+            {   key : 'overig',
+                label: 'Overig',
+                column : 'SPECIALS_VOORBER_CIE_OVERIG_AOS',
+                colour : orange
+            }
+        ],
+        [
+            {   key : 'stuwmeer',
+                label: 'Stuwmeerregeling',
+                column : false
+            },
+            {   key : 'agro',
+                label: 'Agro',
+                column : 'SPECIALS_STATUS_STUWMEER_AGRO',
+                colour : green
+            },
+            {   key : 'erfgoed',
+                label: 'Erfgoed',
+                column : 'SPECIALS_STATUS_STUWMEER_ERFGOED',
+                colour : yellow
+            },
+            {   key : 'mkb',
+                label: 'Bedrijven',
+                column : 'SPECIALS_STATUS_STUWMEER_MKB',
+                colour : blue
+            },
+            {   key : 'overig',
+                label: 'Overig',
+                column : 'SPECIALS_STATUS_STUW_OVERIG_AOS',
+                colour : orange
+            }
+        ]
+    ];
+
+    const config = {
+
+        xParameter : 'status',
+        smallMultiple : false,
+        radiusOffset : 2,
+        radiusFactor : 12,
+        dateLabels : false
+    }
+    
+    ballenbakSpecials = new Ballenbak('/api/gemeentes','#container',config,dataMapping,'all');
+    ballenbakSpecials.init();
+
 </script>
 
 

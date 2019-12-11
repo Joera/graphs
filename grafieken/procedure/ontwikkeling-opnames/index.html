@@ -41,7 +41,14 @@
         }
     ];
 
-    let ontwikkelingOpnames = new BarProgression('#container',dataMapping,'schadeopnames','all',false);
+    const config = {
+
+        smallMultiple : false,
+        minValue : 26000,
+        xParameter : '_date'
+    }
+
+    let ontwikkelingOpnames = new BarProgression('/api/data','#container',config,dataMapping,'schadeopnames','all');
     ontwikkelingOpnames.init();
 </script>
 

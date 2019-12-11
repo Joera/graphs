@@ -1,13 +1,15 @@
 class CijfersLine  {
 
-    constructor(elementID,dataMapping,property,segment,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
+        this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
+        this.config = config;
         this.dataMapping = dataMapping;
         this.segment = segment;
      //   this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
 
     }
 
@@ -18,7 +20,7 @@ class CijfersLine  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = chartObjects.config();
+        this.config = Object.assign(this.config,chartObjects.config());
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -44,28 +46,23 @@ class CijfersLine  {
             this.config.dataArrayLength = 7;
         }
 
-
-
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.elementID, this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
 
         // create svg elements without data
-
-
-        let url = 'https://tcmg-hub.publikaan.nl/api/data';
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
         if (globalData.weeks) {
 
-            this.run(globalData.weeks,this.property)
+            this.run(globalData.weeks,this.segment)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                console.log(json);
                 globalData.weeks = json;
-                self.run(json,self.property);
+                self.run(json,self.segment);
             });
         }
 
@@ -216,30 +213,30 @@ class CijfersLine  {
 
         console.log(this.dataMapping);
 
-        if (Array.isArray(this.dataMapping))  {
-            // single balletje voor small multiples (dashboard)
-            console.log(self.dataMapping);
-
-            this.element.appendChild(self.singleNumber(self.dataMapping));
-            this.initSingle();
-            let data = this.prepareData(json,this.dataMapping[0].column);
-            this.draw(data,this.segment);
-            this.redraw(data,this.segment);
-
-        } else {
-
-            // multiple balletjes (website)
-            for (let item of Object.values(this.dataMapping)) {
-
-                let article = document.createElement('article');
-                article.classList.add('cijfer');
-                article.appendChild(this.singleNumber(item));
-                this.element.appendChild(article);
-                let data = this.prepareData(json,item.column);
-                this.draw(data,this.segment);
-                this.redraw(data,this.segment);
-            }
-        }
+        // if (Array.isArray(this.dataMapping))  {
+        //     // single balletje voor small multiples (dashboard)
+        //     console.log(self.dataMapping);
+        //
+        //     this.element.appendChild(self.singleNumber(self.dataMapping));
+        //     this.initSingle();
+        //     let data = this.prepareData(json,this.dataMapping[0].column);
+        //     this.draw(data,this.segment);
+        //     this.redraw(data,this.segment);
+        //
+        // } else {
+        //
+        //     // multiple balletjes (website)
+        //     for (let item of Object.values(this.dataMapping)) {
+        //
+        //         let article = document.createElement('article');
+        //         article.classList.add('cijfer');
+        //         article.appendChild(this.singleNumber(item));
+        //         this.element.appendChild(article);
+        //         let data = this.prepareData(json,item.column);
+        //         this.draw(data,this.segment);
+        //         this.redraw(data,this.segment);
+        //     }
+        // }
 
 
 

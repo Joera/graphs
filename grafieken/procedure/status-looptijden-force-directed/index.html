@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta label="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="/assets/css/main.css">
 
@@ -58,7 +58,155 @@
 
 
 <script>
-        forceStatusLooptijden('#container');
+
+    const dataMapping = [
+
+        [
+            {   key : 'ontvangst',
+                label : 'Ontvangst en analyse',
+                column : false
+            },
+            {   key : 'minder_dan_een_half_jaar',
+                label: 'Minder dan een half jaar',
+                column : 'MNDER_HALF_JAAR_ONTVANGST',
+                colour : orange
+            },
+            {   key : 'tussen_half_jaar_en_een_jaar',
+                label: 'Tussen een half jaar en jaar',
+                column : 'HALF_JAAR_1JAAR_ONTVANGST',
+                colour : green
+            },
+            {   key : 'tussen_een_en_twee_jaar',
+                label: 'Tussen een jaar en twee jaar',
+                column : 'TUSSEN_1_2_JAAR_ONTVANGST',
+                colour : blue
+            },
+            {   key : 'langer_dan_twee_jaar',
+                label: 'Langer dan twee jaar',
+                column : 'LANGER_2_JAAR_ONTVANGST',
+                colour : darkblue
+            }
+        ],
+        [
+            {   key : 'planning_oplabel',
+                label : 'Schade-oplabel wordt ingepland',
+                column : false
+            },
+            {   key : 'minder_dan_een_half_jaar',
+                label: 'Minder dan een half jaar',
+                column : 'MINDER_HALF_JAAR_PLANNING',
+                colour : orange
+            },
+            {   key : 'tussen_half_jaar_en_een_jaar',
+                label: 'Tussen een half jaar en jaar',
+                column : 'HALF_JAAR_1JAAR_PLANNING_OPNAME',
+                colour : green
+            },
+            {   key : 'tussen_een_en_twee_jaar',
+                label: 'Tussen een jaar en twee jaar',
+                column : 'TUSSEN_1_2_JAAR_PLANNING_OPNAME',
+                colour : blue
+            },
+            {   key : 'langer_dan_twee_jaar',
+                label: 'Langer dan twee jaar',
+                column : 'LANGER_2_JAAR_PLANNING_OPNAME',
+                colour : darkblue
+            }
+
+        ],
+        [
+            {   key : 'opleveren_schaderapport',
+                label : 'Schade-oplabel uitgevoerd, adviesrapport opleveren',
+                column : false
+            },
+            {   key : 'minder_dan_een_half_jaar',
+                label: 'Minder dan een half jaar',
+                column : 'MINDER_HALF_JAAR_OPLEV_SCHRAP',
+                colour : orange
+            },
+            {   key : 'tussen_half_jaar_en_een_jaar',
+                label: 'Tussen een half jaar en jaar',
+                column : 'HALF_JAAR_1JAAR_OPLEV_SCHRAP',
+                colour : green
+            },
+            {   key : 'tussen_een_en_twee_jaar',
+                label: 'Tussen een jaar en twee jaar',
+                column : 'TUSSEN_1_2_JAAR_OPLEV_SCHRAP',
+                colour : blue
+            },
+            {   key : 'langer_dan_twee_jaar',
+                label: 'Langer dan twee jaar',
+                column : 'LANGER_2_JAAR_OPLEV_SCHRAP',
+                colour : darkblue
+            }
+        ],
+        [
+            {   key : 'voorbereiden_commissie',
+                label: 'Adviesrapport opgeleverd, besluit voorbereiden',
+                column : false
+            },
+            {   key : 'minder_dan_een_half_jaar',
+                label: 'Minder dan een half jaar',
+                column : 'MINDER_HALF_JAAR_VOORBER_',
+                colour : orange
+            },
+            {   key : 'tussen_half_jaar_en_een_jaar',
+                label: 'Tussen een half jaar en jaar',
+                column : 'HALF_JAAR_1JAAR_VOORBER_CIE',
+                colour : green
+            },
+            {   key : 'tussen_een_en_twee_jaar',
+                label: 'Tussen een jaar en twee jaar',
+                column : 'TUSSEN_1_2_JAAR_VOORBER_CIE',
+                colour : blue
+            },
+            {   key : 'langer_dan_twee_jaar',
+                label: 'Langer dan twee jaar',
+                column : 'LANGER_2_JAAR_VOORBER_CIE',
+                colour : darkblue
+            }
+        ],
+        [
+            {   key : 'stuwmeerregeling',
+                label: 'Stuwmeerregeling',
+                column : false
+            },
+            {   key : 'minder_dan_een_half_jaar',
+                label: 'Minder dan een half jaar',
+                column : 'MINDER_HALF_JAAR_STATUS_STUW',
+                colour : orange
+            },
+            {   key : 'tussen_half_jaar_en_een_jaar',
+                label: 'Tussen een half jaar en jaar',
+                column : 'HALF_JAAR_1JAAR_STATUS_STUW',
+                colour : green
+            },
+            {   key : 'tussen_een_en_twee_jaar',
+                label: 'Tussen een jaar en twee jaar',
+                column : 'TUSSEN_1_2_JAAR_STATUS_STUW',
+                colour : blue
+            },
+            {   key : 'langer_dan_twee_jaar',
+                label: 'Langer dan twee jaar',
+                column : 'LANGER_2_JAAR_STATUS_STUW',
+                colour : darkblue
+            }
+        ]
+        
+    ]
+
+    const config = {
+
+        xParameter : 'key',
+        smallMultiple : false,
+        radiusOffset : 1.8,
+        radiusFactor : 8,
+        dateLabels : false
+    }
+
+    ballenbakSpecials = new Ballenbak('/api/gemeentes','#container',config,dataMapping,'all');
+    ballenbakSpecials.init();
+    
 </script>
 
 
