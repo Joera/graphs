@@ -182,7 +182,7 @@ class MultiBarWithIncrement  {
 
         this.setYParameter(timeframe);
 
-        let data = this.prepareData(json);
+        let data = this.prepareData(json,timeframe);
         this.draw(data);
         this.redraw(data);
         // legend(data);
