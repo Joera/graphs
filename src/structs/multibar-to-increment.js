@@ -86,31 +86,33 @@ class MultiBarWithIncrement  {
 
         for (let mapping of this.dataMapping) {
 
-            let neededColumns = ['_date','_category'];
+            let neededColumns = ['_date', '_category'];
 
             for (let property of mapping) {
                 neededColumns.push(property.column);
             }
 
-            console.log(neededColumns);
-
-            for (let week of json) {
-
-                let o = {};
-
-                for (let column of neededColumns) {
-
-                    o['property'] = column;
-                    o['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
-
-                    o[column] = week[column];
-                    o['colour'] = mapping[0].colour;
-                    o['label'] = mapping[0].label;
-                }
-
-                data.push(o);
-            }
         }
+
+        console.log(neededColumns);
+
+        for (let week of json) {
+
+            let o = {};
+
+            for (let column of neededColumns) {
+
+                o['property'] = column;
+                o['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
+
+                o[column] = week[column];
+                o['colour'] = mapping[0].colour;
+                o['label'] = mapping[0].label;
+            }
+
+            data.push(o);
+        }
+
 
         data.sort(function(a, b) {
             return new Date(a._date) - new Date(b._date);
