@@ -97,8 +97,6 @@ class MultiBarWithIncrement  {
             }
         }
 
-        console.log(flattenedMapping);
-
         for (let week of json) {
 
             for (let column of neededColumns) {
@@ -118,10 +116,6 @@ class MultiBarWithIncrement  {
                     o['colour'] = mapping['colour'];
                     o['label'] = mapping['label'];
                 }
-
-
-
-
                 data.push(o);
             }
         }
@@ -169,7 +163,7 @@ class MultiBarWithIncrement  {
 
         this.xScale = this.chartXScale.set(data.map(d => { return d[this.config.xParameter] }));
 
-        this.chartMultiBarsPlus.draw(data);
+        this.chartMultiBarsPlus.draw(data,timeframe);
     }
 
     setYParameter(timeframe) {
@@ -182,7 +176,7 @@ class MultiBarWithIncrement  {
         let self = this;
 
         let data = this.prepareData(json,timeframe);
-        // this.draw(data,timeframe);
+        this.draw(data,timeframe);
         // this.redraw(data,timeframe);
         // legend(data);
 

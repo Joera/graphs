@@ -10,7 +10,7 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             ;
 
         svg.bar = svg.layers.data.selectAll(".bar")
-            .data(data);
+            .data(data.filter( (d) => { return d.timeframe === 'totals' }));
         
         svg.bar.exit().remove();
 
