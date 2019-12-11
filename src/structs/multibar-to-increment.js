@@ -82,17 +82,12 @@ class MultiBarWithIncrement  {
     prepareData(json,timeframe)  {
 
         let data = [];
-        let neededColumns = ['_date','_category'];
+
+        let neededColumns = ['_date', '_category'];
 
         for (let mapping of this.dataMapping) {
 
-            let neededColumns = ['_date', '_category'];
-
-
-
             for (let property of mapping) {
-
-                    console.log(property);
 
                 neededColumns.push(property.column);
             }
