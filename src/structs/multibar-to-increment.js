@@ -30,7 +30,7 @@ class MultiBarWithIncrement  {
         this.config.padding.bottom = 30;
         this.config.margin.bottom = 30;
         this.config.padding.left = 40;
-        this.config.padding.right = 20;
+        this.config.padding.right = 40;
 
         this.config.minValue = 0;
 
@@ -135,8 +135,6 @@ class MultiBarWithIncrement  {
         let arrayLength = 2 * Math.floor(elWidth / (2 * minBarWidth));
 
         data = data.slice(data.length - arrayLength,data.length);
-
-
 
         return data;
     }
