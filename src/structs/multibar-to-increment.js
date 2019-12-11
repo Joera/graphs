@@ -84,8 +84,13 @@ class MultiBarWithIncrement  {
         let data = [];
 
         let neededColumns = [];
+        let flattenedMapping = [];
+
+
 
         for (let mapping of this.dataMapping) {
+
+            flattenedMapping.push(mapping);
 
             for (let property of mapping) {
 
@@ -103,8 +108,11 @@ class MultiBarWithIncrement  {
                 o['property'] = column;
                 o['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
                 o[column] = week[column];
-                // o['colour'] = mapping[0].colour;
-                // o['label'] = mapping[0].label;
+                o['_date'] = week['_date'];
+                o['_category'] = week['_category'];
+
+                o['colour'] = flattenedMapping.find( (m) => { return m['column'] === column})['colour'];
+                o['label'] = flattenedMapping.find( (m) => { return m['column'] === column})['label'];
 
 
                 data.push(o);
