@@ -140,10 +140,12 @@ class MultiBarWithIncrement  {
 
 
     redraw(data,timeframe) {
+        
+        let self = this;
 
         let colour = blue; // this.dataMapping.find((m) => m.column === property)['colour'];
 
-        this.yScale = this.chartYScale.set(data,this.setYParameter(timeframe));
+        this.yScale = this.chartYScale.set(data.filter( (d) => { d[self.setYParameter(timeframe)] !== undefined }),self.setYParameter(timeframe));
 
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
