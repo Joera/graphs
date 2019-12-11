@@ -170,7 +170,7 @@ class MultiBarWithIncrement  {
 
     setYParameter(timeframe) {
 
-        return (timeframe === 'week') ? this.config.yParameter : this.config.yParameter.substring(7);
+        return (timeframe === 'week') ? 'nieuwe_' + this.config.yParameter : this.config.yParameter;
     }
 
     run(json,timeframe) {
