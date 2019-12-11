@@ -107,7 +107,7 @@ class Ballenbak {
 
             data.forEach( (d,i) => {
 
-                let text  = (i + 1) + '. ' + d[0]['name'] + ' ';
+                let text  = (i + 1) + '. ' + d[0]['label'] + ' ';
 
                 this.svg.layers.legend.append("text")
                     .attr("class", "small-label")
