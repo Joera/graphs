@@ -177,7 +177,7 @@ class MultiBarWithIncrement  {
 
         let data = this.prepareData(json,timeframe);
         this.draw(data,timeframe);
-        // this.redraw(data,timeframe);
+        this.redraw(data,timeframe);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data), false);
