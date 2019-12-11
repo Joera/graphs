@@ -47,6 +47,7 @@ module.exports = function() {
 
             './src/structs/bar-progression.js',
             './src/structs/multibar-progression.js',
+            './src/structs/multibar-to-increment.js',
             './src/structs/stackedbar-progression.js',
             './src/structs/cijfers.js',
             './src/structs/cijfers-line.js',

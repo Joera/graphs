@@ -22,10 +22,25 @@
 
     <div id="container" class="container"></div>
 
+
+    <div class="selector">
+
+        <ul class="nature radios">
+            <li>
+                <input type="radio" id="totals" name="nature" value="totals" checked>
+                <label for="totals">Totalen</label>
+            </li>
+            <li>
+                <input type="radio" id="week" name="nature" value="week">
+                <label for="week">Per week</label>
+            </li>
+        </ul>
+
+    </div>
+
     <ul class="legend horizontal">
         <li class="small-label"><span class="orange"></span>AOS Meldingen</li>
         <li class="small-label"><span class="green"></span>Gegronde AOS</li>
-
     </ul>
 
 </main>
@@ -63,7 +78,7 @@
     ];
 
 
-    let aosmeldingen = new MultiBarProgression('#container',dataMapping,'aos_meldingen','all',false);
+    let aosmeldingen = new MultiBarWithIncrement('#container',dataMapping,'aos_meldingen','all',false);
     aosmeldingen.init();
 </script>
 
