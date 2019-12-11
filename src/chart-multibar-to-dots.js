@@ -44,7 +44,7 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             });
     }
 
-    let redraw = function redraw(dimensions,xScale,yScale,property) {
+    let redraw = function redraw(dimensions,xScale,yScale,timeframe) {
 
         let offset;
 
@@ -91,7 +91,11 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("cy", function(d) {  return config.padding.top + yScale[config.yScaleType](d[d.property]); })
+            .attr("cy", function(d) {
+
+                return (timeframe === 'week') ? config.padding.top + yScale[config.yScaleType](d[d.property]) : dimensions.height + 20;
+                
+            })
 
         ;
 

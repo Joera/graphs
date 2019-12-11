@@ -158,7 +158,7 @@ class MultiBarWithIncrement  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartMultiBarsPlus.redraw(this.dimensions,this.xScale,this.yScale,this.config.yParameter);
+        this.chartMultiBarsPlus.redraw(this.dimensions,this.xScale,this.yScale,timeframe);
     }
 
     draw(data,timeframe) {
