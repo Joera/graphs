@@ -114,7 +114,7 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
 
                 svg.tooltip
                     .html(popup(d))
-                    .style("left", (d3.event.pageX - 205) + "px")
+                    .style("left", (d3.event.pageX - config.tooltipWidth) + "px")
                     .style("top", (d3.event.pageY - 5) + "px")
                     .transition()
                     .duration(250)
