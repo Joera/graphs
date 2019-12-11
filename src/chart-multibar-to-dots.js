@@ -33,7 +33,11 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             .append("circle")
             .attr("class", function(d,i) {
 
-                return "circle  " + d.colour + " " + d.property;
+                return "circle  " + d.property;
+            })
+            .attr("r", config.circleRadius)
+            .style("fill", function(d) {
+                return d.colour;
             });
     }
 
@@ -74,22 +78,17 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
 
         svg.circles
             .merge(svg.circlesEnter)
-            .attr("x", function(d,i) {
+            .attr("cx", function(d,i) {
 
                 offset = (i % 2) ? 0 : - (config.barWidth + 0);
 
                 return xScale[config.xScaleType](new Date(d[config.xParameter])) + offset;
             })
-            .attr("y", function(d) { return dimensions.height; })
-            .attr("height", function(d) { return config.circleRadius })
-            .attr("width", function(d) {
-
-                return config.circleRadius;
-            })
+            .attr("cy", function(d) { return dimensions.height; })
             .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) {  return config.padding.top + yScale[config.yScaleType](d[d.property]); })
+            .attr("cy", function(d) {  return config.padding.top + yScale[config.yScaleType](d[d.property]); })
 
         ;
 
