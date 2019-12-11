@@ -106,8 +106,8 @@ class MultiBarWithIncrement  {
                 o['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
 
                 o[column] = week[column];
-                o['colour'] = mapping[0].colour;
-                o['label'] = mapping[0].label;
+                // o['colour'] = mapping[0].colour;
+                // o['label'] = mapping[0].label;
             }
 
             data.push(o);
