@@ -98,10 +98,7 @@ class MultiBarWithIncrement  {
 
                 for (let column of neededColumns) {
 
-                    console.log(timeframe);
-
                     o['property'] = column;
-
                     o['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
 
                     o[column] = week[column];
@@ -133,7 +130,7 @@ class MultiBarWithIncrement  {
 
         let colour = blue; // this.dataMapping.find((m) => m.column === property)['colour'];
 
-        this.yScale = this.chartYScale.set(data,this.config.yParameter);
+        this.yScale = this.chartYScale.set(data,this.setYParameter(timeframe));
 
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
@@ -158,21 +155,12 @@ class MultiBarWithIncrement  {
 
     setYParameter(timeframe) {
 
-        if (timeframe === 'week' && this.config.yParameter.indexOf('nieuwe_') < 0) {
-
-            this.config.yParameter = 'nieuwe_' + this.config.yParameter;
-
-        } else if (timeframe === 'totals' && this.config.yParameter.indexOf('nieuwe_') > -1) {
-
-            this.config.yParameter = this.config.yParameter.substring(7);
-        }
+        return ((timeframe === 'week') < 0) ? this.config.yParameter : this.config.yParameter.substring(7);
     }
 
     run(json,timeframe) {
 
         let self = this;
-
-        this.setYParameter(timeframe);
 
         let data = this.prepareData(json,timeframe);
         this.draw(data,timeframe);
