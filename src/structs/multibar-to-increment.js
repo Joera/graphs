@@ -59,7 +59,7 @@ class MultiBarWithIncrement  {
         this.chartMultiBarsPlus = ChartMultiBarsToDots(this.config, this.svg);
         this.chartLegend = ChartLegend(this.config, this.svg);
 
-        this.svg.tooltip.attr('width',this.config.tooltipWidth);
+      //  this.chartSVG.tooltip.attr('width',this.config.tooltipWidth);
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
@@ -131,7 +131,7 @@ class MultiBarWithIncrement  {
 
         let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
 
-        let arrayLength = 2 * Math.floor(elWidth / (2 * this.config.barWidth));
+        let arrayLength = 2 * Math.floor(elWidth / (2 * minBarWidth));
 
         data = data.slice(data.length - arrayLength,data.length);
 
