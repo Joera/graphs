@@ -105,7 +105,7 @@ class MultiBarWithIncrement  {
 
                 o['property'] = column;
                 o['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
-                o['value'] = week[column];
+                o[column] = week[column];
                 o['_date'] = week['_date'];
                 o['_category'] = week['_category'];
 
