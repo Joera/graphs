@@ -99,6 +99,8 @@ class MultiBarWithIncrement  {
 
         }
 
+        console.log(flattenedMapping);
+
         for (let week of json) {
 
             for (let column of neededColumns) {
