@@ -98,6 +98,8 @@ class MultiBarWithIncrement  {
 
                 for (let column of neededColumns) {
 
+                    console.log(timeframe);
+
                     if (timeframe === 'totals' && column.indexOf('nieuwe_') < 0) {
 
                         o['property'] = column;
