@@ -88,7 +88,12 @@ class MultiBarWithIncrement  {
 
             let neededColumns = ['_date', '_category'];
 
+
+
             for (let property of mapping) {
+
+                    console.log(property);
+
                 neededColumns.push(property.column);
             }
 
