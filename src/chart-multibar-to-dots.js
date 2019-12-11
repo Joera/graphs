@@ -93,6 +93,11 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             })
             .attr("cy", function(d) { return dimensions.height; })
             .attr("clip-path", "url(#clip)")
+            .attr("cy", function(d) {
+
+                return dimensions.height + 40;
+
+            })
             .transition()
             .duration(500)
             .attr("cy", function(d) {
