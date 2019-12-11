@@ -31,7 +31,7 @@ class Ballenbak {
         this.config.padding.top = this.config.smallMultiple ? 15 : 30;
         this.config.margin.bottom = (window.innerWidth < 640 || this.config.smallMultiple) ? 70 : 0;
 
-        this.config.padding.left = (window.innerWidth < 640 || this.config.smallMultiple) ? 0 : 40;
+        this.config.padding.left = (window.innerWidth < 560 || this.config.smallMultiple) ? 0 : 40;
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
