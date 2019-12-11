@@ -29,7 +29,7 @@ class Ballenbak {
         this.functions = chartObjects.functions();
 
         this.config.padding.top = this.config.smallMultiple ? 15 : 30;
-        this.config.margin.bottom = (window.innerWidth < 640 || this.config.smallMultiple) ? 100 : 0;
+        this.config.margin.bottom = (window.innerWidth < 640 || this.config.smallMultiple) ? 70 : 0;
 
         this.config.padding.left = (window.innerWidth < 640 || this.config.smallMultiple) ? 0 : 40;
 
