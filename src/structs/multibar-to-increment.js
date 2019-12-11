@@ -133,14 +133,14 @@ class MultiBarWithIncrement  {
 
         data = data.slice(data.length - arrayLength,data.length);
 
-        console.log(data);
+
 
         return data;
     }
 
 
     redraw(data,timeframe) {
-        
+
         let self = this;
 
         let colour = blue; // this.dataMapping.find((m) => m.column === property)['colour'];
