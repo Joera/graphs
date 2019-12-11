@@ -19,6 +19,14 @@
 
   }
 
+
+  &.left_bottom {
+
+    position: absolute;
+    left: 0rem;
+    bottom: 2rem;
+  }
+
   > div {
     width: auto;
   }
