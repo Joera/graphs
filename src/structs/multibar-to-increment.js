@@ -111,8 +111,15 @@ class MultiBarWithIncrement  {
                 o['_date'] = week['_date'];
                 o['_category'] = week['_category'];
 
-                o['colour'] = flattenedMapping.find( (m) => { return m['column'] === column})['colour'];
-                o['label'] = flattenedMapping.find( (m) => { return m['column'] === column})['label'];
+                let mapping = flattenedMapping.find( (m) => { return m['column'] === column});
+
+                if(mapping) {
+
+                    o['colour'] = mapping['colour'];
+                    o['label'] = mapping['label'];
+                }
+
+
 
 
                 data.push(o);
