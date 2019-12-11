@@ -19,7 +19,10 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             .append("rect")
             .attr("class", function(d,i) {
 
-                return "bar  " + d.colour + " " + d.property;  // + colours[i]; // + sluggify(d.status) + "
+                return "bar  " + d.property;  // + colours[i]; // + sluggify(d.status) + "
+            })
+            .style("fill", function(d) {
+                return d.colour;
             });
 
 
