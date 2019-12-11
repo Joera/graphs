@@ -54,8 +54,8 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) { console.log(d); return (config.padding.top + yScale[config.yScaleType](d[d['property']])); })
-            .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); });
+            .attr("y", function(d) { console.log(d); return config.padding.top + yScale[config.yScaleType](d.value); })
+            .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d.value); });
 
         svg.bar
             .merge(svg.barEnter)
