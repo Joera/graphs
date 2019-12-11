@@ -76,7 +76,11 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             .transition()
             .duration(500)
             .attr("y", function(d) {  return config.padding.top + yScale[config.yScaleType](d[d.property]); })
-            .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d.property]); });
+            .attr("height", function(d) {
+
+                return (timeframe === 'totals') ?  dimensions.height - yScale[config.yScaleType](d[d.property]) : 0;
+
+            });
 
 
         svg.circles
@@ -94,7 +98,7 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             .attr("cy", function(d) {
 
                 return (timeframe === 'week') ? config.padding.top + yScale[config.yScaleType](d[d.property]) : dimensions.height + 20;
-                
+
             })
 
         ;
