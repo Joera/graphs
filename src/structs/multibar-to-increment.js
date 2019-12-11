@@ -59,7 +59,7 @@ class MultiBarWithIncrement  {
         this.chartMultiBarsPlus = ChartMultiBarsToDots(this.config, this.svg);
         this.chartLegend = ChartLegend(this.config, this.svg);
 
-        this.chartSVG.tooltip.attr('width',this.config.tooltipWidth);
+      //  this.chartSVG.tooltip.attr('width',this.config.tooltipWidth);
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
