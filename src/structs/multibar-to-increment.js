@@ -92,6 +92,8 @@ class MultiBarWithIncrement  {
                 neededColumns.push(property.column);
             }
 
+            console.log(neededColumns);
+
             for (let week of json) {
 
                 let o = {};
@@ -165,8 +167,8 @@ class MultiBarWithIncrement  {
         let self = this;
 
         let data = this.prepareData(json,timeframe);
-        this.draw(data,timeframe);
-        this.redraw(data,timeframe);
+        // this.draw(data,timeframe);
+        // this.redraw(data,timeframe);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data), false);
