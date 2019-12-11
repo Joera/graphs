@@ -46,7 +46,11 @@ ul.legend.horizontal {
   justify-content: flex-start;
   max-width: 400px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
+
+  @media (min-width: $breakpoint-xsm) {
+    margin: 0 auto;
+  }
 
   &.broad {
     max-width: 600px;
