@@ -131,7 +131,7 @@ class MultiBarWithIncrement  {
 
         let elWidth = d3.select(this.elementID).node().getBoundingClientRect().width;
 
-        let arrayLength = 2 * Math.floor(elWidth / (2 * minBarWidth));
+        let arrayLength = 2 * Math.floor(elWidth / (2 * this.config.barWidth));
 
         data = data.slice(data.length - arrayLength,data.length);
 
