@@ -102,7 +102,7 @@ class MultiBarWithIncrement  {
 
                     o['property'] = column;
 
-                    ol['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
+                    o['timeframe'] = (column.indexOf('nieuwe_') > -1) ? 'week' : 'totals';
 
                     o[column] = week[column];
                     o['colour'] = mapping[0].colour;
