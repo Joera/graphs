@@ -170,7 +170,7 @@ class MultiBarWithIncrement  {
         window.addEventListener("resize", () => self.redraw(data), false);
 
         for (let radio of this.radios) {
-            radio.addEventListener( 'change', () => self.run(data,radio.value),false);
+            radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
         }
     }
 }
