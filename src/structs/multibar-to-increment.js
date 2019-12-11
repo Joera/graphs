@@ -90,13 +90,11 @@ class MultiBarWithIncrement  {
 
         for (let mapping of this.dataMapping) {
 
-            flattenedMapping.push(mapping);
-
             for (let property of mapping) {
 
+                flattenedMapping.push(mapping);
                 neededColumns.push(property.column);
             }
-
         }
 
         console.log(flattenedMapping);
