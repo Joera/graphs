@@ -97,7 +97,7 @@ let ChartMultiBarsToDots = function ChartMultiBarsToDots(config,svg) {
             .duration(500)
             .attr("cy", function(d) {
 
-                return (timeframe === 'week') ? config.padding.top + yScale[config.yScaleType](d[d.property]) : dimensions.height + 20;
+                return (timeframe === 'week') ? config.padding.top + yScale[config.yScaleType](d[d.property]) : dimensions.height + 40;
 
             })
 
