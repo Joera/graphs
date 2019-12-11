@@ -92,7 +92,7 @@ class MultiBarWithIncrement  {
 
             for (let property of mapping) {
 
-                flattenedMapping.push(mapping);
+                flattenedMapping.push(property);
                 neededColumns.push(property.column);
             }
         }
