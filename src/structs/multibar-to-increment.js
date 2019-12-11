@@ -27,7 +27,8 @@ class MultiBarWithIncrement  {
         this.functions = chartObjects.functions();
 
         this.config.padding.top = 20;
-        this.config.padding.bottom = 80;
+        this.config.padding.bottom = 30;
+        this.config.margin.bottom = 30;
         this.config.padding.left = 40;
         this.config.padding.right = 20;
 
