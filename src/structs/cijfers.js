@@ -11,7 +11,7 @@ class Cijfers {
         this.dataMapping = dataMapping;
         this.smallMultiple = config.smallMultiple;
         this.segment = segment;
-        this.data;
+        // this.data;
     }
 
     init(data,segment) {
@@ -29,9 +29,10 @@ class Cijfers {
         } else {
 
             let url = "https://tcmg-hub.publikaan.nl" + this.endpoint;
+            console.log(url);
             d3.json(url, function (error, json) {
                 if (error) throw error;
-                console.log(json);
+
                 globalData.gemeentes = json;
                 self.run(json, self.segment);
             });
