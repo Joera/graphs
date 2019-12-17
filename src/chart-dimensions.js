@@ -27,7 +27,7 @@ class ChartDimensions {
             this.dimensions.svgWidth = this.element.innerWidth - this.config.margin.left - this.config.margin.right;
             this.dimensions.width = dimensions.svgWidth - this.config.padding.left - this.config.padding.right;
         }
-        
+
         if(this.config.fixedHeight){
             this.dimensions.svgHeight = this.config.fixedHeight + this.config.padding.top + this.config.padding.bottom;
             this.dimensions.height = this.config.fixedHeight
