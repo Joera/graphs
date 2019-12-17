@@ -3,7 +3,7 @@ class Cijfers {
 
     constructor(endpoint,element,config,dataMapping,segment) {
 
-        console.log(dataMapping);
+        // console.log(dataMapping);
 
         this.municipalitySelect = document.querySelector('select.municipalities');
 
@@ -49,7 +49,7 @@ class Cijfers {
 
         let data = [];
 
-        console.log(this.dataMapping);
+        // console.log(this.dataMapping);
 
         for (let map of this.dataMapping) {
 
