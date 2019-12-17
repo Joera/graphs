@@ -16,7 +16,7 @@ class Cijfers {
 
     init(data,segment) {
 
-        let self = this;
+        let self = this;    
 
         if(data) {
 
@@ -28,7 +28,7 @@ class Cijfers {
 
         } else {
 
-            let url = "https://tcmg-hub.publikaan.nl" + endpoint;
+            let url = "https://tcmg-hub.publikaan.nl" + this.endpoint;
             d3.json(url, function (error, json) {
                 if (error) throw error;
                 globalData.gemeentes = json;
