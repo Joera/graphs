@@ -83,36 +83,53 @@ class CijfersLine  {
         this.chartAxis.drawYAxis();
     }
 
-    prepareData(json,property)  {
-
-        let neededColumns = ['_date', '_category'];
+    prepareData(json,segment)  {
 
 
-        if (Array.isArray(this.dataMapping)) {
-            // single balletje voor small multiples (dashboard)
-            neededColumns = neededColumns.concat(this.dataMapping.map((c) => c.column));
-        } else {
-            neededColumns.push(property);
-        }
+        let segmented = json.find( j => j['_category'] === segment);
 
         let data = [];
 
-        for (let week of json) {
-            let o = {};
-            for (let p of Object.entries(week))  {
-                if (neededColumns.indexOf(p[0]) > -1 ) {
-                      o[p[0]] = p[1];
-                }
-            }
-            data.push(o);
+        for (let map of this.dataMapping) {
+
+            data.push({
+                status: map.label,
+                value: segmented[map.column]
+            });
         }
 
-        data.sort(function(a, b) {
-            return new Date(a._date) - new Date(b._date);
-        });
-
+        console.log(data);
 
         return data;
+
+        // let neededColumns = ['_date', '_category'];
+        //
+        //
+        // if (Array.isArray(this.dataMapping)) {
+        //     // single balletje voor small multiples (dashboard)
+        //     neededColumns = neededColumns.concat(this.dataMapping.map((c) => c.column));
+        // } else {
+        //     neededColumns.push(property);
+        // }
+        //
+        // let data = [];
+        //
+        // for (let week of json) {
+        //     let o = {};
+        //     for (let p of Object.entries(week))  {
+        //         if (neededColumns.indexOf(p[0]) > -1 ) {
+        //               o[p[0]] = p[1];
+        //         }
+        //     }
+        //     data.push(o);
+        // }
+        //
+        // data.sort(function(a, b) {
+        //     return new Date(a._date) - new Date(b._date);
+        // });
+        //
+        //
+        // return data;
     }
 
 
@@ -213,6 +230,8 @@ class CijfersLine  {
 
         console.log(json);
         console.log(this.dataMapping);
+
+        let data = this.prepareData(json,this.segment);
 
         // if (Array.isArray(this.dataMapping))  {
         //     // single balletje voor small multiples (dashboard)
