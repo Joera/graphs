@@ -81,7 +81,7 @@
             <!--<div class="container"></div>-->
         <!--</article>-->
 
-        <article id="cijfer-nieuwe-meldingen" class="cijfer" data-script="Cijfers" data-property="nieuwe_MELDING">
+        <article id="cijfer-nieuwe-meldingen" class="cijfer" data-script="CijfersLine" data-property="nieuwe_MELDING">
             <h3>Schade-meldingen</h3>
             <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
@@ -512,14 +512,10 @@
 
     let changeSegment = function changeSegment(newSegment) {
 
-        console.log(graphs);
-
         segment = newSegment;
 
 
         for (let graph of Object.values(graphs)) {
-
-            console.log(graph);
             // what do we do with data?
             graph.redraw('',segment)
         }
@@ -554,11 +550,6 @@
             openPage(page);
         });
     });
-
-
-
-
-
 
 </script>
 
