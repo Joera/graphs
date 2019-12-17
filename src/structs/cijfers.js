@@ -1,14 +1,15 @@
 class Cijfers {
 
 
-    constructor(element,dataMapping,property,segment,smallMultiple) {
+    constructor(endpoint,element,config,dataMapping,segment) {
 
         this.municipalitySelect = document.querySelector('select.municipalities');
 
+        this.endpoint = endpoint;
         this.element = (typeof element === 'string') ? document.querySelector(element) : element;
+        this.config = config;
         this.dataMapping = dataMapping;
-        this.property = property;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
         this.segment = segment;
         this.data;
     }
@@ -27,7 +28,7 @@ class Cijfers {
 
         } else {
 
-            let url = "https://tcmg-hub.publikaan.nl/api/gemeentes";
+            let url = "https://tcmg-hub.publikaan.nl" + endpoint;
             d3.json(url, function (error, json) {
                 if (error) throw error;
                 globalData.gemeentes = json;
