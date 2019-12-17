@@ -45,10 +45,6 @@ class Cijfers {
 
     prepareData(json,segment) {
 
-        console.log(json);
-
-        console.log(segment);
-
         let segmented = json.find( j => j['_category'] === segment);
 
         let data = [];

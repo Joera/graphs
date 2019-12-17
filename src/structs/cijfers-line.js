@@ -211,6 +211,7 @@ class CijfersLine  {
 
         if(json && json != undefined) { this.data = json; }
 
+        console.log(json);
         console.log(this.dataMapping);
 
         // if (Array.isArray(this.dataMapping))  {
