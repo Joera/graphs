@@ -18,11 +18,7 @@ class Cijfers {
 
         let self = this;
 
-        if(data) {
-
-            this.run(data,segment)
-
-        } else if (globalData.gemeentes) {
+        if (globalData.gemeentes) {
 
             this.run(globalData.gemeentes,this.segment);
 
