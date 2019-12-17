@@ -14,7 +14,7 @@ class Cijfers {
         // this.data;
     }
 
-    init(data,segment) {
+    init() {
 
         let self = this;
 
