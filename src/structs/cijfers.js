@@ -19,6 +19,8 @@ class Cijfers {
 
     init() {
 
+        console.log(this.dataMapping);
+
         let self = this;
 
         if (globalData.gemeentes) {
