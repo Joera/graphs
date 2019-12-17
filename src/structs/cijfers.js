@@ -3,6 +3,8 @@ class Cijfers {
 
     constructor(endpoint,element,config,dataMapping,segment) {
 
+        console.log(dataMapping);
+
         this.municipalitySelect = document.querySelector('select.municipalities');
 
         this.endpoint = endpoint;
@@ -12,6 +14,7 @@ class Cijfers {
         this.smallMultiple = config.smallMultiple;
         this.segment = segment;
         // this.data;
+
     }
 
     init() {
