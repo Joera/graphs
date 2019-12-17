@@ -32,7 +32,6 @@ class Cijfers {
             d3.json(url, function (error, json) {
                 if (error) throw error;
                 globalData.gemeentes = json;
-                console.log(dataMapping);
                 self.run(json, self.segment);
             });
         }
@@ -64,6 +63,9 @@ class Cijfers {
     }
 
     run(data,newSegment) {
+
+        console.log(data);
+        console.log(newSegment);
 
         let segmentedData = this.prepareData(data,newSegment);
 
@@ -130,11 +132,4 @@ class Cijfers {
 
 
     }
-
-
-
-
-
-
-
 }
