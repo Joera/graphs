@@ -16,8 +16,6 @@ class Cijfers {
 
     init() {
 
-        console.log(globalData);
-
         let self = this;
 
         if (globalData.gemeentes) {
@@ -44,11 +42,11 @@ class Cijfers {
 
     prepareData(json,segment) {
 
-        console.log(segment);
-
         let segmented = json.find( j => j['_category'] === segment);
 
         let data = [];
+
+        console.log(segmented);
 
         for (let map of this.dataMapping) {
 
