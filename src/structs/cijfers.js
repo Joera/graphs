@@ -1,7 +1,7 @@
 class Cijfers {
 
 
-    constructor(endpoint,element,config,dataMapping,segment) {
+    constructor(endpoint,element,config,dataMapping,segment,property) {
 
         // console.log(dataMapping);
 
