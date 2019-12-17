@@ -98,7 +98,8 @@ class CijfersLine  {
             });
         }
 
-        console.log(data);
+        console.log(this.dataMapping);
+        console.log(segmented);
 
         return data;
 
