@@ -19,8 +19,6 @@ class Cijfers {
 
     init() {
 
-        console.log(this.dataMapping);
-
         let self = this;
 
         if (globalData.gemeentes) {
@@ -51,7 +49,7 @@ class Cijfers {
 
         let data = [];
 
-        // console.log(this.dataMapping);
+        console.log(segmented);
 
         for (let map of this.dataMapping) {
 
