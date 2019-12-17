@@ -16,7 +16,7 @@ class Cijfers {
 
     init(data,segment) {
 
-        let self = this;    
+        let self = this;
 
         if(data) {
 
