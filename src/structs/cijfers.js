@@ -49,8 +49,6 @@ class Cijfers {
 
         let data = [];
 
-        console.log(segmented);
-
         for (let map of this.dataMapping) {
 
             data.push({
