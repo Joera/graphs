@@ -31,6 +31,7 @@ class Cijfers {
             let url = "https://tcmg-hub.publikaan.nl" + this.endpoint;
             d3.json(url, function (error, json) {
                 if (error) throw error;
+                console.log(json);
                 globalData.gemeentes = json;
                 self.run(json, self.segment);
             });
@@ -64,8 +65,8 @@ class Cijfers {
 
     run(data,newSegment) {
 
-        console.log(data);
-        console.log(newSegment);
+        // console.log(data);
+        // console.log(newSegment);
 
         let segmentedData = this.prepareData(data,newSegment);
 
@@ -84,7 +85,7 @@ class Cijfers {
 
         let average,label;
 
-        console.log(data);
+        // console.log(data);
 
         // console.log(data.find( (d) => d['_category'] === category));
         let count = data[0].value;
