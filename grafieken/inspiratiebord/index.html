@@ -238,173 +238,247 @@
 <script>
 
 
+    const config = {
 
-    const dataMapping = {
+        'cijfer-nieuwe-meldingen' : {
+
+            api : '/api/data'
+        },
+
+        'cijfer-nieuwe-opnames' : {
+
+            api : '/api/data'
+        },
+
+        'cijfer-nieuwe-besluiten' : {
+
+            api : '/api/data'
+        },
+
+        'cijfer-nieuwe-afgehandeld' : {
+
+            api : '/api/data'
+        },
+
+    }
 
 
-        'cijfer-nieuwe-meldingen' : [
 
-            {
-                label: 'Schade-meldingen',
-                column: 'nieuwe_MELDING',
-                colour: orange
-            },
-            {
-                label: 'Schade-meldingen',
-                column: 'gem_MELDING',
-                colour: orange
-            }
-        ],
+    const config = {
 
-        'cijfer-nieuwe-opnames' : [
+        'cijfer-nieuwe-meldingen' : {
 
-            {
-                label: 'Schade-opnames',
-                column: 'nieuwe_OPNAMES',
-                colour: green
-            },
-            {
-                label: 'Schade-opnames',
-                column: 'gem_OPNAMES',
-                colour: green
-            }
-        ],
+            'api' : '/api/data',
+            'dataMapping': [
 
-        'cijfer-nieuwe-besluiten' : [
+                {
+                    label: 'Schade-meldingen',
+                    column: 'nieuwe_MELDING',
+                    colour: orange
+                },
+                {
+                    label: 'Schade-meldingen',
+                    column: 'gem_MELDING',
+                    colour: orange
+                }
+            ]
+        },
+        'cijfer-nieuwe-opnames' : {
 
-            {
-                label: 'Besluiten',
-                column: 'nieuwe_BESCHIKT',
-                colour: blue
-            },
-            {
-                label: 'Besluiten',
-                column: 'gem_BESCHIKT',
-                colour: blue
-            }
-        ],
+            'api': '/api/data',
+            'dataMapping': [
+                {
+                    label: 'Schade-opnames',
+                    column: 'nieuwe_OPNAMES',
+                    colour: green
+                },
+                {
+                    label: 'Schade-opnames',
+                    column: 'gem_OPNAMES',
+                    colour: green
+                }
+            ]
+        },
+        'cijfer-nieuwe-besluiten' : {
 
-        'cijfer-nieuwe-afgehandeld' : [
+            'api': '/api/data',
+            'dataMapping': [
+                {
+                    label: 'Besluiten',
+                    column: 'nieuwe_BESCHIKT',
+                    colour: blue
+                },
+                {
+                    label: 'Besluiten',
+                    column: 'gem_BESCHIKT',
+                    colour: blue
+                }
+            ]
+        },
 
-            {
-                label: 'Afgehandelde schade-meldingen',
-                column: 'nieuwe_AFGEHANDELD_TOTAAL',
-                colour: darkblue
-            },
-            {
-                label: 'Afgehandelde schade-meldingen',
-                column: 'gem_AFGEHANDELD_TOTAAL',
-                colour: darkblue
-            }
-        ],
+        'cijfer-nieuwe-afgehandeld' : {
 
-        'map-nieuwe-meldingen' : [
+            'api': '/api/data',
+            'dataMapping': [
+                {
+                    label: 'Afgehandelde schade-meldingen',
+                    column: 'nieuwe_AFGEHANDELD_TOTAAL',
+                    colour: darkblue
+                },
+                {
+                    label: 'Afgehandelde schade-meldingen',
+                    column: 'gem_AFGEHANDELD_TOTAAL',
+                    colour: darkblue
+                }
+            ]
+        },
 
-            {
-                label: 'Schade-meldingen',
-                column: 'nieuwe_MELDING',
-                colour: orange
-            }
-        ],
+        'map-nieuwe-meldingen' : {
 
-        'map-nieuwe-opnames' : [
+            'api': '/api/gemeentes',
+            'dataMapping': [
+                {
+                    label: 'Schade-meldingen',
+                    column: 'nieuwe_MELDING',
+                    colour: orange
+                }
+            ]
+        },
+        'map-nieuwe-opnames' : {
 
-            {
-                label: 'Schade-opnames',
-                column: 'nieuwe_OPNAMES',
-                colour: green
-            }
-        ],
+            'api': '/api/gemeentes',
+            'dataMapping': [
+                {
+                    label: 'Schade-opnames',
+                    column: 'nieuwe_OPNAMES',
+                    colour: green
+                }
+            ]
+        },
+        'map-nieuwe-besluiten' : {
 
-        'map-nieuwe-besluiten' : [
+            'api': '/api/gemeentes',
+            'dataMapping': [
+                {
+                    label: 'Besluiten',
+                    column: 'nieuwe_BESCHIKT',
+                    colour: blue
+                }
+            ]
+        },
 
-            {
-                label: 'Besluiten',
-                column: 'nieuwe_BESCHIKT',
-                colour: blue
-            }
-        ],
+        'map-nieuwe-afgehandeld' : {
 
-        'map-nieuwe-afgehandeld' : [
+            'api': '/api/gemeentes',
+            'dataMapping': [
+                {
+                    label: 'Afgehandelde schade-meldingen',
+                    column: 'nieuwe_AFGEHANDELD_TOTAAL',
+                    colour: darkblue
+                }
+            ]
+        },
 
-            {
-                label: 'Afgehandelde schade-meldingen',
-                column: 'nieuwe_AFGEHANDELD_TOTAAL',
-                colour: darkblue
-            }
-        ],
+        'bars-schade-meldingen' : {
 
-        'bars-schade-meldingen' : [
+            'api': '/api/gemeentes',
+            'dataMapping': [
+                {
+                    label: 'Schademeldingen',
+                    column: 'schademeldingen',
+                    colour: 'orange'
+                },
+                {
+                    label: '',
+                    column: 'nieuwe_schademeldingen',
+                    colour: 'orange'
+                }
+            ]
+        },
+        'map-schade-meldingen' : {
 
-            {
-                label: 'Schademeldingen',
-                column: 'schademeldingen',
-                colour: 'orange'
-            },
-            {
-                label: '',
-                column: 'nieuwe_schademeldingen',
-                colour: 'orange'
-            }
-        ],
-        'map-schade-meldingen' : [
+            'api': '/api/gemeentes',
+            'dataMapping': [
+                {
+                    label: 'Schade-meldingen',
+                    column: 'schademeldingen',
+                    colour: 'orange'
+                }
+            ]
+        },
+        'pie-toegekende-bedragen' : {
 
-            {
-                label: 'Schade-meldingen',
-                column: 'schademeldingen',
-                colour: 'orange'
-            }
-        ],
-        'pie-toegekende-bedragen' : [
+            'api': '/api/gemeentes',
+            'smallMultiple' : false,
+            'currencyLabels' : true,
+            'datamapping': [
+                [
+                    {
+                        label: 'Mijnbouwschade',
+                        column: 'BEDRAG_SCHADEBEDRAG',
+                        colour: green
+                    },
+                    {
+                        label: 'Stuwmeerregeling',
+                        column: 'BEDRAG_SMR',
+                        colour: darkblue
+                    },
+                    {
+                        label: 'Bijkomende kosten',
+                        column: 'BEDRAG_BIJKOMENDE_KOSTEN',
+                        colour: blue
+                    },
+                    {
+                        label: 'Wettelijke rente',
+                        column: 'BEDRAG_WETTELIJKE_RENTE',
+                        colour: orange
+                    }
+                ],
+                [
+                    {
+                        label: 'Totaal',
+                        column: 'TOTAAL_VERLEEND',
+                        colour: yellow
+                    }
+                ]
+            ]
+        },
+        'bars-aos-meldingen' : {
 
-            {
-                label: 'Mijnbouwschade',
-                column: 'BEDRAG_SCHADEBEDRAG',
-                colour: 'green'
-            },
-            {
-                label: 'Stuwmeerregeling',
-                column: 'BEDRAG_SMR',
-                colour: 'darkblue'
-            },
-            {
-                label: 'Bijkomende kosten',
-                column: 'BEDRAG_BIJKOMENDE_KOSTEN',
-                colour: 'blue'
-            },
-            {
-                label: 'Wettelijke rente',
-                column: 'BEDRAG_WETTELIJKE_RENTE',
-                colour: 'orange'
-            },
-            {
-                label: 'Totaal',
-                column: 'TOTAAL_VERLEEND',
-                colour: 'yellow'
-            }
-        ],
-        'bars-aos-meldingen' : [
+            'smallMultiple': false,
+            'minValue': 0,
+            'xParameter': '_date',
+            'yParameter': 'aos_meldingen',
+            'xScaleType': 'time',
+            'xScaleTicks': 'timeMonth',
+            'yScaleType': 'linear',
+            'barWidth': 6,
+            'circleRadius': 6,
+            'tooltipWidth': 100,
+            'dataMapping': [
+                {
+                    label: 'AOS meldingen',
+                    column: 'aos_meldingen',
+                    colour: 'blue'
+                },
+                {
+                    label: '',
+                    column: 'nieuwe_aos_meldingen',
+                    colour: 'blue'
+                }
+            ]
+        },
+        'map-aos-meldingen' : {
 
-            {
-                label: 'AOS meldingen',
-                column: 'aos_meldingen',
-                colour: 'blue'
-            },
-            {
-                label: '',
-                column: 'nieuwe_aos_meldingen',
-                colour: 'blue'
-            }
-        ],
-        'map-aos-meldingen' : [
-
-            {
-                label: 'AOS meldingen',
-                column: 'AOS',
-                colour: '#65A7C5'
-            }
-        ]
-
+            'api': '/api/gemeentes',
+            'dataMapping': [
+                {
+                    label: 'AOS meldingen',
+                    column: 'AOS',
+                    colour: '#65A7C5'
+                }
+            ]
+        }
     }
 
         // let globalData = {};
@@ -449,7 +523,7 @@
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
-                    graphs[vis.id] = new window[vis.getAttribute('data-script')](vis.querySelector('.container'), dataMapping[vis.id], vis.getAttribute('data-property'), segment,true);
+                    graphs[vis.id] = new window[vis.getAttribute('data-script')](config[vis.id].api,vis.querySelector('.container'), config[vis.id].dataMapping, vis.getAttribute('data-property'), segment,true);
                     graphs[vis.id].init();
 
                     // uniformize props in function --> window[method](el,dataMapping,property,segment,smallMultiple)
