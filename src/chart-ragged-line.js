@@ -12,7 +12,11 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
     let draw = function draw(data) {
 
 
-        svg.average = svg.layers.data.append("line")
+
+        svg.averageGroup = svg.layers.data.append("g")
+            .attr("class", "average");
+
+        svg.averageLine = svg.averageGroup.append("line")
             .attr("class", "average");
 
         svg.line = svg.layers.data.append("path")
@@ -53,17 +57,25 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         let av = (data.reduce((a,b) => a + parseInt(b[property]),0)) / data.length - 1;
 
-        svg.average
+
+        svg.averageGroup
+            .attr("transform", (d) => {
+                return "translate(" + 0 + ", " + yScale.linear(av) + ")"
+            });
+
+        svg.averageLine
             .attr("x1", xScale.time(new Date(data[data.length - 1][config.xParameter])) - 20)
             .attr("x2", xScale.time(new Date(data[0][config.xParameter])) + 20)
-            .attr("y1", yScale.linear(av))
-            .attr("y2", yScale.linear(av))
+            .attr("y1", 0)
+            .attr("y2", 0)
             .attr("fill", "none")
             .style("stroke", "gray")
             .style("stroke-width", 2)
             .style("stroke-dasharray", "2 4")
 
         ;
+
+
 
 
         svg.circles
