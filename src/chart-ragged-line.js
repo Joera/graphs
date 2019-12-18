@@ -50,14 +50,9 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
                 return xScale[config.xScaleType](new Date(d[config.xParameter]));
             })
-            // .attr("cy", function(d) { return dimensions.height; })
-            // .attr("clip-path", "url(#clip)")
-            // .attr("cy", function(d) {
-            //
-            //     return dimensions.height + 40;
-            //
-            // })
+
             .attr("r", 1)
+            .attr("fill",orange)
             .transition()
             .duration(500)
             .attr("r", 4)
