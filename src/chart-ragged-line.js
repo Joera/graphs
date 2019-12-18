@@ -43,7 +43,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         functions.average = d3.line()
             .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
-            .y(function(d) { return yScale.linear(d[property]) }) // data.map( (w) => { return w[property] }) })
+            .y(function(d) { return yScale.linear(600) }) // data.map( (w) => { return w[property] }) })
             .curve(d3.curveCardinal);
 
         svg.line
