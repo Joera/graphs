@@ -54,6 +54,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("r", 1)
             .attr("fill", 'white')
             .attr("stroke", orange)
+            .attr("stroke-width", 4)
             .transition()
             .duration(500)
             .attr("r", 6)
