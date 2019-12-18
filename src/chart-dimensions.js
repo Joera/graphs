@@ -8,6 +8,8 @@ class ChartDimensions {
 
     get(dimensions) {
 
+        console.log(this.config);
+
         this.dimensions = dimensions;
 
         this.element = (typeof this.element === 'string') ? document.querySelector(this.element) : this.element;
