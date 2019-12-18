@@ -97,6 +97,8 @@ class CijfersLine  {
             data.push(clearWeek);
         }
 
+        console.log(data);
+
         return data;
 
         // let neededColumns = ['_date', '_category'];
