@@ -45,6 +45,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.circles
             .merge(svg.circlesEnter)
+
             .attr("cx", function(d,i) {
 
                 return xScale[config.xScaleType](new Date(d[config.xParameter]));
@@ -56,8 +57,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             //     return dimensions.height + 40;
             //
             // })
+            .attr("r", 1)
             .transition()
             .duration(500)
+            .attr("r", 4)
             .attr("cy", function(d) {
                 return yScale[config.yScaleType](d[property]);
             })
