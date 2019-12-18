@@ -130,6 +130,11 @@
             <div class="container"></div>
         </article>
 
+        <article id="pie-bezwaren" class="pie mini-pie" data-script="PieChartSum">
+            <h3>Bezwaren</h3>
+            <div class="container"></div>
+        </article>
+
     </section>
 
     <section id="voortgang" class="page">
@@ -390,34 +395,64 @@
             'currencyLabels' : true,
             'dataMapping': [
                 [
+
                     {
-                        label: 'Mijnbouwschade',
-                        column: 'BEDRAG_SCHADEBEDRAG',
-                        colour: green
+                        label: 'Gegrond',
+                        column: 'BEZWAAR_GEGROND',
+                        colour: yellow
                     },
                     {
-                        label: 'Stuwmeerregeling',
-                        column: 'BEDRAG_SMR',
-                        colour: darkblue
-                    },
-                    {
-                        label: 'Bijkomende kosten',
-                        column: 'BEDRAG_BIJKOMENDE_KOSTEN',
+                        label: 'Deels gegrond',
+                        column: 'BEZWAAR_DEELS_GEGROND',
                         colour: blue
                     },
                     {
-                        label: 'Wettelijke rente',
-                        column: 'BEDRAG_WETTELIJKE_RENTE',
-                        colour: orange
+                        label: 'Ongegrond',
+                        column: 'BEZWAAR_ONGEGROND',
+                        colour: green
+                    },
+                    {
+                        label: 'Niet ontvankelijk',
+                        column: 'BEZWAAR_NIET_ONTVANKELIJK',
+                        colour: darkblue
+                    },
+                    {
+                        label: 'Ingetrokken',
+                        column: 'BEZWAAR_INGETROKKEN',
+                        colour: grey
+                    },
+                    {
+                        label: 'Naar schadeprocedure',
+                        column: 'BEZWAAR_DOORGEZET_SCHADEP',
+                        colour: darkblue
                     }
                 ],
                 [
                     {
-                        label: 'Totaal',
-                        column: 'TOTAAL_VERLEEND',
-                        colour: yellow
+                        label: 'Totaal afgehandeld',
+                        column: false
+                    }
+
+                ],
+                [
+                    {
+                        label: 'In behandeling',
+                        column: 'BEZWAAR_IN_BEHANDELING',
+                        colour: orange
                     }
                 ]
+            ]
+        },
+        'pie-bezwaren' : {
+
+            'api': '/api/gemeentes',
+            'smallMultiple': true,
+            'currencyLabels': true,
+            'dataMapping': [
+
+
+
+
             ]
         },
         'bars-aos-meldingen' : {
