@@ -19,14 +19,14 @@ class ChartDimensions {
             this.dimensions.svgWidth = this.config.fixedWidth + this.config.padding.left + this.config.padding.right;
             this.dimensions.width = this.config.fixedWidth;
 
-        } else if (this.config.minWidth && this.element.innerWidth < this.config.minWidth) {
+        } else if (this.config.minWidth && this.element.getBoundingClientRect().width < this.config.minWidth) {
 
             this.dimensions.svgWidth = this.config.minWidth + this.config.padding.left + this.config.padding.right;
             this.dimensions.width = this.config.minWidth;
 
         } else {
 
-            this.dimensions.svgWidth = this.element.innerWidth - this.config.margin.left - this.config.margin.right;
+            this.dimensions.svgWidth = this.element.getBoundingClientRect().width - this.config.margin.left - this.config.margin.right;
             this.dimensions.width = dimensions.svgWidth - this.config.padding.left - this.config.padding.right;
         }
 
@@ -37,7 +37,7 @@ class ChartDimensions {
             this.dimensions.svgHeight = (this.config.maxValue / 100) + this.config.padding.top + this.config.padding.bottom;
             this.dimensions.height = (this.config.maxValue / 100);
         } else {
-            this.dimensions.svgHeight = this.element.innerHeight - this.config.margin.top - this.config.margin.bottom;
+            this.dimensions.svgHeight = this.element.getBoundingClientRect().height - this.config.margin.top - this.config.margin.bottom;
             this.dimensions.height = this.dimensions.svgHeight - this.config.padding.top - this.config.padding.bottom;
         }
 
