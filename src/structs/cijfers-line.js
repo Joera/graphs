@@ -226,6 +226,8 @@ class CijfersLine  {
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
+        console.log()
+
         d3.json(url, function(error, json) {
             if (error) throw error;
             // globalData.weeks = json;
@@ -238,7 +240,7 @@ class CijfersLine  {
         });
 
 
-        
+
 
         // if(newSegment && newSegment != undefined) { this.segment = newSegment }
         //
