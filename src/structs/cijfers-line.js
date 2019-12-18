@@ -76,11 +76,9 @@ class CijfersLine  {
     prepareData(json)  {
 
 
-        // herschrijf api naar een request per gemeente
-
         // en dan bij gemeente switch een nieuwe call doen
 
-        // wat betekent dat voor de _nieuwe ? .. kan dat sowieso niet in een service?
+        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
 
         // let segmented = json.find( j => j['_category'] === segment);
@@ -89,16 +87,15 @@ class CijfersLine  {
 
         for (let week of json) {
 
-            // data.push({
-            //     status: map.label,
-            //     value: segmented[map.column]
-            // });
+            let clearWeek = {};
 
-            console.log(week);
+            for (let column of neededColumns) {
+
+                clearWeek[column] = week[column]
+            }
+
+            data.push(clearWeek);
         }
-
-
-        // console.log(segmented);
 
         return data;
 
@@ -225,10 +222,6 @@ class CijfersLine  {
         let self = this;
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
-
-        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
-
-        console.log(neededColumns);
 
         d3.json(url, function(error, json) {
             if (error) throw error;
