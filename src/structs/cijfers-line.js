@@ -152,7 +152,7 @@ class CijfersLine  {
             if (error) throw error;
             // globalData.weeks = json;
 
-            console.log(this.property);
+            console.log(self.property);
 
             let data = self.prepareData(json);
             self.element.prepend(self.html(data));
