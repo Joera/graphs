@@ -25,7 +25,11 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .curve(d3.curveCardinal);
 
         svg.line
-            .attr("d", functions.line);
+            .attr("d", functions.line)
+            .attr("fill", 'transparent')
+            .attr("stroke", orange)
+
+        ;
 
     }
 
