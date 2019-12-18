@@ -40,7 +40,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("d", functions.line)
             .attr("fill", 'transparent')
             .attr("stroke", orange)
-            .attr("stroke-width", 4)
+            .attr("stroke-width", 3)
         ;
 
         svg.circles
@@ -50,17 +50,17 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
                 return xScale[config.xScaleType](new Date(d[config.xParameter]));
             })
-
-            .attr("r", 1)
-            .attr("fill", 'white')
-            .attr("stroke", orange)
-            .attr("stroke-width", 4)
-            .transition()
-            .duration(500)
-            .attr("r", 6)
             .attr("cy", function(d) {
                 return yScale[config.yScaleType](d[property]);
             })
+            .attr("r", 1)
+            .attr("fill", 'white')
+            .attr("stroke", orange)
+            .attr("stroke-width", 3)
+            .transition()
+            .duration(500)
+            .attr("r", 6)
+
         ;
     }
 
