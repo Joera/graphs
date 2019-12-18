@@ -115,9 +115,9 @@ class CijfersLine  {
         this.chartLine.draw(data);
     }
 
-    html(lastWeekData)  {
+    html(data)  {
 
-        let gem = (data.reduce((a,b) => a + parseInt(b[property]),0)) / data.length - 1;
+        let gem = (data.reduce((a,b) => a + parseInt(b[this.property]),0)) / data.length - 1;
 
         let miniContainer = document.createElement('div');
 
@@ -127,15 +127,15 @@ class CijfersLine  {
         number.classList.add('number');
         number.style.backgroundColor =  this.dataMapping[0].colour;
 
-        number.innerText = lastWeekData[this.property];
+        number.innerText = data[0][this.property];
         div.appendChild(number);
 
         let diff = document.createElement('span');
         diff.classList.add('diff');
-        diff.innerText = (((lastWeekData[this.property] - gem) / gem) * 100).toFixed(0) + '%';
+        diff.innerText = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%';
 
         number.appendChild(diff);
-        
+
         miniContainer.appendChild(div);
 
         return miniContainer;
@@ -152,7 +152,7 @@ class CijfersLine  {
             // globalData.weeks = json;
 
             let data = self.prepareData(json);
-            self.element.prepend(self.html(data[0]));
+            self.element.prepend(self.html(data));
             self.draw(data);
             self.redraw(data);
         });
