@@ -117,6 +117,8 @@ class CijfersLine  {
 
     html(lastWeekData)  {
 
+        let gem = (data.reduce((a,b) => a + parseInt(b[property]),0)) / data.length - 1;
+
         let miniContainer = document.createElement('div');
 
         let div = document.createElement('div');
@@ -127,6 +129,13 @@ class CijfersLine  {
 
         number.innerText = lastWeekData[this.property];
         div.appendChild(number);
+
+        let diff = document.createElement('span');
+        diff.classList.add('diff');
+        diff.innerText = (((lastWeekData[this.property] - gem) / gem) * 100).toFixed(0) + '%';
+
+        number.appendChild(diff);
+        
         miniContainer.appendChild(div);
 
         return miniContainer;
