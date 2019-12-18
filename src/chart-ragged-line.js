@@ -42,7 +42,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         functions.average = d3.line()
             .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
-            .y(function(d) { return 600; }) // data.map( (w) => { return w[property] }) })
+            .y(function(d) { return 20; }) // data.map( (w) => { return w[property] }) })
             .curve(d3.curveCardinal);
 
         svg.line
@@ -52,11 +52,12 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("stroke-width", 4)
         ;
 
-        // svg.average
-        //     .attr("d", functions.average)
-        //     .attr("fill", 'none')
-        //     .attr("stroke", '#ccc')
-        //     .attr("stroke-width", 1);
+        svg.average
+            .attr("d", functions.average)
+            // .attr("fill", "none")
+            // .attr("stroke", "#ccc")
+            // .attr("stroke-width", 1);
+        ;
 
 
         svg.circles
