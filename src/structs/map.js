@@ -1,11 +1,12 @@
 class Map {
 
 
-    constructor(element, dataMapping, property, segment, smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
-        this.element = element;
+        this.elementID = elementID;
+        this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
-        this.property = property;
+        this.property = dataMapping[0].column;
         this.segment = segment;
         this.features;
         this.smallMultiple = smallMultiple;
