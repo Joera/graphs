@@ -51,7 +51,7 @@ class CijfersLine  {
         this.dimensions = this.chartDimensions.get(this.dimensions);
 
         // create svg elements without data
-        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=all';
 
         if (globalData.weeks) {
 
@@ -84,6 +84,13 @@ class CijfersLine  {
     }
 
     prepareData(json,segment)  {
+
+
+        // herschrijf api naar een request per gemeente
+
+        // en dan bij gemeente switch een nieuwe call doen
+
+        // wat betekent dat voor de _nieuwe ? .. kan dat sowieso niet in een service?
 
 
         let segmented = json.find( j => j['_category'] === segment);
