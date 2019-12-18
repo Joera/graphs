@@ -141,7 +141,7 @@ class CijfersLine  {
         number.style.backgroundColor =  this.dataMapping[0].colour;
 
         number.innerText = lastWeekData[this.property];
-        div.appendChild(number);
+        div.prepend(number);
         miniContainer.appendChild(div);
 
         return miniContainer;
