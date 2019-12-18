@@ -226,11 +226,22 @@ class CijfersLine  {
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
+        let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
+
+        console.log(neededColumns);
+
         d3.json(url, function(error, json) {
             if (error) throw error;
             // globalData.weeks = json;
 
             let data = self.prepareData(json);
+
+
+
+
+
+
+
 
         });
 
