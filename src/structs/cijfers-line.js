@@ -73,7 +73,7 @@ class CijfersLine  {
         this.chartAxis.drawYAxis();
     }
 
-    prepareData(json,segment)  {
+    prepareData(json)  {
 
 
         // herschrijf api naar een request per gemeente
@@ -226,14 +226,9 @@ class CijfersLine  {
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
-        console.log()
-
         d3.json(url, function(error, json) {
             if (error) throw error;
             // globalData.weeks = json;
-
-
-            console.log(json);
 
             let data = this.prepareData(json);
 
