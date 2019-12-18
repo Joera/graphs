@@ -52,11 +52,11 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("stroke-width", 4)
         ;
 
-        svg.average
-            .attr("d", functions.average)
-            .attr("fill", 'none')
-            .attr("stroke", '#ccc')
-            .attr("stroke-width", 1);
+        // svg.average
+        //     .attr("d", functions.average)
+        //     .attr("fill", 'none')
+        //     .attr("stroke", '#ccc')
+        //     .attr("stroke-width", 1);
 
 
         svg.circles
