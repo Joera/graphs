@@ -15,6 +15,18 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .data([data])
             .attr("class", "line");
 
+
+        svg.circles = svg.layers.data.selectAll("circle")
+            .data(data);
+
+        svg.circles.exit().remove();
+
+        svg.circlesEnter = svg.circles
+            .enter()
+            .append("circle")
+            .attr("fill", (d) => d.colour)
+        ;
+
     }
 
     let redraw = function redraw(xScale,yScale,functions,dimensions,data) {
@@ -29,6 +41,12 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("fill", 'transparent')
             .attr("stroke", orange)
             .attr("stroke-width", 4)
+        ;
+
+        svg.circles
+            .merge(svg.circlesEnter)
+
+        
 
         ;
 
