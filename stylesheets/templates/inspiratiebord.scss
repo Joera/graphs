@@ -207,6 +207,20 @@
         grid-row: 3  / span 2;
       }
 
+      #map-nieuwe-aos-meldingen {
+
+         grid-column: 6 / span 2;
+         grid-row: 4  / span 2;
+       }
+
+      #map-nieuwe-aos-gegrond {
+
+        grid-column: 8 / span 2;
+        grid-row: 4  / span 2;
+      }
+
+
+
       #pie-toegekende-bedragen {
 
         grid-column: 2 / span 4;
@@ -290,8 +304,6 @@
     }
 
     section#aos-meldingen {
-
-
 
       #map-aos-meldingen {
 

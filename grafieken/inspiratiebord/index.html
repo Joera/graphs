@@ -118,22 +118,26 @@
         </article>
 
         <article id="map-nieuwe-meldingen" class="map mini-map" data-script="Map">
-            <!--<h3>Schade-meldingen</h3>-->
             <div class="container"></div>
         </article>
 
         <article id="map-nieuwe-opnames" class="map mini-map" data-script="Map">
-            <!--<h3>Schade-opnames</h3>-->
             <div class="container"></div>
         </article>
 
         <article id="map-nieuwe-besluiten" class="map mini-map" data-script="Map">
-            <!--<h3>Besluiten</h3>-->
             <div class="container"></div>
         </article>
 
         <article id="map-nieuwe-afgehandeld" class="map mini-map" data-script="Map">
-            <!--<h3>Afgehandelde schademeldingen</h3>-->
+            <div class="container"></div>
+        </article>
+
+        <article id="map-nieuwe-aos-meldingen" class="map mini-map" data-script="Map">
+            <div class="container"></div>
+        </article>
+
+        <article id="map-nieuwe-aos-gegrond" class="map mini-map" data-script="Map">
             <div class="container"></div>
         </article>
 
@@ -392,6 +396,32 @@
         },
 
         'map-nieuwe-afgehandeld' : {
+
+            'api': '/api/gemeentes',
+            'smallMultiple': true,
+            'dataMapping': [
+                {
+                    label: 'Afgehandelde schade-meldingen',
+                    column: 'nieuwe_aos_meldingen',
+                    colour: green
+                }
+            ]
+        },
+
+        'map-nieuwe-aos-meldingen' : {
+
+            'api': '/api/gemeentes',
+            'smallMultiple': true,
+            'dataMapping': [
+                {
+                    label: 'Afgehandelde schade-meldingen',
+                    column: 'nieuwe_gegronde_aos',
+                    colour: orange
+                }
+            ]
+        },
+
+        'map-nieuwe-aos-gegrond' : {
 
             'api': '/api/gemeentes',
             'smallMultiple': true,
