@@ -9,7 +9,7 @@ class Map {
         this.property = dataMapping[0].column;
         this.segment = segment;
         this.features;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
 
         this.dropdown = document.querySelector('.map-selector ul');
 
