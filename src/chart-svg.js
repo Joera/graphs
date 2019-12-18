@@ -40,6 +40,8 @@ class ChartSVG {
 
     layers() {
 
+        console.log(this.config);
+
         this.svg.layers.underData = this.svg.body.append('g')
             .attr('class', 'under_data')
             .attr('transform', 'translate(' + this.config.margin.left + ',' + this.config.margin.top + ')');
