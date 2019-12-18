@@ -132,7 +132,7 @@ class CijfersLine  {
 
         let diff = document.createElement('span');
         diff.classList.add('diff');
-        diff.innerText = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%';
+        diff.innerText = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
 
         number.appendChild(diff);
 
