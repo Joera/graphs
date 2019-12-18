@@ -96,23 +96,18 @@ class CijfersLine  {
     }
 
 
-    redraw(data,property) {
+    redraw(data) {
 
-        if (Array.isArray(this.dataMapping)) {
-            // single balletje voor small multiples (dashboard)
-            let colour = this.dataMapping.find((m) => m.column === property)['colour'];
-        } else {
 
-        }
 
-        this.yScale = this.chartYScale.set(data,property);
+        this.yScale = this.chartYScale.set(data,this.property);
 
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG.redraw(this.dimensions);
         // new dimensions mean new scales
-        // this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
-        // this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
+        this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
+        this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
         // // new scales mean new axis
         //
         // this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
@@ -160,6 +155,7 @@ class CijfersLine  {
             let data = self.prepareData(json);
             self.element.prepend(self.html(data[0]));
             self.draw(data);
+            self.redraw(data);
         });
 
 
