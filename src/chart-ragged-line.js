@@ -61,7 +61,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("fill", "none")
             .style("stroke", "gray")
             .style("stroke-width", 2)
-            .style("stroke-dasharray", 4)
+            .style("stroke-dasharray", 1)
 
         ;
 
