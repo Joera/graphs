@@ -168,12 +168,7 @@ class CijfersLine  {
         this.chartLine.draw(data);
     }
 
-    singleNumber(mapping)  {
-
-        let average,label;
-
-        // console.log(data.find( (d) => d['_category'] === category));
-        let count = this.data.find( (d) => d['_category'] === this.segment)[mapping[0].column];
+    html(lastWeekData)  {
 
         let miniContainer = document.createElement('div');
 
@@ -181,42 +176,13 @@ class CijfersLine  {
 
         let number = document.createElement('span');
         number.classList.add('number');
-        number.style.backgroundColor =  mapping[0].colour;
+        number.style.backgroundColor =  this.dataMapping[0].colour;
 
-        number.innerText = count;
-
-        if(mapping[1]) {
-
-            let gem = Math.round(this.data.find((d) => d['_category'] === this.segment)[mapping[1].column]);
-
-            label = document.createElement('span');
-            label.classList.add('label');
-            label.innerText = 'gemiddelde laatste 8 weken';
-
-            average = document.createElement('span');
-            average.classList.add('average');
-            average.innerText = gem;
-
-
-            let diff = document.createElement('span');
-            diff.classList.add('diff');
-            diff.innerText = (((count - gem) / gem) * 100).toFixed(0) + '%';
-
-            number.appendChild(diff);
-        }
-
+        number.innerText = lastWeekData[this.property];
         div.appendChild(number);
         miniContainer.appendChild(div);
 
-        if(mapping[1]) {
-            miniContainer.appendChild(label);
-            miniContainer.appendChild(average);
-        }
-
-
         return miniContainer;
-
-
     }
 
     run(newSegment) {
@@ -231,7 +197,7 @@ class CijfersLine  {
 
             let data = self.prepareData(json);
 
-
+            self.html(data[0]);
 
 
 
