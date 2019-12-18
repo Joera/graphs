@@ -51,10 +51,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("stroke-width", 4)
         ;
 
-        let reducer = (a,b) => { console.log(b[property]); return parseInt(a) + b[property] };
-        let av = data.reduce(reducer);
+        let reducer = (a,b) => { return a + parseInt(b[property]) };
+        let av = data.reduce(reducer,0);
 
-        console.log(av)
+        console.log(av);
 
         svg.average
             .attr("x1", xScale.time(new Date(data[data.length - 1][config.xParameter])) - 20)
