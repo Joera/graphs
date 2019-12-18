@@ -45,11 +45,23 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.circles
             .merge(svg.circlesEnter)
+            .attr("cx", function(d,i) {
 
-        
-
+                return xScale[config.xScaleType](new Date(d[config.xParameter]));
+            })
+            // .attr("cy", function(d) { return dimensions.height; })
+            // .attr("clip-path", "url(#clip)")
+            // .attr("cy", function(d) {
+            //
+            //     return dimensions.height + 40;
+            //
+            // })
+            .transition()
+            .duration(500)
+            .attr("cy", function(d) {
+                return yScale[config.yScaleType](d[property]);
+            })
         ;
-
     }
 
     return {
