@@ -17,6 +17,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
 
         svg.average = svg.layers.data.append("path")
+            .data([data])
             .attr("class", "average");
 
 
@@ -54,9 +55,9 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.average
             .attr("d", functions.average)
-            // .attr("fill", "none")
-            // .attr("stroke", "#ccc")
-            // .attr("stroke-width", 1);
+            .attr("fill", "none")
+            .attr("stroke", "#ccc")
+            .attr("stroke-width", 1)
         ;
 
 
