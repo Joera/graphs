@@ -52,14 +52,6 @@ class CijfersLine  {
 
         // create svg elements without data
 
-
-        self.run(self.segment);
-
-
-    }
-
-    initSingle() {
-
         this.chartSVG = new ChartSVG(this.elementID, this.config, this.dimensions, this.svg);
 
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
@@ -71,6 +63,11 @@ class CijfersLine  {
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
+
+
+        self.run(self.segment);
+
+
     }
 
     prepareData(json)  {
@@ -124,7 +121,7 @@ class CijfersLine  {
         // this.chartLine.redraw(this.dimensions,this.xScale,this.yScale,property,colour);
     }
 
-    draw(data,property) {
+    draw(data) {
 
         console.log(data);
 
@@ -162,10 +159,7 @@ class CijfersLine  {
 
             let data = self.prepareData(json);
             self.element.appendChild(self.html(data[0]));
-
-
-
-
+            self.draw(data);
         });
 
 
