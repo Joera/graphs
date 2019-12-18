@@ -105,7 +105,7 @@ class CijfersLine  {
         // this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
         // this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // // redraw data
-        this.chartLine.redraw(this.xScale,this.yScale,this.dimensions);
+        this.chartLine.redraw(this.xScale,this.yScale,this.dimensions,data);
     }
 
     draw(data) {
