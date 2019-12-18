@@ -8,8 +8,6 @@ class ChartDimensions {
 
     get(dimensions) {
 
-        console.log(this.config);
-
         this.dimensions = dimensions;
 
         this.element = (typeof this.element === 'string') ? document.querySelector(this.element) : this.element;
@@ -31,7 +29,7 @@ class ChartDimensions {
         }
 
         if(this.config.fixedHeight){
-            console.log('1');
+
             this.dimensions.svgHeight = this.config.fixedHeight + this.config.padding.top + this.config.padding.bottom;
             this.dimensions.height = this.config.fixedHeight
         } else if(this.config.blocks) {
