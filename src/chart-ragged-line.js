@@ -16,8 +16,12 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         svg.averageGroup = svg.layers.data.append("g")
             .attr("class", "average");
 
-        svg.averageLine = svg.averageGroup.append("line")
-            .attr("class", "average");
+        svg.averageLine = svg.averageGroup.append("line");
+
+        svg.averageNumber = svg.averageGroup.append("text")
+            .attr("class","small-label")
+            .attr("text-anchor","middle")
+            .style("fill","black");
 
         svg.line = svg.layers.data.append("path")
             .data([data])
@@ -72,8 +76,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .style("stroke", "gray")
             .style("stroke-width", 2)
             .style("stroke-dasharray", "2 4")
-
         ;
+
+        svg.averageNumber
+            .text(av);
 
 
 
