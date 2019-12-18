@@ -148,67 +148,28 @@ class CijfersLine  {
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
-        d3.json(url, function(error, json) {
-            if (error) {
 
-                console.log(error);
-                throw error;
-            }
-            // globalData.weeks = json;
+        if(globalData.data) {
 
-
-
-            let data = self.prepareData(json);
+            let data = self.prepareData(globalData.data);
             self.element.prepend(self.html(data));
             self.draw(data);
             self.redraw(data);
-        });
 
+        } else {
 
+            d3.json(url, function(error, json) {
+                if (error) {
+                    console.log(error);
+                    throw error;
+                }
 
+                let data = self.prepareData(json);
+                self.element.prepend(self.html(data));
+                self.draw(data);
+                self.redraw(data);
+            });
 
-        // if(newSegment && newSegment != undefined) { this.segment = newSegment }
-        //
-        // if(json && json != undefined) { this.data = json; }
-        //
-        // console.log(json);
-        // console.log(this.dataMapping);
-
-
-
-        // if (Array.isArray(this.dataMapping))  {
-        //     // single balletje voor small multiples (dashboard)
-        //     console.log(self.dataMapping);
-        //
-        //     this.element.appendChild(self.singleNumber(self.dataMapping));
-        //     this.initSingle();
-        //     let data = this.prepareData(json,this.dataMapping[0].column);
-        //     this.draw(data,this.segment);
-        //     this.redraw(data,this.segment);
-        //
-        // } else {
-        //
-        //     // multiple balletjes (website)
-        //     for (let item of Object.values(this.dataMapping)) {
-        //
-        //         let article = document.createElement('article');
-        //         article.classList.add('cijfer');
-        //         article.appendChild(this.singleNumber(item));
-        //         this.element.appendChild(article);
-        //         let data = this.prepareData(json,item.column);
-        //         this.draw(data,this.segment);
-        //         this.redraw(data,this.segment);
-        //     }
-        // }
-
-
-
-        // legend(data);
-
-        // window.addEventListener("resize", () => self.redraw(data,property), false);
-        //
-        // for (let radio of this.radios) {
-        //     radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
-        // }
+        }
     }
 }

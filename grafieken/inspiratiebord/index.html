@@ -544,6 +544,8 @@
         });
     });
 
+    // one call per gemeente
+
     d3.json('https://tcmg-hub.publikaan.nl/api/gemeenten', function(error, json) {
         if (error) throw error;
         globalData.geoData = topojson.feature(json, json.objects.gemeenten).features;
@@ -551,7 +553,12 @@
         d3.json('https://tcmg-hub.publikaan.nl/api/gemeentes', function (error, json) {
             if (error) throw error;
             globalData.gemeentes = json;
-            openPage(page);
+
+            d3.json('https://tcmg-hub.publikaan.nl/api/data', function (error, json) {
+                if (error) throw error;
+                globalData.data = json;
+                openPage(page);
+            });
         });
     });
 
