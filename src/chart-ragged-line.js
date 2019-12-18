@@ -1,13 +1,13 @@
 let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
     //
-    // let popup = function popup(d) {
-    //
-    //     return moment(d[config.xParameter]).subtract(1, 'week').format('D/MM') + ' - '
-    //         + moment(d[config.xParameter]).format('D/MM') + '<br/>'
-    //         + d['nieuwe_schademeldingen'] + ' Nieuwe schademeldingen' + '<br/>'
-    //         + d['nieuwe_afgehandeld'] + ' Deze week afgehandeld';
-    // }
+    let popup = function popup(d) {
+
+        return moment(d[config.xParameter]).subtract(1, 'week').format('D/MM') + ' - '
+            + moment(d[config.xParameter]).format('D/MM') + '<br/>'
+            + d[property] + '<br/>'
+
+    }
 
     let draw = function draw(data) {
 
@@ -60,6 +60,21 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .transition()
             .duration(500)
             .attr("r", 6)
+            .on("mouseover", function(d) {
+
+                svg.tooltip
+                    .html(popup(d))
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })
 
         ;
     }
