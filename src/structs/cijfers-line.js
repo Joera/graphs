@@ -91,8 +91,7 @@ class CijfersLine  {
 
             for (let column of neededColumns) {
 
-                clearWeek.label = this.dataMapping.find( (map) => { return map.column === column })['label'];
-                clearWeek.value = week[column];
+                clearWeek[column] = week[column]
             }
 
             data.push(clearWeek);
