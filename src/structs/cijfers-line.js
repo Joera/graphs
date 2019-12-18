@@ -11,6 +11,8 @@ class CijfersLine  {
         this.property = dataMapping[0].column;
         this.smallMultiple = config.smallMultiple;
 
+        console.log(this.property);
+
     }
 
     init() {
