@@ -50,8 +50,6 @@ class CijfersLine  {
 
         this.chartXScale = new ChartXScale(this.config, this.dimensions, this.xScale);
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
-
-
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartLine = ChartRaggedLine(this.config, this.svg, this.property);
 
