@@ -44,6 +44,12 @@ article.cijfer {
       font-size: 1.33rem;
       line-height: 1;
       letter-spacing: -1px;
+
+      svg {
+        fill: white;
+        width: auto;
+        height: 1rem;
+      }
     }
 
     //&.#E17000 {
