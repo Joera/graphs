@@ -395,6 +395,43 @@
             'currencyLabels' : true,
             'dataMapping': [
                 [
+                    {
+                        label: 'Mijnbouwschade',
+                        column: 'BEDRAG_SCHADEBEDRAG',
+                        colour: green
+                    },
+                    {
+                        label: 'Stuwmeerregeling',
+                        column: 'BEDRAG_SMR',
+                        colour: darkblue
+                    },
+                    {
+                        label: 'Bijkomende kosten',
+                        column: 'BEDRAG_BIJKOMENDE_KOSTEN',
+                        colour: blue
+                    },
+                    {
+                        label: 'Wettelijke rente',
+                        column: 'BEDRAG_WETTELIJKE_RENTE',
+                        colour: orange
+                    }
+                ],
+                [
+                    {
+                        label: 'Totaal',
+                        column: 'TOTAAL_VERLEEND',
+                        colour: yellow
+                    }
+                ]
+            ]
+        },
+        'pie-bezwaren' : {
+
+            'api': '/api/gemeentes',
+            'smallMultiple': true,
+            'currencyLabels': true,
+            'dataMapping': [
+                [
 
                     {
                         label: 'Gegrond',
@@ -441,18 +478,6 @@
                         colour: orange
                     }
                 ]
-            ]
-        },
-        'pie-bezwaren' : {
-
-            'api': '/api/gemeentes',
-            'smallMultiple': true,
-            'currencyLabels': true,
-            'dataMapping': [
-
-
-
-
             ]
         },
         'bars-aos-meldingen' : {
