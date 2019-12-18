@@ -59,7 +59,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("stroke-width", 3)
             .transition()
             .duration(500)
-            .attr("r", 6)
+            .attr("r", 3)
             .on("mouseover", function(d) {
 
                 svg.tooltip
