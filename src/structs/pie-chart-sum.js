@@ -31,6 +31,7 @@ class PieChartSum  {
         this.config.padding.top = 60;
 
         if(this.smallMultiple) {
+            console.log('44');
             this.config.padding.left = 100;
         }
 
