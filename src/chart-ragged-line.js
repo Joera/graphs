@@ -57,7 +57,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("d", functions.average)
             .attr("fill", "none")
             .attr("stroke", "#ccc")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", 4)
         ;
 
 
