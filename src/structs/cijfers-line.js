@@ -98,14 +98,10 @@ class CijfersLine  {
 
     redraw(data) {
 
-
-
         this.yScale = this.chartYScale.set(data,this.property);
 
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
-
-        console.log(this.dimensions);
 
         this.chartSVG.redraw(this.dimensions);
         // new dimensions mean new scales
