@@ -161,7 +161,7 @@ class CijfersLine  {
             // globalData.weeks = json;
 
             let data = self.prepareData(json);
-            this.element.appendChild(self.html(data[0]));
+            self.element.appendChild(self.html(data[0]));
 
 
 
