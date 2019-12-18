@@ -230,7 +230,7 @@ class CijfersLine  {
             if (error) throw error;
             // globalData.weeks = json;
 
-            let data = this.prepareData(json);
+            let data = self.prepareData(json);
 
         });
 
