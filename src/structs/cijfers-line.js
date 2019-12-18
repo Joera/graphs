@@ -93,20 +93,22 @@ class CijfersLine  {
         // wat betekent dat voor de _nieuwe ? .. kan dat sowieso niet in een service?
 
 
-        let segmented = json.find( j => j['_category'] === segment);
+        // let segmented = json.find( j => j['_category'] === segment);
 
         let data = [];
 
-        for (let map of this.dataMapping) {
+        for (let week of json) {
 
-            data.push({
-                status: map.label,
-                value: segmented[map.column]
-            });
+            // data.push({
+            //     status: map.label,
+            //     value: segmented[map.column]
+            // });
+
+            console.log(week);
         }
 
-        console.log(this.dataMapping);
-        console.log(segmented);
+
+        // console.log(segmented);
 
         return data;
 
