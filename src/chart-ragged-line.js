@@ -13,7 +13,6 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
 
         svg.average = svg.layers.data.append("path")
-            .data([data])
             .attr("class", "average");
 
         svg.line = svg.layers.data.append("path")
