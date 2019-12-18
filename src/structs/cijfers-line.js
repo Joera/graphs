@@ -30,8 +30,8 @@ class CijfersLine  {
 
         this.config.padding.top = 0;
         // this.config.padding.bottom = 15;
-        this.config.padding.left = 30;
-        this.config.padding.right = 30;
+        this.config.padding.left = 40;
+        this.config.padding.right = 40;
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
 
