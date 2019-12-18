@@ -90,8 +90,18 @@
 
         article {
 
+          position: relative;
           width: auto;
           height: auto;
+
+
+          &.cijfer {
+            z-index: 2;
+          }
+
+          &.map {
+            z-index: 1;
+          }
 
           .container {
 
