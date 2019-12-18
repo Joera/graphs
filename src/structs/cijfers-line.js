@@ -8,7 +8,7 @@ class CijfersLine  {
         this.config = config;
         this.dataMapping = dataMapping;
         this.segment = segment;
-     //   this.property = (!this.property || this.property === undefined) ? this.dataMapping[0].column : property;
+        this.property = dataMapping[0].column;
         this.smallMultiple = config.smallMultiple;
 
     }
