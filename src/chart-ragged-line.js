@@ -52,8 +52,8 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         ;
 
         svg.average
-            .attr("x1", xScale.time(new Date(data[data.length - 1][config.xParameter])))
-            .attr("x2", xScale.time(new Date(data[0][config.xParameter])))
+            .attr("x1", xScale.time(new Date(data[data.length - 1][config.xParameter])) - 20)
+            .attr("x2", xScale.time(new Date(data[0][config.xParameter])) + 20)
             .attr("y1", yScale.linear(600))
             .attr("y2", yScale.linear(600))
             .attr("fill", "none")
