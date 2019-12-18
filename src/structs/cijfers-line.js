@@ -47,7 +47,7 @@ class CijfersLine  {
         }
 
         // get dimensions from parent element
-        this.chartDimensions = new ChartDimensions(this.elementID, this.config);
+        this.chartDimensions = new ChartDimensions(this.element, this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
 
         // create svg elements without data
