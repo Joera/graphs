@@ -2,11 +2,6 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
 
     let set = function set(data,property) {
 
-
-        console.log(data);
-
-        console.log(property);
-
         let endDate = new Date();
         let minValue;
 

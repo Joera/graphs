@@ -104,6 +104,9 @@ class CijfersLine  {
 
         // on redraw chart gets new dimensions
         this.dimensions = this.chartDimensions.get(this.dimensions);
+
+        console.log(this.dimensions);
+
         this.chartSVG.redraw(this.dimensions);
         // new dimensions mean new scales
         this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
@@ -117,8 +120,6 @@ class CijfersLine  {
     }
 
     draw(data) {
-
-        console.log(data);
 
         this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
