@@ -11,7 +11,6 @@ class CijfersLine  {
         this.property = dataMapping[0].column;
         this.smallMultiple = config.smallMultiple;
 
-        console.log(this.property);
 
     }
 
@@ -152,6 +151,8 @@ class CijfersLine  {
         d3.json(url, function(error, json) {
             if (error) throw error;
             // globalData.weeks = json;
+
+            console.log(this.property);
 
             let data = self.prepareData(json);
             self.element.prepend(self.html(data));
