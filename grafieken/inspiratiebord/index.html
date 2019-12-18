@@ -105,6 +105,18 @@
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
 
+        <article id="cijfer-nieuwe-aos" class="cijfer" data-script="CijfersLine">
+            <h3>AOS meldingen</h3>
+            <div class="container"></div>
+            <!-- strava grafiek met eigen loopjes op segment -->
+        </article>
+
+        <article id="cijfer-nieuwe-aos-gegrond" class="cijfer" data-script="CijfersLine">
+            <h3>Gegronde AOS</h3>
+            <div class="container"></div>
+            <!-- strava grafiek met eigen loopjes op segment -->
+        </article>
+
         <article id="map-nieuwe-meldingen" class="map mini-map" data-script="Map">
             <!--<h3>Schade-meldingen</h3>-->
             <div class="container"></div>
@@ -293,7 +305,6 @@
                 }
             ]
         },
-
         'cijfer-nieuwe-afgehandeld' : {
 
             'api': '/api/data',
@@ -307,6 +318,38 @@
                     label: 'Afgehandelde schade-meldingen',
                     column: 'nieuwe_afgehandeld',
                     colour: darkblue
+                }
+            ]
+        },
+        'cijfer-aos-mwldingen' : {
+
+            'api': '/api/data',
+                'xParameter' : '_date',
+                'fixedHeight' : 60,
+                'minValue' : true,
+                'xScaleType' : 'time',
+                'yScaleType' : 'linear',
+                'dataMapping': [
+                {
+                    label: 'AOS meldingen
+                    column: 'nieuwe_aos_meldingen ',
+                    colour: green
+                }
+            ]
+        },
+        'cijfer-gegronde-aoss' : {
+
+            'api': '/api/data',
+                'xParameter' : '_date',
+                'fixedHeight' : 60,
+                'minValue' : true,
+                'xScaleType' : 'time',
+                'yScaleType' : 'linear',
+                'dataMapping': [
+                {
+                    label: 'Gegronde AOS',
+                    column: 'nieuwe_gegronde_aos',
+                    colour: green
                 }
             ]
         },
@@ -387,7 +430,7 @@
                     colour: 'orange'
                 }
             ]
-        },
+        }
         'pie-toegekende-bedragen' : {
 
             'api': '/api/gemeentes',
