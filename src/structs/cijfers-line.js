@@ -51,20 +51,10 @@ class CijfersLine  {
         this.dimensions = this.chartDimensions.get(this.dimensions);
 
         // create svg elements without data
-        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=all';
 
-        if (globalData.weeks) {
 
-            this.run(globalData.weeks,this.segment)
+        self.run(self.segment);
 
-        } else {
-
-            d3.json(url, function(error, json) {
-                if (error) throw error;
-                globalData.weeks = json;
-                self.run(json,self.segment);
-            });
-        }
 
     }
 
@@ -230,18 +220,34 @@ class CijfersLine  {
 
     }
 
-    run(json,newSegment) {
+    run(newSegment) {
 
         let self = this;
 
-        if(newSegment && newSegment != undefined) { this.segment = newSegment }
+        let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
-        if(json && json != undefined) { this.data = json; }
+        d3.json(url, function(error, json) {
+            if (error) throw error;
+            // globalData.weeks = json;
 
-        console.log(json);
-        console.log(this.dataMapping);
 
-        let data = this.prepareData(json,this.segment);
+            console.log(json);
+
+            let data = this.prepareData(json);
+
+        });
+
+
+        
+
+        // if(newSegment && newSegment != undefined) { this.segment = newSegment }
+        //
+        // if(json && json != undefined) { this.data = json; }
+        //
+        // console.log(json);
+        // console.log(this.dataMapping);
+
+
 
         // if (Array.isArray(this.dataMapping))  {
         //     // single balletje voor small multiples (dashboard)
