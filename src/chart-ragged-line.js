@@ -16,6 +16,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("class", "line");
 
 
+        svg.average = svg.layers.data.append("path")
+            .attr("class", "average");
+
+
         svg.circles = svg.layers.data.selectAll("circle")
             .data(data);
 
@@ -36,12 +40,24 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .y(function(d) { return yScale.linear(d[property]); })
             .curve(d3.curveCardinal);
 
+        functions.average = d3.line()
+            .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
+            .y(function(d) { return 600; }) // data.map( (w) => { return w[property] }) })
+            .curve(d3.curveCardinal);
+
         svg.line
             .attr("d", functions.line)
             .attr("fill", 'transparent')
             .attr("stroke", orange)
             .attr("stroke-width", 4)
         ;
+
+        svg.average
+            .attr("d", functions.average)
+            .attr("fill", 'none')
+            .attr("stroke", '#ccc')
+            .attr("stroke-width", 1)
+
 
         svg.circles
             .merge(svg.circlesEnter)
