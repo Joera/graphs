@@ -142,7 +142,7 @@ class CijfersLine  {
 
         number.innerText = lastWeekData[this.property];
         div.appendChild(number);
-        miniContainer.prepend(div);
+        miniContainer.appendChild(div);
 
         return miniContainer;
     }
@@ -158,7 +158,7 @@ class CijfersLine  {
             // globalData.weeks = json;
 
             let data = self.prepareData(json);
-            self.element.appendChild(self.html(data[0]));
+            self.element.prepend(self.html(data[0]));
             self.draw(data);
         });
 
