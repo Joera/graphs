@@ -40,7 +40,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
     }
 
-    let redraw = function redraw(xScale,yScale,functions,dimensions,data) {
+    let redraw = function redraw(xScale,yScale,functions,dimensions,data,colour) {
 
         functions.line = d3.line()
             .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
@@ -55,7 +55,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         svg.line
             .attr("d", functions.line)
             .attr("fill", 'transparent')
-            .attr("stroke", orange)
+            .attr("stroke", colour)
             .attr("stroke-width", 4)
         ;
 
