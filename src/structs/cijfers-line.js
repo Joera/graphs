@@ -72,7 +72,7 @@ class CijfersLine  {
 
         let data = [];
 
-        for (let week of json) {
+        for (let week of json.slice(0,8)) {
 
             let clearWeek = {};
 
@@ -110,9 +110,9 @@ class CijfersLine  {
 
     draw(data) {
 
-        this.xScale = this.chartXScale.set(data.slice(0,8).map(d => d[this.config.xParameter]));
+        this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
 
-        this.chartLine.draw(data.slice(0,8));
+        this.chartLine.draw(data);
     }
 
     html(lastWeekData)  {
