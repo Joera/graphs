@@ -149,10 +149,14 @@ class CijfersLine  {
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
         d3.json(url, function(error, json) {
-            if (error) throw error;
+            if (error) {
+
+                console.log(error);
+                throw error;
+            }
             // globalData.weeks = json;
 
-            console.log(error);
+
 
             let data = self.prepareData(json);
             self.element.prepend(self.html(data));
