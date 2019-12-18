@@ -116,9 +116,9 @@ class PieChartSum  {
 
         if(this.smallMultiple) {
 
-            legendX = 110;
-            legendY = 30;
-            legendWidth = 170;
+            legendX = 360;
+            legendY = 120;
+            legendWidth = 240;
         }
 
         if (window.innerWidth < 660) {
