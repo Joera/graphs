@@ -11,15 +11,14 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
     let draw = function draw(data) {
 
-        svg.line = svg.layers.data.append("path")
-            .data([data])
-            .attr("class", "line");
-
 
         svg.average = svg.layers.data.append("path")
             .data([data])
             .attr("class", "average");
 
+        svg.line = svg.layers.data.append("path")
+            .data([data])
+            .attr("class", "line");
 
         svg.circles = svg.layers.data.selectAll("circle")
             .data(data);
