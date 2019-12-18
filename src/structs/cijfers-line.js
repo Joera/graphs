@@ -28,23 +28,23 @@ class CijfersLine  {
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
 
-        this.config.margin.top = 0;
-        this.config.margin.bottom = 0;
-        this.config.margin.left = 40;
-        this.config.margin.right = 0;
+        // this.config.margin.top = 0;
+        // this.config.margin.bottom = 0;
+        // this.config.margin.left = 40;
+        // this.config.margin.right = 0;
         this.config.padding.top = 10;
-        this.config.padding.bottom = 15;
-        this.config.padding.left = 30;
-        this.config.padding.right = 0;
+        // this.config.padding.bottom = 15;
+        // this.config.padding.left = 30;
+        // this.config.padding.right = 0;
 
-        this.config.xParameter = '_date';
+        // this.config.xParameter = '_date';
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
 
-        if (this.smallMultiple) {
-            this.config.dataArrayLength = 7;
-        }
+        // if (this.smallMultiple) {
+        //     this.config.dataArrayLength = 7;
+        // }
 
         // get dimensions from parent element
         this.chartDimensions = new ChartDimensions(this.element, this.config);
