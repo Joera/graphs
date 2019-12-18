@@ -55,7 +55,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("fill",orange)
             .transition()
             .duration(500)
-            .attr("r", 4)
+            .attr("r", 6)
             .attr("cy", function(d) {
                 return yScale[config.yScaleType](d[property]);
             })
