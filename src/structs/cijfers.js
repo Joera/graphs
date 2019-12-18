@@ -13,7 +13,6 @@ class Cijfers {
         this.dataMapping = dataMapping;
         this.smallMultiple = config.smallMultiple;
         this.segment = segment;
-        // this.data;
 
     }
 

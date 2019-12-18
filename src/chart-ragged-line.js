@@ -1,4 +1,4 @@
-let ChartRaggedLine = function ChartRaggedLine(config,svg,dimensions) {
+let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
     //
     // let popup = function popup(d) {
@@ -21,12 +21,12 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,dimensions) {
 
         functions.line = d3.line()
             .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
-            .y(function(d) { return yScale.linear(d[config.yParameter]); })
+            .y(function(d) { return yScale.linear(d[property]); })
             .curve(d3.curveCardinal);
 
         svg.line
             .attr("d", functions.line);
-
+    
     }
 
     return {

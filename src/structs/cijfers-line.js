@@ -59,7 +59,7 @@ class CijfersLine  {
 
 
         this.chartAxis = ChartAxis(this.config, this.svg);
-        this.chartLine = ChartRaggedLine(this.config, this.svg);
+        this.chartLine = ChartRaggedLine(this.config, this.svg, this.property);
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
@@ -121,9 +121,9 @@ class CijfersLine  {
 
     draw(data) {
 
-        this.xScale = this.chartXScale.set(data.map(d => d[this.config.xParameter]));
+        this.xScale = this.chartXScale.set(data.slice(0,8).map(d => d[this.config.xParameter]));
 
-        this.chartLine.draw(data);
+        this.chartLine.draw(data.slice(0,8));
     }
 
     html(lastWeekData)  {
