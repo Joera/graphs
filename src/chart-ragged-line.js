@@ -45,7 +45,6 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.circles
             .merge(svg.circlesEnter)
-
             .attr("cx", function(d,i) {
 
                 return xScale[config.xScaleType](new Date(d[config.xParameter]));
@@ -63,6 +62,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
 
         svg.circles
+            .merge(svg.circlesEnter)
             .on("mouseover", function(d) {
 
                 svg.tooltip
