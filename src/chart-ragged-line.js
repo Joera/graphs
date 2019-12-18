@@ -40,7 +40,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("d", functions.line)
             .attr("fill", 'transparent')
             .attr("stroke", orange)
-            .attr("stroke-width", 3)
+            .attr("stroke-width", 4)
         ;
 
         svg.circles
@@ -56,10 +56,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("r", 1)
             .attr("fill", 'white')
             .attr("stroke", orange)
-            .attr("stroke-width", 3)
+            .attr("stroke-width", 4)
             .transition()
             .duration(500)
-            .attr("r", 3)
+            .attr("r", 4)
             .on("mouseover", function(d) {
 
                 svg.tooltip
