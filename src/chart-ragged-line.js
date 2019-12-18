@@ -51,7 +51,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("stroke-width", 4)
         ;
 
-        let av = data.reduce( (a,b) => a + b[property]);
+        let av = data.reduce( (a,b) => a + parseInt(b[property]));
 
         console.log(av)
 
