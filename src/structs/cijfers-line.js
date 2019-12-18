@@ -80,9 +80,6 @@ class CijfersLine  {
 
         let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
-
-        // let segmented = json.find( j => j['_category'] === segment);
-
         let data = [];
 
         for (let week of json) {
@@ -97,44 +94,12 @@ class CijfersLine  {
             data.push(clearWeek);
         }
 
-        console.log(data);
 
         return data;
-
-        // let neededColumns = ['_date', '_category'];
-        //
-        //
-        // if (Array.isArray(this.dataMapping)) {
-        //     // single balletje voor small multiples (dashboard)
-        //     neededColumns = neededColumns.concat(this.dataMapping.map((c) => c.column));
-        // } else {
-        //     neededColumns.push(property);
-        // }
-        //
-        // let data = [];
-        //
-        // for (let week of json) {
-        //     let o = {};
-        //     for (let p of Object.entries(week))  {
-        //         if (neededColumns.indexOf(p[0]) > -1 ) {
-        //               o[p[0]] = p[1];
-        //         }
-        //     }
-        //     data.push(o);
-        // }
-        //
-        // data.sort(function(a, b) {
-        //     return new Date(a._date) - new Date(b._date);
-        // });
-        //
-        //
-        // return data;
     }
 
 
     redraw(data,property) {
-
-        let colour = orange;
 
         if (Array.isArray(this.dataMapping)) {
             // single balletje voor small multiples (dashboard)
@@ -196,10 +161,7 @@ class CijfersLine  {
             // globalData.weeks = json;
 
             let data = self.prepareData(json);
-
-            self.html(data[0]);
-
-
+            this.element.appendChild(self.html(data[0]));
 
 
 
