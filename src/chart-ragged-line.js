@@ -81,7 +81,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         svg.averageNumber
             .attr("dx", dimensions.width)
             .attr("dy", 12)
-            .text(Math.round(av));
+            .text("gem: " + Math.round(av));
 
 
 
