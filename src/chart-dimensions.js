@@ -12,7 +12,7 @@ class ChartDimensions {
 
         this.element = (typeof this.element === 'string') ? document.querySelector(this.element) : this.element;
 
-        console.log(this.element);
+        console.log(this.element.innerWidth);
 
         if (this.config.fixedWidth) {
 
