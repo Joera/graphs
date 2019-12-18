@@ -110,15 +110,15 @@ class PieChartSum  {
 
      legend(data,segment) {
 
-        let legendX = 240;
-        let legendY = 30;
+        let legendX = 360;
+        let legendY = 110;
         let legendWidth = 200;
 
         if(this.smallMultiple) {
 
-            legendX = 360;
-            legendY = 120;
-            legendWidth = 240;
+            legendX = 240;
+            legendY = 30;
+            legendWidth = 200;
         }
 
         if (window.innerWidth < 660) {
