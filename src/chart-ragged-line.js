@@ -53,11 +53,14 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         ;
 
         svg.average
-            .attr("d", functions.average)
+            .attr("x1", xScale.time(new Date(data[0][config.xParameter])) - 10)
+            .attr("x2", xScale.time(new Date(data[data.length - 1][config.xParameter])) + 10)
+            .attr("y1", function(d) { return yScale.linear(600) })
+            .attr("y2", function(d) { return yScale.linear(600) })
             .attr("fill", "none")
             .attr("stroke", "#ccc")
             .attr("stroke-width", 2)
-            .attr("stroke-dasharray", function(d) { return (d + 1) + ",5"; })
+            .attr("stroke-dasharray", 2)
 
         ;
 
