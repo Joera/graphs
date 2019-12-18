@@ -11,8 +11,6 @@ let ChartYScale = function ChartYScale(config,dimensions,scale) {
             minValue = 0; //
         }
 
-        console.log(minValue);
-
         scale.linear = d3.scaleLinear()
             .domain([
                 minValue,
