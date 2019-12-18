@@ -26,7 +26,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.line
             .attr("d", functions.line);
-    
+
     }
 
     return {
