@@ -30,10 +30,9 @@ class PieChartSum  {
         this.config.margin.left = 230;
         this.config.padding.top = 60;
 
-        if(this.smallMultiple) {
-            console.log('44');
-            this.config.padding.left = 100;
-        }
+        // if(this.smallMultiple) {
+        //     this.config.padding.left = 100;
+        // }
 
         this.config.colours = d3.scaleOrdinal()
             .range([green,darkblue,blue,orange,grey]);
@@ -52,12 +51,13 @@ class PieChartSum  {
         if (globalData.gemeentes) {
 
             this.run(globalData.gemeentes,this.segment)
+            console.log(globalData.gemeentes);
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                console.log(json);
+
                 globalData.gemeentes = json;
                 self.run(json,self.segment);
             });
