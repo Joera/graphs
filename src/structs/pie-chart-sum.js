@@ -123,8 +123,8 @@ class PieChartSum  {
         let newSVGObject= chartObjects.svg();
         this.legendSVG = new ChartSVG(legendContainer,this.config,this.dimensions,newSVGObject);
 
-        //  this.legendSVG.layers.legend.selectAll('*')
-        //     .remove();
+         this.legendSVG.layers.legend.selectAll('*')
+            .remove();
         //
         // data[0].forEach( (d,i) => {
         //
