@@ -260,6 +260,10 @@
         .legend {
 
           width: calc(50% - 1rem);
+
+          svg {
+            width: 100%;
+          }
         }
       }
 
