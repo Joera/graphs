@@ -60,7 +60,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         //     .curve(d3.curveCardinal);
 
         svg.line
-            .merge(svg.line)
+            .merge(svg.lineEnter)
             .attr("d", functions.line)
             .attr("fill", 'transparent')
             .attr("stroke", colour)
