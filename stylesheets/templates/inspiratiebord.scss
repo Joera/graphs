@@ -10,6 +10,12 @@
 
   main {
 
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto 2rem 60rem 2rem auto;
+    grid-template-rows: 3rem 2rem calc(100% - 8rem) 2rem;
+    justify-content: center;
+
     @media (min-width : $breakpoint-md) {
 
       height: 100vh;
