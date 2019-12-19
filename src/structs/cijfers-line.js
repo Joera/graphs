@@ -138,7 +138,7 @@ class CijfersLine  {
         diff.classList.add('diff');
         diff.innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
 
-        number.appendChild(diff);
+        div.appendChild(diff);
 
         miniContainer.appendChild(div);
 

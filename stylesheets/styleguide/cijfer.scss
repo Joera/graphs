@@ -40,17 +40,19 @@ article.cijfer {
     line-height: .9;
     margin: 1rem 0;
 
-    .diff {
-      font-size: 1.33rem;
-      line-height: 1;
-      letter-spacing: -1px;
+  }
 
-      svg {
-        fill: white;
-        width: auto;
-        height: 1rem;
-      }
+  .diff {
+    font-size: 1.33rem;
+    line-height: 1;
+    letter-spacing: -1px;
+
+    svg {
+      fill: white;
+      width: auto;
+      height: 1rem;
     }
+  }
 
     //&.#E17000 {
     //
@@ -58,7 +60,7 @@ article.cijfer {
     //}
 
 
-  }
+
 
   .label {
     text-transform: uppercase;
