@@ -125,8 +125,8 @@ class PieChartSum  {
 
         console.log(this.legendSVG);
 
-         // this.legendSVG.layers.legend.selectAll('*')
-         //    .remove();
+         this.legendSVG.layers.legend.selectAll('*')
+            .remove();
         //
         // data[0].forEach( (d,i) => {
         //
