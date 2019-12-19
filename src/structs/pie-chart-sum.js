@@ -119,7 +119,7 @@ class PieChartSum  {
 
         this.element.parentNode.appendChild(legendContainer);
 
-        let newSVGObject= ChartObjects().svg();
+        let newSVGObject= ChartObjects();
         this.legendSVG = new ChartSVG(legendContainer,this.config,this.dimensions,newSVGObject.svg);
 
          this.legendSVG.layers.legend.selectAll('*')
