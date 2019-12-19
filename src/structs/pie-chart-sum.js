@@ -51,7 +51,6 @@ class PieChartSum  {
         if (globalData.gemeentes) {
 
             this.run(globalData.gemeentes,this.segment)
-            console.log(globalData.gemeentes);
 
         } else {
 
