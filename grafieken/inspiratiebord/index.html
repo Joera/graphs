@@ -82,37 +82,37 @@
         <!--</article>-->
 
         <article id="cijfer-nieuwe-meldingen" class="cijfer" data-script="CijfersLine">
-            <h3>Schade-meldingen</h3>
+
             <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
 
         <article id="cijfer-nieuwe-opnames" class="cijfer" data-script="CijfersLine">
-            <h3>Schade-opnames</h3>
+
             <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
 
         <article id="cijfer-nieuwe-besluiten" class="cijfer" data-script="CijfersLine">
-            <h3>Besluiten</h3>
+
             <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
 
         <article id="cijfer-nieuwe-afgehandeld" class="cijfer" data-script="CijfersLine">
-            <h3>Afgehandelde schade-meldingen</h3>
+
             <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
 
         <article id="cijfer-nieuwe-aos-meldingen" class="cijfer" data-script="CijfersLine">
-            <h3>AOS meldingen</h3>
+
             <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
 
         <article id="cijfer-nieuwe-aos-gegrond" class="cijfer" data-script="CijfersLine">
-            <h3>Gegronde AOS</h3>
+
             <div class="container"></div>
             <!-- strava grafiek met eigen loopjes op segment -->
         </article>
@@ -268,6 +268,7 @@
             'minValue' : true,
             'xScaleType' : 'time',
             'yScaleType' : 'linear',
+            'header' : true,
             'dataMapping': [
 
                 {
@@ -405,33 +406,6 @@
                     column: 'nieuwe_AFGEHANDELD_TOTAAL',
                     colour: darkblue
 
-                }
-            ]
-        },
-
-        'map-nieuwe-aos-meldingen' : {
-
-            'api': '/api/gemeenten',
-            'smallMultiple': true,
-            'dataMapping': [
-                {
-                    label: 'AOS meldingen',
-                    column: 'nieuwe_AOS',
-                    colour: green
-
-                }
-            ]
-        },
-
-        'map-nieuwe-aos-gegrond' : {
-
-            'api': '/api/gemeenten',
-            'smallMultiple': true,
-            'dataMapping': [
-                {
-                    label: 'Gegronde AOS',
-                    column: 'nieuwe_AOS_GEGROND',
-                    colour: orange
                 }
             ]
         },
@@ -623,6 +597,12 @@
                 page.style.display = 'grid';
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
+
+                    if (config[vis.id].header) {
+                        let h = document.createElement('h3');
+                        h.innerText = config[vis.id].dataMapping[0].label;
+                        vis.appendChild(h);
+                    }
 
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
