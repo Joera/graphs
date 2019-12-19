@@ -81,41 +81,17 @@
             <!--<div class="container"></div>-->
         <!--</article>-->
 
-        <article id="cijfer-nieuwe-meldingen" class="cijfer" data-script="CijfersLine">
+        <article id="cijfer-nieuwe-meldingen" class="cijfer" data-script="CijfersLine"></article>
 
-            <div class="container"></div>
-            <!-- strava grafiek met eigen loopjes op segment -->
-        </article>
+        <article id="cijfer-nieuwe-opnames" class="cijfer" data-script="CijfersLine"></article>
 
-        <article id="cijfer-nieuwe-opnames" class="cijfer" data-script="CijfersLine">
+        <article id="cijfer-nieuwe-besluiten" class="cijfer" data-script="CijfersLine"></article>
 
-            <div class="container"></div>
-            <!-- strava grafiek met eigen loopjes op segment -->
-        </article>
+        <article id="cijfer-nieuwe-afgehandeld" class="cijfer" data-script="CijfersLine"></article>
 
-        <article id="cijfer-nieuwe-besluiten" class="cijfer" data-script="CijfersLine">
+        <article id="cijfer-nieuwe-aos-meldingen" class="cijfer" data-script="CijfersLine"></article>
 
-            <div class="container"></div>
-            <!-- strava grafiek met eigen loopjes op segment -->
-        </article>
-
-        <article id="cijfer-nieuwe-afgehandeld" class="cijfer" data-script="CijfersLine">
-
-            <div class="container"></div>
-            <!-- strava grafiek met eigen loopjes op segment -->
-        </article>
-
-        <article id="cijfer-nieuwe-aos-meldingen" class="cijfer" data-script="CijfersLine">
-
-            <div class="container"></div>
-            <!-- strava grafiek met eigen loopjes op segment -->
-        </article>
-
-        <article id="cijfer-nieuwe-aos-gegrond" class="cijfer" data-script="CijfersLine">
-
-            <div class="container"></div>
-            <!-- strava grafiek met eigen loopjes op segment -->
-        </article>
+        <article id="cijfer-nieuwe-aos-gegrond" class="cijfer" data-script="CijfersLine"></article>
 
         <article id="map-nieuwe-meldingen" class="map mini-map" data-script="Map">
             <div class="container"></div>
@@ -604,7 +580,9 @@
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
 
-
+                    let container = document.createElement('div');
+                    container.classList.add('container')
+                    vis.appendChild(container);
 
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
