@@ -12,6 +12,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
     let draw = function draw(data) {
 
 
+        svg.layers.data.selectAll('g.average').remove();
 
         svg.averageGroup = svg.layers.data.append("g")
             .attr("class", "average");
@@ -58,7 +59,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         //     .y(function(d) { return yScale.linear(600) }) // data.map( (w) => { return w[property] }) })
         //     .curve(d3.curveCardinal);
 
-        svg.lineEnter
+        svg.line
             .merge(svg.line)
             .attr("d", functions.line)
             .attr("fill", 'transparent')
