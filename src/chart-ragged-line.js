@@ -23,8 +23,14 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("text-anchor","end")
             .style("fill","black");
 
-        svg.line = svg.layers.data.append("path")
-            .data([data])
+        svg.line = svg.layers.data.selectAll('path')
+            .data([data]);
+
+        svg.line.exit().remove();
+
+        svg.lineEnter = svg.line
+            .enter()
+            .append("path")
             .attr("class", "line");
 
         svg.circles = svg.layers.data.selectAll("circle")
@@ -52,7 +58,8 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         //     .y(function(d) { return yScale.linear(600) }) // data.map( (w) => { return w[property] }) })
         //     .curve(d3.curveCardinal);
 
-        svg.line
+        svg.lineEnter
+            .merge(svg.line)
             .attr("d", functions.line)
             .attr("fill", 'transparent')
             .attr("stroke", colour)
