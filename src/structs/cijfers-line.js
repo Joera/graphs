@@ -114,9 +114,14 @@ class CijfersLine  {
         this.chartLine.draw(data);
     }
 
+    average(data) {
+
+        return (data.reduce((a,b) => a + parseInt(b[this.property]),0)) / data.length - 1;
+    }
+
     html(data)  {
 
-        let gem = (data.reduce((a,b) => a + parseInt(b[this.property]),0)) / data.length - 1;
+        let gem = this.average(data);
 
         let miniContainer = document.createElement('div');
 
@@ -140,6 +145,15 @@ class CijfersLine  {
         return miniContainer;
     }
 
+    update(data) {
+
+        let gem = this.average(data);
+
+        this.element.querySelector('.number').innerText = data[0][this.property];
+        this.element.querySelector('.diff').innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
+
+    }
+
     run(newSegment,change) {
 
         let self = this;
@@ -153,6 +167,20 @@ class CijfersLine  {
             self.element.prepend(self.html(data));
             self.draw(data);
             self.redraw(data);
+
+        } else if(change) {
+
+            d3.json(url, function(error, json) {
+                if (error) {
+                    console.log(error);
+                    throw error;
+                }
+
+                let data = self.prepareData(json);
+                self.update(data);
+                self.draw(data);
+                self.redraw(data);
+            });
 
         } else {
 
