@@ -142,12 +142,11 @@
         <!--</article>-->
 
         <article id="pie-toegekende-bedragen" class="pie mini-pie" data-script="PieChartSum">
-            <h3>Toegekende bedragen</h3>
             <div class="container"></div>
         </article>
 
         <article id="pie-bezwaren" class="pie mini-pie" data-script="PieChartSum">
-            <h3>Bezwaren</h3>
+
             <div class="container"></div>
         </article>
 
@@ -286,6 +285,7 @@
             'minValue' : true,
             'xScaleType' : 'time',
             'yScaleType' : 'linear',
+            'header' : true,
             'dataMapping': [
                 {
                     label: 'Schade-opnames',
@@ -302,6 +302,7 @@
             'minValue' : true,
             'xScaleType' : 'time',
             'yScaleType' : 'linear',
+            'header' : true,
             'dataMapping': [
                 {
                     label: 'Besluiten',
@@ -318,6 +319,7 @@
             'minValue' : true,
             'xScaleType' : 'time',
             'yScaleType' : 'linear',
+            'header' : true,
             'dataMapping': [
                 {
                     label: 'Afgehandelde schade-meldingen',
@@ -329,12 +331,13 @@
         'cijfer-nieuwe-aos-meldingen' : {
 
             'api': '/api/data',
-                'xParameter' : '_date',
-                'fixedHeight' : 60,
-                'minValue' : true,
-                'xScaleType' : 'time',
-                'yScaleType' : 'linear',
-                'dataMapping': [
+            'xParameter' : '_date',
+            'fixedHeight' : 60,
+            'minValue' : true,
+            'xScaleType' : 'time',
+            'yScaleType' : 'linear',
+            'header' : true,
+            'dataMapping': [
                 {
                     label: 'AOS meldingen',
                     column: 'nieuwe_aos_meldingen',
@@ -345,12 +348,13 @@
         'cijfer-nieuwe-aos-gegrond' : {
 
             'api': '/api/data',
-                'xParameter' : '_date',
-                'fixedHeight' : 60,
-                'minValue' : true,
-                'xScaleType' : 'time',
-                'yScaleType' : 'linear',
-                'dataMapping': [
+            'xParameter' : '_date',
+            'fixedHeight' : 60,
+            'minValue' : true,
+            'xScaleType' : 'time',
+            'yScaleType' : 'linear',
+            'header' : true,
+            'dataMapping': [
                 {
                     label: 'Gegronde AOS',
                     column: 'nieuwe_gegronde_aos',
@@ -442,6 +446,7 @@
             'api': '/api/gemeentes',
             'smallMultiple' : true,
             'currencyLabels' : true,
+            'header' : true,
             'dataMapping': [
                 [
                     {
@@ -479,6 +484,7 @@
             'api': '/api/gemeentes',
             'smallMultiple': true,
             'currencyLabels': true,
+            'header' : true,
             'dataMapping': [
                 [
 
