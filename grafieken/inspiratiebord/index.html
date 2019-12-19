@@ -567,7 +567,7 @@
 
                     if (config[vis.id].header) {
                         let h = document.createElement('h3');
-                        h.innerText = (config[vis.id].header === typeof 'String') ? config[vis.id].header : config[vis.id].dataMapping[0].label;
+                        h.innerText = (typeof config[vis.id].header === 'string') ? config[vis.id].header : config[vis.id].dataMapping[0].label;
                         vis.prepend(h);
                     }
 
