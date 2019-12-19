@@ -180,7 +180,7 @@ class CijfersLine  {
 
                 let data = self.prepareData(json);
                 self.update(data);
-                self.draw(data);
+                // self.draw(data);
                 self.redraw(data);
             });
 
