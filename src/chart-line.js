@@ -11,7 +11,7 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
     let draw = function draw(data) {
 
-        svg.line = svg.layers.data.selectAll('path');
+        svg.line = svg.layers.data.selectAll('path')
             .data([data]);
 
         svg.line.exit().remove();
