@@ -11,8 +11,14 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
 
     let draw = function draw(data) {
 
-        svg.line = svg.layers.data.append("path")
-            .data([data])
+        svg.line = svg.layers.data.selectAll('path');
+            .data([data]);
+
+        svg.line.exit().remove();
+
+        svg.lineEnter = svg.line
+            .enter()
+            .append("path")
             .attr("class", "line");
     }
 
@@ -25,12 +31,11 @@ let ChartLine = function ChartLine(config,svg,dimensions) {
             .curve(d3.curveStep);
 
         svg.line
+            .merge(svg.lineEnter)
             .attr("d", functions.line)
             .attr("fill","none")
             .attr("stroke", orange )
             .attr("stroke-width",4)
-
-
             ;
 
     }
