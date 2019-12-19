@@ -598,17 +598,19 @@
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
 
-                    if (config[vis.id].header) {
-                        let h = document.createElement('h3');
-                        h.innerText = config[vis.id].dataMapping[0].label;
-                        vis.appendChild(h);
-                    }
+
 
                     // clear html in containers
                     vis.querySelector('.container').innerHTML = '';
 
                     graphs[vis.id] = new window[vis.getAttribute('data-script')](config[vis.id].api,vis.querySelector('.container'), config[vis.id], config[vis.id].dataMapping, segment, vis.getAttribute('data-property'),true);
                     graphs[vis.id].init();
+
+                    if (config[vis.id].header) {
+                        let h = document.createElement('h3');
+                        h.innerText = config[vis.id].dataMapping[0].label;
+                        vis.prepend(h);
+                    }
 
                     // uniformize props in function --> window[method](el,dataMapping,property,segment,smallMultiple)
              //       window[vis.getAttribute('data-script')](vis.querySelector('.container'),dataMapping[vis.id],vis.getAttribute('data-property'),true);
