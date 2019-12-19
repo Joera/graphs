@@ -34,7 +34,7 @@ class ChartSVG {
         //     .attr('height', (dimensions.svgHeight - this.config.margin.top - this.config.margin.bottom));
 
         this.svg.layers.legend
-            .attr('transform', 'translate(' + this.config.padding.left + ',' + (dimensions.svgHeight - 10) + ')');
+            .attr('transform', 'translate(' + this.config.padding.left + ',' + 0 + ')');
 
     }
 
