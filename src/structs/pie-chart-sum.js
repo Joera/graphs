@@ -238,8 +238,8 @@ class PieChartSum  {
 
         }
 
-        this.legendSVG.layers.legend
-            .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
+        // this.legendSVG.layers.legend
+        //     .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
     }
 
     draw(data) {
