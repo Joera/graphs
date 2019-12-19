@@ -223,12 +223,24 @@
 
         grid-column: 2 / span 4;
         grid-row: 4 / span 1;
+      }
+
+      #pie-bezwaren {
+
+        grid-column: 2 / span 4;
+        grid-row: 5 / span 1;
+      }
+
+      .mini-pie {
+
+        display: flex;
+        flex-direction: column;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
         h3 {
-          //position: absolute;
+          margin-bottom: 1rem;
         }
 
         .container {
@@ -239,6 +251,10 @@
           justify-content: flex-start;
           align-items: center;
 
+          svg {
+            width: 140px;
+          }
+
         }
 
         .legend {
@@ -246,28 +262,6 @@
           width: calc(50% - 1rem);
         }
       }
-
-      #pie-bezwaren {
-
-        grid-column: 2 / span 4;
-        grid-row: 5 / span 1;
-      }
-
-        .mini-pie {
-
-          display: flex;
-          flex-direction: column;
-          //align-items: center;
-          //justify-content: center;
-
-          //h3 {
-          //  align-self: flex-start;
-          //}
-
-          //svg {
-          //  min-width: 600px;
-          //}
-        }
 
         .mini-map {
 
