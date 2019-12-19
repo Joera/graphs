@@ -66,7 +66,7 @@ let ChartMap = function ChartMap(config,svg,dimensions,smallMultiple) {
 
     let redraw = function redraw(dimensions,property,yScale,colours) {
 
-        // console.log(property);
+        console.log(property);
 
         svg.map
             .merge(svg.map)
@@ -97,14 +97,16 @@ let ChartMap = function ChartMap(config,svg,dimensions,smallMultiple) {
                     html = "<div class='uppercase'>" + d.properties.gemeentenaam + "</div><div>" + convertToCurrency(d.properties[property]) + "</div>";
                 }
 
+                if(d.properties[property] && d.properties[property] > 0) {
 
-                svg.tooltip
-                    .html(html)
-                    .style("left", (d3.event.pageX + 5) + "px")
-                    .style("top", (d3.event.pageY - 5) + "px")
-                    .transition()
-                    .duration(250)
-                    .style("opacity", 1);
+                    svg.tooltip
+                        .html(html)
+                        .style("left", (d3.event.pageX + 5) + "px")
+                        .style("top", (d3.event.pageY - 5) + "px")
+                        .transition()
+                        .duration(250)
+                        .style("opacity", 1);
+                }
             })
             .on("mouseout", function (d) {
 
