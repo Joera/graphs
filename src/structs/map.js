@@ -122,6 +122,8 @@ class Map {
 
     run(geoData,property) {
 
+        console.log(geoData);
+
         this.features = this.prepareData(geoData,property);
 
         this.chartMap.draw(this.features);
