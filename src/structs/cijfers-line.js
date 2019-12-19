@@ -126,10 +126,12 @@ class CijfersLine  {
         let miniContainer = document.createElement('div');
 
         let div = document.createElement('div');
+        div.classList.add('number_circle');
+        div.style.backgroundColor =  this.dataMapping[0].colour;
 
         let number = document.createElement('span');
         number.classList.add('number');
-        number.style.backgroundColor =  this.dataMapping[0].colour;
+
 
         number.innerText = data[0][this.property];
         div.appendChild(number);
