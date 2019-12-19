@@ -569,7 +569,7 @@
                     if (config[vis.id].header) {
                         let h = document.createElement('h3');
                         h.innerText = (typeof config[vis.id].header === 'string') ? config[vis.id].header : config[vis.id].dataMapping[0].label;
-                        vis.prepend(h);
+                        vis.querySelector('.container').prepend(h);
                     }
 
                     // uniformize props in function --> window[method](el,dataMapping,property,segment,smallMultiple)
