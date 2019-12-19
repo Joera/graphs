@@ -121,11 +121,9 @@ class PieChartSum  {
 
         let chartObjects = ChartObjects();
         let newSVGObject= chartObjects.svg();
-        this.legendSVG = new ChartSVG(legendContainer,this.config,this.dimensions,newSVGObject).svg;
+        this.legend = new ChartSVG(legendContainer,this.config,this.dimensions,newSVGObject);
 
-        console.log(this.legendSVG);
-
-         this.legendSVG.layers.legend.selectAll('*')
+        this.legend.svg.layers.legend.selectAll('*')
             .remove();
         //
         // data[0].forEach( (d,i) => {
@@ -240,7 +238,7 @@ class PieChartSum  {
 
         }
 
-        this.legendSVG.redraw(this.dimensions);
+       this.legend.redraw(this.dimensions);
 
         // this.legendSVG.layers.legend
         //     .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
