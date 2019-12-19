@@ -140,14 +140,14 @@ class CijfersLine  {
         return miniContainer;
     }
 
-    run(newSegment) {
+    run(newSegment,change) {
 
         let self = this;
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
 
-        if(globalData.data) {
+        if(globalData.data && !change) {
 
             let data = self.prepareData(globalData.data);
             self.element.prepend(self.html(data));
