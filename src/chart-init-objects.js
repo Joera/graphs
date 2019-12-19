@@ -27,7 +27,6 @@ let ChartObjects = function ChartObjects() {
             width : 0, // svgWidth minus config.padding
             svgHeight: 0, // height of element minus config.margin
             height : 0, // svgHeight minus config.padding
-
         }
 
     }
@@ -39,18 +38,7 @@ let ChartObjects = function ChartObjects() {
             layers : {},
             tooltip : d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0),
             yAxis : null,
-            yInputAxis : null,
-            xAxis : null,
-            legendTotals : null,
-            area : null,
-            line : null,
-            candlesUp : null,
-            candlesDown : null,
-            bar : null,
-            series : null,
-            input : null,
-            blockGroup : null,
-            blocks : null // stacked-bars
+            xAxis : null
         }
     }
 

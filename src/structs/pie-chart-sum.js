@@ -112,7 +112,105 @@ class PieChartSum  {
         return data;
     }
 
-     legend(data,segment) {
+     drawLegend(data,segment) {
+
+        let legendContainer = document.createElement('div');
+        legendContainer.classList.add('legend');
+
+        this.element.parentNode.appendChild(legendContainer);
+
+        let newSVGObject= ChartObjects().svg();
+        this.legendSVG = new ChartSVG(legendContainer,this.config,this.dimensions,newSVGObject.svg());
+
+         this.legendSVG.layers.legend.selectAll('*')
+            .remove();
+
+        data[0].forEach( (d,i) => {
+
+            this.legendSVG.layers.legend.append("rect")
+                .attr("y", (i * 20) - 8)
+                .attr("height",12)
+                .attr("width",12)
+                .attr("fill", d.colour)
+                .style("opacity", 1);
+
+            this.legendSVG.layers.legend.append("text")
+                .attr("class", "small-label")
+                .attr("dy", (i * 20) + 2)
+                .attr("dx",16)
+                .text(d['label'] + ':')
+                .attr("width", this.dimensions.svgWidth)
+                .style("opacity", 1);
+
+            this.legendSVG.layers.legend.append("text")
+                .attr("class", "small-label")
+                .attr("dx", legendWidth)
+                .attr("dy", (i * 20) + 2)
+                .text( (this.config.currencyLabels) ? convertToCurrency(d['value']) : d['value'])
+                .attr("width", this.dimensions.svgWidth)
+                .style("opacity", 1)
+                .style("text-anchor", "end");
+
+        });
+
+        // som van totaal
+         if(data[1]) {
+
+             this.legendSVG.layers.legend.append("rect")
+                 .attr("class", "small-label")
+                 .attr("y", ((data[0].length - 1) * 20) + 8)
+                 .attr("height", .5)
+                 .attr("width", legendWidth)
+                 .style("opacity", 1)
+                 .style("fill", "black");
+
+             this.legendSVG.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dy", (data[0].length * 20) + 2)
+                 .text('Totaal:')
+                 .attr("width", this.dimensions.svgWidth)
+                 .style("opacity", 1);
+
+             this.legendSVG.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dx", legendWidth)
+                 .attr("dy", ((data[0].length) * 20) + 2)
+                 .text( (this.config.currencyLabels) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
+                 .attr("width", this.dimensions.svgWidth)
+                 .style("opacity", 1)
+                 .style("text-anchor", "end");
+
+         }
+
+         if(data[2]) {
+
+             this.legendSVG.layers.legend.append("rect")
+                 .attr("y", ((data[0].length + 1.5) * 20) - 8)
+                 .attr("height",12)
+                 .attr("width",12)
+                 .attr("fill", orange)
+                 .style("opacity", 1);
+
+             this.legendSVG.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
+                 .attr("dx", 16)
+                 .text(data[2][0].label)
+                 .attr("width",this.dimensions.svgWidth)
+                 .style("opacity", 1);
+
+             this.legendSVG.layers.legend.append("text")
+                 .attr("class", "small-label")
+                 .attr("dx", 200)
+                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
+                 .text( (this.config.currencyLabels) ? convertToCurrency(data[2][0]['value']) : data[2][0]['value'])
+                 .attr("width",this.dimensions.svgWidth)
+                 .style("opacity", 1)
+                 .style("text-anchor", "end");
+         }
+    }
+
+    redrawLegend() {
 
         let legendX = 360;
         let legendY = 110;
@@ -139,97 +237,8 @@ class PieChartSum  {
 
         }
 
-        this.svg.layers.legend
+        this.legendSVG.layers.legend
             .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
-
-         this.svg.layers.legend.selectAll('*')
-            .remove();
-
-        data[0].forEach( (d,i) => {
-
-            this.svg.layers.legend.append("rect")
-                .attr("y", (i * 20) - 8)
-                .attr("height",12)
-                .attr("width",12)
-                .attr("fill", d.colour)
-                .style("opacity", 1);
-
-            this.svg.layers.legend.append("text")
-                .attr("class", "small-label")
-                .attr("dy", (i * 20) + 2)
-                .attr("dx",16)
-                .text(d['label'] + ':')
-                .attr("width", this.dimensions.svgWidth)
-                .style("opacity", 1);
-
-            this.svg.layers.legend.append("text")
-                .attr("class", "small-label")
-                .attr("dx", legendWidth)
-                .attr("dy", (i * 20) + 2)
-                .text( (this.config.currencyLabels) ? convertToCurrency(d['value']) : d['value'])
-                .attr("width", this.dimensions.svgWidth)
-                .style("opacity", 1)
-                .style("text-anchor", "end");
-
-        });
-
-        // som van totaal
-         if(data[1]) {
-
-             this.svg.layers.legend.append("rect")
-                 .attr("class", "small-label")
-                 .attr("y", ((data[0].length - 1) * 20) + 8)
-                 .attr("height", .5)
-                 .attr("width", legendWidth)
-                 .style("opacity", 1)
-                 .style("fill", "black");
-
-             this.svg.layers.legend.append("text")
-                 .attr("class", "small-label")
-                 .attr("dy", (data[0].length * 20) + 2)
-                 .text('Totaal:')
-                 .attr("width", this.dimensions.svgWidth)
-                 .style("opacity", 1);
-
-             this.svg.layers.legend.append("text")
-                 .attr("class", "small-label")
-                 .attr("dx", legendWidth)
-                 .attr("dy", ((data[0].length) * 20) + 2)
-                 .text( (this.config.currencyLabels) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
-                 .attr("width", this.dimensions.svgWidth)
-                 .style("opacity", 1)
-                 .style("text-anchor", "end");
-
-         }
-
-         if(data[2]) {
-
-             this.svg.layers.legend.append("rect")
-                 .attr("y", ((data[0].length + 1.5) * 20) - 8)
-                 .attr("height",12)
-                 .attr("width",12)
-                 .attr("fill", orange)
-                 .style("opacity", 1);
-
-             this.svg.layers.legend.append("text")
-                 .attr("class", "small-label")
-                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
-                 .attr("dx", 16)
-                 .text(data[2][0].label)
-                 .attr("width",this.dimensions.svgWidth)
-                 .style("opacity", 1);
-
-             this.svg.layers.legend.append("text")
-                 .attr("class", "small-label")
-                 .attr("dx", 200)
-                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
-                 .text( (this.config.currencyLabels) ? convertToCurrency(data[2][0]['value']) : data[2][0]['value'])
-                 .attr("width",this.dimensions.svgWidth)
-                 .style("opacity", 1)
-                 .style("text-anchor", "end");
-         }
-
-            // }
     }
 
     draw(data) {
@@ -251,6 +260,7 @@ class PieChartSum  {
          this.dimensions = this.chartDimensions.get(this.dimensions);
          this.chartSVG.redraw(this.dimensions);
          this.chartPie.redraw(this.dimensions,this.smallMultiple);
+         this.redrawLegend(this.dimensions,this.smallMultiple);
     }
 
     run(json,segment) {
@@ -259,8 +269,9 @@ class PieChartSum  {
 
         let data = this.prepareData(json,segment);
         this.draw(data);
+        this.drawLegend(data,segment);
         this.redraw();
-        this.legend(data,segment);
+
 
         window.addEventListener("resize", function() { self.redraw() }, false);
 
