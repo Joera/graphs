@@ -114,6 +114,31 @@ class PieChartSum  {
 
      drawLegend(data,segment) {
 
+         let legendX = 360;
+         let legendY = 110;
+         let legendWidth = 200;
+
+         if(this.smallMultiple) {
+
+             legendX = 240;
+             legendY = 30;
+             legendWidth = 200;
+             this.config.padding.left = 40;
+         }
+
+         if (window.innerWidth < 660) {
+
+             legendX = 260;
+             legendY = 180;
+         }
+
+         if (window.innerWidth < 480) {
+
+             legendX = 130;
+             legendY = 110;
+
+         }
+
         let legendContainer = document.createElement('div');
         legendContainer.classList.add('legend');
 
@@ -213,30 +238,7 @@ class PieChartSum  {
 
     redrawLegend() {
 
-        let legendX = 360;
-        let legendY = 110;
-        let legendWidth = 200;
 
-        if(this.smallMultiple) {
-
-            legendX = 240;
-            legendY = 30;
-            legendWidth = 200;
-            this.config.padding.left = 40;
-        }
-
-        if (window.innerWidth < 660) {
-
-            legendX = 260;
-            legendY = 180;
-        }
-
-        if (window.innerWidth < 480) {
-
-            legendX = 130;
-            legendY = 110;
-
-        }
 
        this.legend.redraw(this.dimensions);
 
