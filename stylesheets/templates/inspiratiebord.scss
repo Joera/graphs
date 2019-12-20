@@ -60,7 +60,7 @@
 
     section#menu {
 
-      grid-column: 3;
+      grid-column: 1 / 5;
       grid-row: 1;
 
       background: $darkblue;
@@ -81,13 +81,13 @@
            //   border-bottom: 1px solid $lightgrey;
               color: white;
 
-              &:first-of-type {
-                padding-left: 0.5rem;
-              }
-
-              &:last-of-type {
-                padding-right: 0.5rem;
-              }
+              //&:first-of-type {
+              //  padding-left: 0.5rem;
+              //}
+              //
+              //&:last-of-type {
+              //  padding-right: 0.5rem;
+              //}
             }
         }
     }
