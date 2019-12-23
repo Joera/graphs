@@ -128,7 +128,7 @@
 
     section.page {
 
-      margin-top: 3rem;
+      margin-top: 5rem;
 
       position: relative;
       display: none;
@@ -138,7 +138,7 @@
 
 
       @media (min-width : $breakpoint-sm) {
-        margin-top: 5rem;
+    //    margin-top: 5rem;
         grid-template-columns: repeat(4,1fr);
         grid-template-rows: repeat(32,1fr);
         grid-gap: 1rem;
