@@ -129,14 +129,24 @@
     section.page {
 
       margin-top: 3rem;
-      grid-column: 3;
-      grid-row: 3;
+
       position: relative;
       display: none;
-      grid-template-columns: repeat(8,1fr);
-      grid-template-rows: repeat(16,1fr);
-      grid-gap: 1rem;
+
+
       height: 100%;
+
+
+      @media (min-width : $breakpoint-sm) {
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(32,1fr);
+        grid-gap: 1rem;
+      }
+
+      @media (min-width : $breakpoint-md) {
+        grid-template-columns: repeat(8,1fr);
+        grid-template-rows: repeat(16,1fr);
+      }
 
         article {
 
