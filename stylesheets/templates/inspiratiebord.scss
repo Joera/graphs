@@ -38,7 +38,8 @@
     }
 
     ul {
-      display: none;
+      display: flex;
+      visibility: hidden;
       flex-direction: column;
       margin-top: 10rem;
 
@@ -47,7 +48,7 @@
       //padding: .2rem .5rem;
 
       @media (min-width : $breakpoint-md) {
-        display: flex;
+        visibility: visible;
         flex-direction: row;
       }
 
@@ -96,7 +97,7 @@
       height: 100vh;
 
         ul {
-          display: flex;
+          visibility: visible;
         }
     }
   }
