@@ -367,10 +367,15 @@
 
         display: flex;
         flex-direction: column;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+
+
+        @media (min-width: $breakpoint-sm) {
+
+          flex-direction: row;
+          justify-content: space-between;
+        }
 
         h3 {
           margin-bottom: 1rem;
