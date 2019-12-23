@@ -27,8 +27,8 @@ class PieChartSum  {
 
 
         this.config.margin.bottom = (window.innerWidth > 640) ? 20 : 100;
-        this.config.margin.left = 230;
-        this.config.padding.top = 60;
+        // this.config.margin.left = 0;
+        // this.config.padding.top = 0;
 
         // if(this.smallMultiple) {
         //     this.config.padding.left = 100;
