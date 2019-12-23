@@ -155,7 +155,7 @@
           position: relative;
           width: auto;
           height: auto;
-          min-height: 13rem;
+          min-height: 16rem;
 
           @media (min-width: $breakpoint-sm) {
             min-height: 13rem;
@@ -417,6 +417,14 @@
           @media (min-width: $breakpoint-lg ) {
 
             height: calc((100vw - 200px ) / 4 );
+          }
+
+          .container {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
           }
 
 
