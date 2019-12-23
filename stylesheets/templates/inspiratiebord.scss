@@ -176,30 +176,21 @@
       #cijfer-nieuwe-aos-meldingen {
 
         grid-column: 6   / span 2;
-        grid-row: 4 / span 1;
-
-        svg {
-          overflow: visible;
-        }
+        grid-row: 4 / span 2;
 
       }
 
       #cijfer-nieuwe-aos-gegrond {
 
         grid-column: 8 / span 2;
-        grid-row: 4 / span 1;
-
-        svg {
-          overflow: visible;
-        }
-
+        grid-row: 4 / span 2;
       }
 
 
       #map-nieuwe-meldingen {
 
           grid-column: 2 / span 2;
-          grid-row: 3 / span 2;
+          grid-row: 2 / span 2;
         }
 
       #map-nieuwe-opnames {
