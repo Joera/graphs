@@ -25,6 +25,8 @@ class Map {
 
         let self = this;
 
+        console.log(this.element);
+
         this.chartDimensions = new ChartDimensions(this.element,this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
         this.chartSVG = new ChartSVG(this.element,this.config,this.dimensions,this.svg);
@@ -37,7 +39,7 @@ class Map {
             // });
         }
 
-        console.log(this.dimensions);
+
 
         this.colours = this.dataMapping.map( (p) => p.colour);
 
