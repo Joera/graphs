@@ -29,6 +29,7 @@
       width: 1.5rem;
       height: auto;
       margin-left: .5rem;
+      self-align: flex-start;
 
       @media (min-width : $breakpoint-md) {
         display: none;
@@ -81,6 +82,7 @@
       margin-left: auto;
       margin-right: .5rem;
       width: 160px;
+      height: 2rem;
 
       @media (min-width : $breakpoint-lg) {
         display: none;
