@@ -119,6 +119,10 @@
           width: auto;
           height: auto;
 
+          @media (min-width: $breakpoint-sm) {
+            min-height: 11rem;
+          }
+
 
           &.cijfer {
             z-index: 2;
@@ -285,7 +289,17 @@
 
           svg {
             overflow: visible;
-            margin-top: -11vw;
+
+            @media (min-width: $breakpoint-sm) {
+
+            }
+
+            @media (min-width: $breakpoint-md) {
+              margin-top: -5rem;
+            }
+            @media (min-width: $breakpoint-lg) {
+              margin-top: -11vw;
+            }
           }
         }
     }
