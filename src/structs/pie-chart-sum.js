@@ -249,7 +249,7 @@ class PieChartSum  {
 
 
 
-       this.legend.redraw(this.dimensions);
+     //  this.legend.redraw(this.dimensions);
 
         // this.legendSVG.layers.legend
         //     .attr('transform', 'translate(' + legendX + ',' + legendY + ')');
@@ -274,7 +274,7 @@ class PieChartSum  {
          this.dimensions = this.chartDimensions.get(this.dimensions);
          this.chartSVG.redraw(this.dimensions);
          this.chartPie.redraw(this.dimensions,this.smallMultiple);
-         this.redrawLegend(this.dimensions,this.smallMultiple);
+      //   this.redrawLegend(this.dimensions,this.smallMultiple);
     }
 
     run(json,segment) {
