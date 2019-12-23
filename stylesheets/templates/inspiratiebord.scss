@@ -155,6 +155,10 @@
           height: auto;
 
           @media (min-width: $breakpoint-sm) {
+            min-height: 13rem;
+          }
+
+          @media (min-width: $breakpoint-md) {
             min-height: 11rem;
           }
 
