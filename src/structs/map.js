@@ -32,9 +32,9 @@ class Map {
 
         if (window.innerWidth < 600) {
 
-            Object.keys(this.dimensions).map(function(key, index) {
-                this.dimensions[key] *= 1.25;
-            });
+            // Object.keys(this.dimensions).map(function(key, index) {
+            //     this.dimensions[key] *= 1.25;
+            // });
         }
 
         this.colours = this.dataMapping.map( (p) => p.colour);
