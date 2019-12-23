@@ -163,7 +163,7 @@ class PieChartSum  {
         data[0].forEach( (d,i) => {
 
             this.legend.svg.layers.legend.append("rect")
-                .attr("y", (i * 20) - 8)
+                .attr("y", (i * 20))
                 .attr("height",12)
                 .attr("width",12)
                 .attr("fill", d.colour)
@@ -171,7 +171,7 @@ class PieChartSum  {
 
             this.legend.svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dy", (i * 20) + 2)
+                .attr("dy", (i * 20) + 8)
                 .attr("dx",16)
                 .text(d['label'] + ':')
                 .attr("width", this.dimensions.svgWidth)
@@ -180,7 +180,7 @@ class PieChartSum  {
             this.legend.svg.layers.legend.append("text")
                 .attr("class", "small-label")
                 .attr("dx", legendWidth)
-                .attr("dy", (i * 20) + 2)
+                .attr("dy", (i * 20) + 8)
                 .text( (this.config.currencyLabels) ? convertToCurrency(d['value']) : d['value'])
                 .attr("width", this.dimensions.svgWidth)
                 .style("opacity", 1)
@@ -193,7 +193,7 @@ class PieChartSum  {
 
              this.legend.svg.layers.legend.append("rect")
                  .attr("class", "small-label")
-                 .attr("y", ((data[0].length - 1) * 20) + 8)
+                 .attr("y", ((data[0].length - 1) * 20) + 14)
                  .attr("height", .5)
                  .attr("width", legendWidth)
                  .style("opacity", 1)
@@ -201,7 +201,7 @@ class PieChartSum  {
 
              this.legend.svg.layers.legend.append("text")
                  .attr("class", "small-label")
-                 .attr("dy", (data[0].length * 20) + 2)
+                 .attr("dy", (data[0].length * 20) + 8)
                  .text('Totaal:')
                  .attr("width", this.dimensions.svgWidth)
                  .style("opacity", 1);
@@ -209,7 +209,7 @@ class PieChartSum  {
              this.legend.svg.layers.legend.append("text")
                  .attr("class", "small-label")
                  .attr("dx", legendWidth)
-                 .attr("dy", ((data[0].length) * 20) + 2)
+                 .attr("dy", ((data[0].length) * 20) + 8)
                  .text( (this.config.currencyLabels) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
                  .attr("width", this.dimensions.svgWidth)
                  .style("opacity", 1)
@@ -220,7 +220,7 @@ class PieChartSum  {
          if(data[2]) {
 
              this.legend.svg.layers.legend.append("rect")
-                 .attr("y", ((data[0].length + 1.5) * 20) - 8)
+                 .attr("y", ((data[0].length + 1.5) * 20))
                  .attr("height",12)
                  .attr("width",12)
                  .attr("fill", orange)
@@ -228,7 +228,7 @@ class PieChartSum  {
 
              this.legend.svg.layers.legend.append("text")
                  .attr("class", "small-label")
-                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
+                 .attr("dy", ((data[0].length + 1.5) * 20) + 8)
                  .attr("dx", 16)
                  .text(data[2][0].label)
                  .attr("width",this.dimensions.svgWidth)
@@ -237,7 +237,7 @@ class PieChartSum  {
              this.legend.svg.layers.legend.append("text")
                  .attr("class", "small-label")
                  .attr("dx", 200)
-                 .attr("dy", ((data[0].length + 1.5) * 20) + 2)
+                 .attr("dy", ((data[0].length + 1.5) * 20) + 8)
                  .text( (this.config.currencyLabels) ? convertToCurrency(data[2][0]['value']) : data[2][0]['value'])
                  .attr("width",this.dimensions.svgWidth)
                  .style("opacity", 1)
