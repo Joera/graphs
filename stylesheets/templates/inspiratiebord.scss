@@ -402,7 +402,7 @@
 
         .legend {
 
-          width: calc(50% - 1rem);
+          min-height: 13rem;
 
           @media (min-width: $breakpoint-sm) {
             width: calc(50% - .5rem);
