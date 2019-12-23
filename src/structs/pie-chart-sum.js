@@ -153,6 +153,7 @@ class PieChartSum  {
              height : 360,
              svgWidth : 200,
              svgHeight : 360
+             
          }
 
         this.legend = new ChartSVG(legendContainer,this.config,legendDimensions,newSVGObject);
