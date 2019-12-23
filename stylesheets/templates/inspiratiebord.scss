@@ -383,11 +383,15 @@
 
         .container {
 
-          width: calc(50% - .5rem);
+
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+
+          @media (min-width: $breakpoint-sm) {
+            width: calc(50% - .5rem);
+          }
 
           svg {
             width: 136px;
@@ -399,6 +403,10 @@
         .legend {
 
           width: calc(50% - 1rem);
+
+          @media (min-width: $breakpoint-sm) {
+            width: calc(50% - .5rem);
+          }
 
           svg {
             width: 100%;
