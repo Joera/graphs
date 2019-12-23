@@ -581,6 +581,16 @@
 
         width: 280px;
         margin: auto;
+
+        @media (min-width: $breakpoint-sm) {
+
+          margin: -2rem 0 0 0;
+        }
+
+        @media (min-width: $breakpoint-md) {
+          margin: auto;
+        }
+
       }
 
       &:not(.small_multiple) {
