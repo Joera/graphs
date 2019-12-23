@@ -146,7 +146,16 @@ class PieChartSum  {
 
         let chartObjects = ChartObjects();
         let newSVGObject= chartObjects.svg();
-        this.legend = new ChartSVG(legendContainer,this.config,this.dimensions,newSVGObject);
+
+         let legendDimensions = {
+
+             width : 360,
+             height : 360,
+             svgWidth : 360,
+             svgHeight : 360
+         }
+
+        this.legend = new ChartSVG(legendContainer,this.config,legendDimensions,newSVGObject);
 
         this.legend.svg.layers.legend.selectAll('*')
             .remove();
