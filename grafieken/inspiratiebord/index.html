@@ -583,7 +583,7 @@
 
             if (page.id === pageName) {
 
-                page.style.display = 'grid';
+                page.style.display = (window.innerWidth < 600) ? 'flex' : 'grid';
 
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
 
