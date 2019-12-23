@@ -26,6 +26,9 @@
     #hamburger {
 
       fill: white;
+      width: 1.5rem;
+      height: auto;
+      margin-left: .5rem;
 
       @media (min-width : $breakpoint-md) {
         display: none;
