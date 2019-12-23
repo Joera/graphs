@@ -59,6 +59,13 @@ article.cijfer {
       width: auto;
       height: 1rem;
     }
+
+    &.down {
+
+      svg {
+        transform: scaleY(-1);
+      }
+    }
   }
 
     //&.#E17000 {
