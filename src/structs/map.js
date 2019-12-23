@@ -25,7 +25,7 @@ class Map {
 
         let self = this;
 
-        console.log(this.element.innerWidth);
+        console.log(this.element);
 
         this.chartDimensions = new ChartDimensions(this.element,this.config);
         this.dimensions = this.chartDimensions.get(this.dimensions);
