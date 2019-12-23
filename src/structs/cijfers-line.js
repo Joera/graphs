@@ -151,8 +151,6 @@ class CijfersLine  {
 
         miniContainer.appendChild(div);
 
-        this.update(data);
-
         return miniContainer;
     }
 
@@ -211,6 +209,7 @@ class CijfersLine  {
 
                 let data = self.prepareData(json);
                 self.element.prepend(self.html(data));
+                self.update(data);
                 self.draw(data);
                 self.redraw(data);
             });
