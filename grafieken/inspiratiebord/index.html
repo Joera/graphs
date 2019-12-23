@@ -620,6 +620,7 @@
 
         o.addEventListener( 'click', () => {
 
+            menu();
             openPage(o.getAttribute('data-nav'));
         });
     });
@@ -654,7 +655,7 @@
             });
         });
     });
-    
+
     let menu = function() {
 
         document.querySelector('#menu').classList.toggle('open');
