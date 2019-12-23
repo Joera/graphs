@@ -397,7 +397,7 @@
 
           @media (min-width: $breakpoint-sm ) {
 
-            height: calc((100vh - 200px) / 2);
+            //height: calc((100vh - 200px) / 2);
 
           }
 
@@ -417,7 +417,7 @@
 
             @media (min-width: $breakpoint-sm) {
 
-              margin-top: 5rem;
+              margin-top: -2rem;
             }
 
             @media (min-width: $breakpoint-md) {
