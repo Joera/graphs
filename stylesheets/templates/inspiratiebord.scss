@@ -395,6 +395,17 @@
 
         .mini-map {
 
+          @media (min-width: $breakpoint-sm ) {
+
+            height: calc((100vh - 200px) / 2);
+
+          }
+
+          @media (min-width: $breakpoint-md ) {
+
+            height: auto;
+          }
+
           @media (min-width: $breakpoint-lg ) {
 
             height: calc((100vw - 200px ) / 4 );
