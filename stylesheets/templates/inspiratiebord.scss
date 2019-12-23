@@ -371,6 +371,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
 
         h3 {
           margin-bottom: 1rem;
@@ -386,6 +387,7 @@
 
           svg {
             width: 136px;
+            height: 136px;
           }
 
         }
