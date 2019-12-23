@@ -539,31 +539,12 @@
         }
     }
 
-        // let globalData = {};
-
-        // bedragen('#bedragen .container', true);
-        // verdeling('#verdeling .container', true);
-        //  gemeentes('#map-meldingen .map-container');
-
-        // meldingen('#schademeldingen .container', true);
-        // aosMeldingen('#aosmeldingen .container', true);
-        // pieChartOpnames('#taart-opnames');
-
-
-        // statussen('#status-actueel .container', true);
-        // opnames('#besluiten .container', true);
-        // voortgang('#voortgang .container', true);
-        // candles('#candles .container', true);
-        // pieChartSum('#som .container',true);
-        // pieChartHerkomst('#herkomst .container',true);
-        // pieChartOpnames('#opnames .container', true);
-
     let page = 'vorige-week';
     let segment = 'all';
     let graphs = [];
 
     let municipalityOptions = [].slice.call(document.querySelectorAll('ul.muni-select li'));
-    let specialOptions = [].slice.call(document.querySelectorAll('ul.specials-select li'));
+    let specialOptions = [].slice.call(document.querySelectorAll('.specials-select option'));
     let segmentOptions = municipalityOptions.concat(specialOptions);
     let menuOptions = [].slice.call(document.querySelectorAll('#menu ul li'));
     let pages = [].slice.call(document.querySelectorAll('section.page'));
