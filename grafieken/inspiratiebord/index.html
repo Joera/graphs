@@ -41,24 +41,24 @@
     </ul>
 
     <select class="muni-select">
-        <option data-value="all" class="active"><span>Alle gemeenten</span></option>
-        <option data-value="aa-en-hunze"><span>Aa en Hunze</span></option>
-        <option data-value="appingedam"><span>Appingedam</span></option>
-        <option data-value="assen"><span>Assen</span></option>
-        <option data-value="delfzijl"><span>Delfzijl</span></option>
-        <option data-value="emmen"><span>Emmen</span></option>
-        <option data-value="groningen"><span>Groningen</span></option>
-        <option data-value="het-hogeland"><span>Het Hogeland</span></option>
-        <option data-value="loppersum"><span>Loppersum</span></option>
-        <option data-value="midden-groningen"><span>Midden-Groningen</span></option>
-        <option data-value="noordenveld"><span>Noordenveld</span></option>
-        <option data-value="oldambt"><span>Oldambt</span></option>
-        <option data-value="pekela"><span>Pekela</span></option>
-        <option data-value="stadskanaal"><span>Stadskanaal</span></option>
-        <option data-value="tynaarlo"><span>Tynaarlo</span></option>
-        <option data-value="veendam"><span>Veendam</span></option>
-        <option data-value="westerkwartier"><span>Westerkwartier</span></option>
-        <option data-value="westerwolde"><span>Westerwolde</span></option>
+        <option value="all" class="active"><span>Alle gemeenten</span></option>
+        <option value="aa-en-hunze"><span>Aa en Hunze</span></option>
+        <option value="appingedam"><span>Appingedam</span></option>
+        <option value="assen"><span>Assen</span></option>
+        <option value="delfzijl"><span>Delfzijl</span></option>
+        <option value="emmen"><span>Emmen</span></option>
+        <option value="groningen"><span>Groningen</span></option>
+        <option value="het-hogeland"><span>Het Hogeland</span></option>
+        <option value="loppersum"><span>Loppersum</span></option>
+        <option value="midden-groningen"><span>Midden-Groningen</span></option>
+        <option value="noordenveld"><span>Noordenveld</span></option>
+        <option value="oldambt"><span>Oldambt</span></option>
+        <option value="pekela"><span>Pekela</span></option>
+        <option value="stadskanaal"><span>Stadskanaal</span></option>
+        <option value="tynaarlo"><span>Tynaarlo</span></option>
+        <option value="veendam"><span>Veendam</span></option>
+        <option value="westerkwartier"><span>Westerkwartier</span></option>
+        <option value="westerwolde"><span>Westerwolde</span></option>
     </select>
 </header>
 
@@ -543,6 +543,7 @@
     let segment = 'all';
     let graphs = [];
 
+    let municipalityDropdown = document.querySelector('select.muni-select');
     let municipalityOptions = [].slice.call(document.querySelectorAll('ul.muni-select li'));
     let specialOptions = [].slice.call(document.querySelectorAll('.specials-select option'));
     let segmentOptions = municipalityOptions.concat(specialOptions);
@@ -621,6 +622,11 @@
 
             changeSegment(o.getAttribute('data-value'));
         });
+    });
+
+    municipalityDropdown.addEventListener( 'change', () => {
+
+        changeSegment(municipalityDropdown.value);
     });
 
     // one call per gemeente
