@@ -403,6 +403,9 @@
         .legend {
 
           min-height: 13rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
 
           @media (min-width: $breakpoint-sm) {
             width: calc(50% - .5rem);
