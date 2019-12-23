@@ -22,6 +22,17 @@
     background: $darkblue;
     //   padding-bottom: 4rem;
 
+
+    #hamburger {
+
+      fill: white;
+
+      @media (min-width : $breakpoint-md) {
+        display: none;
+      }
+
+    }
+
     ul {
       display: none;
       flex-direction: row;
