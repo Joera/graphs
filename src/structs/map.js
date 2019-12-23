@@ -37,6 +37,8 @@ class Map {
             // });
         }
 
+        console.log(this.dimensions);
+
         this.colours = this.dataMapping.map( (p) => p.colour);
 
         this.chartSVG.redraw(this.dimensions);
