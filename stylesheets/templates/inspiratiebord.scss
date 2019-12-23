@@ -333,6 +333,7 @@
       #pie-toegekende-bedragen {
 
         @media (min-width : $breakpoint-sm) {
+          display: none;
           grid-column: 1 / span 4;
           grid-row: 11 / span 2;
         }
@@ -347,6 +348,7 @@
       #pie-bezwaren {
 
         @media (min-width : $breakpoint-sm) {
+          display: none;
           grid-column: 1 / span 4;
           grid-row: 13 / span 2;
         }
