@@ -186,7 +186,14 @@
 
     section#vorige-week {
 
+        display: flex;
+      flex-direction: column;
+
+
+      @media (min-width : $breakpoint-sm) {
         display: grid;
+
+      }
 
       .cijfer {
 
@@ -197,8 +204,11 @@
 
       #cijfer-nieuwe-meldingen {
 
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 2;
+        @media (min-width : $breakpoint-sm) {
+
+          grid-column: 1 / span 2;
+          grid-row: 1 / span 2;
+        }
 
         @media (min-width : $breakpoint-md) {
           grid-column: 1 / span 2;
