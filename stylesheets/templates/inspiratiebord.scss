@@ -78,8 +78,11 @@
 
     aside {
 
-      margin-top: 3rem;
+      //margin-top: 3rem;
       display: none;
+      position: fixed;
+      left: 2rem;
+      top: 2vh;
 
       @media (min-width : $breakpoint-xl) {
         display: block;
@@ -278,7 +281,7 @@
 
           svg {
             overflow: visible;
-            margin-top: -7vw;
+            margin-top: -11vw;
           }
         }
     }
