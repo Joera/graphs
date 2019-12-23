@@ -121,7 +121,7 @@ class CijfersLine  {
 
     html(data)  {
 
-        let gem = this.average(data);
+        // let gem = this.average(data);
 
         let miniContainer = document.createElement('div');
 
@@ -132,23 +132,26 @@ class CijfersLine  {
         let number = document.createElement('span');
         number.classList.add('number');
 
-
-        number.innerText = data[0][this.property];
+        // number.innerText = data[0][this.property];
         div.appendChild(number);
 
         let diff = document.createElement('span');
         diff.classList.add('diff');
-        diff.innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
 
-        if ((data[0][this.property] - gem) < 0) {
-            this.element.querySelector('.diff').classList.add('down');
-        } else {
-            this.element.querySelector('.diff').classList.remove('down');
-        }
+
+        // diff.innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
+        //
+        // if ((data[0][this.property] - gem) < 0) {
+        //     this.element.querySelector('.diff').classList.add('down');
+        // } else {
+        //     this.element.querySelector('.diff').classList.remove('down');
+        // }
 
         div.appendChild(diff);
 
         miniContainer.appendChild(div);
+
+        this.update(data);
 
         return miniContainer;
     }
