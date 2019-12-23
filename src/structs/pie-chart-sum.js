@@ -120,22 +120,22 @@ class PieChartSum  {
 
          if(this.smallMultiple) {
 
-             legendX = 240;
-             legendY = 30;
-             legendWidth = 200;
-             this.config.padding.left = 40;
+             // legendX = 240;
+             // legendY = 30;
+             // legendWidth = 200;
+          //   this.config.padding.left = 40;
          }
 
          if (window.innerWidth < 660) {
 
-             legendX = 260;
-             legendY = 180;
+             // legendX = 260;
+             // legendY = 180;
          }
 
          if (window.innerWidth < 480) {
 
-             legendX = 130;
-             legendY = 110;
+             // legendX = 130;
+             // legendY = 110;
 
          }
 
