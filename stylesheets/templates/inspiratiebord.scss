@@ -38,13 +38,15 @@
 
     ul {
       display: none;
-      flex-direction: row;
+      flex-direction: column;
+
    //   margin-left: 4rem;
       //background: rgb(238, 238, 238);
       //padding: .2rem .5rem;
 
       @media (min-width : $breakpoint-md) {
         display: flex;
+        flex-direction: row;
       }
 
       li {
@@ -84,6 +86,15 @@
         display: none;
       }
 
+    }
+
+    &.open {
+
+      height: 100vh;
+
+        ul {
+          display: flex;
+        }
     }
   }
 
