@@ -112,7 +112,7 @@
       grid-row: 3;
       position: relative;
       display: none;
-      grid-template-columns: 0rem repeat(8,1fr);
+      grid-template-columns: repeat(8,1fr);
       grid-template-rows: repeat(16,1fr);
       grid-gap: 1rem;
       height: 100%;
@@ -160,66 +160,66 @@
 
       #cijfer-nieuwe-meldingen {
 
-        grid-column: 2 / span 2;
+        grid-column: 1 / span 2;
         grid-row: 1 / span 2;
 
       }
 
       #cijfer-nieuwe-opnames {
 
-        grid-column: 4 / span 2;
+        grid-column: 3 / span 2;
         grid-row: 1 / span 2;
       }
 
       #cijfer-nieuwe-besluiten {
 
-        grid-column: 6 / span 2;
+        grid-column: 5 / span 2;
         grid-row: 1 / span 2;
       }
 
       #cijfer-nieuwe-afgehandeld {
 
-          grid-column: 8 / span 2;
+          grid-column: 7 / span 2;
           grid-row: 1 / span 2;
 
         }
 
       #cijfer-nieuwe-aos-meldingen {
 
-        grid-column: 6   / span 2;
+        grid-column: 5   / span 2;
         grid-row: 4 / span 2;
 
       }
 
       #cijfer-nieuwe-aos-gegrond {
 
-        grid-column: 8 / span 2;
+        grid-column: 7 / span 2;
         grid-row: 4 / span 2;
       }
 
 
       #map-nieuwe-meldingen {
 
-          grid-column: 2 / span 2;
+          grid-column: 1 / span 2;
           grid-row: 3 / span 1;
         }
 
       #map-nieuwe-opnames {
 
-        grid-column: 4 / span 2;
+        grid-column: 3 / span 2;
         grid-row: 3 / span 1;
         //height: calc((100vw - 200px ) / 4 );
       }
 
       #map-nieuwe-besluiten {
 
-        grid-column: 6 / span 2;
+        grid-column: 5 / span 2;
         grid-row: 3 / span 1;
       }
 
       #map-nieuwe-afgehandeld {
 
-        grid-column: 8 / span 2;
+        grid-column: 7 / span 2;
         grid-row: 3  / span 1;
       }
 
@@ -237,13 +237,13 @@
 
       #pie-toegekende-bedragen {
 
-        grid-column: 2 / span 4;
+        grid-column: 1 / span 4;
         grid-row: 4 / span 2;
       }
 
       #pie-bezwaren {
 
-        grid-column: 2 / span 4;
+        grid-column: 1 / span 4;
         grid-row: 5 / span 2;
       }
 
