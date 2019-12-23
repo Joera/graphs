@@ -140,6 +140,12 @@ class CijfersLine  {
         diff.classList.add('diff');
         diff.innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
 
+        if ((data[0][this.property] - gem) < 0) {
+            this.element.querySelector('.diff').classList.add('down');
+        } else {
+            this.element.querySelector('.diff').classList.remove('down');
+        }
+
         div.appendChild(diff);
 
         miniContainer.appendChild(div);
