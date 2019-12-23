@@ -141,11 +141,7 @@
         display: grid;
 
       .cijfer {
-
-        grid-column-span: 1;
-        grid-row-span: 2;
-
-
+        
         svg {
           overflow: visible;
         }
@@ -153,8 +149,8 @@
 
       #cijfer-nieuwe-meldingen {
 
-        grid-column: 1;
-        grid-row: 1;
+        grid-column: 1 / span 2;;
+        grid-row: 1 / span 2;;
 
       }
 
