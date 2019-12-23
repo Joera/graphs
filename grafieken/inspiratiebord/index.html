@@ -139,7 +139,7 @@
 
     <section id="besluiten" class="page">
 
-        heee .. besluit nou eens wat!
+        <article id="multibar-stuwmeerregeling" class="multibar" data-script="MultiBarProgression"></article>
 
     </section>
 
@@ -553,6 +553,36 @@
                     column: 'AOS',
                     colour: '#65A7C5'
                 }
+            ]
+        },
+        'multibar-stuwmeerregeling' : {
+
+            'api': '/api/data',
+            'dataMapping': [
+                [
+                    {
+                        label: 'Besluiten regulier',
+                        column: 'besluiten_regulier',
+                        colour: 'green'
+                    },
+                    {
+                        label: '',
+                        column: 'nieuwe_besluiten_regulier',
+                        colour: 'green'
+                    }
+                ],
+                [
+                    {
+                        label: 'Besluiten',
+                        column: 'besluiten_stuwmeerregeling',
+                        colour: 'darkblue'
+                    },
+                    {
+                        label: '',
+                        column: 'nieuwe_besluiten_stuwmeerregeling',
+                        colour: 'darkblue'
+                    }
+                ]
             ]
         }
     }
