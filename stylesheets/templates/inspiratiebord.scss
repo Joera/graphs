@@ -193,26 +193,26 @@
       #map-nieuwe-meldingen {
 
           grid-column: 2 / span 2;
-          grid-row: 3 / span 2;
+          grid-row: 3 / span 1;
         }
 
       #map-nieuwe-opnames {
 
         grid-column: 4 / span 2;
-        grid-row: 3 / span 2;
+        grid-row: 3 / span 1;
         //height: calc((100vw - 200px ) / 4 );
       }
 
       #map-nieuwe-besluiten {
 
         grid-column: 6 / span 2;
-        grid-row: 3 / span 2;
+        grid-row: 3 / span 1;
       }
 
       #map-nieuwe-afgehandeld {
 
         grid-column: 8 / span 2;
-        grid-row: 3  / span 2;
+        grid-row: 3  / span 1;
       }
 
       //#map-nieuwe-aos-meldingen {
@@ -277,7 +277,11 @@
 
         .mini-map {
 
-          height: calc((100vw - 200px ) / 4 );
+          @media (min-width: $breakpoint-lg ) {
+
+            height: calc((100vw - 200px ) / 4 );
+          }
+
 
           svg {
             overflow: visible;
