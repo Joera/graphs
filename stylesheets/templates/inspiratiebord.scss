@@ -266,6 +266,11 @@
 
       #map-nieuwe-meldingen {
 
+        @media (min-width: $breakpoint-sm) {
+          grid-column: 3 / span 2;
+          grid-row: 1 / span 1;
+        }
+
         @media (min-width: $breakpoint-md) {
           grid-column: 3 / span 2;
           grid-row: 1 / span 1;
@@ -273,6 +278,11 @@
       }
 
       #map-nieuwe-opnames {
+
+        @media (min-width : $breakpoint-sm) {
+          grid-column: 3 / span 2;
+          grid-row: 3 / span 1;
+        }
 
         @media (min-width : $breakpoint-md) {
           grid-column: 3 / span 2;
@@ -283,6 +293,11 @@
 
       #map-nieuwe-besluiten {
 
+        @media (min-width : $breakpoint-sm) {
+          grid-column: 3 / span 2;
+          grid-row: 5 / span 1;
+        }
+
         @media (min-width : $breakpoint-md) {
           grid-column: 3 / span 2;
           grid-row: 5 / span 1;
@@ -290,6 +305,12 @@
       }
 
       #map-nieuwe-afgehandeld {
+
+
+        @media (min-width : $breakpoint-sm) {
+          grid-column: 3 / span 2;
+          grid-row: 7  / span 1;
+        }
 
         @media (min-width : $breakpoint-md) {
           grid-column: 3 / span 2;
@@ -315,7 +336,7 @@
           grid-column: 1 / span 4;
           grid-row: 11 / span 2;
         }
-      
+
 
         @media (min-width : $breakpoint-md) {
           grid-column: 1 / span 4;
