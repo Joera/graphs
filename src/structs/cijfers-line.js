@@ -182,6 +182,7 @@ class CijfersLine  {
 
             let data = self.prepareData(globalData.data);
             self.element.prepend(self.html(data));
+            self.update(data);
             self.draw(data);
             self.redraw(data);
 
