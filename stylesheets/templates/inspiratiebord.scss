@@ -159,10 +159,9 @@
     section.page {
 
       margin-top: 5rem;
-
       position: relative;
       display: none;
-
+      flex-direction: column;
 
       height: 100%;
 
@@ -217,9 +216,7 @@
 
     section#vorige-week {
 
-        display: flex;
-      flex-direction: column;
-
+      display: flex;
 
       @media (min-width : $breakpoint-sm) {
         display: grid;
