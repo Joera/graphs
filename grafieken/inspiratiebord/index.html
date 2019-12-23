@@ -560,7 +560,7 @@
         'map-besluiten' : {
 
             'api': '/api/gemeenten',
-            'smallMultiple': true,
+            'smallMultiple': false,
             'dataMapping': [
                 {
                     label: 'Besluiten',
@@ -624,7 +624,12 @@
                 for (let vis of [].slice.call(page.querySelectorAll('article'))) {
 
                     let container = document.createElement('div');
-                    container.classList.add('container')
+                    container.classList.add('container');
+
+                    if(config[vis.id].smallMultiple) {
+                        container.classList.add('small_multiple');
+                    }
+
                     vis.appendChild(container);
 
                     // clear html in containers
