@@ -62,6 +62,7 @@
     .muni-select {
 
       display: block;
+      align-self: flex-end;
 
       @media (min-width : $breakpoint-lg) {
         display: none;
