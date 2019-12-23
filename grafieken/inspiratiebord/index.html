@@ -39,13 +39,34 @@
         <li data-nav="schadevergoedingen"><span>Schadevergoedingen</span></li>
         <li data-nav="stuwmeerregeleing"><span>Stuwmeerregeling</span></li>
     </ul>
+
+    <select class="muni-select">
+        <option data-value="all" class="active"><span>Alle gemeenten</span></option>
+        <option data-value="aa-en-hunze"><span>Aa en Hunze</span></option>
+        <option data-value="appingedam"><span>Appingedam</span></option>
+        <option data-value="assen"><span>Assen</span></option>
+        <option data-value="delfzijl"><span>Delfzijl</span></option>
+        <option data-value="emmen"><span>Emmen</span></option>
+        <option data-value="groningen"><span>Groningen</span></option>
+        <option data-value="het-hogeland"><span>Het Hogeland</span></option>
+        <option data-value="loppersum"><span>Loppersum</span></option>
+        <option data-value="midden-groningen"><span>Midden-Groningen</span></option>
+        <option data-value="noordenveld"><span>Noordenveld</span></option>
+        <option data-value="oldambt"><span>Oldambt</span></option>
+        <option data-value="pekela"><span>Pekela</span></option>
+        <option data-value="stadskanaal"><span>Stadskanaal</span></option>
+        <option data-value="tynaarlo"><span>Tynaarlo</span></option>
+        <option data-value="veendam"><span>Veendam</span></option>
+        <option data-value="westerkwartier"><span>Westerkwartier</span></option>
+        <option data-value="westerwolde"><span>Westerwolde</span></option>
+    </select>
 </header>
 
 
 <main>
 
     <aside>
-        <ul id="muni-select">
+        <ul class="muni-select">
             <li data-value="all" class="active"><span>Alle gemeenten</span></li>
             <li data-value="aa-en-hunze"><span>Aa en Hunze</span></li>
             <li data-value="appingedam"><span>Appingedam</span></li>
@@ -65,7 +86,7 @@
             <li data-value="westerkwartier"><span>Westerkwartier</span></li>
             <li data-value="westerwolde"><span>Westerwolde</span></li>
         </ul>
-        <ul id="specials-select">
+        <ul class="specials-select">
             <li data-value="all"><span>Alle specials</span></li>
             <li data-value="agro"><span>Agro</span></li>
             <li data-value="erfgoed"><span>Erfgoed</span></li>
@@ -540,8 +561,8 @@
     let segment = 'all';
     let graphs = [];
 
-    let municipalityOptions = [].slice.call(document.querySelectorAll('ul#muni-select li'));
-    let specialOptions = [].slice.call(document.querySelectorAll('ul#specials-select li'));
+    let municipalityOptions = [].slice.call(document.querySelectorAll('ul.muni-select li'));
+    let specialOptions = [].slice.call(document.querySelectorAll('ul.specials-select li'));
     let segmentOptions = municipalityOptions.concat(specialOptions);
     let menuOptions = [].slice.call(document.querySelectorAll('#menu ul li'));
     let pages = [].slice.call(document.querySelectorAll('section.page'));

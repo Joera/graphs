@@ -25,7 +25,7 @@
     ul {
       display: none;
       flex-direction: row;
-      margin-left: 4rem;
+   //   margin-left: 4rem;
       //background: rgb(238, 238, 238);
       //padding: .2rem .5rem;
 
@@ -57,6 +57,16 @@
         //  padding-right: 0.5rem;
         //}
       }
+    }
+
+    .muni-select {
+
+      display: block;
+
+      @media (min-width : $breakpoint-lg) {
+        display: none;
+      }
+
     }
   }
 
