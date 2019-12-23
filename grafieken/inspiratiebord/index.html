@@ -139,7 +139,9 @@
 
     <section id="besluiten" class="page">
 
-        <article id="multibar-stuwmeerregeling" class="multibar" data-script="MultiBarProgression"></article>
+        <article id="map-besluiten" class="map mini-map" data-script="Map"></article>
+
+        <!--<article id="multibar-stuwmeerregeling" class="multibar" data-script="MultiBarProgression"></article>-->
 
     </section>
 
@@ -552,6 +554,18 @@
                     label: 'AOS meldingen',
                     column: 'AOS',
                     colour: '#65A7C5'
+                }
+            ]
+        },
+        'map-besluiten' : {
+
+            'api': '/api/gemeenten',
+            'smallMultiple': true,
+            'dataMapping': [
+                {
+                    label: 'Besluiten',
+                    column: 'BESCHIKT',
+                    colour: blue
                 }
             ]
         },
