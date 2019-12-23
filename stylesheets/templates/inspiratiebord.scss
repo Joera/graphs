@@ -31,11 +31,15 @@
 
       li {
 
-        padding: .25rem 1rem;
+        padding: .25rem .25rem;
         line-height: 2.5rem;
         border-right: none;
         //   border-bottom: 1px solid $lightgrey;
         color: white;
+
+        @media (min-width : $breakpoint-md) {
+          padding: .25rem 1rem;
+        }
 
         @media (min-width : $breakpoint-lg) {
           padding: .25rem 2rem;
