@@ -333,7 +333,6 @@
         @media (min-width : $breakpoint-md) {
           grid-column: 3 / span 2;
           grid-row: 3 / span 1;
-          height: calc((100vw - 200px ) / 4 );
         }
       }
 
@@ -345,8 +344,8 @@
         }
 
         @media (min-width : $breakpoint-md) {
-          grid-column: 3 / span 2;
-          grid-row: 5 / span 1;
+          grid-column: 5 / span 2;
+          grid-row: 3 / span 1;
         }
       }
 
@@ -359,8 +358,8 @@
         }
 
         @media (min-width : $breakpoint-md) {
-          grid-column: 3 / span 2;
-          grid-row: 7  / span 1;
+          grid-column: 7 / span 2;
+          grid-row: 3  / span 1;
         }
       }
 
@@ -547,12 +546,13 @@
 
     @media (min-width: $breakpoint-md ) {
 
-      height: auto;
+      height: calc((100vw - 200px ) / 4 );
+
     }
 
     @media (min-width: $breakpoint-lg ) {
 
-      height: calc((100vw - 200px ) / 4 );
+
     }
 
     .container {
