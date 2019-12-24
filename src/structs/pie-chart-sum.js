@@ -194,7 +194,7 @@ class PieChartSum  {
 
              this.legend.svg.layers.legend.append("text")
                  .attr("class", "small-label")
-                 .attr("dx", config.legendWidth)
+                 .attr("dx", this.config.legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 8)
                  .text( (this.config.currencyLabels) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
                  .attr("width", this.dimensions.svgWidth)
