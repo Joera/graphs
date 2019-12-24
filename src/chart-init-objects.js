@@ -36,7 +36,7 @@ let ChartObjects = function ChartObjects() {
         return {
             body : null,
             layers : {},
-            tooltip : d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0),
+            tooltip : (document.querySelector('.tooltip')) ? false : d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0),
             yAxis : null,
             xAxis : null
         }
