@@ -79,7 +79,7 @@
     ]
 
     // window[method](el,dataMapping,property,segment,smallMultiple)
-    let gemeentes = new Map('.map-input-container', dataMapping,'schademeldingen','all,false');
+    let gemeentes = new Map('/api/gemeenten','.map-input-container', dataMapping,'schademeldingen','all,false');
     gemeentes.init();
 
 
