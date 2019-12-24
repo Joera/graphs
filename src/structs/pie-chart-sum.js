@@ -130,7 +130,7 @@ class PieChartSum  {
 
         if(data[2]) {  dataLength = dataLength + data[2].length }
 
-        console.log(dataLength);
+        console.log(12 * dataLength);
 
          let legendDimensions = {
 
