@@ -17,51 +17,52 @@
       font-size: 1.6rem;
     }
   }
-
-  div.container:not(.no-bottom-container) {
-    height: calc(100vh - 80px);
-
-    @media (min-width: $breakpoint-sm) {
-      height: calc(100vh - 90px);
-    }
-
-    &.room-bottom {
-      @media (max-width: $breakpoint-sm) {
-        height: calc(100vh - 140px);
-      }
-    }
-
-    &.extra-room-bottom {
-      @media (max-width: $breakpoint-sm) {
-        height: calc(100vh - 170px);
-      }
-    }
-  }
-
-  div.container.no-bottom-container {
-    height: calc(100vh - 4rem);
-  }
-
-  div.container.voortgang-details-container {
-
-    height: calc(100vh - 200px);
-
-    @media (min-width: $breakpoint-xsm) {
-      height: calc(100vh - 130px);
-    }
-
-    @media (min-width: $breakpoint-sm) {
-      height: calc(100vh - 100px);
-    }
-  }
-
-  div.container.voortgang-duur-container {
-    height: calc(100vh - 160px);
-  }
 }
 
 iframe {
   border: none;
+}
+
+
+div.container:not(.no-bottom-container) {
+  height: calc(100vh - 80px);
+
+  @media (min-width: $breakpoint-sm) {
+    height: calc(100vh - 90px);
+  }
+
+  &.room-bottom {
+    @media (max-width: $breakpoint-sm) {
+      height: calc(100vh - 140px);
+    }
+  }
+
+  &.extra-room-bottom {
+    @media (max-width: $breakpoint-sm) {
+      height: calc(100vh - 170px);
+    }
+  }
+}
+
+div.container.no-bottom-container {
+  height: calc(100vh - 4rem);
+}
+
+div.container.voortgang-details-container {
+
+  height: calc(100vh - 200px);
+
+  @media (min-width: $breakpoint-xsm) {
+    height: calc(100vh - 130px);
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    height: calc(100vh - 100px);
+  }
+}
+
+div.container.voortgang-duur-container {
+  height: calc(100vh - 160px);
 }
 
 
