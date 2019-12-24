@@ -135,9 +135,9 @@ class PieChartSum  {
          let legendDimensions = {
 
              width : 200,
-             height : 360,
+             height : 12 * dataLength,
              svgWidth : 100,
-             svgHeight : 360
+             svgHeight : 12 * dataLength,
 
          }
 
