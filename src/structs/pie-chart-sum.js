@@ -122,8 +122,12 @@ class PieChartSum  {
         let chartObjects = ChartObjects();
         let newSVGObject= chartObjects.svg();
 
-        let dataLength = data[0].length + data[1].length + data[2].length;
+        let dataLength = data[0].length;
 
+        if(data[1]) {  dataLength = dataLength + data[1].length }
+
+        if(data[2]) {  dataLength = dataLength + data[2].length }
+        
         console.log(dataLength);
 
          let legendDimensions = {
