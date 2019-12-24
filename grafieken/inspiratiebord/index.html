@@ -682,7 +682,7 @@
 
         o.addEventListener( 'click', () => {
 
-            menu();
+            menu(true);
             openPage(o.getAttribute('data-nav'));
         });
     });
@@ -718,10 +718,19 @@
         });
     });
 
-    let menu = function() {
+    let menu = function(close) {
 
-        document.querySelector('#menu').classList.toggle('open');
+        if (close) {
+
+            document.querySelector('#menu').classList.remove('open');
+
+        } else {
+
+            document.querySelector('#menu').classList.toggle('open');
+        }
     }
+
+
 
     document.querySelector('#hamburger').addEventListener( 'click', () => {
 
