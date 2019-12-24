@@ -229,6 +229,7 @@
 
         @media (min-width: $breakpoint-lg ) {
 
+            height: auto;
         }
 
         .container {
@@ -251,7 +252,7 @@
               margin-top: -5rem;
             }
             @media (min-width: $breakpoint-lg) {
-              margin-top: -11vw;
+              //margin-top: -11vw;
             }
           }
 
