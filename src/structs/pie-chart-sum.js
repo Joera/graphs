@@ -114,7 +114,7 @@ class PieChartSum  {
 
      drawLegend(data,segment) {
 
-        let legendWidth = 200;
+
 
         let legendContainer = document.createElement('div');
         legendContainer.classList.add('legend');
@@ -130,14 +130,14 @@ class PieChartSum  {
 
         if(data[2]) {  dataLength = dataLength + data[2].length }
 
-        console.log(12 * dataLength);
+        console.log(24 * dataLength);
 
          let legendDimensions = {
 
              width : 200,
-             height : 12 * dataLength,
+             height : 24 * dataLength,
              svgWidth : 100,
-             svgHeight : 12 * dataLength,
+             svgHeight : 24 * dataLength,
 
          }
 
@@ -165,7 +165,7 @@ class PieChartSum  {
 
             this.legend.svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dx", legendWidth)
+                .attr("dx", config.legendWidth)
                 .attr("dy", (i * 20) + 8)
                 .text( (this.config.currencyLabels) ? convertToCurrency(d['value']) : d['value'])
                 .attr("width", this.dimensions.svgWidth)
@@ -181,7 +181,7 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("y", ((data[0].length - 1) * 20) + 14)
                  .attr("height", .5)
-                 .attr("width", legendWidth)
+                 .attr("width", config.legendWidth)
                  .style("opacity", 1)
                  .style("fill", "black");
 
@@ -194,7 +194,7 @@ class PieChartSum  {
 
              this.legend.svg.layers.legend.append("text")
                  .attr("class", "small-label")
-                 .attr("dx", legendWidth)
+                 .attr("dx", config.legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 8)
                  .text( (this.config.currencyLabels) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
                  .attr("width", this.dimensions.svgWidth)
