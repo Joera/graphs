@@ -46,7 +46,7 @@ let ChartPie = function ChartPie(config,svg,dimensions) {
             innerRadius = (config.innerRadius !== undefined) ? config.innerRadius : 30;
 
             svg.layers.data
-                .attr("transform", "translate(" + (dimensions.svgWidth / 4)+ "," + (dimensions.svgHeight / 2) + ")");
+                .attr("transform", "translate(" + (dimensions.svgWidth / 3)+ "," + (dimensions.svgHeight / 2) + ")");
 
             radius = dimensions.svgWidth / 3;
 
