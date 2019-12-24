@@ -114,6 +114,8 @@ class PieChartSum  {
 
      drawLegend(data,segment) {
 
+        let legendWidth = 200;
+
         let legendContainer = document.createElement('div');
         legendContainer.classList.add('legend');
 
@@ -127,7 +129,7 @@ class PieChartSum  {
         if(data[1]) {  dataLength = dataLength + data[1].length }
 
         if(data[2]) {  dataLength = dataLength + data[2].length }
-        
+
         console.log(dataLength);
 
          let legendDimensions = {
