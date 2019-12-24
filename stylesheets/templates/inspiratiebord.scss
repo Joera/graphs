@@ -503,6 +503,25 @@
 
     section#besluiten {
 
+
+      #multibar-stuwmeerregeling {
+
+        @media (min-width : $breakpoint-sm) {
+          grid-column: 1 / span 2;
+          grid-row: 1  / span 2;
+        }
+
+        @media (min-width : $breakpoint-md) {
+          grid-column: 1 / span 6;
+          grid-row: 1  / span 2;
+        }
+
+        //.container {
+        //
+        //  height : 400px;
+        //}
+      }
+
       #map-besluiten {
 
         @media (min-width : $breakpoint-sm) {
