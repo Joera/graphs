@@ -177,7 +177,7 @@
       }
 
       @media (min-width : $breakpoint-md) {
-        margin-top: 3rem;
+        //margin-top: 3rem;
         grid-template-columns: repeat(8,1fr);
         grid-template-rows: repeat(16,1fr);
       }
