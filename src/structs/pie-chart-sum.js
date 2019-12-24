@@ -130,14 +130,14 @@ class PieChartSum  {
 
         if(data[2]) {  dataLength = dataLength + data[2].length }
 
-        console.log(24 * dataLength);
+        console.log(19 * dataLength);
 
          let legendDimensions = {
 
              width : 200,
-             height : 24 * dataLength,
+             height : 19 * dataLength,
              svgWidth : 100,
-             svgHeight : 24 * dataLength,
+             svgHeight : 19 * dataLength,
 
          }
 
