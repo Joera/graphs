@@ -1,13 +1,13 @@
 class MultiBarProgression  {
 
-    constructor(endpoint,elementID,config,dataMapping,property) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.config = config;
         this.dataMapping = dataMapping;
-        this.property = property;
+        this.property = config.yParameter;
         this.smallMultiple = config.smallMultiple;
     }
 
@@ -154,7 +154,7 @@ class MultiBarProgression  {
 
         let data = this.prepareData(json,property);
         this.draw(data,property);
-       this.redraw(data,property);
+        this.redraw(data,property);
         // legend(data);
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
