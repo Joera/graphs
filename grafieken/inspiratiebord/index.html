@@ -588,8 +588,13 @@
         'multibar-stuwmeerregeling' : {
 
             'api': '/api/data',
-            'xParameter' : '_date',
-            'xScaleTicks' : 'timeMonth',
+            'smallMultiple' : false,
+            'minValue' : 0,
+            'xParameter' :'_date',
+            'xScaleType' : 'time',
+            'xScaleTicks' :'timeMonth',
+            'yScaleType' : 'linear',
+            'barWidth' : 12,
             'dataMapping': [
                 [
                     {
