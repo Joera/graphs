@@ -18,7 +18,6 @@
 
 
 <body id="specials-pie-chart" class="single-graph">
-<main>
 
     <select class="municipalities">
         <option value="all">Alle gemeenten</option>
@@ -40,6 +39,8 @@
         <option value="westerkwartier">Westerkwartier</option>
         <option value="westerwolde">Westerwolde</option>
     </select>
+
+<main class="pie-container">
 
     <div id="container" class="container no-bottom-container"></div>
 
@@ -75,7 +76,8 @@
 
     const config = {
 
-        smallMultiple : false
+        smallMultiple : false,
+        legendWidth : 200
     }
 
     let stand = new PieChartSum('/api/gemeentes','#container',config, dataMapping,'all');

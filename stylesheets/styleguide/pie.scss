@@ -5,11 +5,11 @@
 
 
   .container.no-bottom-container, .container {
-    height: 180px;
+    max-height: 180px;
     padding: 20px 0 0 0;
 
     @media (min-width: $breakpoint-xxsm) {
-      height: auto;
+      max-height: none;
       padding: 0;
     }
   }
