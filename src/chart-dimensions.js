@@ -12,8 +12,6 @@ class ChartDimensions {
 
         this.element = (typeof this.element === 'string') ? document.querySelector(this.element) : this.element;
 
-        console.log(this.element.getBoundingClientRect().width);
-
         if (this.config.fixedWidth) {
 
             this.dimensions.svgWidth = this.config.fixedWidth + this.config.padding.left + this.config.padding.right;
