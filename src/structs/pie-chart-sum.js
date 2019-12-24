@@ -31,7 +31,7 @@ class PieChartSum  {
         // this.config.padding.top = 0;
 
         if(!this.smallMultiple) {
-            this.config.padding.left = 40;
+            this.config.margin.left = 40;
         }
 
         this.config.colours = d3.scaleOrdinal()
