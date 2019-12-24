@@ -143,6 +143,8 @@ class PieChartSum  {
 
         this.legend = new ChartSVG(legendContainer,this.config,legendDimensions,newSVGObject);
 
+         this.legend.redraw(legendDimensions);
+
         this.legend.svg.layers.legend.selectAll('*')
             .remove();
         //
