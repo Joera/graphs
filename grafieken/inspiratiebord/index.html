@@ -147,6 +147,8 @@
 
         <article id="map-stuwmeer-besluiten" class="map mini-map" data-script="Map"></article>
 
+        <article id="pie-afgewezen" class="pie mini-pie" data-script="PieChartSum"></article>
+
     </section>
 
     <section id="meldingen" class="page">
@@ -675,6 +677,28 @@
                         label: '',
                         column: 'nieuwe_AANTAL_BESLUIT_SMR',
                         colour: 'darkblue'
+                    }
+                ]
+            ]
+        },
+        'pie-afgewezen' : {
+
+            'api': '/api/gemeentes',
+            'smallMultiple': true,
+            'header' : 'Aandeel afgewezen schademeldingen',
+            'legend' : true,
+            'legendWidth' :  200,
+            'dataMapping': [
+                [
+                    {
+                        label: 'Afgewezen schademeldingen',
+                        column: 'AFW',
+                        colour: orange
+                    },
+                    {
+                        label: 'Toegewezen besluiten',
+                        column: 'BEH',
+                        colour: green
                     }
                 ]
             ]
