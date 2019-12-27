@@ -235,10 +235,19 @@
 
         .container {
 
+          position: relative;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+
+
+          h3  {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
 
           svg {
             overflow: visible;

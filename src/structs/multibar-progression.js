@@ -2,6 +2,8 @@ class MultiBarProgression  {
 
     constructor(endpoint,elementID,config,dataMapping,segment) {
 
+        console.log(config);
+
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
@@ -29,7 +31,7 @@ class MultiBarProgression  {
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
 
-        console.log(this.config);
+
 
         if (this.config.smallMultiple) {
             this.config.dataArrayLength = 7;
