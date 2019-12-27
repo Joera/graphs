@@ -584,6 +584,20 @@
           height : 400px;
         }
       }
+
+      #pie-afgewezen {
+
+        @media (min-width : $breakpoint-sm) {
+          grid-column: 7 / span 2;
+          grid-row: 1  / span 2;
+        }
+
+        @media (min-width : $breakpoint-md) {
+          grid-column: 7 / span 2;
+          grid-row: 1  / span 2;
+        }
+
+      }
     }
 
     section#meldingen {
