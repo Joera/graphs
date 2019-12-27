@@ -139,6 +139,8 @@
 
     <section id="besluiten" class="page">
 
+        <article id="multibar-besluiten" class="multibar" data-script="MultiBarProgression"></article>
+
         <article id="multibar-stuwmeerregeling" class="multibar" data-script="MultiBarProgression"></article>
 
         <article id="map-besluiten" class="map mini-map" data-script="Map"></article>
@@ -585,6 +587,51 @@
                     column: 'AANTAL_BESLUIT_SMR',
                     colour: darkblue
                 }
+            ]
+        },
+        'multibar-besluiten' : {
+
+            'api': '/api/data',
+            'smallMultiple' : false,
+            'minValue' : 0,
+            'xParameter' :'_date',
+            'xScaleType' : 'time',
+            'xScaleTicks' :'timeMonth',
+            'yParameter' : 'BESCHIKT',
+            'yScaleType' : 'linear',
+            'barWidth' : 12,
+            'padding' : {
+                'top' : 20,
+                'bottom' : 60,
+                'left' : 20,
+                'right' : 20
+            },
+            'header' : 'Ontwikkeling van besluiten en afgehandelde schademeldingen',
+            'dataMapping': [
+                [
+                    {
+                        label: 'Besluiten regulier',
+                        column: 'BESCHIKT',
+                        colour: 'blue'
+                    },
+                    {
+                        label: '',
+                        column: 'nieuwe_BESCHIKT',
+                        colour: 'blue'
+                    }
+                ],
+                [
+                    {
+                        label: 'Afgehandelde dossiers',
+                        column: 'AFGEHANDELD_TOTAA',
+                        colour: 'green'
+                    },
+                    {
+                        label: '',
+                        column: 'nieuwe_AFGEHANDELD_TOTAA',
+                        colour: 'green'
+                    }
+                ]
             ]
         },
         'multibar-stuwmeerregeling' : {
