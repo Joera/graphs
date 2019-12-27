@@ -137,8 +137,6 @@ class MultiBarProgression  {
 
     draw(data,property) {
 
-        console.log(data);
-
         this.xScale = this.chartXScale.set(data.map(d => { return d[this.config.xParameter] }));
 
         // to loop here?
