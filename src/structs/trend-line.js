@@ -91,8 +91,6 @@ class TrendLine {
 
         let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
-        console.log(neededColumns);
-
         for (let week of json) {
             let o = {};
             for (let p of Object.entries(week))  {
@@ -103,7 +101,7 @@ class TrendLine {
                     o[p[0]] = p[1];
                 }
             }
-            console.log(o);
+
             data.push(o);
         }
 
@@ -114,9 +112,6 @@ class TrendLine {
         data.sort(function(a, b) {
             return new Date(a['_date']) - new Date(b['_date']);
         });
-
-
-        console.log(data);
 
         return data;
     }
