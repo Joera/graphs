@@ -81,23 +81,13 @@
             }
           }
 
-        }
+          @media (min-width : $breakpoint-md) {
+            padding: .25rem 1rem;
+          }
 
-        @media (min-width : $breakpoint-md) {
-          padding: .25rem 1rem;
-        }
-
-        @media (min-width : $breakpoint-lg) {
-          padding: .25rem 2rem;
-        }
-
-        //&:first-of-type {
-        //  padding-left: 0.5rem;
-        //}
-        //
-        //&:last-of-type {
-        //  padding-right: 0.5rem;
-        //}
+          @media (min-width : $breakpoint-lg) {
+            padding: .25rem 2rem;
+          }
       }
     }
 
