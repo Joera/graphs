@@ -50,7 +50,7 @@ class BarProgression  {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartBarsIncrease = ChartBarsIncrease(this.config, this.svg);
-    
+
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
