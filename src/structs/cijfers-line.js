@@ -163,7 +163,7 @@ class CijfersLine  {
 
 
         if ((data[0][this.property] - gem) < 0) {
-            console.log('negative');
+
             this.element.querySelector('.diff').classList.add('down');
         } else {
             this.element.querySelector('.diff').classList.remove('down');
