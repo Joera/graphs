@@ -47,7 +47,7 @@ class MultiBarProgression  {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartMultiBars = ChartMultiBars(this.config, this.svg);
- 
+
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
@@ -73,12 +73,13 @@ class MultiBarProgression  {
 
         this.element.parentNode.querySelector('.legend').remove();
 
-        let legendContainer = document.createElement('div');
+        let legendContainer = document.createElement('ul');
         legendContainer.classList.add('legend');
+        legendContainer.classList.add('horizontal');
 
         data.forEach( (parameter) => {
 
-            let parameterContainer = document.createElement('div');
+            let parameterContainer = document.createElement('li');
 
             let blokje = document.createElement('span');
             blokje.classList.add('rect');
@@ -88,6 +89,9 @@ class MultiBarProgression  {
             text.innerText = parameter.label;
 
             parameterContainer.appendChild(blokje);
+            parameterContainer.appendChild(text);
+
+            legendContainer.appendChild(parameterContainer);
 
         })
 
