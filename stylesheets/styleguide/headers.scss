@@ -1,5 +1,6 @@
 .article_header {
 
+  position: relative;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -11,7 +12,7 @@
 
   span {
 
-    position: relative;
+
     height: .33rem;
     width: 1px;
     background-color: black;
