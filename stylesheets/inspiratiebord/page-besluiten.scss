@@ -82,7 +82,7 @@ section#besluiten {
 
     @media (min-width : $breakpoint-md) {
       grid-column: 1 / span 2;
-      grid-row: 7  / span 2;
+      grid-row: 5  / span 2;
     }
   }
 
@@ -95,7 +95,7 @@ section#besluiten {
 
     @media (min-width: $breakpoint-md) {
       grid-column: 3 / span 2;
-      grid-row: 7  / span 1;
+      grid-row: 5  / span 1;
     }
 
   }
@@ -107,8 +107,8 @@ section#besluiten {
     }
 
     @media (min-width: $breakpoint-md) {
-      grid-column: 7 / span 2;
-      grid-row: 4  / span 1;
+      grid-column: 1 / span 4;
+      grid-row: 3  / span 2;
     }
 
   }
