@@ -109,6 +109,8 @@ class TrendLine {
         });
 
 
+        console.log(data);
+
         return data;
     }
 
