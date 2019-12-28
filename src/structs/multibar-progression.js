@@ -69,7 +69,7 @@ class MultiBarProgression  {
 
     }
 
-    legend(data) {
+    legend() {
 
         this.element.parentNode.querySelector('.legend').remove();
 
@@ -77,7 +77,7 @@ class MultiBarProgression  {
         legendContainer.classList.add('legend');
         legendContainer.classList.add('horizontal');
 
-        console.log(data);
+        console.log(this.dataMapping);
 
         data.forEach( (parameter) => {
 
