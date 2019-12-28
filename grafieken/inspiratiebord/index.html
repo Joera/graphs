@@ -149,6 +149,8 @@
 
         <article id="pie-afgewezen" class="pie mini-pie" data-script="PieChartSum"></article>
 
+        <article id="trend-afgewezen" data-script="TrendLine"></article>
+
     </section>
 
     <section id="meldingen" class="page">
@@ -701,6 +703,28 @@
                         colour: green
                     }
                 ]
+            ]
+        },
+        'trend-afgewezen' : {
+
+            'api': '/api/data',
+            'xParameter': '_date',
+            'xScaleTicks': 'timeMonth',
+            'yParameter': 'percentage_afwijzingen',
+            'yTickFormat': 'percentage',
+            'dataMapping': [
+
+                {
+                    label: 'Afgewezen schademeldingen',
+                    column: 'AFW',
+                    colour: 'orange'
+                },
+                {
+                    label: '',
+                    column: 'nieuwe_AFW',
+                    colour: 'orange'
+                }
+
             ]
         }
     }
