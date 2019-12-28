@@ -69,6 +69,38 @@ class MultiBarProgression  {
 
     }
 
+    legend(data) {
+
+        this.element.parentNode.querySelector('.legend').remove();
+
+        let legendContainer = document.createElement('div');
+        legendContainer.classList.add('legend');
+
+        this.element.parentNode.appendChild(legendContainer);
+
+        let chartObjects = ChartObjects();
+        let newSVGObject= chartObjects.svg();
+
+        let legendDimensions = {
+
+            width : this.dimensions.containerWidth,
+            height : 30,
+            svgWidth : this.dimensions.containerWidth,
+            svgHeight : 30,
+
+        }
+
+        this.legend = new ChartSVG(legendContainer,this.config,legendDimensions,newSVGObject);
+
+        this.legend.redraw(legendDimensions);
+
+        this.legend.svg.layers.legend.selectAll('*')
+            .remove();
+
+
+
+    }
+
     prepareData(json,property)  {
 
         let data = [];
@@ -143,6 +175,8 @@ class MultiBarProgression  {
 
         // to loop here?
         this.chartMultiBars.draw(data);
+
+        this.legend(data);
     }
 
     run(json,property) {

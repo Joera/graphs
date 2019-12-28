@@ -114,7 +114,7 @@ class PieChartSum  {
 
      drawLegend(data,segment) {
 
-         this.element.parentNode.querySelector('.legend').remove();
+        this.element.parentNode.querySelector('.legend').remove();
 
         let legendContainer = document.createElement('div');
         legendContainer.classList.add('legend');
