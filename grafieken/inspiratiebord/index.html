@@ -601,7 +601,7 @@
             'xParameter' :'_date',
             'xScaleType' : 'time',
             'xScaleTicks' :'timeMonth',
-            'yParameter' : 'BESCHIKT',
+            'yParameter' : 'AFGEHANDELD_TOTAAL',
             'yScaleType' : 'linear',
             'barWidth' : 12,
             'padding' : {
@@ -620,18 +620,6 @@
             'dataMapping': [
                 [
                     {
-                        label: 'Afgehandelde dossiers',
-                        column: 'AFGEHANDELD_TOTAAL',
-                        colour: 'green'
-                    },
-                    {
-                        label: '',
-                        column: 'nieuwe_AFGEHANDELD_TOTAAL',
-                        colour: 'green'
-                    }
-                ],
-                [
-                    {
                         label: 'Besluiten regulier',
                         column: 'BESCHIKT',
                         colour: 'blue'
@@ -641,8 +629,19 @@
                         column: 'nieuwe_BESCHIKT',
                         colour: 'blue'
                     }
+                ],
+                [
+                    {
+                        label: 'Afgehandelde dossiers',
+                        column: 'AFGEHANDELD_TOTAAL',
+                        colour: 'green'
+                    },
+                    {
+                        label: '',
+                        column: 'nieuwe_AFGEHANDELD_TOTAAL',
+                        colour: 'green'
+                    }
                 ]
-
             ]
         },
         'multibar-stuwmeerregeling' : {
