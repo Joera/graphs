@@ -9,111 +9,7 @@
   }
 
 
-  header#menu {
 
-    position: fixed;
-    z-index: 99;
-    width: 100%;
-    height: 3rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    background: $darkblue;
-    //   padding-bottom: 4rem;
-
-
-    #hamburger {
-
-      fill: white;
-      width: 1.5rem;
-      height: 3rem;
-      margin-left: .5rem;
-      self-align: flex-start;
-
-      @media (min-width : $breakpoint-md) {
-        display: none;
-      }
-
-    }
-
-    ul {
-      display: flex;
-      visibility: hidden;
-      flex-direction: column;
-      margin-top: 10rem;
-
-   //   margin-left: 4rem;
-      //background: rgb(238, 238, 238);
-      //padding: .2rem .5rem;
-
-      @media (min-width : $breakpoint-md) {
-        visibility: visible;
-        flex-direction: row;
-        margin-top: 0rem;
-
-      }
-
-      li {
-
-        padding: .25rem .5rem;
-        line-height: 2.5rem;
-        border-right: none;
-        //   border-bottom: 1px solid $lightgrey;
-        color: white;
-        font-size: .8rem;
-        text-transform: uppercase;
-        cursor : pointer;
-
-          span {
-            display: inline;
-          }
-
-          &.active, &:hover  {
-
-            background: $lightgrey;
-
-            span {
-
-              color: black;
-              //  border-bottom: 1px solid black;
-
-            }
-          }
-
-          @media (min-width : $breakpoint-md) {
-            padding: .25rem 1rem;
-          }
-
-          @media (min-width : $breakpoint-lg) {
-            padding: .25rem 2rem;
-          }
-      }
-    }
-
-    .muni-select {
-
-      display: block;
-      margin-left: auto;
-      margin-right: .5rem;
-      width: 160px;
-      height: 2rem;
-
-      @media (min-width : $breakpoint-lg) {
-        display: none;
-      }
-
-    }
-
-    &.open {
-
-      height: 100vh;
-
-        ul {
-          visibility: visible;
-        }
-    }
-  }
 
   main {
 
@@ -332,46 +228,8 @@
             }
           }
         }
-
-
-
       }
     }
-
-
-
-
-
-
-    section#aos-meldingen {
-
-      #map-aos-meldingen {
-
-        grid-column: 5 / span 4;
-        grid-row: 1 / span 8;
-
-        .container svg {
-          margin: -290px 0 0 0;
-        }
-      }
-    }
-
-
-    section#schade-opnames {
-
-
-    }
-
-    section#voortgang {
-
-
-     }
-
-    section#schadevergoedingen {
-
-    }
-
-
   }
 
   .map {
@@ -383,62 +241,7 @@
   }
 
 
-  .mini-pie {
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-
-    @media (min-width: $breakpoint-sm) {
-
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .article_header {
-      //margin-bottom: 1rem;
-      position: absolute;
-      top: 0;
-    }
-
-    .container {
-
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      @media (min-width: $breakpoint-sm) {
-        width: calc(50% - .5rem);
-      }
-
-      svg {
-        width: 136px;
-        height: 136px;
-      }
-
-    }
-
-    .legend {
-
-      min-height: 13rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      @media (min-width: $breakpoint-sm) {
-        width: calc(50% - .5rem);
-      }
-
-      svg {
-        width: 200px;
-        //height: 100%;
-      }
-    }
-  }
 
   ul {
 

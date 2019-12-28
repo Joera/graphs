@@ -1,0 +1,60 @@
+#inspiratiebord {
+
+
+  .mini-pie {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    @media (min-width: $breakpoint-sm) {
+
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .article_header {
+      //margin-bottom: 1rem;
+      position: absolute;
+      top: 0;
+    }
+
+    .container {
+
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media (min-width: $breakpoint-sm) {
+        width: calc(50% - .5rem);
+      }
+
+      svg {
+        width: 136px;
+        height: 136px;
+      }
+
+    }
+
+    .legend {
+
+      min-height: 13rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media (min-width: $breakpoint-sm) {
+        width: calc(50% - .5rem);
+      }
+
+      svg {
+        width: 200px;
+        //height: 100%;
+      }
+    }
+  }
+}

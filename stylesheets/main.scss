@@ -27,9 +27,11 @@
 @import 'styleguide/headers.scss';
 
 
-@import 'styleguide/page-besluiten.scss';
-@import 'styleguide/page-vorige-week.scss';
-@import 'styleguide/page-meldingen.scss';
+@import 'inspiratiebord/header';
+@import 'inspiratiebord/pie';
+@import 'inspiratiebord/page-besluiten';
+@import 'inspiratiebord/page-vorige-week';
+@import 'inspiratiebord/page-meldingen';
 
 
 
