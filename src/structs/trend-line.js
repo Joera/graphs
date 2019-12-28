@@ -7,7 +7,7 @@ class TrendLine {
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.config = config;
-        this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
+        this.property = (!property || property === undefined) ? this.dataMapping[0].column : property;
         this.segment = segment;
         this.smallMultiple = smallMultiple;
 
