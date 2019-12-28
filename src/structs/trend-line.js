@@ -107,11 +107,11 @@ class TrendLine {
             data.push(o);
         }
 
-        data = data.filter( (week) => {
-
-
-            return week[this.property] > 0
-        })
+        // data = data.filter( (week) => {
+        //
+        //
+        //     return week[this.property] > 0
+        // })
 
         data.sort(function(a, b) {
             return new Date(a['_date']) - new Date(b['_date']);
