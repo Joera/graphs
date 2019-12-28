@@ -61,6 +61,27 @@
         border-right: none;
         //   border-bottom: 1px solid $lightgrey;
         color: white;
+        font-size: .8rem;
+        text-transform: uppercase;
+        cursor : pointer;
+
+          span {
+            display: inline;
+          }
+
+          &.active, &:hover  {
+
+            background: $lightgrey;
+
+            span {
+
+              color: black;
+              //  border-bottom: 1px solid black;
+
+            }
+          }
+
+        }
 
         @media (min-width : $breakpoint-md) {
           padding: .25rem 1rem;
@@ -752,32 +773,6 @@
 
   ul {
 
-    li {
 
-      font-size: .8rem;
-      color: $grey;
-      border-right: 1px solid $lightgrey;
-      text-transform: uppercase;
-      padding: .25rem .5rem;
-      line-height: 1.125;
-      cursor : pointer;
-
-      span {
-        display: inline;
-      }
-
-      &.active, &:hover  {
-
-        background: $lightgrey;
-
-        span {
-
-          color: black;
-        //  border-bottom: 1px solid black;
-
-        }
-      }
-
-    }
   }
 }
