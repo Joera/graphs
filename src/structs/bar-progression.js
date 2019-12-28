@@ -7,7 +7,7 @@ class BarProgression  {
         this.element = d3.select(elementID).node();
         this.config = config;
         this.dataMapping = dataMapping;
-        this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
+        this.property = this.dataMapping[0][0].column;
         this.smallMultiple = config.smallMultiple;
     }
 
