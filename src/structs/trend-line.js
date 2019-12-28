@@ -1,13 +1,13 @@
 class TrendLine {
 
-    constructor(endpoint,elementID,config,dataMapping,property,segment,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.config = config;
-        this.property = (!property || property === undefined) ? this.dataMapping[0].column : property;
+        this.property = this.dataMapping[0].column;
         this.segment = segment;
         this.smallMultiple = smallMultiple;
 
@@ -107,11 +107,9 @@ class TrendLine {
             data.push(o);
         }
 
-        // data = data.filter( (week) => {
-        //
-        //
-        //     return week[this.property] > 0
-        // })
+        data = data.filter( (week) => {
+            return week[this.property] > 0
+        })
 
         data.sort(function(a, b) {
             return new Date(a['_date']) - new Date(b['_date']);
