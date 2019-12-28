@@ -76,26 +76,23 @@ class MultiBarProgression  {
         let legendContainer = document.createElement('div');
         legendContainer.classList.add('legend');
 
+        data.forEach( (parameter) => {
+
+            let parameterContainer = document.createElement('div');
+
+            let blokje = document.createElement('span');
+            blokje.classList.add('rect');
+            blokje.classList.add(parameter.colour);
+            let text = document.createElement('span');
+            text.classList.add('text');
+            text.innerText = parameter.label;
+
+            parameterContainer.appendChild(blokje);
+
+        })
+
         this.element.parentNode.appendChild(legendContainer);
 
-        let chartObjects = ChartObjects();
-        let newSVGObject= chartObjects.svg();
-
-        let legendDimensions = {
-
-            width : this.dimensions.containerWidth,
-            height : 30,
-            svgWidth : this.dimensions.containerWidth,
-            svgHeight : 30,
-
-        }
-
-        this.legend = new ChartSVG(legendContainer,this.config,legendDimensions,newSVGObject);
-
-        this.legend.redraw(legendDimensions);
-
-        this.legend.svg.layers.legend.selectAll('*')
-            .remove();
 
 
 
