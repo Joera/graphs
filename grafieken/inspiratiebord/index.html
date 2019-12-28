@@ -766,9 +766,17 @@
                     graphs[vis.id].init();
 
                     if (config[vis.id].header) {
+
+                        let headerContainer = document.createElement('div');
+
                         let h = document.createElement('h3');
                         h.innerText = (typeof config[vis.id].header === 'string') ? config[vis.id].header : config[vis.id].dataMapping[0].label;
-                        vis.querySelector('.container').prepend(h);
+
+
+                        headerContainer.appendChild(h);
+
+
+                        vis.querySelector('.container').parentNode.prepend(headerContainer);
                     }
 
                     // uniformize props in function --> window[method](el,dataMapping,property,segment,smallMultiple)
