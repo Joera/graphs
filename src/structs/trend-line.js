@@ -58,15 +58,15 @@ class TrendLine {
 
         let url = 'https://tcmg-hub.publikaan.nl/' + this.endpoint;
 
-        if (globalData.municipalities) {
+        if (globalData.data) {
 
-            this.run(globalData.municipalities,this.segment)
+            this.run(globalData.data,this.segment)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                globalData.municipalities = json;
+                globalData.data = json;
                 self.run(json,self.segment);
             });
         }
