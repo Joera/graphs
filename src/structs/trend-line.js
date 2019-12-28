@@ -113,6 +113,8 @@ class TrendLine {
             return new Date(a['_date']) - new Date(b['_date']);
         });
 
+        console.log(data);
+
         return data;
     }
 
