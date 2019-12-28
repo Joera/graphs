@@ -775,12 +775,13 @@
 
 
                         headerContainer.appendChild(h);
-                        let span = document.createElement('span');
-                        headerContainer.appendChild(span);
-                        headerContainer.appendChild(span);
-                        headerContainer.appendChild(span);
 
+                        for (let i = 0; i < 3; i++) {
 
+                            let span = document.createElement('span');
+                            headerContainer.appendChild(span);
+                        }
+                        
                         vis.querySelector('.container').parentNode.prepend(headerContainer);
                     }
 
