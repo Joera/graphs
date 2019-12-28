@@ -90,12 +90,12 @@ section#besluiten {
 
     @media (min-width : $breakpoint-sm) {
       grid-column: 7 / span 2;
-      grid-row: 2  / span 2;
+      grid-row: 3  / span 2;
     }
 
     @media (min-width : $breakpoint-md) {
       grid-column: 7 / span 2;
-      grid-row: 2  / span 1;
+      grid-row: 3  / span 2;
     }
   }
 }

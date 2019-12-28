@@ -30,10 +30,10 @@ class TrendLine {
         this.functions = chartObjects.functions();
 
 
-        this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 75 : 0;
-        this.config.margin.top = this.smallMultiple? 15 : 30;
-        this.config.padding.bottom = 50;
-        this.config.padding.left = 40;
+        // this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 75 : 0;
+        // this.config.margin.top = this.smallMultiple? 15 : 30;
+        // this.config.padding.bottom = 50;
+        // this.config.padding.left = 40;
         //
         // this.config.xParameter = '_date';
         // this.config.xScaleTicks = 'timeMonth';
