@@ -81,7 +81,7 @@ class MultiBarProgression  {
             blokje.classList.add('rect');
             blokje.classList.add(parameter[0].colour);
             let text = document.createElement('span');
-            text.classList.add('text');
+            text.classList.add('small-label');
             text.innerText = parameter[0].label;
 
             parameterContainer.appendChild(blokje);

@@ -1,0 +1,101 @@
+section#besluiten {
+
+  #multibar-besluiten {
+
+    @media (min-width : $breakpoint-sm) {
+      grid-column: 1 / span 2;
+      grid-row: 1  / span 2;
+    }
+
+    @media (min-width : $breakpoint-md) {
+      grid-column: 1 / span 6;
+      grid-row: 1  / span 2;
+    }
+
+    //.container {
+    //
+    //  height : 400px;
+    //}
+  }
+
+
+  #multibar-stuwmeerregeling {
+
+    @media (min-width : $breakpoint-sm) {
+      grid-column: 1 / span 2;
+      grid-row: 3  / span 2;
+    }
+
+    @media (min-width : $breakpoint-md) {
+      grid-column: 1 / span 6;
+      grid-row: 3  / span 2;
+    }
+
+    //.container {
+    //
+    //  height : 400px;
+    //}
+  }
+
+  #map-besluiten {
+
+    @media (min-width : $breakpoint-sm) {
+      grid-column: 3 / span 2;
+      grid-row: 5  / span 2;
+    }
+
+    @media (min-width : $breakpoint-md) {
+      grid-column: 1 / span 3;
+      grid-row: 5  / span 2;
+    }
+
+    .container {
+
+      height : 400px;
+    }
+  }
+
+  #map-stuwmeer-besluiten {
+
+    @media (min-width : $breakpoint-sm) {
+      grid-column: 3 / span 2;
+      grid-row: 5  / span 2;
+    }
+
+    @media (min-width : $breakpoint-md) {
+      grid-column: 4 / span 3;
+      grid-row: 5  / span 2;
+    }
+
+    .container {
+
+      height : 400px;
+    }
+  }
+
+  #pie-afgewezen {
+
+    @media (min-width : $breakpoint-sm) {
+      grid-column: 7 / span 2;
+      grid-row: 1  / span 2;
+    }
+
+    @media (min-width : $breakpoint-md) {
+      grid-column: 7 / span 2;
+      grid-row: 1  / span 2;
+    }
+  }
+
+  #trend-afgewezen {
+
+    @media (min-width : $breakpoint-sm) {
+      grid-column: 7 / span 2;
+      grid-row: 2  / span 2;
+    }
+
+    @media (min-width : $breakpoint-md) {
+      grid-column: 7 / span 2;
+      grid-row: 2  / span 1;
+    }
+  }
+}
