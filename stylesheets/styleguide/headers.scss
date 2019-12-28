@@ -12,15 +12,16 @@
 
   span {
 
+    $h : .33rem;
 
-    height: .33rem;
+    height: $h;
     width: 1px;
     background-color: black;
 
     &:nth-of-type(2), &:nth-of-type(3) {
 
       position: absolute;
-      bottom: 0;
+      bottom: -$h;
       left: 0;
     }
 
