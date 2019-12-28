@@ -151,6 +151,8 @@
 
         <article id="trend-afgewezen" data-script="TrendLine"></article>
 
+        <article id="ontwikkeling-afgewezen" data-script="BarProgression"></article>
+
     </section>
 
     <section id="meldingen" class="page">
@@ -196,61 +198,6 @@
 
 
     </section>
-
-    <!--<section id="bedragen">-->
-        <!--<h3>Totaal toegekend bedrag: <span></span></h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="verdeling">-->
-        <!--<h3>Ordegrootte van schadevergoedingen</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-
-
-
-    <!--<section id="status-actueel">-->
-        <!--<h3>Schademeldingen en hun status</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="besluiten">-->
-        <!--<h3>Besluiten en schade-opnames</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="voortgang">-->
-        <!--<h3>Voortgang afhandeling schademeldingen</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="candles">-->
-        <!--<h3>Voortgang afhandeling schademeldingen</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="candles">-->
-        <!--<h3>Voortgang afhandeling schademeldingen</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="som">-->
-        <!--<h3>Totaal toegekend bedrag</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="herkomst">-->
-        <!--<h3>Herkomst schademeldingen</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-    <!--<section id="opnames">-->
-        <!--<h3>Uitvoering opnames</h3>-->
-        <!--<div class="container"></div>-->
-    <!--</section>-->
-
-
 
 </main>
 
@@ -740,6 +687,39 @@
                 {
                     label: 'Afgewezen schademeldingen',
                     column: 'percentage_afwijzingen',
+                    colour: 'orange'
+                }
+
+            ]
+        },
+        'ontwikkeling-afgewezen' : {
+
+            'smallMultiple' : false,
+            'minValue' : 26000,
+            'xParameter' : '_date',
+            'header' : 'Ontwikkeling van percentage afwijzingen',
+            'padding' : {
+                'top' : 20,
+                'bottom' : 40,
+                'left' : 10,
+                'right' : 20
+            },
+            'margin' : {
+                'top' : 0,
+                'bottom' : 0,
+                'left' : 0,
+                'right' : 0
+            },
+            'dataMapping': [
+
+                {
+                    label: 'Afgewezen schademeldingen',
+                    column: 'AFW',
+                    colour: 'orange'
+                },
+                {
+                    label: '',
+                    column: 'nieuwe_AFW',
                     colour: 'orange'
                 }
 
