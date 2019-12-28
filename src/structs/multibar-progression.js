@@ -77,18 +77,16 @@ class MultiBarProgression  {
         legendContainer.classList.add('legend');
         legendContainer.classList.add('horizontal');
 
-        console.log(this.dataMapping);
-
-        data.forEach( (parameter) => {
+        this.dataMapping.forEach( (parameter) => {
 
             let parameterContainer = document.createElement('li');
 
             let blokje = document.createElement('span');
             blokje.classList.add('rect');
-            blokje.classList.add(parameter.colour);
+            blokje.classList.add(parameter[0].colour);
             let text = document.createElement('span');
             text.classList.add('text');
-            text.innerText = parameter.label;
+            text.innerText = parameter[0].label;
 
             parameterContainer.appendChild(blokje);
             parameterContainer.appendChild(text);
