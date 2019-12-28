@@ -228,6 +228,15 @@
           }
         }
 
+
+      .multibar {
+
+        .container {
+
+          height: calc(100% - 30px - 2rem);
+        }
+      }
+
       .mini-map {
 
         @media (min-width: $breakpoint-sm ) {
@@ -696,13 +705,6 @@
     }
   }
 
-  .multibar {
-
-    .container {
-
-      height: calc(100% - 30px - 2rem);
-    }
-  }
 
   .mini-pie {
 
