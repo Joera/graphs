@@ -9,7 +9,7 @@ class TrendLine {
         this.config = config;
         this.property = this.dataMapping[0].column;
         this.segment = segment;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
 
     }
 
