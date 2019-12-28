@@ -97,12 +97,13 @@ class TrendLine {
             let o = {};
             for (let p of Object.entries(week))  {
 
-                console.log(p);
+
 
                 if (neededColumns.indexOf(p[0]) > -1 ) {
                     o[p[0]] = p[1];
                 }
             }
+            console.log(o);
             data.push(o);
         }
 
