@@ -77,7 +77,9 @@ class MultiBarProgression  {
         legendContainer.classList.add('legend');
         legendContainer.classList.add('horizontal');
 
-        data[0].forEach( (parameter) => {
+        console.log(data);
+
+        data.forEach( (parameter) => {
 
             let parameterContainer = document.createElement('li');
 
