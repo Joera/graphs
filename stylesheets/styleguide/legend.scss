@@ -116,7 +116,7 @@ ul.legend.horizontal {
         background: $yellow;
       }
 
-      &:not(.text) {
+      &.text {
         width: auto;
       }
     }
