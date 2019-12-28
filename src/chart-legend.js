@@ -1,6 +1,6 @@
 let ChartLegend = function ChartLegend(config,svg) {
 
-    let draw = function drawInputLegend(dimensions,data) {
+    let drawInputLegend = function drawInputLegend(dimensions,data) {
 
         svg.legendTotals = svg.layers.legend
             .attr('transform', 'translate(' + (config.margin.left + config.padding.left) + ',' + (config.margin.top) + ')')
