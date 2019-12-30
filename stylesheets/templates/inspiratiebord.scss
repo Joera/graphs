@@ -95,7 +95,7 @@
           position: relative;
           width: auto;
           height: auto;
-          min-height: 16rem;
+          height: 16rem;
 
           @media (min-width: $breakpoint-sm) {
             height: 13rem;
@@ -150,7 +150,7 @@
 
         @media (min-width: $breakpoint-lg ) {
 
-            height: auto;
+            //height: auto;
         }
 
         .container {
