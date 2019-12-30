@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="/assets/css/main.css">
 
-
 <script src="/assets/scripts/d3.min.js"></script>
 <script src="//d3js.org/d3-geo-projection.v2.min.js"></script>
 <script src="//d3js.org/topojson.v2.min.js"></script>
@@ -723,7 +722,6 @@
                     column: 'nieuwe_AFW',
                     colour: 'orange'
                 }
-
             ]
         }
     }
@@ -799,7 +797,6 @@
 
         segment = newSegment;
 
-
         for (let graph of Object.values(graphs)) {
             // what do we do with data?
 
@@ -809,12 +806,8 @@
 
                 graph.run(newSegment,true)
             }
-
         }
-
-
     }
-
 
     menuOptions.forEach( (o) => {
 
@@ -867,8 +860,6 @@
             document.querySelector('#menu').classList.toggle('open');
         }
     }
-
-
 
     document.querySelector('#hamburger').addEventListener( 'click', () => {
 
