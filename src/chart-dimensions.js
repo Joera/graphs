@@ -10,7 +10,7 @@ class ChartDimensions {
 
         this.dimensions = dimensions;
 
-        console.log(this.element.getBoundingClientRect().height);
+        console.log('11');
 
         this.element = (typeof this.element === 'string') ? document.querySelector(this.element) : this.element;
 
