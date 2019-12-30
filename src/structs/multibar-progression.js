@@ -185,7 +185,7 @@ class MultiBarProgression  {
         this.redraw(data,property);
         // legend(data);
 
-        console.log(this.element.getBoundingClientRect().height);
+
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
 
