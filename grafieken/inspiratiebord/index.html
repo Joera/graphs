@@ -764,7 +764,7 @@
 
                     if (config[vis.id].header) {
 
-                        document.querySelector('.article_header').remove();
+                        if (document.querySelector('.article_header')) { document.querySelector('.article_header').remove() }
 
                         let headerContainer = document.createElement('div');
                         headerContainer.classList.add('article_header');
