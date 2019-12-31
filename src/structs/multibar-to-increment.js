@@ -18,7 +18,7 @@ class MultiBarWithIncrement  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = Object.assign(this.config,chartObjects.config());
+        this.config = Object.assign(chartObjects.config(),this.config);
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -176,7 +176,7 @@ class MultiBarWithIncrement  {
         this.redraw(data,timeframe);
         // legend(data);
 
-        window.addEventListener("resize", () => self.redraw(data), false);
+        window.addEventListener("resize", () => self.redraw(data,timeframe), false);
 
         for (let radio of this.radios) {
             radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);
