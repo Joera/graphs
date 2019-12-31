@@ -62,7 +62,7 @@ class MultiBarWithIncrement  {
 
         if (globalData.weeks) {
 
-            this.run(globalData.weeks,'totals')
+            this.run(globalData.weeks,'week')
 
         } else {
 
