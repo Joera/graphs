@@ -130,7 +130,7 @@ class MultiBarWithIncrement  {
 
         let arrayLength = 2 * Math.floor(elWidth / (2 * minBarWidth));
 
-        data = data.slice(data.length - arrayLength,data.length);
+      //  data = data.slice(data.length - arrayLength,data.length);
 
         return data;
     }
