@@ -25,24 +25,18 @@ class MultiBarWithIncrement  {
         this.yScale = chartObjects.yScale();
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
+        //
+        // this.config.padding.top = 20;
+        // this.config.padding.bottom = 30;
+        // this.config.margin.bottom = 30;
+        // this.config.padding.left = 40;
+        // this.config.padding.right = 40;
 
-        this.config.padding.top = 20;
-        this.config.padding.bottom = 30;
-        this.config.margin.bottom = 30;
-        this.config.padding.left = 40;
-        this.config.padding.right = 40;
 
-        this.config.minValue = 0;
-
-        this.config.xParameter = '_date';
-        this.config.xScaleType = 'time';
-        this.config.xScaleTicks ='timeMonth';
-        this.config.yScaleType = 'linear';
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
 
-        this.config.barWidth = 12;
 
         if (this.smallMultiple) {
             this.config.dataArrayLength = 7;
