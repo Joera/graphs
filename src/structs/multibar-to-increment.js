@@ -129,6 +129,8 @@ class MultiBarWithIncrement  {
 
         data = data.slice(data.length - arrayLength,data.length);
 
+        console.log(data);
+
         return data;
     }
 
