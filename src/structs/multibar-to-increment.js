@@ -38,6 +38,9 @@ class MultiBarWithIncrement  {
         this.config.paddingOuter = 0;
 
 
+        console.log(this.config);
+
+
         if (this.smallMultiple) {
             this.config.dataArrayLength = 7;
         }
