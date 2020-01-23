@@ -16,6 +16,8 @@ class CijfersLine  {
 
     init() {
 
+        console.log('hi');
+
         let self = this;
 
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
