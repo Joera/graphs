@@ -73,7 +73,7 @@ class PieChartSum  {
         // when total column = false --> add sum of previous columns
         let sum = 0; let value = 0;
 
-        console.log(segmented);
+        console.log(this.dataMapping);
 
         this.dataMapping.forEach( (array,i) => {
 
