@@ -171,10 +171,10 @@ class CijfersLine  {
     update(data) {
 
         let gem = this.average(data);
+        
+        let value =  Math.round(data[0][this.property]);
 
-        console.log(gem);
-
-        this.element.querySelector('.number').innerText = Math.round(data[0][this.property]);
+        this.element.querySelector('.number').innerText = (config.qualifier && config.qualifier !== undefined) ? value + config.qualifier : value;
 
         if ((data[0][this.property] - gem) === 0) {
 
@@ -186,9 +186,6 @@ class CijfersLine  {
             this.element.querySelector('.diff').classList.add('down');
 
         } else if ((data[0][this.property] - gem) > 0) {
-
-            console.log('2');
-            console.log((data[0][this.property] - gem) / gem);
 
             this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
             this.element.querySelector('.diff').classList.remove('down');
@@ -202,8 +199,6 @@ class CijfersLine  {
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
-        console.log('1');
-
         if(globalData.data && !change) {
 
             let data = self.prepareData(globalData.data);
@@ -212,11 +207,7 @@ class CijfersLine  {
             self.draw(data);
             self.redraw(data);
 
-            console.log('2');
-
         } else if(change) {
-
-            console.log('3');
 
             d3.json(url, function(error, json) {
                 if (error) {
@@ -239,8 +230,6 @@ class CijfersLine  {
                     console.log(error);
                     throw error;
                 }
-
-                console.log('4');
 
                 let data = self.prepareData(json);
                 self.element.prepend(self.html(data));
