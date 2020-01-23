@@ -244,7 +244,7 @@
                         // clear html in containers
                         vis.querySelector('.container').innerHTML = '';
 
-                        console.log(config[vis.id]);
+                        // console.log(config[vis.id]);
 
                         graphs[vis.id] = new window[vis.getAttribute('data-script')](config[vis.id].api,vis.querySelector('.container'), config[vis.id], config[vis.id].dataMapping, segment, vis.getAttribute('data-property'),true);
                         graphs[vis.id].init();
