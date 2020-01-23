@@ -180,12 +180,17 @@ class CijfersLine  {
 
         } else if ((data[0][this.property] - gem) < 0) {
 
+            console.log('1');
+
             console.log((data[0][this.property] - gem) / gem);
 
             this.element.querySelector('.diff').innerHTML = Math.round((data[0][this.property] - gem) / gem) + '%' + svgUp;
             this.element.querySelector('.diff').classList.add('down');
 
         } else if ((data[0][this.property] - gem) > 0) {
+
+            console.log('2');
+            console.log((data[0][this.property] - gem) / gem);
 
             this.element.querySelector('.diff').innerHTML = Math.round((data[0][this.property] - gem) / gem) + '%' + svgUp;
             this.element.querySelector('.diff').classList.remove('down');
