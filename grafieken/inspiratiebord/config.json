@@ -11,7 +11,7 @@
       {
         "label": "Schade-meldingen",
         "column": "nieuwe_schademeldingen",
-        "colour": orange
+        "colour": "orange"
       }
     ]
   },
@@ -27,7 +27,7 @@
       {
         "label": "Schade-opnames",
         "column": "nieuwe_schadeopnames",
-        "colour": green
+        "colour": "green"
       }
     ]
   },
@@ -43,7 +43,7 @@
       {
         "label": "Besluiten",
         "column": "nieuwe_besluiten_regulier",
-        "colour": blue
+        "colour": "blue"
       }
     ]
   },
@@ -59,7 +59,7 @@
       {
         "label": "Afgehandelde schade-meldingen",
         "column": "nieuwe_afgehandeld",
-        "colour": darkblue
+        "colour": "darkblue"
       }
     ]
   },
@@ -75,7 +75,7 @@
       {
         "label": "AOS meldingen",
         "column": "nieuwe_aos_meldingen",
-        "colour": green
+        "colour": "green"
       }
     ]
   },
@@ -91,7 +91,7 @@
       {
         "label": "Gegronde AOS",
         "column": "nieuwe_gegronde_aos",
-        "colour": orange
+        "colour": "orange"
       }
     ]
   },
@@ -102,7 +102,7 @@
       {
         "label": "Schade-meldingen",
         "column": "nieuwe_MELDING",
-        "colour": orange
+        "colour": "orange"
       }
     ]
   },
@@ -113,7 +113,7 @@
       {
         "label": "Schade-opnames",
         "column": "nieuwe_OPNAMES",
-        "colour": green
+        "colour": "green"
       }
     ]
   },
@@ -124,7 +124,7 @@
       {
         "label": "Besluiten",
         "column": "nieuwe_BESCHIKT",
-        "colour": blue
+        "colour": "blue"
       }
     ]
   },
@@ -135,7 +135,7 @@
       {
         "label": "Afgehandelde schade-meldingen",
         "column": "nieuwe_AFGEHANDELD_TOTAAL",
-        "colour": darkblue
+        "colour": "darkblue"
       }
     ]
   },
@@ -175,29 +175,29 @@
         {
           "label": "Mijnbouwschade",
           "column": "nieuwe_BEDRAG_SCHADEBEDRAG",
-          "colour": green
+          "colour": "green"
         },
         {
           "label": "Stuwmeerregeling",
           "column": "nieuwe_BEDRAG_SMR",
-          "colour": darkblue
+          "colour": "darkblue"
         },
         {
           "label": "Bijkomende kosten",
           "column": "nieuwe_BEDRAG_BIJKOMENDE_KOSTEN",
-          "colour": blue
+          "colour": "blue"
         },
         {
           "label": "Wettelijke rente",
           "column": "nieuwe_BEDRAG_WETTELIJKE_RENTE",
-          "colour": orange
+          "colour": "orange"
         }
       ],
       [
         {
           "label": "Totaal",
           "column": "nieuwe_TOTAAL_VERLEEND",
-          "colour": yellow
+          "colour": "yellow"
         }
       ]
     ]
@@ -213,32 +213,32 @@
         {
           "label": "Gegrond",
           "column": "nieuwe_BEZWAAR_GEGROND",
-          "colour": yellow
+          "colour": "yellow"
         },
         {
           "label": "Deels gegrond",
           "column": "nieuwe_BEZWAAR_DEELS_GEGROND",
-          "colour": blue
+          "colour": "blue"
         },
         {
           "label": "Ongegrond",
           "column": "nieuwe_BEZWAAR_ONGEGROND",
-          "colour": green
+          "colour": "green"
         },
         {
           "label": "Niet ontvankelijk",
           "column": "nieuwe_BEZWAAR_NIET_ONTVANKELIJK",
-          "colour": darkblue
+          "colour": "darkblue"
         },
         {
           "label": "Ingetrokken",
           "column": "nieuwe_BEZWAAR_INGETROKKEN",
-          "colour": grey
+          "colour": "grey"
         },
         {
           "label": "Naar schadeprocedure",
           "column": "nieuwe_BEZWAAR_DOORGEZET_SCHADEP",
-          "colour": darkblue
+          "colour": "darkblue"
         }
       ],
       [
@@ -291,7 +291,7 @@
       {
         "label": "Besluiten",
         "column": "BESCHIKT",
-        "colour": green
+        "colour": "green"
       }
     ]
   },
@@ -303,7 +303,7 @@
       {
         "label": "Besluiten",
         "column": "AANTAL_BESLUIT_SMR",
-        "colour": darkblue
+        "colour": "darkblue"
       }
     ]
   },
@@ -418,12 +418,12 @@
         {
           "label": "Afgewezen schademeldingen",
           "column": "AFW",
-          "colour": orange
+          "colour": "orange"
         },
         {
           "label": "Toegewezen besluiten",
           "column": "BEH",
-          "colour": green
+          "colour": "green"
         }
       ]
     ]
