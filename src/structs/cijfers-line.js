@@ -171,14 +171,20 @@ class CijfersLine  {
         let gem = this.average(data);
 
         this.element.querySelector('.number').innerText = Math.round(data[0][this.property]);
-        this.element.querySelector('.diff').innerHTML = Math.round(((data[0][this.property] - gem) / gem) + '%' + svgUp;
+
+        let change = Math.round((data[0][this.property] - gem) / gem);
+
+        if(change !== 0) {
+
+            this.element.querySelector('.diff').innerHTML = change + '%' + svgUp;
 
 
-        if ((data[0][this.property] - gem) < 0) {
+            if ((data[0][this.property] - gem) < 0) {
 
-            this.element.querySelector('.diff').classList.add('down');
-        } else {
-            this.element.querySelector('.diff').classList.remove('down');
+                this.element.querySelector('.diff').classList.add('down');
+            } else {
+                this.element.querySelector('.diff').classList.remove('down');
+            }
         }
 
     }
