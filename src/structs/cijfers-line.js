@@ -16,7 +16,7 @@ class CijfersLine  {
 
     init() {
 
-        console.log('hi');
+
 
         let self = this;
 
@@ -202,6 +202,7 @@ class CijfersLine  {
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
 
+        console.log('1');
 
         if(globalData.data && !change) {
 
@@ -211,7 +212,11 @@ class CijfersLine  {
             self.draw(data);
             self.redraw(data);
 
+            console.log('2');
+
         } else if(change) {
+
+            console.log('3');
 
             d3.json(url, function(error, json) {
                 if (error) {
@@ -226,6 +231,8 @@ class CijfersLine  {
             });
 
         } else {
+
+            console.log('4');
 
             d3.json(url, function(error, json) {
                 if (error) {
