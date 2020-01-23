@@ -67,7 +67,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("stroke-width", 4)
         ;
 
-        let av = (data.reduce((a,b) => a + parseInt(b[property]),0)) / data.length - 1;
+        let av = (data.reduce((a,b) => a + parseInt(b[property]),0)) / data.length;
 
 
         svg.averageGroup
