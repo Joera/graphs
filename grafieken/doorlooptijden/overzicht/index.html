@@ -25,7 +25,7 @@
 
             <article class="cijfer">
                 <div class="article_header">
-                    <h3>Gerealiseerde doorlooptijd</h3>
+                    <h3>Gerealiseerde looptijd schademelding</h3>
                     <span></span><span></span><span></span>
                 </div>
                 <div id="cijfer_2" class="container"></div>
@@ -33,7 +33,7 @@
 
             <article class="cijfer">
                 <div class="article_header">
-                    <h3>Verwachte doorlooptijd</h3>
+                    <h3>Verwachte looptijd schademelding</h3>
                     <span></span><span></span><span></span>
                 </div>
                 <div id="cijfer_3" class="container"></div>
@@ -46,32 +46,34 @@
 
 <script>
 
-    // const dataMapping_1 = [
-    //
-    //     {
-    //         label: 'Doorlooptijd regulier verwachting',
-    //         column: 'PERCENTAGE_AANTAL_DAGEN_DLT_MELDING_BESLUIT_KLEINERDAN181_VS1000',
-    //         colour: orange
-    //     }
-    // ];
-    //
-    // const config_1 = {
-    //
-    //     'api' : '/api/data',
-    //     'xParameter' : '_date',
-    //     'fixedHeight' : 60,
-    //     'minValue' : true,
-    //     'xScaleType' : 'time',
-    //     'yScaleType' : 'linear',
-    //     'header' : false,
-    // }
+
+    const dataMapping_1 = [
+
+        {
+            label: 'Gerealiseerde looptijd schademelding',
+            column: 'MEDIAAN_AANTAL_DAGEN_DLT_MELDING_BESLUIT_VS1000',
+            colour: blue
+        }
+    ];
+
+    const config_1 = {
+
+        'api' : '/api/data',
+        'xParameter' : '_date',
+        'fixedHeight' : 60,
+        'minValue' : true,
+        'xScaleType' : 'time',
+        'yScaleType' : 'linear',
+        'header' : true,
+        'units' : 'dagen'
+    }
 
     const dataMapping_2 = [
 
         {
-            label: 'Verwachte doorlooptijd',
+            label: 'Verwachte looptijd schademelding',
             column: 'VERWACHT_AANTAL_DAGEN_DLT_MELDING_BESLUIT',
-            colour: blue
+            colour: green
         }
     ];
 
@@ -87,37 +89,18 @@
         'units' : 'dagen'
     }
 
-    const dataMapping_3 = [
 
-        {
-            label: 'Gerealiseerde doorlooptijd',
-            column: 'MEDIAAN_AANTAL_DAGEN_DLT_MELDING_BESLUIT_VS1000',
-            colour: green
-        }
-    ];
-
-    const config_3 = {
-
-        'api' : '/api/data',
-        'xParameter' : '_date',
-        'fixedHeight' : 60,
-        'minValue' : true,
-        'xScaleType' : 'time',
-        'yScaleType' : 'linear',
-        'header' : true,
-        'units' : 'dagen'
-    }
 
     // let throughputTimePercentage= new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
     // throughputTimePercentage.init();
 
-    let throughputTimeExpectation = new CijfersLine('/api/data','#cijfer_2', config_3, dataMapping_2,'all');
-    throughputTimeExpectation.init();
+    let throughputTimeRealised = new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
+    throughputTimeRealised.init();
 
-    let throughputTimeRealised = new CijfersLine('/api/data','#cijfer_3', config_2, dataMapping_3,'all');
+    let throughputTimeExpectation = new CijfersLine('/api/data','#cijfer_2', config_2, dataMapping_2,'all');
 
     setTimeout(function() {
-        throughputTimeRealised.init();
+        throughputTimeExpectation.init();
 
     },500);
 
