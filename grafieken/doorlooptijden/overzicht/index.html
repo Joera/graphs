@@ -54,7 +54,30 @@
         'header' : false,
     }
 
+    const dataMapping_2 = [
+
+        {
+            label: 'Percentage',
+            column: 'VERWACHT_AANTAL_DAGEN_DLT_MELDING_BESLUIT',
+            colour: blue
+        }
+    ];
+
+    const config_2 = {
+
+        'api' : '/api/data',
+        'xParameter' : '_date',
+        'fixedHeight' : 60,
+        'minValue' : true,
+        'xScaleType' : 'time',
+        'yScaleType' : 'linear',
+        'header' : false,
+    }
+
     let throughputTimePercentage = new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
+    throughputTimePercentage.init();
+
+    let throughputTimeExpectation = new CijfersLine('/api/data','#cijfer_2', config_2, dataMapping_2,'all');
     throughputTimePercentage.init();
 
 </script>
