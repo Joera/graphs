@@ -77,9 +77,11 @@ class CijfersLine  {
 
             for (let column of neededColumns) {
 
-                console.log(week[column]);
+                if(week[column] !== null) {
 
-                clearWeek[column] = week[column]
+                    clearWeek[column] = week[column]
+
+                }
             }
 
             data.push(clearWeek);
