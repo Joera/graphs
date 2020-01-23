@@ -310,7 +310,6 @@
   "multibar-besluiten": {
     "api": "/api/data",
     "smallMultiple": false,
-    // "minValue" : 0,
     "xParameter": "_date",
     "xScaleType": "time",
     "xScaleTicks": "timeMonth",
