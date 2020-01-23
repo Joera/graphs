@@ -174,6 +174,8 @@ class CijfersLine  {
 
         let change = Math.round((data[0][this.property] - gem) / gem);
 
+        console.log(change);
+
         if(change !== 0) {
 
             this.element.querySelector('.diff').innerHTML = change + '%' + svgUp;
