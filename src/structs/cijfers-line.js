@@ -232,13 +232,15 @@ class CijfersLine  {
 
         } else {
 
-            console.log('4');
+
 
             d3.json(url, function(error, json) {
                 if (error) {
                     console.log(error);
                     throw error;
                 }
+
+                console.log('4');
 
                 let data = self.prepareData(json);
                 self.element.prepend(self.html(data));
