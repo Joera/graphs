@@ -37,7 +37,7 @@
     const dataMapping_1 = [
 
         {
-            label: 'Percentage',
+            label: 'Doorlooptijd regulier verwachting',
             column: 'PERCENTAGE_AANTAL_DAGEN_DLT_MELDING_BESLUIT_KLEINERDAN181_VS1000',
             colour: orange
         }
@@ -57,7 +57,7 @@
     const dataMapping_2 = [
 
         {
-            label: 'Percentage',
+            label: 'Doorlooptijd regulier gerealiseerd',
             column: 'VERWACHT_AANTAL_DAGEN_DLT_MELDING_BESLUIT',
             colour: blue
         }
@@ -74,11 +74,34 @@
         'header' : false,
     }
 
-    let throughputTimePercentage = new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
-    throughputTimePercentage.init();
+    const dataMapping_3 = [
+
+        {
+            label: 'Percentage regulier half jaar besloten',
+            column: 'MEDIAAN_AANTAL_DAGEN_DLT_MELDING_BESLUIT_VS1000',
+            colour: green
+        }
+    ];
+
+    const config_3 = {
+
+        'api' : '/api/data',
+        'xParameter' : '_date',
+        'fixedHeight' : 60,
+        'minValue' : true,
+        'xScaleType' : 'time',
+        'yScaleType' : 'linear',
+        'header' : false,
+    }
+
+    let throughputTimeRealised = new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
+    throughputTimeRealised.init();
 
     let throughputTimeExpectation = new CijfersLine('/api/data','#cijfer_2', config_2, dataMapping_2,'all');
     throughputTimeExpectation.init();
+
+    let throughputTimePercentage = new CijfersLine('/api/data','#cijfer_3', config_3, dataMapping_3,'all');
+    throughputTimePercentage.init();
 
 </script>
 
