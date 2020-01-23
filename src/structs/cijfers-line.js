@@ -77,6 +77,8 @@ class CijfersLine  {
 
             for (let column of neededColumns) {
 
+                console.log(week[column]);
+
                 clearWeek[column] = week[column]
             }
 
