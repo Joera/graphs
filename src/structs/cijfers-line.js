@@ -93,6 +93,7 @@ class CijfersLine  {
             }
         }
 
+        console.log(data);
 
         return data;
     }
