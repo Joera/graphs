@@ -170,6 +170,8 @@ class CijfersLine  {
 
         let gem = this.average(data);
 
+        console.log(gem);
+
         this.element.querySelector('.number').innerText = Math.round(data[0][this.property]);
 
         if ((data[0][this.property] - gem) === 0) {
