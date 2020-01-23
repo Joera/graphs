@@ -73,6 +73,8 @@ class CijfersLine  {
 
         for (let week of json.slice(0,8)) {
 
+            let hasEnoughData = true;
+
             let clearWeek = {};
 
             for (let column of neededColumns) {
@@ -81,10 +83,14 @@ class CijfersLine  {
 
                     clearWeek[column] = week[column]
 
+                } else {
+                    let hasEnoughData = false;
                 }
             }
 
-            data.push(clearWeek);
+            if(hasEnoughData) {
+                data.push(clearWeek);
+            }
         }
 
 
