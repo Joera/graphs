@@ -128,7 +128,7 @@ class CijfersLine  {
 
     average(data) {
 
-        return (data.reduce((a,b) => a + parseInt(b[this.property]),0)) / data.length - 1;
+        return (data.reduce((a,b) => a + Math.round(([this.property]),0)) / data.length - 1);
     }
 
     html(data)  {
@@ -171,22 +171,14 @@ class CijfersLine  {
         let gem = this.average(data);
 
         this.element.querySelector('.number').innerText = Math.round(data[0][this.property]);
-
-        let change = (data[0][this.property] - gem) / gem;
-
-        console.log(change);
-
-        if(change !== 0) {
-
-            this.element.querySelector('.diff').innerHTML = change + '%' + svgUp;
+        this.element.querySelector('.diff').innerHTML = Math.round((data[0][this.property] - gem) / gem) + '%' + svgUp;
 
 
-            if ((data[0][this.property] - gem) < 0) {
+        if ((data[0][this.property] - gem) < 0) {
 
-                this.element.querySelector('.diff').classList.add('down');
-            } else {
-                this.element.querySelector('.diff').classList.remove('down');
-            }
+            this.element.querySelector('.diff').classList.add('down');
+        } else {
+            this.element.querySelector('.diff').classList.remove('down');
         }
 
     }
