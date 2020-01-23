@@ -69,7 +69,7 @@
     const dataMapping_2 = [
 
         {
-            label: 'Doorlooptijd regulier verwachting',
+            label: 'Verwachte doorlooptijd',
             column: 'VERWACHT_AANTAL_DAGEN_DLT_MELDING_BESLUIT',
             colour: blue
         }
@@ -90,7 +90,7 @@
     const dataMapping_3 = [
 
         {
-            label: 'Doorlooptijd regulier gerealiseerd',
+            label: 'Gerealiseerd doorlooptijd',
             column: 'MEDIAAN_AANTAL_DAGEN_DLT_MELDING_BESLUIT_VS1000',
             colour: green
         }
@@ -111,10 +111,10 @@
     // let throughputTimePercentage= new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
     // throughputTimePercentage.init();
 
-    let throughputTimeExpectation = new CijfersLine('/api/data','#cijfer_2', config_2, dataMapping_2,'all');
+    let throughputTimeExpectation = new CijfersLine('/api/data','#cijfer_2', config_3, dataMapping_2,'all');
     throughputTimeExpectation.init();
 
-    let throughputTimeRealised = new CijfersLine('/api/data','#cijfer_3', config_3, dataMapping_3,'all');
+    let throughputTimeRealised = new CijfersLine('/api/data','#cijfer_3', config_2, dataMapping_3,'all');
 
     setTimeout(function() {
         throughputTimeRealised.init();
