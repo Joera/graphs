@@ -265,6 +265,8 @@ class PieChartSum  {
 
     run(json,segment) {
 
+        console.log(json);
+
         let self = this;
 
         let data = this.prepareData(json,segment);
