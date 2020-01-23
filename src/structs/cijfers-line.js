@@ -149,6 +149,15 @@ class CijfersLine  {
         // number.innerText = data[0][this.property];
         div.appendChild(number);
 
+
+        if(this.config.units && this.config.units !== undefined) {
+
+            let units = document.createElement('span');
+            units.classList.add('units');
+            units.innerText = this.config.units;
+            div.appendChild(units);
+        }
+
         let diff = document.createElement('span');
         diff.classList.add('diff');
 
