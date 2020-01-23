@@ -70,10 +70,11 @@ class CijfersLine  {
         let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
         let data = [];
+        let hasEnoughData;
 
         for (let week of json.slice(0,8)) {
 
-            let hasEnoughData = true;
+            hasEnoughData = true;
 
             let clearWeek = {};
 
@@ -84,7 +85,7 @@ class CijfersLine  {
                     clearWeek[column] = week[column]
 
                 } else {
-                    let hasEnoughData = false;
+                    hasEnoughData = false;
                 }
             }
 
