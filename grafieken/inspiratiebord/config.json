@@ -167,7 +167,7 @@
   "pie-toegekende-bedragen": {
     "api": "/api/gemeentes",
     "smallMultiple": true,
-    "currency"label"s": true,
+    "currencyLabels": true,
     "header": "Toegekende bedragen",
     "legendWidth": 200,
     "dataMapping": [
@@ -360,7 +360,6 @@
   "multibar-stuwmeerregeling": {
     "api": "/api/data",
     "smallMultiple": false,
-    // "minValue" : 0,
     "xParameter": "_date",
     "xScaleType": "time",
     "xScaleTicks": "timeMonth",
