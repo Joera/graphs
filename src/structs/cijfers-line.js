@@ -128,7 +128,7 @@ class CijfersLine  {
 
     average(data) {
 
-        return Math.round((data.reduce((a,b) => a + b[this.property],0) / data.length - 1);
+        return Math.round((data.reduce((a,b) => a + b[this.property]),0) / data.length - 1);
     }
 
     html(data)  {
