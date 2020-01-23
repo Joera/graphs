@@ -172,7 +172,7 @@ class CijfersLine  {
 
         this.element.querySelector('.number').innerText = Math.round(data[0][this.property]);
 
-        let change = Math.round((data[0][this.property] - gem) / gem);
+        let change = (data[0][this.property] - gem) / gem;
 
         console.log(change);
 
