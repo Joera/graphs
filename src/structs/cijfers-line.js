@@ -174,7 +174,7 @@ class CijfersLine  {
 
         let value =  Math.round(data[0][this.property]);
 
-        this.element.querySelector('.number').innerText = (this.config.qualifier && this.config.qualifier !== undefined) ? value + config.qualifier : value;
+        this.element.querySelector('.number').innerText = (this.config.qualifier && this.config.qualifier !== undefined) ? value + this.config.qualifier : value;
 
         if ((data[0][this.property] - gem) === 0) {
 
