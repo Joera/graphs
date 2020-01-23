@@ -130,7 +130,7 @@ class CijfersLine  {
 
         let avg = (data.reduce((a,b) => { console.log(data.length - 1); console.log(a + parseInt(b[this.property])); return a + parseInt(b[this.property]); },0)) / data.length - 1;
 
-        // console.log(avg);
+        console.log(avg);
 
         return avg;
     }
