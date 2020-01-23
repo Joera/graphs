@@ -143,13 +143,6 @@ class CijfersLine  {
         div.classList.add('number_circle');
         div.style.backgroundColor =  this.dataMapping[0].colour;
 
-        let number = document.createElement('span');
-        number.classList.add('number');
-
-        // number.innerText = data[0][this.property];
-        div.appendChild(number);
-
-
         if(this.config.units && this.config.units !== undefined) {
 
             let units = document.createElement('span');
@@ -157,6 +150,15 @@ class CijfersLine  {
             units.innerText = this.config.units;
             div.appendChild(units);
         }
+
+        let number = document.createElement('span');
+        number.classList.add('number');
+
+        // number.innerText = data[0][this.property];
+        div.appendChild(number);
+
+
+
 
         let diff = document.createElement('span');
         diff.classList.add('diff');
