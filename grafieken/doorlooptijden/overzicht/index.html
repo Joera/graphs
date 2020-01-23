@@ -57,7 +57,7 @@
     const dataMapping_2 = [
 
         {
-            label: 'Doorlooptijd regulier gerealiseerd',
+            label: 'Doorlooptijd regulier verwachting',
             column: 'VERWACHT_AANTAL_DAGEN_DLT_MELDING_BESLUIT',
             colour: blue
         }
@@ -71,13 +71,13 @@
         'minValue' : true,
         'xScaleType' : 'time',
         'yScaleType' : 'linear',
-        'header' : false,
+        'header' : true,
     }
 
     const dataMapping_3 = [
 
         {
-            label: 'Percentage regulier half jaar besloten',
+            label: 'Doorlooptijd regulier gerealiseerd',
             column: 'MEDIAAN_AANTAL_DAGEN_DLT_MELDING_BESLUIT_VS1000',
             colour: green
         }
@@ -91,7 +91,7 @@
         'minValue' : true,
         'xScaleType' : 'time',
         'yScaleType' : 'linear',
-        'header' : false,
+        'header' : true,
     }
 
     // let throughputTimePercentage= new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
