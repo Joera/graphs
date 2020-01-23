@@ -171,7 +171,7 @@ class CijfersLine  {
         let gem = this.average(data);
 
         this.element.querySelector('.number').innerText = Math.round(data[0][this.property]);
-        this.element.querySelector('.diff').innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
+        this.element.querySelector('.diff').innerHTML = Math.round(((data[0][this.property] - gem) / gem) + '%' + svgUp;
 
 
         if ((data[0][this.property] - gem) < 0) {
