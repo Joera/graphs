@@ -12,8 +12,6 @@ class ChartDimensions {
 
         this.element = (typeof this.element === 'string') ? document.querySelector(this.element) : this.element;
 
-        console.log(this.element.getBoundingClientRect().width);
-
         if (this.config.fixedWidth) {
 
             this.dimensions.svgWidth = this.config.fixedWidth + this.config.padding.left + this.config.padding.right;
@@ -34,9 +32,6 @@ class ChartDimensions {
 
             this.dimensions.svgHeight = this.config.fixedHeight + this.config.padding.top + this.config.padding.bottom;
             this.dimensions.height = this.config.fixedHeight
-        } else if(this.config.blocks) {
-            this.dimensions.svgHeight = (this.config.maxValue / 100) + this.config.padding.top + this.config.padding.bottom;
-            this.dimensions.height = (this.config.maxValue / 100);
         } else {
             this.dimensions.svgHeight = this.element.getBoundingClientRect().height - this.config.margin.top - this.config.margin.bottom;
             this.dimensions.height = this.dimensions.svgHeight - this.config.padding.top - this.config.padding.bottom;

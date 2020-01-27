@@ -29,7 +29,7 @@ module.exports = function() {
             './src/chart-x-scale.js',
             './src/chart-y-scale.js',
             './src/chart-axis.js',
-            './src/chart-legend.js',
+          //  './src/chart-legend.js',
 
             './src/chart-candles.js',
             './src/chart-line.js',

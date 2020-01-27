@@ -1,0 +1,37 @@
+.article_header {
+
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid black;
+
+  h3 {
+
+  }
+
+  span {
+
+    $h : .33rem;
+
+    height: $h;
+    width: 1px;
+    background-color: black;
+
+    &:nth-of-type(2), &:nth-of-type(3) {
+
+      position: absolute;
+      bottom: -$h;
+      left: 0;
+    }
+
+    &:nth-of-type(3) {
+
+      left : auto;
+      right: 0;
+    }
+
+  }
+
+}

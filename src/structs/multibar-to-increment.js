@@ -18,31 +18,28 @@ class MultiBarWithIncrement  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = Object.assign(this.config,chartObjects.config());
+        this.config = Object.assign(chartObjects.config(),this.config);
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
         this.yScale = chartObjects.yScale();
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
+        //
+        // this.config.padding.top = 20;
+        // this.config.padding.bottom = 30;
+        // this.config.margin.bottom = 30;
+        // this.config.padding.left = 40;
+        // this.config.padding.right = 40;
 
-        this.config.padding.top = 20;
-        this.config.padding.bottom = 30;
-        this.config.margin.bottom = 30;
-        this.config.padding.left = 40;
-        this.config.padding.right = 40;
 
-        this.config.minValue = 0;
-
-        this.config.xParameter = '_date';
-        this.config.xScaleType = 'time';
-        this.config.xScaleTicks ='timeMonth';
-        this.config.yScaleType = 'linear';
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
 
-        this.config.barWidth = 12;
+
+        console.log(this.config);
+
 
         if (this.smallMultiple) {
             this.config.dataArrayLength = 7;
@@ -58,7 +55,6 @@ class MultiBarWithIncrement  {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartMultiBarsPlus = ChartMultiBarsToDots(this.config, this.svg);
-        this.chartLegend = ChartLegend(this.config, this.svg);
 
       //  this.chartSVG.tooltip.attr('width',this.config.tooltipWidth);
 
@@ -69,14 +65,14 @@ class MultiBarWithIncrement  {
 
         if (globalData.weeks) {
 
-            this.run(globalData.weeks,'totals')
+            this.run(globalData.weeks,this.config.yDimension)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
                 globalData.weeks = json;
-                self.run(json,'totals');
+                self.run(json,self.config.yDimension);
             });
         }
 
@@ -134,7 +130,7 @@ class MultiBarWithIncrement  {
 
         let arrayLength = 2 * Math.floor(elWidth / (2 * minBarWidth));
 
-        data = data.slice(data.length - arrayLength,data.length);
+      //  data = data.slice(data.length - arrayLength,data.length);
 
         return data;
     }
@@ -183,7 +179,7 @@ class MultiBarWithIncrement  {
         this.redraw(data,timeframe);
         // legend(data);
 
-        window.addEventListener("resize", () => self.redraw(data), false);
+        window.addEventListener("resize", () => self.redraw(data,timeframe), false);
 
         for (let radio of this.radios) {
             radio.addEventListener( 'change', () => self.redraw(data,radio.value),false);

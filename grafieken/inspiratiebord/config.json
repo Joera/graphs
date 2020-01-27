@@ -1,0 +1,498 @@
+{
+  "cijfer-nieuwe-meldingen": {
+    "api": "/api/data",
+    "xParameter": "_date",
+    "fixedHeight": 60,
+    "minValue": true,
+    "xScaleType": "time",
+    "yScaleType": "linear",
+    "header": true,
+    "dataMapping": [
+      {
+        "label": "Schade-meldingen",
+        "column": "nieuwe_schademeldingen",
+        "colour": "orange"
+      }
+    ]
+  },
+  "cijfer-nieuwe-opnames": {
+    "api": "/api/data",
+    "xParameter": "_date",
+    "fixedHeight": 60,
+    "minValue": true,
+    "xScaleType": "time",
+    "yScaleType": "linear",
+    "header": true,
+    "dataMapping": [
+      {
+        "label": "Schade-opnames",
+        "column": "nieuwe_schadeopnames",
+        "colour": "green"
+      }
+    ]
+  },
+  "cijfer-nieuwe-besluiten": {
+    "api": "/api/data",
+    "xParameter": "_date",
+    "fixedHeight": 60,
+    "minValue": true,
+    "xScaleType": "time",
+    "yScaleType": "linear",
+    "header": true,
+    "dataMapping": [
+      {
+        "label": "Besluiten",
+        "column": "nieuwe_besluiten_regulier",
+        "colour": "blue"
+      }
+    ]
+  },
+  "cijfer-nieuwe-afgehandeld": {
+    "api": "/api/data",
+    "xParameter": "_date",
+    "fixedHeight": 60,
+    "minValue": true,
+    "xScaleType": "time",
+    "yScaleType": "linear",
+    "header": true,
+    "dataMapping": [
+      {
+        "label": "Afgehandelde schade-meldingen",
+        "column": "nieuwe_afgehandeld",
+        "colour": "darkblue"
+      }
+    ]
+  },
+  "cijfer-nieuwe-aos-meldingen": {
+    "api": "/api/data",
+    "xParameter": "_date",
+    "fixedHeight": 60,
+    "minValue": true,
+    "xScaleType": "time",
+    "yScaleType": "linear",
+    "header": true,
+    "dataMapping": [
+      {
+        "label": "AOS meldingen",
+        "column": "nieuwe_aos_meldingen",
+        "colour": "green"
+      }
+    ]
+  },
+  "cijfer-nieuwe-aos-gegrond": {
+    "api": "/api/data",
+    "xParameter": "_date",
+    "fixedHeight": 60,
+    "minValue": true,
+    "xScaleType": "time",
+    "yScaleType": "linear",
+    "header": true,
+    "dataMapping": [
+      {
+        "label": "Gegronde AOS",
+        "column": "nieuwe_gegronde_aos",
+        "colour": "orange"
+      }
+    ]
+  },
+  "map-nieuwe-meldingen": {
+    "api": "/api/gemeenten",
+    "smallMultiple": true,
+    "dataMapping": [
+      {
+        "label": "Schade-meldingen",
+        "column": "nieuwe_MELDING",
+        "colour": "orange"
+      }
+    ]
+  },
+  "map-nieuwe-opnames": {
+    "api": "/api/gemeenten",
+    "smallMultiple": true,
+    "dataMapping": [
+      {
+        "label": "Schade-opnames",
+        "column": "nieuwe_OPNAMES",
+        "colour": "green"
+      }
+    ]
+  },
+  "map-nieuwe-besluiten": {
+    "api": "/api/gemeenten",
+    "smallMultiple": true,
+    "dataMapping": [
+      {
+        "label": "Besluiten",
+        "column": "nieuwe_BESCHIKT",
+        "colour": "blue"
+      }
+    ]
+  },
+  "map-nieuwe-afgehandeld": {
+    "api": "/api/gemeenten",
+    "smallMultiple": true,
+    "dataMapping": [
+      {
+        "label": "Afgehandelde schade-meldingen",
+        "column": "nieuwe_AFGEHANDELD_TOTAAL",
+        "colour": "darkblue"
+      }
+    ]
+  },
+  "bars-schade-meldingen": {
+    "api": "/api/gemeentes",
+    "dataMapping": [
+      {
+        "label": "Schademeldingen",
+        "column": "schademeldingen",
+        "colour": "orange"
+      },
+      {
+        "label": "",
+        "column": "nieuwe_schademeldingen",
+        "colour": "orange"
+      }
+    ]
+  },
+  "map-schade-meldingen": {
+    "api": "/api/gemeentes",
+    "dataMapping": [
+      {
+        "label": "Schade-meldingen",
+        "column": "schademeldingen",
+        "colour": "orange"
+      }
+    ]
+  },
+  "pie-toegekende-bedragen": {
+    "api": "/api/gemeentes",
+    "smallMultiple": true,
+    "currencyLabels": true,
+    "header": "Toegekende bedragen",
+    "legendWidth": 200,
+    "dataMapping": [
+      [
+        {
+          "label": "Mijnbouwschade",
+          "column": "nieuwe_BEDRAG_SCHADEBEDRAG",
+          "colour": "green"
+        },
+        {
+          "label": "Stuwmeerregeling",
+          "column": "nieuwe_BEDRAG_SMR",
+          "colour": "darkblue"
+        },
+        {
+          "label": "Bijkomende kosten",
+          "column": "nieuwe_BEDRAG_BIJKOMENDE_KOSTEN",
+          "colour": "blue"
+        },
+        {
+          "label": "Wettelijke rente",
+          "column": "nieuwe_BEDRAG_WETTELIJKE_RENTE",
+          "colour": "orange"
+        }
+      ],
+      [
+        {
+          "label": "Totaal",
+          "column": "nieuwe_TOTAAL_VERLEEND",
+          "colour": "yellow"
+        }
+      ]
+    ]
+  },
+  "pie-bezwaren": {
+    "api": "/api/gemeentes",
+    "smallMultiple": true,
+    "header": "Bezwaren",
+    "legend": true,
+    "legendWidth": 200,
+    "dataMapping": [
+      [
+        {
+          "label": "Gegrond",
+          "column": "nieuwe_BEZWAAR_GEGROND",
+          "colour": "yellow"
+        },
+        {
+          "label": "Deels gegrond",
+          "column": "nieuwe_BEZWAAR_DEELS_GEGROND",
+          "colour": "blue"
+        },
+        {
+          "label": "Ongegrond",
+          "column": "nieuwe_BEZWAAR_ONGEGROND",
+          "colour": "green"
+        },
+        {
+          "label": "Niet ontvankelijk",
+          "column": "nieuwe_BEZWAAR_NIET_ONTVANKELIJK",
+          "colour": "darkblue"
+        },
+        {
+          "label": "Ingetrokken",
+          "column": "nieuwe_BEZWAAR_INGETROKKEN",
+          "colour": "grey"
+        },
+        {
+          "label": "Naar schadeprocedure",
+          "column": "nieuwe_BEZWAAR_DOORGEZET_SCHADEP",
+          "colour": "darkblue"
+        }
+      ],
+      [
+        {
+          "label": "Totaal afgehandeld",
+          "column": false
+        }
+      ]
+    ]
+  },
+  "bars-aos-meldingen": {
+    "smallMultiple": false,
+    "minValue": 0,
+    "xParameter": "_date",
+    "yParameter": "aos_meldingen",
+    "xScaleType": "time",
+    "xScaleTicks": "timeMonth",
+    "yScaleType": "linear",
+    "barWidth": 6,
+    "circleRadius": 6,
+    "tooltipWidth": 100,
+    "dataMapping": [
+      {
+        "label": "AOS meldingen",
+        "column": "aos_meldingen",
+        "colour": "blue"
+      },
+      {
+        "label": "",
+        "column": "nieuwe_aos_meldingen",
+        "colour": "blue"
+      }
+    ]
+  },
+  "map-aos-meldingen": {
+    "api": "/api/gemeentes",
+    "dataMapping": [
+      {
+        "label": "AOS meldingen",
+        "column": "AOS",
+        "colour": "#65A7C5"
+      }
+    ]
+  },
+  "map-besluiten": {
+    "api": "/api/gemeenten",
+    "smallMultiple": false,
+    "header": true,
+    "dataMapping": [
+      {
+        "label": "Besluiten",
+        "column": "BESCHIKT",
+        "colour": "green"
+      }
+    ]
+  },
+  "map-stuwmeer-besluiten": {
+    "api": "/api/gemeenten",
+    "smallMultiple": false,
+    "header": "Besluiten in de stuwmeerregeling",
+    "dataMapping": [
+      {
+        "label": "Besluiten",
+        "column": "AANTAL_BESLUIT_SMR",
+        "colour": "darkblue"
+      }
+    ]
+  },
+  "multibar-besluiten": {
+    "api": "/api/data",
+    "smallMultiple": false,
+    "xParameter": "_date",
+    "xScaleType": "time",
+    "xScaleTicks": "timeMonth",
+    "yParameter": "AFGEHANDELD_TOTAAL",
+    "yScaleType": "linear",
+    "barWidth": 12,
+    "padding": {
+      "top": 20,
+      "bottom": 40,
+      "left": 20,
+      "right": 20
+    },
+    "margin": {
+      "top": 0,
+      "bottom": 5,
+      "left": 0,
+      "right": 0
+    },
+    "header": "Ontwikkeling van besluiten en afgehandelde schademeldingen",
+    "dataMapping": [
+      [
+        {
+          "label": "Besluiten regulier",
+          "column": "BESCHIKT",
+          "colour": "blue"
+        },
+        {
+          "label": "",
+          "column": "nieuwe_BESCHIKT",
+          "colour": "blue"
+        }
+      ],
+      [
+        {
+          "label": "Afgehandelde dossiers",
+          "column": "AFGEHANDELD_TOTAAL",
+          "colour": "green"
+        },
+        {
+          "label": "",
+          "column": "nieuwe_AFGEHANDELD_TOTAAL",
+          "colour": "green"
+        }
+      ]
+    ]
+  },
+  "multibar-stuwmeerregeling": {
+    "api": "/api/data",
+    "smallMultiple": false,
+    "xParameter": "_date",
+    "xScaleType": "time",
+    "xScaleTicks": "timeMonth",
+    "yParameter": "BESCHIKT",
+    "yScaleType": "linear",
+    "barWidth": 12,
+    "padding": {
+      "top": 20,
+      "bottom": 40,
+      "left": 20,
+      "right": 20
+    },
+    "margin": {
+      "top": 0,
+      "bottom": 5,
+      "left": 0,
+      "right": 0
+    },
+    "header": "Ontwikkeling van besluiten regulier t.o.v. besluiten in de stuwmeerregeling",
+    "dataMapping": [
+      [
+        {
+          "label": "Besluiten regulier",
+          "column": "BESCHIKT",
+          "colour": "green"
+        },
+        {
+          "label": "",
+          "column": "nieuwe_BESCHIKT",
+          "colour": "green"
+        }
+      ],
+      [
+        {
+          "label": "Besluiten",
+          "column": "AANTAL_BESLUIT_SMR",
+          "colour": "darkblue"
+        },
+        {
+          "label": "",
+          "column": "nieuwe_AANTAL_BESLUIT_SMR",
+          "colour": "darkblue"
+        }
+      ]
+    ]
+  },
+  "pie-afgewezen": {
+    "api": "/api/gemeentes",
+    "smallMultiple": true,
+    "header": "Aandeel afgewezen schademeldingen",
+    "legend": true,
+    "legendWidth": 160,
+    "dataMapping": [
+      [
+        {
+          "label": "Afgewezen schademeldingen",
+          "column": "AFW",
+          "colour": "orange"
+        },
+        {
+          "label": "Toegewezen besluiten",
+          "column": "BEH",
+          "colour": "green"
+        }
+      ]
+    ]
+  },
+  "trend-afgewezen": {
+    "api": "/api/data",
+    "xParameter": "_date",
+    "xScaleTicks": "timeMonth",
+    "yParameter": "percentage_afwijzingen",
+    "yTickFormat": "percentage",
+    "smallMultiple": true,
+    "header": "Ontwikkeling van percentage afwijzingen",
+    "padding": {
+      "top": 20,
+      "bottom": 40,
+      "left": 20,
+      "right": 20
+    },
+    "margin": {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    },
+    "dataMapping": [
+      {
+        "label": "Afgewezen schademeldingen",
+        "column": "percentage_afwijzingen",
+        "colour": "orange"
+      }
+    ]
+  },
+  "ontwikkeling-afgewezen": {
+    "api": "/api/data",
+    "smallMultiple": false,
+    "header": "Ontwikkeling van aantal afwijzingen per week",
+    "xParameter": "_date",
+    "xScaleType": "time",
+    "xScaleTicks": "timeMonth",
+    "yParameter": "AFW",
+    "yScaleType": "linear",
+    "yDimension": "week",
+    "minValue": 0,
+    "barWidth": 6,
+    "circleRadius": 6,
+    "tooltipWidth": 100,
+    "padding": {
+      "top": 20,
+      "bottom": 40,
+      "left": 20,
+      "right": 20
+    },
+    "margin": {
+      "top": 0,
+      "bottom": 30,
+      "left": 0,
+      "right": 0
+    },
+    "dataMapping": [
+      [
+        {
+          "label": "Afgewezen schademeldingen",
+          "column": "AFW",
+          "colour": "orange"
+        },
+        {
+          "label": "",
+          "column": "nieuwe_AFW",
+          "colour": "orange"
+        }
+      ]
+    ]
+  }
+}

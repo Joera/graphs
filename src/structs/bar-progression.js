@@ -1,14 +1,14 @@
 class BarProgression  {
 
-    constructor(endpoint,elementID,config,dataMapping,property,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.config = config;
         this.dataMapping = dataMapping;
-        this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
-        this.smallMultiple = smallMultiple;
+        this.property = this.dataMapping[0].column;
+        this.smallMultiple = config.smallMultiple;
     }
 
     init() {
@@ -18,7 +18,7 @@ class BarProgression  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = Object.assign(this.config,chartObjects.config());
+        this.config = Object.assign(chartObjects.config(),this.config);
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -26,10 +26,10 @@ class BarProgression  {
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
 
-        this.config.padding.top = 20;
-        this.config.margin.bottom = 15;
-
-        this.config.padding.left = 40;
+        // this.config.padding.top = 20;
+        // this.config.margin.bottom = 15;
+        //
+        // this.config.padding.left = 40;
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
@@ -50,7 +50,7 @@ class BarProgression  {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartBarsIncrease = ChartBarsIncrease(this.config, this.svg);
-        this.chartLegend = ChartLegend(this.config, this.svg);
+
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();

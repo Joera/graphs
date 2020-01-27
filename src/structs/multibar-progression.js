@@ -1,13 +1,13 @@
 class MultiBarProgression  {
 
-    constructor(endpoint,elementID,config,dataMapping,property) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.config = config;
         this.dataMapping = dataMapping;
-        this.property = property;
+        this.property = config.yParameter;
         this.smallMultiple = config.smallMultiple;
     }
 
@@ -18,18 +18,13 @@ class MultiBarProgression  {
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
 
         let chartObjects = ChartObjects();
-        this.config = Object.assign(this.config,chartObjects.config());
+        this.config = Object.assign(chartObjects.config(),this.config);
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
         this.yScale = chartObjects.yScale();
         this.axes = chartObjects.axes();
         this.functions = chartObjects.functions();
-
-        this.config.padding.top = 20;
-        this.config.padding.bottom = 60;
-        this.config.padding.left = 40;
-        this.config.padding.right = 20;
 
         this.config.paddingInner = 0;
         this.config.paddingOuter = 0;
@@ -48,7 +43,7 @@ class MultiBarProgression  {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartMultiBars = ChartMultiBars(this.config, this.svg);
-        this.chartLegend = ChartLegend(this.config, this.svg);
+
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
@@ -63,11 +58,43 @@ class MultiBarProgression  {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                console.log(json);
                 globalData.weeks = json;
                 self.run(json,self.property);
             });
         }
+
+    }
+
+    legend() {
+
+        this.element.parentNode.querySelector('.legend').remove();
+
+        let legendContainer = document.createElement('ul');
+        legendContainer.classList.add('legend');
+        legendContainer.classList.add('horizontal');
+
+        this.dataMapping.forEach( (parameter) => {
+
+            let parameterContainer = document.createElement('li');
+
+            let blokje = document.createElement('span');
+            blokje.classList.add('rect');
+            blokje.classList.add(parameter[0].colour);
+            let text = document.createElement('span');
+            text.classList.add('small-label');
+            text.innerText = parameter[0].label;
+
+            parameterContainer.appendChild(blokje);
+            parameterContainer.appendChild(text);
+
+            legendContainer.appendChild(parameterContainer);
+
+        })
+
+        this.element.parentNode.appendChild(legendContainer);
+
+
+
 
     }
 
@@ -141,12 +168,12 @@ class MultiBarProgression  {
 
     draw(data,property) {
 
-        console.log(data);
-
         this.xScale = this.chartXScale.set(data.map(d => { return d[this.config.xParameter] }));
 
         // to loop here?
         this.chartMultiBars.draw(data);
+
+        this.legend(data);
     }
 
     run(json,property) {
@@ -155,8 +182,10 @@ class MultiBarProgression  {
 
         let data = this.prepareData(json,property);
         this.draw(data,property);
-       this.redraw(data,property);
+        this.redraw(data,property);
         // legend(data);
+
+
 
         window.addEventListener("resize", () => self.redraw(data,property), false);
 

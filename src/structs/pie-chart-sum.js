@@ -114,7 +114,7 @@ class PieChartSum  {
 
      drawLegend(data,segment) {
 
-         this.element.parentNode.querySelector('.legend').remove();
+        this.element.parentNode.querySelector('.legend').remove();
 
         let legendContainer = document.createElement('div');
         legendContainer.classList.add('legend');
@@ -132,9 +132,9 @@ class PieChartSum  {
 
          let legendDimensions = {
 
-             width : config.legendWidth,
+             width : this.config.legendWidth,
              height : 19 * dataLength,
-             svgWidth : config.legendWidth,
+             svgWidth : this.config.legendWidth,
              svgHeight : 19 * dataLength,
 
          }
@@ -165,7 +165,7 @@ class PieChartSum  {
 
             this.legend.svg.layers.legend.append("text")
                 .attr("class", "small-label")
-                .attr("dx", config.legendWidth)
+                .attr("dx", this.config.legendWidth)
                 .attr("dy", (i * 20) + 8)
                 .text( (this.config.currencyLabels) ? convertToCurrency(d['value']) : d['value'])
                 .attr("width", this.dimensions.svgWidth)
@@ -181,7 +181,7 @@ class PieChartSum  {
                  .attr("class", "small-label")
                  .attr("y", ((data[0].length - 1) * 20) + 14)
                  .attr("height", .5)
-                 .attr("width", config.legendWidth)
+                 .attr("width", this.config.legendWidth)
                  .style("opacity", 1)
                  .style("fill", "black");
 
@@ -194,7 +194,7 @@ class PieChartSum  {
 
              this.legend.svg.layers.legend.append("text")
                  .attr("class", "small-label")
-                 .attr("dx", config.legendWidth)
+                 .attr("dx", this.config.legendWidth)
                  .attr("dy", ((data[0].length) * 20) + 8)
                  .text( (this.config.currencyLabels) ? convertToCurrency(data[1][0]['value']) : data[1][0]['value'])
                  .attr("width", this.dimensions.svgWidth)
@@ -264,6 +264,8 @@ class PieChartSum  {
     }
 
     run(json,segment) {
+
+
 
         let self = this;
 

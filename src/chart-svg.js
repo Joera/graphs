@@ -24,8 +24,6 @@ class ChartSVG {
 
     redraw(dimensions) {
 
-        console.log('svgHeight: ' + dimensions.svgHeight);
-
         this.svg.body
             .attr('height', dimensions.svgHeight)
             .attr('width', dimensions.svgWidth);

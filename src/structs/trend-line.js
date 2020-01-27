@@ -1,15 +1,15 @@
 class TrendLine {
 
-    constructor(endpoint,elementID,config,dataMapping,property,segment,smallMultiple) {
+    constructor(endpoint,elementID,config,dataMapping,segment) {
 
         this.endpoint = endpoint;
         this.elementID = elementID;
         this.element = d3.select(elementID).node();
         this.dataMapping = dataMapping;
         this.config = config;
-        this.property = (!property || property === undefined) ? this.dataMapping[0][0].column : property;
+        this.property = this.dataMapping[0].column;
         this.segment = segment;
-        this.smallMultiple = smallMultiple;
+        this.smallMultiple = config.smallMultiple;
 
     }
 
@@ -21,7 +21,7 @@ class TrendLine {
         this.municipalitySelect = document.querySelector('select.municipalities');
 
         let chartObjects = ChartObjects();
-        this.config = Object.assign(this.config, chartObjects.config());
+        this.config = Object.assign(chartObjects.config(),this.config);
         this.dimensions = chartObjects.dimensions();
         this.svg = chartObjects.svg();
         this.xScale = chartObjects.xScale();
@@ -30,10 +30,10 @@ class TrendLine {
         this.functions = chartObjects.functions();
 
 
-        this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 75 : 0;
-        this.config.margin.top = this.smallMultiple? 15 : 30;
-        this.config.padding.bottom = 50;
-        this.config.padding.left = 40;
+        // this.config.margin.bottom = (window.innerWidth < 640 || this.smallMultiple) ? 75 : 0;
+        // this.config.margin.top = this.smallMultiple? 15 : 30;
+        // this.config.padding.bottom = 50;
+        // this.config.padding.left = 40;
         //
         // this.config.xParameter = '_date';
         // this.config.xScaleTicks = 'timeMonth';
@@ -58,15 +58,15 @@ class TrendLine {
 
         let url = 'https://tcmg-hub.publikaan.nl/' + this.endpoint;
 
-        if (globalData.municipalities) {
+        if (globalData.data) {
 
-            this.run(globalData.municipalities,this.segment)
+            this.run(globalData.data,this.segment)
 
         } else {
 
             d3.json(url, function(error, json) {
                 if (error) throw error;
-                globalData.municipalities = json;
+                globalData.data = json;
                 self.run(json,self.segment);
             });
         }
@@ -86,21 +86,26 @@ class TrendLine {
 
         // let segmented = json.find( j => j['_category'] === segment);
 
+
+
+
         let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
         for (let week of json) {
             let o = {};
             for (let p of Object.entries(week))  {
+
+
+
                 if (neededColumns.indexOf(p[0]) > -1 ) {
                     o[p[0]] = p[1];
                 }
             }
+
             data.push(o);
         }
 
         data = data.filter( (week) => {
-
-
             return week[this.property] > 0
         })
 
@@ -108,6 +113,7 @@ class TrendLine {
             return new Date(a['_date']) - new Date(b['_date']);
         });
 
+        console.log(data);
 
         return data;
     }

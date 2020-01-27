@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<style>
+
+
+</style>
+
+<script src="/assets/scripts/moment.min.js"></script>
+<script src="/assets/scripts/d3.min.js"></script>
+<script src="/assets/scripts/main.js"></script>
+
+
+<body class="single-graph cijfer">
+<main>
+
+
+
+    <div class="row_container">
+
+            <article class="cijfer">
+                <div class="article_header">
+                    <h3>Binnen half jaar afgehandeld</h3>
+                    <span></span><span></span><span></span>
+                </div>
+                <div id="cijfer_1" class="container"></div>
+            </article>
+
+    </div>
+
+</main>
+</body>
+
+
+<script>
+
+    const dataMapping_1 = [
+
+        {
+            label: 'Percentage regulier half jaar besloten',
+            column: 'PERCENTAGE_AANTAL_DAGEN_DLT_MELDING_BESLUIT_KLEINERDAN181_VS1000',
+            colour: orange
+        }
+    ];
+
+    const config_1 = {
+
+        'api' : '/api/data',
+        'xParameter' : '_date',
+        'fixedHeight' : 60,
+        'minValue' : true,
+        'xScaleType' : 'time',
+        'yScaleType' : 'linear',
+        'header' : false,
+        'qualifier' : '%'
+    }
+
+
+    let throughputTimePercentage= new CijfersLine('/api/data','#cijfer_1', config_1, dataMapping_1,'all');
+    throughputTimePercentage.init();
+
+
+
+</script>
+
+
+</html>

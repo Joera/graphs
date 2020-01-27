@@ -16,6 +16,8 @@ class CijfersLine  {
 
     init() {
 
+
+
         let self = this;
 
         this.radios = [].slice.call(document.querySelectorAll('.selector li input[type=radio]'));
@@ -70,19 +72,29 @@ class CijfersLine  {
         let neededColumns = ['_date','_category'].concat(this.dataMapping.map( (c) => c.column ));
 
         let data = [];
+        let hasEnoughData;
 
         for (let week of json.slice(0,8)) {
+
+            hasEnoughData = true;
 
             let clearWeek = {};
 
             for (let column of neededColumns) {
 
-                clearWeek[column] = week[column]
+                if(week[column] !== null) {
+
+                    clearWeek[column] = week[column]
+
+                } else {
+                    hasEnoughData = false;
+                }
             }
 
-            data.push(clearWeek);
+            if(hasEnoughData) {
+                data.push(clearWeek);
+            }
         }
-
 
         return data;
     }
@@ -116,7 +128,9 @@ class CijfersLine  {
 
     average(data) {
 
-        return (data.reduce((a,b) => a + parseInt(b[this.property]),0)) / data.length - 1;
+        let avg = (data.reduce((a,b) => { return a + parseInt(b[this.property]); },0)) / (data.length);
+
+        return avg;
     }
 
     html(data)  {
@@ -129,11 +143,22 @@ class CijfersLine  {
         div.classList.add('number_circle');
         div.style.backgroundColor =  this.dataMapping[0].colour;
 
+        if(this.config.units && this.config.units !== undefined) {
+
+            let units = document.createElement('span');
+            units.classList.add('units');
+            units.innerText = this.config.units;
+            div.appendChild(units);
+        }
+
         let number = document.createElement('span');
         number.classList.add('number');
 
         // number.innerText = data[0][this.property];
         div.appendChild(number);
+
+
+
 
         let diff = document.createElement('span');
         diff.classList.add('diff');
@@ -158,15 +183,37 @@ class CijfersLine  {
 
         let gem = this.average(data);
 
-        this.element.querySelector('.number').innerText = data[0][this.property];
-        this.element.querySelector('.diff').innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
+        let value =  Math.round(data[0][this.property]);
 
+        this.element.querySelector('.number').innerText = (this.config.qualifier && this.config.qualifier !== undefined) ? value + this.config.qualifier : value;
 
-        if ((data[0][this.property] - gem) < 0) {
-            console.log('negative');
-            this.element.querySelector('.diff').classList.add('down');
-        } else {
-            this.element.querySelector('.diff').classList.remove('down');
+        let span = document.createElement('span');
+        span.innerText = Math.round(100 * (data[0][this.property] - gem) / gem) + '%';
+
+        let SVGspan = document.createElement('span');
+        SVGspan.innerHTML = svgUp;
+
+        let isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
+        let diff = this.element.querySelector('.diff');
+
+        if ((data[0][this.property] - gem) === 0) {
+
+            this.element.querySelector('.diff').innerHTML = "--";
+
+        } else if ((data[0][this.property] - gem) < 0) {
+
+            diff.appendChild(span);
+            if(!isIE11) { diff.appendChild(SVGspan); }
+            diff.classList.add('down');
+
+        } else if ((data[0][this.property] - gem) > 0) {
+
+            diff.appendChild(span);
+            if(!isIE11) { diff.appendChild(SVGspan); }
+
+          //  this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
+            diff.classList.remove('down');
         }
 
     }
@@ -176,7 +223,6 @@ class CijfersLine  {
         let self = this;
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint + '?gemeente=' + newSegment;
-
 
         if(globalData.data && !change) {
 
@@ -201,6 +247,8 @@ class CijfersLine  {
             });
 
         } else {
+
+
 
             d3.json(url, function(error, json) {
                 if (error) {
