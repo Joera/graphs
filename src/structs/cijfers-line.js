@@ -197,7 +197,7 @@ class CijfersLine  {
         } else if ((data[0][this.property] - gem) < 0) {
 
             this.element.querySelector('.diff').appendChild(span);
-
+            this.element.querySelector('.diff').appendChild(svgUp);
             //
             // this.element.querySelector('.diff').innerHTML =  + svgUp;;
             this.element.querySelector('.diff').classList.add('down');
@@ -205,6 +205,7 @@ class CijfersLine  {
         } else if ((data[0][this.property] - gem) > 0) {
 
             this.element.querySelector('.diff').appendChild(span);
+            this.element.querySelector('.diff').appendChild(svgUp);
 
           //  this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
             this.element.querySelector('.diff').classList.remove('down');
