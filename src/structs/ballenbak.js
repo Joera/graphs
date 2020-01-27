@@ -58,6 +58,8 @@ class Ballenbak {
 
         let url = 'https://tcmg-hub.publikaan.nl' + this.endpoint;
 
+        setTimeout( function() {
+
         if (globalData.municipalities) {
 
             this.run(globalData.municipalities,this.segment)
@@ -70,6 +72,8 @@ class Ballenbak {
                 self.run(json,self.segment);
             });
         }
+
+        },200);
     }
 
     prepareData(json,muni)  {
