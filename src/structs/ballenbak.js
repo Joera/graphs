@@ -140,7 +140,7 @@ class Ballenbak {
         this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
         this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
 
-     //   this.chartCircles.redraw(this.dimensions,this.yScale,this.xScale,this.config.smallMultiple);
+        this.chartCircles.redraw(this.dimensions,this.yScale,this.xScale,this.config.smallMultiple);
     }
 
     run(json, muni) {

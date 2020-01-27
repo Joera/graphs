@@ -155,19 +155,19 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
             ;
         }
 
-        data.forEach( (group,i) => {
-
-            simulation[group[0].key]
-                .velocityDecay(0.5)
-                // .force('y', d3.forceY().strength(forceStrength).y(center.y))
-                .force('center', d3.forceCenter(center.x,center.y))
-               // .force('charge', d3.forceManyBody().strength(cluster))
-                .force('collide', d3.forceCollide().radius(function(d) {
-                    return yScale.radius(d.value)
-                }))
-                .force('x', d3.forceX().strength(forceStrength).x(center.x))
-                .on('tick', ticked);
-        });
+        // data.forEach( (group,i) => {
+        //
+        //     simulation[group[0].key]
+        //         .velocityDecay(0.5)
+        //         // .force('y', d3.forceY().strength(forceStrength).y(center.y))
+        //         .force('center', d3.forceCenter(center.x,center.y))
+        //        // .force('charge', d3.forceManyBody().strength(cluster))
+        //         .force('collide', d3.forceCollide().radius(function(d) {
+        //             return yScale.radius(d.value)
+        //         }))
+        //         .force('x', d3.forceX().strength(forceStrength).x(center.x))
+        //         .on('tick', ticked);
+        // });
     }
 
     return {
