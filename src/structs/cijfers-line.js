@@ -193,6 +193,8 @@ class CijfersLine  {
         let SVGspan = document.createElement('span');
         SVGspan.innerHTML = svgUp;
 
+        let isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
         let diff = this.element.querySelector('.diff');
 
         if ((data[0][this.property] - gem) === 0) {
@@ -202,7 +204,7 @@ class CijfersLine  {
         } else if ((data[0][this.property] - gem) < 0) {
 
             diff.appendChild(span);
-            diff.appendChild(SVGspan);
+            if(!isIE11) { diff.appendChild(SVGspan); }
             diff.classList.add('down');
 
         } else if ((data[0][this.property] - gem) > 0) {
