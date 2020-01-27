@@ -210,7 +210,7 @@ class CijfersLine  {
         } else if ((data[0][this.property] - gem) > 0) {
 
             diff.appendChild(span);
-            diff.appendChild(SVGspan);
+            if(!isIE11) { diff.appendChild(SVGspan); }
 
           //  this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
             diff.classList.remove('down');
