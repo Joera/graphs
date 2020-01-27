@@ -63,7 +63,13 @@
         };
 
       let gemBedrag = new TrendLine('/api/data','#container',config,dataMapping,'gemiddeld_schadebedrag','all',false,'');
-      gemBedrag.init();
+
+        setTimeout( function() {
+
+            gemBedrag.init();
+
+        }, Math.random() * 100)
+    
 </script>
 
 
