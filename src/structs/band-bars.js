@@ -50,7 +50,7 @@ class BandBars {
         this.chartYScale = ChartYScale(this.config, this.dimensions, this.yScale);
         this.chartAxis = ChartAxis(this.config, this.svg);
         this.chartBar = ChartBar(this.config, this.svg);
-        this.chartLegend = ChartLegend(this.config, this.svg);
+        // this.chartLegend = ChartLegend(this.config, this.svg);
 
         this.chartAxis.drawXAxis();
         this.chartAxis.drawYAxis();
