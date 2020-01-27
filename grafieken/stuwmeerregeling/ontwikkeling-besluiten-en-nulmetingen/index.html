@@ -72,11 +72,24 @@
         xScaleType : 'time',
         xScaleTicks :'timeMonth',
         yScaleType : 'linear',
+        yParameter: 'besluiten_stuwmeerregeling',
         barWidth : 12,
-        legend : false
+        padding: {
+            "top": 20,
+            "bottom": 40,
+            "left": 20,
+            "right": 20
+        },
+        margin: {
+            "top": 0,
+            "bottom": 5,
+            "left": 0,
+            "right": 0
+        }
+
     }
 
-    let besluitenStuwmeer = new MultiBarProgression('/api/data','#container',config,dataMapping,'besluiten_stuwmeerregeling','all');
+    let besluitenStuwmeer = new MultiBarProgression('/api/data','#container',config,dataMapping,'all');
     besluitenStuwmeer.init();
 
 </script>

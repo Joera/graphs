@@ -173,7 +173,7 @@ class MultiBarProgression  {
         // to loop here?
         this.chartMultiBars.draw(data);
 
-        this.legend(data); 
+        this.legend(data);
     }
 
     run(json,property) {
