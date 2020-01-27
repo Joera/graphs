@@ -102,7 +102,13 @@
 
 
     let som = new PieChartSum('/api/gemeentes','#container',config, dataMapping,'all');
-    som.init();
+
+    setTimeout( function() {
+
+        som.init();
+
+    }, Math.random() * 100)
+
 </script>
 
 
