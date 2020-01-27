@@ -190,25 +190,27 @@ class CijfersLine  {
         let span = document.createElement('span');
         span.innerText = Math.round(100 * (data[0][this.property] - gem) / gem) + '%';
 
+        let diff = this.element.querySelector('.diff');
+
         if ((data[0][this.property] - gem) === 0) {
 
             this.element.querySelector('.diff').innerHTML = "--";
 
         } else if ((data[0][this.property] - gem) < 0) {
 
-            this.element.querySelector('.diff').appendChild(span);
-            this.element.querySelector('.diff').appendChild(svgUp);
+            diff.appendChild(span);
+            diff.appendChild(svgUp);
             //
             // this.element.querySelector('.diff').innerHTML =  + svgUp;;
-            this.element.querySelector('.diff').classList.add('down');
+            diff.classList.add('down');
 
         } else if ((data[0][this.property] - gem) > 0) {
 
-            this.element.querySelector('.diff').appendChild(span);
-            this.element.querySelector('.diff').appendChild(svgUp);
+            diff.appendChild(span);
+            diff.appendChild(svgUp);
 
           //  this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
-            this.element.querySelector('.diff').classList.remove('down');
+            diff.classList.remove('down');
         }
 
     }
