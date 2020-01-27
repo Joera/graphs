@@ -187,21 +187,19 @@ class CijfersLine  {
 
         this.element.querySelector('.number').innerText = (this.config.qualifier && this.config.qualifier !== undefined) ? value + this.config.qualifier : value;
 
-        console.log('hi');
+        let span = document.createElement('span');
+        span.innerText = Math.round(100 * (data[0][this.property] - gem) / gem) + '%';
 
         if ((data[0][this.property] - gem) === 0) {
 
             this.element.querySelector('.diff').innerHTML = "--";
 
-            console.log('0');
-
         } else if ((data[0][this.property] - gem) < 0) {
 
-            console.log('1');
+            this.element.querySelector('.diff').appendChild(span);
 
-            let difff = Math.round(100 * (data[0][this.property] - gem) / gem);
-
-            this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%';
+            //
+            // this.element.querySelector('.diff').innerHTML =  + svgUp;;
             this.element.querySelector('.diff').classList.add('down');
 
         } else if ((data[0][this.property] - gem) > 0) {
