@@ -163,7 +163,7 @@ class MultiBarProgression  {
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
         this.chartAxis.redrawYAxis(this.yScale,this.axes);
         // redraw data
-        this.chartMultiBars.redraw(this.dimensions,this.xScale,this.yScale, property);
+        // this.chartMultiBars.redraw(this.dimensions,this.xScale,this.yScale, property);
     }
 
     draw(data,property) {
@@ -182,7 +182,7 @@ class MultiBarProgression  {
 
         let data = this.prepareData(json,property);
         this.draw(data,property);
-        // this.redraw(data,property);
+        this.redraw(data,property);
         // legend(data);
 
 
