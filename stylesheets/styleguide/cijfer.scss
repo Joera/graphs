@@ -5,9 +5,6 @@
   justify-content: flex-start;
   align-items: center;
 
-  @media (max-width: $breakpoint-xxsm) {
-    max-height: 220px;
-  }
 
   h3  {
       //border-bottom: 1px solid black;
@@ -24,6 +21,13 @@
 
       flex-direction: row;
       justify-content: space-around;
+
+    }
+
+    article {
+      @media (max-width: $breakpoint-xxsm) {
+        max-height: 220px;
+      }
 
     }
   }
