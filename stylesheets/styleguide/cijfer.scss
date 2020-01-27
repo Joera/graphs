@@ -5,6 +5,10 @@
   justify-content: flex-start;
   align-items: center;
 
+  @media (max-width: $breakpoint-xxsm) {
+    max-height: 220px;
+  }
+
   h3  {
       //border-bottom: 1px solid black;
     font-size: 1rem;
@@ -95,14 +99,6 @@
     color: #fff;
     margin-bottom: .3rem;
   }
-
-    //&.#E17000 {
-    //
-    //  background:  #E17000;
-    //}
-
-
-
 
   .label {
     text-transform: uppercase;
