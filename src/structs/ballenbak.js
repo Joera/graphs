@@ -149,7 +149,7 @@ class Ballenbak {
         let { data, flattenedData } = this.prepareData(json,muni);
         this.draw(data, flattenedData);
 
-        this.redraw(this.dimensions,this.yScale,this.xScale,this.config.smallMultiple);
+        // this.redraw(this.dimensions,this.yScale,this.xScale,this.config.smallMultiple);
 
         this.legend(data);
 
