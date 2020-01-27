@@ -190,6 +190,9 @@ class CijfersLine  {
         let span = document.createElement('span');
         span.innerText = Math.round(100 * (data[0][this.property] - gem) / gem) + '%';
 
+        let SVGspan = document.createElement('span');
+        SVGspan.innerHTML = svgUp;
+
         let diff = this.element.querySelector('.diff');
 
         if ((data[0][this.property] - gem) === 0) {
@@ -199,15 +202,13 @@ class CijfersLine  {
         } else if ((data[0][this.property] - gem) < 0) {
 
             diff.appendChild(span);
-            diff.appendChild(svgUp);
-            //
-            // this.element.querySelector('.diff').innerHTML =  + svgUp;;
+            diff.appendChild(SVGspan);
             diff.classList.add('down');
 
         } else if ((data[0][this.property] - gem) > 0) {
 
             diff.appendChild(span);
-            diff.appendChild(svgUp);
+            diff.appendChild(SVGspan);
 
           //  this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
             diff.classList.remove('down');
