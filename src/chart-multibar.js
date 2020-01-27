@@ -54,26 +54,26 @@ let ChartMultiBars = function ChartMultiBars(config,svg) {
             .attr("clip-path", "url(#clip)")
             .transition()
             .duration(500)
-            .attr("y", function(d) { console.log(config.yScaleType); console.log(d[d['property']]); return (config.padding.top + yScale[config.yScaleType](d[d['property']])); })
+            .attr("y", function(d) { return (config.padding.top + yScale[config.yScaleType](d[d['property']])); })
             .attr("height", function(d) { return dimensions.height - yScale[config.yScaleType](d[d['property']]); });
 
-        // svg.bar
-        //     .merge(svg.barEnter)
-        //     .on("mouseover", function(d) {
-        //
-        //         svg.tooltip
-        //             .html(popup(d))
-        //             .style("left", (d3.event.pageX - 205) + "px")
-        //             .style("top", (d3.event.pageY - 5) + "px")
-        //             .transition()
-        //             .duration(250)
-        //             .style("opacity", 1);
-        //     })
-        //     .on("mouseout", function(d) {
-        //         svg.tooltip.transition()
-        //             .duration(250)
-        //             .style("opacity", 0);
-        //     })// add
+        svg.bar
+            .merge(svg.barEnter)
+            .on("mouseover", function(d) {
+
+                svg.tooltip
+                    .html(popup(d))
+                    .style("left", (d3.event.pageX - 205) + "px")
+                    .style("top", (d3.event.pageY - 5) + "px")
+                    .transition()
+                    .duration(250)
+                    .style("opacity", 1);
+            })
+            .on("mouseout", function(d) {
+                svg.tooltip.transition()
+                    .duration(250)
+                    .style("opacity", 0);
+            })// add
 
         ;
     }

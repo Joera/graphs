@@ -150,8 +150,6 @@ class MultiBarProgression  {
 
         let colour = blue; // this.dataMapping.find((m) => m.column === property)['colour'];
 
-        console.log(property);
-
         this.yScale = this.chartYScale.set(data,property);
 
         // on redraw chart gets new dimensions
