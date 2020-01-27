@@ -201,7 +201,7 @@ class CijfersLine  {
 
             let difff = Math.round(100 * (data[0][this.property] - gem) / gem);
 
-            this.element.querySelector('.diff').innerHTML = '33' + '%' + svgUp;
+            this.element.querySelector('.diff').innerHTML = '33' + '%';
             this.element.querySelector('.diff').classList.add('down');
 
         } else if ((data[0][this.property] - gem) > 0) {
