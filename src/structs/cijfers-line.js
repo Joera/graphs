@@ -187,6 +187,8 @@ class CijfersLine  {
 
         this.element.querySelector('.number').innerText = (this.config.qualifier && this.config.qualifier !== undefined) ? value + this.config.qualifier : value;
 
+        console.log('hi');
+
         if ((data[0][this.property] - gem) === 0) {
 
             this.element.querySelector('.diff').innerHTML = "--";
