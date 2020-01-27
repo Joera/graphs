@@ -39,13 +39,26 @@
             column: 'nieuwe_schadeopnames',
             colour: 'darkblue'
         }
+
     ];
 
     const config = {
 
         smallMultiple : false,
         minValue : 26000,
-        xParameter : '_date'
+        xParameter : '_date',
+        padding: {
+            "top": 20,
+            "bottom": 0,
+            "left": 20,
+            "right": 20
+        },
+        margin: {
+            "top": 0,
+            "bottom": 20,
+            "left": 0,
+            "right": 0
+        }
     }
 
     let ontwikkelingOpnames = new BarProgression('/api/data','#container',config,dataMapping,'schadeopnames','all');
