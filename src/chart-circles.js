@@ -150,9 +150,9 @@ let ChartCircles = function ChartCircles(config,svg,colours) {
 
         function ticked() {
 
-            // svg.circleGroupsEnter.merge(svg.circleGroups)
-            //     .attr("transform", (d) => { return "translate(" + d.x + "," + d.y + ")" })
-            // ;
+            svg.circleGroupsEnter.merge(svg.circleGroups)
+                .attr("transform", (d) => { return "translate(" + d.x + "," + d.y + ")" })
+            ;
         }
 
         data.forEach( (group,i) => {
