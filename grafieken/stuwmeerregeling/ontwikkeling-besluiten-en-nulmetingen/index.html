@@ -72,7 +72,8 @@
         xScaleType : 'time',
         xScaleTicks :'timeMonth',
         yScaleType : 'linear',
-        barWidth : 12
+        barWidth : 12,
+        legend : false
     }
 
     let besluitenStuwmeer = new MultiBarProgression('/api/data','#container',config,dataMapping,'besluiten_stuwmeerregeling','all');
