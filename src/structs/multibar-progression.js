@@ -181,7 +181,7 @@ class MultiBarProgression  {
         let self = this;
 
         let data = this.prepareData(json,property);
-        // this.draw(data,property);
+        this.draw(data,property);
         // this.redraw(data,property);
         // legend(data);
 
