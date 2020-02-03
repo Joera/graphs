@@ -143,6 +143,14 @@ class CijfersLine  {
         div.classList.add('number_circle');
         div.style.backgroundColor =  this.dataMapping[0].colour;
 
+
+
+        let number = document.createElement('span');
+        number.classList.add('number');
+
+        // number.innerText = data[0][this.property];
+        div.appendChild(number);
+
         if(this.config.units && this.config.units !== undefined) {
 
             let units = document.createElement('span');
@@ -151,17 +159,9 @@ class CijfersLine  {
             div.appendChild(units);
         }
 
-        let number = document.createElement('span');
-        number.classList.add('number');
-
-        // number.innerText = data[0][this.property];
-        div.appendChild(number);
-
-
-
-
-        let diff = document.createElement('span');
-        diff.classList.add('diff');
+        //
+        // let diff = document.createElement('span');
+        // diff.classList.add('diff');
 
 
         // diff.innerHTML = (((data[0][this.property] - gem) / gem) * 100).toFixed(0) + '%' + svgUp;
@@ -181,40 +181,40 @@ class CijfersLine  {
 
     update(data) {
 
-        let gem = this.average(data);
+        // let gem = this.average(data);
 
         let value =  Math.round(data[0][this.property]);
 
         this.element.querySelector('.number').innerText = (this.config.qualifier && this.config.qualifier !== undefined) ? value + this.config.qualifier : value;
 
-        let span = document.createElement('span');
-        span.innerText = Math.round(100 * (data[0][this.property] - gem) / gem) + '%';
+        // let span = document.createElement('span');
+        // span.innerText = Math.round(100 * (data[0][this.property] - gem) / gem) + '%';
 
-        let SVGspan = document.createElement('span');
-        SVGspan.innerHTML = svgUp;
+        // let SVGspan = document.createElement('span');
+        // SVGspan.innerHTML = svgUp;
 
-        let isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+      //  let isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
-        let diff = this.element.querySelector('.diff');
-
-        if ((data[0][this.property] - gem) === 0) {
-
-            this.element.querySelector('.diff').innerHTML = "--";
-
-        } else if ((data[0][this.property] - gem) < 0) {
-
-            diff.appendChild(span);
-            if(!isIE11) { diff.appendChild(SVGspan); }
-            diff.classList.add('down');
-
-        } else if ((data[0][this.property] - gem) > 0) {
-
-            diff.appendChild(span);
-            if(!isIE11) { diff.appendChild(SVGspan); }
-
-          //  this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
-            diff.classList.remove('down');
-        }
+        // let diff = this.element.querySelector('.diff');
+        //
+        // if ((data[0][this.property] - gem) === 0) {
+        //
+        //     this.element.querySelector('.diff').innerHTML = "--";
+        //
+        // } else if ((data[0][this.property] - gem) < 0) {
+        //
+        //     diff.appendChild(span);
+        //     if(!isIE11) { diff.appendChild(SVGspan); }
+        //     diff.classList.add('down');
+        //
+        // } else if ((data[0][this.property] - gem) > 0) {
+        //
+        //     diff.appendChild(span);
+        //     if(!isIE11) { diff.appendChild(SVGspan); }
+        //
+        //   //  this.element.querySelector('.diff').innerHTML = Math.round(100 * (data[0][this.property] - gem) / gem) + '%' + svgUp;
+        //     diff.classList.remove('down');
+        // }
 
     }
 
