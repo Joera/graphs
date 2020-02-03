@@ -171,8 +171,8 @@ class CijfersLine  {
         // } else {
         //     this.element.querySelector('.diff').classList.remove('down');
         // }
-
-        div.appendChild(diff);
+        //
+        // div.appendChild(diff);
 
         miniContainer.appendChild(div);
 
