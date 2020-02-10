@@ -55,6 +55,15 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .append("text")
             .attr("class", "dateLabel small-label smallest-label");
 
+        svg.weekLines = svg.layers.data.selectAll(".weekLine")
+            .data(data);
+
+        svg.weekLines.exit().remove();
+
+        svg.weekLines.enter()
+            .append("line")
+            .attr("class", "weekLine");
+
 
     }
 

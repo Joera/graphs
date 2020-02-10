@@ -113,7 +113,7 @@ class CijfersLine  {
         this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
 
 
-       this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
+       //this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
 
         // // new scales mean new axis
         //
