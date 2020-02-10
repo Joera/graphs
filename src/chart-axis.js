@@ -60,6 +60,10 @@ let ChartAxis = function ChartAxis(config,svg) {
 
                         return (d3.timeYear(date) < date) ? localTime.format('%b')(date) : localTime.format('%Y')(date);
 
+                    } if (config.xScaleTicks === 'timeWeek') {
+
+                        return ''; // (d3.timeYear(date) < date) ? localTime.format('%b')(date) : localTime.format('%Y')(date);
+
                     } else {
 
                         date = moment(date).add(1, 'days')
