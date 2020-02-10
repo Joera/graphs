@@ -22,6 +22,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("class", "weekLine");
 
         svg.weekNumbers = svg.layers.data.selectAll(".weekNumber")
+            .data(data);
 
         svg.weekNumbers.exit().remove();
 
