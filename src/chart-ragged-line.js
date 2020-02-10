@@ -153,7 +153,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("dy", -12)
             .text( function(d,i) {
 
-                if(i < 1) {
+                if(i === 0 || i === 4 || i === 7) {
                     return moment(d[config.xParameter]).format('D/MM')
                 }
             });
