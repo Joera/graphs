@@ -45,6 +45,17 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("fill", (d) => d.colour)
         ;
 
+        svg.dateLabels = svg.layers.data.selectAll(".dateLabel")
+            .data(data);
+
+        svg.dateLabels.exit().remove();
+
+        svg.dateLabelEnter = svg.dateLabels
+            .enter()
+            .append("text")
+            .attr("class", "dateLabel");
+
+
     }
 
     let redraw = function redraw(xScale,yScale,functions,dimensions,data,colour) {
@@ -87,8 +98,8 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         ;
 
         svg.averageNumber
-            .attr("dx", dimensions.width + 30)
-            .attr("dy", 0)
+            .attr("dx", dimensions.width + 36)
+            .attr("dy", 4)
             .text("gem: " + Math.round(av));
 
         svg.circles
@@ -128,6 +139,20 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             })
 
         ;
+
+        svg.dateLabels
+            .merge(svg.dateLabelEnter)
+            .attr("x", function(d,i) {
+
+                return xScale[config.xScaleType](new Date(d[config.xParameter]));
+            })
+            .attr("y", function(d) {
+                return yScale[config.yScaleType](d[property]);
+            })
+            .attr("dx", dimensions.width + 36)
+            .attr("dy", 4)
+            .text(moment(d[config.xParameter]).format('D/MM') );
+
     }
 
     return {
