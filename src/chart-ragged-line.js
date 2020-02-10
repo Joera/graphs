@@ -102,7 +102,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             })
             .attr("y2", dimensions.height - 20)
             .attr("fill", "none")
-            .style("stroke", "gray")
+            .style("stroke", lightGrey)
             .style("stroke-width", 1)
         // .style("stroke-dasharray", "2 4")
         ;
@@ -122,7 +122,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             })
             .attr("fill", '')
             .text( function(d,i) {
-                
+
                     return moment(d[config.xParameter]).format('D MM')
             });
 
