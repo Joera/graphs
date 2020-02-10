@@ -21,6 +21,13 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .append("line")
             .attr("class", "weekLine");
 
+        svg.weekNumbers = svg.layers.data.selectAll(".weekNumber")
+
+        svg.weekNumbers.exit().remove();
+
+        svg.weekNumbersEnter = svg.weekNumbers.enter()
+            .append("text")
+            .attr("class", "weekNumber");
 
         svg.layers.data.selectAll('g.average').remove();
 
@@ -99,6 +106,26 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .style("stroke-width", 1)
         // .style("stroke-dasharray", "2 4")
         ;
+
+        svg.weekNumbers
+            .merge(svg.weekNumbersEnter)
+            .attr("x", function(d,i) {
+                return xScale[config.xScaleType](new Date(d[config.xParameter]));
+            })
+            .attr("y", function(d) {
+                return dimensions.height;
+            })
+            .attr("dx", -12)
+            .attr("dy", function(d) {
+
+                return 10;
+            })
+            .attr("fill", '')
+            .text( function(d,i) {
+                
+                    return moment(d[config.xParameter]).format('D MM')
+            });
+
 
         svg.line
             .merge(svg.lineEnter)
