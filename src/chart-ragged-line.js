@@ -101,7 +101,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("dx", dimensions.width - 0)
             .attr("dy", function(d) {
 
-                return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](data[0][property]) < 0) ? -20 : 20;
+                return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](data[0][property]) < 0) ? -12 : 12;
             })
             .text("gem: " + Math.round(av));
 
