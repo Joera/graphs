@@ -53,7 +53,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         svg.dateLabelEnter = svg.dateLabels
             .enter()
             .append("text")
-            .attr("class", "dateLabel");
+            .attr("class", "dateLabel small-label");
 
 
     }
@@ -149,7 +149,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("y", function(d) {
                 return yScale[config.yScaleType](d[property]);
             })
-            .attr("dx", dimensions.width + 36)
+            .attr("dx", 0)
             .attr("dy", 4)
             .text( function(d) {
                 return moment(d[config.xParameter]).format('D/MM')
