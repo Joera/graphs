@@ -149,8 +149,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("y", function(d) {
                 return yScale[config.yScaleType](d[property]);
             })
-            .attr("dx", -10)
-            .attr("dy", -12)
+            .attr("dx", -12)
+            .attr("dy", function(d) {
+                return (yScale[config.yScaleType](d[property]) > Math.round(av)) ? -12 : 12;
+            })
             .text( function(d,i) {
 
                 if(i === 0 || i === 4 || i === 7) {
