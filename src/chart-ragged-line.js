@@ -103,7 +103,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
                 return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](data[0][property]) < 0) ? -8 : 14;
             })
-            .text("gem: " + Math.round(av));
+            .text("gemiddeld: " + Math.round(av));
 
         svg.circles
             .merge(svg.circlesEnter)
