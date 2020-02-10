@@ -19,7 +19,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.weekLinesEnter = svg.weekLines.enter()
             .append("line")
-            .attr("class", "weekLine smallest-label");
+            .attr("class", "weekLine");
 
         svg.weekNumbers = svg.layers.data.selectAll(".weekNumber")
             .data(data);
@@ -28,7 +28,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.weekNumbersEnter = svg.weekNumbers.enter()
             .append("text")
-            .attr("class", "weekNumber");
+            .attr("class", "weekNumber smallest-label");
 
         svg.layers.data.selectAll('g.average').remove();
 
@@ -125,7 +125,8 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .text( function(d,i) {
 
                     return moment(d[config.xParameter]).week();
-            });
+            })
+            .style("text-anchor", "middle");
 
 
         svg.line
