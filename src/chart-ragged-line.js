@@ -99,7 +99,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.averageNumber
             .attr("dx", dimensions.width + 36)
-            .attr("dy", 4)
+            .attr("dy", function(d) {
+
+                return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](data[0][property]) < 0) ? -6 : 6;
+            })
             .text("gem: " + Math.round(av));
 
         svg.circles
@@ -151,8 +154,6 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             })
             .attr("dx", -12)
             .attr("dy", function(d) {
-
-                console.log(yScale[config.yScaleType](d[property]) - yScale[config.yScaleType](Math.round(av)));
 
                 return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](d[property]) < -4) ? 20 : -12;
             })
