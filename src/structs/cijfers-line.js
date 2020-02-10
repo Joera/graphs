@@ -111,6 +111,10 @@ class CijfersLine  {
         // new dimensions mean new scales
         this.xScale = this.chartXScale.reset(this.dimensions,this.xScale);
         this.yScale = this.chartYScale.reset(this.dimensions,this.yScale);
+
+
+        this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
+        
         // // new scales mean new axis
         //
         // this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
