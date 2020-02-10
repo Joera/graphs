@@ -74,7 +74,7 @@ class CijfersLine  {
         let data = [];
         let hasEnoughData;
 
-        for (let week of json.slice(0,8)) {
+        for (let week of json.slice(0,9)) {
 
             hasEnoughData = true;
 
