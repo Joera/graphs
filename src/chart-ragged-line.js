@@ -60,7 +60,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.weekLines.exit().remove();
 
-        svg.weekLines.enter()
+        svg.weekLinesEnter = svg.weekLines.enter()
             .append("line")
             .attr("class", "weekLine");
 
@@ -78,6 +78,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         //     .x(function(d) { return xScale.time(new Date(d[config.xParameter])); })
         //     .y(function(d) { return yScale.linear(600) }) // data.map( (w) => { return w[property] }) })
         //     .curve(d3.curveCardinal);
+
 
         svg.line
             .merge(svg.lineEnter)
@@ -173,6 +174,22 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
                     return moment(d[config.xParameter]).format('D MMM')
                 }
             });
+
+        svg.weekLines
+            .merge(svg.weekLinesEnter)
+            .attr("x1", function (d) {
+                return xScale.time(new Date(d[config.xParameter]))
+            })
+            .attr("x2", function (d) {
+                return xScale.time(new Date(d[config.xParameter]))
+            })
+            .attr("y1", 20)
+            .attr("y2", -20)
+            .attr("fill", "none")
+            .style("stroke", "gray")
+            .style("stroke-width", 2)
+            // .style("stroke-dasharray", "2 4")
+        ;
 
     }
 
