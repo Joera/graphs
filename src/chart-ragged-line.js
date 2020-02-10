@@ -136,9 +136,9 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.weekLabel
             .attr("y", function(d) {
-                return dimensions.height - 4;
+                return dimensions.height - 10;
             })
-            .attr("x", -1)
+            .attr("x", -4)
             ;
 
 
