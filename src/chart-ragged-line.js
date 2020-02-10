@@ -114,14 +114,14 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
                 return xScale[config.xScaleType](new Date(d[config.xParameter]));
             })
             .attr("y", function(d) {
-                return dimensions.height;
+                return dimensions.height - 20;
             })
-            .attr("dx", -12)
+            .attr("dx", 12)
             .attr("dy", function(d) {
 
                 return 10;
             })
-            .attr("fill", '')
+            .attr("fill", lightGrey)
             .text( function(d,i) {
 
                     return moment(d[config.xParameter]).week();
