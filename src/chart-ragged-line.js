@@ -20,7 +20,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         svg.averageLine = svg.averageGroup.append("line");
 
         svg.averageNumber = svg.averageGroup.append("text")
-            .attr("class","small-label")
+            .attr("class","small-label smallest-label")
             .attr("text-anchor","end")
             .style("fill","black");
 
@@ -101,7 +101,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("dx", dimensions.width - 0)
             .attr("dy", function(d) {
 
-                return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](data[0][property]) < 0) ? -12 : 12;
+                return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](data[0][property]) < 0) ? -6 : 18;
             })
             .text("gem: " + Math.round(av));
 
