@@ -3,7 +3,7 @@ const orange = '#E17000';
 const blue = '#65A7C5';
 const darkblue = '#06364E';
 const grey = '#595959';
-const lightGrey = '#dedede';
+const lightGrey = '#c7c7c7';
 const yellow = '#F8CD1C';
 
 

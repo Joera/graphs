@@ -121,7 +121,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
                 return 10;
             })
-            .attr("fill", lightGrey)
+            .attr("fill", grey)
             .text( function(d,i) {
 
                     return moment(d[config.xParameter]).week();
