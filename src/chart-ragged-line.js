@@ -160,7 +160,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("fill", colour)
             .text( function(d,i) {
 
-                if(i === 0 || i === 3 || i === 7) {
+                if(i === 0 || i === 7) {
                     return moment(d[config.xParameter]).format('D MMM')
                 }
             });
