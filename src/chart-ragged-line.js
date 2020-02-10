@@ -23,7 +23,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.weekLabel = svg.layers.data
             .append("text")
-            .attr("class", "weekLabel")
+            .attr("class", "weekLabel small-label")
             .text("Week:")
             ;
 
@@ -136,9 +136,9 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.weekLabel
             .attr("y", function(d) {
-                return dimensions.height - 20;
+                return dimensions.height - 10;
             })
-            .attr("x", -20)
+            .attr("x", -10)
             ;
 
 
