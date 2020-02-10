@@ -98,12 +98,12 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         ;
 
         svg.averageNumber
-            .attr("dx", dimensions.width - 36)
+            .attr("dx", dimensions.width - 0)
             .attr("dy", function(d) {
 
                 return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](data[0][property]) < 0) ? -20 : 20;
             })
-            .text("gem.8 weken: " + Math.round(av));
+            .text("gem: " + Math.round(av));
 
         svg.circles
             .merge(svg.circlesEnter)
