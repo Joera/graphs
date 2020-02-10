@@ -153,6 +153,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("dy", function(d) {
                 return (data[0][property] > Math.round(av)) ? -12 : -12;
             })
+            .attr("fill", colour)
             .text( function(d,i) {
 
                 if(i === 0 || i === 4 || i === 7) {
