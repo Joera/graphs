@@ -87,12 +87,9 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         ;
 
         svg.averageNumber
-            .attr("dx", dimensions.width)
-            .attr("dy", 12)
-            .text(Math.round(av));
-
-
-
+            .attr("dx", dimensions.width + 30)
+            .attr("dy", 0)
+            .text("gem: " + Math.round(av));
 
         svg.circles
             .merge(svg.circlesEnter)
