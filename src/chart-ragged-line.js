@@ -12,6 +12,16 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
     let draw = function draw(data) {
 
 
+        svg.weekLines = svg.layers.data.selectAll(".weekLine")
+            .data(data);
+
+        svg.weekLines.exit().remove();
+
+        svg.weekLinesEnter = svg.weekLines.enter()
+            .append("line")
+            .attr("class", "weekLine");
+
+
         svg.layers.data.selectAll('g.average').remove();
 
         svg.averageGroup = svg.layers.data.append("g")
@@ -55,14 +65,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .append("text")
             .attr("class", "dateLabel small-label smallest-label");
 
-        svg.weekLines = svg.layers.data.selectAll(".weekLine")
-            .data(data);
 
-        svg.weekLines.exit().remove();
-
-        svg.weekLinesEnter = svg.weekLines.enter()
-            .append("line")
-            .attr("class", "weekLine");
 
 
     }
@@ -79,6 +82,23 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         //     .y(function(d) { return yScale.linear(600) }) // data.map( (w) => { return w[property] }) })
         //     .curve(d3.curveCardinal);
 
+        svg.weekLines
+            .merge(svg.weekLinesEnter)
+            .attr("x1", function (d) {
+                return xScale.time(new Date(d[config.xParameter]))
+            })
+            .attr("x2", function (d) {
+                return xScale.time(new Date(d[config.xParameter]))
+            })
+            .attr("y1", function(d) {
+                return yScale[config.yScaleType](d[property]) + 6;
+            })
+            .attr("y2", dimensions.height - 20)
+            .attr("fill", "none")
+            .style("stroke", "gray")
+            .style("stroke-width", 1)
+        // .style("stroke-dasharray", "2 4")
+        ;
 
         svg.line
             .merge(svg.lineEnter)
@@ -175,23 +195,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
                 }
             });
 
-        svg.weekLines
-            .merge(svg.weekLinesEnter)
-            .attr("x1", function (d) {
-                return xScale.time(new Date(d[config.xParameter]))
-            })
-            .attr("x2", function (d) {
-                return xScale.time(new Date(d[config.xParameter]))
-            })
-            .attr("y1", function(d) {
-                    return yScale[config.yScaleType](d[property]) + 6;
-                })
-            .attr("y2", dimensions.height - 20)
-            .attr("fill", "none")
-            .style("stroke", "#eeeeee")
-            .style("stroke-width", 1)
-            // .style("stroke-dasharray", "2 4")
-        ;
+
 
     }
 
