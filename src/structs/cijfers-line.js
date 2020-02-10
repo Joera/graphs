@@ -114,7 +114,7 @@ class CijfersLine  {
 
 
         this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,true);
-        
+
         // // new scales mean new axis
         //
         // this.chartAxis.redrawXTimeAxis(this.dimensions,this.xScale,this.axes,false);
