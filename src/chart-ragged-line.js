@@ -19,7 +19,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
         svg.weekLinesEnter = svg.weekLines.enter()
             .append("line")
-            .attr("class", "weekLine");
+            .attr("class", "weekLine smallest-label");
 
         svg.weekNumbers = svg.layers.data.selectAll(".weekNumber")
             .data(data);
