@@ -10,6 +10,18 @@
   }
 }
 
+.smallest-label {
+
+  font-size: .6rem;
+
+
+  &.white {
+
+    fill:  white;
+
+  }
+}
+
 text {
 
   &.blue {

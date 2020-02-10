@@ -53,7 +53,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
         svg.dateLabelEnter = svg.dateLabels
             .enter()
             .append("text")
-            .attr("class", "dateLabel small-label");
+            .attr("class", "dateLabel small-label smallest-label");
 
 
     }
