@@ -183,8 +183,10 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .attr("x2", function (d) {
                 return xScale.time(new Date(d[config.xParameter]))
             })
-            .attr("y1", 20)
-            .attr("y2", -20)
+            .attr("y1", function(d) {
+                    return yScale[config.yScaleType](d[property]);
+                })
+            .attr("y2", dimensions.height + 20)
             .attr("fill", "none")
             .style("stroke", "gray")
             .style("stroke-width", 2)
