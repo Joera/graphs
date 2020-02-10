@@ -21,6 +21,12 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
             .append("line")
             .attr("class", "weekLine");
 
+        svg.weekLabel = svg.layers.data
+            .append("text")
+            .attr("class", "weekLabel")
+            .text("Week:")
+            ;
+
         svg.weekNumbers = svg.layers.data.selectAll(".weekNumber")
             .data(data);
 
@@ -127,6 +133,14 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
                     return moment(d[config.xParameter]).week();
             })
             .style("text-anchor", "middle");
+
+        svg.weekLabel
+            .attr("y", function(d) {
+                return dimensions.height - 20;
+            })
+            .attr("x", -20)
+            ;
+
 
 
         svg.line
