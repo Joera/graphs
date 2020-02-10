@@ -154,7 +154,7 @@ let ChartRaggedLine = function ChartRaggedLine(config,svg,property) {
 
                 console.log(yScale[config.yScaleType](d[property]) - yScale[config.yScaleType](Math.round(av)));
 
-                return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](d[property]) < -4) ? 12 : -12;
+                return (yScale[config.yScaleType](Math.round(av)) - yScale[config.yScaleType](d[property]) < -4) ? 20 : -12;
             })
             .attr("fill", colour)
             .text( function(d,i) {
